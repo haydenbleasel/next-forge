@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import Seo from '../components/seo';
+import Seo from '@/components/seo';
 
 const Head: FC = () => <Seo />;
 

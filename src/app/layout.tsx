@@ -1,5 +1,5 @@
 import type { FC, ReactNode } from 'react';
-import '../styles/globals.css';
+import '@/styles/globals.css';
 
 const Layout: FC<{
   children: ReactNode;
