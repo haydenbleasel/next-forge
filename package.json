@@ -24,5 +24,35 @@
   "homepage": "https://github.com/beskar-co/create-beskar-app#readme",
   "dependencies": {
     "inquirer": "^9.1.4"
+  },
+  "devDependencies": {
+    "@haydenbleasel/harmony": "^1.1.9",
+    "@next/eslint-plugin-next": "^13.1.1",
+    "@typescript-eslint/eslint-plugin": "^5.47.1",
+    "@typescript-eslint/parser": "^5.47.1",
+    "eslint": "^8.31.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.2.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-n": "^15.6.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jest": "^29.3.1",
+    "prettier": "^2.8.1",
+    "prettier-plugin-tailwindcss": "^0.2.1",
+    "stylelint": "^14.16.1",
+    "stylelint-prettier": "^2.0.0",
+    "typescript": "^4.9.4"
+  },
+  "eslintConfig": {
+    "extends": "./node_modules/@haydenbleasel/harmony/eslint-next.js",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    }
+  },
+  "prettier": "@haydenbleasel/harmony/prettier",
+  "stylelint": {
+    "extends": "@haydenbleasel/harmony/stylelint"
   }
 }
