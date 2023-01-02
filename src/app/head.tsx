@@ -1,5 +1,6 @@
 import type { FC } from 'react';
+import Seo from '../components/seo';
 
-const Head: FC = () => <meta charSet="utf-8" />;
+const Head: FC = () => <Seo />;
 
 export default Head;
