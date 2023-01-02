@@ -1,0 +1,28 @@
+{
+  "name": "create-beskar-app",
+  "version": "1.0.0",
+  "description": "Boilerplate for Beskar apps using Next.js, Typescript and Tailwind.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beskar-co/create-beskar-app.git"
+  },
+  "keywords": [
+    "create",
+    "beskar",
+    "app",
+    "boilerplate"
+  ],
+  "author": "Hayden Bleasel <hello@haydenbleasel.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beskar-co/create-beskar-app/issues"
+  },
+  "homepage": "https://github.com/beskar-co/create-beskar-app#readme",
+  "dependencies": {
+    "inquirer": "^9.1.4"
+  }
+}
