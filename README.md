@@ -18,4 +18,6 @@ First, scaffold the app with:
 yarn create next-app --example https://github.com/beskar-co/forge
 ```
 
-Once it is downloaded, run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Once it is downloaded, rename `.env.example` to `.env.local`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be).
+
+Then, run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
