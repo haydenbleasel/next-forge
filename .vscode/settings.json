@@ -12,5 +12,11 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "eslint.experimental": {
+    "useFlatConfig": true
+  },
+  "eslint.options": {
+    "overrideConfigFile": "eslint.config.mjs"
+  }
 }
