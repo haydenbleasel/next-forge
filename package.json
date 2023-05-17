@@ -3,7 +3,6 @@
   "scripts": {
     "dev": "yarn install && next dev",
     "build": "next build",
-    "postbuild": "next-sitemap",
     "start": "next start",
     "lint": "next lint"
   },
@@ -14,7 +13,6 @@
     "clsx": "^1.2.1",
     "next": "13.4.2",
     "next-secure-headers": "^2.2.0",
-    "next-sitemap": "^4.0.9",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "^5.0.4"
