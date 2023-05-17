@@ -7,7 +7,7 @@ type MetadataGenerator = (
   image?: string
 ) => Metadata;
 
-const applicationName = 'Refraction';
+const applicationName = 'Forge';
 const author: Metadata['authors'] = {
   name: 'Hayden Bleasel',
   url: 'https://haydenbleasel.com/',
