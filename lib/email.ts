@@ -1,5 +1,3 @@
-import * as Sentry from '@sentry/nextjs';
-
 type SendEmailProps = {
   to: string;
   subject: string;
@@ -26,7 +24,6 @@ export const sendEmail = async ({
       'COMLINK_PASSPHRASE and POSTMARK_SERVER_API_TOKEN must be set in the environment'
     );
 
-    Sentry.captureException(error);
     throw error;
   }
 
@@ -59,7 +56,6 @@ export const sendEmail = async ({
 
     const error = new Error(message);
 
-    Sentry.captureException(error);
     throw error;
   }
 };

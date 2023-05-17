@@ -7,22 +7,6 @@ import { sendEmail } from '@/lib/email';
 import type { JWT } from 'next-auth/jwt';
 import type { NextAuthOptions } from 'next-auth';
 
-if (!process.env.GITHUB_ID || !process.env.GITHUB_SECRET) {
-  const error = new Error(
-    'GITHUB_ID and GITHUB_SECRET must be set in the environment'
-  );
-
-  throw error;
-}
-
-if (!process.env.GOOGLE_ID || !process.env.GOOGLE_SECRET) {
-  const error = new Error(
-    'GOOGLE_ID and GOOGLE_SECRET must be set in the environment'
-  );
-
-  throw error;
-}
-
 export const authOptions: NextAuthOptions = {
   adapter: prismaAdapter(database),
   session: {
@@ -76,15 +60,6 @@ export const authOptions: NextAuthOptions = {
     async jwt({ token, user }) {
       const databaseUser = await database.user.findFirst({
         where: { email: token.email },
-        select: {
-          id: true,
-          name: true,
-          email: true,
-          image: true,
-          stripeCustomerId: true,
-          banned: true,
-          teamMemberships: true,
-        },
       });
 
       if (!databaseUser) {
