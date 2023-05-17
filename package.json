@@ -7,7 +7,8 @@
     "prisma": "npx prisma generate && npx prisma studio",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "analyze": "ANALYZE=true yarn build"
   },
   "dependencies": {
     "@beskar-labs/gravity": "^0.10.4",
@@ -25,6 +26,7 @@
   },
   "devDependencies": {
     "@beskar-labs/harmony": "^2.2.8",
+    "@next/bundle-analyzer": "^13.4.2",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "20.1.7",
     "@types/react": "18.2.6",
