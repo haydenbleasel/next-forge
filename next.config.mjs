@@ -20,6 +20,20 @@ const nextConfig = {
       },
     ];
   },
+  redirects() {
+    return [
+      {
+        source: '/login',
+        destination: '/api/auth/signin',
+        permanent: false,
+      },
+      {
+        source: '/logout',
+        destination: '/api/auth/signout',
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

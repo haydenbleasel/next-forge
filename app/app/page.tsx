@@ -4,8 +4,8 @@ import { createMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
-const title = 'Beskar Forge';
-const description = 'A Next.js starter template by Beskar Labs';
+const title = 'You are authenticated!';
+const description = 'Welcome to the authenticated page!';
 
 export const metadata: Metadata = createMetadata(title, description);
 
@@ -23,7 +23,7 @@ const Home: FC = () => (
         <p className="text-xl font-medium text-neutral-900">{title}</p>
         <p className="text-xl text-neutral-500">{description}</p>
       </div>
-      <Button href="/login">Login</Button>
+      <Button href="/logout">Logout</Button>
     </div>
   </div>
 );
