@@ -1,7 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "dev": "yarn install && next dev",
+    "dev": "concurrently \"yarn:planetscale\" \"yarn:next\" \"yarn:prisma\"",
+    "next": "yarn install && next dev",
+    "planetscale": "pscale connect [database] dev --port 3309",
+    "prisma": "npx prisma generate && npx prisma studio",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -9,6 +12,7 @@
   "dependencies": {
     "@beskar-labs/gravity": "^0.10.4",
     "@next/font": "^13.4.2",
+    "@prisma/client": "^4.14.1",
     "@vercel/analytics": "^1.0.1",
     "clsx": "^1.2.1",
     "next": "13.4.2",
@@ -23,10 +27,12 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "autoprefixer": "^10.4.14",
+    "concurrently": "^8.0.1",
     "eslint": "^8.40.0",
     "jest": "^29.5.0",
     "postcss": "^8.4.23",
     "prettier": "^2.8.8",
+    "prisma": "^4.14.1",
     "stylelint": "^15.6.2",
     "tailwindcss": "^3.3.2"
   },
