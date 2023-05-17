@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react';
 import '@/styles/globals.css';
 import clsx from 'clsx';
 import { inter, ibmPlexMono } from '@/lib/fonts';
-import { Analytics } from '@/components/analytics';
+import { Analytics } from '@vercel/analytics/react';
 
 const Layout: FC<{
   children: ReactNode;
