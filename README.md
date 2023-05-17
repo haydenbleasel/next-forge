@@ -6,11 +6,9 @@ A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/
 
 - Typescript
 - Tailwind CSS
-- @vercel/og
 - @next/font
 - @vercel/analytics
 - Next.js 13 App Directory
-- next-seo
 - [Harmony](https://github.com/beskar-co/harmony)
 
 First, scaffold the app with:
