@@ -1,4 +1,4 @@
-![Forge](/app/opengraph-image.jpg)
+![Forge](./app/opengraph-image.png)
 
 # Beskar Forge
 
