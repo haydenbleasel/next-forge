@@ -53,8 +53,6 @@ model User {
   image            String?
   createdAt        DateTime  @default(now()) @map(name: "created_at")
   updatedAt        DateTime  @default(now()) @map(name: "updated_at")
-  banned           Boolean   @default(false)
-  stripeCustomerId String?   @unique
 
   accounts        Account[]
   sessions        Session[]
