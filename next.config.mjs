@@ -3,9 +3,6 @@ import { createSecureHeaders } from 'next-secure-headers';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  },
   images: {
     formats: ['image/avif', 'image/webp'],
   },
@@ -13,14 +10,13 @@ const nextConfig = {
     return [
       {
         source: '/(.*)',
-        headers: [
-          ...createSecureHeaders(),
+        headers: createSecureHeaders({
           // HSTS Preload: https://hstspreload.org/
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload',
-          },
-        ],
+          forceHTTPSRedirect: [
+            true,
+            { maxAge: 63072000, includeSubDomains: true, preload: true },
+          ],
+        }),
       },
     ];
   },
