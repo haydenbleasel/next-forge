@@ -1,12 +1,14 @@
-import type { FC, ReactNode } from 'react';
 import '@/styles/globals.css';
 import clsx from 'clsx';
 import { Analytics } from '@vercel/analytics/react';
 import { inter, ibmPlexMono } from '@/lib/fonts';
+import type { FC, ReactNode } from 'react';
 
-const Layout: FC<{
+type RootLayoutProps = {
   children: ReactNode;
-}> = ({ children }) => (
+};
+
+const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html
     lang="en"
     className={clsx(inter.variable, ibmPlexMono.variable, 'font-sans')}
@@ -18,4 +20,4 @@ const Layout: FC<{
   </html>
 );
 
-export default Layout;
+export default RootLayout;
