@@ -1,5 +1,6 @@
 import { Button } from '@beskar-labs/gravity/button';
 import Image from 'next/image';
+import { ArrowRightOnRectangleIcon } from '@heroicons/react/24/outline';
 import { createMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
@@ -23,7 +24,10 @@ const Home: FC = () => (
         <p className="text-xl font-medium text-neutral-900">{title}</p>
         <p className="text-xl text-neutral-500">{description}</p>
       </div>
-      <Button href="/logout">Logout</Button>
+      <Button href="/logout">
+        <span>Logout</span>
+        <ArrowRightOnRectangleIcon className="h-4 w-4" />
+      </Button>
     </div>
   </div>
 );
