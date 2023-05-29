@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true yarn build"
+    "analyze": "ANALYZE=true yarn build",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@beskar-labs/gravity": "^0.10.4",
