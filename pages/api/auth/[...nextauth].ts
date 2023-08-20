@@ -2,8 +2,8 @@ import nextAuth from 'next-auth';
 import emailProvider from 'next-auth/providers/email';
 import { PrismaAdapter as prismaAdapter } from '@next-auth/prisma-adapter';
 import domains from 'disposable-email-domains';
+import { sendEmail } from '@beskar-labs/comlink';
 import { database } from '@/lib/database';
-import { sendEmail } from '@/lib/email';
 import type { JWT } from 'next-auth/jwt';
 import type { NextAuthOptions } from 'next-auth';
 
@@ -16,15 +16,28 @@ export const authOptions: NextAuthOptions = {
     emailProvider({
       from: process.env.SMTP_FROM,
       sendVerificationRequest: async ({ identifier, url }) =>
-        sendEmail({
-          to: identifier,
-          subject: 'Verify your email address',
-          body: 'You are receiving this email because you (or someone else) have requested the link to sign in to your account. Click the button below to sign in.',
-          cta: {
-            text: 'Sign in',
-            href: url,
+        sendEmail(
+          {
+            to: identifier,
+            from: 'noreply@beskar.co',
+            subject: 'Sign in to your account',
           },
-        }),
+          {
+            logo: undefined,
+            title: 'Sign in to your account',
+            body: 'You are receiving this email because you (or someone else) have requested the link to sign in to your account. Click the button below to sign in.',
+            cta: {
+              text: 'Sign in',
+              href: url,
+            },
+            footer:
+              'This email was sent to you because you have an account with Waitlist, or you are creating one. If you did not request this, please ignore this email.',
+          },
+          {
+            passphrase: process.env.COMLINK_PASSPHRASE ?? '',
+            resendToken: process.env.RESEND_TOKEN ?? '',
+          }
+        ),
     }),
   ],
   callbacks: {
