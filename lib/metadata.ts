@@ -28,20 +28,6 @@ export const createMetadata: MetadataGenerator = (
 
   const parsedTitle = `${title} | ${applicationName}`;
 
-  // eslint-disable-next-line no-undef-init
-  let images: OpenGraph['images'] = undefined;
-
-  if (image) {
-    images = [
-      {
-        url: image,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ];
-  }
-
   const metadata: Metadata = {
     title: parsedTitle,
     description,
@@ -61,7 +47,6 @@ export const createMetadata: MetadataGenerator = (
       title: parsedTitle,
       description,
       type: 'website',
-      images,
       siteName: applicationName,
       locale: 'en_US',
       url: new URL(path ?? '/', process.env.NEXT_PUBLIC_SITE_URL).toString(),
@@ -78,6 +63,17 @@ export const createMetadata: MetadataGenerator = (
       viewportFit: 'cover',
     },
   };
+
+  if (image && metadata.openGraph) {
+    metadata.openGraph.images = [
+      {
+        url: image,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ];
+  }
 
   return metadata;
 };
