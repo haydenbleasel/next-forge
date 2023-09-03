@@ -1,3 +1,4 @@
+import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import type { Metadata } from 'next';
 
 type MetadataGenerator = (
@@ -26,15 +27,19 @@ export const createMetadata: MetadataGenerator = (
   }
 
   const parsedTitle = `${title} | ${applicationName}`;
-  const images = [];
+
+  // eslint-disable-next-line no-undef-init
+  let images: OpenGraph['images'] = undefined;
 
   if (image) {
-    images.push({
-      url: image,
-      width: 1200,
-      height: 630,
-      alt: title,
-    });
+    images = [
+      {
+        url: image,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ];
   }
 
   const metadata: Metadata = {
