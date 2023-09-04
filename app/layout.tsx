@@ -13,7 +13,14 @@ type RootLayoutProps = {
 const RootLayout: FC<RootLayoutProps> = ({ children }) => (
   <html
     lang="en"
-    className={twMerge(sans.variable, mono.variable, 'font-sans')}
+    className={twMerge(
+      sans.variable,
+      mono.variable,
+      'antialiased touch-manipulation font-sans'
+    )}
+    style={{
+      textRendering: 'optimizeLegibility',
+    }}
   >
     <body>
       <TooltipProvider>{children}</TooltipProvider>
