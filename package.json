@@ -1,14 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "dev": "concurrently \"yarn:planetscale\" \"yarn:next\" \"yarn:prisma\"",
-    "next": "yarn install && next dev",
+    "dev": "concurrently \"pnpm:planetscale\" \"pnpm:next\" \"pnpm:prisma\"",
+    "next": "next dev",
     "planetscale": "pscale connect [database] dev --port 3309",
     "prisma": "npx prisma generate && npx prisma studio",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true yarn build",
+    "analyze": "ANALYZE=true pnpm build",
     "postinstall": "prisma generate"
   },
   "dependencies": {
