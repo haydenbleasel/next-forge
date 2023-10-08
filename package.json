@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm:planetscale\" \"pnpm:next\" \"pnpm:prisma\"",
+    "dev": "concurrently \"pnpm:planetscale\" \"pnpm:next\" \"pnpm:prisma\", \"pnpm:email\"",
     "next": "next dev",
     "planetscale": "pscale connect [database] dev --port 3309",
     "prisma": "npx prisma generate && npx prisma studio",
@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true pnpm build",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "email": "email dev --port 3005"
   },
   "dependencies": {
     "@beskar-labs/comlink": "^1.0.1",
@@ -17,11 +18,13 @@
     "@clerk/nextjs": "^4.25.3",
     "@heroicons/react": "^2.0.18",
     "@prisma/client": "^5.1.1",
+    "@react-email/components": "0.0.6",
     "@vercel/analytics": "^1.0.2",
     "next": "13.4.19",
     "next-secure-headers": "^2.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-email": "1.9.3",
     "tailwind-merge": "^1.14.0",
     "typescript": "^5.1.6"
   },
