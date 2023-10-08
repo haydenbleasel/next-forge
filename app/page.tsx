@@ -1,6 +1,7 @@
 import { Button } from '@beskar-labs/gravity/button';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
+import { UserButton } from '@clerk/nextjs';
 import { createMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
@@ -29,6 +30,7 @@ const Home: FC = () => (
         <ArrowRightIcon className="h-4 w-4" />
       </Button>
     </div>
+    <UserButton afterSignOutUrl="/" />
   </div>
 );
 
