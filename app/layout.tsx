@@ -6,6 +6,7 @@ import { sans, mono } from '@/lib/fonts';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Navbar } from './components/navbar';
 import type { FC, ReactNode } from 'react';
 
 type RootLayoutProps = {
@@ -21,9 +22,6 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
         mono.variable,
         'antialiased touch-manipulation font-sans'
       )}
-      style={{
-        textRendering: 'optimizeLegibility',
-      }}
     >
       <body>
         <ThemeProvider
@@ -32,9 +30,12 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
           enableSystem
           disableTransitionOnChange
         >
-          <TooltipProvider>{children}</TooltipProvider>
-          <Toaster />
+          <TooltipProvider>
+            <Navbar />
+            {children}
+          </TooltipProvider>
         </ThemeProvider>
+        <Toaster />
         <Analytics />
       </body>
     </html>

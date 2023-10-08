@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
-import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { createMetadata } from '@/lib/metadata';
 import { Button } from '@/components/ui/button';
-import { ModeToggle } from '@/components/mode-toggle';
 import Status from '@/components/status';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
@@ -35,8 +33,6 @@ const Home: FC = () => (
         </Link>
       </Button>
     </div>
-    <UserButton afterSignOutUrl="/" />
-    <ModeToggle />
     <Status />
   </div>
 );
