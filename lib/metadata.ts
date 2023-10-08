@@ -1,4 +1,3 @@
-import type { OpenGraph } from 'next/dist/lib/metadata/types/opengraph-types';
 import type { Metadata } from 'next';
 
 type MetadataGenerator = (
