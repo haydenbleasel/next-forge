@@ -10,7 +10,6 @@ A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/
 - @vercel/analytics
 - Next.js 13 App Directory
 - [Harmony](https://github.com/beskar-co/harmony)
-- [Gravity](https://github.com/beskar-co/gravity)
 - Prisma
 - Next Auth
 

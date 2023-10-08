@@ -1,8 +1,9 @@
-import { Button } from '@beskar-labs/gravity/button';
 import Image from 'next/image';
 import { ArrowRightIcon } from '@heroicons/react/24/outline';
 import { UserButton } from '@clerk/nextjs';
+import Link from 'next/link';
 import { createMetadata } from '@/lib/metadata';
+import { Button } from '@/components/ui/button';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -25,9 +26,11 @@ const Home: FC = () => (
         <p className="text-xl font-medium text-neutral-900">{title}</p>
         <p className="text-xl text-neutral-500">{description}</p>
       </div>
-      <Button href="/login">
-        <span>Login</span>
-        <ArrowRightIcon className="h-4 w-4" />
+      <Button asChild>
+        <Link href="/login">
+          Login
+          <ArrowRightIcon className="h-4 w-4" />
+        </Link>
       </Button>
     </div>
     <UserButton afterSignOutUrl="/" />

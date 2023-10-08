@@ -1,10 +1,10 @@
 import '@/styles/globals.css';
 import { twMerge } from 'tailwind-merge';
-import { TooltipProvider } from '@beskar-labs/gravity/tooltip';
-import { Toaster } from '@beskar-labs/gravity/toast';
 import { Analytics } from '@vercel/analytics/react';
 import { ClerkProvider } from '@clerk/nextjs';
 import { sans, mono } from '@/lib/fonts';
+import { Toaster } from '@/components/ui/toaster';
+import { TooltipProvider } from '@/components/ui/tooltip';
 import type { FC, ReactNode } from 'react';
 
 type RootLayoutProps = {
