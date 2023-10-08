@@ -5,6 +5,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { sans, mono } from '@/lib/fonts';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
+import { ThemeProvider } from '@/components/theme-provider';
 import type { FC, ReactNode } from 'react';
 
 type RootLayoutProps = {
@@ -25,8 +26,15 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
       }}
     >
       <body>
-        <TooltipProvider>{children}</TooltipProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <TooltipProvider>{children}</TooltipProvider>
+          <Toaster />
+        </ThemeProvider>
         <Analytics />
       </body>
     </html>

@@ -4,6 +4,7 @@ import { UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import { createMetadata } from '@/lib/metadata';
 import { Button } from '@/components/ui/button';
+import { ModeToggle } from '@/components/mode-toggle';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -34,6 +35,7 @@ const Home: FC = () => (
       </Button>
     </div>
     <UserButton afterSignOutUrl="/" />
+    <ModeToggle />
   </div>
 );
 
