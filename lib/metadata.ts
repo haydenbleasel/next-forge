@@ -7,12 +7,12 @@ type MetadataGenerator = (
   image?: string
 ) => Metadata;
 
-const applicationName = 'Forge';
+const applicationName = 'next-forge';
 const author: Metadata['authors'] = {
   name: 'Hayden Bleasel',
   url: 'https://haydenbleasel.com/',
 };
-const publisher = 'Beskar Labs';
+const publisher = 'Hayden Bleasel';
 const twitterHandle = '@haydenbleasel';
 
 export const createMetadata: MetadataGenerator = (

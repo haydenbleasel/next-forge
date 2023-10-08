@@ -88,6 +88,12 @@ const features = [
     description: 'Sets secure response headers for Next.js.',
     link: 'https://www.npmjs.com/package/next-secure-headers',
   },
+  {
+    name: 'BetterStack',
+    description:
+      'Better Stack lets you see inside any stack, debug any issue, and resolve any incident.',
+    link: 'https://betterstack.com/',
+  },
 ];
 
 const Features: FC = () => (
