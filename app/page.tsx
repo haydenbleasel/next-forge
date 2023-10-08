@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { createMetadata } from '@/lib/metadata';
 import { Button } from '@/components/ui/button';
 import { ModeToggle } from '@/components/mode-toggle';
+import Status from '@/components/status';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -36,6 +37,7 @@ const Home: FC = () => (
     </div>
     <UserButton afterSignOutUrl="/" />
     <ModeToggle />
+    <Status />
   </div>
 );
 
