@@ -12,7 +12,7 @@ const description = 'A Next.js starter template by Beskar Labs';
 export const metadata: Metadata = createMetadata(title, description);
 
 const Home: FC = () => (
-  <div className="flex h-screen w-screen flex-col justify-center">
+  <div className="flex h-full w-full flex-col justify-center bg-neutral-100">
     <div className="container mx-auto flex flex-col items-start gap-8">
       <Image
         src="https://www.beskar.co/logo.svg"

@@ -2,6 +2,7 @@ import { UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
 import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
+import Status from '@/components/status';
 import type { FC } from 'react';
 
 export const Navbar: FC = () => (
@@ -13,7 +14,10 @@ export const Navbar: FC = () => (
     )}
   >
     <Image src="/logo.svg" alt="" width={24} height={24} />
-    <UserButton afterSignOutUrl="/" />
-    <ModeToggle />
+    <div className="flex items-center gap-2">
+      <UserButton afterSignOutUrl="/" />
+      <Status />
+      <ModeToggle />
+    </div>
   </div>
 );
