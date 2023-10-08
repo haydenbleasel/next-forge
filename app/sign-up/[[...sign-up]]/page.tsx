@@ -10,7 +10,7 @@ const path = '/sign-up';
 export const metadata: Metadata = createMetadata({ title, description, path });
 
 const SignUpPage: FC = () => (
-  <div className="flex h-full w-full flex-col items-center justify-center bg-neutral-100 dark:bg-black">
+  <div className="flex h-full w-full flex-col items-center justify-center">
     <SignUp />
   </div>
 );

@@ -10,7 +10,7 @@ const path = '/sign-in';
 export const metadata: Metadata = createMetadata({ title, description, path });
 
 const SignInPage: FC = () => (
-  <div className="flex h-full w-full flex-col items-center justify-center bg-neutral-100 dark:bg-black">
+  <div className="flex h-full w-full flex-col items-center justify-center">
     <SignIn />
   </div>
 );
