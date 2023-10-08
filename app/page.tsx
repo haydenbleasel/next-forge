@@ -94,6 +94,12 @@ const features = [
       'Better Stack lets you see inside any stack, debug any issue, and resolve any incident.',
     link: 'https://betterstack.com/',
   },
+  {
+    name: 'Google Fonts',
+    description:
+      'next-forge is setup with Inter and IBM Plex Mono, wired up through your Tailwind config as CSS variables.',
+    link: 'https://fonts.google.com/',
+  },
 ];
 
 const Features: FC = () => (
