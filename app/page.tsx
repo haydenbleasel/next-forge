@@ -19,12 +19,12 @@ const Features: FC = () => (
       <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Features
       </h2>
-      <div className="mt-6 columns-3 gap-8">
+      <div className="mt-6 columns-3 gap-4">
         {features.map((feature) => (
           <Link
             href={feature.link}
             key={feature.name}
-            className="mb-8 inline-block"
+            className="mb-4 inline-block"
           >
             <Card className="p-6 aspect-[4/3] flex flex-col justify-between gap-4">
               <Image
@@ -53,10 +53,10 @@ const Features: FC = () => (
 const Hero: FC = () => (
   <div className="container mx-auto flex flex-col items-start gap-8">
     <div className="flex flex-col gap-1">
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
         {title}
       </h1>
-      <span className="max-w-[750px] text-lg text-neutral-600 dark:text-neutral-400 sm:text-xl">
+      <span className="mt-2 max-w-[750px] text-lg text-neutral-600 dark:text-neutral-400 sm:text-xl">
         {description}
       </span>
       <Chat />
