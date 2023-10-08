@@ -25,7 +25,7 @@ export const Chat: FC = () => {
         </PopoverTrigger>
         <PopoverContent
           className={cn(
-            'h-[50vh] w-[20rem] flex flex-col divide-y p-0 overflow-hidden',
+            'h-[50vh] w-[24rem] flex flex-col divide-y p-0 overflow-hidden',
             'bg-neutral-100 divide-neutral-200',
             'dark:bg-neutral-900 dark:divide-neutral-800'
           )}
@@ -35,11 +35,12 @@ export const Chat: FC = () => {
             {messages.map((message) => (
               <div
                 key={message.id}
-                className={
+                className={cn(
+                  'max-w-[75%] px-4 py-2 rounded shadow-sm',
                   message.role === 'user'
-                    ? 'text-neutral-500'
-                    : 'text-neutral-900 dark:text-white'
-                }
+                    ? 'bg-white self-start text-neutral-900'
+                    : 'bg-black self-end text-white'
+                )}
               >
                 {message.content}
               </div>

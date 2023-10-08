@@ -13,7 +13,7 @@ const description =
 export const metadata: Metadata = createMetadata(title, description);
 
 const Features: FC = () => (
-  <section className="py-16 bg-neutral-100">
+  <section className="py-16">
     <div className="container mx-auto">
       <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
         Features
@@ -52,7 +52,7 @@ const Hero: FC = () => (
 );
 
 const Home: FC = () => (
-  <div className="flex h-full w-full flex-col bg-neutral-100 py-16">
+  <div className="flex flex-col bg-neutral-100 dark:bg-black py-16">
     <Hero />
     <Features />
   </div>
