@@ -10,7 +10,7 @@ const title = 'next-forge';
 const description =
   'Robust and comprehensive boilerplate for modern Next.js web apps.';
 
-export const metadata: Metadata = createMetadata(title, description);
+export const metadata: Metadata = createMetadata({ title, description });
 
 const Features: FC = () => (
   <section className="py-16">

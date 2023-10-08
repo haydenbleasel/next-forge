@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 
-type MetadataGenerator = (
-  title: string,
-  description: string,
-  path?: string,
-  image?: string
-) => Metadata;
+type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
+  title: string;
+  description: string;
+  path?: string;
+  image?: string;
+};
 
 const applicationName = 'next-forge';
 const author: Metadata['authors'] = {
@@ -15,12 +15,12 @@ const author: Metadata['authors'] = {
 const publisher = 'Hayden Bleasel';
 const twitterHandle = '@haydenbleasel';
 
-export const createMetadata: MetadataGenerator = (
+export const createMetadata = ({
   title,
   description,
   path,
-  image
-): Metadata => {
+  image,
+}: MetadataGenerator): Metadata => {
   if (!process.env.NEXT_PUBLIC_SITE_URL) {
     throw new Error('NEXT_PUBLIC_SITE_URL is not defined');
   }
