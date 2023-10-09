@@ -26,6 +26,15 @@ const nextConfig = {
       },
     ];
   },
+
+  // Silence, contentlayer
+  webpack: (config) => {
+    config.infrastructureLogging = {
+      level: 'error',
+    };
+
+    return config;
+  },
 };
 
 const withContentlayer = createContentlayerPlugin({

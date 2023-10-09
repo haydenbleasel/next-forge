@@ -5,6 +5,7 @@ export default authMiddleware({
     '/',
     '/api/chat',
     '/monitoring',
+    '/features',
     '/og',
     '/blog',
     '/blog/:path*',

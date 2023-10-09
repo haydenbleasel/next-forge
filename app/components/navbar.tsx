@@ -6,7 +6,23 @@ import { cn } from '@/lib/utils';
 import Status from '@/components/status';
 import { Button } from '@/components/ui/button';
 import { Notifications } from '@/components/notifications';
+import { ActiveProvider } from '@/components/activeProvider';
 import type { ReactElement } from 'react';
+
+const pages = [
+  {
+    name: 'Home',
+    href: '/',
+  },
+  {
+    name: 'Features',
+    href: '/features',
+  },
+  {
+    name: 'Blog',
+    href: '/blog',
+  },
+];
 
 export const Navbar = async (): Promise<ReactElement> => {
   const user = await currentUser();
@@ -33,12 +49,17 @@ export const Navbar = async (): Promise<ReactElement> => {
           </p>
         </Link>
         <div className="flex items-center">
-          <Button asChild variant="link">
-            <Link href="/">Home</Link>
-          </Button>
-          <Button asChild variant="link">
-            <Link href="/blog">Blog</Link>
-          </Button>
+          {pages.map(({ name, href }) => (
+            <ActiveProvider key={name} href={href}>
+              <Button
+                asChild
+                variant="link"
+                className="group-[.active-page]:underline"
+              >
+                <Link href={href}>{name}</Link>
+              </Button>
+            </ActiveProvider>
+          ))}
         </div>
       </div>
       <div className="flex items-center gap-2">

@@ -1,13 +1,4 @@
-import Link from 'next/link';
-import Image from 'next/image';
 import { createMetadata } from '@/lib/metadata';
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card';
-import { features } from '@/lib/features';
 import { Chat } from './components/chat';
 import { Waitlist } from './components/waitlist';
 import type { Metadata } from 'next';
@@ -18,41 +9,6 @@ const description =
   'Robust and comprehensive boilerplate for modern Next.js web apps.';
 
 export const metadata: Metadata = createMetadata({ title, description });
-
-const Features: FC = () => (
-  <section className="py-16">
-    <div className="container mx-auto">
-      <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-        Features
-      </h2>
-      <div className="mt-6 columns-3 gap-4">
-        {features.map((feature) => (
-          <Link
-            href={feature.link}
-            key={feature.name}
-            className="mb-4 inline-block"
-          >
-            <Card className="aspect-[4/3] flex flex-col justify-between gap-4">
-              <CardHeader>
-                <Image
-                  src={feature.image}
-                  alt=""
-                  height={48}
-                  width={48}
-                  className="h-8 w-fit max-w-[5rem] object-contain dark:brightness-0 dark:invert"
-                />
-              </CardHeader>
-              <CardHeader>
-                <CardTitle>{feature.name}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          </Link>
-        ))}
-      </div>
-    </div>
-  </section>
-);
 
 const Hero: FC = () => (
   <div className="container mx-auto flex flex-col items-start gap-8">
@@ -71,7 +27,6 @@ const Hero: FC = () => (
 const Home: FC = () => (
   <div className="flex flex-col py-16">
     <Hero />
-    <Features />
     <Chat />
   </div>
 );
