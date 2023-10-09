@@ -46,6 +46,6 @@ Once it is downloaded, rename `.env.example` to `.env`. This will turn the examp
 mv .env.example .env
 ```
 
-Update any reference of `[CompanyName]` in the legal docs.
+Update any reference of `/CompanyName/` in the legal docs.
 
 Then, run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
