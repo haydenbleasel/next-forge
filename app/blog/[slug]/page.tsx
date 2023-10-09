@@ -57,26 +57,26 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
 
   return (
     <Container className="py-16">
-      <Link
-        className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
-        href="/blog"
-      >
-        <ArrowLeftIcon className="h-4 w-4" />
-        Back to Blog
-      </Link>
       {doc.image && doc.imageBlur ? (
         <Image
           src={doc.image}
           width={1920}
           height={1080}
           alt=""
-          className="h-full w-full rounded-xl"
+          className="h-full w-full rounded-xl mb-16"
           priority
           blurDataURL={`data:image/jpg;base64,${doc.imageBlur}`}
           placeholder="blur"
         />
       ) : null}
-      <h1 className="mt-16 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <Link
+        className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
+        href="/blog"
+      >
+        <ArrowLeftIcon className="h-4 w-4" />
+        Back to Blog
+      </Link>
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         <Balancer>{doc.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
@@ -84,7 +84,7 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
       </p>
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <div className="prose prose-zinc prose-orange dark:prose-invert">
+          <div className="prose prose-zinc dark:prose-invert">
             <Mdx code={doc.body.code} />
           </div>
         </div>

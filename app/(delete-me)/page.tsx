@@ -93,7 +93,7 @@ const Graphic: FC = () => (
       alt="Next Forge"
       width={32}
       height={32}
-      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 object-contain"
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 object-contain dark:invert dark:brightness-0"
     />
   </div>
 );

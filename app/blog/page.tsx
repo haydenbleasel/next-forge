@@ -34,9 +34,9 @@ const Blog: FC = () => (
               {post.image ? (
                 <Image
                   src={post.image}
-                  width={350}
-                  height={350}
-                  sizes="(max-width: 768px) 685px, (max-width: 1200px) 558px, 350px"
+                  width={685}
+                  height={685}
+                  sizes="(max-width: 768px) 685px, (max-width: 1200px) 558px, 434px"
                   placeholder={`data:image/jpg;base64,${post.imageBlur}`}
                   alt=""
                 />
