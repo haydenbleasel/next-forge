@@ -128,6 +128,9 @@ dependencies:
   contentlayer-datapad:
     specifier: ^1.0.16
     version: 1.0.16(@algolia/client-search@4.20.0)(@types/react@18.2.20)(esbuild@0.19.4)(next@13.4.19)(react-dom@18.2.0)(react@18.2.0)(search-insights@2.8.3)
+  copy-to-clipboard:
+    specifier: ^3.3.3
+    version: 3.3.3
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -6231,6 +6234,12 @@ packages:
 
   /cookiejar@2.1.4:
     resolution: {integrity: sha512-LDx6oHrK+PhzLKJU9j5S7/Y3jM/mUHvD/DeI1WQmJn652iPC5Y4TBzC9l+5OMOXlyTTA+SmVUPm0HQUwpD5Jqw==}
+    dev: false
+
+  /copy-to-clipboard@3.3.3:
+    resolution: {integrity: sha512-2KV8NhB5JqC3ky0r9PMCAZKbUHSwtEo4CwCs0KXgruG43gX5PMqDEBbVU4OUzw2MuAWUfsuFmWvEKG5QRfSnJA==}
+    dependencies:
+      toggle-selection: 1.0.6
     dev: false
 
   /core-util-is@1.0.3:
@@ -13064,6 +13073,10 @@ packages:
     resolution: {integrity: sha512-rLdvwXZ39VOn1IxGL3V6ZstoTbwLRckQmn/U8ZDLuWwIXNpuZDhQ3AiRUlhTbOXFVE9C+dR51wM0CBDhk31VcA==}
     dependencies:
       to-no-case: 1.0.2
+    dev: false
+
+  /toggle-selection@1.0.6:
+    resolution: {integrity: sha512-BiZS+C1OS8g/q2RRbJmy59xpyghNBqrr6k5L/uKBGRsTfxmu3ffiRnd8mlGPUVayg8pvfi5urfnu8TU7DVOkLQ==}
     dev: false
 
   /toml@3.0.0:
