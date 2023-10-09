@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { createMetadata } from '@/lib/metadata';
 import { Container } from '@/components/container';
 import { Card } from '@/components/ui/card';
-import { features } from '@/consts/features';
+import { features } from '@/app/(delete-me)/features/features';
 import { cn } from '@/lib/utils';
 import { Chat } from '../components/chat';
 import { Waitlist } from '../components/waitlist';

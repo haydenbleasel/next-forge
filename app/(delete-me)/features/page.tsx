@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { features } from '@/consts/features';
+import { features } from '@/app/(delete-me)/features/features';
 import {
   Card,
   CardDescription,

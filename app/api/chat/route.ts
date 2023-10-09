@@ -1,6 +1,6 @@
 import OpenAI from 'openai';
 import { OpenAIStream as openAIStream, StreamingTextResponse } from 'ai';
-import { features } from '@/consts/features';
+import { features } from '@/app/(delete-me)/features/features';
 import pkg from '@/package.json';
 
 if (!process.env.OPENAI_API_KEY) {
