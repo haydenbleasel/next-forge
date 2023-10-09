@@ -1,3 +1,3 @@
-import harmony from '@beskar-labs/harmony';
+import harmony from 'eslint-config-harmony';
 
 export default harmony;

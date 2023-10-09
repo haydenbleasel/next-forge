@@ -1,4 +1,4 @@
-import deepmerge from 'deepmerge';
+import merge from 'lodash.merge';
 import type { Metadata } from 'next';
 
 type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
@@ -29,7 +29,7 @@ export const createMetadata = ({
 
   const parsedTitle = `${title} | ${applicationName}`;
 
-  const metadata: Metadata = deepmerge(
+  const metadata: Metadata = merge(
     {
       title: parsedTitle,
       description,
