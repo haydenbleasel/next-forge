@@ -34,7 +34,7 @@ const Graphic: FC = () => (
           animation: 'orbit-1 10s linear infinite',
           animationDelay: `${index * (10 / 5)}s`,
         }}
-        key={logo}
+        key={index}
       >
         <Image
           src={logo}
