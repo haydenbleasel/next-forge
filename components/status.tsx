@@ -20,7 +20,7 @@ const Status = async (): Promise<ReactElement> => {
   return (
     <Button variant="outline" asChild>
       <a
-        className="inline-flex w-fit items-center gap-2 rounded-full bg-white/10 px-3 py-1 outline-none"
+        className="flex items-center gap-3"
         target="_blank"
         rel="noreferrer"
         href="https://status.beskar.co/"

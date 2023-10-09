@@ -27,9 +27,10 @@ export const Chat: FC = () => {
           className={cn(
             'h-[50vh] w-[24rem] flex flex-col divide-y p-0 overflow-hidden',
             'bg-zinc-100 divide-zinc-200',
-            'dark:bg-zinc-900 dark:divide-zinc-800'
+            'dark:bg-zinc-950 dark:divide-zinc-800'
           )}
           collisionPadding={16}
+          sideOffset={16}
         >
           <div className="flex-1 p-4 overflow-y-auto text-sm flex flex-col gap-2">
             {messages.map((message) => (
@@ -49,7 +50,7 @@ export const Chat: FC = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="shrink-0 flex flex-col gap-1 bg-white"
+            className="shrink-0 flex flex-col gap-1 bg-white dark:bg-black"
           >
             <Input
               value={input}

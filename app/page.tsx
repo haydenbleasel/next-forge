@@ -33,7 +33,7 @@ const Features: FC = () => (
                 alt=""
                 height={48}
                 width={48}
-                className="h-8 w-fit"
+                className="h-8 w-fit max-w-[5rem] object-contain dark:brightness-0 dark:invert"
               />
               <div className="mt-4">
                 <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
