@@ -19,6 +19,10 @@ const Hero: FC = () => (
       <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
         {description}
       </span>
+      <pre className="bg-black text-white text-sm p-4 rounded">
+        yarn create next-app --example
+        https://github.com/haydenbleasel/next-forge
+      </pre>
       <Waitlist />
     </div>
   </div>
