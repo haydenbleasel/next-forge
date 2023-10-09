@@ -1,5 +1,5 @@
-import { twMerge } from 'tailwind-merge';
 import getStatus from '@/lib/status';
+import { cn } from '@/lib/utils';
 import { Button } from './ui/button';
 import type { ReactElement } from 'react';
 
@@ -27,13 +27,13 @@ const Status = async (): Promise<ReactElement> => {
       >
         <span className="relative flex h-2 w-2">
           <span
-            className={twMerge(
+            className={cn(
               'absolute inline-flex h-full w-full animate-ping rounded-full opacity-75',
               statusColor
             )}
           />
           <span
-            className={twMerge(
+            className={cn(
               'relative inline-flex h-2 w-2 rounded-full',
               statusColor
             )}

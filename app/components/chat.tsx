@@ -18,7 +18,7 @@ export const Chat: FC = () => {
   return (
     <div className="fixed bottom-4 right-4">
       <Popover>
-        <PopoverTrigger>
+        <PopoverTrigger asChild>
           <Button size="icon">
             <ChatBubbleIcon />
           </Button>

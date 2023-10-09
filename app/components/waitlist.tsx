@@ -24,6 +24,12 @@ export const Waitlist: FC = () => {
     const timestamp = time.valueOf();
     const previousTimestamp = localStorage.getItem('loops-form-timestamp');
 
+    if (disabled) {
+      return;
+    }
+
+    setDisabled(true);
+
     try {
       if (
         previousTimestamp &&
