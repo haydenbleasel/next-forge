@@ -8,30 +8,36 @@ html {
 
 @keyframes orbit-1 {
   0% {
+    opacity: 1;
     transform: rotate(0deg) translate(-320%) rotate(0deg);
   }
 
   100% {
+    opacity: 1;
     transform: rotate(360deg) translate(-320%) rotate(-360deg);
   }
 }
 
 @keyframes orbit-2 {
   0% {
+    opacity: 1;
     transform: rotate(0deg) translate(-450%) rotate(0deg);
   }
 
   100% {
+    opacity: 1;
     transform: rotate(-360deg) translate(-450%) rotate(360deg);
   }
 }
 
 @keyframes orbit-3 {
   0% {
+    opacity: 1;
     transform: rotate(0deg) translate(-580%) rotate(0deg);
   }
 
   100% {
+    opacity: 1;
     transform: rotate(360deg) translate(-580%) rotate(-360deg);
   }
 }

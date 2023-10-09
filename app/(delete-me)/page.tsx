@@ -28,7 +28,7 @@ const Graphic: FC = () => (
     {logos.slice(0, 5).map((logo, index) => (
       <Card
         className={cn(
-          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
+          'opacity-0 absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
         )}
         style={{
           animation: 'orbit-1 10s linear infinite',
@@ -49,13 +49,13 @@ const Graphic: FC = () => (
     {logos.slice(7, 14).map((logo, index) => (
       <Card
         className={cn(
-          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
+          'opacity-0 absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
         )}
         style={{
           animation: 'orbit-2 15s linear infinite',
           animationDelay: `${index * (15 / 7)}s`,
         }}
-        key={logo}
+        key={index}
       >
         <Image
           src={logo}
@@ -70,13 +70,13 @@ const Graphic: FC = () => (
     {logos.slice(14, features.length).map((logo, index) => (
       <Card
         className={cn(
-          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
+          'opacity-0 absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
         )}
         style={{
           animation: 'orbit-3 20s linear infinite',
           animationDelay: `${(index * 20) / (features.length - 14)}s`,
         }}
-        key={logo}
+        key={index}
       >
         <Image
           src={logo}
