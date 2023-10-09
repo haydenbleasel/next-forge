@@ -4,14 +4,22 @@
 
 A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/forge`](https://github.com/beskar-co/forge). It includes everything required to create a new modern application in the Beskar ecosystem, including:
 
-- Typescript
-- Tailwind CSS
-- next/font
-- @vercel/analytics
-- Next.js 13 App Directory
-- [Harmony](https://github.com/beskar-co/harmony)
-- Prisma
-- Next Auth
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Radix UI](https://www.radix-ui.com/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [PlanetScale](https://planetscale.com/)
+- [Prisma](https://www.prisma.io/)
+- [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony)
+- [Next.js 13](https://nextjs.org/)
+- [Vercel](https://vercel.com/)
+- [react.email](https://react.email/)
+- [Clerk](https://clerk.com/)
+- [Resend](https://resend.com/)
+- [Loops](https://loops.so/)
+- [next-secure-headers](https://www.npmjs.com/package/next-secure-headers)
+- [BetterStack](https://betterstack.com/)
+- [Google Fonts](https://fonts.google.com/)
+- [Vercel AI + OpenAI](https://www.npmjs.com/package/ai)
 
 First, scaffold the app with:
 
