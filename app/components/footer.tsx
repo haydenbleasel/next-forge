@@ -21,7 +21,7 @@ export const Footer: FC = () => (
           <Status />
         </div>
         <div>
-          <p className="text-sm font-medium text-neutral-500">Pages</p>
+          <p className="text-sm font-medium text-zinc-500">Pages</p>
           <div className="mt-2 flex flex-col gap-1">
             {pages.map(({ href, name }) => (
               <ActiveProvider key={name} href={href}>
@@ -36,7 +36,7 @@ export const Footer: FC = () => (
           </div>
         </div>
         <div>
-          <p className="text-sm font-medium text-neutral-500">Legal</p>
+          <p className="text-sm font-medium text-zinc-500">Legal</p>
           <div className="mt-2 flex flex-col gap-1">
             {legal.map(({ href, name }) => (
               <ActiveProvider key={name} href={href}>

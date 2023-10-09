@@ -58,7 +58,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16">
+    <div className="container mx-auto px-4 py-16 max-w-5xl">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
         href="/blog"
@@ -66,7 +66,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
         <ArrowLeftIcon className="h-4 w-4" />
         Back to Blog
       </Link>
-      <h1 className="mt-16 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         <Balancer>{doc.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
@@ -74,7 +74,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
       </p>
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <div className="prose prose-neutral prose-orange dark:prose-invert">
+          <div className="prose prose-zinc dark:prose-invert">
             <Mdx code={doc.body.code} />
           </div>
         </div>

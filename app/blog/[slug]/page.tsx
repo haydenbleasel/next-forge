@@ -83,7 +83,7 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
       </p>
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <div className="prose prose-neutral prose-orange dark:prose-invert">
+          <div className="prose prose-zinc prose-orange dark:prose-invert">
             <Mdx code={doc.body.code} />
           </div>
         </div>

@@ -29,7 +29,7 @@ const Blog: FC = () => (
       <div className="mt-8 grid grid-cols-3 gap-8">
         {allBlogs.map((post) => (
           <Link href={post.slug} key={post.slug}>
-            <Card className="overflow-hidden flex flex-col justify-between divide-y divide-neutral-200 dark:divide-neutral-800">
+            <Card className="overflow-hidden flex flex-col justify-between divide-y divide-zinc-200 dark:divide-zinc-800">
               {post.image ? (
                 <Image
                   src={post.image}
