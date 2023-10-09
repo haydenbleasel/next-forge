@@ -7,15 +7,31 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { createMetadata } from '@/lib/metadata';
+import type { Metadata } from 'next';
 import type { FC } from 'react';
+
+const title = 'Features';
+const description = 'The following features are included out of the box.';
+
+export const metadata: Metadata = createMetadata({
+  title,
+  description,
+  path: '/features',
+});
 
 const Features: FC = () => (
   <section className="py-16">
     <div className="container mx-auto">
-      <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-        Features
-      </h2>
-      <div className="mt-6 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
+      <div className="flex flex-col gap-1">
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+          {title}
+        </h1>
+        <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
+          {description}
+        </span>
+      </div>
+      <div className="mt-8 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
         {features.map((feature) => (
           <Link
             href={feature.link}

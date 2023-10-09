@@ -1,8 +1,14 @@
-![Forge](./app/opengraph-image.png)
+<img src="./app/opengraph-image.png" width="1200" height="630" style="width: 1200px; height: 630px; object-fit: contain;" alt="">
 
-# Beskar Forge
+<br />
 
-A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/forge`](https://github.com/beskar-co/forge). It includes everything required to create a new modern application in the Beskar ecosystem, including:
+# Forge
+
+**Robust and comprehensive boilerplate for modern Next.js web apps.**
+
+<hr />
+
+A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`next-forge`](https://github.com/haydenbleasel/next-forge). It includes everything required to create a new modern application, including:
 
 - [shadcn/ui](https://ui.shadcn.com/)
 - [Radix UI](https://www.radix-ui.com/)
@@ -23,6 +29,10 @@ A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/
 - [Canny](https://canny.io/)
 - [Stripe](https://stripe.com/)
 - [Sentry](https://sentry.io/)
+- [React Wrap Balancer](https://react-wrap-balancer.vercel.app/)
+- [Contentlayer](https://contentlayer.dev/)
+
+## Usage
 
 First, scaffold the app with:
 
