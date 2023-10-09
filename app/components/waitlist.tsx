@@ -90,7 +90,7 @@ export const Waitlist: FC = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="mt-4 flex items-center gap-2 max-w-lg w-full"
+      className="flex items-center gap-2 max-w-lg w-full"
     >
       <Input
         type="text"

@@ -17,36 +17,6 @@ const description =
 export const metadata: Metadata = createMetadata({ title, description });
 
 const logos = features.map((feature) => feature.image);
-const positions = [
-  // Circle 1
-  'top-[5%] left-[50%]',
-  'top-[22%] left-[15%]',
-  'top-[22%] left-[85%]',
-  'top-[50%] left-[5%]',
-  'top-[50%] left-[95%]',
-  'top-[78%] left-[15%]',
-  'top-[78%] left-[85%]',
-  'top-[95%] left-[50%]',
-
-  // Circle 2
-  'top-[15%] left-[50%]',
-  'top-[35%] left-[19%]',
-  'top-[35%] left-[81%]',
-  'top-[65%] left-[19%]',
-  'top-[65%] left-[81%]',
-  'top-[85%] left-[50%]',
-
-  // Circle 3
-  'top-[25%] left-[50%]',
-  'top-[50%] left-[25%]',
-  'top-[50%] left-[75%]',
-  'top-[75%] left-[50%]',
-
-  // Circle 4
-  'top-[35%] left-[50%]',
-  'top-[55%] left-[36%]',
-  'top-[55%] left-[64%]',
-];
 
 const Graphic: FC = () => (
   <div className="relative aspect-square w-full">
@@ -55,12 +25,57 @@ const Graphic: FC = () => (
     <div className="absolute left-[25%] top-[25%] w-[50%] aspect-square border border-zinc-200 dark:border-zinc-800 rounded-full" />
     <div className="absolute left-[35%] top-[35%] w-[30%] aspect-square border border-zinc-200 dark:border-zinc-800 rounded-full" />
 
-    {logos.map((logo, index) => (
+    {logos.slice(0, 5).map((logo, index) => (
       <Card
         className={cn(
-          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -translate-x-1/2 -translate-y-1/2',
-          positions[index]
+          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
         )}
+        style={{
+          animation: 'orbit-1 10s linear infinite',
+          animationDelay: `${index * (10 / 5)}s`,
+        }}
+        key={logo}
+      >
+        <Image
+          src={logo}
+          alt=""
+          width={32}
+          height={32}
+          className="object-contain dark:invert dark:brightness-0"
+        />
+      </Card>
+    ))}
+
+    {logos.slice(7, 14).map((logo, index) => (
+      <Card
+        className={cn(
+          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
+        )}
+        style={{
+          animation: 'orbit-2 15s linear infinite',
+          animationDelay: `${index * (15 / 7)}s`,
+        }}
+        key={logo}
+      >
+        <Image
+          src={logo}
+          alt=""
+          width={32}
+          height={32}
+          className="object-contain dark:invert dark:brightness-0"
+        />
+      </Card>
+    ))}
+
+    {logos.slice(14, features.length).map((logo, index) => (
+      <Card
+        className={cn(
+          'absolute rounded-full p-3 flex w-12 h-12 items-center justify-center -ml-6 -mt-6 top-1/2 left-1/2'
+        )}
+        style={{
+          animation: 'orbit-3 20s linear infinite',
+          animationDelay: `${(index * 20) / (features.length - 14)}s`,
+        }}
         key={logo}
       >
         <Image
@@ -86,14 +101,24 @@ const Graphic: FC = () => (
 const Hero: FC = () => (
   <Container className="grid grid-cols-2 gap-32 items-center">
     <div className="flex flex-col gap-1">
-      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl xl:text-6xl">
         {title}
       </h1>
-      <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
+      <p className="mt-4 leading-relaxed text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl sm:leading-relaxed">
         {description}
-      </span>
-      <Command />
-      <Waitlist />
+      </p>
+      <div className="mt-8 flex flex-col gap-2">
+        <p className="font-medium text-zinc-600 dark:text-zinc-400">
+          Copy and paste this command into your terminal:
+        </p>
+        <Command />
+      </div>
+      <div className="mt-8 flex flex-col gap-2">
+        <p className="font-medium text-zinc-600 dark:text-zinc-400">
+          Interested in updates? Join the mailing list:
+        </p>
+        <Waitlist />
+      </div>
     </div>
     <Graphic />
   </Container>
