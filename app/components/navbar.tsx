@@ -5,6 +5,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
 import Status from '@/components/status';
 import { Button } from '@/components/ui/button';
+import { Notifications } from '@/components/notifications';
 import type { ReactElement } from 'react';
 
 export const Navbar = async (): Promise<ReactElement> => {
@@ -33,6 +34,7 @@ export const Navbar = async (): Promise<ReactElement> => {
       <div className="flex items-center gap-2">
         <Status />
         <ModeToggle />
+        <Notifications />
         {user ? (
           <UserButton afterSignOutUrl="/" />
         ) : (
