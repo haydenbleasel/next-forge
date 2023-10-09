@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { features } from '@/lib/features';
+import { features } from '@/consts/features';
 import {
   Card,
   CardDescription,
@@ -22,7 +22,7 @@ export const metadata: Metadata = createMetadata({
 
 const Features: FC = () => (
   <section className="py-16">
-    <div className="container mx-auto">
+    <div className="container mx-auto px-4">
       <div className="flex flex-col gap-1">
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
           {title}

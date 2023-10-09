@@ -1,28 +1,13 @@
 import { UserButton, currentUser } from '@clerk/nextjs';
-import Image from 'next/image';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
-import Status from '@/components/status';
 import { Button } from '@/components/ui/button';
 import { Notifications } from '@/components/notifications';
 import { ActiveProvider } from '@/components/activeProvider';
+import { pages } from '@/consts/navigation';
+import { Logo } from './logo';
 import type { ReactElement } from 'react';
-
-const pages = [
-  {
-    name: 'Home',
-    href: '/',
-  },
-  {
-    name: 'Features',
-    href: '/features',
-  },
-  {
-    name: 'Blog',
-    href: '/blog',
-  },
-];
 
 export const Navbar = async (): Promise<ReactElement> => {
   const user = await currentUser();
@@ -36,18 +21,7 @@ export const Navbar = async (): Promise<ReactElement> => {
       )}
     >
       <div className="flex items-center gap-4">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.svg"
-            alt=""
-            width={24}
-            height={24}
-            className="dark:invert"
-          />
-          <p className="text-lg text-black dark:text-white font-medium">
-            next-forge
-          </p>
-        </Link>
+        <Logo />
         <div className="flex items-center">
           {pages.map(({ name, href }) => (
             <ActiveProvider key={name} href={href}>
@@ -63,7 +37,6 @@ export const Navbar = async (): Promise<ReactElement> => {
         </div>
       </div>
       <div className="flex items-center gap-2">
-        <Status />
         <ModeToggle />
         <Notifications />
         {user ? (

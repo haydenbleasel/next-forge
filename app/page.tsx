@@ -11,7 +11,7 @@ const description =
 export const metadata: Metadata = createMetadata({ title, description });
 
 const Hero: FC = () => (
-  <div className="container mx-auto flex flex-col items-start gap-8">
+  <div className="container mx-auto px-4 flex flex-col items-start gap-8">
     <div className="flex flex-col gap-1">
       <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
         {title}

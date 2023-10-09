@@ -7,6 +7,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 import { ThemeProvider } from '@/components/theme-provider';
 import { cn } from '@/lib/utils';
 import { Navbar } from './components/navbar';
+import { Footer } from './components/footer';
 import type { FC, ReactNode } from 'react';
 
 type RootLayoutProps = {
@@ -32,7 +33,8 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
         >
           <TooltipProvider>
             <Navbar />
-            <div className="h-[calc(100dvh-61px)]">{children}</div>
+            <div className="min-h-[calc(100dvh-61px)]">{children}</div>
+            <Footer />
           </TooltipProvider>
         </ThemeProvider>
         <Toaster />
