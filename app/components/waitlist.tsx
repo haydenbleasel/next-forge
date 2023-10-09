@@ -99,7 +99,7 @@ export const Waitlist: FC = () => {
         value={email}
         onChange={({ target }) => setEmail(target.value)}
         required
-        className="bg-white"
+        className="bg-white dark:bg-zinc-900"
       />
       <Button type="submit" className="shrink-0" disabled={disabled}>
         {disabled ? 'Please wait...' : 'Join the mailing list'}

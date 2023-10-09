@@ -14,8 +14,8 @@ export const Navbar = async (): Promise<ReactElement> => {
     <div
       className={cn(
         'flex items-center gap-8 backdrop-blur-sm justify-between border-b px-6 py-3',
-        'bg-white/90 border-neutral-200',
-        'dark:bg-black/90 dark:border-neutral-800'
+        'bg-white/90 border-zinc-200',
+        'dark:bg-black/90 dark:border-zinc-800'
       )}
     >
       <Link href="/" className="flex items-center gap-2">

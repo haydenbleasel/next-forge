@@ -39,7 +39,7 @@ const Features: FC = () => (
                 <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
                   {feature.name}
                 </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mt-2">
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
                   {feature.description}
                 </p>
               </div>
@@ -57,7 +57,7 @@ const Hero: FC = () => (
       <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
         {title}
       </h1>
-      <span className="mt-2 max-w-[750px] text-lg text-neutral-600 dark:text-neutral-400 sm:text-xl">
+      <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
         {description}
       </span>
       <Waitlist />

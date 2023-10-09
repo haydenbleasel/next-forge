@@ -23,7 +23,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
         'antialiased touch-manipulation font-sans'
       )}
     >
-      <body className="bg-neutral-100 dark:bg-neutral-950">
+      <body className="bg-zinc-100 dark:bg-zinc-950">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -26,8 +26,8 @@ export const Chat: FC = () => {
         <PopoverContent
           className={cn(
             'h-[50vh] w-[24rem] flex flex-col divide-y p-0 overflow-hidden',
-            'bg-neutral-100 divide-neutral-200',
-            'dark:bg-neutral-900 dark:divide-neutral-800'
+            'bg-zinc-100 divide-zinc-200',
+            'dark:bg-zinc-900 dark:divide-zinc-800'
           )}
           collisionPadding={16}
         >
@@ -38,7 +38,7 @@ export const Chat: FC = () => {
                 className={cn(
                   'max-w-[75%] px-4 py-2 rounded shadow-sm',
                   message.role === 'user'
-                    ? 'bg-white self-start text-neutral-900'
+                    ? 'bg-white self-start text-zinc-900'
                     : 'bg-black self-end text-white'
                 )}
               >

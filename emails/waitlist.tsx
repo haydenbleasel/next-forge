@@ -26,7 +26,7 @@ export const LoginEmailTemplate: FC<LoginEmailTemplateProps> = ({ url }) => (
     <Html>
       <Head />
       <Preview>Login to Superlight</Preview>
-      <Body className="bg-neutral-50 font-sans">
+      <Body className="bg-zinc-50 font-sans">
         <Container className="mx-auto py-12">
           <Img
             src={`${baseUrl}/logo-full.svg`}
@@ -34,13 +34,13 @@ export const LoginEmailTemplate: FC<LoginEmailTemplateProps> = ({ url }) => (
             height="20"
             alt="Superlight"
           />
-          <Section className="bg-neutral-200 p-px mt-8 rounded-md">
+          <Section className="bg-zinc-200 p-px mt-8 rounded-md">
             <Section className="p-8 bg-white rounded-[5px]">
-              <Text className="mt-0 mb-4 text-2xl font-semibold text-neutral-950">
+              <Text className="mt-0 mb-4 text-2xl font-semibold text-zinc-950">
                 Login to Superlight
               </Text>
 
-              <Text className="m-0 text-neutral-500">
+              <Text className="m-0 text-zinc-500">
                 You are receiving this email because you (or someone else) have
                 requested the link to sign in to your account. Click the button
                 below to sign in.
@@ -57,12 +57,12 @@ export const LoginEmailTemplate: FC<LoginEmailTemplateProps> = ({ url }) => (
             </Section>
           </Section>
           <Section className="py-8">
-            <Text className="m-0 text-neutral-500">
+            <Text className="m-0 text-zinc-500">
               This email was sent to you because you have an account with
               Superlight, or you are creating one. If you did not request this,
               please ignore this email.
             </Text>
-            <Text className="text-neutral-500">
+            <Text className="text-zinc-500">
               &copy; {new Date().getFullYear()}{' '}
               <Link
                 className="text-emerald-600 underline"
