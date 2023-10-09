@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { createMetadata } from '@/lib/metadata';
-import { Card } from '@/components/ui/card';
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { features } from '@/lib/features';
 import { Chat } from './components/chat';
 import { Waitlist } from './components/waitlist';
@@ -27,22 +32,20 @@ const Features: FC = () => (
             key={feature.name}
             className="mb-4 inline-block"
           >
-            <Card className="p-6 aspect-[4/3] flex flex-col justify-between gap-4">
-              <Image
-                src={feature.image}
-                alt=""
-                height={48}
-                width={48}
-                className="h-8 w-fit max-w-[5rem] object-contain dark:brightness-0 dark:invert"
-              />
-              <div className="mt-4">
-                <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
-                  {feature.name}
-                </h3>
-                <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed mt-2">
-                  {feature.description}
-                </p>
-              </div>
+            <Card className="aspect-[4/3] flex flex-col justify-between gap-4">
+              <CardHeader>
+                <Image
+                  src={feature.image}
+                  alt=""
+                  height={48}
+                  width={48}
+                  className="h-8 w-fit max-w-[5rem] object-contain dark:brightness-0 dark:invert"
+                />
+              </CardHeader>
+              <CardHeader>
+                <CardTitle>{feature.name}</CardTitle>
+                <CardDescription>{feature.description}</CardDescription>
+              </CardHeader>
             </Card>
           </Link>
         ))}

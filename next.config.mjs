@@ -1,6 +1,7 @@
 import { createSecureHeaders } from 'next-secure-headers';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
+import { createContentlayerPlugin } from 'next-contentlayer';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -27,10 +28,14 @@ const nextConfig = {
   },
 };
 
+const withContentlayer = createContentlayerPlugin({
+  // Additional Contentlayer config options
+});
+
 export default process.env.ANALYZE === 'true'
   ? withBundleAnalyzer()(nextConfig)
   : withSentryConfig(
-      nextConfig,
+      withContentlayer(nextConfig),
       {
         /*
          * For all available options, see:

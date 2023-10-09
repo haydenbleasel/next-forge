@@ -131,4 +131,11 @@ export const features = [
     link: 'https://sentry.io/',
     image: '/stack/sentry.svg',
   },
+  {
+    name: 'React Wrap Balancer',
+    description:
+      'Simple React Component That Makes Titles More Readable. React Wrap Balancer avoids single hanging word on the last line.',
+    link: 'https://react-wrap-balancer.vercel.app/',
+    image: '/stack/react-wrap-balancer.svg',
+  },
 ];

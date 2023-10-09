@@ -19,18 +19,28 @@ export const Navbar = async (): Promise<ReactElement> => {
         'dark:bg-black/90 dark:border-zinc-800'
       )}
     >
-      <Link href="/" className="flex items-center gap-2">
-        <Image
-          src="/logo.svg"
-          alt=""
-          width={24}
-          height={24}
-          className="dark:invert"
-        />
-        <p className="text-lg text-black dark:text-white font-medium">
-          next-forge
-        </p>
-      </Link>
+      <div className="flex items-center gap-4">
+        <Link href="/" className="flex items-center gap-2">
+          <Image
+            src="/logo.svg"
+            alt=""
+            width={24}
+            height={24}
+            className="dark:invert"
+          />
+          <p className="text-lg text-black dark:text-white font-medium">
+            next-forge
+          </p>
+        </Link>
+        <div className="flex items-center">
+          <Button asChild variant="link">
+            <Link href="/">Home</Link>
+          </Button>
+          <Button asChild variant="link">
+            <Link href="/blog">Blog</Link>
+          </Button>
+        </div>
+      </div>
       <div className="flex items-center gap-2">
         <Status />
         <ModeToggle />
