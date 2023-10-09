@@ -20,6 +20,9 @@ A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`beskar/
 - [BetterStack](https://betterstack.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Vercel AI + OpenAI](https://www.npmjs.com/package/ai)
+- [Canny](https://canny.io/)
+- [Stripe](https://stripe.com/)
+- [Sentry](https://sentry.io/)
 
 First, scaffold the app with:
 

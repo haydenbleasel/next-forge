@@ -124,4 +124,11 @@ export const features = [
     link: 'https://stripe.com/',
     image: '/stack/stripe.svg',
   },
+  {
+    name: 'Sentry',
+    description:
+      'Take action on broken lines of code, crashes, and busted API calls with the only developer-first app monitoring platform built to give you answers - not clues.',
+    link: 'https://sentry.io/',
+    image: '/stack/sentry.svg',
+  },
 ];
