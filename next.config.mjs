@@ -26,6 +26,15 @@ const nextConfig = {
       },
     ];
   },
+  redirects() {
+    return [
+      {
+        source: '/legal',
+        destination: '/legal/privacy',
+        permanent: true,
+      },
+    ];
+  },
 
   // Silence, contentlayer
   webpack: (config) => {

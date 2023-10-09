@@ -2,15 +2,14 @@ import { notFound } from 'next/navigation';
 import { ArrowLeftIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
-import Image from 'next/image';
-import { allBlogs } from '@contentlayer/generated';
+import { allLegals } from '@contentlayer/generated';
 import { createMetadata } from '@/lib/metadata';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import type { FC } from 'react';
 import type { Metadata } from 'next';
 
-type BlogPostProps = {
+type LegalPageProps = {
   readonly params: {
     slug: string;
   };
@@ -18,9 +17,11 @@ type BlogPostProps = {
 
 export const dynamic = 'force-dynamic';
 
-export const generateMetadata = ({ params }: BlogPostProps): Metadata => {
+export const generateMetadata = ({ params }: LegalPageProps): Metadata => {
   const currentPath = params.slug;
-  const doc = allBlogs.find(({ slugAsParams }) => slugAsParams === currentPath);
+  const doc = allLegals.find(
+    ({ slugAsParams }) => slugAsParams === currentPath
+  );
 
   if (!doc) {
     return {};
@@ -34,14 +35,16 @@ export const generateMetadata = ({ params }: BlogPostProps): Metadata => {
   });
 };
 
-export const generateStaticParams = (): BlogPostProps['params'][] =>
-  allBlogs.map((doc) => ({
+export const generateStaticParams = (): LegalPageProps['params'][] =>
+  allLegals.map((doc) => ({
     slug: doc.slug,
   }));
 
-const BlogPost: FC<BlogPostProps> = ({ params }) => {
+const LegalPage: FC<LegalPageProps> = ({ params }) => {
   const currentPath = params.slug;
-  const doc = allBlogs.find(({ slugAsParams }) => slugAsParams === currentPath);
+  const doc = allLegals.find(
+    ({ slugAsParams }) => slugAsParams === currentPath
+  );
 
   if (!doc) {
     notFound();
@@ -63,18 +66,6 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
         <ArrowLeftIcon className="h-4 w-4" />
         Back to Blog
       </Link>
-      {doc.image && doc.imageBlur ? (
-        <Image
-          src={doc.image}
-          width={1920}
-          height={1080}
-          alt=""
-          className="h-full w-full rounded-xl"
-          priority
-          blurDataURL={`data:image/jpg;base64,${doc.imageBlur}`}
-          placeholder="blur"
-        />
-      ) : null}
       <h1 className="mt-16 scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
         <Balancer>{doc.title}</Balancer>
       </h1>
@@ -95,4 +86,4 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
   );
 };
 
-export default BlogPost;
+export default LegalPage;

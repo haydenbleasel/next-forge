@@ -16,18 +16,18 @@ export const pages = [
 export const legal = [
   {
     name: 'Privacy Policy',
-    href: '/privacy',
+    href: '/legal/privacy',
   },
   {
     name: 'Terms of Service',
-    href: '/terms',
+    href: '/legal/terms',
   },
   {
     name: 'Cookie Policy',
-    href: '/cookies',
+    href: '/legal/cookies',
   },
   {
     name: 'Accessibility Statement',
-    href: '/accessibility',
+    href: '/legal/accessibility',
   },
 ];

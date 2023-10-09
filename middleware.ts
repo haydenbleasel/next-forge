@@ -9,6 +9,7 @@ export default authMiddleware({
     '/og',
     '/blog',
     '/blog/:path*',
+    '/legal/:path*',
   ],
 });
 
