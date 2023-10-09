@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation';
-import { ArrowLeftIcon } from '@heroicons/react/20/solid';
 import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
 import Image from 'next/image';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { allBlogs } from '@contentlayer/generated';
 import { createMetadata } from '@/lib/metadata';
 import { Mdx } from '@/components/mdx';
