@@ -60,9 +60,11 @@ export type ChangelogEntries = {
 export const generateSsoToken = (user: User): string => {
   const userData = {
     avatar: user.imageUrl,
-    email: user.emailAddresses[0].emailAddress,
+    email: user.emailAddresses.at(0)?.emailAddress,
     id: user.id,
-    name: user.firstName ?? user.emailAddresses[0].emailAddress.split('@')[0],
+    name:
+      user.firstName ??
+      user.emailAddresses.at(0)?.emailAddress.split('@').at(0),
   };
 
   if (!process.env.CANNY_PRIVATE_KEY) {

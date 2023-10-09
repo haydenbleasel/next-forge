@@ -34,7 +34,7 @@ export const createCheckoutSession = async (): Promise<{
       throw new Error('You must be logged in to create a checkout session.');
     }
 
-    if (!user.emailAddresses[0].emailAddress) {
+    if (!user.emailAddresses.at(0)?.emailAddress) {
       throw new Error(
         'You do not have an email address. Please contact support.'
       );
@@ -46,7 +46,7 @@ export const createCheckoutSession = async (): Promise<{
 
     if (!customerId) {
       const customer = await stripe.customers.create({
-        email: user.emailAddresses[0].emailAddress,
+        email: user.emailAddresses.at(0)?.emailAddress,
         name: user.firstName ?? undefined,
       });
 
@@ -64,7 +64,7 @@ export const createCheckoutSession = async (): Promise<{
     });
 
     const prices = await stripe.prices.list({
-      product: products.data[0].id,
+      product: products.data.at(0)?.id,
       active: true,
     });
 
