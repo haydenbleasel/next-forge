@@ -4,6 +4,7 @@ import { createMetadata } from '@/lib/metadata';
 import { Card } from '@/components/ui/card';
 import { features } from '@/lib/features';
 import { Chat } from './components/chat';
+import { Waitlist } from './components/waitlist';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -59,7 +60,7 @@ const Hero: FC = () => (
       <span className="mt-2 max-w-[750px] text-lg text-neutral-600 dark:text-neutral-400 sm:text-xl">
         {description}
       </span>
-      <Chat />
+      <Waitlist />
     </div>
   </div>
 );
@@ -68,6 +69,7 @@ const Home: FC = () => (
   <div className="flex flex-col py-16">
     <Hero />
     <Features />
+    <Chat />
   </div>
 );
 
