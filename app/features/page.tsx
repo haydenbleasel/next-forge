@@ -8,6 +8,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { createMetadata } from '@/lib/metadata';
+import { Container } from '@/components/container';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -22,7 +23,7 @@ export const metadata: Metadata = createMetadata({
 
 const Features: FC = () => (
   <section className="py-16">
-    <div className="container mx-auto px-4">
+    <Container>
       <div className="flex flex-col gap-1">
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
           {title}
@@ -56,7 +57,7 @@ const Features: FC = () => (
           </Link>
         ))}
       </div>
-    </div>
+    </Container>
   </section>
 );
 

@@ -1,4 +1,5 @@
 import { createMetadata } from '@/lib/metadata';
+import { Container } from '@/components/container';
 import { Chat } from './components/chat';
 import { Waitlist } from './components/waitlist';
 import type { Metadata } from 'next';
@@ -11,7 +12,7 @@ const description =
 export const metadata: Metadata = createMetadata({ title, description });
 
 const Hero: FC = () => (
-  <div className="container mx-auto px-4 flex flex-col items-start gap-8">
+  <Container className="flex flex-col items-start gap-8">
     <div className="flex flex-col gap-1">
       <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
         {title}
@@ -25,7 +26,7 @@ const Hero: FC = () => (
       </pre>
       <Waitlist />
     </div>
-  </div>
+  </Container>
 );
 
 const Home: FC = () => (

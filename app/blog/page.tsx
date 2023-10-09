@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import { Container } from '@/components/container';
 import type { FC } from 'react';
 
 const title = 'Blog';
@@ -17,7 +18,7 @@ export const metadata = createMetadata({ title, description, path: '/blog' });
 
 const Blog: FC = () => (
   <main className="relative py-16">
-    <div className="mx-auto container">
+    <Container>
       <div className="flex flex-col gap-1">
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
           {title}
@@ -48,7 +49,7 @@ const Blog: FC = () => (
           </Link>
         ))}
       </div>
-    </div>
+    </Container>
   </main>
 );
 

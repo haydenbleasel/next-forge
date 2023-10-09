@@ -6,6 +6,7 @@ import { allLegals } from '@contentlayer/generated';
 import { createMetadata } from '@/lib/metadata';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
+import { Container } from '@/components/container';
 import type { FC } from 'react';
 import type { Metadata } from 'next';
 
@@ -58,7 +59,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-16 max-w-5xl">
+    <Container className="py-16 max-w-5xl">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
         href="/blog"
@@ -82,7 +83,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
           <Sidebar doc={doc} />
         </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

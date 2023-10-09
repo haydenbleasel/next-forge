@@ -3,6 +3,7 @@ import Status from '@/components/status';
 import { cn } from '@/lib/utils';
 import { legal, pages } from '@/consts/navigation';
 import { ActiveProvider } from '@/components/activeProvider';
+import { Container } from '@/components/container';
 import { Logo } from './logo';
 import type { FC } from 'react';
 
@@ -14,7 +15,7 @@ export const Footer: FC = () => (
       'dark:bg-black dark:border-zinc-800'
     )}
   >
-    <div className="px-4 container mx-auto">
+    <Container>
       <div className="grid grid-cols-4 gap-8">
         <div className="flex flex-col items-start gap-8 col-span-2">
           <Logo />
@@ -51,6 +52,6 @@ export const Footer: FC = () => (
           </div>
         </div>
       </div>
-    </div>
+    </Container>
   </div>
 );
