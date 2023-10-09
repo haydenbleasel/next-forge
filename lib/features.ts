@@ -138,4 +138,11 @@ export const features = [
     link: 'https://react-wrap-balancer.vercel.app/',
     image: '/stack/react-wrap-balancer.svg',
   },
+  {
+    name: 'Contentlayer',
+    description:
+      'Content made easy for developers. Contentlayer is a content SDK that validates and transforms your content into type-safe JSON data you can easily import into your application.',
+    link: 'https://contentlayer.dev/',
+    image: '/stack/contentlayer.svg',
+  },
 ];
