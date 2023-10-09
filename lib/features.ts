@@ -110,4 +110,18 @@ export const features = [
     link: 'https://www.npmjs.com/package/ai',
     image: '/stack/openai.svg',
   },
+  {
+    name: 'Canny',
+    description:
+      'Build better products with customer feedback. Capture, organize, and analyze product feedback in one place to inform your product decisions.',
+    link: 'https://canny.io/',
+    image: '/stack/canny.svg',
+  },
+  {
+    name: 'Stripe',
+    description:
+      'Financial infrastructure for the internet. Millions of companies of all sizes use Stripe online and in person to accept payments, send payouts, automate financial processes, and ultimately grow revenue.',
+    link: 'https://stripe.com/',
+    image: '/stack/stripe.svg',
+  },
 ];
