@@ -17,7 +17,7 @@ export const Command: FC = () => {
   };
 
   return (
-    <div className="bg-black dark:bg-neutral-900 text-white text-sm rounded-md flex overflow-hidden">
+    <div className="bg-black dark:bg-zinc-900 text-white text-sm rounded-md flex overflow-hidden">
       <pre className="w-full h-full overflow-x-auto p-4">{command}</pre>
       <button
         onClick={copyCommand}

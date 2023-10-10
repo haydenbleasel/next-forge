@@ -33,7 +33,7 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
         >
           <TooltipProvider>
             <Navbar />
-            <div className="min-h-[calc(100dvh-61px)]">{children}</div>
+            {children}
             <Footer />
           </TooltipProvider>
         </ThemeProvider>

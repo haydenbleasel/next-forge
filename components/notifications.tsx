@@ -27,7 +27,7 @@ export const Notifications = async (): Promise<ReactElement> => {
     );
   }
 
-  const messages = await knockClient.users.getMessages(user.id);
+  const messages = await knockClient.users.getMessages('1');
 
   return (
     <DropdownMenu>
@@ -36,10 +36,16 @@ export const Notifications = async (): Promise<ReactElement> => {
           <BellIcon />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
-        {messages.items.map((message) => (
-          <DropdownMenuItem key={message.id}>{message.data}</DropdownMenuItem>
-        ))}
+      <DropdownMenuContent align="end" className="w-64">
+        {messages.items.length ? (
+          messages.items.map((message) => (
+            <DropdownMenuItem key={message.id}>{message.data}</DropdownMenuItem>
+          ))
+        ) : (
+          <div className="aspect-square flex items-center justify-center">
+            <span className="text-zinc-400">No notifications</span>
+          </div>
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );
