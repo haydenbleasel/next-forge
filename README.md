@@ -37,7 +37,7 @@ A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`next-fo
 First, scaffold the app with:
 
 ```bash
-yarn create next-app --example https://github.com/beskar-co/forge
+yarn create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
 Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with:

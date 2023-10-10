@@ -2,6 +2,10 @@ import getStatus from '@/lib/status';
 import { cn } from '@/lib/utils';
 import type { ReactElement } from 'react';
 
+if (!process.env.BETTERSTACK_URL) {
+  throw new Error('Missing BETTERSTACK_URL environment variable');
+}
+
 const Status = async (): Promise<ReactElement> => {
   const status = await getStatus();
 
@@ -21,7 +25,7 @@ const Status = async (): Promise<ReactElement> => {
       className="flex items-center gap-3 text-sm font-medium"
       target="_blank"
       rel="noreferrer"
-      href="https://status.beskar.co/"
+      href={process.env.BETTERSTACK_URL}
     >
       <span className="relative flex h-2 w-2">
         <span
