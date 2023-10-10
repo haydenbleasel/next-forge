@@ -2,7 +2,7 @@
 
 <br />
 
-# Forge
+# next-forge
 
 **Robust and comprehensive boilerplate for modern Next.js web apps.**
 
