@@ -29,7 +29,7 @@ const ContactForm: FC = () => {
     try {
       const { error } = await contact(name, email, message);
 
-      if (!error) {
+      if (error) {
         throw new Error(error);
       }
 

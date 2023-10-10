@@ -2,7 +2,7 @@
 
 import { Resend } from 'resend';
 import { render } from '@react-email/render';
-import template from '@/emails/contact';
+import { ContactTemplate as template } from '@/emails/contact';
 import { parseError } from '@/lib/error';
 import type { ReactElement } from 'react';
 
@@ -26,10 +26,14 @@ export const contact = async (
   }) as ReactElement;
   const text = render(react, { plainText: true });
 
+  if (!process.env.RESEND_FROM) {
+    throw new Error('RESEND_FROM environment variable is not set');
+  }
+
   try {
     await resend.emails.send({
-      from: 'noreply@yourdomain.com',
-      to: 'noreply@yourdomain.com',
+      from: process.env.RESEND_FROM,
+      to: process.env.RESEND_FROM,
       subject: 'Contact form submission',
       reply_to: email,
       react,

@@ -4,6 +4,7 @@ import {
   Body,
   Container,
   Head,
+  Hr,
   Html,
   Preview,
   Section,
@@ -37,6 +38,7 @@ export const ContactTemplate: FC<ContactTemplateProps> = ({
               <Text className="m-0 text-zinc-500">
                 {name} ({email}) has sent you a message:
               </Text>
+              <Hr className="my-4" />
               <Text className="m-0 text-zinc-500">{message}</Text>
             </Section>
           </Section>
