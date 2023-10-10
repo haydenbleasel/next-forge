@@ -55,7 +55,7 @@ const ContactForm: FC = () => {
       <div className="flex flex-col gap-1">
         <Label htmlFor="name">Full name</Label>
         <Input
-          name="name"
+          id="name"
           value={name}
           onChange={({ target }) => setName(target.value)}
           placeholder="Jane Smith"
@@ -63,9 +63,9 @@ const ContactForm: FC = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <Label htmlFor="name">Email address</Label>
+        <Label htmlFor="email">Email address</Label>
         <Input
-          name="email"
+          id="email"
           value={email}
           onChange={({ target }) => setEmail(target.value)}
           placeholder="jane@acme.com"
@@ -74,9 +74,9 @@ const ContactForm: FC = () => {
         />
       </div>
       <div className="flex flex-col gap-1">
-        <Label htmlFor="name">Message</Label>
+        <Label htmlFor="message">Message</Label>
         <Textarea
-          name="message"
+          id="message"
           value={message}
           onChange={({ target }) => setMessage(target.value)}
           placeholder="Hi there, I'm interested in..."
