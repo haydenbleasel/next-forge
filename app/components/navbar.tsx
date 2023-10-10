@@ -16,7 +16,7 @@ export const Navbar = async (): Promise<ReactElement> => {
   return (
     <div
       className={cn(
-        'backdrop-blur-sm border-b py-3',
+        'sticky top-0 backdrop-blur-sm border-b py-3',
         'bg-white/90 border-zinc-200',
         'dark:bg-black/90 dark:border-zinc-800'
       )}

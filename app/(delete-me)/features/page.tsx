@@ -28,9 +28,9 @@ const Features: FC = () => (
         <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
           {title}
         </h1>
-        <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
+        <p className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
           {description}
-        </span>
+        </p>
       </div>
       <div className="mt-8 columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4">
         {features.map((feature) => (

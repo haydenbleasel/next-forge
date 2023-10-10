@@ -11,6 +11,10 @@ export const pages = [
     name: 'Blog',
     href: '/blog',
   },
+  {
+    name: 'Contact',
+    href: '/contact',
+  },
 ];
 
 export const legal = [

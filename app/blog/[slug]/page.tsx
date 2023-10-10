@@ -57,18 +57,6 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
 
   return (
     <Container className="py-16">
-      {doc.image && doc.imageBlur ? (
-        <Image
-          src={doc.image}
-          width={1920}
-          height={1080}
-          alt=""
-          className="h-full w-full rounded-xl mb-16"
-          priority
-          blurDataURL={`data:image/jpg;base64,${doc.imageBlur}`}
-          placeholder="blur"
-        />
-      ) : null}
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
         href="/blog"
@@ -82,6 +70,18 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         <Balancer>{doc.description}</Balancer>
       </p>
+      {doc.image && doc.imageBlur ? (
+        <Image
+          src={doc.image}
+          width={1920}
+          height={1080}
+          alt=""
+          className="h-full w-full rounded-xl my-16"
+          priority
+          blurDataURL={`data:image/jpg;base64,${doc.imageBlur}`}
+          placeholder="blur"
+        />
+      ) : null}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">

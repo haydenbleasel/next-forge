@@ -1,4 +1,4 @@
-<img src="./app/opengraph-image.png" width="1200" height="630" style="width: 1200px; height: 630px; object-fit: contain;" alt="">
+<img src="./public/logo.svg" width="96" height="96" style="width: 96px; height: 96px;" alt="">
 
 <br />
 
@@ -49,3 +49,7 @@ mv .env.example .env
 Update any reference of `/CompanyName/` in the legal docs.
 
 Then, run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Other Notes
+
+Vercel blob storage

@@ -10,6 +10,7 @@ export default authMiddleware({
     '/blog',
     '/blog/:path*',
     '/legal/:path*',
+    '/contact',
   ],
 });
 
