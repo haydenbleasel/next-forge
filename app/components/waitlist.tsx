@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { parseError } from '@/lib/error';
 import { useToast } from '@/components/ui/use-toast';
+import { useAnalytics } from '@/lib/segment/client';
 import type { FC, FormEventHandler } from 'react';
 
 const domain = 'app.loops.so';
@@ -16,6 +17,7 @@ export const Waitlist: FC = () => {
   const [email, setEmail] = useState('');
   const [disabled, setDisabled] = useState(false);
   const { toast } = useToast();
+  const { track } = useAnalytics();
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
@@ -74,6 +76,9 @@ export const Waitlist: FC = () => {
 
       setEmail('');
       toast({ description: "Thanks! We'll be in touch!" });
+
+      // eslint-disable-next-line promise/prefer-await-to-then, no-console
+      track('Signed up for Waitlist').catch(console.warn);
     } catch (error) {
       const message = parseError(error);
 
