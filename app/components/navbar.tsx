@@ -4,7 +4,7 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Notifications } from '@/components/notifications';
-import { ActiveProvider } from '@/components/activeProvider';
+import { ActiveProvider } from '@/components/active-provider';
 import { pages } from '@/consts/navigation';
 import { Container } from '@/components/container';
 import { Logo } from './logo';

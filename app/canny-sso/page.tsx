@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { currentUser } from '@clerk/nextjs';
 import { generateSsoToken } from '@/lib/canny';
-import CannyRedirect from './components/cannyRedirect';
+import CannyRedirect from './components/canny-redirect';
 import type { ReactElement } from 'react';
 
 const SSO = async (): Promise<ReactElement> => {
