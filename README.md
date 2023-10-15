@@ -4,48 +4,32 @@
 
 <img src="./public/graphic.png" alt="">
 
-A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`next-forge`](https://github.com/haydenbleasel/next-forge). It includes everything required to create a new modern application, including:
+[`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
-- [shadcn/ui](https://ui.shadcn.com/)
-- [Radix UI](https://www.radix-ui.com/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [PlanetScale](https://planetscale.com/)
-- [Prisma](https://www.prisma.io/)
-- [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony)
-- [Next.js 13](https://nextjs.org/)
-- [Vercel](https://vercel.com/)
-- [react.email](https://react.email/)
-- [Clerk](https://clerk.com/)
-- [Resend](https://resend.com/)
-- [Loops](https://loops.so/)
-- [next-secure-headers](https://www.npmjs.com/package/next-secure-headers)
-- [BetterStack](https://betterstack.com/)
-- [Google Fonts](https://fonts.google.com/)
-- [Vercel AI + OpenAI](https://www.npmjs.com/package/ai)
-- [Canny](https://canny.io/)
-- [Stripe](https://stripe.com/)
-- [Sentry](https://sentry.io/)
-- [React Wrap Balancer](https://react-wrap-balancer.vercel.app/)
-- [Contentlayer](https://contentlayer.dev/)
+## Features
+
+- ▲ Framework is [Next.js 13](https://nextjs.org/) (using App Directory and React Server Components) — a [React](https://react.dev/) framework for production-grade apps. Designed to be deployed on [Vercel](https://vercel.com/), but you can take it almost anywhere.
+- 🤝 Full [TypeScript](https://www.typescriptlang.org/) support, including strict mode.
+- 📦 React components from [shadcn/ui](https://ui.shadcn.com/), built on [Radix UI](https://www.radix-ui.com/), [Tailwind CSS](https://tailwindcss.com/) and [cva](https://cva.style/docs).
+- 👩‍⚖️ Linting from [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony), which provides a strict set of configuration for [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) and [Stylelint](https://stylelint.io/).
+- 📀 Database uses [Prisma](https://www.prisma.io/) as the ORM. Can be connected to any supported database — I recommend [PlanetScale](https://planetscale.com/).
+- 📧 Emails templated by [react.email](https://react.email/) and sent using [Resend](https://resend.com/). Additionally, [Loops](https://loops.so/) form for a waitlist.
+- 👨‍👩‍👧‍👦 Authentication provided by [Clerk](https://clerk.com/), which provides a secure, scalable and customizable authentication system.
+- 🟢 Log Drain and Status provided by [BetterStack](https://betterstack.com/).
+- 🐞 Error capturing provided by [Sentry](https://sentry.io/).
+- 💸 Payments provided by [Stripe](https://stripe.com/).
+- 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).
+- 🤖 AI provided by [Vercel AI](https://www.npmjs.com/package/ai), using OpenAI by default.
+- 💬 Feedback through [Canny](https://canny.io/).
+- 📝 MDX content through [Contentlayer](https://contentlayer.dev/).
+- 🔔 Notifications provided by [Knock](https://knock.app/).
+
+... plus a stack of other features for customization, security and performance.
 
 ## Usage
 
-First, scaffold the app with:
-
-```bash
-yarn create next-app --example https://github.com/haydenbleasel/next-forge
-```
-
-Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with:
-
-```bash
-mv .env.example .env
-```
-
-Update any reference of `/CompanyName/` in the legal docs.
-
-Then, run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Other Notes
-
-Vercel blob storage
+1. First, scaffold the app with: `yarn create next-app --example https://github.com/haydenbleasel/next-forge`
+2. Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with `mv .env.example .env`
+3. Update the environment variables in `.env` with your own values.
+4. Update any reference of `/CompanyName/` in the legal docs. You can do this with `grep -rl '/CompanyName/' blog/ | xargs sed -i '' 's|/CompanyName/|Acme|g'`
+5. Run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
