@@ -16,6 +16,7 @@ const CannyRedirect: FC<{
     const redirect = searchParams.get('redirect');
 
     if (
+      !redirect ||
       (typeof redirect === 'string' && !redirect.startsWith('https://')) ||
       typeof companyID !== 'string'
     ) {
@@ -23,7 +24,7 @@ const CannyRedirect: FC<{
       return undefined;
     }
 
-    const redirectUrl = `https://canny.io/api/redirects/sso?companyID=${companyID}&ssoToken=${token}&redirect=${redirect!}`;
+    const redirectUrl = `https://canny.io/api/redirects/sso?companyID=${companyID}&ssoToken=${token}&redirect=${redirect}`;
 
     window.location.assign(redirectUrl);
     return undefined;

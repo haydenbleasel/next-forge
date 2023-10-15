@@ -30,7 +30,7 @@ export const Sidebar: FC<SidebarProps> = ({ doc }) => {
           {doc.readingTime}
         </p>
       </div>
-      {doc.length ? (
+      {toc.length ? (
         <div className="-mx-2">
           <div className="grid gap-2 p-2">
             <p className="text-sm text-zinc-500">Sections</p>
