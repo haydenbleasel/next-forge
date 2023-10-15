@@ -11,7 +11,7 @@ export default authMiddleware({
     '/blog/:path*',
     '/legal/:path*',
     '/contact',
-    '/api/webhooks/*',
+    '/api/webhooks/:path*',
   ],
 });
 
