@@ -1,12 +1,8 @@
-<img src="./public/logo.svg" width="96" height="96" style="width: 96px; height: 96px;" alt="">
-
-<br />
-
 # next-forge
 
 **Robust and comprehensive boilerplate for modern Next.js web apps.**
 
-<hr />
+<img src="./public/graphic.png" alt="">
 
 A [Next.js](https://nextjs.org/) project boilerplate bootstrapped with [`next-forge`](https://github.com/haydenbleasel/next-forge). It includes everything required to create a new modern application, including:
 
