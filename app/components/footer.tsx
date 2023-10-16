@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Status from '@/components/status';
 import { cn } from '@/lib/utils';
 import { legal, pages } from '@/consts/navigation';
-import { ActiveProvider } from '@/components/active-provider';
+import { ActiveProvider } from '@/providers/active-provider';
 import { Container } from '@/components/container';
 import { Logo } from './logo';
 import type { FC } from 'react';

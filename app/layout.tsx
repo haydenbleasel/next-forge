@@ -4,7 +4,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import { sans, mono } from '@/lib/fonts';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
-import { ThemeProvider } from '@/components/theme-provider';
+import { ThemeProvider } from '@/providers/theme-provider';
 import { cn } from '@/lib/utils';
 import { GoogleAnalytics } from '@/components/google-analytics';
 import { Navbar } from './components/navbar';
