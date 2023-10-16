@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm:planetscale\" \"pnpm:next\" \"pnpm:prisma\", \"pnpm:email\"",
+    "dev": "concurrently \"pnpm:planetscale\" \"pnpm:next\" \"pnpm:prisma\" \"pnpm:email\"",
     "next": "next dev",
     "planetscale": "pscale connect [database] dev --port 3309",
     "prisma": "npx prisma generate && npx prisma studio",
