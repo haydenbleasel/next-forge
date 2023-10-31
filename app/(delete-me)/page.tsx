@@ -9,7 +9,7 @@ import type { FC } from 'react';
 
 const title = 'From zero to production in minutes.';
 const description =
-  "next-forge is a robust and comprehensive boilerplate for modern Next.js web apps. It's designed to have everything you need to build your new SaaS app as quick as possible. Billing, authentication, analytics, SEO, and more. It's all here.";
+  "next-forge is a production-grade boilerplate for modern Next.js apps. It's designed to have everything you need to build your new SaaS app as quick as possible. Billing, authentication, analytics, SEO, and more. It's all here.";
 
 export const metadata: Metadata = createMetadata({ title, description });
 

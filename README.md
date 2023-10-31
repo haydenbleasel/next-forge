@@ -1,6 +1,6 @@
 # next-forge
 
-**Robust and comprehensive boilerplate for modern Next.js web apps.**
+**A production-grade boilerplate for modern Next.js apps.**
 
 <img src="./public/graphic.png" alt="">
 

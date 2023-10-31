@@ -1,6 +1,5 @@
 import OpenAI from 'openai';
 import { OpenAIStream as openAIStream, StreamingTextResponse } from 'ai';
-import { features } from '@/app/(delete-me)/features/features';
 import pkg from '@/package.json';
 
 if (!process.env.OPENAI_API_KEY) {
@@ -25,8 +24,24 @@ export const POST = async (req: Request): Promise<Response> => {
       {
         role: 'system',
         content: [
-          'You are an AI chatbot embedded on a website about next-forge, a robust and comprehensive boilerplate for modern Next.js web apps.',
-          `It uses the following technologies: ${JSON.stringify(features)}.`,
+          'You are an AI chatbot embedded on a website about next-forge, a production-grade boilerplate for modern Next.js apps.',
+          `It uses the following technologies:`,
+          `- ▲ Framework is [Next.js 13](https://nextjs.org/) (using App Directory and React Server Components) — a [React](https://react.dev/) framework for production-grade apps. Designed to be deployed on [Vercel](https://vercel.com/), but you can take it almost anywhere.`,
+          `- 🤝 Full [TypeScript](https://www.typescriptlang.org/) support, including strict mode.`,
+          `- 📦 React components from [shadcn/ui](https://ui.shadcn.com/), built on [Radix UI](https://www.radix-ui.com/), [Tailwind CSS](https://tailwindcss.com/) and [cva](https://cva.style/docs).`,
+          `- 👩‍⚖️ Linting from [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony), which provides a strict set of configuration for [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) and [Stylelint](https://stylelint.io/).`,
+          `- 📀 Database uses [Prisma](https://www.prisma.io/) as the ORM. Can be connected to any supported database — I recommend [PlanetScale](https://planetscale.com/).`,
+          `- 📧 Emails templated by [react.email](https://react.email/) and sent using [Resend](https://resend.com/). Additionally, [Loops](https://loops.so/) form for a waitlist.`,
+          `- 👨‍👩‍👧‍👦 Authentication provided by [Clerk](https://clerk.com/), which provides a secure, scalable and customizable authentication system.`,
+          `- 🟢 Log Drain and Status provided by [BetterStack](https://betterstack.com/).`,
+          `- 🐞 Error capturing provided by [Sentry](https://sentry.io/).`,
+          `- 💸 Payments provided by [Stripe](https://stripe.com/).`,
+          `- 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).`,
+          `- 🤖 AI provided by [Vercel AI](https://www.npmjs.com/package/ai), using OpenAI by default.`,
+          `- 💬 Feedback through [Canny](https://canny.io/).`,
+          `- 📝 MDX content through [Contentlayer](https://contentlayer.dev/).`,
+          `- 🔔 Notifications provided by [Knock](https://knock.app/).`,
+          `- 🔄 Cron jobs provided by Vercel.`,
           `Here is the package.json for the project: ${JSON.stringify(pkg)}.`,
           "I would like you to answer the users' questions using the knowledge above.",
           'If you do not know the answer, please say "I do not know".',
