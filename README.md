@@ -23,6 +23,7 @@
 - 💬 Feedback through [Canny](https://canny.io/).
 - 📝 MDX content through [Contentlayer](https://contentlayer.dev/).
 - 🔔 Notifications provided by [Knock](https://knock.app/).
+- 🔄 Cron jobs provided by Vercel.
 
 ... plus a stack of other features for customization, security and performance.
 
