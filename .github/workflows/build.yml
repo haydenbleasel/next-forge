@@ -11,49 +11,49 @@ env:
   NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
 
   # Resend
-  RESEND_TOKEN: 're_•••••••••••••••••••••••••••••••••'
-  RESEND_FROM: 'noreply@test.com'
+  RESEND_TOKEN: '.'
+  RESEND_FROM: '.'
 
   # PlanetScale
-  DATABASE_URL: '••••••'
+  DATABASE_URL: '.'
 
   # Clerk
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: 'pk_test_••••••••••••••••••••••••••••••••••••••••••'
-  CLERK_SECRET_KEY: 'sk_test_••••••••••••••••••••••••••••••••••••••••••'
-  NEXT_PUBLIC_CLERK_SIGN_IN_URL: '/sign-in'
-  NEXT_PUBLIC_CLERK_SIGN_UP_URL: '/sign-up'
-  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: '/'
-  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: '/'
-  CLERK_WEBHOOK_SECRET: '••••••'
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: '.'
+  CLERK_SECRET_KEY: '.'
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL: '.'
+  NEXT_PUBLIC_CLERK_SIGN_UP_URL: '.'
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: '.'
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: '.'
+  CLERK_WEBHOOK_SECRET: '.'
 
   # BetterStack
-  BETTERSTACK_API_KEY: '••••••••••••••••••••••••'
-  BETTERSTACK_URL: 'https://status.•••••••.com/'
+  BETTERSTACK_API_KEY: '.'
+  BETTERSTACK_URL: '.'
 
   # Canny
-  CANNY_PRIVATE_KEY: '••••••'
+  CANNY_PRIVATE_KEY: '.'
 
   # OpenAI
-  OPENAI_API_KEY: 'sk-••••••••••••••••••••••••••••••••••••••••••••••••'
+  OPENAI_API_KEY: '.'
 
   # Stripe
-  STRIPE_SECRET_KEY: 'sk_test_•••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••'
+  STRIPE_SECRET_KEY: '.'
 
   # Sentry
-  NEXT_PUBLIC_SENTRY_DSN: 'https://••••••••••••••••••••••••••••••••@•••••••••••••••••.ingest.sentry.io/••••••••••••••••'
-  SENTRY_ORG: '••••••'
-  SENTRY_PROJECT: '••••••'
+  NEXT_PUBLIC_SENTRY_DSN: '.'
+  SENTRY_ORG: '.'
+  SENTRY_PROJECT: '.'
 
   # Knock
-  KNOCK_API_KEY: 'sk_test_•••••••'
-  KNOCK_SIGNING_KEY: '•••••••'
+  KNOCK_API_KEY: '.'
+  KNOCK_SIGNING_KEY: '.'
 
   # Google Analytics
-  NEXT_PUBLIC_GA_MEASUREMENT_ID: '••••••'
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: '.'
 
   # Segment
-  NEXT_PUBLIC_SEGMENT_WRITE_KEY: '••••••'
-  SEGMENT_WRITE_KEY: '••••••'
+  NEXT_PUBLIC_SEGMENT_WRITE_KEY: '.'
+  SEGMENT_WRITE_KEY: '.'
 
 # what the action will do
 jobs:
