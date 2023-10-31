@@ -10,3 +10,11 @@ datasource db {
   url          = env("DATABASE_URL")
   relationMode = "prisma"
 }
+
+// This is a stub model.
+// Delete it and add your own Prisma models.
+model Page {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
