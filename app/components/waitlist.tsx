@@ -93,10 +93,7 @@ export const Waitlist: FC = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex items-center gap-2 max-w-lg w-full"
-    >
+    <form onSubmit={handleSubmit} className="flex items-center gap-2 w-full">
       <Input
         type="text"
         name="email"

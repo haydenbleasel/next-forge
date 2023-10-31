@@ -11,6 +11,8 @@ export const Logo: FC = () => (
       height={24}
       className="dark:invert"
     />
-    <p className="text-lg text-black dark:text-white font-medium">next-forge</p>
+    <p className="text-lg text-black dark:text-white font-semibold">
+      next-forge
+    </p>
   </Link>
 );

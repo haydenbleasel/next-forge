@@ -16,7 +16,7 @@ export const Footer: FC = () => (
     )}
   >
     <Container>
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid sm:grid-cols-4 gap-8">
         <div className="flex flex-col items-start gap-8 col-span-2">
           <Logo />
           <Status />

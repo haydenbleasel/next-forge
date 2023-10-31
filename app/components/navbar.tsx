@@ -24,7 +24,7 @@ export const Navbar = async (): Promise<ReactElement> => {
       <Container className="flex items-center gap-8 justify-between">
         <div className="flex items-center gap-4">
           <Logo />
-          <div className="flex items-center">
+          <div className="hidden sm:flex items-center">
             {pages.map(({ name, href }) => (
               <ActiveProvider key={name} href={href}>
                 <Button

@@ -4,10 +4,6 @@ export const pages = [
     href: '/',
   },
   {
-    name: 'Features',
-    href: '/features',
-  },
-  {
     name: 'Blog',
     href: '/blog',
   },
