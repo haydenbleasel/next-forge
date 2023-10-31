@@ -28,45 +28,37 @@ export const createMetadata = ({
   }
 
   const parsedTitle = `${title} | ${applicationName}`;
-
-  const metadata: Metadata = merge(
-    {
+  const defaultMetadata: Metadata = {
+    title: parsedTitle,
+    description,
+    applicationName,
+    authors: [author],
+    creator: author.name,
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
+    formatDetection: {
+      telephone: false,
+    },
+    appleWebApp: {
+      capable: true,
+      statusBarStyle: 'default',
+      title: parsedTitle,
+    },
+    openGraph: {
       title: parsedTitle,
       description,
-      applicationName,
-      authors: [author],
-      creator: author.name,
-      metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
-      formatDetection: {
-        telephone: false,
-      },
-      appleWebApp: {
-        capable: true,
-        statusBarStyle: 'default',
-        title: parsedTitle,
-      },
-      openGraph: {
-        title: parsedTitle,
-        description,
-        type: 'website',
-        siteName: applicationName,
-        locale: 'en_US',
-        url: new URL(path ?? '/', process.env.NEXT_PUBLIC_SITE_URL).toString(),
-      },
-      publisher,
-      twitter: {
-        card: 'summary_large_image',
-        creator: twitterHandle,
-      },
-      viewport: {
-        minimumScale: 1,
-        initialScale: 1,
-        width: 'device-width',
-        viewportFit: 'cover',
-      },
+      type: 'website',
+      siteName: applicationName,
+      locale: 'en_US',
+      url: new URL(path ?? '/', process.env.NEXT_PUBLIC_SITE_URL).toString(),
     },
-    props
-  );
+    publisher,
+    twitter: {
+      card: 'summary_large_image',
+      creator: twitterHandle,
+    },
+  };
+
+  const metadata: Metadata = merge(defaultMetadata, props);
 
   if (image && metadata.openGraph) {
     metadata.openGraph.images = [
