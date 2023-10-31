@@ -1,7 +1,7 @@
 import '@/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { ClerkProvider } from '@clerk/nextjs';
-import { sans, mono } from '@/lib/fonts';
+import { GeistSans, GeistMono } from 'geist/font';
 import { Toaster } from '@/components/ui/toaster';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { ThemeProvider } from '@/providers/theme-provider';
@@ -20,8 +20,8 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
     <html
       lang="en"
       className={cn(
-        sans.variable,
-        mono.variable,
+        GeistSans.variable,
+        GeistMono.variable,
         'antialiased touch-manipulation font-sans'
       )}
     >
