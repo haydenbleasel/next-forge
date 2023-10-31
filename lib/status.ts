@@ -1,3 +1,5 @@
+import 'server-only';
+
 type BetterStackResponse = {
   data: {
     id: string;

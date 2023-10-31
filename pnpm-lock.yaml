@@ -185,6 +185,9 @@ dependencies:
   resend:
     specifier: ^1.1.0
     version: 1.1.0
+  server-only:
+    specifier: ^0.0.1
+    version: 0.0.1
   stripe:
     specifier: ^14.2.0
     version: 14.2.0

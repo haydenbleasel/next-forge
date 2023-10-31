@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { clerkClient, currentUser } from '@clerk/nextjs';
 import Stripe from 'stripe';
 import { parseError } from './error';

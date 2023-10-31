@@ -1,3 +1,5 @@
+import 'server-only';
+
 import { Analytics } from '@segment/analytics-node';
 
 if (!process.env.SEGMENT_WRITE_KEY) {
