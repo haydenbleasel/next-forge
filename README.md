@@ -42,6 +42,7 @@ You will need the following things properly installed on your computer.
 
 - [Node.js](https://nodejs.org/)
 - [pnpm](https://pnpm.io/)
+- [pscale](https://planetscale.com/docs/concepts/planetscale-environment-setup)
 
 ## Usage
 
