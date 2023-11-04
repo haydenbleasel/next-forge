@@ -36,10 +36,39 @@
 3. The project should be **opinionated**. This means that the tooling should be designed to work together, and the project should be designed to work with the tooling. This is important for reducing friction and increasing productivity.
 4. The project should be **modern**. This means that the tooling should be actively maintained, and the project should be designed to take advantage of the latest features. This is important for reducing technical debt and increasing longevity.
 
+## Prerequisites
+
+You will need the following things properly installed on your computer.
+
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+
 ## Usage
 
-1. First, scaffold the app with: `yarn create next-app --example https://github.com/haydenbleasel/next-forge`
-2. Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with `mv .env.example .env`
-3. Update the environment variables in `.env` with your own values.
-4. Update any reference of `/CompanyName/` in the legal docs. You can do this with `grep -rl '/CompanyName/' blog/ | xargs sed -i '' 's|/CompanyName/|Acme|g'`
-5. Run the development server with `yarn dev`, then open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+First, scaffold the app with:
+
+```sh
+pnpm create next-app --example https://github.com/haydenbleasel/next-forge
+```
+
+Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with:
+
+```sh
+mv .env.example .env
+```
+
+Next, update the environment variables in `.env` with your own values.
+
+Then, update any reference of `/CompanyName/` in the legal docs. You can do this with:
+
+```sh
+grep -rl '/CompanyName/' blog/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
+```
+
+Finally, run the development server with:
+
+```sh
+pnpm dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
