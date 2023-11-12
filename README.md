@@ -15,7 +15,8 @@
 - 📀 Database uses [Prisma](https://www.prisma.io/) as the ORM. Can be connected to any supported database — I recommend [PlanetScale](https://planetscale.com/).
 - 📧 Emails templated by [react.email](https://react.email/) and sent using [Resend](https://resend.com/). Additionally, [Loops](https://loops.so/) form for a waitlist.
 - 👨‍👩‍👧‍👦 Authentication provided by [Clerk](https://clerk.com/), which provides a secure, scalable and customizable authentication system.
-- 🟢 Log Drain and Status provided by [BetterStack](https://betterstack.com/).
+- 🟢 Status provided by [BetterStack](https://betterstack.com/).
+- 🪵 Log Drain provided by [Axiom](https://axiom.co/).
 - 🐞 Error capturing provided by [Sentry](https://sentry.io/).
 - 💸 Payments provided by [Stripe](https://stripe.com/).
 - 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).
@@ -24,6 +25,7 @@
 - 📝 MDX content through [Contentlayer](https://contentlayer.dev/).
 - 🔔 Notifications provided by [Knock](https://knock.app/).
 - 🔄 Cron jobs provided by Vercel.
+- 🔠 Font is [Geist](https://vercel.com/font) by Vercel.
 
 ... plus a stack of other features for customization, security and performance.
 
@@ -73,3 +75,7 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+## Deploying
+
+`next-forge` is designed to be deployed on Vercel with the [Axiom](https://vercel.com/integrations/axiom) and [Sentry](https://vercel.com/integrations/sentry) integrations.
