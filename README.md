@@ -26,6 +26,7 @@
 - 🔔 Notifications provided by [Knock](https://knock.app/).
 - 🔄 Cron jobs provided by Vercel.
 - 🔠 Font is [Geist](https://vercel.com/font) by Vercel.
+- 🖖 Drawer is [Vaul](https://vaul.emilkowal.ski/) by Emil Kowalski.
 
 ... plus a stack of other features for customization, security and performance.
 

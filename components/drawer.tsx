@@ -41,6 +41,14 @@ const Title: FC<ComponentProps<typeof Vaul.Title>> = (props) => (
   <Vaul.Title className={cn('font-medium mb-4')} {...props} />
 );
 
+const Description: FC<ComponentProps<typeof Vaul.Description>> = (props) => (
+  <Vaul.Description className={cn('text-sm text-zinc-500')} {...props} />
+);
+
+const Close: FC<ComponentProps<typeof Vaul.Close>> = (props) => (
+  <Vaul.Close className={cn('absolute top-4 right-4')} {...props} />
+);
+
 const Handle: FC<{ readonly className?: string }> = ({ className }) => (
   <div
     className={cn(
@@ -57,5 +65,7 @@ export const Drawer = {
   Content,
   Overlay,
   Title,
+  Description,
+  Close,
   Handle,
 };
