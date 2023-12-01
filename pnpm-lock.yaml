@@ -105,8 +105,8 @@ dependencies:
     specifier: ^0.0.9
     version: 0.0.9
   '@segment/analytics-next':
-    specifier: ^1.59.0
-    version: 1.59.0
+    specifier: ^1.62.0
+    version: 1.62.0
   '@segment/analytics-node':
     specifier: ^1.1.3
     version: 1.1.3
@@ -4162,15 +4162,29 @@ packages:
       tslib: 2.6.2
     dev: false
 
+  /@segment/analytics-core@1.4.0:
+    resolution: {integrity: sha512-rLUv5Se0iDccykxY8bWUuoZT4gg8fNW00zMPqkJN+ONfj5/P1eaGQgygq2EHlR9j20a7tNtp5Y9bZ4rLzViIXQ==}
+    dependencies:
+      '@lukeed/uuid': 2.0.1
+      '@segment/analytics-generic-utils': 1.1.0
+      dset: 3.1.2
+      tslib: 2.6.2
+    dev: false
+
   /@segment/analytics-generic-utils@1.0.0:
     resolution: {integrity: sha512-rAqcIQESnCsc80DMAxH06C4sJQ1MjwRLrWsih9qA2E0XwxydrMYgLA8eazxLW/wqEdctSJHCPnkMynpPIQgatw==}
     dev: false
 
-  /@segment/analytics-next@1.59.0:
-    resolution: {integrity: sha512-1DE95SSJ6pS1t8tshoo5B2qOrzM4ede1JIxXoaiCG475xG5h2bVMXWoKayZ2Hh3vU9te3ZFV/kOMkS32vLDaUA==}
+  /@segment/analytics-generic-utils@1.1.0:
+    resolution: {integrity: sha512-nOgmbfsKD0jFzH3df+PtjLq3qTspdcFpIy/F5ziho5qiE+QATM8wY9TpvCNBbcHr2f3OGzT6SgjJLFlmM5Yb+w==}
+    dev: false
+
+  /@segment/analytics-next@1.62.0:
+    resolution: {integrity: sha512-RuamvHQPVAkwO9/SSd/ioC/fT+4BaWvDlgkCKQi1DHXT4+5HG7bJROIUBgrHDmXEOVavnH7U97BIkZ1tgXEchw==}
     dependencies:
       '@lukeed/uuid': 2.0.1
-      '@segment/analytics-core': 1.3.2
+      '@segment/analytics-core': 1.4.0
+      '@segment/analytics-generic-utils': 1.1.0
       '@segment/analytics.js-video-plugins': 0.2.1
       '@segment/facade': 3.4.10
       '@segment/tsub': 2.0.0
