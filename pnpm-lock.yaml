@@ -192,8 +192,8 @@ dependencies:
     specifier: ^0.0.1
     version: 0.0.1
   stripe:
-    specifier: ^14.3.0
-    version: 14.3.0
+    specifier: ^14.7.0
+    version: 14.7.0
   svix:
     specifier: ^1.14.0
     version: 1.14.0
@@ -13392,8 +13392,8 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /stripe@14.3.0:
-    resolution: {integrity: sha512-R3s+3ONM1XFOTzbMSIML0tixbkuz+gFY/p1h1Qxd9OUftxS8m+rGeBv4ZnvoVhTUwOokArfzQtQlR2Re9XnyQw==}
+  /stripe@14.7.0:
+    resolution: {integrity: sha512-A6XWH76K0K7IgEBz4odIVxjhkdPduSPafZju6ltAFU0oMbWJlfeaDyMTfRJ9vcYA9zqENfwRizExD/2nZ4rQ1A==}
     engines: {node: '>=12.*'}
     dependencies:
       '@types/node': 20.10.1
