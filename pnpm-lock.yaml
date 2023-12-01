@@ -141,8 +141,8 @@ dependencies:
     specifier: ^2.30.0
     version: 2.30.0
   geist:
-    specifier: ^1.0.1
-    version: 1.0.1(next@14.0.1)
+    specifier: ^1.2.0
+    version: 1.2.0(next@14.0.1)
   jsonwebtoken:
     specifier: ^9.0.2
     version: 9.0.2
@@ -8568,8 +8568,8 @@ packages:
     engines: {node: '>=10'}
     dev: false
 
-  /geist@1.0.1(next@14.0.1):
-    resolution: {integrity: sha512-OrEqHRZKXCzB5ezrlOayJvZhDnwyQUXHo+3diSQ1pqroQqfdHlRYSjeHbQDtg2BvuTmCsdku3L0zFOkspXUrcw==}
+  /geist@1.2.0(next@14.0.1):
+    resolution: {integrity: sha512-RZsgCkGnSi1IV1Ozg3s6Ou4r/jzLff9+47ChjpJ5yX8ncEC/RwdStGwhdFzDcnSv0xU0+9J/fTX5Kht0NajTXA==}
     peerDependencies:
       next: ^13.2 || ^14
     dependencies:
