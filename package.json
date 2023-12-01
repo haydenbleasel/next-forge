@@ -14,7 +14,7 @@
     "contentlayer": "npx contentlayer build"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.26.2",
+    "@clerk/nextjs": "^4.27.2",
     "@hookform/resolvers": "^3.3.2",
     "@knocklabs/node": "^0.4.24",
     "@prisma/client": "^5.6.0",
