@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.3.2
     version: 3.3.2(react-hook-form@7.48.2)
   '@knocklabs/node':
-    specifier: ^0.4.24
-    version: 0.4.24
+    specifier: ^0.5.0
+    version: 0.5.0
   '@prisma/client':
     specifier: ^5.6.0
     version: 5.6.0(prisma@5.5.2)
@@ -1879,10 +1879,10 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@knocklabs/node@0.4.24:
-    resolution: {integrity: sha512-sc3kKcbldtWt+CvVZJ5LdHl8JoCTd/8uerNOVVMxDIjgVvqGF2hom3pHZoZGPI48Y5WUMvR0NwtD/uZTGaOUnQ==}
+  /@knocklabs/node@0.5.0:
+    resolution: {integrity: sha512-H6Ru1bTU4v/T7V+/c5CX9IZUeaGOpLVw8FuMZlHotb1k2YivfnCyf1LuAQz7VIHlLDLhVlN7fBsvewUTVYiKrw==}
     dependencies:
-      axios: 0.21.4
+      axios: 1.6.2
       jsonwebtoken: 9.0.2
     transitivePeerDependencies:
       - debug
@@ -6399,10 +6399,12 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios@0.21.4:
-    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
+  /axios@1.6.2:
+    resolution: {integrity: sha512-7i24Ri4pmDRfJTR7LDBhsOTtcm+9kjX5WiY1X3wIisx6G9So3pfMkEiU7emUBe46oceVImccTEM3k6C5dbVW8A==}
     dependencies:
       follow-redirects: 1.15.3
+      form-data: 4.0.0
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
     dev: false
