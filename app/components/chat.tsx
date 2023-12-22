@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import type { FC } from 'react';
-import { Drawer } from '@/components/drawer';
 
 const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -68,22 +68,19 @@ const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {
 export const Chat: FC = () => (
   <>
     <div className="block sm:hidden">
-      <Drawer.Root>
-        <Drawer.Trigger asChild>
+      <Drawer>
+        <DrawerTrigger asChild>
           <div className="fixed bottom-4 right-4">
             <Button size="icon">
               <ChatBubbleIcon />
             </Button>
           </div>
-        </Drawer.Trigger>
-        <Drawer.Portal>
-          <Drawer.Content className="p-0">
-            <div className="absolute top-4 left-0 right-0 mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300" />
-            <ChatInner className="pt-12" />
-          </Drawer.Content>
-          <Drawer.Overlay />
-        </Drawer.Portal>
-      </Drawer.Root>
+        </DrawerTrigger>
+        <DrawerContent className="p-0">
+          <div className="absolute top-4 left-0 right-0 mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300" />
+          <ChatInner className="pt-12" />
+        </DrawerContent>
+      </Drawer>
     </div>
     <div className="hidden sm:block fixed bottom-4 right-4">
       <Popover>

@@ -23,6 +23,7 @@ export const Command: FC = () => {
         onClick={copyCommand}
         type="button"
         className="bg-zinc-900 hover:bg-zinc-800 transition-colors shrink-0 flex items-center justify-center h-[52px] aspect-square border-l border-zinc-800"
+        aria-label="Copy command to clipboard"
       >
         <CopyIcon className="w-4 h-4" />
       </button>
