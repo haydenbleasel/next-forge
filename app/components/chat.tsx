@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui/input';
-import { Drawer } from '@/components/drawer';
 import type { FC } from 'react';
+import { Drawer } from '@/components/drawer';
 
 const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
@@ -78,7 +78,7 @@ export const Chat: FC = () => (
         </Drawer.Trigger>
         <Drawer.Portal>
           <Drawer.Content className="p-0">
-            <Drawer.Handle />
+            <div className="absolute top-4 left-0 right-0 mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300" />
             <ChatInner className="pt-12" />
           </Drawer.Content>
           <Drawer.Overlay />
