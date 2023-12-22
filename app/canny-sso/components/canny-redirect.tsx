@@ -2,14 +2,13 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useEffect } from 'react';
-import { useToast } from '@/components/ui/use-toast';
+import { toast } from 'sonner';
 import type { FC } from 'react';
 
 const CannyRedirect: FC<{
   readonly token: string;
 }> = ({ token }) => {
   const searchParams = useSearchParams();
-  const { toast } = useToast();
 
   useEffect(() => {
     const companyID = searchParams.get('companyID');
@@ -20,7 +19,7 @@ const CannyRedirect: FC<{
       (typeof redirect === 'string' && !redirect.startsWith('https://')) ||
       typeof companyID !== 'string'
     ) {
-      toast({ description: 'Invalid redirect URL' });
+      toast.success('Invalid redirect URL');
       return undefined;
     }
 
@@ -28,7 +27,7 @@ const CannyRedirect: FC<{
 
     window.location.assign(redirectUrl);
     return undefined;
-  }, [searchParams, toast, token]);
+  }, [searchParams, token]);
 
   return (
     <div className="flex h-screen flex-col items-center justify-center">

@@ -2,18 +2,16 @@
 
 import { CopyIcon } from '@radix-ui/react-icons';
 import copy from 'copy-to-clipboard';
-import { useToast } from '@/components/ui/use-toast';
+import { toast } from 'sonner';
 import type { FC } from 'react';
 
 const command =
   'yarn create next-app --example https://github.com/haydenbleasel/next-forge';
 
 export const Command: FC = () => {
-  const { toast } = useToast();
-
   const copyCommand = () => {
     copy(command);
-    toast({ description: 'Copied to clipboard!' });
+    toast.success('Copied to clipboard!');
   };
 
   return (

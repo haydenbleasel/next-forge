@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
+import { toast } from 'sonner';
 import { isValidEmail } from '@/lib/email';
-import { useToast } from '@/components/ui/use-toast';
 import { parseError } from '@/lib/error';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -19,7 +19,6 @@ const ContactForm: FC = () => {
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
   const disabled = loading || !name || !isValidEmail(email) || !message;
-  const { toast } = useToast();
 
   const handleSubmit: FormEventHandler = async (event) => {
     event.preventDefault();
@@ -33,7 +32,7 @@ const ContactForm: FC = () => {
         throw new Error(error);
       }
 
-      toast({ description: 'Message sent!' });
+      toast.success('Message sent!');
 
       setName('');
       setEmail('');
@@ -41,7 +40,7 @@ const ContactForm: FC = () => {
     } catch (error) {
       const errorMessage = parseError(error);
 
-      toast({ description: errorMessage });
+      toast.error(errorMessage);
     } finally {
       setLoading(false);
     }
