@@ -8,6 +8,16 @@ const pages = appFolders
   .filter((file) => file.isDirectory())
   .map((folder) => folder.name);
 
+const blogs = fs
+  .readdirSync('content/blog', { withFileTypes: true })
+  .filter((file) => !file.isDirectory())
+  .map((file) => file.name.replace('.mdx', ''));
+
+const legals = fs
+  .readdirSync('content/legal', { withFileTypes: true })
+  .filter((file) => !file.isDirectory())
+  .map((file) => file.name.replace('.mdx', ''));
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
@@ -16,6 +26,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...pages.map((page) => ({
       url: new URL(page, process.env.NEXT_PUBLIC_SITE_URL).href,
+      lastModified: new Date(),
+    })),
+    ...blogs.map((blog) => ({
+      url: new URL(`blog/${blog}`, process.env.NEXT_PUBLIC_SITE_URL).href,
+      lastModified: new Date(),
+    })),
+    ...legals.map((legal) => ({
+      url: new URL(`legal/${legal}`, process.env.NEXT_PUBLIC_SITE_URL).href,
       lastModified: new Date(),
     })),
   ];
