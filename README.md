@@ -2,7 +2,7 @@
 
 **A production-grade boilerplate for modern Next.js apps.**
 
-<img src="./public/graphic.png" alt="">
+<img src="./app/opengraph-image.png" alt="">
 
 [`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
@@ -15,8 +15,7 @@
 - 📀 Database uses [Prisma](https://www.prisma.io/) as the ORM. Can be connected to any supported database — I recommend [PlanetScale](https://planetscale.com/).
 - 📧 Emails templated by [react.email](https://react.email/) and sent using [Resend](https://resend.com/). Additionally, [Loops](https://loops.so/) form for a waitlist.
 - 👨‍👩‍👧‍👦 Authentication provided by [Clerk](https://clerk.com/), which provides a secure, scalable and customizable authentication system.
-- 🟢 Status provided by [BetterStack](https://betterstack.com/).
-- 🪵 Log Drain provided by [Axiom](https://axiom.co/).
+- 🟢 Log Drain and Status provided by [BetterStack](https://betterstack.com/).
 - 🐞 Error capturing provided by [Sentry](https://sentry.io/).
 - 💸 Payments provided by [Stripe](https://stripe.com/).
 - 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).
@@ -79,4 +78,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Deploying
 
-`next-forge` is designed to be deployed on Vercel with the [Axiom](https://vercel.com/integrations/axiom) and [Sentry](https://vercel.com/integrations/sentry) integrations.
+`next-forge` is designed to be deployed on Vercel with the [BetterStack](https://vercel.com/integrations/betterstack) and [Sentry](https://vercel.com/integrations/sentry) integrations. This will take care of the relevant API keys and tokens.

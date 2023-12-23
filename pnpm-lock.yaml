@@ -14,6 +14,9 @@ dependencies:
   '@knocklabs/node':
     specifier: ^0.5.0
     version: 0.5.0
+  '@logtail/next':
+    specifier: ^0.1.4
+    version: 0.1.4(next@14.0.1)
   '@prisma/client':
     specifier: ^5.6.0
     version: 5.6.0(prisma@5.5.2)
@@ -158,9 +161,6 @@ dependencies:
   next:
     specifier: 14.0.1
     version: 14.0.1(@babel/core@7.23.0)(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
-  next-axiom:
-    specifier: ^1.1.0
-    version: 1.1.0(next@14.0.1)(react@18.2.0)
   next-contentlayer:
     specifier: ^0.3.4
     version: 0.3.4(contentlayer@0.3.4)(esbuild@0.19.4)(next@14.0.1)(react-dom@18.2.0)(react@18.2.0)
@@ -1908,6 +1908,16 @@ packages:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.1.2
+    dev: false
+
+  /@logtail/next@0.1.4(next@14.0.1):
+    resolution: {integrity: sha512-pqNqeZAJwUn99+w4ywjCd1j2AP/B3/gCUFJwC0L+7GiQz9n6AiqK3vomPJ1jnTWc6m0pqsWkoTt1TShnfEpUBQ==}
+    engines: {node: '>=15'}
+    peerDependencies:
+      next: ^12.1.4 || ^13 || ^14
+    dependencies:
+      next: 14.0.1(@babel/core@7.23.0)(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
+      whatwg-fetch: 3.6.19
     dev: false
 
   /@lukeed/csprng@1.1.0:
@@ -11277,18 +11287,6 @@ packages:
     resolution: {integrity: sha512-0fsVvQPbo2I18DT2zVHpezmeeNYV2JaJSrseiHLc17GNOxJzUdx5mvSigPu8LtIfZSij5i1wXnXFspEs2CD6hA==}
     dependencies:
       '@segment/isodate': 1.0.3
-    dev: false
-
-  /next-axiom@1.1.0(next@14.0.1)(react@18.2.0):
-    resolution: {integrity: sha512-/Fh8MOM7gzeR58SA0HfF2ZyNp4WY3cv0hbH3XW3e0u3FG4IGPfFoRuNtpWx3qv4YCqm3jmoR3CVP/dc0VF6xMQ==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      next: '>=13.4'
-      react: '>=18.0.0'
-    dependencies:
-      next: 14.0.1(@babel/core@7.23.0)(@opentelemetry/api@1.6.0)(react-dom@18.2.0)(react@18.2.0)
-      react: 18.2.0
-      whatwg-fetch: 3.6.19
     dev: false
 
   /next-contentlayer@0.3.4(contentlayer@0.3.4)(esbuild@0.19.4)(next@14.0.1)(react-dom@18.2.0)(react@18.2.0):

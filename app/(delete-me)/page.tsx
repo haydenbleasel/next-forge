@@ -3,6 +3,7 @@ import { createMetadata } from '@/lib/metadata';
 import { Container } from '@/components/container';
 import { Chat } from '../components/chat';
 import { Waitlist } from '../components/waitlist';
+import Graphic from '../opengraph-image.png';
 import { Command } from './components/command';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
@@ -41,11 +42,12 @@ const Hero: FC = () => (
       <Waitlist />
     </div>
     <Image
-      src="/graphic.png"
+      src={Graphic}
       width={2160}
       height={1136}
       alt=""
       className="mt-8 rounded ring-1 ring-black/10 overflow-hidden"
+      placeholder="blur"
     />
   </Container>
 );

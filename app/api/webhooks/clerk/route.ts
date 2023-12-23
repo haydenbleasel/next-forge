@@ -1,5 +1,6 @@
 import { Webhook } from 'svix';
 import { headers } from 'next/headers';
+import { log } from '@logtail/next';
 import type { WebhookEvent } from '@clerk/nextjs/server';
 
 export const POST = async (req: Request): Promise<Response> => {
@@ -39,7 +40,7 @@ export const POST = async (req: Request): Promise<Response> => {
       'svix-signature': svix_signature,
     }) as WebhookEvent;
   } catch (error) {
-    console.error('Error verifying webhook:', error);
+    log.error('Error verifying webhook:', { error });
     return new Response('Error occured', {
       status: 400,
     });
@@ -49,8 +50,7 @@ export const POST = async (req: Request): Promise<Response> => {
   const { id } = event.data;
   const eventType = event.type;
 
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log('Webhook body:', body);
+  log.info('Webhook', { id, eventType, body });
 
   return new Response('', { status: 201 });
 };

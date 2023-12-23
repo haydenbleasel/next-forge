@@ -2,7 +2,7 @@ import { createSecureHeaders } from 'next-secure-headers';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
 import { createContentlayerPlugin } from 'next-contentlayer';
-import { withAxiom } from 'next-axiom';
+import { withLogtail } from '@logtail/next';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -85,7 +85,7 @@ const sentryOptions = {
 };
 
 // eslint-disable-next-line import/no-mutable-exports
-let config = withAxiom(withContentlayer(nextConfig));
+let config = withLogtail(withContentlayer(nextConfig));
 
 if (process.env.VERCEL) {
   config = withSentryConfig(

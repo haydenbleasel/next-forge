@@ -1,6 +1,8 @@
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
+import { log } from '@logtail/next';
 import { stripe } from '@/lib/stripe';
+import { parseError } from '@/lib/error';
 
 const secret = process.env.STRIPE_WEBHOOK_SECRET ?? '';
 
@@ -17,21 +19,24 @@ export const POST = async (req: Request): Promise<Response> => {
 
     switch (event.type) {
       case 'checkout.session.completed':
-        console.log('checkout.session.completed');
+        log.info('checkout.session.completed');
         break;
       case 'payment_intent.succeeded':
-        console.log('payment_intent.succeeded');
+        log.info('payment_intent.succeeded');
         break;
       case 'payment_intent.payment_failed':
-        console.log('payment_intent.payment_failed');
+        log.info('payment_intent.payment_failed');
         break;
       default:
-        console.warn(`Unhandled event type ${event.type}`);
+        log.warn(`Unhandled event type ${event.type}`);
     }
 
     return NextResponse.json({ result: event, ok: true });
   } catch (error) {
-    console.error(error);
+    const message = parseError(error);
+
+    log.error(message);
+
     return NextResponse.json(
       {
         message: 'something went wrong',
