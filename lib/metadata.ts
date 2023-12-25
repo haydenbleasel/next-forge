@@ -19,14 +19,9 @@ const twitterHandle = '@haydenbleasel';
 export const createMetadata = ({
   title,
   description,
-  path,
   image,
   ...props
 }: MetadataGenerator): Metadata => {
-  if (!process.env.NEXT_PUBLIC_SITE_URL) {
-    throw new Error('NEXT_PUBLIC_SITE_URL is not defined');
-  }
-
   const parsedTitle = `${title} | ${applicationName}`;
   const defaultMetadata: Metadata = {
     title: parsedTitle,
@@ -34,7 +29,6 @@ export const createMetadata = ({
     applicationName,
     authors: [author],
     creator: author.name,
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
     formatDetection: {
       telephone: false,
     },
@@ -49,7 +43,6 @@ export const createMetadata = ({
       type: 'website',
       siteName: applicationName,
       locale: 'en_US',
-      url: new URL(path ?? '/', process.env.NEXT_PUBLIC_SITE_URL).toString(),
     },
     publisher,
     twitter: {

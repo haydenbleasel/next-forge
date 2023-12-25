@@ -14,7 +14,7 @@ import type { FC } from 'react';
 const title = 'Blog';
 const description = 'Thoughts, ideas, and opinions.';
 
-export const metadata = createMetadata({ title, description, path: '/blog' });
+export const metadata = createMetadata({ title, description });
 
 const Blog: FC = () => (
   <main className="relative py-16">

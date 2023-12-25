@@ -11,7 +11,6 @@ const description =
 export const metadata: Metadata = createMetadata({
   title,
   description,
-  path: '/contact',
 });
 
 const Contact: FC = () => (

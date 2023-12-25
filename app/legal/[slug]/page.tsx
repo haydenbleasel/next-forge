@@ -31,7 +31,6 @@ export const generateMetadata = ({ params }: LegalPageProps): Metadata => {
   return createMetadata({
     title: doc.title,
     description: doc.description,
-    path: `/blog/${doc.slug}`,
     image: doc.image,
   });
 };
