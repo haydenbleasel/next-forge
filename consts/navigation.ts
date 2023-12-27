@@ -23,11 +23,11 @@ export const legal = [
     href: '/legal/terms',
   },
   {
-    name: 'Cookie Policy',
-    href: '/legal/cookies',
+    name: 'Acceptable Use Policy',
+    href: '/legal/acceptable-use',
   },
   {
-    name: 'Accessibility Statement',
-    href: '/legal/accessibility',
+    name: 'Data Security Policy',
+    href: '/legal/data-security',
   },
 ];
