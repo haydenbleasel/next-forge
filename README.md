@@ -64,7 +64,7 @@ Next, update the environment variables in `.env` with your own values.
 Then, update any reference of `/CompanyName/` in the legal docs. You can do this with:
 
 ```sh
-grep -rl '/CompanyName/' blog/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
+grep -rl '/CompanyName/' content/legal/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
 ```
 
 Finally, run the development server with:
