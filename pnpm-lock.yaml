@@ -189,8 +189,8 @@ dependencies:
     specifier: ^7.49.2
     version: 7.49.2(react@18.2.0)
   react-resizable-panels:
-    specifier: ^1.0.5
-    version: 1.0.5(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.0.7
+    version: 1.0.7(react-dom@18.2.0)(react@18.2.0)
   react-wrap-balancer:
     specifier: ^1.1.0
     version: 1.1.0(react@18.2.0)
@@ -12363,8 +12363,8 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.45)(react@18.2.0)
     dev: false
 
-  /react-resizable-panels@1.0.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-OP0whNQCko+f4BgoptGaeIc7StBRyeMeJ+8r/7rXACBDf9W5EcMWuM32hfqPDMenS2HFy/eZVi/r8XqK+ZIEag==}
+  /react-resizable-panels@1.0.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-CluJkHQheeNqIJly2FYDfri3ME+2h2nCXpf0Y+hTO1K1eVtNxXFA5hVp5cUD6NS70iiufswOmnku9QZiLr1hYg==}
     peerDependencies:
       react: ^16.14.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.14.0 || ^17.0.0 || ^18.0.0
