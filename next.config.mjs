@@ -43,6 +43,19 @@ const nextConfig = {
   },
 };
 
+if (process.env.NODE_ENV === 'production') {
+  nextConfig.rewrites = async () => [
+    {
+      source: '/segment-cdn/:path*',
+      destination: 'https://cdn.segment.com/:path*',
+    },
+    {
+      source: '/segment-api/:path*',
+      destination: 'https://api.segment.io/:path*',
+    },
+  ];
+}
+
 const withContentlayer = createContentlayerPlugin({
   // Additional Contentlayer config options
 });
