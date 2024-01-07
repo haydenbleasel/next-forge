@@ -44,6 +44,7 @@ You will need the following things properly installed on your computer.
 - [Node.js](https://nodejs.org/)
 - [pnpm](https://pnpm.io/)
 - [pscale](https://planetscale.com/docs/concepts/planetscale-environment-setup)
+- [Stripe CLI](https://stripe.com/docs/stripe-cli)
 
 ## Usage
 
@@ -65,6 +66,18 @@ Then, update any reference of `/CompanyName/` in the legal docs. You can do this
 
 ```sh
 grep -rl '/CompanyName/' content/legal/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
+```
+
+Login to Stripe with:
+
+```sh
+stripe login
+```
+
+Login to Planetscale with
+
+```sh
+pscale auth login
 ```
 
 Finally, run the development server with:
