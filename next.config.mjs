@@ -101,7 +101,7 @@ let config = withLogtail(withContentlayer(nextConfig));
 
 if (process.env.VERCEL) {
   config = withSentryConfig(
-    withContentlayer(nextConfig),
+    config,
     userSentryWebpackPluginOptions,
     sentryOptions
   );
