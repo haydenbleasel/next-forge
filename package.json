@@ -15,7 +15,7 @@
     "stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.1",
+    "@clerk/nextjs": "^4.29.3",
     "@hookform/resolvers": "^3.3.3",
     "@knocklabs/node": "^0.5.0",
     "@logtail/next": "^0.1.4",
