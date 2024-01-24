@@ -2,12 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  min-width: 0;
+}
+
 html {
   text-rendering: optimizelegibility;
 }
 
-/* https://github.com/vercel/geist-font/issues/65#issuecomment-1837402864 */
-html,
 body {
-  font-synthesis-weight: none;
+  min-height: 100dvh;
 }
