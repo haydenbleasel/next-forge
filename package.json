@@ -12,7 +12,8 @@
     "postinstall": "prisma generate",
     "email": "email dev --port 3005",
     "contentlayer": "npx contentlayer build",
-    "stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe"
+    "stripe": "stripe listen --forward-to localhost:3000/api/webhooks/stripe",
+    "update": "npx npm-check-updates -u && pnpm install && npx shadcn-ui@latest add --all --overwrite"
   },
   "dependencies": {
     "@clerk/nextjs": "^4.29.5",
