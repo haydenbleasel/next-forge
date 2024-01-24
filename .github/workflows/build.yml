@@ -15,6 +15,7 @@ env:
   # Resend
   RESEND_TOKEN: '.'
   RESEND_FROM: '.'
+  RESEND_AUDIENCE_ID: '.'
 
   # PlanetScale
   DATABASE_URL: '.'

@@ -1,16 +1,10 @@
 'use server';
 
-import { Resend } from 'resend';
 import { render } from '@react-email/render';
 import { ContactTemplate as template } from '@/emails/contact';
 import { parseError } from '@/lib/error';
+import { resend } from '@/lib/resend';
 import type { ReactElement } from 'react';
-
-if (!process.env.RESEND_TOKEN) {
-  throw new Error('RESEND_TOKEN environment variable is not set');
-}
-
-const resend = new Resend(process.env.RESEND_TOKEN);
 
 export const contact = async (
   name: string,
