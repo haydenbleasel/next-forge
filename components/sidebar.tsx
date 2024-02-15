@@ -46,7 +46,7 @@ export const Sidebar: FC<SidebarProps> = ({ doc }) => {
                     href={item.url}
                     className={twMerge(
                       'flex rounded-sm text-sm underline decoration-white/0 transition-colors hover:decoration-white/50',
-                      'line-clamp-3 text-white'
+                      'line-clamp-3 text-black dark:text-white'
                     )}
                   >
                     {item.value}
