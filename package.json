@@ -16,7 +16,7 @@
     "update": "npx npm-check-updates -u && pnpm install && npx shadcn-ui@latest add --all --overwrite"
   },
   "dependencies": {
-    "@clerk/nextjs": "^4.29.6",
+    "@clerk/nextjs": "^4.29.8",
     "@hookform/resolvers": "^3.3.4",
     "@knocklabs/node": "^0.6.1",
     "@logtail/next": "^0.1.4",
