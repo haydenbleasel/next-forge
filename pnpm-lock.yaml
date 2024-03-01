@@ -15,8 +15,8 @@ dependencies:
     specifier: ^0.6.1
     version: 0.6.1
   '@logtail/next':
-    specifier: ^0.1.4
-    version: 0.1.4(next@14.1.0)
+    specifier: ^0.1.5
+    version: 0.1.5(next@14.1.0)
   '@prisma/client':
     specifier: ^5.10.2
     version: 5.10.2(prisma@5.9.1)
@@ -1750,8 +1750,8 @@ packages:
       '@lit-labs/ssr-dom-shim': 1.1.2
     dev: false
 
-  /@logtail/next@0.1.4(next@14.1.0):
-    resolution: {integrity: sha512-pqNqeZAJwUn99+w4ywjCd1j2AP/B3/gCUFJwC0L+7GiQz9n6AiqK3vomPJ1jnTWc6m0pqsWkoTt1TShnfEpUBQ==}
+  /@logtail/next@0.1.5(next@14.1.0):
+    resolution: {integrity: sha512-J8m9jGdcGjYfKEbB1pdQj9iaBq9eNtHtqNcrHStjGI1LPiGREwk+HnnpM12yS6teiwlQepcXJDtQ8fk1QHg+jw==}
     engines: {node: '>=15'}
     peerDependencies:
       next: ^12.1.4 || ^13 || ^14
