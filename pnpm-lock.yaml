@@ -12,8 +12,8 @@ dependencies:
     specifier: ^3.3.4
     version: 3.3.4(react-hook-form@7.51.0)
   '@knocklabs/node':
-    specifier: ^0.6.4
-    version: 0.6.4
+    specifier: ^0.6.7
+    version: 0.6.7
   '@logtail/next':
     specifier: ^0.1.5
     version: 0.1.5(next@14.1.2)
@@ -1737,8 +1737,9 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@knocklabs/node@0.6.4:
-    resolution: {integrity: sha512-feO5tHZxwcl5dkjVhuJPMa3PLZFBIqeLWfwPahyVxFQClxVVLCa1wRNSjqWZd0q5khwOL50rrd610jFbwr4vdg==}
+  /@knocklabs/node@0.6.7:
+    resolution: {integrity: sha512-bKpN9GLIFQBhACRjWcCfnLgvFQLXTXSHtHaScl6k/uraV5QfwiLt8n0a7AL4cHCo+yjT9yYgWgmN/yJmNET4NA==}
+    engines: {node: '>=17.5.0'}
     dependencies:
       jose: 5.2.0
     dev: false
