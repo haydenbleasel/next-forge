@@ -230,8 +230,8 @@ dependencies:
 
 devDependencies:
   '@next/bundle-analyzer':
-    specifier: ^14.1.2
-    version: 14.1.2
+    specifier: ^14.1.4
+    version: 14.1.4
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
@@ -1822,8 +1822,8 @@ packages:
       - supports-color
     dev: false
 
-  /@next/bundle-analyzer@14.1.2:
-    resolution: {integrity: sha512-d/fjpUtW5iUQV6cHkrnBDyEK/yabmrk6jl05Evz9te0JG4AYNfQnBfXkzAlHaCkmXJ1YkCuo/LgduVQ05JRoHQ==}
+  /@next/bundle-analyzer@14.1.4:
+    resolution: {integrity: sha512-IpF/18HcAOcfHRr24tqPOUpMmVKIqvkCxIubMeRYWCXs3jm7niPGrt8Mu74yMDzfGlUwgQA6Xd6BUc5+jQxcEg==}
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
