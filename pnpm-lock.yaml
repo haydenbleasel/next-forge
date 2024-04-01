@@ -123,8 +123,8 @@ dependencies:
     specifier: ^1.2.2
     version: 1.2.2(next@14.1.4)(react@18.2.0)
   ai:
-    specifier: ^3.0.5
-    version: 3.0.5(react@18.2.0)(solid-js@1.7.12)(svelte@4.2.1)(vue@3.3.4)(zod@3.22.4)
+    specifier: ^3.0.16
+    version: 3.0.16(react@18.2.0)(solid-js@1.7.12)(svelte@4.2.1)(vue@3.3.4)(zod@3.22.4)
   class-variance-authority:
     specifier: ^0.7.0
     version: 0.7.0
@@ -6491,8 +6491,8 @@ packages:
       indent-string: 4.0.0
     dev: false
 
-  /ai@3.0.5(react@18.2.0)(solid-js@1.7.12)(svelte@4.2.1)(vue@3.3.4)(zod@3.22.4):
-    resolution: {integrity: sha512-JYNq2E3lBEiAegwIw6maxqMA092MKq3Ko/XYsfKkJ+BFOHdFKibbwznZkbY6S79mIjz2YOzuZBx15q7olb50Hg==}
+  /ai@3.0.16(react@18.2.0)(solid-js@1.7.12)(svelte@4.2.1)(vue@3.3.4)(zod@3.22.4):
+    resolution: {integrity: sha512-P6GGUYbE8PDUVeGT9D7tT9nF7lufDjbieZ97YVIVL/eZkGcfXQMvJleO1VzJ1eutoI8f5Llazmhg4K66Gs5q3Q==}
     engines: {node: '>=14.6'}
     peerDependencies:
       react: ^18.2.0
@@ -6512,10 +6512,11 @@ packages:
       zod:
         optional: true
     dependencies:
-      eventsource-parser: 1.0.0
+      eventsource-parser: 1.1.2
       jsondiffpatch: 0.6.0
       nanoid: 3.3.6
       react: 18.2.0
+      secure-json-parse: 2.7.0
       solid-js: 1.7.12
       solid-swr-store: 0.10.7(solid-js@1.7.12)(swr-store@0.10.6)
       sswr: 2.0.0(svelte@4.2.1)
@@ -8737,8 +8738,8 @@ packages:
     engines: {node: '>=0.8.x'}
     dev: false
 
-  /eventsource-parser@1.0.0:
-    resolution: {integrity: sha512-9jgfSCa3dmEme2ES3mPByGXfgZ87VbP97tng1G2nWwWx6bV2nYxm2AWCrbQjXToSe+yYlqaZNtxffR9IeQr95g==}
+  /eventsource-parser@1.1.2:
+    resolution: {integrity: sha512-v0eOBUbiaFojBu2s2NPBfYUoRR9GjcDNvCXVaqEf5vVfpIAh9f8RCo4vXTP8c63QRKCFwoLpMpTdPwwhEKVgzA==}
     engines: {node: '>=14.18'}
     dev: false
 
@@ -13524,6 +13525,10 @@ packages:
     dependencies:
       extend-shallow: 2.0.1
       kind-of: 6.0.3
+    dev: false
+
+  /secure-json-parse@2.7.0:
+    resolution: {integrity: sha512-6aU+Rwsezw7VR8/nyvKTx8QpWH9FrcYiXXlqC4z5d5XQBDRqtbfsRjnwGyqbi3gddNtWHuEk9OANUotL26qKUw==}
     dev: false
 
   /selderee@0.11.0:
