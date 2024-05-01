@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"pnpm run dev:planetscale\" \"pnpm run dev:studio\"",
     "dev:studio": "prisma studio --browser=none",
-    "dev:planetscale": "pscale connect eververse dev --port 3309",
+    "dev:planetscale": "pscale connect [database] dev --port 3309",
     "db:generate": "prisma generate"
   },
   "dependencies": {
