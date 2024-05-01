@@ -3,17 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "library.js",
-    "next.js",
-    "react-internal.js"
+    "index.mjs"
   ],
   "devDependencies": {
-    "@vercel/style-guide": "^5.2.0",
-    "eslint-config-turbo": "^1.12.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-only-warn": "^1.1.0",
-    "@typescript-eslint/parser": "^7.1.0",
-    "@typescript-eslint/eslint-plugin": "^7.1.0",
-    "typescript": "^5.3.3"
+    "eslint": "^8.55.0",
+    "eslint-config-harmony": "^3.1.9",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.3.1",
+    "typescript": "^5.4.5"
   }
 }
