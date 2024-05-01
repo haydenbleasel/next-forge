@@ -1,5 +1,5 @@
-import { createMetadata } from '@/lib/metadata';
-import { Container } from '@/components/container';
+import { createMetadata } from '@repo/design-system/lib/metadata';
+import { Container } from '@repo/design-system/components/container';
 import ContactForm from './components/contact-form';
 import type { Metadata } from 'next';
 import type { FC } from 'react';

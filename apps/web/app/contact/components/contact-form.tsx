@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { isValidEmail } from '@/lib/email';
-import { parseError } from '@/lib/error';
+import { isValidEmail } from '@repo/design-system/lib/email';
+import { parseError } from '@repo/design-system/lib/error';
 import { Input } from '@repo/design-system/components/ui/input';
 import { Textarea } from '@repo/design-system/components/ui/textarea';
 import { Button } from '@repo/design-system/components/ui/button';

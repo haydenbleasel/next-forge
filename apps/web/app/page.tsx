@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
+import { Logo } from '@repo/design-system/components/logo';
 import { Waitlist } from '@/components/waitlist';
 import { Command } from '@/components/command';
 import Graphic from './opengraph-image.png';
@@ -15,13 +16,7 @@ export const metadata: Metadata = createMetadata({ title, description });
 
 const Hero: FC = () => (
   <Container className="flex flex-col gap-4 sm:text-center sm:items-center">
-    <Image
-      src="/logo.svg"
-      alt=""
-      width={64}
-      height={64}
-      className="dark:invert sm:mx-auto"
-    />
+    <Logo className="w-16 h-16" />
     <h1 className="mt-8 scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl xl:text-6xl max-w-2xl sm:mx-auto">
       {title}
     </h1>
