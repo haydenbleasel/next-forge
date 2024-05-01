@@ -9,6 +9,12 @@ import { Logo } from '@repo/design-system/components/logo';
 import { pages } from '@/lib/consts';
 import type { ReactElement } from 'react';
 
+if (!process.env.APP_URL) {
+  throw new Error('APP_URL env variable is required');
+}
+
+const signInUrl = new URL('/sign-in', process.env.APP_URL).toString();
+
 export const Navbar = async (): Promise<ReactElement> => {
   const user = await currentUser();
 
@@ -42,7 +48,7 @@ export const Navbar = async (): Promise<ReactElement> => {
             <UserButton afterSignOutUrl="/" />
           ) : (
             <Button asChild>
-              <Link href="/sign-in">Login</Link>
+              <Link href={signInUrl}>Login</Link>
             </Button>
           )}
         </div>

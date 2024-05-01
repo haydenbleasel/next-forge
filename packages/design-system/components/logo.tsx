@@ -21,7 +21,7 @@ export const Logomark: FC<{ readonly className?: string }> = ({
       clip-rule="evenodd"
       d="m150 0h-150l150 150h-150l150 150h150l-150-150h150z"
       fill="#000"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     />
   </svg>
 );

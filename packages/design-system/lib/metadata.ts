@@ -7,7 +7,7 @@ type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
   image?: string;
 };
 
-const applicationName = 'Eververse';
+const applicationName = 'next-forge';
 const author: Metadata['authors'] = {
   name: 'Hayden Bleasel',
   url: 'https://haydenbleasel.com/',
