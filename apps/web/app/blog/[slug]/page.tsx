@@ -3,11 +3,11 @@ import Link from 'next/link';
 import Balancer from 'react-wrap-balancer';
 import Image from 'next/image';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import { createMetadata } from '@repo/design-system/lib/metadata';
+import { Container } from '@repo/design-system/components/container';
 import { allBlogs } from '@contentlayer/generated';
-import { createMetadata } from '@/lib/metadata';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
-import { Container } from '@/components/container';
 import type { FC } from 'react';
 import type { Metadata } from 'next';
 

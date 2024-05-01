@@ -1,20 +1,21 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { allBlogs } from '@contentlayer/generated';
-import { createMetadata } from '@/lib/metadata';
+import { createMetadata } from '@repo/design-system/lib/metadata';
 import {
   Card,
   CardDescription,
   CardHeader,
   CardTitle,
 } from '@repo/design-system/components/ui/card';
-import { Container } from '@/components/container';
+import { Container } from '@repo/design-system/components/container';
+import { allBlogs } from '@contentlayer/generated';
+import type { Metadata } from 'next';
 import type { FC } from 'react';
 
 const title = 'Blog';
 const description = 'Thoughts, ideas, and opinions.';
 
-export const metadata = createMetadata({ title, description });
+export const metadata: Metadata = createMetadata({ title, description });
 
 const Blog: FC = () => (
   <main className="relative py-16">

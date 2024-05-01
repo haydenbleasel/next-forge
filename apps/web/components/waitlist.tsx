@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import { toast } from 'sonner';
-import { isValidEmail } from '@/lib/email';
 import { Input } from '@repo/design-system/components/ui/input';
 import { Button } from '@repo/design-system/components/ui/button';
-import { parseError } from '@/lib/error';
+import { parseError } from '@repo/design-system/lib/error';
+import { isValidEmail } from '@repo/design-system/lib/email';
 import { subscribe } from '../actions/subscribe';
 import type { FC, FormEventHandler } from 'react';
 

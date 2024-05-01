@@ -1,10 +1,10 @@
 'use server';
 
 import { render } from '@react-email/render';
+import type { ReactElement } from 'react';
 import { ContactTemplate as template } from '@/emails/contact';
 import { parseError } from '@/lib/error';
 import { resend } from '@/lib/resend';
-import type { ReactElement } from 'react';
 
 export const contact = async (
   name: string,

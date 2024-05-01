@@ -7,8 +7,8 @@ import { Toaster } from '@repo/design-system/components/ui/sonner';
 import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { DesignSystemProvider } from '@repo/design-system/provider';
 import { cn } from '@repo/design-system/lib/utils';
-import { Navbar } from './components/navbar';
-import { Footer } from './components/footer';
+import { Navbar } from '../components/navbar';
+import { Footer } from '../components/footer';
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
 
