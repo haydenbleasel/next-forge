@@ -11,6 +11,7 @@ on:
 env:
   # Next.js
   NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
+  APP_URL: 'http://localhost:3000'
 
   # Resend
   RESEND_TOKEN: '.'

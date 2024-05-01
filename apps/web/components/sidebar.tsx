@@ -2,14 +2,17 @@ import { twMerge } from 'tailwind-merge';
 import { formatDate } from '@repo/design-system/lib/format';
 import type { FC } from 'react';
 import type { Blog, Legal } from '@/.contentlayer/generated';
-import type { Toc } from 'contentlayer-datapad';
 
 type SidebarProps = {
   readonly doc: Blog | Legal;
 };
 
 export const Sidebar: FC<SidebarProps> = ({ doc }) => {
-  const toc = doc.toc as Toc;
+  const toc = doc.toc as unknown as {
+    value: string;
+    url: string;
+    depth: number;
+  }[];
 
   return (
     <div

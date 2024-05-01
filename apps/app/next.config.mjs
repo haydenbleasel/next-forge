@@ -22,15 +22,6 @@ const nextConfig = {
       },
     ];
   },
-  redirects() {
-    return [
-      {
-        source: '/legal',
-        destination: '/legal/privacy',
-        permanent: true,
-      },
-    ];
-  },
 };
 
 if (process.env.NODE_ENV === 'production') {
