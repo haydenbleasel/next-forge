@@ -2,6 +2,7 @@
 
 import { CopyIcon, CheckIcon } from '@radix-ui/react-icons';
 import { useCopyToClipboard } from '@repo/design-system/hooks/use-copy-to-clipboard';
+import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 
 const command =
@@ -17,8 +18,14 @@ export const Command: FC = () => {
       <button
         onClick={() => copyToClipboard(command)}
         type="button"
-        className="bg-zinc-900 hover:bg-zinc-800 transition-colors shrink-0 flex items-center justify-center h-[52px] aspect-square border-l border-zinc-800"
+        className={cn(
+          'transition-colors shrink-0 flex items-center justify-center h-[52px] aspect-square border-l',
+          'bg-zinc-900 border-zinc-800',
+          'disabled:opacity-50 disabled:cursor-not-allowed',
+          !isCopied && 'hover:bg-zinc-800'
+        )}
         aria-label="Copy command to clipboard"
+        disabled={isCopied}
       >
         <Icon className="w-4 h-4" />
       </button>
