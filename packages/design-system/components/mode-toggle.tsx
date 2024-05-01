@@ -3,13 +3,13 @@
 import { MoonIcon, SunIcon } from '@radix-ui/react-icons';
 import { useTheme } from 'next-themes';
 
-import { Button } from '@repo/design-system/components/ui/button';
+import { Button } from './ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@repo/design-system/components/ui/dropdown-menu';
+} from './ui/dropdown-menu';
 import type { FC } from 'react';
 
 export const ModeToggle: FC = () => {
