@@ -1,15 +1,12 @@
-import '@/styles/globals.css';
+import '@repo/design-system/styles/globals.css';
 import { Analytics } from '@vercel/analytics/react';
 import { ClerkProvider } from '@clerk/nextjs';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { Toaster } from '@repo/design-system/components/ui/sonner';
 import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
-import { ThemeProvider } from '@/providers/theme-provider';
-import { cn } from '@/lib/utils';
-import { GoogleAnalytics } from '@/components/google-analytics';
-import { Navbar } from './components/navbar';
-import { Footer } from './components/footer';
+import { DesignSystemProvider } from '@repo/design-system/provider';
+import { cn } from '@repo/design-system/lib/utils';
 import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
 
@@ -36,21 +33,11 @@ const RootLayout: FC<RootLayoutProps> = ({ children }) => (
       )}
     >
       <body className="bg-zinc-100 dark:bg-zinc-950">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <TooltipProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </TooltipProvider>
-        </ThemeProvider>
+        <DesignSystemProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </DesignSystemProvider>
         <Toaster />
         <Analytics />
-        <GoogleAnalytics />
       </body>
     </html>
   </ClerkProvider>

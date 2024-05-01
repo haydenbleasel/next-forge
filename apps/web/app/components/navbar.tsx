@@ -3,12 +3,10 @@ import { currentUser } from '@clerk/nextjs/server';
 import Link from 'next/link';
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import { Button } from '@repo/design-system/components/ui/button';
-import { Notifications } from '@repo/design-system/components/notifications';
-import { ActiveProvider } from '@/providers/active-provider';
-import { pages } from '@/consts/navigation';
 import { Container } from '@repo/design-system/components/container';
 import { cn } from '@repo/design-system/lib/utils';
-import { Logo } from './logo';
+import { Logo } from '@repo/design-system/components/logo';
+import { pages } from '@/lib/consts';
 import type { ReactElement } from 'react';
 
 export const Navbar = async (): Promise<ReactElement> => {
@@ -27,21 +25,19 @@ export const Navbar = async (): Promise<ReactElement> => {
           <Logo />
           <div className="hidden sm:flex items-center">
             {pages.map(({ name, href }) => (
-              <ActiveProvider key={name} href={href}>
-                <Button
-                  asChild
-                  variant="link"
-                  className="group-[.active-page]:underline"
-                >
-                  <Link href={href}>{name}</Link>
-                </Button>
-              </ActiveProvider>
+              <Button
+                key={name}
+                asChild
+                variant="link"
+                className="group-[.active-page]:underline"
+              >
+                <Link href={href}>{name}</Link>
+              </Button>
             ))}
           </div>
         </div>
         <div className="flex items-center gap-2">
           <ModeToggle />
-          <Notifications />
           {user ? (
             <UserButton afterSignOutUrl="/" />
           ) : (

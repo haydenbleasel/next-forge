@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import { Status } from '@repo/design-system/components/status';
-import { legal, pages } from '@/consts/navigation';
 import { Container } from '@repo/design-system/components/container';
 import { Logo } from '@repo/design-system/components/logo';
 import { cn } from '@repo/design-system/lib/utils';
+import { legal, pages } from '@/lib/consts';
 import type { FC } from 'react';
 
 export const Footer: FC = () => (
