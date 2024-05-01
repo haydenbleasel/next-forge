@@ -4,7 +4,7 @@ import { useState } from 'react';
 import dynamic from 'next/dynamic';
 import type { FC } from 'react';
 import type { ReactPlayerProps } from 'react-player';
-import { cn } from '@/lib/utils';
+import { cn } from '~/lib/utils';
 
 const Placeholder: FC<{ readonly className?: string }> = ({ className }) => (
   <div

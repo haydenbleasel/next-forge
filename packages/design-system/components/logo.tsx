@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 
 type LogoProps = {
@@ -10,7 +10,7 @@ export const Logomark: FC<{ readonly className?: string }> = ({
   className,
 }) => (
   <svg
-    className={cn('w-6 h-6', className)}
+    className={cn('w-6 h-6 dark:invert', className)}
     fill="none"
     height="300"
     viewBox="0 0 300 300"

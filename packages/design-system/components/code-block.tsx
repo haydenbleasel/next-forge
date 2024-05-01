@@ -10,8 +10,8 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { CheckIcon, CopyIcon, DownloadIcon } from 'lucide-react';
-import { Button } from './ui/button';
-import { useCopyToClipboard } from '../hooks/use-copy-to-clipboard';
+import { Button } from '~/components/ui/button';
+import { useCopyToClipboard } from '~/hooks/use-copy-to-clipboard';
 import type { FC } from 'react';
 
 type Props = {
