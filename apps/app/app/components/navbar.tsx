@@ -1,13 +1,14 @@
-import { UserButton, currentUser } from '@clerk/nextjs';
+import { UserButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import Link from 'next/link';
-import { ModeToggle } from '@/components/mode-toggle';
-import { cn } from '@/lib/utils';
+import { ModeToggle } from '@repo/design-system/components/mode-toggle';
+import { cn } from '@repo/design-system/lib/utils';
 import { Button } from '@repo/design-system/components/ui/button';
+import { Container } from '@repo/design-system/components/container';
+import { Logo } from '@repo/design-system/components/logo';
 import { Notifications } from '@/components/notifications';
 import { ActiveProvider } from '@/providers/active-provider';
 import { pages } from '@/consts/navigation';
-import { Container } from '@/components/container';
-import { Logo } from './logo';
 import type { ReactElement } from 'react';
 
 export const Navbar = async (): Promise<ReactElement> => {

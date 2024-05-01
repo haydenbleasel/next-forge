@@ -8,9 +8,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@repo/design-system/components/ui/popover';
-import { cn } from '@/lib/utils';
 import { Input } from '@repo/design-system/components/ui/input';
-import { Drawer, DrawerContent, DrawerTrigger } from '@repo/design-system/components/ui/drawer';
+import {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+} from '@repo/design-system/components/ui/drawer';
+import { cn } from '@repo/design-system/lib/utils';
 import type { FC } from 'react';
 
 const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {

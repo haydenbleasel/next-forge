@@ -1,6 +1,6 @@
 import { Knock } from '@knocklabs/node';
 import { BellIcon } from '@radix-ui/react-icons';
-import { currentUser } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   DropdownMenu,

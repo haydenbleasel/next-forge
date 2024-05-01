@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import Status from '@/components/status';
-import { cn } from '@/lib/utils';
+import { Status } from '@repo/design-system/components/status';
+import { cn } from '@repo/design-system/lib/utils';
+import { Container } from '@repo/design-system/components/container';
+import { Logo } from '@repo/design-system/components/logo';
 import { legal, pages } from '@/consts/navigation';
 import { ActiveProvider } from '@/providers/active-provider';
-import { Container } from '@/components/container';
-import { Logo } from './logo';
 import type { FC } from 'react';
 
 export const Footer: FC = () => (

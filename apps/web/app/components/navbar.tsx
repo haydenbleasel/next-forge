@@ -1,12 +1,13 @@
-import { UserButton, currentUser } from '@clerk/nextjs';
+import { UserButton } from '@clerk/nextjs';
+import { currentUser } from '@clerk/nextjs/server';
 import Link from 'next/link';
-import { ModeToggle } from '@/components/mode-toggle';
-import { cn } from '@/lib/utils';
+import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import { Button } from '@repo/design-system/components/ui/button';
-import { Notifications } from '@/components/notifications';
+import { Notifications } from '@repo/design-system/components/notifications';
 import { ActiveProvider } from '@/providers/active-provider';
 import { pages } from '@/consts/navigation';
-import { Container } from '@/components/container';
+import { Container } from '@repo/design-system/components/container';
+import { cn } from '@repo/design-system/lib/utils';
 import { Logo } from './logo';
 import type { ReactElement } from 'react';
 
