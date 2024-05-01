@@ -1,10 +1,9 @@
 import Link from 'next/link';
-import Status from '@/components/status';
-import { cn } from '@/lib/utils';
+import { Status } from '@repo/design-system/components/status';
 import { legal, pages } from '@/consts/navigation';
-import { ActiveProvider } from '@/providers/active-provider';
-import { Container } from '@/components/container';
-import { Logo } from './logo';
+import { Container } from '@repo/design-system/components/container';
+import { Logo } from '@repo/design-system/components/logo';
+import { cn } from '@repo/design-system/lib/utils';
 import type { FC } from 'react';
 
 export const Footer: FC = () => (
@@ -25,14 +24,13 @@ export const Footer: FC = () => (
           <p className="text-sm font-medium text-zinc-500">Pages</p>
           <div className="mt-2 flex flex-col gap-1">
             {pages.map(({ href, name }) => (
-              <ActiveProvider key={name} href={href}>
-                <Link
-                  href={href}
-                  className="text-sm hover:underline text-black dark:text-white group-[.active-page]:underline"
-                >
-                  {name}
-                </Link>
-              </ActiveProvider>
+              <Link
+                key={name}
+                href={href}
+                className="text-sm hover:underline text-black dark:text-white group-[.active-page]:underline"
+              >
+                {name}
+              </Link>
             ))}
           </div>
         </div>
@@ -40,14 +38,13 @@ export const Footer: FC = () => (
           <p className="text-sm font-medium text-zinc-500">Legal</p>
           <div className="mt-2 flex flex-col gap-1">
             {legal.map(({ href, name }) => (
-              <ActiveProvider key={name} href={href}>
-                <Link
-                  href={href}
-                  className="text-sm hover:underline text-black dark:text-white group-[.active-page]:underline"
-                >
-                  {name}
-                </Link>
-              </ActiveProvider>
+              <Link
+                key={name}
+                href={href}
+                className="text-sm hover:underline text-black dark:text-white group-[.active-page]:underline"
+              >
+                {name}
+              </Link>
             ))}
           </div>
         </div>

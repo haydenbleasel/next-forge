@@ -10,6 +10,7 @@
     "contentlayer": "npx contentlayer build"
   },
   "dependencies": {
+    "@clerk/nextjs": "^5.0.4",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/email": "workspace:*",
