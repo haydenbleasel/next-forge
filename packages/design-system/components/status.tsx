@@ -1,5 +1,6 @@
 import 'server-only';
-import { cn } from '../lib/utils';
+
+import { cn } from '@/lib/utils';
 import type { ReactElement } from 'react';
 
 type BetterStackResponse = {
@@ -69,7 +70,9 @@ const betterstackApiKey = process.env.BETTERSTACK_API_KEY;
 const betterstackUrl = process.env.BETTERSTACK_URL;
 
 if (!betterstackApiKey || !betterstackUrl) {
-  throw new Error('Missing BETTERSTACK_API_KEY or BETTERSTACK_URL environment variable');
+  throw new Error(
+    'Missing BETTERSTACK_API_KEY or BETTERSTACK_URL environment variable'
+  );
 }
 
 export const Status = async (): Promise<ReactElement> => {
@@ -88,7 +91,7 @@ export const Status = async (): Promise<ReactElement> => {
 
   const { data } = (await response.json()) as BetterStackResponse;
 
-  const status = 
+  const status =
     data.filter((monitor) => monitor.attributes.status === 'up').length /
     data.length;
 
