@@ -1,8 +1,8 @@
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import { log } from '@logtail/next';
-import { stripe } from '@/lib/stripe';
-import { parseError } from '@/lib/error';
+import { stripe } from '@repo/design-system/lib/stripe';
+import { parseError } from '@repo/design-system/lib/error';
 
 const secret = process.env.STRIPE_WEBHOOK_SECRET ?? '';
 
