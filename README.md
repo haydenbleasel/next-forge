@@ -37,6 +37,26 @@
 3. The project should be **opinionated**. This means that the tooling should be designed to work together, and the project should be designed to work with the tooling. This is important for reducing friction and increasing productivity.
 4. The project should be **modern**. This means that the tooling should be actively maintained, and the project should be designed to take advantage of the latest features. This is important for reducing technical debt and increasing longevity.
 
+## Structure
+
+`next-forge` is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
+
+The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
+
+The monorepo contains the following apps:
+
+- `app` — The main, which contains the Next.js app.
+- `api` — The API, which contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs.
+- `web` — The website, which contains the static website for the app e.g. marketing pages and legal docs.
+
+It also contains the following packages:
+
+- `@repo/design-system`: The design system, which contains shared components, utility files and styles.
+- `@repo/email`: The email templates, which contains the email templates for the app.
+- `@repo/database`: The database, which contains the database schema and migrations for the app.
+- `@repo/typescript-config`: The TypeScript configuration, which contains the shared TypeScript configuration for the app.
+- `@repo/eslint-config`: The ESLint configuration, which contains the shared ESLint configuration for the app.
+
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
