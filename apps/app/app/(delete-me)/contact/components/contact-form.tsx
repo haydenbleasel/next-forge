@@ -4,10 +4,10 @@ import { useState } from 'react';
 import { toast } from 'sonner';
 import { isValidEmail } from '@/lib/email';
 import { parseError } from '@/lib/error';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
+import { Input } from '@repo/design-system/components/ui/input';
+import { Textarea } from '@repo/design-system/components/ui/textarea';
+import { Button } from '@repo/design-system/components/ui/button';
+import { Label } from '@repo/design-system/components/ui/label';
 import { contact } from '../actions/contact';
 import type { FC, FormEventHandler } from 'react';
 

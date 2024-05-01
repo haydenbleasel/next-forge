@@ -2,15 +2,15 @@
 
 import { useChat } from 'ai/react';
 import { ChatBubbleIcon, PaperPlaneIcon } from '@radix-ui/react-icons';
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from '@/components/ui/popover';
+} from '@repo/design-system/components/ui/popover';
 import { cn } from '@/lib/utils';
-import { Input } from '@/components/ui/input';
-import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { Input } from '@repo/design-system/components/ui/input';
+import { Drawer, DrawerContent, DrawerTrigger } from '@repo/design-system/components/ui/drawer';
 import type { FC } from 'react';
 
 const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {

@@ -7,7 +7,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/card';
+} from '@repo/design-system/components/ui/card';
 import { Container } from '@/components/container';
 import type { FC } from 'react';
 

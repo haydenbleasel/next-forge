@@ -51,6 +51,9 @@
     "@radix-ui/react-tooltip": "^1.0.7",
     "@react-email/components": "0.0.17",
     "@react-email/render": "^0.0.13",
+    "@repo/database": "workspace:*",
+    "@repo/design-system": "workspace:*",
+    "@repo/email": "workspace:*",
     "@segment/analytics-next": "^1.69.0",
     "@segment/analytics-node": "^2.1.2",
     "@sentry/nextjs": "^7.112.2",
@@ -93,6 +96,8 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^14.2.3",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@tailwindcss/typography": "^0.5.13",
     "@types/jsonwebtoken": "^9.0.6",
     "@types/lodash.merge": "^4.6.9",

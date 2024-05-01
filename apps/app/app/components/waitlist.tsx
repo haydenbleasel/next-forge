@@ -3,8 +3,8 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import { isValidEmail } from '@/lib/email';
-import { Input } from '@/components/ui/input';
-import { Button } from '@/components/ui/button';
+import { Input } from '@repo/design-system/components/ui/input';
+import { Button } from '@repo/design-system/components/ui/button';
 import { parseError } from '@/lib/error';
 import { subscribe } from '../actions/subscribe';
 import type { FC, FormEventHandler } from 'react';

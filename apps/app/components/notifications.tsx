@@ -1,13 +1,13 @@
 import { Knock } from '@knocklabs/node';
 import { BellIcon } from '@radix-ui/react-icons';
 import { currentUser } from '@clerk/nextjs';
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from '@repo/design-system/components/ui/dropdown-menu';
 import type { ReactElement } from 'react';
 
 if (!process.env.KNOCK_API_KEY) {

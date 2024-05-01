@@ -2,7 +2,7 @@ import { UserButton, currentUser } from '@clerk/nextjs';
 import Link from 'next/link';
 import { ModeToggle } from '@/components/mode-toggle';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { Button } from '@repo/design-system/components/ui/button';
 import { Notifications } from '@/components/notifications';
 import { ActiveProvider } from '@/providers/active-provider';
 import { pages } from '@/consts/navigation';
