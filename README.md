@@ -1,81 +1,97 @@
-# Turborepo starter
+# next-forge
 
-This is an official starter Turborepo.
+**A production-grade boilerplate for modern Next.js apps.**
 
-## Using this example
+<img src="./app/opengraph-image.png" alt="">
 
-Run the following command:
+[`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
+
+## Features
+
+- ▲ Framework is [Next.js 14](https://nextjs.org/) (using App Directory and React Server Components) — a [React](https://react.dev/) framework for production-grade apps. Designed to be deployed on [Vercel](https://vercel.com/), but you can take it almost anywhere.
+- 🤝 Full [TypeScript](https://www.typescriptlang.org/) support, including strict mode.
+- 📦 React components from [shadcn/ui](https://ui.shadcn.com/), built on [Radix UI](https://www.radix-ui.com/), [Tailwind CSS](https://tailwindcss.com/), [cva](https://cva.style/docs), [Vaul](https://vaul.emilkowal.ski/) and [Sonner](https://sonner.emilkowal.ski/).
+- 👩‍⚖️ Linting from [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony), which provides a strict set of configuration for [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) and [Stylelint](https://stylelint.io/).
+- 📀 Database uses [Prisma](https://www.prisma.io/) as the ORM. Can be connected to any supported database — I recommend [PlanetScale](https://planetscale.com/).
+- 📧 Emails templated by [react.email](https://react.email/) sent using [Resend](https://resend.com/), including Audiences for waitlist.
+- 👨‍👩‍👧‍👦 Authentication provided by [Clerk](https://clerk.com/), which provides a secure, scalable and customizable authentication system.
+- 🟢 Log Drain and Status provided by [BetterStack](https://betterstack.com/).
+- 🐞 Error capturing provided by [Sentry](https://sentry.io/).
+- 💸 Payments provided by [Stripe](https://stripe.com/).
+- 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).
+- 🤖 AI provided by [Vercel AI](https://www.npmjs.com/package/ai), using OpenAI by default.
+- 💬 Feedback through [Canny](https://canny.io/).
+- 📝 MDX content through [Contentlayer](https://contentlayer.dev/).
+- 🔔 Notifications provided by [Knock](https://knock.app/).
+- 🔄 Cron jobs provided by Vercel.
+- 🔠 Font is [Geist](https://vercel.com/font) by Vercel.
+
+... plus a stack of other features for customization, security and performance.
+
+## Philosophy
+
+`next-forge` is a culmination of my experience building web apps over the last decade and focuses on a few key principles:
+
+1. The project should be **fast**. This doesn't just mean fast to build, run and deploy. It also means it should be fast to validate ideas, iterate and scale. This is important for finding product-market fit and growing a business.
+2. The project should be **cheap**, at least to start. It should avoid a flat cost, or have a generous free tier. I try to make all my projects self-sustaining, so the goal is to avoid any recurring costs upfront and find services that scale with me.
+3. The project should be **opinionated**. This means that the tooling should be designed to work together, and the project should be designed to work with the tooling. This is important for reducing friction and increasing productivity.
+4. The project should be **modern**. This means that the tooling should be actively maintained, and the project should be designed to take advantage of the latest features. This is important for reducing technical debt and increasing longevity.
+
+## Prerequisites
+
+You will need the following things properly installed on your computer.
+
+- [Node.js](https://nodejs.org/)
+- [pnpm](https://pnpm.io/)
+- [pscale](https://planetscale.com/docs/concepts/planetscale-environment-setup)
+- [Stripe CLI](https://stripe.com/docs/stripe-cli)
+
+## Usage
+
+First, scaffold the app with:
 
 ```sh
-npx create-turbo@latest
+pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-## What's inside?
+Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with:
 
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm build
+```sh
+mv .env.example .env
 ```
 
-### Develop
+Next, update the environment variables in `.env` with your own values.
 
-To develop all apps and packages, run the following command:
+Then, update any reference of `/CompanyName/` in the legal docs. You can do this with:
 
+```sh
+grep -rl '/CompanyName/' content/legal/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
 ```
-cd my-turborepo
+
+Login to Stripe with:
+
+```sh
+stripe login
+```
+
+Login to Planetscale with
+
+```sh
+pscale auth login
+```
+
+Finally, run the development server with:
+
+```sh
 pnpm dev
 ```
 
-### Remote Caching
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result. You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+## Deploying
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
+`next-forge` is designed to be deployed on Vercel with the [BetterStack](https://vercel.com/integrations/betterstack) and [Sentry](https://vercel.com/integrations/sentry) integrations. This will take care of the relevant API keys and tokens.
 
-```
-cd my-turborepo
-npx turbo login
-```
+## Notes
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-npx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+- `next-forge` makes use of a custom proxy setup for Segment's client-side library to avoid ad-blocker issues. This is not required, but recommended. You'll need to contact Segment support to enable this in your UI. Read more about this [here](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/custom-proxy/#custom-cdn--api-proxy).

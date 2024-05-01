@@ -1,12 +1,14 @@
-import harmony from 'eslint-config-harmony';
+import baseConfig from '@repo/eslint-config/index.mjs';
 
-/* Ignore shadcn/ui */
-harmony.forEach((config) => {
-  if (config.ignores) {
-    config.ignores.push('./components/ui/**/*');
-  } else {
-    config.ignores = ['./components/ui/**/*'];
-  }
-});
+const config = [
+  ...baseConfig,
+  {
+    languageOptions: {
+      parserOptions: {
+        project: true,
+      },
+    },
+  },
+];
 
-export default harmony;
+export default config;
