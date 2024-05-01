@@ -1,106 +1,52 @@
 'use client';
 
 import { useChat } from 'ai/react';
-import { ChatBubbleIcon, PaperPlaneIcon } from '@radix-ui/react-icons';
+import { PaperPlaneIcon } from '@radix-ui/react-icons';
 import { Button } from '@repo/design-system/components/ui/button';
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@repo/design-system/components/ui/popover';
 import { Input } from '@repo/design-system/components/ui/input';
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-} from '@repo/design-system/components/ui/drawer';
 import { cn } from '@repo/design-system/lib/utils';
+import { Container } from '@repo/design-system/components/container';
 import type { FC } from 'react';
 
-const ChatInner: FC<{ readonly className?: string }> = ({ className }) => {
+export const Chat: FC = () => {
   const { messages, input, handleInputChange, handleSubmit } = useChat();
 
   return (
-    <div
-      className={cn(
-        'flex flex-1 flex-col divide-y h-full',
-        'bg-zinc-100 divide-zinc-200',
-        'dark:bg-zinc-950 dark:divide-zinc-800'
-      )}
-    >
-      <div
-        className={cn(
-          'flex-1 p-4 overflow-y-auto text-sm flex flex-col gap-2',
-          className
-        )}
-      >
-        {messages.map((message) => (
-          <div
-            key={message.id}
-            className={cn(
-              'max-w-[75%] px-4 py-2 rounded shadow-sm',
-              message.role === 'user'
-                ? 'bg-white self-start text-zinc-900'
-                : 'bg-black self-end text-white'
-            )}
-          >
-            {message.content}
-          </div>
-        ))}
-      </div>
-
-      <form
-        onSubmit={handleSubmit}
-        className="shrink-0 flex flex-col gap-1 bg-white dark:bg-black"
-      >
-        <Input
-          value={input}
-          placeholder="Ask me something about next-forge"
-          onChange={handleInputChange}
-          className="rounded-none border-none shadow-none py-6 pb-16"
-        />
-        <div className="absolute bottom-0 right-0 p-4">
-          <Button type="submit" variant="outline" size="icon">
-            <PaperPlaneIcon />
-          </Button>
+    <Container>
+      <div className="flex flex-1 flex-col h-full">
+        <div className="flex-1 overflow-y-auto text-sm flex flex-col gap-2">
+          {messages.map((message) => (
+            <div
+              key={message.id}
+              className={cn(
+                'max-w-[75%] px-4 py-2 rounded shadow-sm',
+                message.role === 'user'
+                  ? 'bg-white self-start text-zinc-900'
+                  : 'bg-black self-end text-white'
+              )}
+            >
+              {message.content}
+            </div>
+          ))}
         </div>
-      </form>
-    </div>
-  );
-};
 
-export const Chat: FC = () => (
-  <>
-    <div className="block sm:hidden">
-      <Drawer>
-        <DrawerTrigger asChild>
-          <div className="fixed bottom-4 right-4">
-            <Button size="icon">
-              <ChatBubbleIcon />
+        <form
+          onSubmit={handleSubmit}
+          className="mt-8 shrink-0 flex flex-col gap-1 relative"
+        >
+          <Input
+            value={input}
+            placeholder="Ask me something about next-forge"
+            onChange={handleInputChange}
+            className="py-6 pb-16 bg-white"
+          />
+          <div className="absolute bottom-0 right-0 p-4">
+            <Button type="submit" variant="outline" size="icon">
+              <PaperPlaneIcon />
             </Button>
           </div>
-        </DrawerTrigger>
-        <DrawerContent className="p-0">
-          <div className="absolute top-4 left-0 right-0 mx-auto w-12 h-1.5 flex-shrink-0 rounded-full bg-zinc-300" />
-          <ChatInner className="pt-12" />
-        </DrawerContent>
-      </Drawer>
-    </div>
-    <div className="hidden sm:block fixed bottom-4 right-4">
-      <Popover>
-        <PopoverTrigger asChild>
-          <Button size="icon">
-            <ChatBubbleIcon />
-          </Button>
-        </PopoverTrigger>
-        <PopoverContent
-          className="h-[50vh] w-[24rem] p-0 overflow-hidden"
-          collisionPadding={16}
-          sideOffset={16}
-        >
-          <ChatInner />
-        </PopoverContent>
-      </Popover>
-    </div>
-  </>
-);
+        </form>
+      </div>
+    </Container>
+  );
+};
