@@ -9,6 +9,7 @@
 ## Features
 
 - ▲ Framework is [Next.js 14](https://nextjs.org/) (using App Directory and React Server Components) — a [React](https://react.dev/) framework for production-grade apps. Designed to be deployed on [Vercel](https://vercel.com/), but you can take it almost anywhere.
+- 🧱 Monorepo architecture through [Turborepo](https://turbo.build/repo).
 - 🤝 Full [TypeScript](https://www.typescriptlang.org/) support, including strict mode.
 - 📦 React components from [shadcn/ui](https://ui.shadcn.com/), built on [Radix UI](https://www.radix-ui.com/), [Tailwind CSS](https://tailwindcss.com/), [cva](https://cva.style/docs), [Vaul](https://vaul.emilkowal.ski/) and [Sonner](https://sonner.emilkowal.ski/).
 - 👩‍⚖️ Linting from [eslint-config-harmony](https://github.com/haydenbleasel/eslint-config-harmony), which provides a strict set of configuration for [ESLint](https://eslint.org/), [Prettier](https://prettier.io/) and [Stylelint](https://stylelint.io/).
@@ -20,7 +21,6 @@
 - 💸 Payments provided by [Stripe](https://stripe.com/).
 - 📈 Analytics provided by [Vercel Analytics](https://vercel.com/analytics) and [Google Analytics](https://marketingplatform.google.com/about/analytics/).
 - 🤖 AI provided by [Vercel AI](https://www.npmjs.com/package/ai), using OpenAI by default.
-- 💬 Feedback through [Canny](https://canny.io/).
 - 📝 MDX content through [Contentlayer](https://contentlayer.dev/).
 - 🔔 Notifications provided by [Knock](https://knock.app/).
 - 🔄 Cron jobs provided by Vercel.
