@@ -1,4 +1,5 @@
 {
+  "name": "app",
   "private": true,
   "scripts": {
     "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
