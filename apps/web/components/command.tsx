@@ -5,18 +5,19 @@ import { useCopyToClipboard } from '@repo/design-system/hooks/use-copy-to-clipbo
 import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 
-const command =
-  'yarn create next-app --example https://github.com/haydenbleasel/next-forge';
+type CommandProps = {
+  readonly code: string;
+};
 
-export const Command: FC = () => {
+export const Command: FC<CommandProps> = ({ code }) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard();
   const Icon = isCopied ? CheckIcon : CopyIcon;
 
   return (
     <div className="bg-black dark:bg-zinc-900 text-white text-sm rounded-md flex overflow-hidden">
-      <pre className="w-full h-full overflow-x-auto p-4">{command}</pre>
+      <pre className="w-full h-full overflow-x-auto p-4">{code}</pre>
       <button
-        onClick={() => copyToClipboard(command)}
+        onClick={() => copyToClipboard(code)}
         type="button"
         className={cn(
           'transition-colors shrink-0 flex items-center justify-center h-[52px] aspect-square border-l',

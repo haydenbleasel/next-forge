@@ -2,11 +2,11 @@ import Image from 'next/image';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Logo } from '@repo/design-system/components/logo';
-import { Waitlist } from '@/components/waitlist';
-import { Command } from '@/components/command';
 import Graphic from './opengraph-image.png';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
+import { Command } from '@/components/command';
+import { Waitlist } from '@/components/waitlist';
 
 const title = 'From zero to production in minutes.';
 const description =
@@ -27,7 +27,7 @@ const Hero: FC = () => (
       <p className="font-medium text-zinc-600 dark:text-zinc-400">
         Copy and paste this command into your terminal:
       </p>
-      <Command />
+      <Command code="pnpm create next-app --example https://github.com/haydenbleasel/next-forge" />
     </div>
     <div className="mt-8 flex flex-col gap-2 max-w-xl w-full sm:mx-auto">
       <p className="font-medium text-zinc-600 dark:text-zinc-400">
