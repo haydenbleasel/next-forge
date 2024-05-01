@@ -1,6 +1,7 @@
 import { createSecureHeaders } from 'next-secure-headers';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
+import { createContentlayerPlugin } from 'next-contentlayer';
 import { withLogtail } from '@logtail/next';
 
 /** @type {import('next').NextConfig} */
@@ -31,20 +32,20 @@ const nextConfig = {
       },
     ];
   },
+
+  // Silence, contentlayer
+  webpack: (config) => {
+    config.infrastructureLogging = {
+      level: 'error',
+    };
+
+    return config;
+  },
 };
 
-if (process.env.NODE_ENV === 'production') {
-  nextConfig.rewrites = async () => [
-    {
-      source: '/segment-cdn/:path*',
-      destination: 'https://cdn.segment.com/:path*',
-    },
-    {
-      source: '/segment-api/:path*',
-      destination: 'https://api.segment.io/:path*',
-    },
-  ];
-}
+const withContentlayer = createContentlayerPlugin({
+  // Additional Contentlayer config options
+});
 
 /** @type {import('@sentry/nextjs').SentryWebpackPluginOptions} */
 const userSentryWebpackPluginOptions = {
@@ -83,7 +84,7 @@ const sentryOptions = {
 };
 
 // eslint-disable-next-line import/no-mutable-exports
-let config = withLogtail(nextConfig);
+let config = withLogtail(withContentlayer(nextConfig));
 
 if (process.env.VERCEL) {
   config = withSentryConfig(
