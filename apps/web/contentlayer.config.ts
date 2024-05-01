@@ -84,6 +84,7 @@ export const computeFields = <T extends string>({
 });
 
 const rehypePrettyCodeOptions: PrettyCodeOptions = {
+  theme: 'rose-pine-moon',
   keepBackground: false,
   onVisitLine(node) {
     if (node.children.length === 0) {
@@ -163,10 +164,7 @@ const source = makeSource({
     rehypePlugins: [
       rehypeAccessibleEmojis,
       rehypeSlug,
-      [
-        rehypePrettyCode,
-        { ...rehypePrettyCodeOptions, theme: 'rose-pine-moon' },
-      ],
+      [rehypePrettyCode as never, rehypePrettyCodeOptions],
       [rehypeAutolinkHeadings, rehypeAutolinkHeadingsOptions],
       rehypePresetMinify as never,
     ],
