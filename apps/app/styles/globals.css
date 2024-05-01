@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  min-width: 0;
+}
+
+html {
+  text-rendering: optimizelegibility;
+}
+
+body {
+  min-height: 100dvh;
+}
