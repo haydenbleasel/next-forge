@@ -11,6 +11,7 @@ on:
 env:
   # Next.js
   NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
+  APP_URL: 'http://localhost:3000'
 
   # Resend
   RESEND_TOKEN: '.'
@@ -32,9 +33,6 @@ env:
   # BetterStack
   BETTERSTACK_API_KEY: '.'
   BETTERSTACK_URL: '.'
-
-  # Canny
-  CANNY_PRIVATE_KEY: '.'
 
   # OpenAI
   OPENAI_API_KEY: '.'

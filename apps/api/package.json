@@ -1,0 +1,44 @@
+{
+  "name": "api",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
+    "next": "next dev -p 3002",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "analyze": "ANALYZE=true pnpm build",
+    "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
+  },
+  "dependencies": {
+    "@clerk/nextjs": "^5.0.4",
+    "@logtail/next": "^0.1.5",
+    "@repo/database": "workspace:*",
+    "@repo/design-system": "workspace:*",
+    "@sentry/nextjs": "^7.112.2",
+    "next": "14.2.3",
+    "next-secure-headers": "^2.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "svix": "^1.22.0",
+    "typescript": "^5.4.5"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^14.2.3",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "20.12.7",
+    "@types/react": "18.3.1",
+    "@types/react-dom": "18.3.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-config-harmony": "^3.1.9",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.4.0"
+  },
+  "prettier": "eslint-config-harmony/prettier",
+  "stylelint": {
+    "extends": "eslint-config-harmony/stylelint"
+  }
+}

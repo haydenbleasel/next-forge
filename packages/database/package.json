@@ -1,0 +1,23 @@
+{
+  "name": "@repo/database",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:planetscale\" \"pnpm run dev:studio\"",
+    "dev:studio": "prisma studio --browser=none",
+    "dev:planetscale": "pscale connect [database] dev --port 3309",
+    "db:generate": "prisma generate"
+  },
+  "dependencies": {
+    "@planetscale/database": "^1.16.0",
+    "@prisma/adapter-planetscale": "5.12.1",
+    "@prisma/client": "5.12.1"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "prisma": "5.12.1",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/eslint-config": "workspace:*"
+  }
+}
