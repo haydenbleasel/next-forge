@@ -9,8 +9,11 @@ on:
     branches: [main]
 
 env:
+
+  # Vercel
+  VERCEL_PROJECT_PRODUCTION_URL: 'http://localhost:3000'
+
   # Next.js
-  NEXT_PUBLIC_SITE_URL: 'http://localhost:3000'
   APP_URL: 'http://localhost:3000'
 
   # Resend

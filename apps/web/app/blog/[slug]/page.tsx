@@ -50,7 +50,7 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
   const images: string[] = [];
 
   if (doc.image) {
-    const imageUrl = new URL(doc.image, process.env.NEXT_PUBLIC_SITE_URL).href;
+    const imageUrl = new URL(doc.image, process.env.VERCEL_PROJECT_PRODUCTION_URL).href;
     images.push(imageUrl);
   }
 

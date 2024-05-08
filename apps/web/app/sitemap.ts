@@ -27,19 +27,19 @@ const legals = fs
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? '').href,
+      url: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL ?? '').href,
       lastModified: new Date(),
     },
     ...pages.map((page) => ({
-      url: new URL(page, process.env.NEXT_PUBLIC_SITE_URL).href,
+      url: new URL(page, process.env.VERCEL_PROJECT_PRODUCTION_URL).href,
       lastModified: new Date(),
     })),
     ...blogs.map((blog) => ({
-      url: new URL(`blog/${blog}`, process.env.NEXT_PUBLIC_SITE_URL).href,
+      url: new URL(`blog/${blog}`, process.env.VERCEL_PROJECT_PRODUCTION_URL).href,
       lastModified: new Date(),
     })),
     ...legals.map((legal) => ({
-      url: new URL(`legal/${legal}`, process.env.NEXT_PUBLIC_SITE_URL).href,
+      url: new URL(`legal/${legal}`, process.env.VERCEL_PROJECT_PRODUCTION_URL).href,
       lastModified: new Date(),
     })),
   ];

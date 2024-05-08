@@ -16,12 +16,12 @@ type RootLayoutProps = {
   readonly children: ReactNode;
 };
 
-if (!process.env.NEXT_PUBLIC_SITE_URL) {
-  throw new Error('NEXT_PUBLIC_SITE_URL is not defined.');
+if (!process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+  throw new Error('VERCEL_PROJECT_PRODUCTION_URL is not defined.');
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
+  metadataBase: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL),
 };
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => (

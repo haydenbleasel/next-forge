@@ -8,8 +8,8 @@ if (!process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY) {
   throw new Error('NEXT_PUBLIC_SEGMENT_WRITE_KEY is not set');
 }
 
-const cdnUrl = new URL('/segment-cdn', process.env.NEXT_PUBLIC_SITE_URL);
-const apiHost = new URL('/segment-api', process.env.NEXT_PUBLIC_SITE_URL);
+const cdnUrl = new URL('/segment-cdn', process.env.VERCEL_PROJECT_PRODUCTION_URL);
+const apiHost = new URL('/segment-api', process.env.VERCEL_PROJECT_PRODUCTION_URL);
 
 export const { identify, ...analytics } = AnalyticsBrowser.load(
   {
