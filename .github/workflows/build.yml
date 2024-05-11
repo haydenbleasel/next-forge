@@ -97,8 +97,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
 
-      - name: Install dependencies
-        run: pnpm install
+      - name: Run setup script
+        run: ./setup.sh Acme
 
       - name: Build Next.js app
         run: pnpm run build

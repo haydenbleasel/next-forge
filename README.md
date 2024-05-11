@@ -57,15 +57,6 @@ It also contains the following packages:
 - `@repo/typescript-config`: The TypeScript configuration, which contains the shared TypeScript configuration for the app.
 - `@repo/eslint-config`: The ESLint configuration, which contains the shared ESLint configuration for the app.
 
-## Prerequisites
-
-You will need the following things properly installed on your computer.
-
-- [Node.js](https://nodejs.org/)
-- [pnpm](https://pnpm.io/)
-- [pscale](https://planetscale.com/docs/concepts/planetscale-environment-setup)
-- [Stripe CLI](https://stripe.com/docs/stripe-cli)
-
 ## Usage
 
 First, scaffold the app with:
@@ -74,18 +65,10 @@ First, scaffold the app with:
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-Once it is downloaded, rename `.env.example` to `.env`. This will turn the example environment variables into your local ones. This file is not committed to GitHub by default (and shouldn't be). You can do this in Terminal with:
+Then, run the setup script and pass in the name of your app / company:
 
 ```sh
-mv .env.example .env
-```
-
-Next, update the environment variables in `.env` with your own values.
-
-Then, update any reference of `/CompanyName/` in the legal docs. You can do this with:
-
-```sh
-grep -rl '/CompanyName/' content/legal/ | xargs sed -i '' 's|/CompanyName/|Acme|g'
+./setup.sh Acme
 ```
 
 Login to Stripe with:
