@@ -3,13 +3,14 @@
 import { useUser } from '@clerk/nextjs';
 import { AnalyticsBrowser } from '@segment/analytics-next';
 import { useEffect } from 'react';
+import { baseUrl } from '../consts';
 
 if (!process.env.NEXT_PUBLIC_SEGMENT_WRITE_KEY) {
   throw new Error('NEXT_PUBLIC_SEGMENT_WRITE_KEY is not set');
 }
 
-const cdnUrl = new URL('/segment-cdn', process.env.VERCEL_PROJECT_PRODUCTION_URL);
-const apiHost = new URL('/segment-api', process.env.VERCEL_PROJECT_PRODUCTION_URL);
+const cdnUrl = new URL('/segment-cdn', baseUrl);
+const apiHost = new URL('/segment-api', baseUrl);
 
 export const { identify, ...analytics } = AnalyticsBrowser.load(
   {

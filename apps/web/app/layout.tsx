@@ -9,19 +9,10 @@ import { DesignSystemProvider } from '@repo/design-system/provider';
 import { cn } from '@repo/design-system/lib/utils';
 import { Navbar } from '../components/navbar';
 import { Footer } from '../components/footer';
-import type { Metadata } from 'next';
 import type { FC, ReactNode } from 'react';
 
 type RootLayoutProps = {
   readonly children: ReactNode;
-};
-
-if (!process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-  throw new Error('VERCEL_PROJECT_PRODUCTION_URL is not defined.');
-}
-
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.VERCEL_PROJECT_PRODUCTION_URL),
 };
 
 const RootLayout: FC<RootLayoutProps> = ({ children }) => (

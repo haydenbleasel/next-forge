@@ -5,10 +5,11 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Container } from '@repo/design-system/components/container';
 import { allLegals } from '@contentlayer/generated';
-import { Mdx } from '@/components/mdx';
-import { Sidebar } from '@/components/sidebar';
+import { baseUrl } from '~/lib/consts';
 import type { FC } from 'react';
 import type { Metadata } from 'next';
+import { Mdx } from '@/components/mdx';
+import { Sidebar } from '@/components/sidebar';
 
 type LegalPageProps = {
   readonly params: {
@@ -53,7 +54,7 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
   const images: string[] = [];
 
   if (doc.image) {
-    const imageUrl = new URL(doc.image, process.env.VERCEL_PROJECT_PRODUCTION_URL).href;
+    const imageUrl = new URL(doc.image, baseUrl).href;
     images.push(imageUrl);
   }
 

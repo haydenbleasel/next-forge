@@ -1,3 +1,4 @@
+import { baseUrl } from '@repo/design-system/lib/consts';
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -6,7 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: new URL('/sitemap.xml', process.env.VERCEL_PROJECT_PRODUCTION_URL ?? '')
-      .href,
+    sitemap: new URL('/sitemap.xml', baseUrl).href,
   };
 }
