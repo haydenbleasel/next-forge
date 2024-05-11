@@ -2,7 +2,7 @@ import { twMerge } from 'tailwind-merge';
 import { formatDate } from '@repo/design-system/lib/format';
 import type { Toc } from '@/lib/remark-toc';
 import type { FC } from 'react';
-import type { Blog, Legal } from '@/.contentlayer/generated';
+import type { Blog, Legal } from '@contentlayer/generated';
 
 type SidebarProps = {
   readonly doc: Blog | Legal;

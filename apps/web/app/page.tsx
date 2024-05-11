@@ -2,11 +2,11 @@ import Image from 'next/image';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Logo } from '@repo/design-system/components/logo';
+import { Command } from '@/components/command';
+import { Waitlist } from '@/components/waitlist';
 import Graphic from './opengraph-image.png';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
-import { Command } from '@/components/command';
-import { Waitlist } from '@/components/waitlist';
 
 const title = 'From zero to production in minutes.';
 const description =

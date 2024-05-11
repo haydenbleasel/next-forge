@@ -10,7 +10,6 @@
     "contentlayer": "npx contentlayer2 build"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.4",
     "@logtail/next": "^0.1.5",
     "@radix-ui/react-icons": "^1.3.0",
     "@repo/design-system": "workspace:*",
