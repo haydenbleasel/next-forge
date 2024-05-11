@@ -10,13 +10,13 @@
     "db:generate": "prisma generate"
   },
   "dependencies": {
-    "@planetscale/database": "^1.16.0",
-    "@prisma/adapter-planetscale": "5.12.1",
-    "@prisma/client": "5.12.1"
+    "@planetscale/database": "^1.18.0",
+    "@prisma/adapter-planetscale": "5.13.0",
+    "@prisma/client": "5.13.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
-    "prisma": "5.12.1",
+    "prisma": "5.13.0",
     "@repo/typescript-config": "workspace:*",
     "@repo/eslint-config": "workspace:*"
   }
