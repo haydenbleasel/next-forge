@@ -14,7 +14,7 @@ export const Command: FC<CommandProps> = ({ code }) => {
   const Icon = isCopied ? CheckIcon : CopyIcon;
 
   return (
-    <div className="bg-black dark:bg-zinc-900 text-white text-sm rounded-md flex overflow-hidden">
+    <div className="not-prose bg-black dark:bg-zinc-900 text-white text-sm rounded-md flex overflow-hidden">
       <pre className="w-full h-full overflow-x-auto p-4">{code}</pre>
       <button
         onClick={() => copyToClipboard(code)}

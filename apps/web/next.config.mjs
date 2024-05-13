@@ -8,6 +8,12 @@ import { withLogtail } from '@logtail/next';
 const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        hostname: 'logo.clearbit.com',
+        protocol: 'https',
+      },
+    ],
   },
   headers() {
     return [
