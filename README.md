@@ -25,6 +25,7 @@
 - 🔔 Notifications provided by [Knock](https://knock.app/).
 - 🔄 Cron jobs provided by Vercel.
 - 🔠 Font is [Geist](https://vercel.com/font) by Vercel.
+- 🛟 Docs provided by [Mintlify](https://mintlify.com/).
 
 ... plus a stack of other features for customization, security and performance.
 
@@ -48,6 +49,7 @@ The monorepo contains the following apps:
 - `app` — The main, which contains the Next.js app.
 - `api` — The API, which contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs.
 - `web` — The website, which contains the static website for the app e.g. marketing pages and legal docs.
+- `docs` — The documentation, which contains the documentation for the app e.g. guides and tutorials.
 
 It also contains the following packages:
 
