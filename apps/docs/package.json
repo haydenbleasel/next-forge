@@ -1,0 +1,12 @@
+{
+  "name": "docs",
+  "private": true,
+  "scripts": {
+    "dev": "mintlify dev --port 3003",
+    "lint": "mintlify broken-links"
+  },
+  "prettier": "eslint-config-harmony/prettier",
+  "stylelint": {
+    "extends": "eslint-config-harmony/stylelint"
+  }
+}

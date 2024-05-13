@@ -1,3 +1,5 @@
+import { docsUrl } from '@repo/design-system/lib/consts';
+
 export const pages = [
   {
     name: 'Home',
@@ -13,7 +15,7 @@ export const pages = [
   },
   {
     name: 'Docs',
-    href: '/blog',
+    href: docsUrl,
   },
 ];
 

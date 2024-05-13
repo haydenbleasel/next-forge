@@ -4,14 +4,9 @@ import { Button } from '@repo/design-system/components/ui/button';
 import { Container } from '@repo/design-system/components/container';
 import { cn } from '@repo/design-system/lib/utils';
 import { Logo } from '@repo/design-system/components/logo';
+import { appUrl } from '@repo/design-system/lib/consts';
 import { pages } from '@/lib/consts';
 import type { FC } from 'react';
-
-if (!process.env.APP_URL) {
-  throw new Error('APP_URL env variable is required');
-}
-
-const signInUrl = new URL('/sign-in', process.env.APP_URL).toString();
 
 export const Navbar: FC = () => (
   <div
@@ -40,7 +35,7 @@ export const Navbar: FC = () => (
       <div className="flex items-center gap-2">
         <ModeToggle />
         <Button asChild>
-          <Link href={signInUrl}>Login</Link>
+          <Link href={appUrl}>Login</Link>
         </Button>
       </div>
     </Container>
