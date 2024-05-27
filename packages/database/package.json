@@ -15,8 +15,9 @@
     "@prisma/client": "5.13.0"
   },
   "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "^20.12.12",
     "concurrently": "^8.2.2",
-    "prisma": "5.13.0",
-    "@repo/typescript-config": "workspace:*"
+    "prisma": "5.13.0"
   }
 }
