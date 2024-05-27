@@ -9,7 +9,7 @@ import { rehypeAccessibleEmojis } from 'rehype-accessible-emojis';
 import readingTime from 'reading-time';
 import rehypePresetMinify from 'rehype-preset-minify';
 import { extractTocHeadings } from 'pliny/mdx-plugins/remark-toc-headings.js';
-import lqip from 'lqip-modern';
+import { sqip } from 'sqip';
 import type { Options as PrettyCodeOptions } from 'rehype-pretty-code';
 import type { Options as RehypeAutoLinkHeadingsOptions } from 'rehype-autolink-headings';
 import type { ComputedFields } from 'contentlayer2/source-files';
@@ -76,9 +76,18 @@ export const computeFields = <T extends string>({
         ? imagesFolder.slice(0, -1)
         : imagesFolder;
 
-      const blur = await lqip(`${folderBase}${doc.image}`);
+      const blur = await sqip({
+        input: `${folderBase}${doc.image}`,
+        plugins: [
+          'sqip-plugin-primitive',
+          'sqip-plugin-svgo',
+          'sqip-plugin-data-uri',
+        ],
+      });
 
-      return blur.content.toString('base64');
+      const result = Array.isArray(blur) ? blur[0] : blur;
+
+      return result.metadata.dataURIBase64;
     },
   },
 });
