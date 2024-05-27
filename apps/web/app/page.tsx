@@ -82,8 +82,8 @@ const groups = [
     title: 'Linting and Formatting',
     tools: [
       {
-        href: 'https://github.com/haydenbleasel/eslint-config-harmony',
-        name: 'eslint-config-harmony',
+        href: 'https://www.ultracite.dev/',
+        name: 'Ultracite',
         description: 'A unified editor configuration.',
       },
       {
