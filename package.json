@@ -8,13 +8,15 @@
     "bump-deps": "npx npm-check-updates --deep -u -x cmdk,eslint && pnpm install"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "eslint": "8",
+    "jest": "^29.7.0",
     "prettier": "^3.2.5",
+    "stylelint": "^16.6.0",
     "turbo": "latest",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "ultracite": "^3.3.3"
   },
-  "packageManager": "pnpm@9.0.6",
   "engines": {
     "node": ">=18"
   }

@@ -17,7 +17,6 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "prisma": "5.13.0",
-    "@repo/typescript-config": "workspace:*",
-    "@repo/eslint-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*"
   }
 }
