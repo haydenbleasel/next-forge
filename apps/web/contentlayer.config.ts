@@ -13,6 +13,7 @@ import { sqip } from 'sqip';
 import type { Options as PrettyCodeOptions } from 'rehype-pretty-code';
 import type { Options as RehypeAutoLinkHeadingsOptions } from 'rehype-autolink-headings';
 import type { ComputedFields } from 'contentlayer2/source-files';
+import moonlightTheme from './public/moonlight-ii.json' with { type: 'json' };
 
 export const computeFields = <T extends string>({
   openGraphEndpoint = '/api/og',
@@ -93,7 +94,7 @@ export const computeFields = <T extends string>({
 });
 
 const rehypePrettyCodeOptions: PrettyCodeOptions = {
-  theme: 'rose-pine-moon',
+  theme: moonlightTheme as never,
   keepBackground: false,
   onVisitLine(node) {
     if (node.children.length === 0) {
