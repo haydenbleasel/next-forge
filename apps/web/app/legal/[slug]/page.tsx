@@ -5,13 +5,12 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Container } from '@repo/design-system/components/container';
 import { allLegals } from '@contentlayer/generated';
-import { baseUrl } from '~/lib/consts';
-import type { FC } from 'react';
-import type { Metadata } from 'next';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
+import type { FC } from 'react';
+import type { Metadata } from 'next';
 
-type LegalPageProps = {
+type LegalPageProperties = {
   readonly params: {
     slug: string;
   };
@@ -19,43 +18,36 @@ type LegalPageProps = {
 
 export const dynamic = 'force-dynamic';
 
-export const generateMetadata = ({ params }: LegalPageProps): Metadata => {
+export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
   const currentPath = params.slug;
-  const doc = allLegals.find(
+  const page = allLegals.find(
     ({ slugAsParams }) => slugAsParams === currentPath
   );
 
-  if (!doc) {
+  if (!page) {
     return {};
   }
 
   return createMetadata({
-    title: doc.title,
-    description: doc.description,
-    image: doc.image,
+    title: page.title,
+    description: page.description,
+    image: page.image,
   });
 };
 
-export const generateStaticParams = (): LegalPageProps['params'][] =>
-  allLegals.map((doc) => ({
-    slug: doc.slug,
+export const generateStaticParams = (): LegalPageProperties['params'][] =>
+  allLegals.map((page) => ({
+    slug: page.slug,
   }));
 
-const LegalPage: FC<LegalPageProps> = ({ params }) => {
+const LegalPage: FC<LegalPageProperties> = ({ params }) => {
   const currentPath = params.slug;
-  const doc = allLegals.find(
+  const page = allLegals.find(
     ({ slugAsParams }) => slugAsParams === currentPath
   );
 
-  if (!doc) {
+  if (!page) {
     notFound();
-  }
-
-  const images: string[] = [];
-
-  if (doc.image) {
-    const imageUrl = new URL(doc.image, baseUrl).href;
-    images.push(imageUrl);
   }
 
   return (
@@ -68,19 +60,19 @@ const LegalPage: FC<LegalPageProps> = ({ params }) => {
         Back to Blog
       </Link>
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        <Balancer>{doc.title}</Balancer>
+        <Balancer>{page.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        <Balancer>{doc.description}</Balancer>
+        <Balancer>{page.description}</Balancer>
       </p>
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={doc.body.code} />
+            <Mdx code={page.body.code} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar doc={doc} />
+          <Sidebar doc={page} />
         </div>
       </div>
     </Container>

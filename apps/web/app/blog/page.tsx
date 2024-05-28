@@ -41,7 +41,7 @@ const Blog: FC = () => (
                   placeholder={`data:image/jpg;base64,${post.imageBlur}`}
                   alt=""
                 />
-              ) : null}
+              ) : undefined}
               <CardHeader>
                 <CardTitle>{post.title}</CardTitle>
                 <CardDescription>{post.description}</CardDescription>

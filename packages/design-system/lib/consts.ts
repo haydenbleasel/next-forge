@@ -19,5 +19,5 @@ if (!urls.docsUrl) {
 export const baseUrl = urls.baseUrl
   ? `https://${urls.baseUrl}`
   : 'http://localhost:3000';
-export const appUrl = urls.appUrl;
-export const docsUrl = urls.docsUrl;
+export const { appUrl } = urls;
+export const { docsUrl } = urls;

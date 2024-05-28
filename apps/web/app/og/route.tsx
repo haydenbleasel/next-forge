@@ -3,8 +3,8 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const GET = (req: Request): ImageResponse => {
-  const { searchParams } = new URL(req.url);
+export const GET = (request: Request): ImageResponse => {
+  const { searchParams } = new URL(request.url);
 
   const title = searchParams.get('title');
   const description = searchParams.get('description');

@@ -12,8 +12,8 @@ const openai = new OpenAI({
 
 export const runtime = 'edge';
 
-export const POST = async (req: Request): Promise<Response> => {
-  const { messages } = (await req.json()) as {
+export const POST = async (request: Request): Promise<Response> => {
+  const { messages } = (await request.json()) as {
     messages: OpenAI.Chat.Completions.ChatCompletionMessageParam[];
   };
 

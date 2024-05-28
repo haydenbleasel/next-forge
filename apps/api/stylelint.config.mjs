@@ -1,1 +1,1 @@
-export { default } from "ultracite/stylelint";
+export { default } from 'ultracite/stylelint';

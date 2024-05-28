@@ -1,1 +1,1 @@
-export { default } from "ultracite/prettier";
+export { default } from 'ultracite/prettier';

@@ -4,11 +4,11 @@ import type { Toc } from '@/lib/remark-toc';
 import type { FC } from 'react';
 import type { Blog, Legal } from '@contentlayer/generated';
 
-type SidebarProps = {
+type SidebarProperties = {
   readonly doc: Blog | Legal;
 };
 
-export const Sidebar: FC<SidebarProps> = ({ doc }) => {
+export const Sidebar: FC<SidebarProperties> = ({ doc }) => {
   const toc = doc.toc as Toc;
 
   return (
@@ -30,7 +30,7 @@ export const Sidebar: FC<SidebarProps> = ({ doc }) => {
           {doc.readingTime}
         </p>
       </div>
-      {toc.length ? (
+      {toc.length > 0 ? (
         <div className="-mx-2">
           <div className="grid gap-2 p-2">
             <p className="text-sm text-zinc-500">Sections</p>
@@ -56,7 +56,7 @@ export const Sidebar: FC<SidebarProps> = ({ doc }) => {
             </ul>
           </div>
         </div>
-      ) : null}
+      ) : undefined}
     </div>
   );
 };

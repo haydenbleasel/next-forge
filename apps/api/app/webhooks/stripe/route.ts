@@ -6,9 +6,9 @@ import { parseError } from '@repo/design-system/lib/error';
 
 const secret = process.env.STRIPE_WEBHOOK_SECRET ?? '';
 
-export const POST = async (req: Request): Promise<Response> => {
+export const POST = async (request: Request): Promise<Response> => {
   try {
-    const body = await req.text();
+    const body = await request.text();
     const signature = headers().get('stripe-signature');
 
     if (!signature) {
@@ -18,17 +18,21 @@ export const POST = async (req: Request): Promise<Response> => {
     const event = stripe.webhooks.constructEvent(body, signature, secret);
 
     switch (event.type) {
-      case 'checkout.session.completed':
+      case 'checkout.session.completed': {
         log.info('checkout.session.completed');
         break;
-      case 'payment_intent.succeeded':
+      }
+      case 'payment_intent.succeeded': {
         log.info('payment_intent.succeeded');
         break;
-      case 'payment_intent.payment_failed':
+      }
+      case 'payment_intent.payment_failed': {
         log.info('payment_intent.payment_failed');
         break;
-      default:
+      }
+      default: {
         log.warn(`Unhandled event type ${event.type}`);
+      }
     }
 
     return NextResponse.json({ result: event, ok: true });

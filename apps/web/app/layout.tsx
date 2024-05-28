@@ -10,11 +10,11 @@ import { Navbar } from '../components/navbar';
 import { Footer } from '../components/footer';
 import type { FC, ReactNode } from 'react';
 
-type RootLayoutProps = {
+type RootLayoutProperties = {
   readonly children: ReactNode;
 };
 
-const RootLayout: FC<RootLayoutProps> = ({ children }) => (
+const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
   <html
     lang="en"
     className={cn(

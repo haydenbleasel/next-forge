@@ -19,7 +19,7 @@ export const createMetadata = ({
   title,
   description,
   image,
-  ...props
+  ...properties
 }: MetadataGenerator): Metadata => {
   const parsedTitle = `${title} | ${applicationName}`;
   const defaultMetadata: Metadata = {
@@ -53,7 +53,7 @@ export const createMetadata = ({
     },
   };
 
-  const metadata: Metadata = merge(defaultMetadata, props);
+  const metadata: Metadata = merge(defaultMetadata, properties);
 
   if (image && metadata.openGraph) {
     metadata.openGraph.images = [

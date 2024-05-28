@@ -1,7 +1,7 @@
 import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 
-type LogoProps = {
+type LogoProperties = {
   readonly showName?: boolean;
   readonly className?: string;
 };
@@ -16,9 +16,10 @@ export const Logomark: FC<{ readonly className?: string }> = ({
     viewBox="0 0 300 300"
     width="300"
     xmlns="http://www.w3.org/2000/svg"
+    aria-label="Next Forge logo"
   >
     <path
-      clip-rule="evenodd"
+      clipRule="evenodd"
       d="m150 0h-150l150 150h-150l150 150h150l-150-150h150z"
       fill="#000"
       fillRule="evenodd"
@@ -26,7 +27,7 @@ export const Logomark: FC<{ readonly className?: string }> = ({
   </svg>
 );
 
-export const Logo: FC<LogoProps> = ({ showName, className }) => (
+export const Logo: FC<LogoProperties> = ({ showName, className }) => (
   <div className="flex items-center gap-2 not-prose">
     <Logomark className={className} />
     <p

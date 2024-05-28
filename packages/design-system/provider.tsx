@@ -1,24 +1,26 @@
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
-import type { FC } from 'react';
-import type { ThemeProviderProps } from 'next-themes/dist/types';
-import { Toaster } from './components/ui/sonner';
-import { TooltipProvider } from './components/ui/tooltip';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import Script from 'next/script';
+import { Toaster } from './components/ui/sonner';
+import { TooltipProvider } from './components/ui/tooltip';
+import type { FC } from 'react';
+import type { ThemeProviderProps } from 'next-themes/dist/types';
 
-type AnalyticsProps = {
+type AnalyticsProperties = {
   readonly gaMeasurementId?: string;
 };
 
-type DesignSystemProviderProps = ThemeProviderProps & AnalyticsProps;
+type DesignSystemProviderProperties = AnalyticsProperties & ThemeProviderProps;
 
-const GoogleAnalytics: FC<AnalyticsProps> = ({ gaMeasurementId }) => {
+const GoogleAnalytics: FC<AnalyticsProperties> = ({ gaMeasurementId }) => {
   if (process.env.NODE_ENV !== 'production') {
-    return null;
+    // eslint-disable-next-line unicorn/no-useless-undefined
+    return undefined;
   }
 
   if (!gaMeasurementId) {
-    return null;
+    // eslint-disable-next-line unicorn/no-useless-undefined
+    return undefined;
   }
 
   return (
@@ -34,10 +36,10 @@ const GoogleAnalytics: FC<AnalyticsProps> = ({ gaMeasurementId }) => {
   );
 };
 
-export const DesignSystemProvider: FC<DesignSystemProviderProps> = ({
+export const DesignSystemProvider: FC<DesignSystemProviderProperties> = ({
   children,
   gaMeasurementId,
-  ...props
+  ...properties
 }) => (
   <>
     <NextThemesProvider
@@ -45,7 +47,7 @@ export const DesignSystemProvider: FC<DesignSystemProviderProps> = ({
       defaultTheme="system"
       enableSystem
       disableTransitionOnChange
-      {...props}
+      {...properties}
     >
       <TooltipProvider>{children}</TooltipProvider>
     </NextThemesProvider>

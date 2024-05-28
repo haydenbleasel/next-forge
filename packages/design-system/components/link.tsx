@@ -2,7 +2,7 @@ import NextLink from 'next/link';
 import { forwardRef } from 'react';
 import type { ComponentProps } from 'react';
 
-type LinkProps = {
+type LinkProperties = {
   readonly href: string;
   readonly children: ComponentProps<'a'>['children'];
   readonly className?: string;
@@ -10,8 +10,8 @@ type LinkProps = {
 };
 
 // eslint-disable-next-line react/display-name
-export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
-  ({ href, external, ...props }, ref) => {
+export const Link = forwardRef<HTMLAnchorElement, LinkProperties>(
+  ({ href, external, ...properties }, reference) => {
     const isExternal = href.startsWith('http');
 
     if (isExternal) {
@@ -21,8 +21,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          {...props}
-          ref={ref}
+          {...properties}
+          ref={reference}
         />
       );
     }
@@ -31,8 +31,8 @@ export const Link = forwardRef<HTMLAnchorElement, LinkProps>(
       <NextLink
         target={external ? '_blank' : undefined}
         href={href}
-        {...props}
-        ref={ref}
+        {...properties}
+        ref={reference}
       />
     );
   }

@@ -5,10 +5,10 @@ import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
 import { Client } from '@planetscale/database';
 
 const databaseUrl = process.env.DATABASE_URL;
-const nodeEnv = process.env.NODE_ENV;
+const nodeEnvironment = process.env.NODE_ENV;
 
 if (!databaseUrl) {
-  throw new Error('Missing DATABASE_URL environment variable.')
+  throw new Error('Missing DATABASE_URL environment variable.');
 }
 
 declare global {
@@ -22,7 +22,7 @@ const adapter = new PrismaPlanetScale(client);
 // eslint-disable-next-line @typescript-eslint/init-declarations
 let prisma: PrismaClient;
 
-if (nodeEnv === 'production') {
+if (nodeEnvironment === 'production') {
   prisma = new PrismaClient({ adapter });
 } else {
   if (!global.cachedPrisma) {

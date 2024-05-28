@@ -1,15 +1,15 @@
 import { cn } from '~/lib/utils';
 import type { ComponentProps, FC } from 'react';
 
-type ProseProps = ComponentProps<'div'>;
+type ProseProperties = ComponentProps<'div'>;
 
-export const Prose: FC<ProseProps> = ({ className, ...props }) => (
+export const Prose: FC<ProseProperties> = ({ className, ...properties }) => (
   <div
     className={cn(
       'prose prose-gray prose-violet w-full',
       'dark:prose-invert',
       className
     )}
-    {...props}
+    {...properties}
   />
 );

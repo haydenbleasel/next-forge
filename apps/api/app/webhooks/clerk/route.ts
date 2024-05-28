@@ -3,7 +3,7 @@ import { headers } from 'next/headers';
 import { log } from '@logtail/next';
 import type { WebhookEvent } from '@clerk/nextjs/server';
 
-export const POST = async (req: Request): Promise<Response> => {
+export const POST = async (request: Request): Promise<Response> => {
   if (!process.env.CLERK_WEBHOOK_SECRET) {
     throw new Error(
       'Please add process.env.CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local'
@@ -24,13 +24,14 @@ export const POST = async (req: Request): Promise<Response> => {
   }
 
   // Get the body
-  const payload = (await req.json()) as object;
+  const payload = (await request.json()) as object;
   const body = JSON.stringify(payload);
 
   // Create a new SVIX instance with your secret.
   const wh = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
 
-  let event: WebhookEvent | null = null;
+  // eslint-disable-next-line no-undef-init
+  let event: WebhookEvent | undefined = undefined;
 
   // Verify the payload with the headers
   try {

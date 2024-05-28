@@ -5,11 +5,11 @@ import { useCopyToClipboard } from '@repo/design-system/hooks/use-copy-to-clipbo
 import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 
-type CommandProps = {
+type CommandProperties = {
   readonly code: string;
 };
 
-export const Command: FC<CommandProps> = ({ code }) => {
+export const Command: FC<CommandProperties> = ({ code }) => {
   const { copyToClipboard, isCopied } = useCopyToClipboard();
   const Icon = isCopied ? CheckIcon : CopyIcon;
 

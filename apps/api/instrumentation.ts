@@ -1,4 +1,6 @@
-export const register = async () => {
+/* eslint-disable import/dynamic-import-chunkname */
+
+export const register = async (): Promise<void> => {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     await import('./sentry.server.config');
   }

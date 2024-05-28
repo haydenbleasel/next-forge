@@ -37,7 +37,7 @@ export const Notifications = async (): Promise<ReactElement> => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end" className="w-64">
-        {messages.items.length ? (
+        {messages.items.length > 0 ? (
           messages.items.map((message) => (
             <DropdownMenuItem key={message.id}>{message.data}</DropdownMenuItem>
           ))

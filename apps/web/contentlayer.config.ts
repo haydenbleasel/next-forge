@@ -10,10 +10,10 @@ import readingTime from 'reading-time';
 import rehypePresetMinify from 'rehype-preset-minify';
 import { extractTocHeadings } from 'pliny/mdx-plugins/remark-toc-headings.js';
 import { sqip } from 'sqip';
+import moonlightTheme from './public/moonlight-ii.json' with { type: 'json' };
 import type { Options as PrettyCodeOptions } from 'rehype-pretty-code';
 import type { Options as RehypeAutoLinkHeadingsOptions } from 'rehype-autolink-headings';
 import type { ComputedFields } from 'contentlayer2/source-files';
-import moonlightTheme from './public/moonlight-ii.json' with { type: 'json' };
 
 export const computeFields = <T extends string>({
   openGraphEndpoint = '/api/og',
@@ -25,51 +25,51 @@ export const computeFields = <T extends string>({
   slug: {
     type: 'string',
     description: 'The slug of the document, used in the URL',
-    resolve: (doc) => `/${doc._raw.flattenedPath}`,
+    resolve: (page) => `/${page._raw.flattenedPath}`,
   },
   slugAsParams: {
     type: 'string',
     description: 'The slug as a path segment',
-    resolve: (doc) => doc._raw.flattenedPath.split('/').slice(1).join('/'),
+    resolve: (page) => page._raw.flattenedPath.split('/').slice(1).join('/'),
   },
   readingTime: {
     type: 'string',
     description: 'The estimated time to read the document, in minutes',
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-    resolve: (doc) => readingTime(doc.body.raw).text,
+    resolve: (page) => readingTime(page.body.raw).text,
   },
   toc: {
     type: 'list',
     description: 'The table of contents of the document',
     // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
-    resolve: async (doc) => extractTocHeadings(doc.body.raw),
+    resolve: async (page) => extractTocHeadings(page.body.raw),
   },
   image: {
     type: 'string',
     description: 'The image of the document',
-    resolve: (doc) => {
-      if (typeof doc.image === 'string') {
-        return doc.image;
+    resolve: (page) => {
+      if (typeof page.image === 'string') {
+        return page.image;
       }
 
-      const searchParams = new URLSearchParams();
+      const searchParameters = new URLSearchParams();
 
-      if (typeof doc.title === 'string') {
-        searchParams.set('title', doc.title);
+      if (typeof page.title === 'string') {
+        searchParameters.set('title', page.title);
       }
 
-      if (typeof doc.description === 'string') {
-        searchParams.set('description', doc.description);
+      if (typeof page.description === 'string') {
+        searchParameters.set('description', page.description);
       }
 
-      return `${openGraphEndpoint}?${searchParams.toString()}`;
+      return `${openGraphEndpoint}?${searchParameters.toString()}`;
     },
   },
   imageBlur: {
     type: 'string',
     description: 'The image data of the document',
-    resolve: async (doc) => {
-      if (typeof doc.image !== 'string') {
+    resolve: async (page) => {
+      if (typeof page.image !== 'string') {
         return '';
       }
 
@@ -78,7 +78,7 @@ export const computeFields = <T extends string>({
         : imagesFolder;
 
       const blur = await sqip({
-        input: `${folderBase}${doc.image}`,
+        input: `${folderBase}${page.image}`,
         plugins: [
           'sqip-plugin-primitive',
           'sqip-plugin-svgo',

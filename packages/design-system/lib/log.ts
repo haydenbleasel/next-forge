@@ -1,5 +1,5 @@
 import { log as logtail } from '@logtail/next';
 
-const env = process.env.NODE_ENV;
+const environment = process.env.NODE_ENV;
 
-export const log = env === 'production' ? logtail : console;
+export const log = environment === 'production' ? logtail : console;

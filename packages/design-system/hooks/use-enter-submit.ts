@@ -5,7 +5,7 @@ export const useEnterSubmit = (): {
   formRef: RefObject<HTMLFormElement>;
   onKeyDown: (event: KeyboardEvent<HTMLTextAreaElement>) => void;
 } => {
-  const formRef = useRef<HTMLFormElement>(null);
+  const formReference = useRef<HTMLFormElement>(null);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLTextAreaElement>): void => {
     if (
@@ -13,10 +13,10 @@ export const useEnterSubmit = (): {
       !event.shiftKey &&
       !event.nativeEvent.isComposing
     ) {
-      formRef.current?.requestSubmit();
+      formReference.current?.requestSubmit();
       event.preventDefault();
     }
   };
 
-  return { formRef, onKeyDown: handleKeyDown };
+  return { formRef: formReference, onKeyDown: handleKeyDown };
 };

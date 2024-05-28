@@ -2,9 +2,9 @@
 
 import { useState } from 'react';
 import dynamic from 'next/dynamic';
+import { cn } from '~/lib/utils';
 import type { FC } from 'react';
 import type { ReactPlayerProps } from 'react-player';
-import { cn } from '~/lib/utils';
 
 const Placeholder: FC<{ readonly className?: string }> = ({ className }) => (
   <div
@@ -18,6 +18,7 @@ const Placeholder: FC<{ readonly className?: string }> = ({ className }) => (
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
+      aria-label="Loading"
     >
       <circle
         className="opacity-25"
@@ -51,17 +52,17 @@ const Player = dynamic<ReactPlayerProps>(
   }
 );
 
-type VideoProps = ReactPlayerProps & {
+type VideoProperties = ReactPlayerProps & {
   readonly className?: string;
 };
 
-export const Video: FC<VideoProps> = ({
+export const Video: FC<VideoProperties> = ({
   className,
   style,
   width,
   height,
   onReady,
-  ...props
+  ...properties
 }) => {
   const [loaded, setLoaded] = useState(false);
 
@@ -86,7 +87,7 @@ export const Video: FC<VideoProps> = ({
           setLoaded(true);
           onReady?.(player);
         }}
-        {...props}
+        {...properties}
       />
     </div>
   );

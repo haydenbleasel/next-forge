@@ -6,12 +6,12 @@ import { Button } from '@repo/design-system/components/ui/button';
 import type Error from 'next/error';
 import type { FC } from 'react';
 
-type GlobalErrorProps = {
+type GlobalErrorProperties = {
   readonly error: Error & { digest?: string };
   readonly reset: () => void;
 };
 
-const GlobalError: FC<GlobalErrorProps> = ({ error, reset }) => {
+const GlobalError: FC<GlobalErrorProperties> = ({ error, reset }) => {
   useEffect(() => {
     // eslint-disable-next-line import/namespace
     Sentry.captureException(error);

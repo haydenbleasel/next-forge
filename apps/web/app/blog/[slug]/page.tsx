@@ -6,13 +6,12 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Container } from '@repo/design-system/components/container';
 import { allBlogs } from '@contentlayer/generated';
-import { baseUrl } from '~/lib/consts';
-import type { FC } from 'react';
-import type { Metadata } from 'next';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
+import type { FC } from 'react';
+import type { Metadata } from 'next';
 
-type BlogPostProps = {
+type BlogPostProperties = {
   readonly params: {
     slug: string;
   };
@@ -20,39 +19,36 @@ type BlogPostProps = {
 
 export const dynamic = 'force-dynamic';
 
-export const generateMetadata = ({ params }: BlogPostProps): Metadata => {
+export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
   const currentPath = params.slug;
-  const doc = allBlogs.find(({ slugAsParams }) => slugAsParams === currentPath);
+  const page = allBlogs.find(
+    ({ slugAsParams }) => slugAsParams === currentPath
+  );
 
-  if (!doc) {
+  if (!page) {
     return {};
   }
 
   return createMetadata({
-    title: doc.title,
-    description: doc.description,
-    image: doc.image,
+    title: page.title,
+    description: page.description,
+    image: page.image,
   });
 };
 
-export const generateStaticParams = (): BlogPostProps['params'][] =>
-  allBlogs.map((doc) => ({
-    slug: doc.slug,
+export const generateStaticParams = (): BlogPostProperties['params'][] =>
+  allBlogs.map((page) => ({
+    slug: page.slug,
   }));
 
-const BlogPost: FC<BlogPostProps> = ({ params }) => {
+const BlogPost: FC<BlogPostProperties> = ({ params }) => {
   const currentPath = params.slug;
-  const doc = allBlogs.find(({ slugAsParams }) => slugAsParams === currentPath);
+  const page = allBlogs.find(
+    ({ slugAsParams }) => slugAsParams === currentPath
+  );
 
-  if (!doc) {
+  if (!page) {
     notFound();
-  }
-
-  const images: string[] = [];
-
-  if (doc.image) {
-    const imageUrl = new URL(doc.image, baseUrl).href;
-    images.push(imageUrl);
   }
 
   return (
@@ -65,31 +61,31 @@ const BlogPost: FC<BlogPostProps> = ({ params }) => {
         Back to Blog
       </Link>
       <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-        <Balancer>{doc.title}</Balancer>
+        <Balancer>{page.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
-        <Balancer>{doc.description}</Balancer>
+        <Balancer>{page.description}</Balancer>
       </p>
-      {doc.image && doc.imageBlur ? (
+      {page.image && page.imageBlur ? (
         <Image
-          src={doc.image}
+          src={page.image}
           width={1920}
           height={1080}
           alt=""
           className="h-full w-full rounded-xl my-16"
           priority
-          blurDataURL={`data:image/jpg;base64,${doc.imageBlur}`}
+          blurDataURL={`data:image/jpg;base64,${page.imageBlur}`}
           placeholder="blur"
         />
-      ) : null}
+      ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={doc.body.code} />
+            <Mdx code={page.body.code} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar doc={doc} />
+          <Sidebar doc={page} />
         </div>
       </div>
     </Container>

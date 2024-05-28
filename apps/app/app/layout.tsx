@@ -9,11 +9,11 @@ import { DesignSystemProvider } from '@repo/design-system/provider';
 import { cn } from '@repo/design-system/lib/utils';
 import type { FC, ReactNode } from 'react';
 
-type RootLayoutProps = {
+type RootLayoutProperties = {
   readonly children: ReactNode;
 };
 
-const RootLayout: FC<RootLayoutProps> = ({ children }) => (
+const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
   <ClerkProvider>
     <html
       lang="en"
