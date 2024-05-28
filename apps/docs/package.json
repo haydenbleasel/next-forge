@@ -4,5 +4,13 @@
   "scripts": {
     "dev": "mintlify dev --port 3003",
     "lint": "mintlify broken-links"
+  },
+  "devDependencies": {
+    "eslint": "8",
+    "jest": "^29.7.0",
+    "prettier": "^3.2.5",
+    "stylelint": "^16.6.1",
+    "typescript": "^5.4.5",
+    "ultracite": "^3.8.0"
   }
 }
