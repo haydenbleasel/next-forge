@@ -34,7 +34,6 @@ It also contains the following packages:
 - `@repo/email`: The email templates, which contains the email templates for the app.
 - `@repo/database`: The database, which contains the database schema and migrations for the app.
 - `@repo/typescript-config`: The TypeScript configuration, which contains the shared TypeScript configuration for the app.
-- `@repo/eslint-config`: The ESLint configuration, which contains the shared ESLint configuration for the app.
 
 ## Usage
 
