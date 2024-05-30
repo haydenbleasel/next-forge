@@ -202,6 +202,26 @@ const groups = [
         description: 'Content made easy for developers.',
       },
       {
+        href: 'https://shiki.style/',
+        name: 'Shiki',
+        description: 'Powerful syntax highlighting.',
+      },
+      {
+        href: 'https://github.com/axe312ger/sqip',
+        name: 'Sqip',
+        description: 'SVG-based LQIP generation.',
+      },
+      {
+        href: 'https://github.com/rehypejs/rehype',
+        name: 'Rehype',
+        description: 'HTML processor powered by plugins.',
+      },
+      {
+        href: 'https://remark.js.org/',
+        name: 'Remark',
+        description: 'Markdown processor powered by plugins.',
+      },
+      {
         href: 'https://mintlify.com/',
         name: 'Mintlify',
         description: 'The documentation you want, effortlessly.',
