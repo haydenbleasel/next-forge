@@ -74,7 +74,7 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
           alt=""
           className="h-full w-full rounded-xl my-16"
           priority
-          blurDataURL={`data:image/jpg;base64,${page.imageBlur}`}
+          blurDataURL={page.imageBlur}
           placeholder="blur"
         />
       ) : undefined}
