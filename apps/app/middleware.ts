@@ -1,18 +1,19 @@
-import { clerkMiddleware, createRouteMatcher } from '@clerk/nextjs/server';
-import { NextResponse } from 'next/server';
+import { updateSession } from '@repo/database/lib/middleware';
+import type { NextRequest } from 'next/server';
 
-const isProtectedRoute = createRouteMatcher([
-  /^(?!\/(?<path>sign-in|sign-up)).*$/iu,
-]);
-
-export default clerkMiddleware((auth, request) => {
-  if (isProtectedRoute(request)) {
-    auth().protect();
-  }
-
-  return NextResponse.next();
-});
+export const middleware = async (request: NextRequest) =>
+  await updateSession(request);
 
 export const config = {
-  matcher: [String.raw`/((?!.*\..*|_next).*)`, '/', '/(api|trpc)(.*)'],
+  matcher: [
+    /*
+     * Match all request paths except:
+     * - _next/static (static files)
+     * - _next/image (image optimization files)
+     * - favicon.ico (favicon file)
+     * - images - .svg, .png, .jpg, .jpeg, .gif, .webp
+     * Feel free to modify this pattern to include more paths.
+     */
+    String.raw`/((?!_next/static|_next/image|favicon.ico|.*\.(?:svg|png|jpg|jpeg|gif|webp)$).*)`,
+  ],
 };
