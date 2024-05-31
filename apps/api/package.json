@@ -11,7 +11,6 @@
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.8",
     "@logtail/next": "^0.1.5",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",

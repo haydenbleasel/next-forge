@@ -9,7 +9,6 @@
     "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.0.8",
     "@knocklabs/node": "^0.6.11",
     "@logtail/next": "^0.1.5",
     "@radix-ui/react-icons": "^1.3.0",
