@@ -372,8 +372,8 @@ importers:
         specifier: 5.14.0
         version: 5.14.0(@planetscale/database@1.18.0)
       '@prisma/client':
-        specifier: 5.13.0
-        version: 5.13.0(prisma@5.14.0)
+        specifier: 5.14.0
+        version: 5.14.0(prisma@5.14.0)
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -3179,8 +3179,8 @@ packages:
       '@prisma/driver-adapter-utils': 5.14.0
     dev: false
 
-  /@prisma/client@5.13.0(prisma@5.14.0):
-    resolution: {integrity: sha512-uYdfpPncbZ/syJyiYBwGZS8Gt1PTNoErNYMuqHDa2r30rNSFtgTA/LXsSk55R7pdRTMi5pHkeP9B14K6nHmwkg==}
+  /@prisma/client@5.14.0(prisma@5.14.0):
+    resolution: {integrity: sha512-akMSuyvLKeoU4LeyBAUdThP/uhVP3GuLygFE3MlYzaCb3/J8SfsYBE5PkaFuLuVpLyA6sFoW+16z/aPhNAESqg==}
     engines: {node: '>=16.13'}
     requiresBuild: true
     peerDependencies:
