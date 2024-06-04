@@ -1,4 +1,4 @@
-import { login, signup } from './actions/login';
+import { login } from './actions/login';
 import type { FC } from 'react';
 
 const Login: FC = () => (
@@ -21,9 +21,6 @@ const Login: FC = () => (
     />
     <button type="button" formAction={login}>
       Log in
-    </button>
-    <button type="button" formAction={signup}>
-      Sign up
     </button>
   </form>
 );

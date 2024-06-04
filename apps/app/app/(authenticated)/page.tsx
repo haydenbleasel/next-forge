@@ -1,5 +1,5 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
-import { Chat } from './components/chat';
+import { Chat } from '../components/chat';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
