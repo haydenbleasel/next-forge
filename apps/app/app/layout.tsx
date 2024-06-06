@@ -21,7 +21,7 @@ const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
       'antialiased touch-manipulation font-sans'
     )}
   >
-    <body className="bg-zinc-100 dark:bg-zinc-950">
+    <body className="bg-background">
       <DesignSystemProvider>
         <TooltipProvider>{children}</TooltipProvider>
       </DesignSystemProvider>
