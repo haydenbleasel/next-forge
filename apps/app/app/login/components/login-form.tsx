@@ -13,12 +13,13 @@ import type { FC, FormEventHandler } from 'react';
 export const LoginForm: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const onSubmit: FormEventHandler = async (event) => {
+  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await login();
+      const formData = new FormData(event.currentTarget);
+      const response = await login(formData);
 
       if (response.error) {
         throw new Error(response.error);
@@ -46,7 +47,7 @@ export const LoginForm: FC = () => {
               disabled={isLoading}
             />
           </div>
-          <Button disabled={isLoading}>
+          <Button disabled={isLoading} className="gap-2">
             {isLoading ? <LoadingCircle /> : undefined}
             Sign In with Email
           </Button>
