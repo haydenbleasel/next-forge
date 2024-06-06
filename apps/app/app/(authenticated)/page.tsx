@@ -1,5 +1,6 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Chat } from '../components/chat';
+import { LogoutButton } from './components/logout-button';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -12,6 +13,7 @@ export const metadata: Metadata = createMetadata({ title, description });
 const Home: FC = () => (
   <div className="flex flex-col py-16">
     <Chat />
+    <LogoutButton />
   </div>
 );
 

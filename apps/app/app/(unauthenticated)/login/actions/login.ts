@@ -5,9 +5,7 @@ import { redirect } from 'next/navigation';
 import { createServerClient } from '@repo/database/lib/server';
 import { z } from 'zod';
 
-const schema = z.object({
-  email: z.string().email().min(1),
-});
+const schema = z.string().email().min(1);
 
 export const login = async (
   formData: FormData
@@ -15,18 +13,20 @@ export const login = async (
   error?: string;
 }> => {
   const supabase = createServerClient();
+  const email = formData.get('email');
 
-  const data = {
-    email: formData.get('email'),
-  };
-
-  const parse = schema.safeParse(data);
+  const parse = schema.safeParse(email);
 
   if (parse.error) {
     return { error: parse.error.message };
   }
 
-  const { error } = await supabase.auth.signInWithOtp(parse.data);
+  const { error } = await supabase.auth.signInWithOtp({
+    email: parse.data,
+    options: {
+      shouldCreateUser: false,
+    },
+  });
 
   if (error) {
     redirect('/error');

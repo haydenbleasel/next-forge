@@ -47,23 +47,9 @@ export const SignupForm: FC = () => {
               disabled={isLoading}
             />
           </div>
-          <div className="grid gap-1">
-            <Label className="sr-only" htmlFor="password">
-              Password
-            </Label>
-            <Input
-              id="password"
-              placeholder="••••••••"
-              type="password"
-              autoCapitalize="none"
-              autoComplete="off"
-              autoCorrect="off"
-              disabled={isLoading}
-            />
-          </div>
           <Button disabled={isLoading} className="gap-2">
             {isLoading ? <LoadingCircle /> : undefined}
-            Sign In with Email
+            Sign up
           </Button>
         </div>
       </form>

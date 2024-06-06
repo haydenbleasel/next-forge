@@ -15,7 +15,9 @@ export const GitHubAuthButton: FC = () => {
     setLoading(true);
 
     try {
-      const response = await gitHubAuth();
+      const response = await gitHubAuth(
+        `${window.location.origin}/auth/callback`
+      );
 
       if (response.error) {
         handleError(response.error);
