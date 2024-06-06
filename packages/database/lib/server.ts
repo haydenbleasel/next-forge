@@ -1,4 +1,5 @@
-import { createServerClient } from '@supabase/ssr';
+import 'server-only';
+import { createServerClient as createServerClientRaw } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import type { CookieOptions } from '@supabase/ssr';
 
@@ -9,10 +10,10 @@ if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase URL or Anon Key');
 }
 
-export const createClient = () => {
+export const createServerClient = () => {
   const cookieStore = cookies();
 
-  return createServerClient(supabaseUrl, supabaseAnonKey, {
+  return createServerClientRaw(supabaseUrl, supabaseAnonKey, {
     cookies: {
       get(name: string) {
         return cookieStore.get(name)?.value;

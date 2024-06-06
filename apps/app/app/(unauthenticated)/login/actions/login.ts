@@ -2,7 +2,7 @@
 
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { createClient } from '@repo/database/lib/server';
+import { createServerClient } from '@repo/database/lib/server';
 import { z } from 'zod';
 
 const schema = z.object({
@@ -14,7 +14,7 @@ export const login = async (
 ): Promise<{
   error?: string;
 }> => {
-  const supabase = createClient();
+  const supabase = createServerClient();
 
   const data = {
     email: formData.get('email'),

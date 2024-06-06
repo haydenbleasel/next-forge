@@ -5,9 +5,9 @@ import { Input } from '@repo/design-system/components/ui/input';
 import { Label } from '@repo/design-system/components/ui/label';
 import { useState } from 'react';
 import { LoadingCircle } from '@repo/design-system/components/loading-circle';
-import { GitHubLogoIcon } from '@radix-ui/react-icons';
 import { handleError } from '@repo/design-system/lib/error';
 import { signup } from '../actions/signup';
+import { GitHubAuthButton } from '../../components/github-auth-button';
 import type { FC, FormEventHandler } from 'react';
 
 export const SignupForm: FC = () => {
@@ -77,15 +77,7 @@ export const SignupForm: FC = () => {
           </span>
         </div>
       </div>
-      <Button
-        variant="outline"
-        type="button"
-        disabled={isLoading}
-        className="gap-2 flex item-center"
-      >
-        {isLoading ? <LoadingCircle /> : <GitHubLogoIcon className="h-4 w-4" />}{' '}
-        GitHub
-      </Button>
+      <GitHubAuthButton />
     </div>
   );
 };

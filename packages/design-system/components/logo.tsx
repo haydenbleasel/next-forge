@@ -21,21 +21,16 @@ export const Logomark: FC<{ readonly className?: string }> = ({
     <path
       clipRule="evenodd"
       d="m150 0h-150l150 150h-150l150 150h150l-150-150h150z"
-      fill="#000"
+      fill="currentColor"
       fillRule="evenodd"
     />
   </svg>
 );
 
 export const Logo: FC<LogoProperties> = ({ showName, className }) => (
-  <div className="flex items-center gap-2 not-prose">
-    <Logomark className={className} />
-    <p
-      className={cn(
-        'text-gray-900 dark:text-white font-medium',
-        !showName && 'sr-only'
-      )}
-    >
+  <div className={cn('flex items-center gap-2 not-prose', className)}>
+    <Logomark />
+    <p className={cn('currentColor font-medium', !showName && 'sr-only')}>
       next-forge
     </p>
   </div>

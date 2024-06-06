@@ -1,4 +1,4 @@
-import { createClient } from '@repo/database/lib/server';
+import { createServerClient } from '@repo/database/lib/server';
 import { redirect } from 'next/navigation';
 import type { ReactElement } from 'react';
 
@@ -9,7 +9,7 @@ type AuthenticatedLayoutProperties = {
 const AuthenticatedLayout = async ({
   children,
 }: AuthenticatedLayoutProperties): Promise<ReactElement> => {
-  const supabase = createClient();
+  const supabase = createServerClient();
   const { data, error } = await supabase.auth.getUser();
 
   if (error ?? !data.user) {
