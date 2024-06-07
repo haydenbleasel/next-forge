@@ -29,6 +29,12 @@ export const login = async (
   });
 
   if (error) {
+    if (error.code === 'otp_disabled') {
+      return {
+        error: "You don't have an account yet. Please create an account.",
+      };
+    }
+
     return { error: error.message };
   }
 
