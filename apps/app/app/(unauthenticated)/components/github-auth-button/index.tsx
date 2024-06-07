@@ -3,13 +3,11 @@ import { useState } from 'react';
 import { LoadingCircle } from '@repo/design-system/components/loading-circle';
 import { handleError } from '@repo/design-system/lib/error';
 import { Button } from '@repo/design-system/components/ui/button';
-import { useRouter } from 'next/navigation';
 import { gitHubAuth } from './github-auth';
 import type { FC } from 'react';
 
 export const GitHubAuthButton: FC = () => {
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleClick = async () => {
     setLoading(true);
@@ -22,8 +20,6 @@ export const GitHubAuthButton: FC = () => {
       if (response?.error) {
         handleError(response.error);
       }
-
-      router.push('/');
     } catch (error) {
       handleError(error);
       setLoading(false);
