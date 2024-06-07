@@ -1,18 +1,20 @@
 'use server';
 
-import { redirect } from 'next/navigation';
 import { createServerClient } from '@repo/database/lib/server';
 import { z } from 'zod';
 
 const schema = z.string().email().min(1);
 
 export const signup = async (
-  formData: FormData
+  formData: FormData,
+  emailRedirectTo: string
 ): Promise<
   | {
       error: string;
     }
-  | undefined
+  | {
+      message: string;
+    }
 > => {
   const supabase = createServerClient();
   const email = formData.get('email');
@@ -27,6 +29,7 @@ export const signup = async (
     email: parse.data,
     options: {
       shouldCreateUser: true,
+      emailRedirectTo,
     },
   });
 
@@ -34,5 +37,5 @@ export const signup = async (
     return { error: error.message };
   }
 
-  return redirect('/verify');
+  return { message: 'Check your email for a sign up link!' };
 };

@@ -6,12 +6,14 @@ import { Label } from '@repo/design-system/components/ui/label';
 import { useState } from 'react';
 import { LoadingCircle } from '@repo/design-system/components/loading-circle';
 import { handleError } from '@repo/design-system/lib/error';
+import { toast } from 'sonner';
 import { signup } from '../actions/signup';
 import { GitHubAuthButton } from '../../components/github-auth-button';
 import type { FC, FormEventHandler } from 'react';
 
 export const SignupForm: FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
+  const [sent, setSent] = useState<boolean>(false);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
@@ -19,16 +21,28 @@ export const SignupForm: FC = () => {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const response = await signup(formData);
+      const response = await signup(formData, window.location.origin);
 
-      if (response?.error) {
+      if ('error' in response) {
         throw new Error(response.error);
       }
+
+      toast.success(response.message);
+      setSent(true);
     } catch (error) {
       handleError(error);
+    } finally {
       setLoading(false);
     }
   };
+
+  if (sent) {
+    return (
+      <div className="grid gap-6">
+        <p className="text-center">Check your email to confirm your account.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="grid gap-6">
@@ -39,6 +53,7 @@ export const SignupForm: FC = () => {
               Email
             </Label>
             <Input
+              name="email"
               id="email"
               placeholder="name@example.com"
               type="email"

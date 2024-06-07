@@ -87,6 +87,7 @@ export const LoginForm: FC = () => {
               Email
             </Label>
             <Input
+              name="email"
               id="email"
               placeholder="name@example.com"
               type="email"
