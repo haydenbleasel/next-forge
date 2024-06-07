@@ -3,9 +3,12 @@
 import { createServerClient } from '@repo/database/lib/server';
 import { redirect } from 'next/navigation';
 
-export const logout = async (): Promise<{
-  error?: string;
-}> => {
+export const logout = async (): Promise<
+  | {
+      error: string;
+    }
+  | undefined
+> => {
   const supabase = createServerClient();
 
   const { error } = await supabase.auth.signOut();
@@ -14,6 +17,5 @@ export const logout = async (): Promise<{
     return { error: error.message };
   }
 
-  redirect('/login');
-  return {};
+  return redirect('/login');
 };

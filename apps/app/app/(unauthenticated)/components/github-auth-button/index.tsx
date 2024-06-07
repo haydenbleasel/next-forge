@@ -19,7 +19,7 @@ export const GitHubAuthButton: FC = () => {
         `${window.location.origin}/auth/callback`
       );
 
-      if (response.error) {
+      if (response?.error) {
         handleError(response.error);
       }
 

@@ -13,10 +13,10 @@ export const LogoutButton: FC = () => {
     setLoading(true);
 
     try {
-      const { error } = await logout();
+      const response = await logout();
 
-      if (error) {
-        throw new Error(error);
+      if (response?.error) {
+        throw new Error(response.error);
       }
     } catch (error) {
       handleError(error);
