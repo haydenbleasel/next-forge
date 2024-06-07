@@ -11,21 +11,22 @@ import { GitHubAuthButton } from '../../components/github-auth-button';
 import type { FC, FormEventHandler } from 'react';
 
 export const SignupForm: FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
 
   const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
 
     try {
       const formData = new FormData(event.currentTarget);
       const response = await signup(formData);
 
-      if (response.error) {
+      if (response?.error) {
         throw new Error(response.error);
       }
     } catch (error) {
       handleError(error);
+      setLoading(false);
     }
   };
 
@@ -44,11 +45,11 @@ export const SignupForm: FC = () => {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              disabled={isLoading}
+              disabled={loading}
             />
           </div>
-          <Button disabled={isLoading} className="gap-2">
-            {isLoading ? <LoadingCircle /> : undefined}
+          <Button disabled={loading} className="gap-2">
+            {loading ? <LoadingCircle /> : undefined}
             Sign up
           </Button>
         </div>

@@ -6,32 +6,81 @@ import { Label } from '@repo/design-system/components/ui/label';
 import { useState } from 'react';
 import { LoadingCircle } from '@repo/design-system/components/loading-circle';
 import { handleError } from '@repo/design-system/lib/error';
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+} from '@repo/design-system/components/ui/input-otp';
 import { login } from '../actions/login';
 import { GitHubAuthButton } from '../../components/github-auth-button';
+import { verify } from '../actions/verify';
 import type { FC, FormEventHandler } from 'react';
 
 export const LoginForm: FC = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [email, setEmail] = useState<string>('');
+  const [code, setCode] = useState<string>('');
+  const [sent, setSent] = useState<boolean>(false);
 
-  const onSubmit: FormEventHandler<HTMLFormElement> = async (event) => {
+  const onSubmitLogin: FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    setIsLoading(true);
+    setLoading(true);
 
     try {
-      const formData = new FormData(event.currentTarget);
-      const response = await login(formData);
+      const response = await login(email);
 
-      if (response.error) {
+      if (response?.error) {
+        throw new Error(response.error);
+      }
+
+      setSent(true);
+    } catch (error) {
+      handleError(error);
+      setLoading(false);
+    }
+  };
+
+  const onSubmitVerify: FormEventHandler<HTMLFormElement> = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await verify(email, code);
+
+      if (response?.error) {
         throw new Error(response.error);
       }
     } catch (error) {
       handleError(error);
+      setLoading(false);
     }
   };
 
+  if (sent) {
+    <div className="grid gap-6">
+      <form onSubmit={onSubmitVerify}>
+        <InputOTP
+          maxLength={6}
+          value={code}
+          onChange={setCode}
+          disabled={loading}
+        >
+          <InputOTPGroup>
+            <InputOTPSlot index={0} />
+            <InputOTPSlot index={1} />
+            <InputOTPSlot index={2} />
+            <InputOTPSlot index={3} />
+            <InputOTPSlot index={4} />
+            <InputOTPSlot index={5} />
+          </InputOTPGroup>
+        </InputOTP>
+      </form>
+    </div>;
+  }
+
   return (
     <div className="grid gap-6">
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmitLogin}>
         <div className="grid gap-2">
           <div className="grid gap-1">
             <Label className="sr-only" htmlFor="email">
@@ -44,11 +93,13 @@ export const LoginForm: FC = () => {
               autoCapitalize="none"
               autoComplete="email"
               autoCorrect="off"
-              disabled={isLoading}
+              disabled={loading}
+              value={email}
+              onChange={(event) => setEmail(event.target.value)}
             />
           </div>
-          <Button disabled={isLoading} className="gap-2">
-            {isLoading ? <LoadingCircle /> : undefined}
+          <Button disabled={loading} className="gap-2">
+            {loading ? <LoadingCircle /> : undefined}
             Sign In with Email
           </Button>
         </div>

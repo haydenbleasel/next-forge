@@ -1,24 +1,24 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { createServerClient } from '@repo/database/lib/server';
 import { z } from 'zod';
 
 const schema = z.string().email().min(1);
 
 export const login = async (
-  formData: FormData
-): Promise<{
-  error?: string;
-}> => {
+  email: string
+): Promise<
+  | {
+      error: string;
+    }
+  | undefined
+> => {
   const supabase = createServerClient();
-  const email = formData.get('email');
-
   const parse = schema.safeParse(email);
 
   if (parse.error) {
-    return { error: parse.error.message };
+    // eslint-disable-next-line no-underscore-dangle
+    return { error: parse.error.format()._errors.join(' ') };
   }
 
   const { error } = await supabase.auth.signInWithOtp({
@@ -29,11 +29,8 @@ export const login = async (
   });
 
   if (error) {
-    redirect('/error');
+    return { error: error.message };
   }
 
-  revalidatePath('/', 'layout');
-  redirect('/');
-
-  return {};
+  return undefined;
 };
