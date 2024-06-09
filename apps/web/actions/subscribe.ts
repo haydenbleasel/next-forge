@@ -1,7 +1,7 @@
 'use server';
 
 import { parseError } from '@repo/design-system/lib/error';
-import { resend } from '@repo/design-system/lib/resend';
+import { resend } from '@repo/email';
 
 const audienceId = process.env.RESEND_AUDIENCE_ID;
 
