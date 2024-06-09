@@ -21,11 +21,11 @@ export const login = async (
     return { error: parse.error.format()._errors.join(' ') };
   }
 
-  const { error } = await supabase.auth.signInWithOtp({
+  // TODO: Check if the user already exists, throw an error if not
+
+  const { error } = await supabase.auth.admin.generateLink({
+    type: 'magiclink',
     email: parse.data,
-    options: {
-      shouldCreateUser: false,
-    },
   });
 
   if (error) {
