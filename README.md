@@ -71,6 +71,9 @@ Open the following URLs to see the app:
 
 - [http://localhost:3000/](http://localhost:3000/) — The main app.
 - [http://localhost:3001/](http://localhost:3001/) — The website.
+- [http://localhost:3002/health](http://localhost:3002/health) — The API (health route)
+- [http://localhost:3003](http://localhost:3003) — The docs
+- [http://localhost:3004](http://localhost:3004) — Email templates
 
 ## Deploying
 
