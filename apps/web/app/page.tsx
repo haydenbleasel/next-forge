@@ -42,9 +42,9 @@ const groups = [
         description: 'High-performance monorepo tooling.',
       },
       {
-        href: 'https://clerk.com/',
-        name: 'Clerk',
-        description: 'User authentication and management.',
+        href: 'https://supabase.com/',
+        name: 'Supabase',
+        description: 'Auth, database and storage.',
       },
       {
         href: 'https://stripe.com/',
@@ -135,11 +135,6 @@ const groups = [
         href: 'https://prisma.io/',
         name: 'Prisma',
         description: 'A TypeScript ORM for Node.js.',
-      },
-      {
-        href: 'https://planetscale.com/',
-        name: 'PlanetScale',
-        description: 'The database for developers.',
       },
     ],
   },
