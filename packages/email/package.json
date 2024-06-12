@@ -8,21 +8,21 @@
     "export": "email export"
   },
   "dependencies": {
-    "@react-email/components": "0.0.17",
+    "@react-email/components": "0.0.19",
     "react": "18.3.1",
-    "react-email": "2.1.2",
+    "react-email": "2.1.4",
     "resend": "^3.2.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^20.14.2",
-    "@types/react": "18.3.2",
+    "@types/react": "18.3.3",
     "@types/react-dom": "18.3.0",
     "eslint": "8",
     "jest": "^29.7.0",
-    "prettier": "^3.2.5",
+    "prettier": "^3.3.2",
     "stylelint": "^16.6.1",
     "typescript": "^5.4.5",
-    "ultracite": "^3.8.0"
+    "ultracite": "^3.9.3"
   }
 }
