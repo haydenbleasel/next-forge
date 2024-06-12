@@ -1,7 +1,7 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**"]
@@ -13,5 +13,19 @@
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalEnv": [
+    "RESEND_TOKEN",
+    "RESEND_FROM",
+    "RESEND_AUDIENCE_ID",
+    "BETTERSTACK_API_KEY",
+    "BETTERSTACK_URL",
+    "OPENAI_API_KEY",
+    "STRIPE_SECRET_KEY",
+    "SENTRY_ORG",
+    "SENTRY_PROJECT",
+    "KNOCK_API_KEY",
+    "KNOCK_SIGNING_KEY",
+    "SEGMENT_WRITE_KEY"
+  ]
 }
