@@ -5,7 +5,7 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "bump-deps": "npx npm-check-updates --deep -u -x cmdk,eslint && pnpm install"
+    "bump-deps": "npx npm-check-updates --deep -u -x cmdk,eslint,ultracite,react-day-picker && pnpm install"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
