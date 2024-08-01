@@ -1,26 +1,29 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "globalDependencies": [
-    "**/.env.*local"
-  ],
+  "globalDependencies": ["**/.env.*local"],
   "tasks": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        ".next/**",
-        "!.next/cache/**"
-      ]
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "lint": {
-      "dependsOn": [
-        "^lint"
-      ]
+      "dependsOn": ["^lint"]
     },
     "dev": {
       "cache": false,
       "persistent": true
     }
-  }
+  },
+  "globalEnv": [
+    "SEGMENT_WRITE_KEY",
+    "STRIPE_SECRET_KEY",
+    "RESEND_TOKEN",
+    "BETTERSTACK_URL",
+    "BETTERSTACK_API_KEY",
+    "DATABASE_URL",
+    "RESEND_FROM",
+    "KNOCK_API_KEY",
+    "OPENAI_API_KEY",
+    "CLERK_WEBHOOK_SECRET"
+  ]
 }
