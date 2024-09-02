@@ -22,5 +22,6 @@
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "biomejs.biome"
-  }
+  },
+  "tailwindCSS.experimental.configFile": "./packages/design-system/tailwind.config.ts"
 }
