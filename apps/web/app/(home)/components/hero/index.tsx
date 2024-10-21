@@ -17,7 +17,7 @@ export const Hero: FC = () => (
         height={48}
         className="h-6 md:h-12 w-auto inline-block align-baseline select-none pointer-events-none"
       />{' '}
-      monorepo template for{' '}
+      Turborepo template for{' '}
       <Image
         src={NextLogo}
         alt=""
@@ -27,11 +27,10 @@ export const Hero: FC = () => (
       />{' '}
       Next.js apps.
     </h1>
-    <p className="mt-6 max-w-lg text-pretty text-center text-lg text-muted-foreground sm:text-xl">
-      From zero to production in minutes. next-forge is a production-grade
-      boilerplate for modern Next.js apps. It's designed to have everything you
-      need to build your new SaaS app as quick as possible. Authentication,
-      billing, analytics, SEO, and more. It's all here.
+    <p className="mt-6 max-w-xl text-pretty text-center text-lg text-muted-foreground">
+      next-forge is designed to have everything you need to build your new SaaS
+      app as quick as possible. Authentication, billing, analytics, SEO, and
+      more. It's all here. Get from zero to production in minutes.
     </p>
     <div className="mt-4 flex w-full items-center justify-center space-x-4">
       <Installer />
