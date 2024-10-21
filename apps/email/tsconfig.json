@@ -1,8 +1,5 @@
 {
   "extends": "@repo/typescript-config/nextjs.json",
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-  ],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
