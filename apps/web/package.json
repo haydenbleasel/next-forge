@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@logtail/next": "^0.1.5",
+    "@octokit/rest": "^21.0.2",
     "@radix-ui/react-icons": "^1.3.0",
     "@repo/design-system": "workspace:*",
     "@repo/email-templates": "workspace:*",
@@ -19,6 +20,7 @@
     "contentlayer2": "^0.5.1",
     "geist": "^1.3.1",
     "github-slugger": "^2.0.0",
+    "lucide-react": "^0.453.0",
     "mdast-util-to-string": "^4.0.0",
     "next": "14.2.15",
     "next-contentlayer2": "^0.5.1",

@@ -1,13 +1,7 @@
-import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
-import { Prose } from '@repo/design-system/components/prose';
-import { Link } from '@repo/design-system/components/link';
-import { cn } from '@repo/design-system/lib/utils';
-import Image from 'next/image';
-import { Command } from '@/components/command';
-import { Waitlist } from '@/components/waitlist';
 import type { Metadata } from 'next';
-import type { FC, ReactNode } from 'react';
+import type { FC } from 'react';
+import { Hero } from './components/hero';
 
 const meta = {
   title: 'From zero to production in minutes.',
@@ -250,107 +244,10 @@ const groups = [
   },
 ];
 
-const Tool: FC<{
-  readonly href: string;
-  readonly name: string;
-  readonly description: string;
-}> = ({ href, name, description }) => {
-  const { hostname } = new URL(href);
-
-  return (
-    <Link
-      href={href}
-      key={href}
-      className={cn(
-        'no-underline items-center flex gap-4 p-4 rounded-lg transition-colors',
-        'hover:bg-neutral-100',
-        'dark:hover:bg-neutral-800'
-      )}
-    >
-      <Image
-        src={`https://logo.clearbit.com/${hostname.replace('www.', '')}`}
-        alt={hostname}
-        width={32}
-        height={32}
-        className="rounded-md object-cover w-8 h-8 shrink-0"
-        quality={100}
-      />
-      <div>
-        <p
-          className={cn(
-            'text-sm font-medium',
-            'text-neutral-900',
-            'dark:text-neutral-100'
-          )}
-        >
-          {name}
-        </p>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
-          {description}
-        </p>
-      </div>
-    </Link>
-  );
-};
-
-const Card: FC<{
-  readonly title: string;
-  readonly children: ReactNode;
-  readonly className?: string;
-}> = ({ title, children, className }) => (
-  <div
-    className={cn('rounded-2xl p-1', 'bg-neutral-100', 'dark:bg-neutral-900')}
-  >
-    <p
-      className={cn(
-        'text-sm font-medium py-2 px-4',
-        'text-neutral-900',
-        'dark:text-neutral-100'
-      )}
-    >
-      {title}
-    </p>
-    <div
-      className={cn(
-        'border rounded-xl overflow-hidden shadow-sm',
-        'bg-white border-neutral-200',
-        'dark:bg-neutral-950 dark:border-neutral-800',
-        className
-      )}
-    >
-      {children}
-    </div>
-  </div>
-);
-
 const Home: FC = () => (
-  <div className="flex flex-col py-16">
-    <Container className="grid grid-cols-3 gap-24">
-      <div>
-        <Prose>
-          <h1 className="text-5xl font-bold">{meta.title}</h1>
-          <p>{meta.description}</p>
-          <p>Copy and paste this command into your terminal:</p>
-          <Command code="pnpm create next-app --example https://github.com/haydenbleasel/next-forge" />
-          <p>Interested in updates? Join the mailing list:</p>
-          <Waitlist />
-        </Prose>
-      </div>
-      <div className="col-span-2 space-y-4">
-        {groups.map((group) => (
-          <Card
-            title={group.title}
-            className="p-2 grid sm:grid-cols-2 gap-x-2"
-            key={group.title}
-          >
-            {group.tools.map((tool) => (
-              <Tool {...tool} key={tool.href} />
-            ))}
-          </Card>
-        ))}
-      </div>
-    </Container>
-  </div>
+  <>
+    <Hero />
+  </>
 );
 
 export default Home;
