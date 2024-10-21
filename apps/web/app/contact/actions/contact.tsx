@@ -22,7 +22,7 @@ export const contact = async (
       from,
       to: from,
       subject: 'Contact form submission',
-      reply_to: email,
+      replyTo: email,
       react: <ContactTemplate name={name} email={email} message={message} />,
     });
 
