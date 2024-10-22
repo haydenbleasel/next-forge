@@ -16,15 +16,15 @@
     "@vercel/analytics": "^1.3.1",
     "geist": "^1.3.1",
     "lucide-react": "^0.453.0",
-    "next": "14.2.15",
+    "next": "15.0.0",
     "next-secure-headers": "^2.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.15",
+    "@next/bundle-analyzer": "^15.0.0",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.7.7",
+    "@types/node": "22.7.8",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
     "concurrently": "^9.0.1",

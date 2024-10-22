@@ -22,7 +22,7 @@
     "github-slugger": "^2.0.0",
     "lucide-react": "^0.453.0",
     "mdast-util-to-string": "^4.0.0",
-    "next": "14.2.15",
+    "next": "15.0.0",
     "next-contentlayer2": "^0.5.1",
     "next-secure-headers": "^2.2.0",
     "pliny": "^0.3.2",
@@ -48,12 +48,12 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.15",
+    "@next/bundle-analyzer": "^15.0.0",
     "@repo/typescript-config": "workspace:*",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/lqip-modern": "^1.1.7",
     "@types/mdast": "^4.0.4",
-    "@types/node": "22.7.7",
+    "@types/node": "22.7.8",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.1",
     "@types/unist": "^3.0.3",
@@ -62,7 +62,7 @@
     "prettier": "^3.3.3",
     "stylelint": "^16.10.0",
     "typescript": "^5.6.3",
-    "ultracite": "^4.1.5",
+    "ultracite": "^4.1.6",
     "vfile": "^6.0.3"
   }
 }
