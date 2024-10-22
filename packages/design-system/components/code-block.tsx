@@ -9,9 +9,9 @@ import { memo } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+import { Button } from '@repo/design-system/components/ui/button';
+import { useCopyToClipboard } from '@repo/design-system/hooks/use-copy-to-clipboard';
 import { CheckIcon, CopyIcon, DownloadIcon } from 'lucide-react';
-import { Button } from '~/components/ui/button';
-import { useCopyToClipboard } from '~/hooks/use-copy-to-clipboard';
 import type { FC } from 'react';
 
 type CodeBlockProperties = {
@@ -19,9 +19,9 @@ type CodeBlockProperties = {
   readonly code: string;
 };
 
-type languageMap = Record<string, string | undefined>;
+type LanguageMap = Record<string, string | undefined>;
 
-export const programmingLanguages: languageMap = {
+export const programmingLanguages: LanguageMap = {
   javascript: '.js',
   python: '.py',
   java: '.java',

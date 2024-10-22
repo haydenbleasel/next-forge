@@ -1,8 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { cn } from '@repo/design-system/lib/utils';
 import dynamic from 'next/dynamic';
-import { cn } from '~/lib/utils';
+import { useState } from 'react';
 import type { FC } from 'react';
 import type { ReactPlayerProps } from 'react-player';
 

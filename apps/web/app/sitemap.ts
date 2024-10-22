@@ -1,7 +1,7 @@
 /* eslint-disable n/no-sync */
 // eslint-disable-next-line import/no-nodejs-modules
 import fs from 'node:fs';
-import { baseUrl } from '~/lib/consts';
+import { baseUrl } from '@repo/design-system/lib/consts';
 import type { MetadataRoute } from 'next';
 
 const appFolders = fs.readdirSync('app', { withFileTypes: true });

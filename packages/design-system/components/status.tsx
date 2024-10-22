@@ -1,6 +1,6 @@
 import 'server-only';
 
-import { cn } from '~/lib/utils';
+import { cn } from '@repo/design-system/lib/utils';
 import type { ReactElement } from 'react';
 
 type BetterStackResponse = {

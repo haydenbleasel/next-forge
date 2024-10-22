@@ -1,8 +1,8 @@
 'use client';
 
-import { CopyIcon, CheckIcon } from '@radix-ui/react-icons';
+import { CheckIcon, CopyIcon } from '@radix-ui/react-icons';
 import { useCopyToClipboard } from '@repo/design-system/hooks/use-copy-to-clipboard';
-import { cn } from '~/lib/utils';
+import { cn } from '@repo/design-system/lib/utils';
 import type { FC } from 'react';
 
 type CommandProperties = {

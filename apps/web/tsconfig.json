@@ -9,8 +9,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@contentlayer/generated": ["./.contentlayer/generated"],
-      "~/*": ["../../packages/design-system/*"]
+      "@contentlayer/generated": ["./.contentlayer/generated"]
     }
   },
   "include": [
