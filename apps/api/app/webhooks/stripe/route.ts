@@ -1,15 +1,16 @@
+import { log } from '@logtail/next';
+import { parseError } from '@repo/design-system/lib/error';
+import { stripe } from '@repo/design-system/lib/stripe';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
-import { log } from '@logtail/next';
-import { stripe } from '@repo/design-system/lib/stripe';
-import { parseError } from '@repo/design-system/lib/error';
 
 const secret = process.env.STRIPE_WEBHOOK_SECRET ?? '';
 
 export const POST = async (request: Request): Promise<Response> => {
   try {
     const body = await request.text();
-    const signature = headers().get('stripe-signature');
+    const headerPayload = await headers();
+    const signature = headerPayload.get('stripe-signature');
 
     if (!signature) {
       throw new Error('missing stripe-signature header');
