@@ -1,27 +1,27 @@
 'use client';
 
 import {
-  BadgeCheck,
-  Bell,
-  BookOpen,
-  Bot,
-  ChevronRight,
-  ChevronsUpDown,
-  Command,
-  CreditCard,
-  Folder,
-  Frame,
-  LifeBuoy,
-  LogOut,
-  Map,
-  MoreHorizontal,
-  PieChart,
-  Send,
-  Settings2,
-  Share,
-  Sparkles,
-  SquareTerminal,
-  Trash2,
+  BadgeCheckIcon,
+  BellIcon,
+  BookOpenIcon,
+  BotIcon,
+  ChevronRightIcon,
+  ChevronsUpDownIcon,
+  CommandIcon,
+  CreditCardIcon,
+  FolderIcon,
+  FrameIcon,
+  LifeBuoyIcon,
+  LogOutIcon,
+  MapIcon,
+  MoreHorizontalIcon,
+  PieChartIcon,
+  SendIcon,
+  Settings2Icon,
+  ShareIcon,
+  SparklesIcon,
+  SquareTerminalIcon,
+  Trash2Icon,
 } from 'lucide-react';
 
 import {
@@ -82,7 +82,7 @@ const data = {
     {
       title: 'Playground',
       url: '#',
-      icon: SquareTerminal,
+      icon: SquareTerminalIcon,
       isActive: true,
       items: [
         {
@@ -102,7 +102,7 @@ const data = {
     {
       title: 'Models',
       url: '#',
-      icon: Bot,
+      icon: BotIcon,
       items: [
         {
           title: 'Genesis',
@@ -121,7 +121,7 @@ const data = {
     {
       title: 'Documentation',
       url: '#',
-      icon: BookOpen,
+      icon: BookOpenIcon,
       items: [
         {
           title: 'Introduction',
@@ -144,7 +144,7 @@ const data = {
     {
       title: 'Settings',
       url: '#',
-      icon: Settings2,
+      icon: Settings2Icon,
       items: [
         {
           title: 'General',
@@ -169,29 +169,29 @@ const data = {
     {
       title: 'Support',
       url: '#',
-      icon: LifeBuoy,
+      icon: LifeBuoyIcon,
     },
     {
       title: 'Feedback',
       url: '#',
-      icon: Send,
+      icon: SendIcon,
     },
   ],
   projects: [
     {
       name: 'Design Engineering',
       url: '#',
-      icon: Frame,
+      icon: FrameIcon,
     },
     {
       name: 'Sales & Marketing',
       url: '#',
-      icon: PieChart,
+      icon: PieChartIcon,
     },
     {
       name: 'Travel',
       url: '#',
-      icon: Map,
+      icon: MapIcon,
     },
   ],
 };
@@ -205,7 +205,7 @@ const App: FC = () => (
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <CommandIcon className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Acme Inc</span>
@@ -233,7 +233,7 @@ const App: FC = () => (
                     <>
                       <CollapsibleTrigger asChild>
                         <SidebarMenuAction className="data-[state=open]:rotate-90">
-                          <ChevronRight />
+                          <ChevronRightIcon />
                           <span className="sr-only">Toggle</span>
                         </SidebarMenuAction>
                       </CollapsibleTrigger>
@@ -271,7 +271,7 @@ const App: FC = () => (
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
                     <SidebarMenuAction showOnHover>
-                      <MoreHorizontal />
+                      <MoreHorizontalIcon />
                       <span className="sr-only">More</span>
                     </SidebarMenuAction>
                   </DropdownMenuTrigger>
@@ -281,16 +281,16 @@ const App: FC = () => (
                     align="end"
                   >
                     <DropdownMenuItem>
-                      <Folder className="text-muted-foreground" />
+                      <FolderIcon className="text-muted-foreground" />
                       <span>View Project</span>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
-                      <Share className="text-muted-foreground" />
+                      <ShareIcon className="text-muted-foreground" />
                       <span>Share Project</span>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
                     <DropdownMenuItem>
-                      <Trash2 className="text-muted-foreground" />
+                      <Trash2Icon className="text-muted-foreground" />
                       <span>Delete Project</span>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -299,7 +299,7 @@ const App: FC = () => (
             ))}
             <SidebarMenuItem>
               <SidebarMenuButton>
-                <MoreHorizontal />
+                <MoreHorizontalIcon />
                 <span>More</span>
               </SidebarMenuButton>
             </SidebarMenuItem>
@@ -341,7 +341,7 @@ const App: FC = () => (
                     </span>
                     <span className="truncate text-xs">{data.user.email}</span>
                   </div>
-                  <ChevronsUpDown className="ml-auto size-4" />
+                  <ChevronsUpDownIcon className="ml-auto size-4" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
@@ -372,28 +372,28 @@ const App: FC = () => (
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    <Sparkles />
+                    <SparklesIcon />
                     Upgrade to Pro
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuGroup>
                   <DropdownMenuItem>
-                    <BadgeCheck />
+                    <BadgeCheckIcon />
                     Account
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <CreditCard />
+                    <CreditCardIcon />
                     Billing
                   </DropdownMenuItem>
                   <DropdownMenuItem>
-                    <Bell />
+                    <BellIcon />
                     Notifications
                   </DropdownMenuItem>
                 </DropdownMenuGroup>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <LogOut />
+                  <LogOutIcon />
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>
