@@ -24,12 +24,12 @@ The monorepo contains the following apps:
 | App | Description | Port |
 | --- | ----------- | ---- |
 | `api` | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. | 3002 |
-| `app` | The main application. | 3000 |
+| `app` | The main application, featuring a [shadcn/ui](https://ui.shadcn.com/) template. | 3000 |
 | `demo` | The landing page for this project. **You can delete this**. | 3006 |
 | `docs` | The documentation, which contains the documentation for the app e.g. guides and tutorials. | 3004 |
 | `email` | The email preview server from [react.email](https://react.email/). | 3003 |
 | `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 |
-| `web` | The website, which contains the static website for the app e.g. marketing pages and legal docs. | 3001 |
+| `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 |
 
 It also contains the following packages:
 
