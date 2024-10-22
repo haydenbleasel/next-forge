@@ -1,3 +1,4 @@
+import { withContentCollections } from '@content-collections/next';
 import { config, withAnalyzer, withSentry } from '@repo/next-config';
 import type { NextConfig } from 'next';
 
@@ -20,4 +21,4 @@ if (process.env.ANALYZE === 'true') {
   nextConfig = withAnalyzer(nextConfig);
 }
 
-export default nextConfig;
+export default withContentCollections(nextConfig);

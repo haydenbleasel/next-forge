@@ -2,12 +2,12 @@
   "name": "web",
   "private": true,
   "scripts": {
-    "dev": "pnpm contentlayer && next dev -p 3001",
+    "dev": "next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "analyze": "ANALYZE=true pnpm build",
-    "contentlayer": "npx contentlayer2 build"
+    "prebuild": "pnpm content-collections build"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
@@ -45,6 +45,8 @@
     "unist-util-visit": "^5.0.0"
   },
   "devDependencies": {
+    "@content-collections/core": "^0.7.2",
+    "@content-collections/next": "^0.2.3",
     "@repo/typescript-config": "workspace:*",
     "@types/mdast": "^4.0.4",
     "@types/node": "22.7.8",

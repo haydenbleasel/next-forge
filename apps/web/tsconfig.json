@@ -9,7 +9,7 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@contentlayer/generated": ["./.contentlayer/generated"]
+      "content-collections": ["./.content-collections/generated"]
     }
   },
   "include": [
