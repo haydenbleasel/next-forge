@@ -1,18 +1,16 @@
-import {} from '@repo/design-system/components/ui/avatar';
 import { Badge } from '@repo/design-system/components/ui/badge';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { cn } from '@repo/design-system/lib/utils';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { FC } from 'react';
 
 const title = 'Blog';
 const description = 'Thoughts, ideas, and opinions.';
 
 export const metadata: Metadata = createMetadata({ title, description });
-
-console.log(allPosts);
 
 const Blog: FC = () => (
   <div className="w-full py-20 lg:py-40">
@@ -24,7 +22,8 @@ const Blog: FC = () => (
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {allPosts.map((post, index) => (
-          <div
+          <Link
+            href={`/blog/${post._meta.path}`}
             className={cn(
               'flex flex-col gap-4 hover:opacity-75 cursor-pointer',
               !index && 'md:col-span-2'
@@ -48,7 +47,7 @@ const Blog: FC = () => (
                 {post.description}
               </p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

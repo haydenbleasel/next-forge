@@ -1,15 +1,13 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
-import Image from 'next/image';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { createMetadata } from '@repo/design-system/lib/metadata';
 import { Container } from '@repo/design-system/components/container';
-import { allBlogs } from '@contentlayer/generated';
-import { Mdx } from '@/components/mdx';
-import { Sidebar } from '@/components/sidebar';
-import type { FC } from 'react';
+import { createMetadata } from '@repo/design-system/lib/metadata';
+import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import type { FC } from 'react';
+import Balancer from 'react-wrap-balancer';
 
 type BlogPostProperties = {
   readonly params: {
@@ -21,9 +19,7 @@ export const dynamic = 'force-dynamic';
 
 export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
   const currentPath = params.slug;
-  const page = allBlogs.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+  const page = allPosts.find(({ _meta }) => _meta.path === currentPath);
 
   if (!page) {
     return {};
@@ -37,15 +33,13 @@ export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
 };
 
 export const generateStaticParams = (): BlogPostProperties['params'][] =>
-  allBlogs.map((page) => ({
+  allPosts.map((page) => ({
     slug: page.slug,
   }));
 
 const BlogPost: FC<BlogPostProperties> = ({ params }) => {
   const currentPath = params.slug;
-  const page = allBlogs.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+  const page = allPosts.find(({ _meta }) => _meta.path === currentPath);
 
   if (!page) {
     notFound();
@@ -81,11 +75,11 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={page.body.code} />
+            <div dangerouslySetInnerHTML={{ __html: page.content }} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar doc={page} />
+          {/* <Sidebar doc={page} /> */}
         </div>
       </div>
     </Container>
