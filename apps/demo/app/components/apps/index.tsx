@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 
 import Image from 'next/image';
+import ApiImage from './api.png';
 import AppImage from './app.png';
 
 export const Apps: FC = () => (
@@ -62,11 +63,13 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background lg:rounded-bl-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]">
-            <img
-              alt=""
-              src="https://tailwindui.com/plus/img/component-images/bento-01-speed.png"
-              className="h-80 object-cover object-left"
-            />
+            <div className="h-80 border-b bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+              <Image
+                alt=""
+                src={ApiImage}
+                className="h-auto w-full border rounded-md object-cover object-left"
+              />
+            </div>
             <div className="p-10 pt-4">
               <h3 className="text-sm/4 font-semibold text-indigo-600">API</h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
