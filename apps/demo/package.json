@@ -2,12 +2,11 @@
   "name": "demo",
   "private": true,
   "scripts": {
-    "dev": "pnpm contentlayer && next dev -p 3001",
+    "dev": "next dev -p 3006",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true pnpm build",
-    "contentlayer": "npx contentlayer2 build"
+    "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@logtail/next": "^0.1.5",
