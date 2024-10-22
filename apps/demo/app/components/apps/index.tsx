@@ -3,6 +3,8 @@ import type { FC } from 'react';
 import Image from 'next/image';
 import ApiImage from './api.png';
 import AppImage from './app.png';
+import DocsImage from './docs.png';
+import EmailImage from './email.png';
 import WebImage from './web.png';
 
 export const Apps: FC = () => (
@@ -89,11 +91,13 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
-            <img
-              alt=""
-              src="https://tailwindui.com/plus/img/component-images/bento-01-integrations.png"
-              className="h-80 object-cover object-center"
-            />
+            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+              <Image
+                alt=""
+                src={DocsImage}
+                className="h-[120%] w-auto max-w-none border rounded-md object-cover object-left"
+              />
+            </div>
             <div className="p-10">
               <h3 className="text-sm/4 font-semibold text-indigo-600">Docs</h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
@@ -110,11 +114,13 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
-            <img
-              alt=""
-              src="https://tailwindui.com/plus/img/component-images/bento-01-network.png"
-              className="h-80 object-cover object-center"
-            />
+            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+              <Image
+                alt=""
+                src={EmailImage}
+                className="h-[120%] w-auto max-w-none border rounded-md object-cover object-left"
+              />
+            </div>
             <div className="p-10">
               <h3 className="text-sm/4 font-semibold text-indigo-600">Email</h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
