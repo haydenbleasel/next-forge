@@ -3,9 +3,13 @@ import type { FC } from 'react';
 
 const ExampleContactEmail: FC = () => (
   <ContactTemplate
-    name="Jane Smith"
-    email="jane.smith@example.com"
-    message="I'm interested in your services."
+    username="alanturing"
+    invitedByUsername="Alan"
+    invitedByEmail="alan.turing@example.com"
+    teamName="Enigma"
+    inviteLink="https://vercel.com/teams/invite/foo"
+    inviteFromIp="204.13.186.218"
+    inviteFromLocation="São Paulo, Brazil"
   />
 );
 
