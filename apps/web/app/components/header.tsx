@@ -112,7 +112,7 @@ export const Header = () => {
           </NavigationMenu>
         </div>
         <div className="flex lg:justify-center">
-          <p className="font-semibold">TWBlocks</p>
+          <p className="font-semibold">next-forge</p>
         </div>
         <div className="flex justify-end w-full gap-4">
           <Button variant="ghost" className="hidden md:inline" asChild>
