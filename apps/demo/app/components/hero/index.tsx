@@ -24,7 +24,7 @@ export const Hero: FC = () => (
         width={48}
         height={48}
         className="h-6 md:h-12 ml-1.5 translate-y-1 mr-0.5 w-auto inline-block align-baseline select-none pointer-events-none"
-      />{' '}
+      />
       Next.js apps
     </h1>
     <p className="mt-6 max-w-xl text-pretty text-center text-lg text-muted-foreground">
