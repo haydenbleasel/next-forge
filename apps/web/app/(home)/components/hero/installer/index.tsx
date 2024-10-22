@@ -19,11 +19,28 @@ import PnpmLogo from './pnpm.svg';
 import YarnLogo from './yarn.svg';
 
 const installers = [
-  { value: 'bun', command: 'bun add', logo: BunLogo, name: 'Bun' },
-  { value: 'npm', command: 'npx', logo: NpmLogo, name: 'npm' },
-  { value: 'pnpm', command: 'pnpm create', logo: PnpmLogo, name: 'pnpm' },
-  { value: 'yarn', command: 'yarn add', logo: YarnLogo, name: 'Yarn' },
+  { value: 'bun', command: 'bun create next-app', logo: BunLogo, name: 'Bun' },
+  {
+    value: 'npm',
+    command: 'npx create-next-app',
+    logo: NpmLogo,
+    name: 'npm',
+  },
+  {
+    value: 'pnpm',
+    command: 'pnpm create next-app',
+    logo: PnpmLogo,
+    name: 'pnpm',
+  },
+  {
+    value: 'yarn',
+    command: 'yarn create next-app',
+    logo: YarnLogo,
+    name: 'Yarn',
+  },
 ];
+
+const installCommand = '--example https://github.com/haydenbleasel/next-forge';
 
 export const Installer: FC = () => {
   const [manager, setManager] = useState(installers[0].value);
@@ -36,7 +53,7 @@ export const Installer: FC = () => {
   }
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`${activeManager.command} roadmap-ui`);
+    navigator.clipboard.writeText(`${activeManager.command} ${installCommand}`);
     toast.success('Copied to clipboard');
   };
 
@@ -75,9 +92,7 @@ export const Installer: FC = () => {
       </DropdownMenu>
       <div className="text-muted-foreground max-w-[220px] truncate">
         {activeManager.command}{' '}
-        <span className="text-foreground">
-          next-app --example https://github.com/haydenbleasel/next-forge
-        </span>
+        <span className="text-foreground">{installCommand}</span>
       </div>
       <Button
         variant="ghost"
