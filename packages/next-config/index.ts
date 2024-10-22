@@ -4,6 +4,10 @@ import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
 export const config: NextConfig = {
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+
   // biome-ignore lint/suspicious/useAwait: headers is async
   async headers() {
     return [

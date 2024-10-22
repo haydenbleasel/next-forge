@@ -18,13 +18,11 @@
     "@sentry/nextjs": "^8.35.0",
     "@repo/next-config": "workspace:*",
     "next": "15.0.0",
-    "next-secure-headers": "^2.2.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "svix": "^1.37.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.0.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.7.8",
     "@types/react": "18.3.11",
