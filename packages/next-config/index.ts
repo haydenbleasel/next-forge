@@ -1,11 +1,11 @@
-import { createSecureHeaders } from 'next-secure-headers';
 import withBundleAnalyzer from '@next/bundle-analyzer';
 import { withSentryConfig } from '@sentry/nextjs';
-import { withLogtail } from '@logtail/next';
+import type { NextConfig } from 'next';
+import { createSecureHeaders } from 'next-secure-headers';
 
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  headers() {
+export const config: NextConfig = {
+  // biome-ignore lint/suspicious/useAwait: headers is async
+  async headers() {
     return [
       {
         source: '/(.*)',
@@ -21,8 +21,7 @@ const nextConfig = {
   },
 };
 
-/** @type {import('@sentry/nextjs').SentryBuildOptions} */
-const sentryOptions = {
+export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   org: process.env.SENTRY_ORG,
   project: process.env.SENTRY_PROJECT,
 
@@ -63,15 +62,10 @@ const sentryOptions = {
   automaticVercelMonitors: true,
 };
 
-// eslint-disable-next-line import/no-mutable-exports
-let config = withLogtail(nextConfig);
+export const withSentry = (sourceConfig: NextConfig) =>
+  withSentryConfig(sourceConfig, sentryConfig);
 
-if (process.env.VERCEL) {
-  config = withSentryConfig(config, sentryOptions);
-}
+export const withAnalyzer = (sourceConfig: NextConfig) =>
+  withBundleAnalyzer()(sourceConfig);
 
-if (process.env.ANALYZE === 'true') {
-  config = withBundleAnalyzer()(config);
-}
-
-export default config;
+export { withLogtail } from '@logtail/next';
