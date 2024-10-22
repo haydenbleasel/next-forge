@@ -2,8 +2,6 @@
 
 **A production-grade boilerplate for modern Next.js apps.**
 
-![Example](./apps/app/app/opengraph-image.png)
-
 [`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
 ## Philosophy
@@ -23,16 +21,20 @@ The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a too
 
 The monorepo contains the following apps:
 
-- `app` — The main, which contains the Next.js app.
 - `api` — The API, which contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs.
-- `web` — The website, which contains the static website for the app e.g. marketing pages and legal docs.
+- `app` — The main application, designed to be a full-featured, production-grade application.
+- `demo` — The landing page for this project. **You can delete this**.
 - `docs` — The documentation, which contains the documentation for the app e.g. guides and tutorials.
+- `email` — The email preview server from [react.email](https://react.email/).
+- `studio` — [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database.
+- `web` — The website, which contains the static website for the app e.g. marketing pages and legal docs.
 
 It also contains the following packages:
 
-- `@repo/design-system`: The design system, which contains shared components, utility files and styles.
-- `@repo/email`: The email templates, which contains the email templates for the app.
 - `@repo/database`: The database, which contains the database schema and migrations for the app.
+- `@repo/design-system`: The design system, which contains shared components, utility files and styles.
+- `@repo/email-templates`: The email templates, which contains the email templates for the app.
+- `@repo/next-config`: The Next.js configuration, which contains the shared Next.js configuration for the app.
 - `@repo/typescript-config`: The TypeScript configuration, which contains the shared TypeScript configuration for the app.
 
 ## Usage
