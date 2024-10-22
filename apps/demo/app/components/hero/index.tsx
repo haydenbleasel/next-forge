@@ -15,7 +15,7 @@ export const Hero: FC = () => (
         alt=""
         width={48}
         height={48}
-        className="h-6 md:h-12 ml-1.5 translate-y-1 mr-0.5 w-auto inline-block align-baseline select-none pointer-events-none"
+        className="h-6 md:h-12 mx-1.5 translate-y-0.5 md:translate-y-1 w-auto inline-block align-baseline select-none pointer-events-none"
       />
       Turborepo template for{' '}
       <Image
@@ -23,7 +23,7 @@ export const Hero: FC = () => (
         alt=""
         width={48}
         height={48}
-        className="h-6 md:h-12 ml-1.5 translate-y-1 mr-0.5 w-auto inline-block align-baseline select-none pointer-events-none"
+        className="h-6 md:h-12 mx-1.5 translate-y-0.5 md:translate-y-1 w-auto inline-block align-baseline select-none pointer-events-none"
       />
       Next.js apps
     </h1>

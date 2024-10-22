@@ -1,7 +1,7 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
-import ContactForm from './components/contact-form';
+import { ContactForm } from './components/contact-form';
 
 const title = 'Contact';
 const description =

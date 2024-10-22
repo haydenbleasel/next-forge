@@ -13,9 +13,9 @@ import {
 import { cn } from '@repo/design-system/lib/utils';
 import { format } from 'date-fns';
 import { CalendarIcon, Check, MoveRight } from 'lucide-react';
-import { useState } from 'react';
+import { type FC, useState } from 'react';
 
-export const Contact1 = () => {
+export const ContactForm: FC = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
   return (
