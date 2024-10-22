@@ -13,6 +13,12 @@ import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
+const appUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+if (!appUrl) {
+  throw new Error('NEXT_PUBLIC_APP_URL is not set');
+}
+
 export const Header = () => {
   const navigationItems = [
     {
@@ -43,26 +49,9 @@ export const Header = () => {
       ],
     },
     {
-      title: 'Company',
-      description: 'Managing a small business today is already tough.',
-      items: [
-        {
-          title: 'About us',
-          href: '/about',
-        },
-        {
-          title: 'Fundraising',
-          href: '/fundraising',
-        },
-        {
-          title: 'Investors',
-          href: '/investors',
-        },
-        {
-          title: 'Contact us',
-          href: '/contact',
-        },
-      ],
+      title: 'Blog',
+      href: '/blog',
+      description: '',
     },
   ];
 
@@ -77,8 +66,10 @@ export const Header = () => {
                 <NavigationMenuItem key={item.title}>
                   {item.href ? (
                     <>
-                      <NavigationMenuLink>
-                        <Button variant="ghost">{item.title}</Button>
+                      <NavigationMenuLink asChild>
+                        <Button variant="ghost" asChild>
+                          <Link href={item.href}>{item.title}</Link>
+                        </Button>
                       </NavigationMenuLink>
                     </>
                   ) : (
@@ -124,12 +115,16 @@ export const Header = () => {
           <p className="font-semibold">TWBlocks</p>
         </div>
         <div className="flex justify-end w-full gap-4">
-          <Button variant="ghost" className="hidden md:inline">
-            Book a demo
+          <Button variant="ghost" className="hidden md:inline" asChild>
+            <Link href="/contact">Contact us</Link>
           </Button>
-          <div className="border-r hidden md:inline"></div>
-          <Button variant="outline">Sign in</Button>
-          <Button>Get started</Button>
+          <div className="border-r hidden md:inline" />
+          <Button variant="outline" asChild>
+            <Link href={`${appUrl}/sign-in`}>Sign in</Link>
+          </Button>
+          <Button asChild>
+            <Link href={`${appUrl}/sign-up`}>Get started</Link>
+          </Button>
         </div>
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
           <Button variant="ghost" onClick={() => setOpen(!isOpen)}>
