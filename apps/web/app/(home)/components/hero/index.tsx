@@ -27,10 +27,10 @@ export const Hero: FC = () => (
       />{' '}
       Next.js apps
     </h1>
-    <p className="mt-6 max-w-2xl text-pretty text-center text-lg text-muted-foreground">
+    <p className="mt-6 max-w-xl text-pretty text-center text-lg text-muted-foreground">
       A monorepo template designed to have everything you need to build your new
       SaaS app as quick as possible. Authentication, billing, analytics, SEO,
-      and more — it's all here. Get from zero to production in minutes.
+      database ORM and more — it's all here.
     </p>
     <div className="mt-4 flex w-full items-center justify-center space-x-4">
       <Installer />
