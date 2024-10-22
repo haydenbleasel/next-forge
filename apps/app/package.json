@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.7.5",
-    "@logtail/next": "^0.1.5",
     "@repo/design-system": "workspace:*",
     "@repo/next-config": "workspace:*",
     "@sentry/nextjs": "^8.35.0",
