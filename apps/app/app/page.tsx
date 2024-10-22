@@ -1,29 +1,3 @@
-'use client';
-
-import {
-  BadgeCheckIcon,
-  BellIcon,
-  BookOpenIcon,
-  BotIcon,
-  ChevronRightIcon,
-  ChevronsUpDownIcon,
-  CommandIcon,
-  CreditCardIcon,
-  FolderIcon,
-  FrameIcon,
-  LifeBuoyIcon,
-  LogOutIcon,
-  MapIcon,
-  MoreHorizontalIcon,
-  PieChartIcon,
-  SendIcon,
-  Settings2Icon,
-  ShareIcon,
-  SparklesIcon,
-  SquareTerminalIcon,
-  Trash2Icon,
-} from 'lucide-react';
-
 import {
   Avatar,
   AvatarFallback,
@@ -71,7 +45,40 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from '@repo/design-system/components/ui/sidebar';
+import {
+  BadgeCheckIcon,
+  BellIcon,
+  BookOpenIcon,
+  BotIcon,
+  ChevronRightIcon,
+  ChevronsUpDownIcon,
+  CommandIcon,
+  CreditCardIcon,
+  FolderIcon,
+  FrameIcon,
+  LifeBuoyIcon,
+  LogOutIcon,
+  MapIcon,
+  MoreHorizontalIcon,
+  PieChartIcon,
+  SendIcon,
+  Settings2Icon,
+  ShareIcon,
+  SparklesIcon,
+  SquareTerminalIcon,
+  Trash2Icon,
+} from 'lucide-react';
+import type { Metadata } from 'next';
 import type { FC } from 'react';
+
+const title = 'Acme Inc';
+const description = 'My application.';
+
+export const metadata: Metadata = {
+  title,
+  description,
+};
+
 const data = {
   user: {
     name: 'shadcn',
