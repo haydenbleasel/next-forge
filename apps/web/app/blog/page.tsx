@@ -1,14 +1,10 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import { createMetadata } from '@repo/design-system/lib/metadata';
 import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@repo/design-system/components/ui/card';
-import { Container } from '@repo/design-system/components/container';
-import { allBlogs } from '@contentlayer/generated';
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from '@repo/design-system/components/ui/avatar';
+import { Badge } from '@repo/design-system/components/ui/badge';
+import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 
@@ -18,40 +14,92 @@ const description = 'Thoughts, ideas, and opinions.';
 export const metadata: Metadata = createMetadata({ title, description });
 
 const Blog: FC = () => (
-  <main className="relative py-16">
-    <Container>
-      <div className="flex flex-col gap-1">
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
-          {title}
-        </h1>
-        <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
-          {description}
-        </span>
+  <div className="w-full py-20 lg:py-40">
+    <div className="container mx-auto flex flex-col gap-14">
+      <div className="flex w-full flex-col sm:flex-row sm:justify-between sm:items-center gap-8">
+        <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular">
+          Latest articles
+        </h4>
       </div>
-      <div className="mt-8 grid grid-cols-3 gap-8">
-        {allBlogs.map((post) => (
-          <Link href={post.slug} key={post.slug}>
-            <Card className="overflow-hidden flex flex-col justify-between divide-y divide-zinc-200 dark:divide-zinc-800">
-              {post.image ? (
-                <Image
-                  src={post.image}
-                  width={685}
-                  height={685}
-                  sizes="(max-width: 768px) 685px, (max-width: 1200px) 558px, 434px"
-                  placeholder={`data:image/jpg;base64,${post.imageBlur}`}
-                  alt=""
-                />
-              ) : undefined}
-              <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          </Link>
-        ))}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex flex-col gap-4 hover:opacity-75 cursor-pointer md:col-span-2">
+          <div className="bg-muted rounded-md aspect-video" />
+          <div className="flex flex-row gap-4 items-center">
+            <Badge>News</Badge>
+            <p className="flex flex-row gap-2 text-sm items-center">
+              <span className="text-muted-foreground">By</span>{' '}
+              <Avatar className="h-6 w-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <span>John Johnsen</span>
+            </p>
+          </div>
+          <div className="flex flex-col gap-2">
+            <h3 className="max-w-3xl text-4xl tracking-tight">
+              Pay supplier invoices
+            </h3>
+            <p className="max-w-3xl text-muted-foreground text-base">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our
+              goal is to streamline SMB trade, making it easier and faster than
+              ever.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 hover:opacity-75 cursor-pointer">
+          <div className="bg-muted rounded-md aspect-video" />
+          <div className="flex flex-row gap-4 items-center">
+            <Badge>News</Badge>
+            <p className="flex flex-row gap-2 text-sm items-center">
+              <span className="text-muted-foreground">By</span>{' '}
+              <Avatar className="h-6 w-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <span>John Johnsen</span>
+            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="max-w-3xl text-2xl tracking-tight">
+              Pay supplier invoices
+            </h3>
+            <p className="max-w-3xl text-muted-foreground text-base">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our
+              goal is to streamline SMB trade, making it easier and faster than
+              ever.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 hover:opacity-75 cursor-pointer">
+          <div className="bg-muted rounded-md aspect-video" />
+          <div className="flex flex-row gap-4 items-center">
+            <Badge>News</Badge>
+            <p className="flex flex-row gap-2 text-sm items-center">
+              <span className="text-muted-foreground">By</span>{' '}
+              <Avatar className="h-6 w-6">
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
+              <span>John Johnsen</span>
+            </p>
+          </div>
+          <div className="flex flex-col gap-1">
+            <h3 className="max-w-3xl text-2xl tracking-tight">
+              Pay supplier invoices
+            </h3>
+            <p className="max-w-3xl text-muted-foreground text-base">
+              Managing a small business today is already tough. Avoid further
+              complications by ditching outdated, tedious trade methods. Our
+              goal is to streamline SMB trade, making it easier and faster than
+              ever.
+            </p>
+          </div>
+        </div>
       </div>
-    </Container>
-  </main>
+    </div>
+  </div>
 );
 
 export default Blog;
