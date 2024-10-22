@@ -53,8 +53,8 @@ export const Apps: FC = () => (
                 Robust, type-safe website
               </p>
               <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                Create a website with a type-safe blog, bulletproof SEO, legal
-                pages and automatically generated OpenGraph cover images.
+                Create a website with a type-safe blog, bulletproof SEO and
+                legal pages, powered by Content Collections.
               </p>
             </div>
           </div>
