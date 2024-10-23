@@ -116,7 +116,13 @@ export const Header = () => {
           </NavigationMenu>
         </div>
         <div className="flex items-center gap-2 lg:justify-center">
-          <Image src={Logo} alt="Logo" width={24} height={24} />
+          <Image
+            src={Logo}
+            alt="Logo"
+            width={24}
+            height={24}
+            className="dark:invert"
+          />
           <p className="whitespace-nowrap font-semibold">next-forge</p>
         </div>
         <div className="flex w-full justify-end gap-4">

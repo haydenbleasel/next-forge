@@ -60,7 +60,7 @@ export const Apps: FC = () => (
       <h2 className="font-medium text-base/7 text-muted-foreground">
         Deploy at scale
       </h2>
-      <p className="mt-2 max-w-lg text-pretty font-bold text-4xl text-foreground tracking-tighter sm:text-5xl">
+      <p className="mt-2 max-w-lg text-pretty font-bold text-3xl text-foreground tracking-tighter sm:text-4xl sm:text-5xl">
         Get from zero to production in minutes.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
@@ -86,15 +86,15 @@ export const Apps: FC = () => (
                 index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
               )}
             >
-              <div className="h-80 overflow-hidden border-b bg-secondary p-8">
+              <div className="h-48 overflow-hidden border-b bg-secondary p-8 md:h-80">
                 <Image
                   alt=""
                   src={app.image}
                   className={cn(
-                    'overflow-hidden rounded-md border object-cover object-left',
+                    'h-auto w-full overflow-hidden rounded-md border object-cover object-left',
                     [0, 3, 4].includes(index)
-                      ? 'h-auto w-full'
-                      : 'h-[120%] w-auto max-w-none'
+                      ? ''
+                      : 'md:h-[120%] md:w-auto md:max-w-none'
                   )}
                 />
               </div>
