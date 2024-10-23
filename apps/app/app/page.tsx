@@ -1,4 +1,4 @@
-import { currentUser } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@clerk/nextjs/server';
 import {
   Avatar,
   AvatarFallback,
@@ -70,7 +70,6 @@ import {
   Trash2Icon,
 } from 'lucide-react';
 import type { Metadata } from 'next';
-import { redirect } from 'next/navigation';
 import type { ReactElement } from 'react';
 
 const title = 'Acme Inc';
@@ -207,9 +206,10 @@ const data = {
 
 const App = async (): Promise<ReactElement> => {
   const user = await currentUser();
+  const { redirectToSignIn } = await auth();
 
   if (!user) {
-    redirect('/sign-in');
+    redirectToSignIn();
   }
 
   return (
