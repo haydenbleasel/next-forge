@@ -1,3 +1,15 @@
+# v2.0.1 (Wed Oct 23 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Improve installer ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.0.0 (Wed Oct 23 2024)
 
 #### 💥 Breaking Change
