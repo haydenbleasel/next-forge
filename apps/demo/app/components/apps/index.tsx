@@ -57,7 +57,7 @@ const apps = [
 export const Apps: FC = () => (
   <div className="bg-background py-24 sm:py-32">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-base/7 font-semibold text-muted-foreground">
+      <h2 className="text-base/7 font-medium text-muted-foreground">
         Deploy at scale
       </h2>
       <p className="mt-2 max-w-lg text-pretty text-4xl font-bold tracking-tighter text-foreground sm:text-5xl">
@@ -99,10 +99,10 @@ export const Apps: FC = () => (
                 />
               </div>
               <div className="p-10">
-                <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                <h3 className="text-sm/4 font-medium text-muted-foreground">
                   {app.name}
                 </h3>
-                <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
+                <p className="mt-2 text-lg/7 font-semibold tracking-tight text-foreground">
                   {app.title}
                 </p>
                 <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
