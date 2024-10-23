@@ -1,3 +1,15 @@
+# v2.0.3 (Wed Oct 23 2024)
+
+#### 🐛 Bug Fix
+
+- Demo fixes [#150](https://github.com/haydenbleasel/next-forge/pull/150) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.0.2 (Wed Oct 23 2024)
 
 #### ⚠️ Pushed to `main`
