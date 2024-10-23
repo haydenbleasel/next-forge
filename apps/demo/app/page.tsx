@@ -2,6 +2,7 @@ import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
 import { Apps } from './components/apps';
+import { CallToAction } from './components/cta';
 import { Features } from './components/features';
 import { Hero } from './components/hero';
 
@@ -18,6 +19,7 @@ const Home: FC = () => (
     <Hero />
     <Apps />
     <Features />
+    <CallToAction />
   </>
 );
 
