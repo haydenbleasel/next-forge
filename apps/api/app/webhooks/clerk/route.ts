@@ -1,7 +1,40 @@
-import type { WebhookEvent } from '@clerk/nextjs/server';
+import type { UserJSON, WebhookEvent } from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
+import { analytics } from '@repo/design-system/lib/segment/server';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
+
+const handleUserCreated = async (data: UserJSON) => {
+  await analytics.identify({
+    userId: data.id,
+    traits: {
+      email: data.email_addresses.at(0)?.email_address,
+      firstName: data.first_name,
+      lastName: data.last_name,
+      createdAt: new Date(data.created_at),
+      avatar: data.image_url,
+      phoneNumber: data.phone_numbers.at(0)?.phone_number,
+    },
+  });
+
+  return new Response('User created', { status: 201 });
+};
+
+const handleUserUpdated = async (data: UserJSON) => {
+  await analytics.identify({
+    userId: data.id,
+    traits: {
+      email: data.email_addresses.at(0)?.email_address,
+      firstName: data.first_name,
+      lastName: data.last_name,
+      createdAt: new Date(data.created_at),
+      avatar: data.image_url,
+      phoneNumber: data.phone_numbers.at(0)?.phone_number,
+    },
+  });
+
+  return new Response('User updated', { status: 201 });
+};
 
 export const POST = async (request: Request): Promise<Response> => {
   if (!process.env.CLERK_WEBHOOK_SECRET) {
@@ -52,6 +85,18 @@ export const POST = async (request: Request): Promise<Response> => {
   const eventType = event.type;
 
   log.info('Webhook', { id, eventType, body });
+
+  switch (eventType) {
+    case 'user.created': {
+      return handleUserCreated(event.data);
+    }
+    case 'user.updated': {
+      return handleUserUpdated(event.data);
+    }
+    default: {
+      break;
+    }
+  }
 
   return new Response('', { status: 201 });
 };
