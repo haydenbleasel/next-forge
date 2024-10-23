@@ -11,13 +11,13 @@
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.7.5",
+    "@clerk/nextjs": "^6.0.0",
     "@logtail/next": "^0.1.5",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@sentry/nextjs": "^8.35.0",
     "@repo/next-config": "workspace:*",
-    "next": "15.0.0",
+    "next": "15.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "svix": "^1.37.0"
