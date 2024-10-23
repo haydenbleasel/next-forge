@@ -19,6 +19,9 @@ if (!appUrl) {
   throw new Error('NEXT_PUBLIC_APP_URL is not set');
 }
 
+import Image from 'next/image';
+import Logo from './logo.svg';
+
 export const Header = () => {
   const navigationItems = [
     {
@@ -111,7 +114,8 @@ export const Header = () => {
             </NavigationMenuList>
           </NavigationMenu>
         </div>
-        <div className="flex lg:justify-center">
+        <div className="flex lg:justify-center items-center gap-2">
+          <Image src={Logo} alt="Logo" width={24} height={24} />
           <p className="font-semibold">next-forge</p>
         </div>
         <div className="flex justify-end w-full gap-4">
