@@ -68,6 +68,8 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
           alt=""
           className="my-16 h-full w-full rounded-xl"
           priority
+          blurDataURL={page.imageBlur}
+          placeholder="blur"
         />
       ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">

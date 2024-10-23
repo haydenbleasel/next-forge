@@ -34,6 +34,8 @@ const Blog: FC = () => (
               alt={post.title}
               width={1336}
               height={751}
+              blurDataURL={post.imageBlur}
+              placeholder="blur"
             />
             <div className="flex flex-row items-center gap-4">
               <p className="text-muted-foreground text-sm">
