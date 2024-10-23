@@ -11,13 +11,16 @@ import type { FC } from 'react';
 import Balancer from 'react-wrap-balancer';
 
 type LegalPageProperties = {
-  readonly params: {
+  readonly params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
-  const page = allLegals.find(({ _meta }) => _meta.path === params.slug);
+export const generateMetadata = async ({
+  params,
+}: LegalPageProperties): Promise<Metadata> => {
+  const { slug } = await params;
+  const page = allLegals.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     return {};
@@ -29,13 +32,14 @@ export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
   });
 };
 
-export const generateStaticParams = (): LegalPageProperties['params'][] =>
+export const generateStaticParams = (): { slug: string }[] =>
   allLegals.map((page) => ({
     slug: page._meta.path,
   }));
 
 const LegalPage: FC<LegalPageProperties> = ({ params }) => {
-  const page = allLegals.find(({ _meta }) => _meta.path === params.slug);
+  const { slug } = await params;
+  const page = allLegals.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     notFound();

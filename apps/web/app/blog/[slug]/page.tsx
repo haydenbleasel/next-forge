@@ -12,13 +12,16 @@ import type { FC } from 'react';
 import Balancer from 'react-wrap-balancer';
 
 type BlogPostProperties = {
-  readonly params: {
+  readonly params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
-  const page = allPosts.find(({ _meta }) => _meta.path === params.slug);
+export const generateMetadata = async ({
+  params,
+}: BlogPostProperties): Promise<Metadata> => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     return {};
@@ -31,13 +34,14 @@ export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
   });
 };
 
-export const generateStaticParams = (): BlogPostProperties['params'][] =>
+export const generateStaticParams = (): { slug: string }[] =>
   allPosts.map((page) => ({
-    slug: page.slug,
+    slug: page._meta.path,
   }));
 
-const BlogPost: FC<BlogPostProperties> = ({ params }) => {
-  const page = allPosts.find(({ _meta }) => _meta.path === params.slug);
+const BlogPost: FC<BlogPostProperties> = async ({ params }) => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     notFound();

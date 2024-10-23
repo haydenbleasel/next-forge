@@ -36,7 +36,7 @@ const posts = defineCollection({
 
     const blur = await context.cache(page._meta.path, async () =>
       sqip({
-        input: `./public/blog/${page.image}`,
+        input: `./public/${page.image}`,
         plugins: [
           'sqip-plugin-primitive',
           'sqip-plugin-svgo',
@@ -53,7 +53,7 @@ const posts = defineCollection({
       date: new Date(page.date),
       slug: page._meta.path,
       readingTime: readingTime(page.content).text,
-      image: `/blog/${page.image}`,
+      image: page.image,
       imageBlur: result.metadata.dataURIBase64 as string,
     };
   },
