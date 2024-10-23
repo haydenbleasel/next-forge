@@ -6,10 +6,30 @@ on:
   pull_request:
     branches: [main]
 
+env: 
+  NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: "http://localhost:3000/"
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "test"
+  CLERK_SECRET_KEY: "test"
+  NEXT_PUBLIC_CLERK_SIGN_IN_URL: "test"
+  NEXT_PUBLIC_CLERK_SIGN_UP_URL: "test"
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: "test"
+  NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL: "test"
+  CLERK_WEBHOOK_SECRET: "test"
+  RESEND_AUDIENCE_ID: "test"
+  RESEND_FROM: "test"
+  DATABASE_URL: "test"
+  NEXT_PUBLIC_APP_URL: "http://localhost:3001/"
+  NEXT_PUBLIC_DOCS_URL: "http://localhost:3002/"
+  RESEND_TOKEN: "test"
+  STRIPE_SECRET_KEY: "test"
+  NEXT_PUBLIC_SEGMENT_WRITE_KEY: "test"
+  SEGMENT_WRITE_KEY: "test"
+  NEXT_PUBLIC_GA_MEASUREMENT_ID: "test"
+
 # what the action will do
 jobs:
   
-  app:
+  build:
     # The operating system it will run on
     runs-on: ubuntu-latest
     # This check needs to be in place to prevent a publish loop with auto and github actions
