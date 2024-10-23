@@ -24,7 +24,7 @@ const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
       )}
       suppressHydrationWarning
     >
-      <body className="bg-zinc-100 dark:bg-zinc-950">
+      <body>
         <DesignSystemProvider>
           <TooltipProvider>{children}</TooltipProvider>
         </DesignSystemProvider>
