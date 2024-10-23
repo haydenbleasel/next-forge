@@ -29,8 +29,8 @@ const posts = defineCollection({
   transform: async (page, context) => {
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [[rehypeCode, rehypeCodeOptions], remarkHeading],
+        remarkPlugins: [remarkGfm, remarkHeading],
+        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
       })
     );
 
@@ -71,8 +71,8 @@ const legals = defineCollection({
   transform: async (page, context) => {
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
-        remarkPlugins: [remarkGfm],
-        rehypePlugins: [[rehypeCode, rehypeCodeOptions], remarkHeading],
+        remarkPlugins: [remarkGfm, remarkHeading],
+        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
       })
     );
 

@@ -22,6 +22,7 @@ const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
       GeistMono.variable,
       'touch-manipulation font-sans antialiased'
     )}
+    suppressHydrationWarning
   >
     <body>
       <DesignSystemProvider>
