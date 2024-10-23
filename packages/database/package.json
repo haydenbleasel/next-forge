@@ -4,8 +4,8 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "dev": "pscale connect eververse dev --port 3309",
-    "db:generate": "prisma generate --no-hints"
+    "dev": "pscale connect [mydatabase] dev --port 3309",
+    "build": "prisma generate --no-hints"
   },
   "dependencies": {
     "@planetscale/database": "^1.19.0",
