@@ -36,7 +36,7 @@ const Blog: FC = () => (
               height={751}
             />
             <div className="flex flex-row items-center gap-4">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 {new Date(post.date).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',

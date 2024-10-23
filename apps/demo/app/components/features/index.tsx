@@ -143,7 +143,7 @@ export const Features: FC = () => (
   <section className="dark h-[800px]">
     <div
       aria-hidden="true"
-      className="relative h-full overflow-hidden bg-background py-24 sm:py-32 mx-2 rounded-4xl ring-1 ring-black/5 ring-inset rounded-4xl"
+      className="relative mx-2 h-full overflow-hidden rounded-4xl rounded-4xl bg-background py-24 ring-1 ring-black/5 ring-inset sm:py-32"
     >
       <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto text-center">
         <div className="relative z-10">
