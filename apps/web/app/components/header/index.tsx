@@ -30,20 +30,20 @@ export const Header = () => {
       description: 'Managing a small business today is already tough.',
       items: [
         {
-          title: 'Reports',
-          href: '/reports',
+          title: 'Pricing',
+          href: '/pricing',
         },
         {
-          title: 'Statistics',
-          href: '/statistics',
+          title: 'Pricing',
+          href: '/pricing',
         },
         {
-          title: 'Dashboards',
-          href: '/dashboards',
+          title: 'Pricing',
+          href: '/pricing',
         },
         {
-          title: 'Recordings',
-          href: '/recordings',
+          title: 'Pricing',
+          href: '/pricing',
         },
       ],
     },
@@ -90,8 +90,8 @@ export const Header = () => {
                                 {item.description}
                               </p>
                             </div>
-                            <Button size="sm" className="mt-10">
-                              Book a call today
+                            <Button size="sm" className="mt-10" asChild>
+                              <Link href="/contact">Book a call today</Link>
                             </Button>
                           </div>
                           <div className="flex h-full flex-col justify-end text-sm">
