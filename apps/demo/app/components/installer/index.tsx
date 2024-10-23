@@ -19,18 +19,18 @@ import PnpmLogo from './pnpm.svg';
 import YarnLogo from './yarn.svg';
 
 const installers = [
+  {
+    value: 'pnpm',
+    command: 'pnpm create next-app',
+    logo: PnpmLogo,
+    name: 'pnpm',
+  },
   { value: 'bun', command: 'bun create next-app', logo: BunLogo, name: 'Bun' },
   {
     value: 'npm',
     command: 'npx create-next-app',
     logo: NpmLogo,
     name: 'npm',
-  },
-  {
-    value: 'pnpm',
-    command: 'pnpm create next-app',
-    logo: PnpmLogo,
-    name: 'pnpm',
   },
   {
     value: 'yarn',
@@ -40,7 +40,8 @@ const installers = [
   },
 ];
 
-const installCommand = '--example https://github.com/haydenbleasel/next-forge';
+const installCommand =
+  '@latest --example https://github.com/haydenbleasel/next-forge';
 
 export const Installer: FC = () => {
   const [manager, setManager] = useState(installers[0].value);
