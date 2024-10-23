@@ -69,16 +69,7 @@ import {
   SquareTerminalIcon,
   Trash2Icon,
 } from 'lucide-react';
-import type { Metadata } from 'next';
-import type { ReactElement } from 'react';
-
-const title = 'Acme Inc';
-const description = 'My application.';
-
-export const metadata: Metadata = {
-  title,
-  description,
-};
+import type { ReactElement, ReactNode } from 'react';
 
 const data = {
   user: {
@@ -204,7 +195,13 @@ const data = {
   ],
 };
 
-const App = async (): Promise<ReactElement> => {
+type AppLayoutProperties = {
+  readonly children: ReactNode;
+};
+
+const AppLayout = async ({
+  children,
+}: AppLayoutProperties): Promise<ReactElement> => {
   const user = await currentUser();
   const { redirectToSignIn } = await auth();
 
@@ -452,17 +449,10 @@ const App = async (): Promise<ReactElement> => {
             </Breadcrumb>
           </div>
         </header>
-        <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-            <div className="aspect-video rounded-xl bg-muted/50" />
-          </div>
-          <div className="min-h-[100vh] flex-1 rounded-xl bg-muted/50 md:min-h-min" />
-        </div>
+        {children}
       </SidebarInset>
     </SidebarProvider>
   );
 };
 
-export default App;
+export default AppLayout;
