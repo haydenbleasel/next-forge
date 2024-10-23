@@ -1,7 +1,6 @@
-'use client';
-
 import { MDXContent } from '@content-collections/mdx/react';
 import Image from 'next/image';
+import Link from 'next/link';
 import type { FC, HTMLProps } from 'react';
 
 type MdxProperties = {
@@ -14,13 +13,12 @@ const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
     throw new TypeError('href is required');
   }
 
+  if (href.startsWith('/')) {
+    return <Link href={href} {...properties} />;
+  }
+
   return (
-    <a
-      {...properties}
-      href={href}
-      target={href.startsWith('http') ? '_blank' : undefined}
-      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-    />
+    <a {...properties} href={href} target="_blank" rel="noopener noreferrer" />
   );
 };
 
