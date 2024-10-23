@@ -1,11 +1,7 @@
 import { MDXContent } from '@content-collections/mdx/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { FC, HTMLProps } from 'react';
-
-type MdxProperties = {
-  readonly code: string;
-};
+import type { ComponentProps, FC, HTMLProps } from 'react';
 
 // eslint-disable-next-line id-length
 const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
@@ -44,7 +40,10 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
 
 const CompanyName: FC = () => 'next-forge';
 
-export const Mdx: FC<MdxProperties> = ({ code }) => (
+export const Mdx: FC<ComponentProps<typeof MDXContent>> = ({
+  code,
+  components,
+}) => (
   <div className="prose prose-neutral dark:prose-invert">
     <MDXContent
       code={code}
@@ -52,6 +51,7 @@ export const Mdx: FC<MdxProperties> = ({ code }) => (
         a,
         img,
         CompanyName,
+        ...components,
       }}
     />
   </div>

@@ -75,7 +75,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
       ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <Mdx code={page.content} />
+          <Mdx code={page.body} />
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
           <Sidebar
