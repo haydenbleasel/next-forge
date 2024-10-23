@@ -19,7 +19,6 @@ const Home: FC = () => (
     <Hero />
     <Separator />
     <Apps />
-    <Separator />
     <Features />
   </>
 );

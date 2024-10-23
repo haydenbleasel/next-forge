@@ -91,7 +91,7 @@ export const Apps: FC = () => (
                   alt=""
                   src={app.image}
                   className={cn(
-                    'border rounded-md object-cover object-left',
+                    'border rounded-md object-cover object-left overflow-hidden',
                     [0, 3, 4].includes(index)
                       ? 'h-auto w-full'
                       : 'h-[120%] w-auto max-w-none'
