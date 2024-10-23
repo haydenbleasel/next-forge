@@ -1,5 +1,4 @@
-/* eslint-disable n/no-sync */
-// eslint-disable-next-line import/no-nodejs-modules
+// biome-ignore lint/correctness/noNodejsModules: Generates sitemap on Node.js
 import fs from 'node:fs';
 import { baseUrl } from '@repo/design-system/lib/consts';
 import type { MetadataRoute } from 'next';
