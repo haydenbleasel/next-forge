@@ -1,11 +1,58 @@
 import type { FC } from 'react';
 
+import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import ApiImage from './api.png';
 import AppImage from './app.png';
 import DocsImage from './docs.png';
 import EmailImage from './email.png';
+import StudioImage from './studio.png';
 import WebImage from './web.png';
+
+const apps = [
+  {
+    name: 'App',
+    title: 'Lightning-fast app template',
+    description:
+      "Start building your app with a shadcn/ui template that's already set up with everything you need — Tailwind, Clerk and more.",
+    image: AppImage,
+  },
+  {
+    name: 'API',
+    title: 'Cross-platform API',
+    description:
+      'Create an API microservice for many different apps, with a type-safe database ORM.',
+    image: ApiImage,
+  },
+  {
+    name: 'Email',
+    title: 'React-based email templates',
+    description:
+      'Create and preview email templates with a React-based email library.',
+    image: EmailImage,
+  },
+  {
+    name: 'Website',
+    title: 'Robust, type-safe website',
+    description:
+      'A twblocks website template with a type-safe blog, bulletproof SEO and legal pages, powered by Content Collections.',
+    image: WebImage,
+  },
+  {
+    name: 'Docs',
+    title: 'Powered by Mintlify',
+    description:
+      'Simple, beautiful out of the box and easy to maintain documentation.',
+    image: DocsImage,
+  },
+  {
+    name: 'Studio',
+    title: 'Visual database editor',
+    description:
+      'Use Prisma Studio to visualize your database, and generate Prisma client code.',
+    image: StudioImage,
+  },
+];
 
 export const Apps: FC = () => (
   <div className="bg-background py-24 sm:py-32">
@@ -17,131 +64,61 @@ export const Apps: FC = () => (
         Get from zero to production in minutes.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
-        <div className="relative lg:col-span-3">
-          <div className="absolute inset-px rounded-lg bg-background max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
-              <Image
-                alt=""
-                src={AppImage}
-                className="h-auto w-full border rounded-md object-cover object-left"
-              />
+        {apps.map((app, index) => (
+          <div
+            className={cn(
+              'relative',
+              [0, 3, 4].includes(index) ? 'lg:col-span-4' : 'lg:col-span-2'
+            )}
+            key={app.name}
+          >
+            <div
+              className={cn(
+                'absolute inset-px rounded-lg bg-background max-lg:rounded-t-[2rem]',
+                !index && 'lg:rounded-tl-[2rem]',
+                index === 1 && 'lg:rounded-tr-[2rem]'
+              )}
+            />
+            <div
+              className={cn(
+                'relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]',
+                !index && 'lg:rounded-tl-[calc(2rem+1px)]',
+                index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
+              )}
+            >
+              <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
+                <Image
+                  alt=""
+                  src={app.image}
+                  className={cn(
+                    'border rounded-md object-cover object-left',
+                    [0, 3, 4].includes(index)
+                      ? 'h-auto w-full'
+                      : 'h-[120%] w-auto max-w-none'
+                  )}
+                />
+              </div>
+              <div className="p-10">
+                <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                  {app.name}
+                </h3>
+                <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
+                  {app.title}
+                </p>
+                <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
+                  {app.description}
+                </p>
+              </div>
             </div>
-            <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-muted-foreground">
-                App
-              </h3>
-              <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
-                Lightning-fast app template
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                Start building your app with a shadcn/ui template that's already
-                set up with everything you need — Tailwind, Clerk and more.
-              </p>
-            </div>
+            <div
+              className={cn(
+                'pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 max-lg:rounded-t-[2rem]',
+                !index && 'lg:rounded-tl-[2rem]',
+                index === 1 && 'lg:rounded-tr-[2rem]'
+              )}
+            />
           </div>
-          <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
-        </div>
-        <div className="relative lg:col-span-3">
-          <div className="absolute inset-px rounded-lg bg-background lg:rounded-tr-[2rem]" />
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
-              <Image
-                alt=""
-                src={WebImage}
-                className="h-auto w-full border rounded-md object-cover object-left"
-              />
-            </div>
-            <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-muted-foreground">
-                Website
-              </h3>
-              <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
-                Robust, type-safe website
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                A twblocks website template with a type-safe blog, bulletproof
-                SEO and legal pages, powered by Content Collections.
-              </p>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 lg:rounded-tr-[2rem]" />
-        </div>
-        <div className="relative lg:col-span-2">
-          <div className="absolute inset-px rounded-lg bg-background lg:rounded-bl-[2rem]" />
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]">
-            <div className="h-80 border-b bg-secondary overflow-hidden">
-              <Image
-                alt=""
-                src={ApiImage}
-                className="h-auto w-full border rounded-md object-cover object-left"
-              />
-            </div>
-            <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-muted-foreground">
-                API
-              </h3>
-              <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
-                Cross-platform API
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                Create an API microservice for many different apps, with a
-                type-safe database ORM.
-              </p>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 lg:rounded-bl-[2rem]" />
-        </div>
-        <div className="relative lg:col-span-2">
-          <div className="absolute inset-px rounded-lg bg-background" />
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
-            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
-              <Image
-                alt=""
-                src={DocsImage}
-                className="h-[120%] w-auto max-w-none border rounded-md object-cover object-left"
-              />
-            </div>
-            <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-muted-foreground">
-                Docs
-              </h3>
-              <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
-                Powered by Mintlify
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                Simple, beautiful out of the box and easy to maintain
-                documentation.
-              </p>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5" />
-        </div>
-        <div className="relative lg:col-span-2">
-          <div className="absolute inset-px rounded-lg bg-background max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
-          <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
-              <Image
-                alt=""
-                src={EmailImage}
-                className="h-[120%] w-auto max-w-none border rounded-md object-cover object-left"
-              />
-            </div>
-            <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-muted-foreground">
-                Email
-              </h3>
-              <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
-                React-based email templates
-              </p>
-              <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
-                Create and preview email templates with a React-based email
-                library.
-              </p>
-            </div>
-          </div>
-          <div className="pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
-        </div>
+        ))}
       </div>
     </div>
   </div>
