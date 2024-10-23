@@ -1,6 +1,5 @@
 'use client';
 
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Calendar } from '@repo/design-system/components/ui/calendar';
 import { Input } from '@repo/design-system/components/ui/input';
@@ -24,9 +23,6 @@ export const ContactForm: FC = () => {
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="flex flex-col gap-6">
             <div className="flex flex-col gap-4">
-              <div>
-                <Badge>Contact</Badge>
-              </div>
               <div className="flex flex-col gap-2">
                 <h4 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
                   Something new
