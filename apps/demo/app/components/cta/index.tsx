@@ -18,8 +18,8 @@ export const CallToAction: FC = () => (
             </p>
           </hgroup>
           <p className="mx-auto mt-6 max-w-xs text-gray-500 text-sm/6">
-            Get the cheat codes for selling and unlock your team&apos;s revenue
-            potential.
+            Authentication, billing, analytics, SEO, database ORM and more —
+            it's all here.
           </p>
           <div className="mt-6">
             <Installer />

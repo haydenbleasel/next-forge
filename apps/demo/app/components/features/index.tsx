@@ -121,7 +121,7 @@ const rows = [
         className: '[animation-delay:-34s] [animation-duration:45s]',
       },
       {
-        label: 'Cmdk',
+        label: 'CMDK',
         src: Cmdk,
         className: '[animation-delay:-39s] [animation-duration:45s]',
       },
@@ -181,7 +181,7 @@ export const Features: FC = () => (
   <section className="dark h-[800px]">
     <div
       aria-hidden="true"
-      className="relative mx-2 h-full overflow-hidden rounded-4xl rounded-4xl bg-background py-24 ring-1 ring-black/5 ring-inset sm:py-32"
+      className="relative mx-2 h-full overflow-hidden rounded-4xl bg-background py-24 ring-1 ring-black/5 ring-inset sm:py-32"
     >
       <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto text-center">
         <div className="relative z-10">
