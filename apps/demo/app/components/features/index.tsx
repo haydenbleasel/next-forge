@@ -8,6 +8,7 @@ import ContentCollections from './content-collections.png';
 import GoogleAnalytics from './google-analytics.svg';
 import Prisma from './prisma.svg';
 import Radix from './radix.svg';
+
 import ReactEmail from './react-email.svg';
 import Sentry from './sentry.svg';
 import Stripe from './stripe.svg';
@@ -21,6 +22,13 @@ import PlanetScale from './planet-scale.svg';
 import React from './react.svg';
 import Ultracite from './ultracite.svg';
 import Vercel from './vercel.svg';
+
+import Cmdk from './cmdk.svg';
+import Fumadocs from './fumadocs.svg';
+import Recharts from './recharts.svg';
+import Resend from './resend.svg';
+import Segment from './segment.svg';
+import Zod from './zod.svg';
 
 const rows = [
   {
@@ -39,6 +47,11 @@ const rows = [
         label: 'Ultracite',
         src: Ultracite,
         className: '[animation-delay:-18s] [animation-duration:30s]',
+      },
+      {
+        label: 'Resend',
+        src: Resend,
+        className: '[animation-delay:-22s] [animation-duration:30s]',
       },
     ],
   },
@@ -59,6 +72,11 @@ const rows = [
         src: Lucide,
         className: '[animation-delay:-30s] [animation-duration:40s]',
       },
+      {
+        label: 'Segment',
+        src: Segment,
+        className: '[animation-delay:-35s] [animation-duration:40s]',
+      },
     ],
   },
   {
@@ -77,6 +95,11 @@ const rows = [
         label: 'Date-fns',
         src: DateFns,
         className: '[animation-delay:-22s] [animation-duration:40s]',
+      },
+      {
+        label: 'Fumadocs',
+        src: Fumadocs,
+        className: '[animation-delay:-28s] [animation-duration:40s]',
       },
     ],
   },
@@ -97,6 +120,11 @@ const rows = [
         src: React,
         className: '[animation-delay:-34s] [animation-duration:45s]',
       },
+      {
+        label: 'Cmdk',
+        src: Cmdk,
+        className: '[animation-delay:-39s] [animation-duration:45s]',
+      },
     ],
   },
   {
@@ -116,6 +144,11 @@ const rows = [
         src: PlanetScale,
         className: '[animation-delay:-38s] [animation-duration:60s]',
       },
+      {
+        label: 'Recharts',
+        src: Recharts,
+        className: '[animation-delay:-45s] [animation-duration:60s]',
+      },
     ],
   },
   {
@@ -134,6 +167,11 @@ const rows = [
         label: 'Vercel',
         src: Vercel,
         className: '[animation-delay:-18s] [animation-duration:40s]',
+      },
+      {
+        label: 'Zod',
+        src: Zod,
+        className: '[animation-delay:-33s] [animation-duration:40s]',
       },
     ],
   },
