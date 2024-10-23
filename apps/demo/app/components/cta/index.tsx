@@ -1,5 +1,5 @@
-import { Button } from '@repo/design-system/components/ui/button';
 import type { FC } from 'react';
+import { Installer } from '../installer';
 
 export const CallToAction: FC = () => (
   <footer>
@@ -22,9 +22,7 @@ export const CallToAction: FC = () => (
             potential.
           </p>
           <div className="mt-6">
-            <Button className="w-full sm:w-auto" href="#">
-              Get started
-            </Button>
+            <Installer />
           </div>
         </div>
         <div className="text-gray-950 text-sm/6">

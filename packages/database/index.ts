@@ -3,6 +3,7 @@ import 'server-only';
 import { Client } from '@planetscale/database';
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
 import { PrismaClient } from '@prisma/client';
+import { fetch as undiciFetch } from 'undici';
 
 const databaseUrl = process.env.DATABASE_URL;
 const nodeEnvironment = process.env.NODE_ENV;
@@ -16,7 +17,7 @@ declare global {
   var cachedPrisma: PrismaClient | undefined;
 }
 
-const client = new Client({ url: databaseUrl });
+const client = new Client({ url: databaseUrl, fetch: undiciFetch });
 const adapter = new PrismaPlanetScale(client);
 
 let prisma: PrismaClient;

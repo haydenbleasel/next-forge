@@ -1,14 +1,14 @@
 import Image from 'next/image';
 import type { FC } from 'react';
 
+import { Installer } from '../installer';
 import { GitHubButton } from './github-button';
-import { Installer } from './installer';
 import Logo from './logo.svg';
 import NextLogo from './next.svg';
 import TurborepoLogo from './turborepo.svg';
 
 export const Hero: FC = () => (
-  <div class="mx-2 mt-2 rounded-4xl bg-secondary ring-1 ring-black/5 ring-inset">
+  <div className="mx-2 mt-2 rounded-4xl bg-secondary ring-1 ring-black/5 ring-inset">
     <section className="container mx-auto flex max-w-5xl flex-col items-center gap-2 py-24 sm:py-32">
       <Image src={Logo} alt="Logo" width={48} height={48} />
       <h1 className="mt-8 text-center font-bold text-3xl leading-tight tracking-tighter md:text-6xl lg:leading-[1.1]">

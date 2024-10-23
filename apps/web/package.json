@@ -6,8 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true pnpm build",
-    "prebuild": "pnpm content-collections build"
+    "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@content-collections/mdx": "^0.1.6",
