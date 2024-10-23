@@ -1,3 +1,15 @@
+# v2.0.4 (Wed Oct 23 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add missing LQIP props ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.0.3 (Wed Oct 23 2024)
 
 #### 🐛 Bug Fix
