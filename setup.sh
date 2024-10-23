@@ -1,16 +1,6 @@
 #!/bin/bash
 
-# Check if exactly one argument is provided
-if [ $# -ne 1 ]; then
-  echo "Usage: $0 <Application Name>"
-  exit 1
-fi
-
-# Capture the application name
-name="$1"
-
-# You can add commands here to use the argument
-echo "Setting up next-forge for $name..."
+echo "Setting up next-forge..."
 
 # Install Homebrew
 if which brew >/dev/null; then
@@ -58,15 +48,16 @@ fi
 echo "Installing dependencies..."
 pnpm install
 
-# Copy .env.example to .env.local
+# Duplicate .env.example files
 echo "Copying .env.example files to .env.local..."
 cp apps/api/.env.example apps/api/.env.local
-cp apps/web/.env.example apps/web/.env.local
 cp apps/app/.env.example apps/app/.env.local
+cp apps/web/.env.example apps/web/.env.local
+cp apps/studio/.env.example apps/studio/.env
 
-# Update legal docs
-echo "Updating legal docs..."
-grep -rl '/CompanyName/' content/legal/ | xargs sed -i '' 's|/CompanyName/|'"$name"'|g'
+# Delete demo folder
+echo "Deleting demo folder..."
+rm -rf apps/demo
 
 # Finish setup
 echo "Setup complete! Deleting setup script..."

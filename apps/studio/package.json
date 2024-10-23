@@ -1,0 +1,10 @@
+{
+  "name": "studio",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "prisma studio --schema ../../packages/database/prisma/schema.prisma --port 3005"
+  },
+  "devDependencies": {
+    "prisma": "5.21.1"
+  }
+}

@@ -1,25 +1,25 @@
 {
   "name": "next-forge",
-  "version": "1.1.1",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "bump-deps": "npx npm-check-updates --deep -u -x cmdk,eslint,ultracite,react-day-picker && pnpm install"
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install"
   },
   "devDependencies": {
     "@auto-it/all-contributors": "^11.2.1",
     "@auto-it/first-time-contributor": "^11.2.1",
     "@auto-it/git-tag": "^11.2.1",
-    "@biomejs/biome": "1.8.3",
+    "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "turbo": "^2.1.1",
-    "typescript": "^5.5.4",
-    "ultracite": "^3.8.0"
+    "turbo": "^2.2.3",
+    "typescript": "^5.6.3",
+    "ultracite": "^4.1.6"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "pnpm@9.12.2"
 }

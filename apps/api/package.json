@@ -11,29 +11,23 @@
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {
-    "@clerk/nextjs": "^5.3.7",
+    "@clerk/nextjs": "^6.0.0",
     "@logtail/next": "^0.1.5",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
-    "@sentry/nextjs": "^8.27.0",
-    "next": "14.2.7",
-    "next-secure-headers": "^2.2.0",
+    "@sentry/nextjs": "^8.35.0",
+    "@repo/next-config": "workspace:*",
+    "next": "15.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "svix": "^1.32.0"
+    "svix": "^1.37.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^14.2.7",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.5.2",
-    "@types/react": "18.3.5",
-    "@types/react-dom": "18.3.0",
-    "concurrently": "^8.2.2",
-    "eslint": "8",
-    "jest": "^29.7.0",
-    "prettier": "^3.3.3",
-    "stylelint": "^16.9.0",
-    "typescript": "^5.5.4",
-    "ultracite": "^3.8.0"
+    "@types/node": "22.7.9",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "concurrently": "^9.0.1",
+    "typescript": "^5.6.3"
   }
 }

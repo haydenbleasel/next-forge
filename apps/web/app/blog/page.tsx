@@ -1,15 +1,9 @@
+import { createMetadata } from '@repo/design-system/lib/metadata';
+import { cn } from '@repo/design-system/lib/utils';
+import { allPosts } from 'content-collections';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { createMetadata } from '@repo/design-system/lib/metadata';
-import {
-  Card,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@repo/design-system/components/ui/card';
-import { Container } from '@repo/design-system/components/container';
-import { allBlogs } from '@contentlayer/generated';
-import type { Metadata } from 'next';
 import type { FC } from 'react';
 
 const title = 'Blog';
@@ -18,40 +12,51 @@ const description = 'Thoughts, ideas, and opinions.';
 export const metadata: Metadata = createMetadata({ title, description });
 
 const Blog: FC = () => (
-  <main className="relative py-16">
-    <Container>
-      <div className="flex flex-col gap-1">
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight lg:text-5xl">
-          {title}
-        </h1>
-        <span className="mt-2 max-w-[750px] text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
-          {description}
-        </span>
+  <div className="w-full py-20 lg:py-40">
+    <div className="container mx-auto flex flex-col gap-14">
+      <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+        <h4 className="max-w-xl font-regular text-3xl tracking-tighter md:text-5xl">
+          Latest articles
+        </h4>
       </div>
-      <div className="mt-8 grid grid-cols-3 gap-8">
-        {allBlogs.map((post) => (
-          <Link href={post.slug} key={post.slug}>
-            <Card className="overflow-hidden flex flex-col justify-between divide-y divide-zinc-200 dark:divide-zinc-800">
-              {post.image ? (
-                <Image
-                  src={post.image}
-                  width={685}
-                  height={685}
-                  sizes="(max-width: 768px) 685px, (max-width: 1200px) 558px, 434px"
-                  placeholder={`data:image/jpg;base64,${post.imageBlur}`}
-                  alt=""
-                />
-              ) : undefined}
-              <CardHeader>
-                <CardTitle>{post.title}</CardTitle>
-                <CardDescription>{post.description}</CardDescription>
-              </CardHeader>
-            </Card>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {allPosts.map((post, index) => (
+          <Link
+            href={`/blog/${post._meta.path}`}
+            className={cn(
+              'flex cursor-pointer flex-col gap-4 hover:opacity-75',
+              !index && 'md:col-span-2'
+            )}
+            key={post.title}
+          >
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1336}
+              height={751}
+            />
+            <div className="flex flex-row items-center gap-4">
+              <p className="text-muted-foreground text-sm">
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
+              </p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <h3 className="max-w-3xl text-4xl tracking-tight">
+                {post.title}
+              </h3>
+              <p className="max-w-3xl text-base text-muted-foreground">
+                {post.description}
+              </p>
+            </div>
           </Link>
         ))}
       </div>
-    </Container>
-  </main>
+    </div>
+  </div>
 );
 
 export default Blog;

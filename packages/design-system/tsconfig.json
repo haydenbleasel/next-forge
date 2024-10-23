@@ -8,7 +8,7 @@
       }
     ],
     "paths": {
-      "~/*": ["./*"]
+      "@repo/design-system/*": ["./*"]
     }
   },
   "include": ["**/*.ts", "**/*.tsx"],

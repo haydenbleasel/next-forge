@@ -1,8 +1,8 @@
 'use server';
 
-import { ContactTemplate } from '@repo/email/emails/contact';
 import { parseError } from '@repo/design-system/lib/error';
 import { resend } from '@repo/design-system/lib/resend';
+import { ContactTemplate } from '@repo/email-templates/contact';
 
 const from = process.env.RESEND_FROM;
 

@@ -1,0 +1,32 @@
+{
+  "name": "demo",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3006",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "analyze": "ANALYZE=true pnpm build"
+  },
+  "dependencies": {
+    "@octokit/rest": "^21.0.2",
+    "@repo/design-system": "workspace:*",
+    "@repo/next-config": "workspace:*",
+    "@sentry/nextjs": "^8.35.0",
+    "@vercel/analytics": "^1.3.1",
+    "geist": "^1.3.1",
+    "lucide-react": "^0.453.0",
+    "next": "15.0.1",
+    "next-themes": "^0.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "sonner": "^1.5.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.7.9",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "^5.6.3"
+  }
+}

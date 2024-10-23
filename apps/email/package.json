@@ -1,0 +1,22 @@
+{
+  "name": "email",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "build": "email build",
+    "dev": "email dev --port 3003",
+    "export": "email export"
+  },
+  "dependencies": {
+    "@react-email/components": "0.0.25",
+    "@repo/email-templates": "workspace:*",
+    "react": "18.3.1",
+    "react-email": "3.0.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.7.9",
+    "@types/react": "18.3.12",
+    "typescript": "^5.6.3"
+  }
+}

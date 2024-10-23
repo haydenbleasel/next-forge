@@ -1,8 +1,6 @@
 # next-forge
 
-**A production-grade boilerplate for modern Next.js apps.**
-
-![Example](./apps/app/app/opengraph-image.png)
+**Production-grade Turborepo template for Next.js apps.**
 
 [`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
@@ -23,16 +21,22 @@ The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a too
 
 The monorepo contains the following apps:
 
-- `app` — The main, which contains the Next.js app.
-- `api` — The API, which contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs.
-- `web` — The website, which contains the static website for the app e.g. marketing pages and legal docs.
-- `docs` — The documentation, which contains the documentation for the app e.g. guides and tutorials.
+| App | Description | Port |
+| --- | ----------- | ---- |
+| `api` | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. | 3002 |
+| `app` | The main application, featuring a [shadcn/ui](https://ui.shadcn.com/) template. | 3000 |
+| `demo` | The landing page for this project. **You can delete this**. | 3006 |
+| `docs` | The documentation, which contains the documentation for the app e.g. guides and tutorials. | 3004 |
+| `email` | The email preview server from [react.email](https://react.email/). | 3003 |
+| `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 |
+| `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 |
 
 It also contains the following packages:
 
-- `@repo/design-system`: The design system, which contains shared components, utility files and styles.
-- `@repo/email`: The email templates, which contains the email templates for the app.
 - `@repo/database`: The database, which contains the database schema and migrations for the app.
+- `@repo/design-system`: The design system, which contains shared components, utility files and styles.
+- `@repo/email-templates`: The email templates, which contains the email templates for the app.
+- `@repo/next-config`: The Next.js configuration, which contains the shared Next.js configuration for the app.
 - `@repo/typescript-config`: The TypeScript configuration, which contains the shared TypeScript configuration for the app.
 
 ## Usage
@@ -43,10 +47,10 @@ First, scaffold the app with:
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-Then, run the setup script and pass in the name of your app / company:
+Next, run the setup script. This ensures that Homebrew, NVM, pnpm, PlanetScale CLI and Stripe CLI are installed. It then installs the dependencies with pnpm and copies all `.env.example` files so you can start modifying the values. Finally, it deletes the demo folder (the landing page for this repo).
 
 ```sh
-./setup.sh Acme
+./setup.sh
 ```
 
 Login to Stripe with:
@@ -61,13 +65,19 @@ Login to Planetscale with
 pscale auth login
 ```
 
+Update your database name in:
+
+```txt
+/packages/database/package.json
+```
+
 Finally, run the development server with:
 
 ```sh
 pnpm dev
 ```
 
-Open the following URLs to see the app:
+Open the localhost URLs with the relevant ports listed above to see the app, e.g.
 
 - [http://localhost:3000/](http://localhost:3000/) — The main app.
 - [http://localhost:3001/](http://localhost:3001/) — The website.
@@ -78,4 +88,6 @@ Open the following URLs to see the app:
 
 ## Notes
 
+- If you're deploying on Vercel, I recommend making use of the Team Environment Variables feature. Variables used by libraries need to exist in all packages and duplicating them can be a headache.
 - `next-forge` makes use of a custom proxy setup for Segment's client-side library to avoid ad-blocker issues. This is not required, but recommended. You'll need to contact Segment support to enable this in your UI. Read more about this [here](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/custom-proxy/#custom-cdn--api-proxy).
+- The `website` app has a prebuild script in order to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).

@@ -1,29 +1,25 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
-import Image from 'next/image';
-import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { createMetadata } from '@repo/design-system/lib/metadata';
-import { Container } from '@repo/design-system/components/container';
-import { allBlogs } from '@contentlayer/generated';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
-import type { FC } from 'react';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import { createMetadata } from '@repo/design-system/lib/metadata';
+import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import Balancer from 'react-wrap-balancer';
 
 type BlogPostProperties = {
-  readonly params: {
+  readonly params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-export const dynamic = 'force-dynamic';
-
-export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
-  const currentPath = params.slug;
-  const page = allBlogs.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+export const generateMetadata = async ({
+  params,
+}: BlogPostProperties): Promise<Metadata> => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     return {};
@@ -36,23 +32,21 @@ export const generateMetadata = ({ params }: BlogPostProperties): Metadata => {
   });
 };
 
-export const generateStaticParams = (): BlogPostProperties['params'][] =>
-  allBlogs.map((page) => ({
-    slug: page.slug,
+export const generateStaticParams = (): { slug: string }[] =>
+  allPosts.map((page) => ({
+    slug: page._meta.path,
   }));
 
-const BlogPost: FC<BlogPostProperties> = ({ params }) => {
-  const currentPath = params.slug;
-  const page = allBlogs.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+const BlogPost = async ({ params }: BlogPostProperties) => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
 
   if (!page) {
     notFound();
   }
 
   return (
-    <Container className="py-16">
+    <div className="container py-16">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
         href="/blog"
@@ -60,35 +54,35 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
         <ArrowLeftIcon className="h-4 w-4" />
         Back to Blog
       </Link>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
         <Balancer>{page.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         <Balancer>{page.description}</Balancer>
       </p>
-      {page.image && page.imageBlur ? (
+      {page.image ? (
         <Image
           src={page.image}
           width={1920}
           height={1080}
           alt=""
-          className="h-full w-full rounded-xl my-16"
+          className="my-16 h-full w-full rounded-xl"
           priority
-          blurDataURL={page.imageBlur}
-          placeholder="blur"
         />
       ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={page.body.code} />
-          </div>
+          <Mdx code={page.body} />
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar doc={page} />
+          <Sidebar
+            content={page.content}
+            readingTime={page.readingTime}
+            date={page.date}
+          />
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

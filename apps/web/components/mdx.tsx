@@ -1,10 +1,7 @@
+import { MDXContent } from '@content-collections/mdx/react';
 import Image from 'next/image';
-import { getMDXComponent } from 'next-contentlayer2/hooks';
-import type { FC, HTMLProps } from 'react';
-
-type MdxProperties = {
-  readonly code: string;
-};
+import Link from 'next/link';
+import type { ComponentProps, FC, HTMLProps } from 'react';
 
 // eslint-disable-next-line id-length
 const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
@@ -12,14 +9,12 @@ const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
     throw new TypeError('href is required');
   }
 
+  if (href.startsWith('/')) {
+    return <Link href={href} {...properties} />;
+  }
+
   return (
-    // eslint-disable-next-line jsx-a11y/anchor-has-content
-    <a
-      {...properties}
-      href={href}
-      target={href.startsWith('http') ? '_blank' : undefined}
-      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
-    />
+    <a {...properties} href={href} target="_blank" rel="noopener noreferrer" />
   );
 };
 
@@ -43,16 +38,21 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
   );
 };
 
-export const Mdx: FC<MdxProperties> = ({ code }) => {
-  const Component = getMDXComponent(code);
+const CompanyName: FC = () => 'next-forge';
 
-  return (
-    <Component
+export const Mdx: FC<ComponentProps<typeof MDXContent>> = ({
+  code,
+  components,
+}) => (
+  <div className="prose prose-neutral dark:prose-invert">
+    <MDXContent
+      code={code}
       components={{
-        // eslint-disable-next-line id-length
         a,
         img,
+        CompanyName,
+        ...components,
       }}
     />
-  );
-};
+  </div>
+);

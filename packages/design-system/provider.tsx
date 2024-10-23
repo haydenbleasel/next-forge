@@ -1,10 +1,10 @@
-import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+import { ThemeProvider as NextThemesProvider } from 'next-themes';
+import type { ThemeProviderProps } from 'next-themes/dist/types';
 import Script from 'next/script';
+import type { FC } from 'react';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
-import type { FC } from 'react';
-import type { ThemeProviderProps } from 'next-themes/dist/types';
 
 type AnalyticsProperties = {
   readonly gaMeasurementId?: string;
