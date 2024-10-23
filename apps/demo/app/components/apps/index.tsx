@@ -60,7 +60,7 @@ export const Apps: FC = () => (
       <h2 className="font-medium text-base/7 text-muted-foreground">
         Deploy at scale
       </h2>
-      <p className="mt-2 max-w-lg text-pretty font-bold text-4xl text-foreground tracking-tighter sm:text-5xl">
+      <p className="mt-2 max-w-lg text-pretty font-bold text-3xl sm:text-4xl text-foreground tracking-tighter sm:text-5xl">
         Get from zero to production in minutes.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
