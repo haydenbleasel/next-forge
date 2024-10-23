@@ -1,3 +1,4 @@
+import { Separator } from '@repo/design-system/components/ui/separator';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
 import type { FC } from 'react';
@@ -16,6 +17,7 @@ export const metadata: Metadata = createMetadata(meta);
 const Home: FC = () => (
   <>
     <Hero />
+    <Separator />
     <Apps />
     <Features />
   </>

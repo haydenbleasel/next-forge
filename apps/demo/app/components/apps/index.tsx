@@ -10,7 +10,7 @@ import WebImage from './web.png';
 export const Apps: FC = () => (
   <div className="bg-background py-24 sm:py-32">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-base/7 font-semibold text-indigo-600">
+      <h2 className="text-base/7 font-semibold text-muted-foreground">
         Deploy faster
       </h2>
       <p className="mt-2 max-w-lg text-pretty text-4xl font-bold tracking-tighter text-foreground sm:text-5xl">
@@ -20,7 +20,7 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-3">
           <div className="absolute inset-px rounded-lg bg-background max-lg:rounded-t-[2rem] lg:rounded-tl-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)] lg:rounded-tl-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
               <Image
                 alt=""
                 src={AppImage}
@@ -28,7 +28,9 @@ export const Apps: FC = () => (
               />
             </div>
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-indigo-600">App</h3>
+              <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                App
+              </h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
                 Lightning-fast app template
               </p>
@@ -43,7 +45,7 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-3">
           <div className="absolute inset-px rounded-lg bg-background lg:rounded-tr-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-tr-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
               <Image
                 alt=""
                 src={WebImage}
@@ -51,7 +53,7 @@ export const Apps: FC = () => (
               />
             </div>
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-indigo-600">
+              <h3 className="text-sm/4 font-semibold text-muted-foreground">
                 Website
               </h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
@@ -68,7 +70,7 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background lg:rounded-bl-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] lg:rounded-bl-[calc(2rem+1px)]">
-            <div className="h-80 border-b bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+            <div className="h-80 border-b bg-secondary overflow-hidden">
               <Image
                 alt=""
                 src={ApiImage}
@@ -76,7 +78,9 @@ export const Apps: FC = () => (
               />
             </div>
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-indigo-600">API</h3>
+              <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                API
+              </h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
                 Cross-platform API
               </p>
@@ -91,7 +95,7 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)]">
-            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
               <Image
                 alt=""
                 src={DocsImage}
@@ -99,7 +103,9 @@ export const Apps: FC = () => (
               />
             </div>
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-indigo-600">Docs</h3>
+              <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                Docs
+              </h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
                 Powered by Mintlify
               </p>
@@ -114,7 +120,7 @@ export const Apps: FC = () => (
         <div className="relative lg:col-span-2">
           <div className="absolute inset-px rounded-lg bg-background max-lg:rounded-b-[2rem] lg:rounded-br-[2rem]" />
           <div className="relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-b-[calc(2rem+1px)] lg:rounded-br-[calc(2rem+1px)]">
-            <div className="h-80 border-b p-8 bg-[linear-gradient(115deg,var(--tw-gradient-stops))] from-[#fff1be] from-[28%] via-[#ee87cb] via-[70%] to-[#b060ff] sm:bg-[linear-gradient(145deg,var(--tw-gradient-stops))] overflow-hidden">
+            <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
               <Image
                 alt=""
                 src={EmailImage}
@@ -122,7 +128,9 @@ export const Apps: FC = () => (
               />
             </div>
             <div className="p-10">
-              <h3 className="text-sm/4 font-semibold text-indigo-600">Email</h3>
+              <h3 className="text-sm/4 font-semibold text-muted-foreground">
+                Email
+              </h3>
               <p className="mt-2 text-lg/7 font-medium tracking-tight text-foreground">
                 React-based email templates
               </p>
