@@ -1,6 +1,6 @@
 # next-forge
 
-**A production-grade boilerplate for modern Next.js apps.**
+**Production-grade Turborepo template for Next.js apps.**
 
 [`next-forge`](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
@@ -47,10 +47,10 @@ First, scaffold the app with:
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-Then, run the setup script and pass in the name of your app / company:
+Next, run the setup script. This ensures that Homebrew, NVM, pnpm, PlanetScale CLI and Stripe CLI are installed. It then installs the dependencies with pnpm and copies all `.env.example` files so you can start modifying the values. Finally, it deletes the demo folder (the landing page for this repo).
 
 ```sh
-./setup.sh Acme
+./setup.sh
 ```
 
 Login to Stripe with:
@@ -71,7 +71,7 @@ Finally, run the development server with:
 pnpm dev
 ```
 
-Open the following URLs to see the app:
+Open the localhost URLs with the relevant ports listed above to see the app, e.g.
 
 - [http://localhost:3000/](http://localhost:3000/) — The main app.
 - [http://localhost:3001/](http://localhost:3001/) — The website.

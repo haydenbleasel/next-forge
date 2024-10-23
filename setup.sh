@@ -48,7 +48,7 @@ fi
 echo "Installing dependencies..."
 pnpm install
 
-# Copy .env.example to .env.local
+# Duplicate .env.example files
 echo "Copying .env.example files to .env.local..."
 cp apps/api/.env.example apps/api/.env.local
 cp apps/app/.env.example apps/app/.env.local
