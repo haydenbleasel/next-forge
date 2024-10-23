@@ -44,6 +44,8 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
   );
 };
 
+const CompanyName: FC = () => 'next-forge';
+
 export const Mdx: FC<MdxProperties> = ({ code }) => (
   <div className="prose prose-neutral dark:prose-invert">
     <MDXContent
@@ -51,6 +53,7 @@ export const Mdx: FC<MdxProperties> = ({ code }) => (
       components={{
         a,
         img,
+        CompanyName,
       }}
     />
   </div>
