@@ -9,15 +9,11 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@repo/design-system/components/ui/navigation-menu';
+import { appUrl } from '@repo/design-system/lib/consts';
+import { docsUrl } from '@repo/design-system/lib/consts';
 import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
-
-const appUrl = process.env.NEXT_PUBLIC_APP_URL;
-
-if (!appUrl) {
-  throw new Error('NEXT_PUBLIC_APP_URL is not set');
-}
 
 import Image from 'next/image';
 import Logo from './logo.svg';
@@ -54,6 +50,11 @@ export const Header = () => {
     {
       title: 'Blog',
       href: '/blog',
+      description: '',
+    },
+    {
+      title: 'Docs',
+      href: docsUrl,
       description: '',
     },
   ];
@@ -116,7 +117,7 @@ export const Header = () => {
         </div>
         <div className="flex items-center gap-2 lg:justify-center">
           <Image src={Logo} alt="Logo" width={24} height={24} />
-          <p className="font-semibold">next-forge</p>
+          <p className="font-semibold whitespace-nowrap">next-forge</p>
         </div>
         <div className="flex w-full justify-end gap-4">
           <Button variant="ghost" className="hidden md:inline" asChild>

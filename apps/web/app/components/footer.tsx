@@ -1,3 +1,4 @@
+import { docsUrl } from '@repo/design-system/lib/consts';
 import Link from 'next/link';
 
 export const Footer = () => {
@@ -8,46 +9,34 @@ export const Footer = () => {
       description: '',
     },
     {
-      title: 'Product',
+      title: 'Pages',
       description: 'Managing a small business today is already tough.',
       items: [
         {
-          title: 'Reports',
-          href: '/reports',
+          title: 'Blog',
+          href: '/blog',
         },
         {
-          title: 'Statistics',
-          href: '/statistics',
-        },
-        {
-          title: 'Dashboards',
-          href: '/dashboards',
-        },
-        {
-          title: 'Recordings',
-          href: '/recordings',
+          title: 'Docs',
+          href: docsUrl,
         },
       ],
     },
     {
-      title: 'Company',
-      description: 'Managing a small business today is already tough.',
+      title: 'Legal',
+      description: 'We stay on top of the latest legal requirements.',
       items: [
         {
-          title: 'About us',
-          href: '/about',
+          title: 'Terms of Service',
+          href: '/legal/terms',
         },
         {
-          title: 'Fundraising',
-          href: '/fundraising',
+          title: 'Privacy Policy',
+          href: '/legal/privacy',
         },
         {
-          title: 'Investors',
-          href: '/investors',
-        },
-        {
-          title: 'Contact us',
-          href: '/contact',
+          title: 'Acceptable Use',
+          href: '/legal/acceptable-use',
         },
       ],
     },
@@ -60,10 +49,10 @@ export const Footer = () => {
           <div className="flex flex-col items-start gap-8">
             <div className="flex flex-col gap-2">
               <h2 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
-                TWBlocks™
+                next-forge
               </h2>
               <p className="max-w-lg text-left text-background/75 text-lg leading-relaxed tracking-tight">
-                Managing a small business today is already tough.
+                This is the start of something new.
               </p>
             </div>
             <div className="flex flex-row gap-20">
@@ -71,10 +60,6 @@ export const Footer = () => {
                 <p>1 Tailwind Way</p>
                 <p>Menlo Park</p>
                 <p>CA 94025</p>
-              </div>
-              <div className="flex max-w-lg flex-col text-left text-background/75 text-sm leading-relaxed tracking-tight">
-                <Link href="/">Terms of service</Link>
-                <Link href="/">Privacy Policy</Link>
               </div>
             </div>
           </div>
@@ -89,6 +74,12 @@ export const Footer = () => {
                     <Link
                       href={item.href}
                       className="flex items-center justify-between"
+                      target={item.href.includes('http') ? '_blank' : undefined}
+                      rel={
+                        item.href.includes('http')
+                          ? 'noopener noreferrer'
+                          : undefined
+                      }
                     >
                       <span className="text-xl">{item.title}</span>
                     </Link>
@@ -100,6 +91,14 @@ export const Footer = () => {
                       key={subItem.title}
                       href={subItem.href}
                       className="flex items-center justify-between"
+                      target={
+                        subItem.href.includes('http') ? '_blank' : undefined
+                      }
+                      rel={
+                        subItem.href.includes('http')
+                          ? 'noopener noreferrer'
+                          : undefined
+                      }
                     >
                       <span className="text-background/75">
                         {subItem.title}

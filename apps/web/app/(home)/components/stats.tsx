@@ -1,4 +1,3 @@
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { MoveDownLeft, MoveUpRight } from 'lucide-react';
 import type { FC } from 'react';
 
@@ -7,9 +6,6 @@ export const Stats: FC = () => (
     <div className="container mx-auto">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
         <div className="flex flex-col items-start gap-4">
-          <div>
-            <Badge>Platform</Badge>
-          </div>
           <div className="flex flex-col gap-2">
             <h2 className="text-left font-regular text-xl tracking-tighter md:text-3xl md:text-5xl lg:max-w-xl">
               This is the start of something new

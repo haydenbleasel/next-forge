@@ -4,9 +4,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@repo/design-system/components/ui/accordion';
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
 import { PhoneCall } from 'lucide-react';
+import Link from 'next/link';
 import type { FC } from 'react';
 
 export const FAQ: FC = () => (
@@ -15,9 +15,6 @@ export const FAQ: FC = () => (
       <div className="grid gap-10 lg:grid-cols-2">
         <div className="flex flex-col gap-10">
           <div className="flex flex-col gap-4">
-            <div>
-              <Badge variant="outline">FAQ</Badge>
-            </div>
             <div className="flex flex-col gap-2">
               <h4 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
                 This is the start of something new
@@ -30,8 +27,10 @@ export const FAQ: FC = () => (
               </p>
             </div>
             <div className="">
-              <Button className="gap-4" variant="outline">
-                Any questions? Reach out <PhoneCall className="h-4 w-4" />
+              <Button className="gap-4" variant="outline" asChild>
+                <Link href="/contact">
+                  Any questions? Reach out <PhoneCall className="h-4 w-4" />
+                </Link>
               </Button>
             </div>
           </div>

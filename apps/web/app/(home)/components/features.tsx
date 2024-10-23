@@ -1,4 +1,3 @@
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { User } from 'lucide-react';
 import type { FC } from 'react';
 
@@ -7,9 +6,6 @@ export const Features: FC = () => (
     <div className="container mx-auto">
       <div className="flex flex-col gap-10">
         <div className="flex flex-col items-start gap-4">
-          <div>
-            <Badge>Platform</Badge>
-          </div>
           <div className="flex flex-col gap-2">
             <h2 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
               Something new!

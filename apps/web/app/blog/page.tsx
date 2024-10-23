@@ -1,4 +1,3 @@
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { cn } from '@repo/design-system/lib/utils';
 import { allPosts } from 'content-collections';
@@ -37,13 +36,13 @@ const Blog: FC = () => (
               height={751}
             />
             <div className="flex flex-row items-center gap-4">
-              <Badge>
+              <p className="text-sm text-muted-foreground">
                 {new Date(post.date).toLocaleDateString('en-US', {
                   month: 'long',
                   day: 'numeric',
                   year: 'numeric',
                 })}
-              </Badge>
+              </p>
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="max-w-3xl text-4xl tracking-tight">

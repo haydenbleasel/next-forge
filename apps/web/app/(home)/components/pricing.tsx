@@ -1,13 +1,13 @@
-import { Badge } from '@repo/design-system/components/ui/badge';
 import { Button } from '@repo/design-system/components/ui/button';
+import { appUrl } from '@repo/design-system/lib/consts';
 import { Check, Minus, MoveRight, PhoneCall } from 'lucide-react';
+import Link from 'next/link';
 import type { FC } from 'react';
 
 export const Pricing: FC = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-center gap-4 text-center">
-        <Badge>Pricing</Badge>
         <div className="flex flex-col gap-2">
           <h2 className="max-w-xl text-center font-regular text-3xl tracking-tighter md:text-5xl">
             Prices that make sense!
@@ -28,8 +28,10 @@ export const Pricing: FC = () => (
               <span className="text-4xl">$40</span>
               <span className="text-muted-foreground text-sm"> / month</span>
             </p>
-            <Button variant="outline" className="mt-8 gap-4">
-              Try it <MoveRight className="h-4 w-4" />
+            <Button variant="outline" className="mt-8 gap-4" asChild>
+              <Link href={appUrl}>
+                Try it <MoveRight className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
           <div className="flex flex-col gap-2 px-3 py-1 md:px-6 md:py-4">
@@ -42,8 +44,10 @@ export const Pricing: FC = () => (
               <span className="text-4xl">$40</span>
               <span className="text-muted-foreground text-sm"> / month</span>
             </p>
-            <Button className="mt-8 gap-4">
-              Try it <MoveRight className="h-4 w-4" />
+            <Button className="mt-8 gap-4" asChild>
+              <Link href={appUrl}>
+                Try it <MoveRight className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
           <div className="flex flex-col gap-2 px-3 py-1 md:px-6 md:py-4">
@@ -56,8 +60,10 @@ export const Pricing: FC = () => (
               <span className="text-4xl">$40</span>
               <span className="text-muted-foreground text-sm"> / month</span>
             </p>
-            <Button variant="outline" className="mt-8 gap-4">
-              Contact us <PhoneCall className="h-4 w-4" />
+            <Button variant="outline" className="mt-8 gap-4" asChild>
+              <Link href="/contact">
+                Contact us <PhoneCall className="h-4 w-4" />
+              </Link>
             </Button>
           </div>
           <div className="col-span-3 px-3 py-4 lg:col-span-1 lg:px-6">
