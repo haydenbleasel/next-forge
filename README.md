@@ -65,6 +65,12 @@ Login to Planetscale with
 pscale auth login
 ```
 
+Update your database name in:
+
+```txt
+/packages/database/package.json
+```
+
 Finally, run the development server with:
 
 ```sh
