@@ -37,7 +37,13 @@ const Blog: FC = () => (
               height={751}
             />
             <div className="flex flex-row items-center gap-4">
-              <Badge>{post.date}</Badge>
+              <Badge>
+                {new Date(post.date).toLocaleDateString('en-US', {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric',
+                })}
+              </Badge>
             </div>
             <div className="flex flex-col gap-2">
               <h3 className="max-w-3xl text-4xl tracking-tight">

@@ -17,9 +17,9 @@ const rehypeCodeOptions: RehypeCodeOptions = {
 };
 
 const posts = defineCollection({
-  name: 'blog',
+  name: 'posts',
   directory: 'content/blog',
-  include: '**/*.md',
+  include: '**/*.mdx',
   schema: (z) => ({
     title: z.string(),
     description: z.string(),
@@ -62,11 +62,11 @@ const posts = defineCollection({
 const legals = defineCollection({
   name: 'legal',
   directory: 'content/legal',
-  include: '**/*.md',
+  include: '**/*.mdx',
   schema: (z) => ({
     title: z.string(),
     description: z.string(),
-    updated: z.string(),
+    date: z.string(),
   }),
   transform: async (page, context) => {
     const body = await context.cache(page.content, async () =>
@@ -79,7 +79,7 @@ const legals = defineCollection({
     return {
       ...page,
       body,
-      updated: new Date(page.updated),
+      date: new Date(page.date),
       slug: page._meta.path,
       readingTime: readingTime(page.content).text,
     };

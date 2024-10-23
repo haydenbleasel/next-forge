@@ -1,5 +1,5 @@
-import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
+import { MDXContent } from '@content-collections/mdx/react';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
@@ -16,11 +16,8 @@ type LegalPageProperties = {
   };
 };
 
-export const dynamic = 'force-dynamic';
-
 export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
-  const currentPath = params.slug;
-  const page = allLegals.find(({ _meta }) => _meta.path === currentPath);
+  const page = allLegals.find(({ _meta }) => _meta.path === params.slug);
 
   if (!page) {
     return {};
@@ -38,8 +35,7 @@ export const generateStaticParams = (): LegalPageProperties['params'][] =>
   }));
 
 const LegalPage: FC<LegalPageProperties> = ({ params }) => {
-  const currentPath = params.slug;
-  const page = allLegals.find(({ _meta }) => _meta.path === currentPath);
+  const page = allLegals.find(({ _meta }) => _meta.path === params.slug);
 
   if (!page) {
     notFound();
@@ -63,11 +59,15 @@ const LegalPage: FC<LegalPageProperties> = ({ params }) => {
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={page.content} />
+            <MDXContent code={page.content} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar doc={page} />
+          <Sidebar
+            content={page.content}
+            readingTime={page.readingTime}
+            date={page.date}
+          />
         </div>
       </div>
     </Container>
