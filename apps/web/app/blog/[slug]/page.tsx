@@ -1,5 +1,5 @@
+import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
-import { MDXContent } from '@content-collections/mdx/react';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
@@ -8,7 +8,6 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import type { FC } from 'react';
 import Balancer from 'react-wrap-balancer';
 
 type BlogPostProperties = {
@@ -39,7 +38,7 @@ export const generateStaticParams = (): { slug: string }[] =>
     slug: page._meta.path,
   }));
 
-const BlogPost: FC<BlogPostProperties> = async ({ params }) => {
+const BlogPost = async ({ params }: BlogPostProperties) => {
   const { slug } = await params;
   const page = allPosts.find(({ _meta }) => _meta.path === slug);
 
@@ -76,9 +75,7 @@ const BlogPost: FC<BlogPostProperties> = async ({ params }) => {
       ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
-          <div className="prose prose-zinc dark:prose-invert">
-            <MDXContent code={page.content} />
-          </div>
+          <Mdx code={page.content} />
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">
           <Sidebar
