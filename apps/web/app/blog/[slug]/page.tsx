@@ -54,7 +54,7 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
         <ArrowLeftIcon className="h-4 w-4" />
         Back to Blog
       </Link>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
         <Balancer>{page.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">
@@ -66,7 +66,7 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
           width={1920}
           height={1080}
           alt=""
-          className="h-full w-full rounded-xl my-16"
+          className="my-16 h-full w-full rounded-xl"
           priority
           blurDataURL={page.imageBlur}
           placeholder="blur"

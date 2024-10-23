@@ -6,56 +6,56 @@ export const Features: FC = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="flex flex-col gap-10">
-        <div className="flex gap-4 flex-col items-start">
+        <div className="flex flex-col items-start gap-4">
           <div>
             <Badge>Platform</Badge>
           </div>
-          <div className="flex gap-2 flex-col">
-            <h2 className="text-3xl md:text-5xl tracking-tighter max-w-xl font-regular text-left">
+          <div className="flex flex-col gap-2">
+            <h2 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
               Something new!
             </h2>
-            <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground  text-left">
+            <p className="max-w-xl text-left text-lg text-muted-foreground leading-relaxed tracking-tight lg:max-w-lg">
               Managing a small business today is already tough.
             </p>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col">
-            <User className="w-8 h-8 stroke-1" />
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="flex aspect-square h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2 lg:aspect-auto">
+            <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
-              <p className="text-muted-foreground max-w-xs text-base">
+              <p className="max-w-xs text-base text-muted-foreground">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>
             </div>
           </div>
-          <div className="bg-muted rounded-md  aspect-square p-6 flex justify-between flex-col">
-            <User className="w-8 h-8 stroke-1" />
+          <div className="flex aspect-square flex-col justify-between rounded-md bg-muted p-6">
+            <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
-              <p className="text-muted-foreground max-w-xs text-base">
+              <p className="max-w-xs text-base text-muted-foreground">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>
             </div>
           </div>
 
-          <div className="bg-muted rounded-md aspect-square p-6 flex justify-between flex-col">
-            <User className="w-8 h-8 stroke-1" />
+          <div className="flex aspect-square flex-col justify-between rounded-md bg-muted p-6">
+            <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
-              <p className="text-muted-foreground max-w-xs text-base">
+              <p className="max-w-xs text-base text-muted-foreground">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>
             </div>
           </div>
-          <div className="bg-muted rounded-md h-full lg:col-span-2 p-6 aspect-square lg:aspect-auto flex justify-between flex-col">
-            <User className="w-8 h-8 stroke-1" />
+          <div className="flex aspect-square h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2 lg:aspect-auto">
+            <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
-              <p className="text-muted-foreground max-w-xs text-base">
+              <p className="max-w-xs text-base text-muted-foreground">
                 Our goal is to streamline SMB trade, making it easier and faster
                 than ever.
               </p>

@@ -31,15 +31,15 @@ export const Cases: FC = () => {
   return (
     <div className="w-full py-20 lg:py-40">
       <div className="container mx-auto">
-        <div className="flex flex-col  gap-10">
-          <h2 className="text-xl md:text-3xl md:text-5xl tracking-tighter lg:max-w-xl font-regular text-left">
+        <div className="flex flex-col gap-10">
+          <h2 className="text-left font-regular text-xl tracking-tighter md:text-3xl md:text-5xl lg:max-w-xl">
             Trusted by thousands of businesses worldwide
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
               {Array.from({ length: 15 }).map((_, index) => (
                 <CarouselItem className="basis-1/4 lg:basis-1/6" key={index}>
-                  <div className="flex rounded-md aspect-square bg-muted items-center justify-center p-6">
+                  <div className="flex aspect-square items-center justify-center rounded-md bg-muted p-6">
                     <span className="text-sm">Logo {index + 1}</span>
                   </div>
                 </CarouselItem>

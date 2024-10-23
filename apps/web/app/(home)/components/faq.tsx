@@ -12,17 +12,17 @@ import type { FC } from 'react';
 export const FAQ: FC = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
-      <div className="grid lg:grid-cols-2 gap-10">
-        <div className="flex gap-10 flex-col">
-          <div className="flex gap-4 flex-col">
+      <div className="grid gap-10 lg:grid-cols-2">
+        <div className="flex flex-col gap-10">
+          <div className="flex flex-col gap-4">
             <div>
               <Badge variant="outline">FAQ</Badge>
             </div>
-            <div className="flex gap-2 flex-col">
-              <h4 className="text-3xl md:text-5xl tracking-tighter max-w-xl text-left font-regular">
+            <div className="flex flex-col gap-2">
+              <h4 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
                 This is the start of something new
               </h4>
-              <p className="text-lg max-w-xl lg:max-w-lg leading-relaxed tracking-tight text-muted-foreground  text-left">
+              <p className="max-w-xl text-left text-lg text-muted-foreground leading-relaxed tracking-tight lg:max-w-lg">
                 Managing a small business today is already tough. Avoid further
                 complications by ditching outdated, tedious trade methods. Our
                 goal is to streamline SMB trade, making it easier and faster
@@ -31,14 +31,14 @@ export const FAQ: FC = () => (
             </div>
             <div className="">
               <Button className="gap-4" variant="outline">
-                Any questions? Reach out <PhoneCall className="w-4 h-4" />
+                Any questions? Reach out <PhoneCall className="h-4 w-4" />
               </Button>
             </div>
           </div>
         </div>
         <Accordion type="single" collapsible className="w-full">
           {Array.from({ length: 8 }).map((_, index) => (
-            <AccordionItem key={index} value={'index-' + index}>
+            <AccordionItem key={index} value={`index-${index}`}>
               <AccordionTrigger>
                 This is the start of something new
               </AccordionTrigger>

@@ -1,14 +1,14 @@
-import { notFound } from 'next/navigation';
-import Link from 'next/link';
-import Balancer from 'react-wrap-balancer';
-import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { createMetadata } from '@repo/design-system/lib/metadata';
-import { Container } from '@repo/design-system/components/container';
-import { allLegals } from '@contentlayer/generated';
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
-import type { FC } from 'react';
+import { allLegals } from '@contentlayer/generated';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import { Container } from '@repo/design-system/components/container';
+import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import type { FC } from 'react';
+import Balancer from 'react-wrap-balancer';
 
 type LegalPageProperties = {
   readonly params: {
@@ -51,7 +51,7 @@ const LegalPage: FC<LegalPageProperties> = ({ params }) => {
   }
 
   return (
-    <Container className="py-16 max-w-5xl">
+    <Container className="max-w-5xl py-16">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
         href="/blog"
@@ -59,7 +59,7 @@ const LegalPage: FC<LegalPageProperties> = ({ params }) => {
         <ArrowLeftIcon className="h-4 w-4" />
         Back to Blog
       </Link>
-      <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
+      <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
         <Balancer>{page.title}</Balancer>
       </h1>
       <p className="leading-7 [&:not(:first-child)]:mt-6">

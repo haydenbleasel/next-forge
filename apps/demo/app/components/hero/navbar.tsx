@@ -16,7 +16,7 @@ import Link from 'next/link';
 import type { FC } from 'react';
 import { ModeToggle } from './mode-toggle';
 
-const DocsLink: FC<{
+const _DocsLink: FC<{
   href: string;
   icon: typeof SquareChartGanttIcon;
   title: string;
@@ -37,7 +37,7 @@ const DocsLink: FC<{
   </Tooltip>
 );
 
-const docsLinks = [
+const _docsLinks = [
   { href: '/docs/gantt', icon: SquareChartGanttIcon, title: 'Gantt' },
   { href: '/docs/kanban', icon: KanbanSquareIcon, title: 'Kanban' },
   { href: '/docs/calendar', icon: CalendarRangeIcon, title: 'Calendar' },
@@ -71,7 +71,7 @@ export const Navbar: FC = () => (
             href="https://x.com/haydenbleasel"
           >
             <div className="inline-flex h-10 w-9 items-center justify-center whitespace-nowrap rounded-md px-0 py-2 font-medium text-sm ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-              <TwitterIcon className="w-4 h-4" />
+              <TwitterIcon className="h-4 w-4" />
               <span className="sr-only">X</span>
             </div>
           </a>
@@ -81,7 +81,7 @@ export const Navbar: FC = () => (
             href="https://github.com/haydenbleasel/roadmap-ui"
           >
             <div className="inline-flex h-10 w-9 items-center justify-center whitespace-nowrap rounded-md px-0 py-2 font-medium text-sm ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
-              <GitHubIcon className="w-4 h-4" />
+              <GitHubIcon className="h-4 w-4" />
               <span className="sr-only">X</span>
             </div>
           </a>

@@ -1,9 +1,9 @@
 'use client';
 
-import * as Sentry from '@sentry/nextjs';
-import { useEffect } from 'react';
 import { Button } from '@repo/design-system/components/ui/button';
+import * as Sentry from '@sentry/nextjs';
 import type Error from 'next/error';
+import { useEffect } from 'react';
 import type { FC } from 'react';
 
 type GlobalErrorProperties = {

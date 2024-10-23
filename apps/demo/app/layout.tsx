@@ -18,7 +18,7 @@ const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
     className={cn(
       GeistSans.variable,
       GeistMono.variable,
-      'antialiased touch-manipulation font-sans'
+      'touch-manipulation font-sans antialiased'
     )}
   >
     <body className="bg-white dark:bg-zinc-950">

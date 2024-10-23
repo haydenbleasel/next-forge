@@ -1,9 +1,9 @@
-import { visit } from 'unist-util-visit';
 import GithubSlugger from 'github-slugger';
+import type { Heading } from 'mdast';
 import { toString } from 'mdast-util-to-string';
 import { remark } from 'remark';
-import type { Heading } from 'mdast';
 import type { Parent } from 'unist';
+import { visit } from 'unist-util-visit';
 import type { VFile } from 'vfile';
 
 const slugger = new GithubSlugger();

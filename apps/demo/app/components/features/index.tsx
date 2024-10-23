@@ -145,12 +145,12 @@ export const Features: FC = () => (
       aria-hidden="true"
       className="relative h-full overflow-hidden bg-background py-24 sm:py-32"
     >
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto text-center">
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto text-center">
         <div className="relative z-10">
-          <h2 className="text-base/7 font-medium text-muted-foreground">
+          <h2 className="font-medium text-base/7 text-muted-foreground">
             Modern developer experience
           </h2>
-          <p className="mt-2 max-w-xl mx-auto text-pretty text-4xl font-bold tracking-tighter text-foreground sm:text-5xl">
+          <p className="mx-auto mt-2 max-w-xl text-pretty font-bold text-4xl text-foreground tracking-tighter sm:text-5xl">
             React-based framework with Rust-based tooling
           </p>
         </div>
@@ -158,20 +158,20 @@ export const Features: FC = () => (
       <div className="absolute inset-0 grid grid-cols-1 pt-0 [container-type:inline-size]">
         {rows.map((rowData, index) => (
           <div className="group relative" key={index}>
-            <div className="absolute inset-x-0 top-1/2 h-0.5 bg-gradient-to-r from-foreground/15 from-[2px] to-[2px] bg-[length:12px_100%]" />
-            <div className="absolute inset-x-0 bottom-0 h-0.5 bg-gradient-to-r from-foreground/5 from-[2px] to-[2px] bg-[length:12px_100%] group-last:hidden" />
-            {rowData.row.map((logo, logoIndex) => (
+            <div className="absolute inset-x-0 top-1/2 h-0.5 bg-[length:12px_100%] bg-gradient-to-r from-[2px] from-foreground/15 to-[2px]" />
+            <div className="absolute inset-x-0 bottom-0 h-0.5 bg-[length:12px_100%] bg-gradient-to-r from-[2px] from-foreground/5 to-[2px] group-last:hidden" />
+            {rowData.row.map((logo, _logoIndex) => (
               <div
                 key={logo.label}
                 className={cn(
                   logo.className,
                   'absolute top-[50px] grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
-                  'rounded-full bg-gradient-to-t from-background/50 from-50% to-secondary/50 backdrop-blur-sm ring-1 ring-inset ring-foreground/10',
-                  '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-timing-function:linear] [animation-play-state:running]'
+                  'rounded-full bg-gradient-to-t from-50% from-background/50 to-secondary/50 ring-1 ring-foreground/10 ring-inset backdrop-blur-sm',
+                  '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:running] [animation-timing-function:linear]'
                 )}
               >
                 <Image alt="" src={logo.src} className="size-4" />
-                <span className="text-sm/6 font-medium text-foreground">
+                <span className="font-medium text-foreground text-sm/6">
                   {logo.label}
                 </span>
               </div>

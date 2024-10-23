@@ -66,7 +66,7 @@ export const Installer: FC = () => {
             width={16}
             height={16}
             alt=""
-            className="m-0 w-4 h-4 object-contain"
+            className="m-0 h-4 w-4 object-contain"
           />
         </DropdownMenuTrigger>
         <DropdownMenuContent
@@ -90,15 +90,15 @@ export const Installer: FC = () => {
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="text-muted-foreground max-w-[220px] truncate">
-        {activeManager.command}{' '}
+      <div className="max-w-[220px] truncate text-muted-foreground">
+        {activeManager.command}
         <span className="text-foreground">{installCommand}</span>
       </div>
       <Button
         variant="ghost"
         size="icon"
         aria-label="Copy"
-        className="w-4 h-4 ml-2"
+        className="ml-2 h-4 w-4"
         onClick={handleCopy}
       >
         <CopyIcon size={14} className="text-muted-foreground" />

@@ -57,10 +57,10 @@ const apps = [
 export const Apps: FC = () => (
   <div className="bg-background py-24 sm:py-32">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="text-base/7 font-medium text-muted-foreground">
+      <h2 className="font-medium text-base/7 text-muted-foreground">
         Deploy at scale
       </h2>
-      <p className="mt-2 max-w-lg text-pretty text-4xl font-bold tracking-tighter text-foreground sm:text-5xl">
+      <p className="mt-2 max-w-lg text-pretty font-bold text-4xl text-foreground tracking-tighter sm:text-5xl">
         Get from zero to production in minutes.
       </p>
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
@@ -86,12 +86,12 @@ export const Apps: FC = () => (
                 index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
               )}
             >
-              <div className="h-80 border-b p-8 bg-secondary overflow-hidden">
+              <div className="h-80 overflow-hidden border-b bg-secondary p-8">
                 <Image
                   alt=""
                   src={app.image}
                   className={cn(
-                    'border rounded-md object-cover object-left overflow-hidden',
+                    'overflow-hidden rounded-md border object-cover object-left',
                     [0, 3, 4].includes(index)
                       ? 'h-auto w-full'
                       : 'h-[120%] w-auto max-w-none'
@@ -99,13 +99,13 @@ export const Apps: FC = () => (
                 />
               </div>
               <div className="p-10">
-                <h3 className="text-sm/4 font-medium text-muted-foreground">
+                <h3 className="font-medium text-muted-foreground text-sm/4">
                   {app.name}
                 </h3>
-                <p className="mt-2 text-lg/7 font-semibold tracking-tight text-foreground">
+                <p className="mt-2 font-semibold text-foreground text-lg/7 tracking-tight">
                   {app.title}
                 </p>
-                <p className="mt-2 max-w-lg text-sm/6 text-muted-foreground">
+                <p className="mt-2 max-w-lg text-muted-foreground text-sm/6">
                   {app.description}
                 </p>
               </div>

@@ -1,8 +1,8 @@
-import { twMerge } from 'tailwind-merge';
-import { formatDate } from '@repo/design-system/lib/format';
 import type { Toc } from '@/lib/remark-toc';
-import type { FC } from 'react';
 import type { Blog, Legal } from '@contentlayer/generated';
+import { formatDate } from '@repo/design-system/lib/format';
+import type { FC } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type SidebarProperties = {
   readonly doc: Blog | Legal;
@@ -20,13 +20,13 @@ export const Sidebar: FC<SidebarProperties> = ({ doc }) => {
     >
       <div className="grid gap-2">
         <p className="text-sm text-zinc-500">Published</p>
-        <p className="rounded-sm text-sm text-black dark:text-white">
+        <p className="rounded-sm text-black text-sm dark:text-white">
           {formatDate(new Date(doc.date))}
         </p>
       </div>
       <div className="grid gap-2">
         <p className="text-sm text-zinc-500">Reading Time</p>
-        <p className="rounded-sm text-sm text-black dark:text-white">
+        <p className="rounded-sm text-black text-sm dark:text-white">
           {doc.readingTime}
         </p>
       </div>

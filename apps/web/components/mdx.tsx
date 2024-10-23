@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import { getMDXComponent } from 'next-contentlayer2/hooks';
+import Image from 'next/image';
 import type { FC, HTMLProps } from 'react';
 
 type MdxProperties = {
