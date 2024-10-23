@@ -20,32 +20,24 @@
     "date-fns": "^4.1.0",
     "fumadocs-core": "^14.0.2",
     "geist": "^1.3.1",
-    "github-slugger": "^2.0.0",
     "lucide-react": "^0.453.0",
-    "mdast-util-to-string": "^4.0.0",
     "next": "15.0.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-wrap-balancer": "^1.1.1",
     "reading-time": "^1.5.0",
-    "remark": "^15.0.1",
     "sqip": "1.0.0-alpha.51",
     "sqip-plugin-data-uri": "1.0.0-alpha.52",
     "sqip-plugin-primitive": "1.0.0-alpha.53",
-    "sqip-plugin-svgo": "1.0.0-alpha.54",
-    "tailwind-merge": "^2.5.4",
-    "unist-util-visit": "^5.0.0"
+    "sqip-plugin-svgo": "1.0.0-alpha.54"
   },
   "devDependencies": {
     "@content-collections/core": "^0.7.2",
     "@content-collections/next": "^0.2.3",
     "@repo/typescript-config": "workspace:*",
-    "@types/mdast": "^4.0.4",
     "@types/node": "22.7.9",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
-    "@types/unist": "^3.0.3",
-    "typescript": "^5.6.3",
-    "vfile": "^6.0.3"
+    "typescript": "^5.6.3"
   }
 }
