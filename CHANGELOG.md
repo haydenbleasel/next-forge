@@ -1,3 +1,15 @@
+# v2.0.0 (Wed Oct 23 2024)
+
+#### 💥 Breaking Change
+
+- Version 2 [#149](https://github.com/haydenbleasel/next-forge/pull/149) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v1.2.0 (Mon Oct 21 2024)
 
 #### 🚀 Enhancement
