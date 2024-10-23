@@ -1,4 +1,5 @@
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 import { withSentryConfig } from '@sentry/nextjs';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
@@ -22,6 +23,14 @@ export const config: NextConfig = {
         }),
       },
     ];
+  },
+
+  webpack(config, { isServer }) {
+    if (isServer) {
+      config.plugins = [...config.plugins, new PrismaPlugin()];
+    }
+
+    return config;
   },
 };
 
