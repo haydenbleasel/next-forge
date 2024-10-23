@@ -86,15 +86,15 @@ export const Apps: FC = () => (
                 index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
               )}
             >
-              <div className="h-80 overflow-hidden border-b bg-secondary p-8">
+              <div className="h-48 md:h-80 overflow-hidden border-b bg-secondary p-8">
                 <Image
                   alt=""
                   src={app.image}
                   className={cn(
-                    'overflow-hidden rounded-md border object-cover object-left',
+                    'h-auto w-full overflow-hidden rounded-md border object-cover object-left',
                     [0, 3, 4].includes(index)
-                      ? 'h-auto w-full'
-                      : 'h-[120%] w-auto max-w-none'
+                      ? ''
+                      : 'md:h-[120%] md:w-auto md:max-w-none'
                   )}
                 />
               </div>

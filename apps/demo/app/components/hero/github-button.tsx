@@ -23,9 +23,9 @@ export const GitHubButton = async (): Promise<ReactElement> => {
       <div className="flex h-full items-center">
         <div className="flex items-center gap-2 px-4 py-2">
           <Image src={GitHubIcon} alt="GitHub" width={16} height={16} />
-          <div className="hidden md:[display:unset]">GitHub</div>
+          <div>GitHub</div>
         </div>
-        <div className="hidden h-full w-px bg-border md:[display:unset]" />
+        <div className="h-full w-px bg-border" />
         <div className="px-4 py-2">
           <div>{data.stargazers_count}</div>
         </div>
