@@ -72,7 +72,7 @@ const legals = defineCollection({
     const body = await context.cache(page.content, async () =>
       compileMDX(context, page, {
         remarkPlugins: [remarkGfm],
-        rehypePlugins: [remarkHeading],
+        rehypePlugins: [[rehypeCode, rehypeCodeOptions], remarkHeading],
       })
     );
 
