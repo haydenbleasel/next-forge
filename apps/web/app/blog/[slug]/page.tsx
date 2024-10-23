@@ -1,7 +1,6 @@
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
@@ -47,7 +46,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
   }
 
   return (
-    <Container className="py-16">
+    <div className="container py-16">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
         href="/blog"
@@ -61,7 +60,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
       <p className="leading-7 [&:not(:first-child)]:mt-6">
         <Balancer>{page.description}</Balancer>
       </p>
-      {page.image && page.imageBlur ? (
+      {page.image ? (
         <Image
           src={page.image}
           width={1920}
@@ -69,8 +68,6 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
           alt=""
           className="my-16 h-full w-full rounded-xl"
           priority
-          blurDataURL={page.imageBlur}
-          placeholder="blur"
         />
       ) : undefined}
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
@@ -85,7 +82,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
           />
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

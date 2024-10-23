@@ -1,7 +1,6 @@
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { allLegals } from 'content-collections';
 import type { Metadata } from 'next';
@@ -45,7 +44,7 @@ const LegalPage = async ({ params }: LegalPageProperties) => {
   }
 
   return (
-    <Container className="max-w-5xl py-16">
+    <div className="container max-w-5xl py-16">
       <Link
         className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
         href="/blog"
@@ -71,7 +70,7 @@ const LegalPage = async ({ params }: LegalPageProperties) => {
           />
         </div>
       </div>
-    </Container>
+    </div>
   );
 };
 

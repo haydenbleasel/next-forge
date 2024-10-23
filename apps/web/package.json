@@ -6,7 +6,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "analyze": "ANALYZE=true pnpm build"
+    "analyze": "ANALYZE=true pnpm build",
+    "prebuild": "content-collections build"
   },
   "dependencies": {
     "@content-collections/mdx": "^0.1.6",
@@ -31,6 +32,7 @@
     "sqip-plugin-svgo": "1.0.0-alpha.54"
   },
   "devDependencies": {
+    "@content-collections/cli": "^0.1.5",
     "@content-collections/core": "^0.7.2",
     "@content-collections/next": "^0.2.3",
     "@repo/typescript-config": "workspace:*",
