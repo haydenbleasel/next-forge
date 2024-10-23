@@ -11,7 +11,7 @@ export const Apps: FC = () => (
   <div className="bg-background py-24 sm:py-32">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
       <h2 className="text-base/7 font-semibold text-muted-foreground">
-        Deploy faster
+        Deploy at scale
       </h2>
       <p className="mt-2 max-w-lg text-pretty text-4xl font-bold tracking-tighter text-foreground sm:text-5xl">
         Get from zero to production in minutes.
