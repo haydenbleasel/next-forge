@@ -1,4 +1,6 @@
-import { getMDXComponent } from 'next-contentlayer2/hooks';
+'use client';
+
+import { useMDXComponent } from '@content-collections/mdx/react';
 import Image from 'next/image';
 import type { FC, HTMLProps } from 'react';
 
@@ -44,7 +46,7 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
 };
 
 export const Mdx: FC<MdxProperties> = ({ code }) => {
-  const Component = getMDXComponent(code);
+  const Component = useMDXComponent(code);
 
   return (
     <Component

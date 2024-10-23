@@ -1,3 +1,4 @@
+import { Mdx } from '@/components/mdx';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
@@ -75,7 +76,7 @@ const BlogPost: FC<BlogPostProperties> = ({ params }) => {
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <div dangerouslySetInnerHTML={{ __html: page.content }} />
+            <Mdx code={page.content} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">

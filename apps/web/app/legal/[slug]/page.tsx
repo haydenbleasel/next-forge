@@ -1,9 +1,9 @@
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
-import { allLegals } from '@contentlayer/generated';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { Container } from '@repo/design-system/components/container';
 import { createMetadata } from '@repo/design-system/lib/metadata';
+import { allLegals } from 'content-collections';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -20,9 +20,7 @@ export const dynamic = 'force-dynamic';
 
 export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
   const currentPath = params.slug;
-  const page = allLegals.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+  const page = allLegals.find(({ _meta }) => _meta.path === currentPath);
 
   if (!page) {
     return {};
@@ -31,20 +29,17 @@ export const generateMetadata = ({ params }: LegalPageProperties): Metadata => {
   return createMetadata({
     title: page.title,
     description: page.description,
-    image: page.image,
   });
 };
 
 export const generateStaticParams = (): LegalPageProperties['params'][] =>
   allLegals.map((page) => ({
-    slug: page.slug,
+    slug: page._meta.path,
   }));
 
 const LegalPage: FC<LegalPageProperties> = ({ params }) => {
   const currentPath = params.slug;
-  const page = allLegals.find(
-    ({ slugAsParams }) => slugAsParams === currentPath
-  );
+  const page = allLegals.find(({ _meta }) => _meta.path === currentPath);
 
   if (!page) {
     notFound();
@@ -68,7 +63,7 @@ const LegalPage: FC<LegalPageProperties> = ({ params }) => {
       <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
         <div className="sm:flex-1">
           <div className="prose prose-zinc dark:prose-invert">
-            <Mdx code={page.body.code} />
+            <Mdx code={page.content} />
           </div>
         </div>
         <div className="sticky top-24 hidden shrink-0 md:block">

@@ -1,11 +1,11 @@
 import type { Toc } from '@/lib/remark-toc';
-import type { Blog, Legal } from '@contentlayer/generated';
 import { formatDate } from '@repo/design-system/lib/format';
+import type { Legal, Post } from 'content-collections';
 import type { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type SidebarProperties = {
-  readonly doc: Blog | Legal;
+  readonly doc: Post | Legal;
 };
 
 export const Sidebar: FC<SidebarProperties> = ({ doc }) => {
