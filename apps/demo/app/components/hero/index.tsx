@@ -32,7 +32,7 @@ export const Hero: FC = () => (
           alt=""
           width={48}
           height={48}
-          className="dark:invert pointer-events-none mx-1.5 inline-block h-6 w-auto translate-y-0.5 select-none align-baseline md:h-12 md:translate-y-1"
+          className="pointer-events-none mx-1.5 inline-block h-6 w-auto translate-y-0.5 select-none align-baseline md:h-12 md:translate-y-1 dark:invert"
         />
         Next.js apps
       </h1>
@@ -41,7 +41,7 @@ export const Hero: FC = () => (
         new SaaS app as quick as possible. Authentication, billing, analytics,
         SEO, database ORM and more — it's all here.
       </p>
-      <div className="mt-4 flex flex-col sm:flex-row w-full items-center justify-center gap-4">
+      <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
         <Installer />
         <GitHubButton />
       </div>

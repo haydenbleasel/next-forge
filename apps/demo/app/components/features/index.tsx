@@ -183,7 +183,7 @@ export const Features: FC = () => (
       aria-hidden="true"
       className="relative mx-2 h-full overflow-hidden rounded-4xl bg-background py-24 ring-1 ring-black/5 ring-inset sm:py-32"
     >
-      <div className="-translate-x-1/2 w-full max-w-[90%] -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto text-center">
+      <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto w-full max-w-[90%] text-center">
         <div className="relative z-10">
           <h2 className="font-medium text-base/7 text-muted-foreground">
             Modern developer experience
