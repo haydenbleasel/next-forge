@@ -1,12 +1,14 @@
 import 'server-only';
 
-import { Client } from '@planetscale/database';
-import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
+import { Pool, neonConfig } from '@neondatabase/serverless';
+import { PrismaNeon } from '@prisma/adapter-neon';
 import { PrismaClient } from '@prisma/client';
-import { fetch as undiciFetch } from 'undici';
+import ws from 'ws';
 
 const databaseUrl = process.env.DATABASE_URL;
 const nodeEnvironment = process.env.NODE_ENV;
+
+neonConfig.webSocketConstructor = ws;
 
 if (!databaseUrl) {
   throw new Error('Missing DATABASE_URL environment variable.');
@@ -17,8 +19,8 @@ declare global {
   var cachedPrisma: PrismaClient | undefined;
 }
 
-const client = new Client({ url: databaseUrl, fetch: undiciFetch });
-const adapter = new PrismaPlanetScale(client);
+const pool = new Pool({ connectionString: databaseUrl });
+const adapter = new PrismaNeon(pool);
 
 let prisma: PrismaClient;
 
