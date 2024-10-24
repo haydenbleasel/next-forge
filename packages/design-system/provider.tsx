@@ -1,44 +1,17 @@
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import type { ThemeProviderProps } from 'next-themes/dist/types';
-import Script from 'next/script';
 import type { FC } from 'react';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 
-type AnalyticsProperties = {
-  readonly gaMeasurementId?: string;
-};
+const gaMeasurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
-type DesignSystemProviderProperties = AnalyticsProperties & ThemeProviderProps;
-
-const GoogleAnalytics: FC<AnalyticsProperties> = ({ gaMeasurementId }) => {
-  if (process.env.NODE_ENV !== 'production') {
-    // eslint-disable-next-line unicorn/no-useless-undefined
-    return undefined;
-  }
-
-  if (!gaMeasurementId) {
-    // eslint-disable-next-line unicorn/no-useless-undefined
-    return undefined;
-  }
-
-  return (
-    <Script id="google-analytics">
-      {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
- 
-          gtag('config', '${gaMeasurementId}');
-        `}
-    </Script>
-  );
-};
+type DesignSystemProviderProperties = ThemeProviderProps;
 
 export const DesignSystemProvider: FC<DesignSystemProviderProperties> = ({
   children,
-  gaMeasurementId,
   ...properties
 }) => (
   <>
@@ -53,6 +26,6 @@ export const DesignSystemProvider: FC<DesignSystemProviderProperties> = ({
     </NextThemesProvider>
     <Toaster />
     <VercelAnalytics />
-    <GoogleAnalytics gaMeasurementId={gaMeasurementId} />
+    {gaMeasurementId && <GoogleAnalytics gaId={gaMeasurementId} />}
   </>
 );

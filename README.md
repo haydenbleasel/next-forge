@@ -123,6 +123,8 @@ graph TD
   C -->|Organization Membership Invites| D2
 ```
 
+Google Analytics is also enabled if you create a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable.
+
 ## Notes
 
 - If you're deploying on Vercel, I recommend making use of the Team Environment Variables feature. Variables used by libraries need to exist in all packages and duplicating them can be a headache.
