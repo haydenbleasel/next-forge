@@ -1,5 +1,6 @@
 import type {
   OrganizationJSON,
+  OrganizationMembershipJSON,
   UserJSON,
   WebhookEvent,
 } from '@clerk/nextjs/server';
@@ -62,7 +63,19 @@ const handleOrganizationUpdated = (data: OrganizationJSON) => {
       avatar: data.image_url,
     },
   });
+
   return new Response('Organization updated', { status: 201 });
+};
+
+const handleOrganizationMembershipCreated = (
+  data: OrganizationMembershipJSON
+) => {
+  analytics.group({
+    groupId: data.organization.id,
+    userId: data.public_user_data.user_id,
+  });
+
+  return new Response('Organization membership created', { status: 201 });
 };
 
 export const POST = async (request: Request): Promise<Response> => {
@@ -127,6 +140,9 @@ export const POST = async (request: Request): Promise<Response> => {
     }
     case 'organization.updated': {
       return handleOrganizationUpdated(event.data);
+    }
+    case 'organizationMembership.created': {
+      return handleOrganizationMembershipCreated(event.data);
     }
     default: {
       break;
