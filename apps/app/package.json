@@ -9,7 +9,7 @@
     "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.0.0",
+    "@clerk/nextjs": "^6.0.1",
     "@repo/design-system": "workspace:*",
     "@repo/next-config": "workspace:*",
     "@sentry/nextjs": "^8.35.0",
