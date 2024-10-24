@@ -1,3 +1,15 @@
+# v2.1.0 (Thu Oct 24 2024)
+
+#### 🚀 Enhancement
+
+- 2.1 [#151](https://github.com/haydenbleasel/next-forge/pull/151) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.0.6 (Thu Oct 24 2024)
 
 #### ⚠️ Pushed to `main`
