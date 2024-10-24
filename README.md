@@ -86,6 +86,45 @@ Open the localhost URLs with the relevant ports listed above to see the app, e.g
 
 `next-forge` is designed to be deployed on Vercel with the [BetterStack](https://vercel.com/integrations/betterstack) and [Sentry](https://vercel.com/integrations/sentry) integrations. This will take care of the relevant API keys and tokens.
 
+## Analytics
+
+`next-forge` makes use of three Analytics libraries:
+
+| Platform   | Usage                                                                 |
+|---------------------|-------------------------------------------------------------------------------------------------|
+| Vercel Analytics    | Collects performance metrics, page views, and user interactions to help improve the app's performance and user experience. |
+| Google Analytics    | Tracks user behavior, page views, session duration, and other engagement metrics to provide insights into user activity and marketing effectiveness. |
+| Segment             | Aggregates data from various sources, including user identification, group membership, and page views, to streamline data collection and integration with other analytics and marketing tools. |
+
+Segment in particular is handy for creating an analytics pipeline, sending user information and behaviour to a tool of your choice, like Amplitude or Mixpanel. We've wired it up as follows:
+
+```mermaid
+graph TD
+  A[User Action in App] -->|Triggers| B[Clerk Webhook]
+  A -->|Client-Side Call| D3[page Call]
+  B -->|Sends Data| C[API Webhook Handler]
+
+  subgraph App
+    C
+  end
+
+  subgraph Clerk
+    B
+  end
+
+  subgraph Segment
+    D1[identify Call]
+    D2[group Call]
+    D3[page Call]
+  end
+
+  C -->|User Invites / Updates| D1
+  C -->|Organization Invites / Updates| D2
+  C -->|Organization Membership Invites| D2
+```
+
+Google Analytics is also enabled if you create a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable.
+
 ## Notes
 
 - If you're deploying on Vercel, I recommend making use of the Team Environment Variables feature. Variables used by libraries need to exist in all packages and duplicating them can be a headache.

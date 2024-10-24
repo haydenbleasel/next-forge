@@ -1,11 +1,17 @@
-import type { UserJSON, WebhookEvent } from '@clerk/nextjs/server';
+import type {
+  DeletedObjectJSON,
+  OrganizationJSON,
+  OrganizationMembershipJSON,
+  UserJSON,
+  WebhookEvent,
+} from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
 import { analytics } from '@repo/design-system/lib/segment/server';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
-const handleUserCreated = async (data: UserJSON) => {
-  await analytics.identify({
+const handleUserCreated = (data: UserJSON) => {
+  analytics.identify({
     userId: data.id,
     traits: {
       email: data.email_addresses.at(0)?.email_address,
@@ -15,13 +21,18 @@ const handleUserCreated = async (data: UserJSON) => {
       avatar: data.image_url,
       phoneNumber: data.phone_numbers.at(0)?.phone_number,
     },
+  });
+
+  analytics.track({
+    event: 'User Created',
+    userId: data.id,
   });
 
   return new Response('User created', { status: 201 });
 };
 
-const handleUserUpdated = async (data: UserJSON) => {
-  await analytics.identify({
+const handleUserUpdated = (data: UserJSON) => {
+  analytics.identify({
     userId: data.id,
     traits: {
       email: data.email_addresses.at(0)?.email_address,
@@ -33,7 +44,95 @@ const handleUserUpdated = async (data: UserJSON) => {
     },
   });
 
+  analytics.track({
+    event: 'User Updated',
+    userId: data.id,
+  });
+
   return new Response('User updated', { status: 201 });
+};
+
+const handleUserDeleted = (data: DeletedObjectJSON) => {
+  if (data.id) {
+    analytics.identify({
+      userId: data.id,
+      traits: {
+        deleted: new Date(),
+      },
+    });
+
+    analytics.track({
+      event: 'User Deleted',
+      userId: data.id,
+    });
+  }
+
+  return new Response('User deleted', { status: 201 });
+};
+
+const handleOrganizationCreated = (data: OrganizationJSON) => {
+  analytics.group({
+    groupId: data.id,
+    userId: data.created_by,
+    traits: {
+      name: data.name,
+      avatar: data.image_url,
+    },
+  });
+
+  analytics.track({
+    event: 'Organization Created',
+    userId: data.created_by,
+  });
+
+  return new Response('Organization created', { status: 201 });
+};
+
+const handleOrganizationUpdated = (data: OrganizationJSON) => {
+  analytics.group({
+    groupId: data.id,
+    userId: data.created_by,
+    traits: {
+      name: data.name,
+      avatar: data.image_url,
+    },
+  });
+
+  analytics.track({
+    event: 'Organization Updated',
+    userId: data.created_by,
+  });
+
+  return new Response('Organization updated', { status: 201 });
+};
+
+const handleOrganizationMembershipCreated = (
+  data: OrganizationMembershipJSON
+) => {
+  analytics.group({
+    groupId: data.organization.id,
+    userId: data.public_user_data.user_id,
+  });
+
+  analytics.track({
+    event: 'Organization Member Created',
+    userId: data.public_user_data.user_id,
+  });
+
+  return new Response('Organization membership created', { status: 201 });
+};
+
+const handleOrganizationMembershipDeleted = (
+  data: OrganizationMembershipJSON
+) => {
+  // Need to unlink the user from the group
+
+  analytics.track({
+    event: 'Organization Member Deleted',
+    userId: data.public_user_data.user_id,
+  });
+
+  return new Response('Organization membership deleted', { status: 201 });
 };
 
 export const POST = async (request: Request): Promise<Response> => {
@@ -92,6 +191,21 @@ export const POST = async (request: Request): Promise<Response> => {
     }
     case 'user.updated': {
       return handleUserUpdated(event.data);
+    }
+    case 'user.deleted': {
+      return handleUserDeleted(event.data);
+    }
+    case 'organization.created': {
+      return handleOrganizationCreated(event.data);
+    }
+    case 'organization.updated': {
+      return handleOrganizationUpdated(event.data);
+    }
+    case 'organizationMembership.created': {
+      return handleOrganizationMembershipCreated(event.data);
+    }
+    case 'organizationMembership.deleted': {
+      return handleOrganizationMembershipDeleted(event.data);
     }
     default: {
       break;
