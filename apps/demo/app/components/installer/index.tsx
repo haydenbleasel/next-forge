@@ -54,7 +54,7 @@ export const Installer: FC = () => {
   }
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(`${activeManager.command} ${installCommand}`);
+    navigator.clipboard.writeText(`${activeManager.command}${installCommand}`);
     toast.success('Copied to clipboard');
   };
 
