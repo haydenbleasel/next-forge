@@ -6,7 +6,6 @@ import { PrismaClient } from '@prisma/client';
 import ws from 'ws';
 
 const databaseUrl = process.env.DATABASE_URL;
-const nodeEnvironment = process.env.NODE_ENV;
 
 neonConfig.webSocketConstructor = ws;
 
@@ -22,15 +21,4 @@ declare global {
 const pool = new Pool({ connectionString: databaseUrl });
 const adapter = new PrismaNeon(pool);
 
-let prisma: PrismaClient;
-
-if (nodeEnvironment === 'production') {
-  prisma = new PrismaClient({ adapter });
-} else {
-  if (!global.cachedPrisma) {
-    global.cachedPrisma = new PrismaClient({ adapter });
-  }
-  prisma = global.cachedPrisma;
-}
-
-export const database = prisma;
+export const database = new PrismaClient({ adapter });

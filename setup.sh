@@ -22,18 +22,18 @@ fi
 
 # Install pnpm
 if which pnpm >/dev/null; then
-  echo "PNPM is installed."
+  echo "pnpm is installed."
 else
-  echo "PNPM is not installed. Installing..."
+  echo "pnpm is not installed. Installing..."
   brew install pnpm
 fi
 
 # Install pscale
-if which pscale >/dev/null; then
-  echo "Pscale is installed."
+if which neonctl >/dev/null; then
+  echo "neonctl is installed."
 else
-  echo "Pscale is not installed. Installing..."
-  brew install pscale
+  echo "neonctl is not installed. Installing..."
+  brew install neonctl
 fi
 
 # Install Stripe
