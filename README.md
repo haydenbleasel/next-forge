@@ -47,7 +47,7 @@ First, scaffold the app with:
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-Next, run the setup script. This ensures that Homebrew, NVM, pnpm, PlanetScale CLI and Stripe CLI are installed. It then installs the dependencies with pnpm and copies all `.env.example` files so you can start modifying the values. Finally, it deletes the demo folder (the landing page for this repo).
+Next, run the setup script. This ensures that Homebrew, NVM, pnpm, Neon CLI and Stripe CLI are installed. It then installs the dependencies with pnpm and copies all `.env.example` files so you can start modifying the values. Finally, it deletes the demo folder (the landing page for this repo).
 
 ```sh
 ./setup.sh
@@ -59,10 +59,10 @@ Login to Stripe with:
 stripe login
 ```
 
-Login to Planetscale with
+Login to Neon with:
 
 ```sh
-pscale auth login
+neonctl auth
 ```
 
 Update your database name in:
