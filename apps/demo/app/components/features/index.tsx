@@ -18,7 +18,7 @@ import TypeScript from './typescript.svg';
 
 import DateFns from './date-fns.svg';
 import Lucide from './lucide.svg';
-import PlanetScale from './planet-scale.svg';
+import Neon from './neon.svg';
 import React from './react.svg';
 import Ultracite from './ultracite.svg';
 import Vercel from './vercel.svg';
@@ -140,8 +140,8 @@ const rows = [
         className: '[animation-delay:-20s] [animation-duration:60s]',
       },
       {
-        label: 'PlanetScale',
-        src: PlanetScale,
+        label: 'Neon',
+        src: Neon,
         className: '[animation-delay:-38s] [animation-duration:60s]',
       },
       {

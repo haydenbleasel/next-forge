@@ -6,7 +6,8 @@
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
-    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install"
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
     "@auto-it/all-contributors": "^11.2.1",
