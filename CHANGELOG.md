@@ -1,3 +1,15 @@
+# v2.2.1 (Sun Oct 27 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Deprecate use of FC ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.0 (Sat Oct 26 2024)
 
 #### 🚀 Enhancement
