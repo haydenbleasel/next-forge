@@ -1,7 +1,7 @@
 import { MoveDownLeft, MoveUpRight } from 'lucide-react';
 import type { FC } from 'react';
 
-export const Stats: FC = () => (
+export const Stats = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">

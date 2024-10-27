@@ -8,7 +8,7 @@ const description = 'Sign in to your account.';
 
 export const metadata: Metadata = createMetadata({ title, description });
 
-const SignInPage: FC = () => (
+const SignInPage = () => (
   <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-secondary">
     <SignIn />
   </div>

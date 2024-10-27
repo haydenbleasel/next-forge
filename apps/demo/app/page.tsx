@@ -14,7 +14,7 @@ const meta = {
 
 export const metadata: Metadata = createMetadata(meta);
 
-const Home: FC = () => (
+const Home = () => (
   <>
     <Hero />
     <Apps />

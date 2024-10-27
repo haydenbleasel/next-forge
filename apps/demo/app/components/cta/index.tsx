@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 import { Installer } from '../installer';
 
-export const CallToAction: FC = () => (
+export const CallToAction = () => (
   <footer>
     <div className="relative">
       <div className="container">

@@ -10,22 +10,22 @@ const gaMeasurementId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
 type DesignSystemProviderProperties = ThemeProviderProps;
 
-export const DesignSystemProvider: FC<DesignSystemProviderProperties> = ({
-  children,
-  ...properties
-}) => (
-  <>
-    <NextThemesProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem
-      disableTransitionOnChange
-      {...properties}
-    >
-      <TooltipProvider>{children}</TooltipProvider>
-    </NextThemesProvider>
-    <Toaster />
-    <VercelAnalytics />
-    {gaMeasurementId && <GoogleAnalytics gaId={gaMeasurementId} />}
-  </>
-);
+export const DesignSystemProvider = (
+  {
+    children,
+    ...properties
+  }: DesignSystemProviderProperties
+) => (<>
+  <NextThemesProvider
+    attribute="class"
+    defaultTheme="system"
+    enableSystem
+    disableTransitionOnChange
+    {...properties}
+  >
+    <TooltipProvider>{children}</TooltipProvider>
+  </NextThemesProvider>
+  <Toaster />
+  <VercelAnalytics />
+  {gaMeasurementId && <GoogleAnalytics gaId={gaMeasurementId} />}
+</>);

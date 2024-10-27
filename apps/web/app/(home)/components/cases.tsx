@@ -8,7 +8,7 @@ import {
 } from '@repo/design-system/components/ui/carousel';
 import { type FC, useEffect, useState } from 'react';
 
-export const Cases: FC = () => {
+export const Cases = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 

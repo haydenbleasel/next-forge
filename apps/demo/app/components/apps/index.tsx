@@ -54,7 +54,7 @@ const apps = [
   },
 ];
 
-export const Apps: FC = () => (
+export const Apps = () => (
   <div className="bg-background py-24 sm:py-32">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
       <h2 className="font-medium text-base/7 text-muted-foreground">

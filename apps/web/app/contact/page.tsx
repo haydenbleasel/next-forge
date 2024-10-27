@@ -12,6 +12,6 @@ export const metadata: Metadata = createMetadata({
   description,
 });
 
-const Contact: FC = () => <ContactForm />;
+const Contact = () => <ContactForm />;
 
 export default Contact;

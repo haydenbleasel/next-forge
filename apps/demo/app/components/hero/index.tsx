@@ -7,7 +7,7 @@ import Logo from './logo.svg';
 import NextLogo from './next.svg';
 import TurborepoLogo from './turborepo.svg';
 
-export const Hero: FC = () => (
+export const Hero = () => (
   <div className="mx-2 mt-2 rounded-4xl bg-secondary ring-1 ring-black/5 ring-inset">
     <section className="container mx-auto flex max-w-5xl flex-col items-center gap-2 py-24 sm:py-32">
       <Image

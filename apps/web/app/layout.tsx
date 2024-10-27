@@ -14,28 +14,30 @@ type RootLayoutProperties = {
   readonly children: ReactNode;
 };
 
-const RootLayout: FC<RootLayoutProperties> = ({ children }) => (
-  <html
-    lang="en"
-    className={cn(
-      GeistSans.variable,
-      GeistMono.variable,
-      'touch-manipulation font-sans antialiased'
-    )}
-    suppressHydrationWarning
-  >
-    <body>
-      <DesignSystemProvider>
-        <TooltipProvider>
-          <Header />
-          {children}
-          <Footer />
-        </TooltipProvider>
-      </DesignSystemProvider>
-      <Toaster />
-      <Analytics />
-    </body>
-  </html>
-);
+const RootLayout = (
+  {
+    children
+  }: RootLayoutProperties
+) => (<html
+  lang="en"
+  className={cn(
+    GeistSans.variable,
+    GeistMono.variable,
+    'touch-manipulation font-sans antialiased'
+  )}
+  suppressHydrationWarning
+>
+  <body>
+    <DesignSystemProvider>
+      <TooltipProvider>
+        <Header />
+        {children}
+        <Footer />
+      </TooltipProvider>
+    </DesignSystemProvider>
+    <Toaster />
+    <Analytics />
+  </body>
+</html>);
 
 export default RootLayout;

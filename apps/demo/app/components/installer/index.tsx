@@ -43,7 +43,7 @@ const installers = [
 const installCommand =
   '@latest --example https://github.com/haydenbleasel/next-forge';
 
-export const Installer: FC = () => {
+export const Installer = () => {
   const [manager, setManager] = useState(installers[0].value);
   const activeManager = installers.find(
     (installer) => installer.value === manager

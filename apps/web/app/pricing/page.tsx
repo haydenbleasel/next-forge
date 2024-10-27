@@ -4,7 +4,7 @@ import { Check, Minus, MoveRight, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
 import type { FC } from 'react';
 
-const Pricing: FC = () => (
+const Pricing = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-center gap-4 text-center">

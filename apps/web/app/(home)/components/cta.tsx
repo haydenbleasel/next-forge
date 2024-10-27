@@ -4,7 +4,7 @@ import { MoveRight, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
 import type { FC } from 'react';
 
-export const CTA: FC = () => (
+export const CTA = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="flex flex-col items-center gap-8 rounded-md bg-muted p-4 text-center lg:p-14">

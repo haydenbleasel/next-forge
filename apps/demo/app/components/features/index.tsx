@@ -177,7 +177,7 @@ const rows = [
   },
 ];
 
-export const Features: FC = () => (
+export const Features = () => (
   <section className="dark h-[400px] sm:h-[800px]">
     <div
       aria-hidden="true"

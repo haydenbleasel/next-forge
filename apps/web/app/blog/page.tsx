@@ -11,7 +11,7 @@ const description = 'Thoughts, ideas, and opinions.';
 
 export const metadata: Metadata = createMetadata({ title, description });
 
-const Blog: FC = () => (
+const Blog = () => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto flex flex-col gap-14">
       <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">

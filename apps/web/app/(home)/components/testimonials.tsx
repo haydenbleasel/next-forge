@@ -14,7 +14,7 @@ import {
 import { User } from 'lucide-react';
 import { type FC, useEffect, useState } from 'react';
 
-export const Testimonials: FC = () => {
+export const Testimonials = () => {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
 

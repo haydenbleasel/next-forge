@@ -10,7 +10,11 @@ type GlobalErrorProperties = {
   readonly reset: () => void;
 };
 
-const GlobalError: FC<GlobalErrorProperties> = ({ error }) => {
+const GlobalError = (
+  {
+    error
+  }: GlobalErrorProperties
+) => {
   useEffect(() => {
     captureException(error);
   }, [error]);

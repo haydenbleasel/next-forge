@@ -4,7 +4,12 @@ import Link from 'next/link';
 import type { ComponentProps, FC, HTMLProps } from 'react';
 
 // eslint-disable-next-line id-length
-const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
+const a = (
+  {
+    href,
+    ...properties
+  }: HTMLProps<HTMLAnchorElement>
+) => {
   if (typeof href !== 'string') {
     throw new TypeError('href is required');
   }
@@ -18,7 +23,7 @@ const a: FC<HTMLProps<HTMLAnchorElement>> = ({ href, ...properties }) => {
   );
 };
 
-const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
+const img = (properties: HTMLProps<HTMLImageElement>) => {
   if (
     typeof properties.src !== 'string' ||
     typeof properties.alt !== 'string'
@@ -38,21 +43,21 @@ const img: FC<HTMLProps<HTMLImageElement>> = (properties) => {
   );
 };
 
-const CompanyName: FC = () => 'next-forge';
+const CompanyName = () => 'next-forge';
 
-export const Mdx: FC<ComponentProps<typeof MDXContent>> = ({
-  code,
-  components,
-}) => (
-  <div className="prose prose-neutral dark:prose-invert">
-    <MDXContent
-      code={code}
-      components={{
-        a,
-        img,
-        CompanyName,
-        ...components,
-      }}
-    />
-  </div>
-);
+export const Mdx = (
+  {
+    code,
+    components
+  }: ComponentProps<typeof MDXContent>
+) => (<div className="prose prose-neutral dark:prose-invert">
+  <MDXContent
+    code={code}
+    components={{
+      a,
+      img,
+      CompanyName,
+      ...components,
+    }}
+  />
+</div>);

@@ -179,7 +179,11 @@ const data = {
   ],
 };
 
-export const GlobalSidebar: FC<GlobalSidebarProperties> = ({ children }) => {
+export const GlobalSidebar = (
+  {
+    children
+  }: GlobalSidebarProperties
+) => {
   const sidebar = useSidebar();
 
   return (

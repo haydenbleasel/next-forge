@@ -8,7 +8,7 @@ const description = 'Sign Up to your account.';
 
 export const metadata: Metadata = createMetadata({ title, description });
 
-const SignUpPage: FC = () => (
+const SignUpPage = () => (
   <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-secondary">
     <SignUp />
   </div>

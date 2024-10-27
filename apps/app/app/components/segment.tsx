@@ -5,7 +5,7 @@ import { analytics } from '@repo/design-system/lib/segment/client';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { type FC, useEffect } from 'react';
 
-export const Segment: FC = () => {
+export const Segment = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { user } = useUser();

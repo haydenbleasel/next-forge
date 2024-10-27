@@ -20,7 +20,7 @@ const themes = [
   { name: 'Dark', value: 'dark', icon: MoonIcon },
 ];
 
-export const ModeToggle: FC = () => {
+export const ModeToggle = () => {
   const { setTheme } = useTheme();
 
   return (
