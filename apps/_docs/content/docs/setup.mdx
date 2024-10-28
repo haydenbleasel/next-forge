@@ -5,59 +5,21 @@ description: How to setup next-forge
 
 ## Prerequisites
 
-### Homebrew
+### pnpm
 
-Homebrew is a package manager for macOS. It's used to install the other dependencies.
+next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead.
 
-You can install it with the following command:
-
-```sh title="Terminal"
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### NVM `Optional`
-
-NVM is a version manager for Node.js. It's used to install and switch between different versions of Node.js.
-
-You can install it with the following command:
-
-```sh title="Terminal"
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-```
-
-### pnpm `Optional`
-
-pnpm is a fast, disk space efficient package manager. It's used to install the dependencies.
-
-You can install it with the following command:
-
-```sh title="Terminal"
-brew install pnpm
-```
-
-### Neon CLI
-
-Neon is a database platform. The CLI is used to interact with the database.
-
-You can install it with the following command:
-
-```sh title="Terminal"
-brew install neonctl
-```
+Learn how to [install pnpm](https://pnpm.io/installation).
 
 ### Stripe CLI
 
-Stripe is a payment platform. The CLI is used to interact with the Stripe API.
+We use the Stripe CLI to forward webhooks to your local machine. You can read more about that [here](/docs/payments).
 
-You can install it with the following command:
-
-```sh title="Terminal"
-brew install stripe/stripe-cli/stripe
-```
+Learn how to [install the Stripe CLI](https://docs.stripe.com/stripe-cli#install).
 
 ## Cloning
 
-First, scaffold the app with:
+Clone the repo using Next.js' `create-next-app` function
 
 ```sh title="Terminal"
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
