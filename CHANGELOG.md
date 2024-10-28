@@ -1,3 +1,19 @@
+# v2.2.4 (Mon Oct 28 2024)
+
+#### 🐛 Bug Fix
+
+- Docs [#155](https://github.com/haydenbleasel/next-forge/pull/155) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.3 (Mon Oct 28 2024)
 
 #### ⚠️ Pushed to `main`
