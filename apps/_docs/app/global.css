@@ -7,7 +7,7 @@
 }
 
 #nd-nav {
-  @apply max-w-4xl rounded-full px-0;
+  @apply max-w-4xl lg:rounded-full px-0;
 }
 
 #nd-nav a[href*="github.com"] {
