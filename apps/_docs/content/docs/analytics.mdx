@@ -1,35 +1,29 @@
 ---
 title: Analytics
-description: How next-forge handles analytics
+description: We have three analytics libraries in next-forge.
 ---
-
-next-forge makes use of three Analytics libraries: Vercel Analytics, Google Analytics and Segment.
 
 ## Vercel Web Analytics
 
-Vercel's built-in analytics tool offers detailed insights into your website's visitors with new metrics like top pages, top referrers, and demographics.
-
-All you have to do to enable it is visit the Analytics tab in your Vercel project and click Enable from the dialog.
+Vercel's built-in analytics tool offers detailed insights into your website's visitors with new metrics like top pages, top referrers, and demographics. All you have to do to enable it is visit the Analytics tab in your Vercel project and click Enable from the dialog.
 
 Read more about it [here](https://vercel.com/docs/analytics/quickstart).
 
 ## Google Analytics
 
-Google Analytics tracks user behavior, page views, session duration, and other engagement metrics to provide insights into user activity and marketing effectiveness.
-
-GA tracking code is injected using [@next/third-parties](https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-analytics) for performance reasons.
+Google Analytics tracks user behavior, page views, session duration, and other engagement metrics to provide insights into user activity and marketing effectiveness. GA tracking code is injected using [@next/third-parties](https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-analytics) for performance reasons.
 
 To enable it, simply add a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable to your project.
 
 ## Segment
 
-Segment aggregates data from various sources, including user identification, group membership, and page views, to streamline data collection and integration with other analytics and marketing tools.ics and marketing tools. |
+Segment aggregates data from various sources, including user identification, group membership, and page views, to streamline data collection and integration with other analytics and marketing tools.
 
 It's particularly handy for creating an analytics pipeline, sending user information and behaviour to a tool of your choice, like Amplitude or Mixpanel.
 
-We've wired it up as follows:
+We've combined it with Clerk webhooks to wire it up as follows:
 
-```mermaid
+<Mermaid chart={`
 graph TD
   A[User Action in App] -->|Triggers| B[Clerk Webhook]
   A -->|Client-Side Call| D3[page Call]
@@ -52,6 +46,8 @@ graph TD
   C -->|User Invites / Updates| D1
   C -->|Organization Invites / Updates| D2
   C -->|Organization Membership Invites| D2
-```
+`} />
+
+### Custom Proxy
 
 next-forge makes use of a custom proxy setup for Segment's client-side library to avoid ad-blocker issues. This is not required, but recommended. You'll need to contact Segment support to enable this in your UI. Read more about this [here](https://segment.com/docs/connections/sources/catalog/libraries/website/javascript/custom-proxy/#custom-cdn--api-proxy).
