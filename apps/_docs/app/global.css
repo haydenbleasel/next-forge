@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+#nd-home-layout {
+  --fd-nav-height: 19px !important;
+}
+
+#nd-nav {
+  @apply max-w-4xl rounded-full px-0;
+}
+
+#nd-nav a[href*="github.com"] {
+  @apply rounded-full;
+}
+
+#nd-sidebar {
+  @apply md:pt-0;
+}
+
+#nd-sidebar > div {
+  @apply md:pt-2;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -106,39 +126,11 @@
   }
 }
 
-.shiki {
-  background-color: var(--shiki-light-bg);
-  color: var(--shiki-light);
-}
-
-.shiki span {
-  color: var(--shiki-light);
-}
-
-.dark .shiki {
-  background-color: var(--shiki-dark-bg);
-  color: var(--shiki-dark);
-  @apply border-neutral-700;
-}
-
-.dark .shiki span {
-  color: var(--shiki-dark);
-}
-
-.shiki code {
-  display: grid;
-  font-size: 13px;
-  counter-reset: line;
-}
-
-.shiki .line:before {
-  content: counter(line);
-  counter-increment: line;
-
-  @apply inline-block w-4 mr-8 text-neutral-500 dark:text-neutral-400 text-right;
-}
-
-.shiki[title]:before {
-  content: attr(title);
-  @apply inline-block text-neutral-500 dark:text-neutral-400 text-right mb-6 text-sm;
+@keyframes move-x {
+  0% {
+    transform: translateX(var(--move-x-from));
+  }
+  100% {
+    transform: translateX(var(--move-x-to));
+  }
 }

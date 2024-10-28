@@ -1,0 +1,34 @@
+---
+title: Structure
+description: The structure of next-forge
+---
+
+next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
+
+The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
+
+## Applications
+
+The monorepo contains the following apps:
+
+| App | Description | Port |
+| --- | ----------- | ---- |
+| `api` | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. | 3002 |
+| `app` | The main application, featuring a [shadcn/ui](https://ui.shadcn.com/) template. | 3000 |
+| `docs` | The documentation, which contains the documentation for the app e.g. guides and tutorials. | 3004 |
+| `email` | The email preview server from [react.email](https://react.email/). | 3003 |
+| `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 |
+| `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 |
+| `_docs_` | The documentation for this project. **You can delete this**. | 3006 |
+
+## Packages
+
+It also contains the following packages:
+
+| Package | Description |
+| ------- | ----------- |
+| `database` | The database, which contains the database schema and migrations for the app. |
+| `design-system` | The design system, which contains shared components, utility files and styles. |
+| `email-templates` | The email templates, which contains the email templates for the app. |
+| `next-config` | The Next.js configuration, which contains the shared Next.js configuration for the app. |
+| `typescript-config` | The TypeScript configuration, which contains the shared TypeScript configuration for the app. |

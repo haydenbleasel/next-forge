@@ -80,10 +80,10 @@ export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   automaticVercelMonitors: true,
 };
 
-export const withSentry = (sourceConfig: NextConfig) =>
+export const withSentry = (sourceConfig: NextConfig): NextConfig =>
   withSentryConfig(sourceConfig, sentryConfig);
 
-export const withAnalyzer = (sourceConfig: NextConfig) =>
+export const withAnalyzer = (sourceConfig: NextConfig): NextConfig =>
   withBundleAnalyzer()(sourceConfig);
 
 export { withLogtail } from '@logtail/next';

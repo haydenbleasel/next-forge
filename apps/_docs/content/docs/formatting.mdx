@@ -1,0 +1,26 @@
+---
+title: Formatting
+description: Code formatting, linting and more.
+---
+
+next-forge uses [Ultracite](https://ultracite.dev) for code formatting and linting. Ultracite is a preconfigured setup of [Biome](https://biomejs.dev), a high-performance Rust-based toolchain which includes a formatter, linter, and more for JavaScript and TypeScript.
+
+## Overview
+
+Ultracite provides several benefits:
+
+- Zero configuration required - works out of the box
+- Extremely fast performance
+- Consistent code style across your project
+- Built-in linting rules
+- TypeScript support
+
+## Usage
+
+The formatter and linter are automatically configured in your project and will run on save. If you want to manually run them across your project, you can run the following commands:
+
+```bash title="Terminal"
+npx biome check --write ./
+```
+
+This will check and fix all files in the current directory.

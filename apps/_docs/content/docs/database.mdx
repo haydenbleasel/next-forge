@@ -1,0 +1,109 @@
+---
+title: Changing the database
+description: How to switch from Neon to something else.
+---
+
+By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](https://planetscale.com), [Supabase](https://supabase.com), or any other PostgreSQL/MySQL provider.
+
+Here's an example of how to switch from Neon to PlanetScale.
+
+## Switching from Neon to PlanetScale
+
+Here's a step-by-step guide to switch from Neon to PlanetScale:
+
+1. Create a new database on PlanetScale and get your connection string. It will look something like this:
+
+```
+mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>
+```
+
+2. Update your environment variables to use the new PlanetScale connection string:
+
+```js title="apps/database/.env"
+DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
+DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>" // [!code ++]
+```
+
+```js title="apps/app/.env.local"
+DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
+DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>" // [!code ++]
+```
+
+Etcetera.
+
+3. Swap out the required dependencies in `@repo/database`:
+
+```sh title="Terminal"
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+pnpm add @planetscale/database @prisma/adapter-planetscale
+```
+
+4. Update the database connection code:
+
+```ts title="packages/database/index.ts"
+import 'server-only';
+
+import { Pool, neonConfig } from '@neondatabase/serverless'; // [!code --]
+import { PrismaNeon } from '@prisma/adapter-neon'; // [!code --]
+import { Client, connect } from '@planetscale/database'; // [!code ++]
+import { PrismaPlanetScale } from '@prisma/adapter-planetscale'; // [!code ++]
+import { PrismaClient } from '@prisma/client';
+import ws from 'ws';
+
+const databaseUrl = process.env.DATABASE_URL;
+
+neonConfig.webSocketConstructor = ws; // [!code --]
+
+if (!databaseUrl) {
+  throw new Error('Missing DATABASE_URL environment variable.');
+}
+
+declare global {
+  // eslint-disable-next-line no-var, vars-on-top
+  var cachedPrisma: PrismaClient | undefined;
+}
+
+const pool = new Pool({ connectionString: databaseUrl }); // [!code --]
+const adapter = new PrismaNeon(pool); // [!code --]
+const client = connect({ url: databaseUrl }); // [!code ++]
+const adapter = new PrismaPlanetScale(client); // [!code ++]
+
+export const database = new PrismaClient({ adapter });
+```
+
+5. Update your Prisma schema to use the new database provider:
+
+```prisma title="packages/database/prisma/schema.prisma"
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider     = "postgresql" // [!code --]
+  provider     = "mysql" // [!code ++]
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+// This is a stub model.
+// Delete it and add your own Prisma models.
+model Page {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+```
+
+6. Add a `dev` script to your `package.json`:
+
+```json title="packages/database/package.json"
+{
+  "scripts": {
+    "dev": "pscale connect [database_name] [branch_name] --port 3309" // [!code ++]
+  }
+}
+```

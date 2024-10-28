@@ -1,0 +1,46 @@
+---
+title: Email
+description: Email templates, transactional emails and previewing.
+---
+
+next-forge has two email systems:
+
+1. [Clerk](https://clerk.com/), which handles authentication and authorization emails automatically; and
+2. [Resend](https://resend.com/), which is used for sending transactional emails. This is powered by [React Email](https://react.email/) templates.
+
+## Clerk
+
+Clerk handles authentication and authorization emails automatically. You can configure the theming of Clerk-sent emails in their dashboard.
+
+<Callout>Eventually we would like to replace Clerk templates with React Email templates.</Callout>
+
+## Resend
+
+We use [Resend](https://resend.com/) to send transactional emails. The templates, located in `packages/email-templates`, are powered by [React Email](https://react.email/) - a collection of high-quality, unstyled components for creating beautiful emails using React and TypeScript.
+
+### Email Templates
+
+The `email-templates` package is separated from the app folder for two reasons:
+
+1. We can import them into the `email` app, allowing for previewing them in the UI; and
+2. We can import them into our other apps and use them to send emails.
+
+Resend and React Email play nicely together. For example, here's how we send the contact form email:
+
+```tsx title="apps/web/app/contact/actions/contact.tsx"
+await resend.emails.send({
+  from,
+  to: from,
+  subject: 'Contact form submission',
+  replyTo: email,
+  react: <ContactTemplate name={name} email={email} message={message} />,
+});
+```
+
+### Previewing Emails
+
+To preview the emails templates, simply run the `email` app:
+
+```bash title="Terminal"
+pnpm dev --filter email
+```

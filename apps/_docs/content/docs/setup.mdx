@@ -1,0 +1,61 @@
+---
+title: Setup
+description: How to setup next-forge
+---
+
+## Prerequisites
+
+### pnpm
+
+next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead.
+
+Learn how to [install pnpm](https://pnpm.io/installation).
+
+### Stripe CLI
+
+We use the Stripe CLI to forward webhooks to your local machine. You can read more about that [here](/docs/payments).
+
+Learn how to [install the Stripe CLI](https://docs.stripe.com/stripe-cli#install).
+
+## Installation
+
+### Cloning
+
+Clone the repo using Next.js' `create-next-app` function using your favorite package manager.
+
+```sh title="Terminal"
+pnpm create next-app --example https://github.com/haydenbleasel/next-forge
+```
+
+### Login
+
+Login to Stripe with:
+
+```sh title="Terminal"
+stripe login
+```
+
+### Run `setup.sh`
+
+next-forge includes a setup script to install dependencies and copy `.env` files. Run it with:
+
+```sh title="Terminal"
+./setup.sh
+```
+
+### Environment variables
+
+You should change the environment variables in each `.env` or `.env.local` file to match your own configuration.
+
+## Development
+
+Run the development server with:
+
+```sh title="Terminal"
+pnpm dev
+```
+
+Open the localhost URLs with the relevant ports listed above to see the app, e.g.
+
+- [http://localhost:3000/](http://localhost:3000/) — The main app.
+- [http://localhost:3001/](http://localhost:3001/) — The website.

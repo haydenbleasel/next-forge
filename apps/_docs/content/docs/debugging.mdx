@@ -1,0 +1,58 @@
+---
+title: Debugging
+description: Error capture, logging and monitoring.
+---
+
+## Sentry
+
+next-forge uses Sentry for error tracking and performance monitoring. Sentry helps identify, debug, and resolve issues by providing detailed error reports, stack traces, and performance metrics across both server and client environments. When an error occurs, Sentry captures the full context including the user's browser information, the sequence of events that led to the error, and relevant application state.
+
+### Configuration
+
+Sentry is configured and managed in three key places:
+
+#### Server and Edge Runtime
+
+The `instrumentation.ts` file in your Next.js project initializes Sentry for both Node.js and Edge runtime environments, configuring the DSN (Data Source Name) that routes error data to your Sentry project.
+
+#### Client Runtime
+
+The `sentry.client.config.ts` file configures Sentry for the client environment. This includes settings like the sample rate for errors and sessions, and the integrations to use.
+
+#### Next.js Config
+
+The `next.config.ts` file imports shared Sentry-specific settings through `withSentryConfig`. This enables features like source map uploads for better stack traces and automatic instrumentation of Vercel Cron Monitors. The configuration also optimizes bundle size by tree-shaking logger statements and hiding source maps in production builds.
+
+### Manual Usage
+
+If you want to capture a specific exception rather than letting it bubble up to Sentry, you can use the `captureException` function:
+
+```tsx title="page.tsx"
+import { captureException } from '@sentry/nextjs';
+
+captureException(new Error('My error message'));
+```
+
+### Tunneling
+
+The `tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
+
+<Callout type="warning">
+  Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.
+</Callout>
+
+## BetterStack Logs
+
+next-forge uses BetterStack Logs for centralized logging and monitoring. The logging functionality is abstracted through a simple wrapper in `packages/design-system/lib/log.ts` that provides a consistent logging interface across environments.
+
+In development, logs are output to the console for easy debugging. In production, logs are sent to BetterStack Logs where they can be searched, filtered, and analyzed.
+
+### Usage
+
+To use this logging setup, simply import and use the `log` object. It shares the same interface as the `console` object, so you can replace `console` with `log` in your codebase.
+
+```tsx title="page.tsx"
+import { log } from '@repo/design-system/lib/log';
+
+log.info('Hello, world!');
+```

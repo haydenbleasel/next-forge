@@ -9,7 +9,6 @@ export const GitHubButton = async (): Promise<ReactElement> => {
 
   const { data } = await octokit.repos.get({
     owner: 'haydenbleasel',
-    // repo: 'roadmap-ui',
     repo: 'next-forge',
   });
 
