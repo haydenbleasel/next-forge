@@ -10,3 +10,7 @@ While tRPC is a great tool for building type-safe APIs, Next.js Server Actions p
 ## Why did you pick Prisma over Drizzle?
 
 While Drizzle is an awesome lightweight and performant ORM, we chose Prisma for several key reasons, primarily around developer experience, type safety and simplicity. We're open to exploring other ORMs in the future, but for now Prisma is the best fit for our needs.
+
+## Why does `apps/web` have a `prebuild` script?
+
+The website has a prebuild script in order to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).
