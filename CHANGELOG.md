@@ -1,3 +1,15 @@
+# v2.2.2 (Mon Oct 28 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add Clerk as remote image pattern ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.1 (Sun Oct 27 2024)
 
 #### ⚠️ Pushed to `main`
