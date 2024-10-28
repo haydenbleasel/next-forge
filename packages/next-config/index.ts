@@ -9,6 +9,12 @@ import { createSecureHeaders } from 'next-secure-headers';
 export const config: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.clerk.com',
+      },
+    ],
   },
 
   // biome-ignore lint/suspicious/useAwait: headers is async
