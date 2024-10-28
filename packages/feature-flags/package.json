@@ -4,5 +4,8 @@
   "private": true,
   "dependencies": {
     "@vercel/flags": "^2.6.2"
+  },
+  "peerDependencies": {
+    "next": "15.0.1"
   }
 }
