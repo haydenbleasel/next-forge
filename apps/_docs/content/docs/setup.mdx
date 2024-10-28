@@ -1,0 +1,39 @@
+---
+title: Setup
+description: How to setup next-forge
+---
+
+First, scaffold the app with:
+
+```sh
+pnpm create next-app --example https://github.com/haydenbleasel/next-forge
+```
+
+Login to Stripe with:
+
+```sh
+stripe login
+```
+
+Login to Neon with:
+
+```sh
+neonctl auth
+```
+
+Update your database name in:
+
+```txt
+/packages/database/package.json
+```
+
+Finally, run the development server with:
+
+```sh
+pnpm dev
+```
+
+Open the localhost URLs with the relevant ports listed above to see the app, e.g.
+
+- [http://localhost:3000/](http://localhost:3000/) — The main app.
+- [http://localhost:3001/](http://localhost:3001/) — The website.
