@@ -1,3 +1,15 @@
+# v2.3.0 (Mon Oct 28 2024)
+
+#### 🚀 Enhancement
+
+- Implement Posthog [#156](https://github.com/haydenbleasel/next-forge/pull/156) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.7 (Mon Oct 28 2024)
 
 #### ⚠️ Pushed to `main`
