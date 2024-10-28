@@ -1,0 +1,18 @@
+---
+title: Authentication
+description: How to handle authentication in next-forge
+---
+
+[Clerk](https://clerk.com/) is used for authentication in next-forge. Clerk provides a complete authentication and user management solution that integrates seamlessly with Next.js applications.
+
+## In-App
+
+The shared provider from the `@repo/design-system` package (called `DesignSystemProvider`) includes the Clerk provider. This means that you only need to include the `DesignSystemProvider` in your app to use Clerk.
+
+## Webhooks
+
+Clerk uses webhooks to handle authentication events. These are handled in the `POST /webhooks/clerk` route in the `api` app.
+
+### Local Development
+
+TBD.
