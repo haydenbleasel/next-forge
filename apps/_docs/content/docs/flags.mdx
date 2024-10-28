@@ -1,0 +1,77 @@
+---
+title: Feature Flags
+description: Control access to features in your application.
+---
+
+## Overview
+
+Feature flags (also known as feature toggles) allow you to control access to specific features in your application. next-forge provides a simple but powerful feature flag system that can be used to:
+
+- Roll out features gradually to users
+- A/B test new functionality
+- Enable/disable features based on user segments
+- Control access to beta or experimental features
+
+next-forge implements feature flags using Vercel's [Flags SDK](https://vercel.com/docs/workflow-collaboration/feature-flags/flags-pattern-nextjs), which is mostly an architectural pattern for working with feature flags. This setup exists in the `@repo/feature-flags` package, so you can import and use it in as many projects as you'd like.
+
+We've createad a single example flag called `showBetaFeature` that you can use as a template for your own flags.
+
+## Adding a new flag
+
+To add a new flag, simply modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
+
+```ts title="packages/feature-flags/index.ts"
+import { unstable_flag as flag } from '@vercel/flags/next';
+
+export const showAnalyticsFeature = flag({ // [!code ++]
+  key: 'analytics-feature', // [!code ++]
+  decide: () => true, // [!code ++]
+}); // [!code ++]
+```
+
+## Connecting to PostHog
+
+Rather than using the a hardcoded implementation, you can connect your flags to our existing Posthog setup. This will allow you to manage your flags in Posthog and have them automatically updated in your application.
+
+In this example, we'll connect the `showAnalyticsFeature` flag to Posthog, using Clerk to get the current user and then checking if they specifically have access to the feature.
+
+```ts title="packages/feature-flags/index.ts"
+import { currentUser } from '@clerk/nextjs/server'; // [!code ++]
+import { analytics } from '@repo/design-system/lib/analytics/server'; // [!code ++]
+import { unstable_flag as flag } from '@vercel/flags/next';
+
+export const showAnalyticsFeature = flag({
+  key: 'analytics-feature',
+  decide: () => true, // [!code --]
+  async decide() {  // [!code ++]
+    const user = await currentUser();  // [!code ++]
+
+    if (!user) {  // [!code ++]
+      return false;  // [!code ++]
+    }  // [!code ++]
+
+    const isEnabled = await analytics.isFeatureEnabled(this.key, user.id);  // [!code ++]
+
+    return isEnabled ?? false;  // [!code ++]
+  },  // [!code ++]
+});
+```
+
+## Usage in your application
+
+To use the flag in your application, simply import it from the `@repo/feature-flags` package and use it like a normal boolean value.
+
+```tsx title="page.tsx"
+import { showAnalyticsFeature } from '@repo/feature-flags';
+import { notFound } from 'next/navigation';
+
+export default function Page() {
+  const isEnabled = showAnalyticsFeature();
+
+  if (!isEnabled) {
+    notFound();
+  }
+
+  return <div>Analytics feature is enabled</div>;
+}
+```
