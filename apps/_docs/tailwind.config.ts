@@ -1,7 +1,7 @@
 import { createPreset } from 'fumadocs-ui/tailwind-plugin';
+import type { Config } from 'tailwindcss';
 
-/** @type {import('tailwindcss').Config} */
-export default {
+const config: Config = {
   content: [
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
@@ -9,5 +9,11 @@ export default {
     './mdx-components.{ts,tsx}',
     './node_modules/fumadocs-ui/dist/**/*.js',
   ],
-  presets: [createPreset()],
+  presets: [
+    createPreset({
+      preset: 'ocean',
+    }),
+  ],
 };
+
+export default config;
