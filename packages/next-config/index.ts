@@ -3,10 +3,11 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 // @ts-expect-error No declaration file
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 import { withSentryConfig } from '@sentry/nextjs';
+import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
-export const config: NextConfig = {
+export const config: NextConfig = withVercelToolbar()({
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -40,7 +41,7 @@ export const config: NextConfig = {
 
     return config;
   },
-};
+});
 
 export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   org: process.env.SENTRY_ORG,
