@@ -54,6 +54,13 @@ DATABASE_URL="postgres://..."
 > [!TIP]
 > For `FLAGS_SECRET`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
 
+Go into each application and run `vercel link`, like so:
+
+```sh title="Terminal"
+cd apps/app
+vercel link
+```
+
 ## Development
 
 Run the development server with:
