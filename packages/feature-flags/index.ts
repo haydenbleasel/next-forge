@@ -1,6 +1,6 @@
 import { unstable_flag as flag } from '@vercel/flags/next';
 
-export const showSummerSale = flag({
-  key: 'summer-sale',
+export const showBetaFeature = flag({
+  key: 'beta-feature',
   decide: () => false,
 });

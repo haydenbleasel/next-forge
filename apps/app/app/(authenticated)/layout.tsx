@@ -1,8 +1,8 @@
 import { auth, currentUser } from '@clerk/nextjs/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
+import { showBetaFeature } from '@repo/feature-flags';
 import type { ReactElement, ReactNode } from 'react';
 import { GlobalSidebar } from './components/sidebar';
-import { showSummerSale } from '@repo/feature-flags';
 
 type AppLayoutProperties = {
   readonly children: ReactNode;
@@ -13,7 +13,7 @@ const AppLayout = async ({
 }: AppLayoutProperties): Promise<ReactElement> => {
   const user = await currentUser();
   const { redirectToSignIn } = await auth();
-  const sale = await showSummerSale();
+  const betaFeature = await showBetaFeature();
 
   if (!user) {
     redirectToSignIn();
@@ -21,7 +21,11 @@ const AppLayout = async ({
 
   return (
     <SidebarProvider>
-      {sale ? <p>discounted</p> : <p>regular price</p>}
+      {betaFeature && (
+        <div className="w-full bg-black py-2 text-center text-white">
+          Beta feature now available
+        </div>
+      )}
       <GlobalSidebar>{children}</GlobalSidebar>
     </SidebarProvider>
   );

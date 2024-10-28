@@ -1,5 +1,5 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
-import { showSummerSale } from '@repo/feature-flags';
+import { showBetaFeature } from '@repo/feature-flags';
 import type { Metadata } from 'next';
 import { Cases } from './components/cases';
 import { CTA } from './components/cta';
@@ -18,11 +18,15 @@ const meta = {
 export const metadata: Metadata = createMetadata(meta);
 
 const Home = async () => {
-  const sale = await showSummerSale();
+  const betaFeature = await showBetaFeature();
 
   return (
     <>
-      {sale ? <p>discounted</p> : <p>regular price</p>}
+      {betaFeature && (
+        <div className="w-full bg-black py-2 text-center text-white">
+          Beta feature now available
+        </div>
+      )}
       <Hero />
       <Cases />
       <Features />
