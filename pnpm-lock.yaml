@@ -166,6 +166,9 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
+      '@repo/feature-flags':
+        specifier: workspace:*
+        version: link:../../packages/feature-flags
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config

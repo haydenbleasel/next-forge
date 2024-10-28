@@ -12,6 +12,7 @@ const AppLayout = async ({
 }: AppLayoutProperties): Promise<ReactElement> => {
   const user = await currentUser();
   const { redirectToSignIn } = await auth();
+  const sale = await showSummerSale();
 
   if (!user) {
     redirectToSignIn();
@@ -19,6 +20,7 @@ const AppLayout = async ({
 
   return (
     <SidebarProvider>
+      {sale ? <p>discounted</p> : <p>regular price</p>}
       <GlobalSidebar>{children}</GlobalSidebar>
     </SidebarProvider>
   );
