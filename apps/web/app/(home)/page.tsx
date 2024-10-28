@@ -1,6 +1,6 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
+import { showSummerSale } from '@repo/feature-flags';
 import type { Metadata } from 'next';
-import type { FC } from 'react';
 import { Cases } from './components/cases';
 import { CTA } from './components/cta';
 import { FAQ } from './components/faq';
@@ -17,16 +17,21 @@ const meta = {
 
 export const metadata: Metadata = createMetadata(meta);
 
-const Home = () => (
-  <>
-    <Hero />
-    <Cases />
-    <Features />
-    <Stats />
-    <Testimonials />
-    <FAQ />
-    <CTA />
-  </>
-);
+const Home = async () => {
+  const sale = await showSummerSale();
+
+  return (
+    <>
+      {sale ? <p>discounted</p> : <p>regular price</p>}
+      <Hero />
+      <Cases />
+      <Features />
+      <Stats />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+    </>
+  );
+};
 
 export default Home;
