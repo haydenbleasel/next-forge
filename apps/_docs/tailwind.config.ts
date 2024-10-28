@@ -11,7 +11,7 @@ const config: Config = {
   ],
   presets: [
     createPreset({
-      preset: 'ocean',
+      addGlobalColors: true,
     }),
   ],
 };

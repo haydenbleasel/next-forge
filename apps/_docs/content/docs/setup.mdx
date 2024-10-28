@@ -5,31 +5,25 @@ description: How to setup next-forge
 
 First, scaffold the app with:
 
-```sh
+```sh title="Terminal"
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
 Login to Stripe with:
 
-```sh
+```sh title="Terminal"
 stripe login
 ```
 
 Login to Neon with:
 
-```sh
+```sh title="Terminal"
 neonctl auth
-```
-
-Update your database name in:
-
-```txt
-/packages/database/package.json
 ```
 
 Finally, run the development server with:
 
-```sh
+```sh title="Terminal"
 pnpm dev
 ```
 
