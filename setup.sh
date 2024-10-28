@@ -28,7 +28,7 @@ else
   brew install pnpm
 fi
 
-# Install pscale
+# Install neonctl
 if which neonctl >/dev/null; then
   echo "neonctl is installed."
 else
