@@ -15,11 +15,11 @@
     }
   },
   "globalEnv": [
-    "SEGMENT_WRITE_KEY",
     "STRIPE_SECRET_KEY",
     "RESEND_TOKEN",
     "DATABASE_URL",
     "RESEND_FROM",
-    "CLERK_WEBHOOK_SECRET"
+    "CLERK_WEBHOOK_SECRET",
+    "STRIPE_WEBHOOK_SECRET"
   ]
 }

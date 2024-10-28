@@ -6,14 +6,14 @@ import type {
   WebhookEvent,
 } from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
-import { analytics } from '@repo/design-system/lib/segment/server';
+import { analytics } from '@repo/design-system/lib/analytics/server';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
 const handleUserCreated = (data: UserJSON) => {
   analytics.identify({
-    userId: data.id,
-    traits: {
+    distinctId: data.id,
+    properties: {
       email: data.email_addresses.at(0)?.email_address,
       firstName: data.first_name,
       lastName: data.last_name,
@@ -23,9 +23,9 @@ const handleUserCreated = (data: UserJSON) => {
     },
   });
 
-  analytics.track({
+  analytics.capture({
     event: 'User Created',
-    userId: data.id,
+    distinctId: data.id,
   });
 
   return new Response('User created', { status: 201 });
@@ -33,8 +33,8 @@ const handleUserCreated = (data: UserJSON) => {
 
 const handleUserUpdated = (data: UserJSON) => {
   analytics.identify({
-    userId: data.id,
-    traits: {
+    distinctId: data.id,
+    properties: {
       email: data.email_addresses.at(0)?.email_address,
       firstName: data.first_name,
       lastName: data.last_name,
@@ -44,9 +44,9 @@ const handleUserUpdated = (data: UserJSON) => {
     },
   });
 
-  analytics.track({
+  analytics.capture({
     event: 'User Updated',
-    userId: data.id,
+    distinctId: data.id,
   });
 
   return new Response('User updated', { status: 201 });
@@ -55,15 +55,15 @@ const handleUserUpdated = (data: UserJSON) => {
 const handleUserDeleted = (data: DeletedObjectJSON) => {
   if (data.id) {
     analytics.identify({
-      userId: data.id,
-      traits: {
+      distinctId: data.id,
+      properties: {
         deleted: new Date(),
       },
     });
 
-    analytics.track({
+    analytics.capture({
       event: 'User Deleted',
-      userId: data.id,
+      distinctId: data.id,
     });
   }
 
@@ -71,36 +71,38 @@ const handleUserDeleted = (data: DeletedObjectJSON) => {
 };
 
 const handleOrganizationCreated = (data: OrganizationJSON) => {
-  analytics.group({
-    groupId: data.id,
-    userId: data.created_by,
-    traits: {
+  analytics.groupIdentify({
+    groupKey: data.id,
+    groupType: 'company',
+    distinctId: data.created_by,
+    properties: {
       name: data.name,
       avatar: data.image_url,
     },
   });
 
-  analytics.track({
+  analytics.capture({
     event: 'Organization Created',
-    userId: data.created_by,
+    distinctId: data.created_by,
   });
 
   return new Response('Organization created', { status: 201 });
 };
 
 const handleOrganizationUpdated = (data: OrganizationJSON) => {
-  analytics.group({
-    groupId: data.id,
-    userId: data.created_by,
-    traits: {
+  analytics.groupIdentify({
+    groupKey: data.id,
+    groupType: 'company',
+    distinctId: data.created_by,
+    properties: {
       name: data.name,
       avatar: data.image_url,
     },
   });
 
-  analytics.track({
+  analytics.capture({
     event: 'Organization Updated',
-    userId: data.created_by,
+    distinctId: data.created_by,
   });
 
   return new Response('Organization updated', { status: 201 });
@@ -109,14 +111,15 @@ const handleOrganizationUpdated = (data: OrganizationJSON) => {
 const handleOrganizationMembershipCreated = (
   data: OrganizationMembershipJSON
 ) => {
-  analytics.group({
-    groupId: data.organization.id,
-    userId: data.public_user_data.user_id,
+  analytics.groupIdentify({
+    groupKey: data.organization.id,
+    groupType: 'company',
+    distinctId: data.public_user_data.user_id,
   });
 
-  analytics.track({
+  analytics.capture({
     event: 'Organization Member Created',
-    userId: data.public_user_data.user_id,
+    distinctId: data.public_user_data.user_id,
   });
 
   return new Response('Organization membership created', { status: 201 });
@@ -127,9 +130,9 @@ const handleOrganizationMembershipDeleted = (
 ) => {
   // Need to unlink the user from the group
 
-  analytics.track({
+  analytics.capture({
     event: 'Organization Member Deleted',
-    userId: data.public_user_data.user_id,
+    distinctId: data.public_user_data.user_id,
   });
 
   return new Response('Organization membership deleted', { status: 201 });
@@ -185,32 +188,43 @@ export const POST = async (request: Request): Promise<Response> => {
 
   log.info('Webhook', { id, eventType, body });
 
+  let response: Response = new Response('', { status: 201 });
+
   switch (eventType) {
     case 'user.created': {
-      return handleUserCreated(event.data);
+      response = handleUserCreated(event.data);
+      break;
     }
     case 'user.updated': {
-      return handleUserUpdated(event.data);
+      response = handleUserUpdated(event.data);
+      break;
     }
     case 'user.deleted': {
-      return handleUserDeleted(event.data);
+      response = handleUserDeleted(event.data);
+      break;
     }
     case 'organization.created': {
-      return handleOrganizationCreated(event.data);
+      response = handleOrganizationCreated(event.data);
+      break;
     }
     case 'organization.updated': {
-      return handleOrganizationUpdated(event.data);
+      response = handleOrganizationUpdated(event.data);
+      break;
     }
     case 'organizationMembership.created': {
-      return handleOrganizationMembershipCreated(event.data);
+      response = handleOrganizationMembershipCreated(event.data);
+      break;
     }
     case 'organizationMembership.deleted': {
-      return handleOrganizationMembershipDeleted(event.data);
+      response = handleOrganizationMembershipDeleted(event.data);
+      break;
     }
     default: {
       break;
     }
   }
 
-  return new Response('', { status: 201 });
+  await analytics.shutdown();
+
+  return response;
 };
