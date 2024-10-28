@@ -2,18 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  min-width: 0;
-}
-
-html {
-  text-rendering: optimizelegibility;
-}
-
-body {
-  min-height: 100dvh;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -115,15 +103,6 @@ body {
   }
   body {
     @apply bg-background text-foreground min-h-[100dvh];
-  }
-}
-
-@keyframes move-x {
-  0% {
-    transform: translateX(var(--move-x-from));
-  }
-  100% {
-    transform: translateX(var(--move-x-to));
   }
 }
 

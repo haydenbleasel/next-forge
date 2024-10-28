@@ -1,19 +1,22 @@
-import Link from 'next/link';
+import type { Metadata } from 'next';
+import { Apps } from './components/apps';
+import { CallToAction } from './components/cta';
+import { Features } from './components/features';
+import { Hero } from './components/hero';
 
-export default function HomePage() {
-  return (
-    <main className="flex flex-1 flex-col justify-center text-center">
-      <h1 className="mb-4 text-2xl font-bold">Hello World</h1>
-      <p className="text-fd-muted-foreground">
-        You can open{' '}
-        <Link
-          href="/docs"
-          className="text-fd-foreground font-semibold underline"
-        >
-          /docs
-        </Link>{' '}
-        and see the documentation.
-      </p>
-    </main>
-  );
-}
+export const metadata: Metadata = {
+  title: 'Production-grade Turborepo template for Next.js apps',
+  description:
+    "A monorepo template designed to have everything you need to build your new SaaS app as quick as possible. Authentication, billing, analytics, SEO, database ORM and more — it's all here.",
+};
+
+const Home = () => (
+  <>
+    <Hero />
+    <Apps />
+    <Features />
+    <CallToAction />
+  </>
+);
+
+export default Home;
