@@ -23,6 +23,8 @@ env:
   RESEND_TOKEN: "test"
   STRIPE_SECRET_KEY: "test"
   NEXT_PUBLIC_GA_MEASUREMENT_ID: "test"
+  NEXT_PUBLIC_POSTHOG_KEY: "test"
+  NEXT_PUBLIC_POSTHOG_HOST: "test"
 
 # what the action will do
 jobs:
