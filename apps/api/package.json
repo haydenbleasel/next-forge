@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
-    "next": "next dev -p 3002",
+    "next": "next dev --turbopack -p 3002",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -17,17 +17,23 @@
     "@repo/design-system": "workspace:*",
     "@sentry/nextjs": "^8.35.0",
     "@repo/next-config": "workspace:*",
-    "next": "14.2.16",
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
+    "next": "15.0.1",
+    "react": "19.0.0-rc-69d4b800-20241021",
+    "react-dom": "19.0.0-rc-69d4b800-20241021",
     "svix": "^1.37.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.7.9",
-    "@types/react": "18.3.12",
-    "@types/react-dom": "18.3.1",
+    "@types/react": "npm:types-react@19.0.0-rc.1",
+    "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
     "concurrently": "^9.0.1",
     "typescript": "^5.6.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@types/react": "npm:types-react@19.0.0-rc.1",
+      "@types/react-dom": "npm:types-react-dom@19.0.0-rc.1"
+    }
   }
 }
