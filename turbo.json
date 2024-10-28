@@ -15,7 +15,6 @@
     }
   },
   "globalEnv": [
-    "SEGMENT_WRITE_KEY",
     "STRIPE_SECRET_KEY",
     "RESEND_TOKEN",
     "DATABASE_URL",

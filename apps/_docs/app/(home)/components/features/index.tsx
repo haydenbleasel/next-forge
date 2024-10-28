@@ -1,6 +1,5 @@
 import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
-import type { FC } from 'react';
 
 import BetterStack from './better-stack.svg';
 import Clerk from './clerk.svg';
@@ -25,9 +24,9 @@ import Vercel from './vercel.svg';
 
 import Cmdk from './cmdk.svg';
 import Fumadocs from './fumadocs.svg';
+import Posthog from './posthog.svg';
 import Recharts from './recharts.svg';
 import Resend from './resend.svg';
-import Segment from './segment.svg';
 import Zod from './zod.svg';
 
 const rows = [
@@ -73,8 +72,8 @@ const rows = [
         className: '[animation-delay:-30s] [animation-duration:40s]',
       },
       {
-        label: 'Segment',
-        src: Segment,
+        label: 'Posthog',
+        src: Posthog,
         className: '[animation-delay:-35s] [animation-duration:40s]',
       },
     ],

@@ -22,8 +22,6 @@ env:
   NEXT_PUBLIC_DOCS_URL: "http://localhost:3002/"
   RESEND_TOKEN: "test"
   STRIPE_SECRET_KEY: "test"
-  NEXT_PUBLIC_SEGMENT_WRITE_KEY: "test"
-  SEGMENT_WRITE_KEY: "test"
   NEXT_PUBLIC_GA_MEASUREMENT_ID: "test"
 
 # what the action will do
