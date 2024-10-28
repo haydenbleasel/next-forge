@@ -1,3 +1,15 @@
+# v2.2.3 (Mon Oct 28 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Remove leftover pscale stuff ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.2 (Mon Oct 28 2024)
 
 #### ⚠️ Pushed to `main`
