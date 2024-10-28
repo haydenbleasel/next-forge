@@ -45,7 +45,14 @@ next-forge includes a setup script to install dependencies and copy `.env` files
 
 ### Environment variables
 
-You should change the environment variables in each `.env` or `.env.local` file to match your own configuration.
+You should change the environment variables in each `.env` or `.env.local` file to match your own configuration e.g.
+
+```js title=".env.local"
+DATABASE_URL="postgres://..."
+```
+
+> [!TIP]
+> For `FLAGS_SECRET`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
 
 ## Development
 
