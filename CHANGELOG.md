@@ -1,3 +1,16 @@
+# v2.2.5 (Mon Oct 28 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update index.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.4 (Mon Oct 28 2024)
 
 #### 🐛 Bug Fix
