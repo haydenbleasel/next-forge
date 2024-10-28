@@ -2,12 +2,12 @@
   "title": "ui",
   "root": true,
   "pages": [
-    "---Introduction---",
     "index",
-    "installation",
+    "philosophy",
+    "setup",
+    "structure",
     "...",
-    "---Structure---",
-    "applications",
-    "packages"
+    "---Features---",
+    "analytics"
   ]
 }
