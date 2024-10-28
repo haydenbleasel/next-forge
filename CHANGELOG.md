@@ -1,3 +1,15 @@
+# v2.2.6 (Mon Oct 28 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update layout.config.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.2.5 (Mon Oct 28 2024)
 
 #### ⚠️ Pushed to `main`
