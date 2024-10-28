@@ -31,6 +31,14 @@ import { captureException } from '@sentry/nextjs';
 captureException(new Error('My error message'));
 ```
 
+### Tunneling
+
+The `tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
+
+<Callout type="warning">
+  Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.
+</Callout>
+
 ## BetterStack Logs
 
 next-forge uses BetterStack Logs for centralized logging and monitoring. The logging functionality is abstracted through a simple wrapper in `packages/design-system/lib/log.ts` that provides a consistent logging interface across environments.
