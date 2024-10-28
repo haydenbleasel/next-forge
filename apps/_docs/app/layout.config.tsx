@@ -16,7 +16,13 @@ export const baseOptions: BaseLayoutProps = {
   nav: {
     title: (
       <div className="flex items-center gap-2">
-        <Image src={Logo} alt="next-forge" width={16} height={16} />
+        <Image
+          src={Logo}
+          alt="next-forge"
+          className="dark:invert"
+          width={16}
+          height={16}
+        />
         <span className="font-medium">next-forge</span>
       </div>
     ),
