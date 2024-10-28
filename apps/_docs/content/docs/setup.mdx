@@ -17,15 +17,17 @@ We use the Stripe CLI to forward webhooks to your local machine. You can read mo
 
 Learn how to [install the Stripe CLI](https://docs.stripe.com/stripe-cli#install).
 
-## Cloning
+## Installation
 
-Clone the repo using Next.js' `create-next-app` function
+### Cloning
+
+Clone the repo using Next.js' `create-next-app` function using your favorite package manager.
 
 ```sh title="Terminal"
 pnpm create next-app --example https://github.com/haydenbleasel/next-forge
 ```
 
-## Login
+### Login
 
 Login to Stripe with:
 
@@ -33,13 +35,21 @@ Login to Stripe with:
 stripe login
 ```
 
-Login to Neon with:
+### Run `setup.sh`
+
+next-forge includes a setup script to install dependencies and copy `.env` files. Run it with:
 
 ```sh title="Terminal"
-neonctl auth
+./setup.sh
 ```
 
-Finally, run the development server with:
+### Environment variables
+
+You should change the environment variables in each `.env` or `.env.local` file to match your own configuration.
+
+## Development
+
+Run the development server with:
 
 ```sh title="Terminal"
 pnpm dev
