@@ -49,11 +49,9 @@
     "input-otp": "^1.2.4",
     "lodash.merge": "^4.6.2",
     "lucide-react": "^0.453.0",
-    "next": "14.2.16",
     "next-themes": "^0.3.0",
     "posthog-js": "^1.177.0",
     "posthog-node": "^4.2.1",
-    "react": "18.3.1",
     "react-day-picker": "^8.10.1",
     "react-hook-form": "^7.53.1",
     "react-moveable": "^0.56.0",
@@ -80,5 +78,9 @@
     "tailwindcss": "^3.4.14",
     "typescript": "^5.6.3",
     "ultracite": "^4.1.6"
+  },
+  "peerDependencies": {
+    "next": "15.0.1",
+    "react": "19.0.0-rc-69d4b800-20241021"
   }
 }
