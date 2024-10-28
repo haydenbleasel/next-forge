@@ -2,6 +2,7 @@ import { auth, currentUser } from '@clerk/nextjs/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
 import type { ReactElement, ReactNode } from 'react';
 import { GlobalSidebar } from './components/sidebar';
+import { showSummerSale } from '@repo/feature-flags';
 
 type AppLayoutProperties = {
   readonly children: ReactNode;
