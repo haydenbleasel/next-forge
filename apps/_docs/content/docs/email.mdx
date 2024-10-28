@@ -18,6 +18,8 @@ Clerk handles authentication and authorization emails automatically. You can con
 
 We use [Resend](https://resend.com/) to send transactional emails. The templates, located in `packages/email-templates`, are powered by [React Email](https://react.email/) - a collection of high-quality, unstyled components for creating beautiful emails using React and TypeScript.
 
+### Email Templates
+
 The `email-templates` package is separated from the app folder for two reasons:
 
 1. We can import them into the `email` app, allowing for previewing them in the UI; and
@@ -33,4 +35,12 @@ await resend.emails.send({
   replyTo: email,
   react: <ContactTemplate name={name} email={email} message={message} />,
 });
+```
+
+### Previewing Emails
+
+To preview the emails templates, simply run the `email` app:
+
+```bash title="Terminal"
+pnpm dev --filter email
 ```
