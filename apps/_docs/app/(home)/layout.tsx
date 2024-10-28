@@ -1,11 +1,9 @@
-import type { ReactNode } from 'react';
-import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/app/layout.config';
+import { HomeLayout } from 'fumadocs-ui/layouts/home';
+import type { ReactNode } from 'react';
 
-export default function Layout({
-  children,
-}: {
-  children: ReactNode;
-}): React.ReactElement {
-  return <HomeLayout {...baseOptions}>{children}</HomeLayout>;
-}
+const Layout = ({ children }: { children: ReactNode }) => (
+  <HomeLayout {...baseOptions}>{children}</HomeLayout>
+);
+
+export default Layout;

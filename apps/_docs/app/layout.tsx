@@ -1,5 +1,6 @@
 import './global.css';
-import { cn } from 'fumadocs-ui/components/api';
+import { cn } from '@repo/design-system/lib/utils';
+import { Analytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { GeistMono } from 'geist/font/mono';
 import { GeistSans } from 'geist/font/sans';
@@ -18,6 +19,7 @@ export default function Layout({ children }: { children: ReactNode }) {
     >
       <body className="flex flex-col min-h-screen">
         <RootProvider>{children}</RootProvider>
+        <Analytics />
       </body>
     </html>
   );
