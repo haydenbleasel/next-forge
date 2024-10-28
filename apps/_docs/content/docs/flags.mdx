@@ -75,3 +75,5 @@ export default function Page() {
   return <div>Analytics feature is enabled</div>;
 }
 ```
+
+Because feature flags are tied to the user, they only work if the user is signed in. Otherwise, the flag will always return `false`.

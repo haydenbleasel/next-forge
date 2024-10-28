@@ -21,12 +21,14 @@ const AppLayout = async ({
 
   return (
     <SidebarProvider>
-      {betaFeature && (
-        <div className="w-full bg-black py-2 text-center text-white">
-          Beta feature now available
-        </div>
-      )}
-      <GlobalSidebar>{children}</GlobalSidebar>
+      <GlobalSidebar>
+        {betaFeature && (
+          <div className="m-4 rounded-full text-sm bg-success p-1.5 text-center text-success-foreground">
+            Beta feature now available
+          </div>
+        )}
+        {children}
+      </GlobalSidebar>
     </SidebarProvider>
   );
 };
