@@ -10,13 +10,13 @@ importers:
     devDependencies:
       '@auto-it/all-contributors':
         specifier: ^11.2.1
-        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       '@auto-it/first-time-contributor':
         specifier: ^11.2.1
-        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       '@auto-it/git-tag':
         specifier: ^11.2.1
-        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+        version: 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
@@ -47,6 +47,9 @@ importers:
       fumadocs-core:
         specifier: 14.0.2
         version: 14.0.2(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(@types/react@18.3.12)
+      fumadocs-docgen:
+        specifier: ^1.3.1
+        version: 1.3.1(typescript@5.6.3)
       fumadocs-mdx:
         specifier: 11.0.0
         version: 11.0.0(acorn@8.13.0)(fumadocs-core@14.0.2(@opentelemetry/api@1.9.0)(@types/react@18.3.12))(next@15.0.0(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -107,7 +110,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^6.0.1
-        version: 6.0.1(next@15.0.1(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.0.1(next@15.0.1(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@logtail/next':
         specifier: ^0.1.5
         version: 0.1.5(next@15.0.1(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -159,7 +162,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^6.0.1
-        version: 6.0.1(next@15.0.1(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.0.1(next@15.0.1(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@repo/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -645,7 +648,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^6.0.1
-        version: 6.0.1(next@15.0.1(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.0.1(next@15.0.1(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@repo/design-system':
         specifier: workspace:*
         version: link:../design-system
@@ -3659,11 +3662,20 @@ packages:
   '@shikijs/core@1.22.0':
     resolution: {integrity: sha512-S8sMe4q71TJAW+qG93s5VaiihujRK6rqDFqBnxqvga/3LvqHEnxqBIOPkt//IdXVtHkQWKu4nOQNk0uBGicU7Q==}
 
+  '@shikijs/core@1.22.2':
+    resolution: {integrity: sha512-bvIQcd8BEeR1yFvOYv6HDiyta2FFVePbzeowf5pPS1avczrPK+cjmaxxh0nx5QzbON7+Sv0sQfQVciO7bN72sg==}
+
   '@shikijs/engine-javascript@1.22.0':
     resolution: {integrity: sha512-AeEtF4Gcck2dwBqCFUKYfsCq0s+eEbCEbkUuFou53NZ0sTGnJnJ/05KHQFZxpii5HMXbocV9URYVowOP2wH5kw==}
 
+  '@shikijs/engine-javascript@1.22.2':
+    resolution: {integrity: sha512-iOvql09ql6m+3d1vtvP8fLCVCK7BQD1pJFmHIECsujB0V32BJ0Ab6hxk1ewVSMFA58FI0pR2Had9BKZdyQrxTw==}
+
   '@shikijs/engine-oniguruma@1.22.0':
     resolution: {integrity: sha512-5iBVjhu/DYs1HB0BKsRRFipRrD7rqjxlWTj4F2Pf+nQSPqc3kcyqFFeZXnBMzDf0HdqaFVvhDRAGiYNvyLP+Mw==}
+
+  '@shikijs/engine-oniguruma@1.22.2':
+    resolution: {integrity: sha512-GIZPAGzQOy56mGvWMoZRPggn0dTlBf1gutV5TdceLCZlFNqWmuc7u+CzD0Gd9vQUTgLbrt0KLzz6FNprqYAxlA==}
 
   '@shikijs/rehype@1.22.0':
     resolution: {integrity: sha512-lgbERrnR5CZFDryZNn/JEBA5h54hpRxMT7lXrXceDS7fiLl6ZBWLGk1nTypk9LT80M2lNZVeeh9UGS+wLoFtWQ==}
@@ -3673,6 +3685,9 @@ packages:
 
   '@shikijs/types@1.22.0':
     resolution: {integrity: sha512-Fw/Nr7FGFhlQqHfxzZY8Cwtwk5E9nKDUgeLjZgt3UuhcM3yJR9xj3ZGNravZZok8XmEZMiYkSMTPlPkULB8nww==}
+
+  '@shikijs/types@1.22.2':
+    resolution: {integrity: sha512-NCWDa6LGZqTuzjsGfXOBWfjS/fDIbDdmVDug+7ykVe1IKT4c1gakrvlfFYp5NhAXH/lyqLM8wsAPo5wNy73Feg==}
 
   '@shikijs/vscode-textmate@9.3.0':
     resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
@@ -3845,6 +3860,9 @@ packages:
     resolution: {integrity: sha512-L7z9BgrNEcYyUYtF+HaEfiS5ebkh9jXqbszz7pC0hRBPaatV0XjSD3+eHrpqFemQfgwiFF0QPIarnIihIDn7OA==}
     engines: {node: '>=10.13.0'}
 
+  '@ts-morph/common@0.25.0':
+    resolution: {integrity: sha512-kMnZz+vGGHi4GoHnLmMhGNjm44kGtKUXGnOvrKmMwAuvNjM/PgKVGfUnL7IDvK7Jb2QQ82jq3Zmp04Gy+r3Dkg==}
+
   '@tsconfig/node10@1.0.11':
     resolution: {integrity: sha512-DcRjDCujK/kCk/cUe8Xz8ZSpm8mS3mNNpta+jGCA6USEDfktlNvm1+IuZ9eTcDbNk41BHwpHHeW+N1lKCz4zOw==}
 
@@ -3973,6 +3991,9 @@ packages:
 
   '@types/node@22.7.9':
     resolution: {integrity: sha512-jrTfRC7FM6nChvU7X2KqcrgquofrWLFDeYC1hKfwNWomVvrn7JIksqf344WN2X/y8xrgqBd2dJATZV4GbatBfg==}
+
+  '@types/node@22.8.1':
+    resolution: {integrity: sha512-k6Gi8Yyo8EtrNtkHXutUu2corfDf9su95VYVP10aGYMMROM6SAItZi0w1XszA6RtWTHSVp5OeFof37w0IEqCQg==}
 
   '@types/parse-json@4.0.2':
     resolution: {integrity: sha512-dISoDXWWQwUquiKsyZ4Ng+HX2KsPL7LyHKHQwgGFEA3IaKac4Obd+h2a/a6waisAoepJlBcx9paWqjA8/HVjCw==}
@@ -4570,6 +4591,9 @@ packages:
   co@4.6.0:
     resolution: {integrity: sha512-QVb0dM5HvG+uaxitm8wONl7jltx8dqhfU33DcqtOZcLSVIKSDDLDi7+0LbAKiyI8hD9u42m2YxXSkMGWThaecQ==}
     engines: {iojs: '>= 1.0.0', node: '>= 0.12.0'}
+
+  code-block-writer@13.0.3:
+    resolution: {integrity: sha512-Oofo0pq3IKnsFtuHqSF7TqBfr71aeyZDVJ0HpmqB7FBM2qEigL0iPONSCZSO9pE9dZTAxANe5XHG9Uy0YMv8cg==}
 
   collapse-white-space@2.1.0:
     resolution: {integrity: sha512-loKTxY1zCOuG4j9f6EPnuyyYkf58RnhhWTvRoZEokgB+WbdXehfjFviyOVYkqzEWz1Q5kRiZdBYS5SwxbQYwzw==}
@@ -5333,9 +5357,6 @@ packages:
   estree-util-to-js@2.0.0:
     resolution: {integrity: sha512-WDF+xj5rRWmD5tj6bIqRi6CkLIXbbNQUcxQHzGysQzvHmdYG2G7p/Tf0J0gpxGgkeMZNTIjT/AoSvC9Xehcgdg==}
 
-  estree-util-value-to-estree@3.1.1:
-    resolution: {integrity: sha512-5mvUrF2suuv5f5cGDnDphIy4/gW86z82kl5qG6mM9z04SEQI4FB5Apmaw/TGEf3l55nLtMs5s51dmhUzvAHQCA==}
-
   estree-util-value-to-estree@3.1.2:
     resolution: {integrity: sha512-S0gW2+XZkmsx00tU2uJ4L9hUT7IFabbml9pHh2WQqFmAbxit++YGZne0sKJbNwkj9Wvg9E4uqWl4nCIFQMmfag==}
 
@@ -5558,12 +5579,20 @@ packages:
   fumadocs-core@14.0.2:
     resolution: {integrity: sha512-GG+uVIBthFJJAHAqFWwBvTsTeZmsHg5YYwHsTIDnpy77+ER4aogkJkeUqoBN4TrmxzG8tbLzaxCwSMtk4X5OoA==}
 
+  fumadocs-docgen@1.3.1:
+    resolution: {integrity: sha512-CH823PWWLity+x+vGxp7wVThUy8AIc1ndFaaorJkWb0+HruwPNm9Yh9q8dgY2gk5RZirJs3tveuDfRUc2TTkww==}
+
   fumadocs-mdx@11.0.0:
     resolution: {integrity: sha512-HF8arG+SN+Qnit4wo00YYYPlfKYpXuYcIpqnKf7E/N7TRdpuf9vq3NVNW29oTiF6x//JELgWzkcrvG9EqEv65A==}
     hasBin: true
     peerDependencies:
       fumadocs-core: ^14.0.0
       next: 14.x.x || 15.x.x
+
+  fumadocs-typescript@3.0.1:
+    resolution: {integrity: sha512-W81nFwMIa+C9nw9EUyWEfzfeb5/WLxIW/dpXJGiCbKkyUpp1fv3YI5D+NleYCZFSGDbMxDFicxRKoosAqNdIDw==}
+    peerDependencies:
+      typescript: '*'
 
   fumadocs-ui@14.0.2:
     resolution: {integrity: sha512-LZM7X98iTa0xsS4KYr1pn6JcnAGalRqdzSDuCH1ZbgR5Vk5ZzsLMvPhBnhrL1mWdmjzkvse2J7i4pyrvxEQj3w==}
@@ -5750,6 +5779,9 @@ packages:
 
   hast-util-to-jsx-runtime@2.3.0:
     resolution: {integrity: sha512-H/y0+IWPdsLLS738P8tDnrQ8Z+dj12zQQ6WC11TIM21C8WFVoIxcqWXf2H3hiTVZjF1AWqoimGwrTWecWrnmRQ==}
+
+  hast-util-to-jsx-runtime@2.3.2:
+    resolution: {integrity: sha512-1ngXYb+V9UT5h+PxNRa1O1FYguZK/XL+gkeqvp7EdHlB9oHUG0eYRo/vY5inBdcqo3RkPMC58/H94HvkbfGdyg==}
 
   hast-util-to-string@3.0.1:
     resolution: {integrity: sha512-XelQVTDWvqcl3axRfI0xSeoVKzyIFPwsAGSLIsKdJKQMXDYJS4WYrBNF/8J7RdhIcFI2BOHgAifggsvsxp/3+A==}
@@ -6497,6 +6529,9 @@ packages:
   mdast-util-from-markdown@2.0.1:
     resolution: {integrity: sha512-aJEUyzZ6TzlsX2s5B4Of7lN7EQtAxvtradMMglCQDyaTFgse6CmtmdJ15ElnVRlCg1vpNyVtbem0PWzlNieZsA==}
 
+  mdast-util-from-markdown@2.0.2:
+    resolution: {integrity: sha512-uZhTV/8NBuw0WHkPTrCqDOl0zVe1BIng5ZtHoDk49ME1qqcjYmmLmOf0gELgcRMxN4w2iuIeVso5/6QymSrgmA==}
+
   mdast-util-frontmatter@2.0.1:
     resolution: {integrity: sha512-LRqI9+wdgC25P0URIJY9vwocIzCcksduHQ9OF2joxQoyTNVduwLAFUzjoopuRJbJAReaKrNQKAZKL3uCMugWJA==}
 
@@ -6535,6 +6570,9 @@ packages:
 
   mdast-util-to-hast@13.1.0:
     resolution: {integrity: sha512-/e2l/6+OdGp/FB+ctrJ9Avz71AN/GRH3oi/3KAx/kMnoUsD6q0woXlDT8lLEeViVKE7oZxE7RXzvO3T8kF2/sA==}
+
+  mdast-util-to-hast@13.2.0:
+    resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
 
   mdast-util-to-markdown@2.1.0:
     resolution: {integrity: sha512-SR2VnIEdVNCJbP6y7kVTJgPLifdr8WEU440fQec7qHoHOUz/oJ2jmNRqdDQ3rbiStOXb2mCDGTuwsK5OPUgYlQ==}
@@ -6926,6 +6964,10 @@ packages:
     resolution: {integrity: sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw==}
     engines: {node: '>=8'}
 
+  npm-to-yarn@3.0.0:
+    resolution: {integrity: sha512-76YnmsbfrYp0tMsWxM0RNX0Vs+x8JxpJGu6B/jDn4lW8+laiTcKmKi9MeMh4UikO4RkJ1oqURoDy9bXJmMXS6A==}
+    engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
+
   nth-check@2.1.1:
     resolution: {integrity: sha512-lqjrjmaOoAnWfMmBPL+XNnynZh2+swxiX3WUE0s4yEHI6m+AwrK2UZOimIRl3X/4QctVqS8AiZjFqyOGrMXb/w==}
 
@@ -7066,6 +7108,9 @@ packages:
 
   parseley@0.12.1:
     resolution: {integrity: sha512-e6qHKe3a9HWr0oMRVDTRhKce+bRO8VGQR3NyVwcjwrbhMmFCX9KszEV35+rn4AdilFAq9VPxP/Fe1wC9Qjd2lw==}
+
+  path-browserify@1.0.1:
+    resolution: {integrity: sha512-b7uo2UCUOYZcnF/3ID0lulOJi/bafxa1xPe7ZPsammBSpjSWQkjNxlt635YGS2MiR9GjvuXCtz2emr3jbsz98g==}
 
   path-data-parser@0.1.0:
     resolution: {integrity: sha512-NOnmBpt5Y2RWbuv0LMzsayp3lVylAHLPUTut412ZA3l+C4uw4ZVkQbjShYCQ8TCpUMdPapr4YjUqLYD6v68j+w==}
@@ -7794,6 +7839,9 @@ packages:
   shiki@1.22.0:
     resolution: {integrity: sha512-/t5LlhNs+UOKQCYBtl5ZsH/Vclz73GIqT2yQsCBygr8L/ppTdmpL4w3kPLoZJbMKVWtoG77Ue1feOjZfDxvMkw==}
 
+  shiki@1.22.2:
+    resolution: {integrity: sha512-3IZau0NdGKXhH2bBlUk4w1IHNxPh6A5B2sUpyY+8utLu2j/h1QpFkAaUA1bAMxOWWGtTWcAh531vnS4NJKS/lA==}
+
   shimmer@1.2.1:
     resolution: {integrity: sha512-sQTKC1Re/rM6XyFM6fIAGHRPVGvyXfgzIDvzoq608vM+jeyVD0Tu1E6Np0Kc2zAIFWIj963V2800iF/9LPieQw==}
 
@@ -8240,6 +8288,9 @@ packages:
 
   ts-interface-checker@0.1.13:
     resolution: {integrity: sha512-Y/arvbn+rrz3JCKl9C4kVNfTfSm2/mEp5FSz5EsZSANGPSlQrpRI5M4PKF+mJnE52jOO90PnPSc3Ur3bTQw0gA==}
+
+  ts-morph@24.0.0:
+    resolution: {integrity: sha512-2OAOg/Ob5yx9Et7ZX4CvTCc0UFoZHwLEJ+dpDPSUi5TgwwlTlX47w+iFRrEwzUZwYACjq83cgjS/Da50Ga37uw==}
 
   ts-node@10.9.2:
     resolution: {integrity: sha512-f0FFpIdcHgn8zcPSbf1dRevwt047YMnaiJM3u2w2RewrB+fob/zePZcrOyQoLMMO7aBIddLcQIEK5dYjkLnGrQ==}
@@ -8824,10 +8875,10 @@ snapshots:
 
   '@antfu/utils@0.7.10': {}
 
-  '@auto-it/all-contributors@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)':
+  '@auto-it/all-contributors@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)':
     dependencies:
       '@auto-it/bot-list': 11.2.1
-      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       '@octokit/rest': 18.12.0
       all-contributors-cli: 6.19.0
       anymatch: 3.1.3
@@ -8848,7 +8899,7 @@ snapshots:
 
   '@auto-it/bot-list@11.2.1': {}
 
-  '@auto-it/core@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)':
+  '@auto-it/core@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)':
     dependencies:
       '@auto-it/bot-list': 11.2.1
       '@endemolshinegroup/cosmiconfig-typescript-loader': 3.0.2(cosmiconfig@7.0.0)(typescript@5.6.3)
@@ -8885,24 +8936,24 @@ snapshots:
       tapable: 2.2.1
       terminal-link: 2.1.1
       tinycolor2: 1.6.0
-      ts-node: 10.9.2(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+      ts-node: 10.9.2(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       tslib: 2.1.0
       type-fest: 0.21.3
       typescript: 5.6.3
       typescript-memoize: 1.1.1
       url-join: 4.0.1
     optionalDependencies:
-      '@types/node': 22.7.9
+      '@types/node': 22.8.1
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
       - encoding
       - supports-color
 
-  '@auto-it/first-time-contributor@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)':
+  '@auto-it/first-time-contributor@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)':
     dependencies:
       '@auto-it/bot-list': 11.2.1
-      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       array.prototype.flatmap: 1.3.2
       endent: 2.1.0
       tslib: 2.1.0
@@ -8915,9 +8966,9 @@ snapshots:
       - supports-color
       - typescript
 
-  '@auto-it/git-tag@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)':
+  '@auto-it/git-tag@11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)':
     dependencies:
-      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.9)(typescript@5.6.3)
+      '@auto-it/core': 11.2.1(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3)
       semver: 7.6.2
       tslib: 2.1.0
     transitivePeerDependencies:
@@ -9292,7 +9343,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       tslib: 2.4.1
 
-  '@clerk/nextjs@6.0.1(next@15.0.1(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@clerk/nextjs@6.0.1(next@15.0.1(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@clerk/backend': 1.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@clerk/clerk-react': 5.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -12016,15 +12067,35 @@ snapshots:
       '@types/hast': 3.0.4
       hast-util-to-html: 9.0.3
 
+  '@shikijs/core@1.22.2':
+    dependencies:
+      '@shikijs/engine-javascript': 1.22.2
+      '@shikijs/engine-oniguruma': 1.22.2
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
+      '@types/hast': 3.0.4
+      hast-util-to-html: 9.0.3
+
   '@shikijs/engine-javascript@1.22.0':
     dependencies:
       '@shikijs/types': 1.22.0
       '@shikijs/vscode-textmate': 9.3.0
       oniguruma-to-js: 0.4.3
 
+  '@shikijs/engine-javascript@1.22.2':
+    dependencies:
+      '@shikijs/types': 1.22.2
+      '@shikijs/vscode-textmate': 9.3.0
+      oniguruma-to-js: 0.4.3
+
   '@shikijs/engine-oniguruma@1.22.0':
     dependencies:
       '@shikijs/types': 1.22.0
+      '@shikijs/vscode-textmate': 9.3.0
+
+  '@shikijs/engine-oniguruma@1.22.2':
+    dependencies:
+      '@shikijs/types': 1.22.2
       '@shikijs/vscode-textmate': 9.3.0
 
   '@shikijs/rehype@1.22.0':
@@ -12041,6 +12112,11 @@ snapshots:
       shiki: 1.22.0
 
   '@shikijs/types@1.22.0':
+    dependencies:
+      '@shikijs/vscode-textmate': 9.3.0
+      '@types/hast': 3.0.4
+
+  '@shikijs/types@1.22.2':
     dependencies:
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
@@ -12211,6 +12287,12 @@ snapshots:
 
   '@trysound/sax@0.2.0': {}
 
+  '@ts-morph/common@0.25.0':
+    dependencies:
+      minimatch: 9.0.4
+      path-browserify: 1.0.1
+      tinyglobby: 0.2.9
+
   '@tsconfig/node10@1.0.11': {}
 
   '@tsconfig/node12@1.0.11': {}
@@ -12351,6 +12433,10 @@ snapshots:
       undici-types: 6.19.8
 
   '@types/node@22.7.9':
+    dependencies:
+      undici-types: 6.19.8
+
+  '@types/node@22.8.1':
     dependencies:
       undici-types: 6.19.8
 
@@ -13019,6 +13105,8 @@ snapshots:
       - '@types/react-dom'
 
   co@4.6.0: {}
+
+  code-block-writer@13.0.3: {}
 
   collapse-white-space@2.1.0: {}
 
@@ -13933,11 +14021,6 @@ snapshots:
       astring: 1.8.6
       source-map: 0.7.4
 
-  estree-util-value-to-estree@3.1.1:
-    dependencies:
-      '@types/estree': 1.0.6
-      is-plain-obj: 4.1.0
-
   estree-util-value-to-estree@3.1.2:
     dependencies:
       '@types/estree': 1.0.6
@@ -14195,6 +14278,19 @@ snapshots:
       - sass
       - supports-color
 
+  fumadocs-docgen@1.3.1(typescript@5.6.3):
+    dependencies:
+      estree-util-value-to-estree: 3.1.2
+      fumadocs-typescript: 3.0.1(typescript@5.6.3)
+      hast-util-to-estree: 3.1.0
+      npm-to-yarn: 3.0.0
+      ts-morph: 24.0.0
+      unist-util-visit: 5.0.0
+      zod: 3.23.8
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+
   fumadocs-mdx@11.0.0(acorn@8.13.0)(fumadocs-core@14.0.2(@opentelemetry/api@1.9.0)(@types/react@18.3.12))(next@15.0.0(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)):
     dependencies:
       '@mdx-js/mdx': 3.1.0(acorn@8.13.0)
@@ -14210,6 +14306,20 @@ snapshots:
       zod: 3.23.8
     transitivePeerDependencies:
       - acorn
+      - supports-color
+
+  fumadocs-typescript@3.0.1(typescript@5.6.3):
+    dependencies:
+      '@types/node': 22.8.1
+      fast-glob: 3.3.2
+      hast-util-to-jsx-runtime: 2.3.2
+      mdast-util-from-markdown: 2.0.2
+      mdast-util-gfm: 3.0.0
+      mdast-util-to-hast: 13.2.0
+      shiki: 1.22.2
+      ts-morph: 24.0.0
+      typescript: 5.6.3
+    transitivePeerDependencies:
       - supports-color
 
   fumadocs-ui@14.0.2(@opentelemetry/api@1.9.0)(@types/react-dom@18.3.1)(@types/react@18.3.12)(next@15.0.0(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(ts-node@10.9.2(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.8)(typescript@5.6.3)):
@@ -14465,6 +14575,26 @@ snapshots:
       zwitch: 2.0.4
 
   hast-util-to-jsx-runtime@2.3.0:
+    dependencies:
+      '@types/estree': 1.0.6
+      '@types/hast': 3.0.4
+      '@types/unist': 3.0.3
+      comma-separated-tokens: 2.0.3
+      devlop: 1.1.0
+      estree-util-is-identifier-name: 3.0.0
+      hast-util-whitespace: 3.0.0
+      mdast-util-mdx-expression: 2.0.0
+      mdast-util-mdx-jsx: 3.1.2
+      mdast-util-mdxjs-esm: 2.0.1
+      property-information: 6.5.0
+      space-separated-tokens: 2.0.2
+      style-to-object: 1.0.6
+      unist-util-position: 5.0.0
+      vfile-message: 4.0.2
+    transitivePeerDependencies:
+      - supports-color
+
+  hast-util-to-jsx-runtime@2.3.2:
     dependencies:
       '@types/estree': 1.0.6
       '@types/hast': 3.0.4
@@ -15406,6 +15536,23 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
+  mdast-util-from-markdown@2.0.2:
+    dependencies:
+      '@types/mdast': 4.0.4
+      '@types/unist': 3.0.3
+      decode-named-character-reference: 1.0.2
+      devlop: 1.1.0
+      mdast-util-to-string: 4.0.0
+      micromark: 4.0.0
+      micromark-util-decode-numeric-character-reference: 2.0.1
+      micromark-util-decode-string: 2.0.0
+      micromark-util-normalize-identifier: 2.0.0
+      micromark-util-symbol: 2.0.0
+      micromark-util-types: 2.0.0
+      unist-util-stringify-position: 4.0.0
+    transitivePeerDependencies:
+      - supports-color
+
   mdast-util-frontmatter@2.0.1:
     dependencies:
       '@types/mdast': 4.0.4
@@ -15530,6 +15677,18 @@ snapshots:
       unist-util-is: 6.0.0
 
   mdast-util-to-hast@13.1.0:
+    dependencies:
+      '@types/hast': 3.0.4
+      '@types/mdast': 4.0.4
+      '@ungap/structured-clone': 1.2.0
+      devlop: 1.1.0
+      micromark-util-sanitize-uri: 2.0.0
+      trim-lines: 3.0.1
+      unist-util-position: 5.0.0
+      unist-util-visit: 5.0.0
+      vfile: 6.0.3
+
+  mdast-util-to-hast@13.2.0:
     dependencies:
       '@types/hast': 3.0.4
       '@types/mdast': 4.0.4
@@ -16095,6 +16254,8 @@ snapshots:
     dependencies:
       path-key: 3.1.1
 
+  npm-to-yarn@3.0.0: {}
+
   nth-check@2.1.1:
     dependencies:
       boolbase: 1.0.0
@@ -16247,6 +16408,8 @@ snapshots:
     dependencies:
       leac: 0.6.0
       peberminta: 0.9.0
+
+  path-browserify@1.0.1: {}
 
   path-data-parser@0.1.0: {}
 
@@ -16838,7 +17001,7 @@ snapshots:
     dependencies:
       '@types/mdast': 4.0.4
       estree-util-is-identifier-name: 3.0.0
-      estree-util-value-to-estree: 3.1.1
+      estree-util-value-to-estree: 3.1.2
       toml: 3.0.0
       unified: 11.0.5
       yaml: 2.6.0
@@ -17116,6 +17279,15 @@ snapshots:
       '@shikijs/engine-javascript': 1.22.0
       '@shikijs/engine-oniguruma': 1.22.0
       '@shikijs/types': 1.22.0
+      '@shikijs/vscode-textmate': 9.3.0
+      '@types/hast': 3.0.4
+
+  shiki@1.22.2:
+    dependencies:
+      '@shikijs/core': 1.22.2
+      '@shikijs/engine-javascript': 1.22.2
+      '@shikijs/engine-oniguruma': 1.22.2
+      '@shikijs/types': 1.22.2
       '@shikijs/vscode-textmate': 9.3.0
       '@types/hast': 3.0.4
 
@@ -17744,6 +17916,11 @@ snapshots:
 
   ts-interface-checker@0.1.13: {}
 
+  ts-morph@24.0.0:
+    dependencies:
+      '@ts-morph/common': 0.25.0
+      code-block-writer: 13.0.3
+
   ts-node@10.9.2(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.7.8)(typescript@5.6.3):
     dependencies:
       '@cspotcode/source-map-support': 0.8.1
@@ -17773,6 +17950,27 @@ snapshots:
       '@tsconfig/node14': 1.0.3
       '@tsconfig/node16': 1.0.4
       '@types/node': 22.7.9
+      acorn: 8.11.3
+      acorn-walk: 8.3.2
+      arg: 4.1.3
+      create-require: 1.1.1
+      diff: 4.0.2
+      make-error: 1.3.6
+      typescript: 5.6.3
+      v8-compile-cache-lib: 3.0.1
+      yn: 3.1.1
+    optionalDependencies:
+      '@swc/core': 1.3.101(@swc/helpers@0.5.13)
+    optional: true
+
+  ts-node@10.9.2(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.1)(typescript@5.6.3):
+    dependencies:
+      '@cspotcode/source-map-support': 0.8.1
+      '@tsconfig/node10': 1.0.11
+      '@tsconfig/node12': 1.0.11
+      '@tsconfig/node14': 1.0.3
+      '@tsconfig/node16': 1.0.4
+      '@types/node': 22.8.1
       acorn: 8.11.3
       acorn-walk: 8.3.2
       arg: 4.1.3

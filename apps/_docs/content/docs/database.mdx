@@ -33,9 +33,9 @@ Etcetera.
 
 3. Swap out the required dependencies in `@repo/database`:
 
-```sh title="Terminal"
-pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
-pnpm add @planetscale/database @prisma/adapter-planetscale
+```package-install
+npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+npm install @planetscale/database @prisma/adapter-planetscale
 ```
 
 4. Update the database connection code:

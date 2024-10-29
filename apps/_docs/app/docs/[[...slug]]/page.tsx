@@ -3,6 +3,7 @@ import {
   ImageZoom,
   type ImageZoomProps,
 } from 'fumadocs-ui/components/image-zoom';
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
   DocsBody,
@@ -41,6 +42,8 @@ const Page = async (props: PageProps) => {
             ...defaultMdxComponents,
             Mermaid,
             img: (props) => <ImageZoom {...(props as ImageZoomProps)} />,
+            Tab,
+            Tabs,
           }}
         />
       </DocsBody>
