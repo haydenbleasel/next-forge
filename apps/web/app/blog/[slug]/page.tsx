@@ -4,11 +4,11 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
-import { ArticleJsonLd } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
+import type { BlogPosting, WithContext } from 'schema-dts';
 
 type BlogPostProperties = {
   readonly params: Promise<{
@@ -46,21 +46,31 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
     notFound();
   }
 
+  const jsonLd: WithContext<BlogPosting> = {
+    '@type': 'BlogPosting',
+    '@context': 'https://schema.org',
+    datePublished: page.date.toISOString(),
+    description: page.description,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': new URL(
+        `/blog/${slug}`,
+        process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+      ).toString(),
+    },
+    headline: page.title,
+    image: page.image,
+    dateModified: page.date.toISOString(),
+    author: page.authors.at(0),
+    isAccessibleForFree: true,
+  };
+
   return (
     <>
-      <ArticleJsonLd
-        type="BlogPosting"
-        url={new URL(
-          `/blog/${slug}`,
-          process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
-        ).toString()}
-        title={page.title}
-        images={[page.image]}
-        datePublished={page.date.toISOString()}
-        authorName={page.authors.at(0)}
-        description={page.description}
-        isAccessibleForFree
-        useAppDir
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: "This is a JSON-LD script, not user-generated content."
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <div className="container py-16">
         <Link
