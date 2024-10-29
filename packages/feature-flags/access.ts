@@ -20,8 +20,6 @@ export const getFlags = async (request: NextRequest) => {
     ])
   );
 
-  console.log(definitions, 'definitions');
-
   return NextResponse.json<ApiData>({
     definitions,
   });
