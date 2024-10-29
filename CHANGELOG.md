@@ -1,3 +1,15 @@
+# v2.4.7 (Tue Oct 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Improve PostHog integration ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.4.6 (Tue Oct 29 2024)
 
 #### ⚠️ Pushed to `main`
