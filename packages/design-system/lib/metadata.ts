@@ -48,9 +48,6 @@ export const createMetadata = ({
       card: 'summary_large_image',
       creator: twitterHandle,
     },
-    other: {
-      'slack-app-id': 'A06NDDYKYE8',
-    },
   };
 
   const metadata: Metadata = merge(defaultMetadata, properties);
