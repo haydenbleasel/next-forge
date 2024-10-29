@@ -3,10 +3,11 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 // @ts-expect-error No declaration file
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
 import { withSentryConfig } from '@sentry/nextjs';
+import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
-export const config: NextConfig = {
+export const config: NextConfig = withVercelToolbar()({
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -15,6 +16,24 @@ export const config: NextConfig = {
         hostname: 'img.clerk.com',
       },
     ],
+  },
+
+  // biome-ignore lint/suspicious/useAwait: rewrites is async
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
+      },
+      {
+        source: '/ingest/decide',
+        destination: 'https://us.i.posthog.com/decide',
+      },
+    ];
   },
 
   // biome-ignore lint/suspicious/useAwait: headers is async
@@ -40,7 +59,10 @@ export const config: NextConfig = {
 
     return config;
   },
-};
+
+  // This is required to support PostHog trailing slash API requests
+  skipTrailingSlashRedirect: true,
+});
 
 export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   org: process.env.SENTRY_ORG,

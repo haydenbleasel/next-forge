@@ -1,6 +1,6 @@
 import { createMetadata } from '@repo/design-system/lib/metadata';
+import { showBetaFeature } from '@repo/feature-flags';
 import type { Metadata } from 'next';
-import type { FC } from 'react';
 import { Cases } from './components/cases';
 import { CTA } from './components/cta';
 import { FAQ } from './components/faq';
@@ -17,16 +17,25 @@ const meta = {
 
 export const metadata: Metadata = createMetadata(meta);
 
-const Home = () => (
-  <>
-    <Hero />
-    <Cases />
-    <Features />
-    <Stats />
-    <Testimonials />
-    <FAQ />
-    <CTA />
-  </>
-);
+const Home = async () => {
+  const betaFeature = await showBetaFeature();
+
+  return (
+    <>
+      {betaFeature && (
+        <div className="w-full bg-black py-2 text-center text-white">
+          Beta feature now available
+        </div>
+      )}
+      <Hero />
+      <Cases />
+      <Features />
+      <Stats />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+    </>
+  );
+};
 
 export default Home;

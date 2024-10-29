@@ -40,3 +40,5 @@ graph TD
   C1 -->|Clerk Events| Posthog
   C2 -->|Stripe Events| Posthog
 `} />
+
+We've also setup Next.js rewrites to reverse proxy Posthog requests, meaning your client-side analytics events won't be blocked by ad blockers.
