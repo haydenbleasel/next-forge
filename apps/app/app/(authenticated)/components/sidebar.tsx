@@ -195,8 +195,6 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
               >
                 <OrganizationSwitcher
                   hidePersonal
-                  afterCreateOrganizationUrl="/welcome"
-                  afterLeaveOrganizationUrl="/select-organization"
                   afterSelectOrganizationUrl="/"
                 />
               </div>

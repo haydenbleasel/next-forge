@@ -1,4 +1,8 @@
 import { source } from '@/lib/source';
+import {
+  ImageZoom,
+  type ImageZoomProps,
+} from 'fumadocs-ui/components/image-zoom';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import {
   DocsBody,
@@ -32,7 +36,13 @@ const Page = async (props: PageProps) => {
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
-        <Mdx components={{ ...defaultMdxComponents, Mermaid }} />
+        <Mdx
+          components={{
+            ...defaultMdxComponents,
+            Mermaid,
+            img: (props) => <ImageZoom {...(props as ImageZoomProps)} />,
+          }}
+        />
       </DocsBody>
     </DocsPage>
   );
