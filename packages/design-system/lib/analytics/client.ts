@@ -14,4 +14,5 @@ export const analytics = posthog.init(posthogApiKey, {
   ui_host: 'https://us.posthog.com',
   person_profiles: 'identified_only',
   capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+  capture_pageleave: true, // Overrides the `capture_pageview` setting
 }) as PostHog;
