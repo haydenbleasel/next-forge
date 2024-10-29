@@ -14,48 +14,20 @@ Feature flags (also known as feature toggles) allow you to control access to spe
 
 next-forge implements feature flags using Vercel's [Flags SDK](https://vercel.com/docs/workflow-collaboration/feature-flags/flags-pattern-nextjs), which is mostly an architectural pattern for working with feature flags. This setup exists in the `@repo/feature-flags` package, so you can import and use it in as many projects as you'd like.
 
-We've createad a single example flag called `showBetaFeature` that you can use as a template for your own flags.
+We've created an intelligent function called `createFlag` that you can use to create new flags, complete with authentication, PostHog integration and Vercel Toolbar overrides without the hassle.
 
 ## Adding a new flag
 
-To add a new flag, simply modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
+To add a new flag, simply create a feature flag in Posthog and then modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
 
 ```ts title="packages/feature-flags/index.ts"
-import { unstable_flag as flag } from '@vercel/flags/next';
+import { createFlag } from './create-flag';
 
-export const showAnalyticsFeature = flag({ // [!code ++]
-  key: 'analytics-feature', // [!code ++]
-  decide: () => true, // [!code ++]
-}); // [!code ++]
+export const showBetaFeature = createFlag('showBetaFeature');
+export const showAnalyticsFeature = createFlag('showAnalyticsFeature'); // [!code ++]
 ```
 
-## Connecting to PostHog
-
-Rather than using the a hardcoded implementation, you can connect your flags to our existing Posthog setup. This will allow you to manage your flags in Posthog and have them automatically updated in your application.
-
-In this example, we'll connect the `showAnalyticsFeature` flag to Posthog, using Clerk to get the current user and then checking if they specifically have access to the feature.
-
-```ts title="packages/feature-flags/index.ts"
-import { currentUser } from '@clerk/nextjs/server'; // [!code ++]
-import { analytics } from '@repo/design-system/lib/analytics/server'; // [!code ++]
-import { unstable_flag as flag } from '@vercel/flags/next';
-
-export const showAnalyticsFeature = flag({
-  key: 'analytics-feature',
-  decide: () => true, // [!code --]
-  async decide() {  // [!code ++]
-    const user = await currentUser();  // [!code ++]
-
-    if (!user) {  // [!code ++]
-      return false;  // [!code ++]
-    }  // [!code ++]
-
-    const isEnabled = await analytics.isFeatureEnabled(this.key, user.id);  // [!code ++]
-
-    return isEnabled ?? false;  // [!code ++]
-  },  // [!code ++]
-});
-```
+Make sure the key you're using matches the key in Posthog exactly.
 
 ## Usage in your application
 
