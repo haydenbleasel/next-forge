@@ -4,7 +4,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
-import { ArticleJsonLd, NextSeo } from 'next-seo';
+import { ArticleJsonLd } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -48,15 +48,6 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
 
   return (
     <>
-      <NextSeo
-        openGraph={{
-          article: {
-            publishedTime: page.date.toISOString(),
-            authors: page.authors,
-            tags: page.tags,
-          },
-        }}
-      />
       <ArticleJsonLd
         type="BlogPosting"
         url={new URL(
