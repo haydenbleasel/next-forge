@@ -1,3 +1,15 @@
+# v2.4.10 (Tue Oct 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- More tiny fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.4.9 (Tue Oct 29 2024)
 
 #### ⚠️ Pushed to `main`
