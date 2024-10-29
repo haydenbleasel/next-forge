@@ -1,5 +1,6 @@
 import { createPreset } from 'fumadocs-ui/tailwind-plugin';
 import type { Config } from 'tailwindcss';
+import { fontFamily } from 'tailwindcss/defaultTheme';
 
 const config: Config = {
   content: [
@@ -11,6 +12,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Switzer', ...fontFamily.sans],
+        mono: ['JetBrains Mono', ...fontFamily.mono],
+      },
       borderRadius: {
         '4xl': 'calc(var(--radius) + 1rem)',
         '3xl': 'calc(var(--radius) + 0.75rem)',

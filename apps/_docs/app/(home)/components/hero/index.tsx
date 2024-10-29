@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import type { FC } from 'react';
 
 import { Installer } from '../installer';
 import { GitHubButton } from './github-button';

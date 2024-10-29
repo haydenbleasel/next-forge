@@ -91,7 +91,7 @@ export const Installer = () => {
           </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
-      <div className="max-w-[220px] truncate text-muted-foreground">
+      <div className="max-w-[220px] truncate font-mono text-muted-foreground">
         {activeManager.command}
         <span className="text-foreground">{installCommand}</span>
       </div>

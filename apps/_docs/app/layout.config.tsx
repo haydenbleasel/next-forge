@@ -23,7 +23,7 @@ export const baseOptions: BaseLayoutProps = {
           width={16}
           height={16}
         />
-        <span className="font-medium">next-forge</span>
+        <span className="font-semibold tracking-tight">next-forge</span>
       </div>
     ),
   },
