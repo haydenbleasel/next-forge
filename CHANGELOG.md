@@ -1,3 +1,15 @@
+# v2.4.2 (Tue Oct 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add zoomable images, misc fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.4.1 (Tue Oct 29 2024)
 
 #### ⚠️ Pushed to `main`
