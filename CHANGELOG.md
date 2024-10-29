@@ -1,3 +1,16 @@
+# v2.4.4 (Tue Oct 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix formatting of PostHog ([@haydenbleasel](https://github.com/haydenbleasel))
+- Split error capture and monitoring ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.4.3 (Tue Oct 29 2024)
 
 #### ⚠️ Pushed to `main`
