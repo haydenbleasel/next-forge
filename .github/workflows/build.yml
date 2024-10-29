@@ -26,6 +26,8 @@ env:
   NEXT_PUBLIC_GA_MEASUREMENT_ID: "test"
   NEXT_PUBLIC_POSTHOG_KEY: "test"
   NEXT_PUBLIC_POSTHOG_HOST: "test"
+  BETTERSTACK_API_KEY: "test"
+  BETTERSTACK_URL: "test"
 
 # what the action will do
 jobs:

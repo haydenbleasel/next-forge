@@ -41,13 +41,25 @@ The `tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes br
   Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.
 </Callout>
 
-## BetterStack Logs
+## BetterStack
 
-next-forge uses BetterStack Logs for centralized logging and monitoring. The logging functionality is abstracted through a simple wrapper in `packages/design-system/lib/log.ts` that provides a consistent logging interface across environments.
+next-forge uses BetterStack for centralized logging and uptime monitoring.
 
-In development, logs are output to the console for easy debugging. In production, logs are sent to BetterStack Logs where they can be searched, filtered, and analyzed.
+### Uptime Monitoring
 
-### Usage
+While the uptime monitoring functionality is configured through BetterStack's dashboard, next-forge provides a `Status` component in `@repo/design-system` that displays the current status of the application. You can see an example of this in the website footer.
+
+The status component shows 3 potential states:
+
+- `All systems normal` - 100% of the uptime monitors are reporting up
+- `Partial outage` - at least one uptime monitor is reporting down
+- `Degraded performance` - 0% of the uptime monitors are reporting up
+
+This functionality relies on the `BETTERSTACK_API_KEY` and `BETTERSTACK_URL` environment variables.
+
+### Logging
+
+The logging functionality is abstracted through a simple wrapper in `packages/design-system/lib/log.ts` that provides a consistent logging interface across environments. In development, logs are output to the console for easy debugging. In production, logs are sent to BetterStack Logs where they can be searched, filtered, and analyzed.
 
 To use this logging setup, simply import and use the `log` object. It shares the same interface as the `console` object, so you can replace `console` with `log` in your codebase.
 

@@ -1,3 +1,4 @@
+import { Status } from '@repo/design-system/components/status';
 import { docsUrl } from '@repo/design-system/lib/consts';
 import Link from 'next/link';
 
@@ -55,13 +56,7 @@ export const Footer = () => {
                 This is the start of something new.
               </p>
             </div>
-            <div className="flex flex-row gap-20">
-              <div className="flex max-w-lg flex-col text-left text-background/75 text-sm leading-relaxed tracking-tight">
-                <p>1 Tailwind Way</p>
-                <p>Menlo Park</p>
-                <p>CA 94025</p>
-              </div>
-            </div>
+            <Status />
           </div>
           <div className="grid items-start gap-10 lg:grid-cols-3">
             {navigationItems.map((item) => (
