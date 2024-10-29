@@ -84,25 +84,26 @@ export const Status = async (): Promise<ReactElement> => {
     }
   );
 
-  if (!response.ok) {
-    throw new Error('Failed to fetch status');
-  }
-
-  const { data } = (await response.json()) as BetterStackResponse;
-
-  const status =
-    data.filter((monitor) => monitor.attributes.status === 'up').length /
-    data.length;
-
   let statusColor = 'bg-success';
   let statusLabel = 'All systems normal';
 
-  if (status === 0) {
-    statusColor = 'bg-destructive';
-    statusLabel = 'Degraded performance';
-  } else if (status < 1) {
-    statusColor = 'bg-warning';
-    statusLabel = 'Partial outage';
+  if (response.ok) {
+    const { data } = (await response.json()) as BetterStackResponse;
+
+    const status =
+      data.filter((monitor) => monitor.attributes.status === 'up').length /
+      data.length;
+
+    if (status === 0) {
+      statusColor = 'bg-destructive';
+      statusLabel = 'Degraded performance';
+    } else if (status < 1) {
+      statusColor = 'bg-warning';
+      statusLabel = 'Partial outage';
+    }
+  } else {
+    statusColor = 'bg-muted-foreground';
+    statusLabel = 'Unable to fetch status';
   }
 
   return (
