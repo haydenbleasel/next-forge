@@ -4,6 +4,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
+import { ArticleJsonLd, NextSeo } from 'next-seo';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -46,45 +47,70 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
   }
 
   return (
-    <div className="container py-16">
-      <Link
-        className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
-        href="/blog"
-      >
-        <ArrowLeftIcon className="h-4 w-4" />
-        Back to Blog
-      </Link>
-      <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
-        <Balancer>{page.title}</Balancer>
-      </h1>
-      <p className="leading-7 [&:not(:first-child)]:mt-6">
-        <Balancer>{page.description}</Balancer>
-      </p>
-      {page.image ? (
-        <Image
-          src={page.image}
-          width={1920}
-          height={1080}
-          alt=""
-          className="my-16 h-full w-full rounded-xl"
-          priority
-          blurDataURL={page.imageBlur}
-          placeholder="blur"
-        />
-      ) : undefined}
-      <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
-        <div className="sm:flex-1">
-          <Mdx code={page.body} />
-        </div>
-        <div className="sticky top-24 hidden shrink-0 md:block">
-          <Sidebar
-            content={page.content}
-            readingTime={page.readingTime}
-            date={page.date}
+    <>
+      <NextSeo
+        openGraph={{
+          article: {
+            publishedTime: page.date.toISOString(),
+            authors: page.authors,
+            tags: page.tags,
+          },
+        }}
+      />
+      <ArticleJsonLd
+        type="BlogPosting"
+        url={new URL(
+          `/blog/${slug}`,
+          process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+        ).toString()}
+        title={page.title}
+        images={[page.image]}
+        datePublished={page.date.toISOString()}
+        authorName={page.authors.at(0)}
+        description={page.description}
+        isAccessibleForFree
+        useAppDir
+      />
+      <div className="container py-16">
+        <Link
+          className="mb-4 inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-600 focus:text-zinc-600 focus:underline focus:outline-none"
+          href="/blog"
+        >
+          <ArrowLeftIcon className="h-4 w-4" />
+          Back to Blog
+        </Link>
+        <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
+          <Balancer>{page.title}</Balancer>
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <Balancer>{page.description}</Balancer>
+        </p>
+        {page.image ? (
+          <Image
+            src={page.image}
+            width={1920}
+            height={1080}
+            alt=""
+            className="my-16 h-full w-full rounded-xl"
+            priority
+            blurDataURL={page.imageBlur}
+            placeholder="blur"
           />
+        ) : undefined}
+        <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
+          <div className="sm:flex-1">
+            <Mdx code={page.body} />
+          </div>
+          <div className="sticky top-24 hidden shrink-0 md:block">
+            <Sidebar
+              content={page.content}
+              readingTime={page.readingTime}
+              date={page.date}
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

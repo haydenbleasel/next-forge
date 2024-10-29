@@ -25,6 +25,8 @@ const posts = defineCollection({
     description: z.string(),
     date: z.string(),
     image: z.string(),
+    authors: z.array(z.string()),
+    tags: z.array(z.string()),
   }),
   transform: async (page, context) => {
     const body = await context.cache(page.content, async () =>
