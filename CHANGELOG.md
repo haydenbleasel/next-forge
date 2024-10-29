@@ -1,3 +1,15 @@
+# v2.4.0 (Tue Oct 29 2024)
+
+#### 🚀 Enhancement
+
+- Add Vercel Feature Flags [#154](https://github.com/haydenbleasel/next-forge/pull/154) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.3.0 (Mon Oct 28 2024)
 
 #### 🚀 Enhancement
