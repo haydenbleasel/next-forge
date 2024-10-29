@@ -1,0 +1,30 @@
+---
+title: Monitoring
+description: Centralized logging and uptime monitoring.
+---
+
+next-forge uses BetterStack by default for centralized logging and uptime monitoring.
+
+## Uptime Monitoring
+
+While the uptime monitoring functionality is configured through BetterStack's dashboard, next-forge provides a `Status` component in `@repo/design-system` that displays the current status of the application. You can see an example of this in the website footer.
+
+The status component shows 3 potential states:
+
+- `All systems normal` - 100% of the uptime monitors are reporting up
+- `Partial outage` - at least one uptime monitor is reporting down
+- `Degraded performance` - 0% of the uptime monitors are reporting up
+
+This functionality relies on the `BETTERSTACK_API_KEY` and `BETTERSTACK_URL` environment variables.
+
+## Logging
+
+The logging functionality is abstracted through a simple wrapper in `packages/design-system/lib/log.ts` that provides a consistent logging interface across environments. In development, logs are output to the console for easy debugging. In production, logs are sent to BetterStack Logs where they can be searched, filtered, and analyzed.
+
+To use this logging setup, simply import and use the `log` object. It shares the same interface as the `console` object, so you can replace `console` with `log` in your codebase.
+
+```tsx title="page.tsx"
+import { log } from '@repo/design-system/lib/log';
+
+log.info('Hello, world!');
+```
