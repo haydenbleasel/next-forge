@@ -12,7 +12,7 @@ export const Mask = () => (
       viewBox="0 0 790 718"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className="absolute -top-16 left-1/2 -translate-x-1/2 pl-48"
+      className="-top-16 -translate-x-1/2 absolute left-1/2 pl-48"
     >
       <title>Mask</title>
       <mask

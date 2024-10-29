@@ -1,15 +1,10 @@
 import { MDXContent } from '@content-collections/mdx/react';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { ComponentProps, FC, HTMLProps } from 'react';
+import type { ComponentProps, HTMLProps } from 'react';
 
 // eslint-disable-next-line id-length
-const a = (
-  {
-    href,
-    ...properties
-  }: HTMLProps<HTMLAnchorElement>
-) => {
+const a = ({ href, ...properties }: HTMLProps<HTMLAnchorElement>) => {
   if (typeof href !== 'string') {
     throw new TypeError('href is required');
   }
@@ -45,19 +40,19 @@ const img = (properties: HTMLProps<HTMLImageElement>) => {
 
 const CompanyName = () => 'next-forge';
 
-export const Mdx = (
-  {
-    code,
-    components
-  }: ComponentProps<typeof MDXContent>
-) => (<div className="prose prose-neutral dark:prose-invert">
-  <MDXContent
-    code={code}
-    components={{
-      a,
-      img,
-      CompanyName,
-      ...components,
-    }}
-  />
-</div>);
+export const Mdx = ({
+  code,
+  components,
+}: ComponentProps<typeof MDXContent>) => (
+  <div className="prose prose-neutral dark:prose-invert">
+    <MDXContent
+      code={code}
+      components={{
+        a,
+        img,
+        CompanyName,
+        ...components,
+      }}
+    />
+  </div>
+);

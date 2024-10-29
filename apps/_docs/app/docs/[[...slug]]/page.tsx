@@ -9,20 +9,23 @@ import {
 import { notFound } from 'next/navigation';
 import { Mermaid } from '../components/mermaid';
 
-export default async function Page(props: {
+type PageProps = {
   params: Promise<{ slug?: string[] }>;
-}) {
+};
+
+const Page = async (props: PageProps) => {
   const params = await props.params;
   const page = source.getPage(params.slug);
-  if (!page) notFound();
+
+  if (!page) {
+    notFound();
+  }
 
   const Mdx = page.data.body;
 
   return (
     <DocsPage
-      tableOfContent={{
-        style: 'clerk',
-      }}
+      tableOfContent={{ style: 'clerk' }}
       toc={page.data.toc}
       full={page.data.full}
     >
@@ -33,21 +36,22 @@ export default async function Page(props: {
       </DocsBody>
     </DocsPage>
   );
-}
+};
 
-export async function generateStaticParams() {
-  return source.generateParams();
-}
+export const generateStaticParams = async () => source.generateParams();
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
-}) {
+export const generateMetadata = async (props: PageProps) => {
   const params = await props.params;
   const page = source.getPage(params.slug);
-  if (!page) notFound();
+
+  if (!page) {
+    notFound();
+  }
 
   return {
     title: page.data.title,
     description: page.data.description,
   };
-}
+};
+
+export default Page;

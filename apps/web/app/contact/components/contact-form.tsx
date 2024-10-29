@@ -12,7 +12,7 @@ import {
 import { cn } from '@repo/design-system/lib/utils';
 import { format } from 'date-fns';
 import { CalendarIcon, Check, MoveRight } from 'lucide-react';
-import { type FC, useState } from 'react';
+import { useState } from 'react';
 
 export const ContactForm = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());

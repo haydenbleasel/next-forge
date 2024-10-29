@@ -3,7 +3,7 @@
 import { Button } from '@repo/design-system/components/ui/button';
 import { CopyIcon } from 'lucide-react';
 import Image from 'next/image';
-import { type FC, useState } from 'react';
+import { useState } from 'react';
 
 import {
   DropdownMenu,

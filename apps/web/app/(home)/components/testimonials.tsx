@@ -12,7 +12,7 @@ import {
   CarouselItem,
 } from '@repo/design-system/components/ui/carousel';
 import { User } from 'lucide-react';
-import { type FC, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const Testimonials = () => {
   const [api, setApi] = useState<CarouselApi>();

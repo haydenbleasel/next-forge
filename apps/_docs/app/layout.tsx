@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       )}
       suppressHydrationWarning
     >
-      <body className="flex flex-col min-h-screen">
+      <body className="flex min-h-screen flex-col">
         <RootProvider>{children}</RootProvider>
         <Analytics />
       </body>

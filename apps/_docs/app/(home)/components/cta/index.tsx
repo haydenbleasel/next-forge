@@ -1,4 +1,3 @@
-import type { FC } from 'react';
 import { Installer } from '../installer';
 
 export const CallToAction = () => (

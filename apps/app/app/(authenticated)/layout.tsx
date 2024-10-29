@@ -24,7 +24,7 @@ const AppLayout = async ({
     <SidebarProvider>
       <GlobalSidebar>
         {betaFeature && (
-          <div className="m-4 rounded-full text-sm bg-success p-1.5 text-center text-success-foreground">
+          <div className="m-4 rounded-full bg-success p-1.5 text-center text-sm text-success-foreground">
             Beta feature now available
           </div>
         )}

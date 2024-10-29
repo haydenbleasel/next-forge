@@ -48,7 +48,6 @@ import {
   SquareTerminalIcon,
   Trash2Icon,
 } from 'lucide-react';
-import type { FC } from 'react';
 import type { ReactNode } from 'react';
 
 type GlobalSidebarProperties = {
@@ -179,11 +178,7 @@ const data = {
   ],
 };
 
-export const GlobalSidebar = (
-  {
-    children
-  }: GlobalSidebarProperties
-) => {
+export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
   const sidebar = useSidebar();
 
   return (

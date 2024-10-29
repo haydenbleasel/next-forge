@@ -1,5 +1,3 @@
-import type { FC } from 'react';
-
 import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import ApiImage from './api.png';

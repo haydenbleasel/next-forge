@@ -2,7 +2,6 @@ import { Button } from '@repo/design-system/components/ui/button';
 import { appUrl } from '@repo/design-system/lib/consts';
 import { Check, Minus, MoveRight, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
-import type { FC } from 'react';
 
 const Pricing = () => (
   <div className="w-full py-20 lg:py-40">

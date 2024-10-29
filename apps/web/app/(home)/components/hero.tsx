@@ -3,7 +3,6 @@ import { appUrl } from '@repo/design-system/lib/consts';
 import { allPosts } from 'content-collections';
 import { MoveRight, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
-import type { FC } from 'react';
 
 export const Hero = () => (
   <div className="w-full">

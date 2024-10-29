@@ -7,7 +7,6 @@ import {
 import { Button } from '@repo/design-system/components/ui/button';
 import { PhoneCall } from 'lucide-react';
 import Link from 'next/link';
-import type { FC } from 'react';
 
 export const FAQ = () => (
   <div className="w-full py-20 lg:py-40">

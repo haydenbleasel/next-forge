@@ -1,7 +1,6 @@
 import { SignUp } from '@clerk/nextjs';
 import { createMetadata } from '@repo/design-system/lib/metadata';
 import type { Metadata } from 'next';
-import type { FC } from 'react';
 
 const title = 'Sign Up';
 const description = 'Sign Up to your account.';

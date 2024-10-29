@@ -1,5 +1,4 @@
 import { User } from 'lucide-react';
-import type { FC } from 'react';
 
 export const Features = () => (
   <div className="w-full py-20 lg:py-40">

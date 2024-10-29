@@ -3,18 +3,13 @@
 import { captureException } from '@sentry/nextjs';
 import type NextError from 'next/error';
 import { useEffect } from 'react';
-import type { FC } from 'react';
 
 type GlobalErrorProperties = {
   readonly error: NextError & { digest?: string };
   readonly reset: () => void;
 };
 
-const GlobalError = (
-  {
-    error
-  }: GlobalErrorProperties
-) => {
+const GlobalError = ({ error }: GlobalErrorProperties) => {
   useEffect(() => {
     captureException(error);
   }, [error]);

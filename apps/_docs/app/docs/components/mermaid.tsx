@@ -29,7 +29,7 @@ export function Mermaid({ chart }: MermaidProps) {
   }, [chart]);
 
   return (
-    <div className="overflow-x-auto bg-background rounded-2xl border p-8">
+    <div className="overflow-x-auto rounded-2xl border bg-background p-8">
       <div ref={containerRef} />
     </div>
   );
