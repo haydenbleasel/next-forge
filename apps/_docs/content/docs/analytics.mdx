@@ -15,9 +15,9 @@ Google Analytics tracks user behavior, page views, session duration, and other e
 
 To enable it, simply add a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable to your project.
 
-## Posthog
+## PostHog
 
-Posthog is a single platform to analyze, test, observe, and deploy new features. It comes with lots of products, including a web analytics tool, event analytics, feature flagging, and more.
+PostHog is a single platform to analyze, test, observe, and deploy new features. It comes with lots of products, including a web analytics tool, event analytics, feature flagging, and more.
 
 We've combined it with Clerk and Stripe webhooks to wire it up as follows:
 
@@ -25,7 +25,7 @@ We've combined it with Clerk and Stripe webhooks to wire it up as follows:
 graph TD
   A[User Action in App] -->|Triggers| B[Clerk Webhook]
   A -->|Triggers| E[Stripe Webhook]
-  A -->|Client-Side Call| Posthog
+  A -->|Client-Side Call| PostHog
   B -->|Sends Data| C1[webhooks/clerk]
   E -->|Sends Data| C2[webhooks/stripe]
 
@@ -34,11 +34,11 @@ graph TD
     C2
   end
 
-  subgraph Posthog
+  subgraph PostHog
   end
 
-  C1 -->|Clerk Events| Posthog
-  C2 -->|Stripe Events| Posthog
+  C1 -->|Clerk Events| PostHog
+  C2 -->|Stripe Events| PostHog
 `} />
 
-We've also setup Next.js rewrites to reverse proxy Posthog requests, meaning your client-side analytics events won't be blocked by ad blockers.
+We've also setup Next.js rewrites to reverse proxy PostHog requests, meaning your client-side analytics events won't be blocked by ad blockers.

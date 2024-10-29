@@ -18,7 +18,7 @@ We've created an intelligent function called `createFlag` that you can use to cr
 
 ## Adding a new flag
 
-To add a new flag, simply create a feature flag in Posthog and then modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
+To add a new flag, simply create a feature flag in PostHog and then modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
 
 ```ts title="packages/feature-flags/index.ts"
 import { createFlag } from './create-flag';
@@ -27,7 +27,7 @@ export const showBetaFeature = createFlag('showBetaFeature');
 export const showAnalyticsFeature = createFlag('showAnalyticsFeature'); // [!code ++]
 ```
 
-Make sure the key you're using matches the key in Posthog exactly.
+Make sure the key you're using matches the key in PostHog exactly.
 
 ## Usage in your application
 

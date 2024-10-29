@@ -72,7 +72,7 @@ const rows = [
         className: '[animation-delay:-30s] [animation-duration:40s]',
       },
       {
-        label: 'Posthog',
+        label: 'PostHog',
         src: Posthog,
         className: '[animation-delay:-35s] [animation-duration:40s]',
       },
