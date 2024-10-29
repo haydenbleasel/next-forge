@@ -31,7 +31,7 @@ export const GitHubButton = async (): Promise<ReactElement> => {
           <div>GitHub</div>
         </div>
         <div className="h-full w-px bg-border" />
-        <div className="px-4 py-2">
+        <div className="px-4 py-2 font-mono">
           <div>{data.stargazers_count}</div>
         </div>
       </div>
