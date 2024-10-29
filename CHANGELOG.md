@@ -1,3 +1,15 @@
+# v2.4.11 (Tue Oct 29 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix typo ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.4.10 (Tue Oct 29 2024)
 
 #### ⚠️ Pushed to `main`
