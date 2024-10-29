@@ -18,6 +18,24 @@ export const config: NextConfig = withVercelToolbar()({
     ],
   },
 
+  // biome-ignore lint/suspicious/useAwait: rewrites is async
+  async rewrites() {
+    return [
+      {
+        source: '/ingest/static/:path*',
+        destination: 'https://us-assets.i.posthog.com/static/:path*',
+      },
+      {
+        source: '/ingest/:path*',
+        destination: 'https://us.i.posthog.com/:path*',
+      },
+      {
+        source: '/ingest/decide',
+        destination: 'https://us.i.posthog.com/decide',
+      },
+    ];
+  },
+
   // biome-ignore lint/suspicious/useAwait: headers is async
   async headers() {
     return [
@@ -41,6 +59,9 @@ export const config: NextConfig = withVercelToolbar()({
 
     return config;
   },
+
+  // This is required to support PostHog trailing slash API requests
+  skipTrailingSlashRedirect: true,
 });
 
 export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
