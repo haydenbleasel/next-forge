@@ -51,8 +51,9 @@ You should change the environment variables in each `.env` or `.env.local` file 
 DATABASE_URL="postgres://..."
 ```
 
-> [!TIP]
-> For `FLAGS_SECRET`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
+<Callout type="tip">
+For `FLAGS_SECRET`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
+</Callout>
 
 Go into each application and run `vercel link`, like so:
 

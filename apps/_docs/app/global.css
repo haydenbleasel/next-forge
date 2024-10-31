@@ -134,3 +134,7 @@
     transform: translateX(var(--move-x-to));
   }
 }
+
+shiki figcaption {
+  @apply font-mono;
+}
