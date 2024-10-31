@@ -1,0 +1,12 @@
+---
+title: Dark Mode
+description: How to use dark mode in the design system.
+---
+
+next-forge comes with built-in dark mode support through the combination of [Tailwind CSS](https://tailwindcss.com/docs/dark-mode) and [next-themes](https://github.com/pacocoursey/next-themes).
+
+The dark mode implementation uses Tailwind's `darkMode: 'class'` strategy, which toggles dark mode by adding a `dark` class to the `html` element. This approach provides better control over dark mode and prevents flash of incorrect theme.
+
+The `next-themes` provider is already configured in the application, handling theme persistence and system preference detection automatically.
+
+To allow the user to change theme, you can use the `ModeToggle` component.
