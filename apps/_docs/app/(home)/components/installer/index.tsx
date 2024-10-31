@@ -12,6 +12,11 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@repo/design-system/components/ui/dropdown-menu';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from '@repo/design-system/components/ui/tooltip';
 import { toast } from 'sonner';
 import BunLogo from './bun.svg';
 import NpmLogo from './npm.svg';
@@ -95,15 +100,24 @@ export const Installer = () => {
         {activeManager.command}
         <span className="text-foreground">{installCommand}</span>
       </div>
-      <Button
-        variant="ghost"
-        size="icon"
-        aria-label="Copy"
-        className="ml-2 h-4 w-4"
-        onClick={handleCopy}
-      >
-        <CopyIcon size={14} className="text-muted-foreground" />
-      </Button>
+      <Tooltip delayDuration={0}>
+        <TooltipTrigger asChild>
+          <div className="flex">
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Copy"
+              className="ml-2 h-4 w-4"
+              onClick={handleCopy}
+            >
+              <CopyIcon size={14} className="text-muted-foreground" />
+            </Button>
+          </div>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Copy to clipboard</p>
+        </TooltipContent>
+      </Tooltip>
     </div>
   );
 };
