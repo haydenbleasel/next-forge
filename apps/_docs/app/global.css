@@ -136,5 +136,5 @@
 }
 
 .shiki figcaption {
-  @apply font-mono;
+  @apply font-mono text-xs;
 }
