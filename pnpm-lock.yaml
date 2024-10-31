@@ -107,7 +107,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^6.0.2
-        version: 6.0.2(next@15.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.0.2(next@15.0.2(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@logtail/next':
         specifier: ^0.1.5
         version: 0.1.5(next@15.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
@@ -159,7 +159,7 @@ importers:
     dependencies:
       '@clerk/nextjs':
         specifier: ^6.0.2
-        version: 6.0.2(next@15.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+        version: 6.0.2(next@15.0.2(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@repo/database':
         specifier: workspace:*
         version: link:../../packages/database
@@ -389,6 +389,12 @@ importers:
 
   packages/design-system:
     dependencies:
+      '@clerk/nextjs':
+        specifier: ^6.0.2
+        version: 6.0.2(next@15.0.2(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@clerk/themes':
+        specifier: ^2.1.39
+        version: 2.1.39
       '@hookform/resolvers':
         specifier: ^3.9.1
         version: 3.9.1(react-hook-form@7.53.1(react@18.3.1))
@@ -588,6 +594,9 @@ importers:
         specifier: ^3.23.8
         version: 3.23.8
     devDependencies:
+      '@clerk/types':
+        specifier: ^4.28.0
+        version: 4.28.0
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
@@ -1116,6 +1125,10 @@ packages:
         optional: true
       react-dom:
         optional: true
+
+  '@clerk/themes@2.1.39':
+    resolution: {integrity: sha512-sa5uO3/77ESsQ/2JrhZsspEKHBhtTgMohtNxsdN/gzJtH+gxs9gVN7ecbnVPAKsSrTjUYdwvWnfOTT+A26Et/g==}
+    engines: {node: '>=18.17.0'}
 
   '@clerk/types@4.28.0':
     resolution: {integrity: sha512-RPdrUs8HYfhXaZ0MOVBkzy7lilsU9lDVSC88a5o/cEMmTML+BTDfLHMlLG81kgvagSLCKKbl28iocb8y7stm1Q==}
@@ -9238,7 +9251,7 @@ snapshots:
       server-only: 0.0.1
       tslib: 2.4.1
 
-  '@clerk/nextjs@6.0.2(next@15.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
+  '@clerk/nextjs@6.0.2(next@15.0.2(@babel/core@7.24.6)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@clerk/backend': 1.15.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@clerk/clerk-react': 5.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -9261,6 +9274,11 @@ snapshots:
     optionalDependencies:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
+
+  '@clerk/themes@2.1.39':
+    dependencies:
+      '@clerk/types': 4.28.0
+      tslib: 2.4.1
 
   '@clerk/types@4.28.0':
     dependencies:
