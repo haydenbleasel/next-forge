@@ -1,3 +1,20 @@
+# v2.6.4 (Thu Oct 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes, add tooltip to installer copy button ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump ws from 7.5.9 to 8.18.0 [#160](https://github.com/haydenbleasel/next-forge/pull/160) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.6.3 (Thu Oct 31 2024)
 
 #### ⚠️ Pushed to `main`
