@@ -10,9 +10,9 @@
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.2.1",
-    "@auto-it/first-time-contributor": "^11.2.1",
-    "@auto-it/git-tag": "^11.2.1",
+    "@auto-it/all-contributors": "^11.3.0",
+    "@auto-it/first-time-contributor": "^11.3.0",
+    "@auto-it/git-tag": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
     "turbo": "^2.2.3",
@@ -22,5 +22,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.12.2"
+  "packageManager": "pnpm@9.12.3"
 }

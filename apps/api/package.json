@@ -11,20 +11,20 @@
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.0.1",
+    "@clerk/nextjs": "^6.0.2",
     "@logtail/next": "^0.1.5",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
-    "@sentry/nextjs": "^8.35.0",
+    "@sentry/nextjs": "^8.36.0",
     "@repo/next-config": "workspace:*",
-    "next": "15.0.1",
+    "next": "15.0.2",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "svix": "^1.37.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.7.9",
+    "@types/node": "22.8.5",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "concurrently": "^9.0.1",
