@@ -1,3 +1,16 @@
+# v2.5.1 (Thu Oct 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.5.0 (Tue Oct 29 2024)
 
 #### 🚀 Enhancement
