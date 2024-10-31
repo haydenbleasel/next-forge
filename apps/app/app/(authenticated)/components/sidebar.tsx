@@ -1,6 +1,7 @@
 'use client';
 
 import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
+import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import {
   Collapsible,
   CollapsibleContent,
@@ -313,16 +314,18 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
         </SidebarContent>
         <SidebarFooter>
           <SidebarMenu>
-            <SidebarMenuItem>
+            <SidebarMenuItem className="flex items-center gap-2">
               <UserButton
                 showName
                 appearance={{
                   elements: {
-                    rootBox: 'flex',
+                    rootBox: 'flex overflow-hidden',
                     userButtonBox: 'flex-row-reverse',
+                    userButtonOuterIdentifier: 'truncate pl-0',
                   },
                 }}
               />
+              <ModeToggle />
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarFooter>
