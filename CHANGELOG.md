@@ -1,3 +1,15 @@
+# v2.6.0 (Thu Oct 31 2024)
+
+#### 🚀 Enhancement
+
+- Improve Dark Mode support [#159](https://github.com/haydenbleasel/next-forge/pull/159) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.5.1 (Thu Oct 31 2024)
 
 #### ⚠️ Pushed to `main`
