@@ -1,0 +1,37 @@
+---
+title: Dark Mode
+description: How to use dark mode in the design system.
+---
+
+next-forge comes with built-in dark mode support through the combination of [Tailwind CSS](https://tailwindcss.com/docs/dark-mode) and [next-themes](https://github.com/pacocoursey/next-themes).
+
+## Implementation
+
+The dark mode implementation uses Tailwind's `darkMode: 'class'` strategy, which toggles dark mode by adding a `dark` class to the `html` element. This approach provides better control over dark mode and prevents flash of incorrect theme.
+
+The `next-themes` provider is already configured in the application, handling theme persistence and system preference detection automatically.
+
+To allow the user to change theme, you can use the `ModeToggle` component.
+
+## Caveats
+
+Currently, it's not possible to change the Clerk theme to match the exact theme of the app. This is because Clerk's Theme doesn't accept custom CSS variables. We'd like to be able to add the following in the future:
+
+```jsx title="packages/design-system/providers/clerk.tsx"
+const variables: Theme['variables'] = {
+  // ...
+
+  colorBackground: 'hsl(var(--background))', // [!code ++]
+  colorPrimary: 'hsl(var(--primary))', // [!code ++]
+  colorDanger: 'hsl(var(--destructive))', // [!code ++]
+  colorInputBackground: 'hsl(var(--transparent))', // [!code ++]
+  colorInputText: 'hsl(var(--text-foreground))', // [!code ++]
+  colorNeutral: 'hsl(var(--neutral))', // [!code ++]
+  colorShimmer: 'hsl(var(--primary) / 10%)', // [!code ++]
+  colorSuccess: 'hsl(var(--success))', // [!code ++]
+  colorText: 'hsl(var(--text-foreground))', // [!code ++]
+  colorTextOnPrimaryBackground: 'hsl(var(--text-foreground))', // [!code ++]
+  colorTextSecondary: 'hsl(var(--text-muted-foreground))', // [!code ++]
+  colorWarning: 'hsl(var(--warning))', // [!code ++]
+};
+```

@@ -1,5 +1,6 @@
 'use client';
 
+import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
   NavigationMenu,
@@ -130,6 +131,7 @@ export const Header = () => {
             <Link href="/contact">Contact us</Link>
           </Button>
           <div className="hidden border-r md:inline" />
+          <ModeToggle />
           <Button variant="outline" asChild>
             <Link href={`${appUrl}/sign-in`}>Sign in</Link>
           </Button>

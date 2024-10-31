@@ -3,6 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@clerk/nextjs": "^6.0.2",
+    "@clerk/themes": "^2.1.39",
     "@hookform/resolvers": "^3.9.1",
     "@logtail/next": "^0.1.5",
     "@next/third-parties": "^15.0.2",
@@ -71,6 +73,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@clerk/types": "^4.28.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "^22.8.5",
     "@types/react": "^18.3.12",
