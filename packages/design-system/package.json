@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@clerk/nextjs": "^6.0.2",
-    "@clerk/themes": "^2.1.39",
+    "@clerk/nextjs": "^6.1.0",
+    "@clerk/themes": "^2.1.40",
     "@hookform/resolvers": "^3.9.1",
     "@logtail/next": "^0.1.5",
     "@next/third-parties": "^15.0.2",
@@ -53,7 +53,7 @@
     "lucide-react": "^0.454.0",
     "next": "15.0.2",
     "next-themes": "^0.3.0",
-    "posthog-js": "^1.178.0",
+    "posthog-js": "^1.180.0",
     "posthog-node": "^4.2.1",
     "react": "18.3.1",
     "react-day-picker": "^8.10.1",
@@ -73,9 +73,9 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@clerk/types": "^4.28.0",
+    "@clerk/types": "^4.29.0",
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.8.5",
+    "@types/node": "^22.8.6",
     "@types/react": "^18.3.12",
     "@types/react-syntax-highlighter": "^15.5.13",
     "autoprefixer": "^10.4.20",
