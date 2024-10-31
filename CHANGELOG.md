@@ -1,3 +1,15 @@
+# v2.6.3 (Thu Oct 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update global.css ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.6.2 (Thu Oct 31 2024)
 
 #### ⚠️ Pushed to `main`
