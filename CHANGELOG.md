@@ -1,3 +1,20 @@
+# v2.6.6 (Fri Nov 01 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump cmdk from 1.0.1 to 1.0.3 [#162](https://github.com/haydenbleasel/next-forge/pull/162) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.6.5 (Thu Oct 31 2024)
 
 #### ⚠️ Pushed to `main`
