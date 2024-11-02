@@ -1,3 +1,15 @@
+# v2.7.0 (Sat Nov 02 2024)
+
+#### 🚀 Enhancement
+
+- Debugging [#164](https://github.com/haydenbleasel/next-forge/pull/164) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.6.6 (Fri Nov 01 2024)
 
 #### ⚠️ Pushed to `main`
