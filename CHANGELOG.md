@@ -1,3 +1,15 @@
+# v2.7.3 (Sat Nov 02 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.7.2 (Sat Nov 02 2024)
 
 #### ⚠️ Pushed to `main`
