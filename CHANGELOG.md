@@ -1,3 +1,16 @@
+# v2.7.1 (Sat Nov 02 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update debugging.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Create sitemap.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.7.0 (Sat Nov 02 2024)
 
 #### 🚀 Enhancement
