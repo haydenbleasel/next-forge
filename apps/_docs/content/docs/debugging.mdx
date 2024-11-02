@@ -13,15 +13,9 @@ Sentry is used for error tracking and performance monitoring. It helps identify,
 
 Sentry is configured and managed in three key places:
 
-#### Server and Edge Runtime
-
 The `instrumentation.ts` file in your Next.js project initializes Sentry for both Node.js and Edge runtime environments, configuring the DSN (Data Source Name) that routes error data to your Sentry project.
 
-#### Client Runtime
-
 The `sentry.client.config.ts` file configures Sentry for the client environment. This includes settings like the sample rate for errors and sessions, and the integrations to use.
-
-#### Next.js Config
 
 The `next.config.ts` file imports shared Sentry-specific settings through `withSentryConfig`. This enables features like source map uploads for better stack traces and automatic instrumentation of Vercel Cron Monitors. The configuration also optimizes bundle size by tree-shaking logger statements and hiding source maps in production builds.
 
