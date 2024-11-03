@@ -9,16 +9,12 @@ We selected Prisma because as of writing this, it's the most popular ORM and has
 
 If you want to switch to Drizzle, you have two options:
 
-1. Keep Prisma and add the Drizzle API to the Prisma client.
+1. Keep Prisma and add the Drizzle API to the Prisma client. Drizzle have a [great guide](https://orm.drizzle.team/docs/prisma) on how to do this.
 2. Go all-in and switch to Drizzle.
 
-Here's how to do both.
+Here, I'll assume you have a working Neon database and cover the second option.
 
-## Add Drizzle to Prisma
-
-## Migrate from Prisma to Drizzle
-
-### 1. Swap out the deps
+## 1. Swap out the required dependencies in `@repo/database`
 
 Uninstall the existing dependencies...
 
@@ -29,5 +25,54 @@ npm uninstall @prisma/adapter-neon @prisma/client prisma --filter database
 ...and install the new ones:
 
 ```bash
-npm install @drizzle/orm @drizzle/adapter-pg --filter database
+npm install drizzle-orm dotenv --filter database
+npm install -D drizzle-kit --filter database
+```
+
+## 2. Update the database connection code
+
+Delete everything in `@repo/database/index.ts` and replace it with the following:
+
+```ts title="packages/database/index.ts"
+import { drizzle } from "drizzle-orm/neon-http";
+import { neon } from "@neondatabase/serverless";
+import { config } from "dotenv";
+
+config({ path: ".env" });
+
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  throw new Error("Missing DATABASE_URL environment variable.");
+}
+
+const client = neon(databaseUrl);
+
+export const database = drizzle({ client });
+```
+
+## 3. Create a `drizzle.config.ts` file
+
+Create a `drizzle.config.ts` file in the `packages/database` directory with the following content:
+
+```ts title="packages/database/drizzle.config.ts"
+import { config } from 'dotenv';
+import { defineConfig } from "drizzle-kit";
+
+config({ path: '.env' });
+
+const databaseUrl = process.env.DATABASE_URL;
+
+if (!databaseUrl) {
+  throw new Error('Missing DATABASE_URL environment variable.');
+}
+
+export default defineConfig({
+  schema: "./src/schema.ts",
+  out: "./migrations",
+  dialect: "postgresql",
+  dbCredentials: {
+    url: databaseUrl,
+  },
+});
 ```
