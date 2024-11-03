@@ -6,7 +6,7 @@ const args = process.argv.slice(2);
 const opts = { stdio: 'inherit' };
 const url = 'https://github.com/haydenbleasel/next-forge';
 
-if (args.length === 0 || args[0] !== 'init' || !args[1].trim()) {
+if (args.length !== 2 || args[0] !== 'init' || !args[1].trim()) {
   console.log('Usage: npx next-forge init [name]');
   process.exit(1);
 }
