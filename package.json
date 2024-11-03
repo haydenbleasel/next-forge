@@ -1,7 +1,10 @@
 {
   "name": "next-forge",
-  "version": "1.0.0",
-  "private": true,
+  "version": "2.8.0",
+  "bin": {
+    "next-forge": "./index.js"
+  },
+  "files": ["index.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -13,7 +16,6 @@
   "devDependencies": {
     "@auto-it/all-contributors": "^11.3.0",
     "@auto-it/first-time-contributor": "^11.3.0",
-    "@auto-it/git-tag": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
     "turbo": "^2.2.3",
