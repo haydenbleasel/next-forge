@@ -3,24 +3,20 @@
 const { execSync } = require('child_process');
 
 const args = process.argv.slice(2);
+const opts = { stdio: 'inherit' };
+const url = 'https://github.com/haydenbleasel/next-forge';
 
-if (args[0] === 'init') {
-  try {
-    // Clone the repo
-    execSync(
-      'pnpm create next-app --example https://github.com/haydenbleasel/next-forge',
-      { stdio: 'inherit' }
-    );
+if (args.length === 0 || args[0] !== 'init' || !args[1].trim()) {
+  console.log('Usage: npx next-forge init [name]');
+  process.exit(1);
+}
 
-    // Get the project name from the last part of the repo URL
-    const projectName = 'next-forge';
+try {
+  const projectName = args[1];
 
-    // Move into the project directory and run setup script
-    execSync(`cd ${projectName} && ./setup.sh`, { stdio: 'inherit' });
-  } catch (error) {
-    console.error('Failed to initialize project:', error.message);
-    process.exit(1);
-  }
-} else {
-  console.log('Usage: npx next-forge init');
+  execSync(`pnpm create next-app ${projectName} --example ${url}`, opts);
+  execSync(`cd ${projectName} && ./setup.sh`, opts);
+} catch (error) {
+  console.error('Failed to initialize project:', error.message);
+  process.exit(1);
 }
