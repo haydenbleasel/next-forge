@@ -1,3 +1,16 @@
+# v2.9.2 (Sun Nov 03 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update setup.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.9.1 (Sun Nov 03 2024)
 
 #### ⚠️ Pushed to `main`
