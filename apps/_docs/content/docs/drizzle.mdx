@@ -7,7 +7,27 @@ next-forge uses [Prisma](https://prisma.io) as its ORM by default. However, you 
 
 We selected Prisma because as of writing this, it's the most popular ORM and has a large community and many adapters. However, Drizzle is coming up fast and has some great benefits, primarily around performance.
 
-Here's a step-by-step guide to switch from Prisma to Drizzle.
+If you want to switch to Drizzle, you have two options:
 
-## 1. Install Drizzle
+1. Keep Prisma and add the Drizzle API to the Prisma client.
+2. Go all-in and switch to Drizzle.
 
+Here's how to do both.
+
+## Add Drizzle to Prisma
+
+## Migrate from Prisma to Drizzle
+
+### 1. Swap out the deps
+
+Uninstall the existing dependencies...
+
+```bash
+npm uninstall @prisma/adapter-neon @prisma/client prisma --filter database
+```
+
+...and install the new ones:
+
+```bash
+npm install @drizzle/orm @drizzle/adapter-pg --filter database
+```
