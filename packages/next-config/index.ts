@@ -7,6 +7,9 @@ import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
+// Import env here to validate during build.
+import '@repo/env';
+
 export const config: NextConfig = withVercelToolbar()({
   images: {
     formats: ['image/avif', 'image/webp'],
