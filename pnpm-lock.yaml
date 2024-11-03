@@ -114,6 +114,9 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
@@ -730,6 +733,9 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
     devDependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config

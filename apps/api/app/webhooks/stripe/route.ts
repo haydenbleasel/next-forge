@@ -3,15 +3,10 @@ import { log } from '@logtail/next';
 import { analytics } from '@repo/design-system/lib/analytics/server';
 import { parseError } from '@repo/design-system/lib/error';
 import { stripe } from '@repo/design-system/lib/stripe';
+import { env } from '@repo/env';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 import type Stripe from 'stripe';
-
-const secret = process.env.STRIPE_WEBHOOK_SECRET;
-
-if (!secret) {
-  throw new Error('STRIPE_WEBHOOK_SECRET is not set');
-}
 
 const handleCheckoutSessionCompleted = async (
   data: Stripe.Checkout.Session
@@ -75,7 +70,11 @@ export const POST = async (request: Request): Promise<Response> => {
       throw new Error('missing stripe-signature header');
     }
 
-    const event = stripe.webhooks.constructEvent(body, signature, secret);
+    const event = stripe.webhooks.constructEvent(
+      body,
+      signature,
+      env.STRIPE_WEBHOOK_SECRET
+    );
 
     switch (event.type) {
       case 'checkout.session.completed': {

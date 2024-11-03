@@ -7,6 +7,7 @@ import type {
 } from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
 import { analytics } from '@repo/design-system/lib/analytics/server';
+import { env } from '@repo/env';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
@@ -139,12 +140,6 @@ const handleOrganizationMembershipDeleted = (
 };
 
 export const POST = async (request: Request): Promise<Response> => {
-  if (!process.env.CLERK_WEBHOOK_SECRET) {
-    throw new Error(
-      'Please add process.env.CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local'
-    );
-  }
-
   // Get the headers
   const headerPayload = await headers();
   const svixId = headerPayload.get('svix-id');
@@ -163,7 +158,7 @@ export const POST = async (request: Request): Promise<Response> => {
   const body = JSON.stringify(payload);
 
   // Create a new SVIX instance with your secret.
-  const wh = new Webhook(process.env.CLERK_WEBHOOK_SECRET);
+  const wh = new Webhook(env.CLERK_WEBHOOK_SECRET);
 
   // eslint-disable-next-line no-undef-init
   let event: WebhookEvent | undefined;
