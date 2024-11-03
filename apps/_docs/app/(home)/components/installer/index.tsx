@@ -26,27 +26,26 @@ import YarnLogo from './yarn.svg';
 const installers = [
   {
     value: 'pnpm',
-    command: 'pnpm create next-app',
+    command: 'pnpx',
     logo: PnpmLogo,
     name: 'pnpm',
   },
-  { value: 'bun', command: 'bun create next-app', logo: BunLogo, name: 'Bun' },
+  { value: 'bun', command: 'bunx', logo: BunLogo, name: 'Bun' },
   {
     value: 'npm',
-    command: 'npx create-next-app',
+    command: 'npx',
     logo: NpmLogo,
     name: 'npm',
   },
   {
     value: 'yarn',
-    command: 'yarn create next-app',
+    command: 'yarn dlx',
     logo: YarnLogo,
     name: 'Yarn',
   },
 ];
 
-const installCommand =
-  '@latest --example https://github.com/haydenbleasel/next-forge';
+const installCommand = 'next-forge init';
 
 export const Installer = () => {
   const [manager, setManager] = useState(installers[0].value);
