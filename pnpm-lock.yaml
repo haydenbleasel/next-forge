@@ -14,9 +14,6 @@ importers:
       '@auto-it/first-time-contributor':
         specifier: ^11.3.0
         version: 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.7)(typescript@5.6.3)
-      '@auto-it/git-tag':
-        specifier: ^11.3.0
-        version: 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.7)(typescript@5.6.3)
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
@@ -811,9 +808,6 @@ packages:
 
   '@auto-it/first-time-contributor@11.3.0':
     resolution: {integrity: sha512-PnpgJeJH3SriwZ0W4rpWjVCU6tJVd/d0v2CQQpK4wtDMPN+Dxie44+INBr4jp9lg6nJ3LEUhygoEfq/FhKlLXw==}
-
-  '@auto-it/git-tag@11.3.0':
-    resolution: {integrity: sha512-5V+evSVKRmYMvh7dwPQvo+ERA8cleDarl+9kEFlRmSk0ErDBAMQ30WL7jLTrEVH1BtgaoHl4qgKTYnCcp80BRQ==}
 
   '@babel/code-frame@7.24.6':
     resolution: {integrity: sha512-ZJhac6FkEd1yhG2AHOmfcXG4ceoLltoCVJjN5XsWN9BifBQr+cHJbWi0h68HZuSORq+3WtJ2z0hwF2NG1b5kcA==}
@@ -9375,19 +9369,6 @@ snapshots:
       endent: 2.1.0
       tslib: 2.1.0
       url-join: 4.0.1
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - encoding
-      - supports-color
-      - typescript
-
-  '@auto-it/git-tag@11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.7)(typescript@5.6.3)':
-    dependencies:
-      '@auto-it/core': 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.13))(@types/node@22.8.7)(typescript@5.6.3)
-      semver: 7.6.3
-      tslib: 2.1.0
     transitivePeerDependencies:
       - '@swc/core'
       - '@swc/wasm'
