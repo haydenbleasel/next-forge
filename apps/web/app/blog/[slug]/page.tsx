@@ -2,6 +2,7 @@ import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { createMetadata } from '@repo/design-system/lib/metadata';
+import { env } from '@repo/env';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -9,7 +10,6 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 import type { BlogPosting, WithContext } from 'schema-dts';
-
 type BlogPostProperties = {
   readonly params: Promise<{
     slug: string;
@@ -55,7 +55,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
       '@type': 'WebPage',
       '@id': new URL(
         `/blog/${slug}`,
-        process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+        env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
       ).toString(),
     },
     headline: page.title,

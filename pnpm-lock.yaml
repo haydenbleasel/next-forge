@@ -282,6 +282,9 @@ importers:
       '@repo/email-templates':
         specifier: workspace:*
         version: link:../../packages/email-templates
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../../packages/env
       '@repo/feature-flags':
         specifier: workspace:*
         version: link:../../packages/feature-flags
