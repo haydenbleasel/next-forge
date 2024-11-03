@@ -1,5 +1,20 @@
+import 'server-only';
+
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
+
+const server: Parameters<typeof createEnv>[0]['server'] = {
+  CLERK_SECRET_KEY: z.string().min(1).startsWith('sk_'),
+  CLERK_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
+  RESEND_AUDIENCE_ID: z.string().min(1),
+  RESEND_FROM: z.string().min(1).email(),
+  DATABASE_URL: z.string().url(),
+  RESEND_TOKEN: z.string().min(1).startsWith('re_'),
+  STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
+  STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
+  BETTERSTACK_API_KEY: z.string().min(1),
+  BETTERSTACK_URL: z.string().url(),
+};
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
   NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: z.string().min(1).url(),
@@ -18,7 +33,13 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
 
 export const env = createEnv({
   client,
-  runtimeEnv: Object.fromEntries(
-    Object.keys(client).map((key) => [key, process.env[key]])
-  ),
+  server,
+  runtimeEnv: {
+    ...Object.fromEntries(
+      Object.keys(server).map((key) => [key, process.env[key]])
+    ),
+    ...Object.fromEntries(
+      Object.keys(client).map((key) => [key, process.env[key]])
+    ),
+  },
 });
