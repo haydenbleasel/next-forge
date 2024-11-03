@@ -1,3 +1,15 @@
+# v2.9.3 (Sun Nov 03 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #169 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.9.2 (Sun Nov 03 2024)
 
 #### ⚠️ Pushed to `main`
