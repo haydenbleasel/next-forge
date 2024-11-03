@@ -1,3 +1,15 @@
+# v2.8.0 (Sun Nov 03 2024)
+
+#### 🚀 Enhancement
+
+- Add Unit Tests [#165](https://github.com/haydenbleasel/next-forge/pull/165) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.7.4 (Sun Nov 03 2024)
 
 #### ⚠️ Pushed to `main`
