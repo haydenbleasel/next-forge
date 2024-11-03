@@ -34,16 +34,18 @@ npm install -D drizzle-kit --filter database
 Delete everything in `@repo/database/index.ts` and replace it with the following:
 
 ```ts title="packages/database/index.ts"
-import { drizzle } from "drizzle-orm/neon-http";
-import { neon } from "@neondatabase/serverless";
-import { config } from "dotenv";
+import 'server-only';
 
-config({ path: ".env" });
+import { neon } from '@neondatabase/serverless';
+import { config } from 'dotenv';
+import { drizzle } from 'drizzle-orm/neon-http';
+
+config({ path: '.env' });
 
 const databaseUrl = process.env.DATABASE_URL;
 
 if (!databaseUrl) {
-  throw new Error("Missing DATABASE_URL environment variable.");
+  throw new Error('Missing DATABASE_URL environment variable.');
 }
 
 const client = neon(databaseUrl);
@@ -57,7 +59,7 @@ Next we'll create a Drizzle configuration file, used by Drizzle Kit and contains
 
 ```ts title="packages/database/drizzle.config.ts"
 import { config } from 'dotenv';
-import { defineConfig } from "drizzle-kit";
+import { defineConfig } from 'drizzle-kit';
 
 config({ path: '.env' });
 
@@ -68,9 +70,9 @@ if (!databaseUrl) {
 }
 
 export default defineConfig({
-  schema: "./schema.ts",
-  out: "./migrations",
-  dialect: "postgresql",
+  schema: './schema.ts',
+  out: './migrations',
+  dialect: 'postgresql',
   dbCredentials: {
     url: databaseUrl,
   },
@@ -79,5 +81,10 @@ export default defineConfig({
 
 ## 4. Generate the schema file
 
-Drizzle uses a schema file to define your database tables. Rather than create one from scratch, we can generate it from the existing database.
+Drizzle uses a schema file to define your database tables. Rather than create one from scratch, we can generate it from the existing database. In the `packages/database` folder, run the following command to generate the schema file:
 
+```bash
+npx drizzle-kit generate
+```
+
+This should create a `schema.ts` file containing the table definitions, as well as a `migrations` folder for the migration files.
