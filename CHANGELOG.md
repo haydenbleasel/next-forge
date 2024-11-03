@@ -1,3 +1,15 @@
+# v2.9.0 (Sun Nov 03 2024)
+
+#### 🚀 Enhancement
+
+- Create CLI [#166](https://github.com/haydenbleasel/next-forge/pull/166) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.8.0 (Sun Nov 03 2024)
 
 #### 🚀 Enhancement
