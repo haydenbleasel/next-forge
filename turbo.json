@@ -3,7 +3,7 @@
   "globalDependencies": ["**/.env.*local"],
   "tasks": {
     "build": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["^build", "test"],
       "outputs": [".next/**", "!.next/cache/**"]
     },
     "test": {
