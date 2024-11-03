@@ -3,7 +3,7 @@ title: Testing
 description: How we've configured testing in next-forge.
 ---
 
-next-forge uses [Vitest](https://vitest.dev/) for unit testing. It's a fast and lightweight testing framework that's compatible with Jest's API.
+next-forge uses [Vitest](https://vitest.dev/) for unit testing. It's a fast and lightweight testing framework that's compatible with Jest's API. Unit tests are run automatically as part of the `build` task in Turborepo.
 
 ## Running Tests
 
@@ -59,6 +59,6 @@ Then, create a new file in the `__tests__` folder in the relevant app and add a 
 }
 ```
 
-Turbopack will automatically pick up on the new `test` script and run the tests.
+Turborepo will automatically pick up on the new `test` script and run the tests.
 
 Then, just follow the instructions above to write tests.
