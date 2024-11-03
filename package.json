@@ -2,6 +2,9 @@
   "name": "next-forge",
   "version": "2.8.0",
   "private": true,
+  "bin": {
+    "next-forge": "./index.js"
+  },
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
