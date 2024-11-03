@@ -1,3 +1,15 @@
+# v2.9.1 (Sun Nov 03 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update index.js ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.9.0 (Sun Nov 03 2024)
 
 #### 🚀 Enhancement
