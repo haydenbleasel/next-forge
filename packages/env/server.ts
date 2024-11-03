@@ -3,16 +3,22 @@ import 'server-only';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
+const server: Parameters<typeof createEnv>[0]['server'] = {
+  CLERK_SECRET_KEY: z.string().min(1).startsWith('sk_'),
+  CLERK_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
+  RESEND_AUDIENCE_ID: z.string().min(1),
+  RESEND_FROM: z.string().min(1).email(),
+  DATABASE_URL: z.string().url(),
+  RESEND_TOKEN: z.string().min(1).startsWith('re_'),
+  STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
+  STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
+  BETTERSTACK_API_KEY: z.string().min(1),
+  BETTERSTACK_URL: z.string().url(),
+};
+
 export const env = createEnv({
-  server: {
-    DATABASE_URL: z.string().url(),
-    OPEN_AI_API_KEY: z.string().min(1),
-  },
-  // If you're using Next.js < 13.4.4, you'll need to specify the runtimeEnv manually
-  // runtimeEnv: {
-  //   DATABASE_URL: process.env.DATABASE_URL,
-  //   OPEN_AI_API_KEY: process.env.OPEN_AI_API_KEY,
-  // },
-  // For Next.js >= 13.4.4, you can just reference process.env:
-  experimental__runtimeEnv: process.env,
+  server,
+  runtimeEnv: Object.fromEntries(
+    Object.keys(server).map((key) => [key, process.env[key]])
+  ),
 });
