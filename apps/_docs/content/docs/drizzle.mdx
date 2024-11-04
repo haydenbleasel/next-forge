@@ -18,13 +18,13 @@ Here, I'll assume you have a working Neon database and cover the second option.
 
 Uninstall the existing dependencies...
 
-```bash
+```package-install
 npm uninstall @prisma/adapter-neon @prisma/client prisma --filter database
 ```
 
 ...and install the new ones:
 
-```bash
+```package-install
 npm install drizzle-orm dotenv --filter database
 npm install -D drizzle-kit --filter database
 ```
@@ -71,7 +71,7 @@ if (!databaseUrl) {
 
 export default defineConfig({
   schema: './schema.ts',
-  out: './migrations',
+  out: './',
   dialect: 'postgresql',
   dbCredentials: {
     url: databaseUrl,
@@ -84,7 +84,29 @@ export default defineConfig({
 Drizzle uses a schema file to define your database tables. Rather than create one from scratch, we can generate it from the existing database. In the `packages/database` folder, run the following command to generate the schema file:
 
 ```bash
-npx drizzle-kit generate
+npx drizzle-kit pull
 ```
 
-This should create a `schema.ts` file containing the table definitions, as well as a `migrations` folder for the migration files.
+This should pull the schema from the database, creating a `schema.ts` file containing the table definitions and some other files.
+
+## 5. Update your queries
+
+Now you can update your queries to use the Drizzle ORM.
+
+For example, here's how we can update the `page` query in `app/(authenticated)/page.tsx`:
+
+```ts title="apps/app/app/(authenticated)/page.tsx"
+import { database } from '@repo/database';
+import { page } from '@repo/database/schema'; // [!code ++]
+
+// ...
+
+const App = async (): Promise<ReactElement> => {
+  const pages = await database.page.findMany(); // [!code --]
+  const pages = await database.select().from(page); // [!code ++]
+
+  // ...
+};
+
+export default App;
+```
