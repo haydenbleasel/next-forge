@@ -14,6 +14,8 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   BETTERSTACK_API_KEY: z.string().min(1),
   BETTERSTACK_URL: z.string().url(),
+
+  NODE_ENV: z.enum(['development', 'production']),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
