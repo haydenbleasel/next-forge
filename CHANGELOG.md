@@ -1,3 +1,15 @@
+# v2.10.1 (Mon Nov 04 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update github-button.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.10.0 (Mon Nov 04 2024)
 
 #### 🚀 Enhancement
