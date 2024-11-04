@@ -1,3 +1,19 @@
+# v2.9.4 (Mon Nov 04 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Ankur Tyagi ([@tyaga001](https://github.com/tyaga001)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Add CodeRabbit AI Code Review Integration [#172](https://github.com/haydenbleasel/next-forge/pull/172) ([@tyaga001](https://github.com/tyaga001))
+
+#### Authors: 1
+
+- Ankur Tyagi ([@tyaga001](https://github.com/tyaga001))
+
+---
+
 # v2.9.3 (Sun Nov 03 2024)
 
 #### ⚠️ Pushed to `main`
