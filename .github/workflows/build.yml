@@ -8,7 +8,7 @@ on:
 
 env: 
   # Server
-  CLERK_SECRET_KEY: "sk_test"
+  CLERK_SECRET_KEY: "sk_test_JA=="
   CLERK_WEBHOOK_SECRET: "whsec_test"
   RESEND_AUDIENCE_ID: "test"
   RESEND_FROM: "test@test.com"
@@ -20,7 +20,7 @@ env:
   BETTERSTACK_URL: "https://test.com"
 
   # Client
-  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test"
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: "pk_test_JA=="
   NEXT_PUBLIC_CLERK_SIGN_IN_URL: "/sign-in"
   NEXT_PUBLIC_CLERK_SIGN_UP_URL: "/sign-up"
   NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL: "/"
