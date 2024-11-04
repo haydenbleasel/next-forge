@@ -376,6 +376,9 @@ importers:
       '@prisma/client':
         specifier: 5.21.1
         version: 5.21.1(prisma@5.21.1)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
       server-only:
         specifier: ^0.0.1
         version: 0.0.1
