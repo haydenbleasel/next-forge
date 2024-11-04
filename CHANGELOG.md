@@ -1,3 +1,15 @@
+# v2.10.0 (Mon Nov 04 2024)
+
+#### 🚀 Enhancement
+
+- 157 improve env var handling [#171](https://github.com/haydenbleasel/next-forge/pull/171) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.9.4 (Mon Nov 04 2024)
 
 :tada: This release contains work from a new contributor! :tada:
