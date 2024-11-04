@@ -14,12 +14,17 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   BETTERSTACK_API_KEY: z.string().min(1),
   BETTERSTACK_URL: z.string().url(),
+  CI: z.boolean().optional(),
 
+  // Added by Node
   NODE_ENV: z.enum(['development', 'production']),
+
+  // Added by Sentry Integration, Vercel Marketplace
+  SENTRY_ORG: z.string().min(1),
+  SENTRY_PROJECT: z.string().min(1),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
-  NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: z.string().min(1).url(),
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().min(1).startsWith('pk_'),
   NEXT_PUBLIC_CLERK_SIGN_IN_URL: z.string().min(1).startsWith('/'),
   NEXT_PUBLIC_CLERK_SIGN_UP_URL: z.string().min(1).startsWith('/'),
@@ -31,6 +36,9 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().min(1).startsWith('G-'),
   NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1).startsWith('phc_'),
   NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1).url(),
+
+  // Added by Vercel
+  NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL: z.string().min(1).url(),
 };
 
 export const env = createEnv({
