@@ -1,0 +1,55 @@
+language: en-US # Default language
+reviews:
+  # Core Review Settings
+  profile: "chill" # Less nitpicky feedback style
+  request_changes_workflow: false # Don't require resolving comments
+  high_level_summary: true
+  review_status: true
+  commit_status: true
+  
+  # Features
+  poem: false # Disable poem generation to keep reviews focused
+  collapse_walkthrough: true # Better organization
+  sequence_diagrams: true # Helpful for understanding changes
+  changed_files_summary: true
+  
+  # Filtering
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/*.lock"
+    - "!.next/**"
+    - "src/**"
+    - "apps/**"
+
+  # Path-specific instructions
+  path_instructions:
+    - path: "**/*.ts"
+      instructions: "Ensure strict TypeScript practices and proper type definitions. Prefer interfaces over types."
+    - path: "**/*.tsx"
+      instructions: "Follow React best practices. Ensure proper component typing and use of React.FC for functional components."
+
+  # Auto Review Settings  
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    ignore_title_keywords: ["wip", "draft"]
+    drafts: false
+    base_branches: ["main", "develop"]
+
+  # Tools Configuration  
+  tools:
+    biome:
+      enabled: true
+    eslint:
+      enabled: true
+    markdownlint:
+      enabled: true
+    gitleaks:
+      enabled: true
+
+# Knowledge Base Settings
+knowledge_base:
+  learnings:
+    scope: "auto" # Use local for public repo
+  pull_requests:
+    scope: "auto" # Learn from repository history
