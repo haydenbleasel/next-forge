@@ -24,6 +24,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
 
   // Added by Vercel
   VERCEL: z.boolean().optional(),
+  NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {

@@ -1,15 +1,3 @@
-import { init } from '@sentry/nextjs';
+import { initializeSentry } from '@repo/next-config/instrumentation';
 
-export const register = () => {
-  if (process.env.NEXT_RUNTIME === 'nodejs') {
-    init({
-      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-    });
-  }
-
-  if (process.env.NEXT_RUNTIME === 'edge') {
-    init({
-      dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
-    });
-  }
-};
+export const register = initializeSentry();
