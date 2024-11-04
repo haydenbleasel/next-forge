@@ -1,5 +1,5 @@
 import { Status } from '@repo/design-system/components/status';
-import { docsUrl } from '@repo/design-system/lib/consts';
+import { env } from '@repo/env';
 import Link from 'next/link';
 
 export const Footer = () => {
@@ -19,7 +19,7 @@ export const Footer = () => {
         },
         {
           title: 'Docs',
-          href: docsUrl,
+          href: env.NEXT_PUBLIC_DOCS_URL,
         },
       ],
     },

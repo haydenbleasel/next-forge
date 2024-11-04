@@ -3,12 +3,7 @@
 import { parseError } from '@repo/design-system/lib/error';
 import { resend } from '@repo/design-system/lib/resend';
 import { ContactTemplate } from '@repo/email-templates/contact';
-
-const from = process.env.RESEND_FROM;
-
-if (!from) {
-  throw new Error('RESEND_FROM environment variable is not set');
-}
+import { env } from '@repo/env';
 
 export const contact = async (
   name: string,
@@ -19,8 +14,8 @@ export const contact = async (
 }> => {
   try {
     await resend.emails.send({
-      from,
-      to: from,
+      from: env.RESEND_FROM,
+      to: env.RESEND_FROM,
       subject: 'Contact form submission',
       replyTo: email,
       react: <ContactTemplate name={name} email={email} message={message} />,

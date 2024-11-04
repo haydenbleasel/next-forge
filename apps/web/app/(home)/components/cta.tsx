@@ -1,5 +1,5 @@
 import { Button } from '@repo/design-system/components/ui/button';
-import { appUrl } from '@repo/design-system/lib/consts';
+import { env } from '@repo/env';
 import { MoveRight, PhoneCall } from 'lucide-react';
 import Link from 'next/link';
 
@@ -24,7 +24,7 @@ export const CTA = () => (
             </Link>
           </Button>
           <Button className="gap-4" asChild>
-            <Link href={appUrl}>
+            <Link href={env.NEXT_PUBLIC_APP_URL}>
               Sign up here <MoveRight className="h-4 w-4" />
             </Link>
           </Button>

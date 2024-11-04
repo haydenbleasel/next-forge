@@ -10,6 +10,7 @@
     "@neondatabase/serverless": "^0.10.1",
     "@prisma/adapter-neon": "^5.21.1",
     "@prisma/client": "5.21.1",
+    "@repo/env": "workspace:*",
     "server-only": "^0.0.1",
     "undici": "^6.20.1",
     "ws": "^8.18.0"

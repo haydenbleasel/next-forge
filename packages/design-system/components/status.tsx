@@ -1,4 +1,5 @@
 import 'server-only';
+import { env } from '@repo/env';
 import type { ReactElement } from 'react';
 import { cn } from '../lib/utils';
 
@@ -65,21 +66,12 @@ type BetterStackResponse = {
   };
 };
 
-const betterstackApiKey = process.env.BETTERSTACK_API_KEY;
-const betterstackUrl = process.env.BETTERSTACK_URL;
-
-if (!betterstackApiKey || !betterstackUrl) {
-  throw new Error(
-    'Missing BETTERSTACK_API_KEY or BETTERSTACK_URL environment variable'
-  );
-}
-
 export const Status = async (): Promise<ReactElement> => {
   const response = await fetch(
     'https://uptime.betterstack.com/api/v2/monitors',
     {
       headers: {
-        Authorization: `Bearer ${betterstackApiKey}`,
+        Authorization: `Bearer ${env.BETTERSTACK_API_KEY}`,
       },
     }
   );
@@ -111,7 +103,7 @@ export const Status = async (): Promise<ReactElement> => {
       className="flex items-center gap-3 font-medium text-sm"
       target="_blank"
       rel="noreferrer"
-      href={process.env.BETTERSTACK_URL}
+      href={env.BETTERSTACK_URL}
     >
       <span className="relative flex h-2 w-2">
         <span
