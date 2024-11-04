@@ -32,7 +32,12 @@ export const GitHubButton = async (): Promise<ReactElement> => {
         </div>
         <div className="h-full w-px bg-border" />
         <div className="px-4 py-2 font-mono">
-          <div>{data.stargazers_count}</div>
+          <div>
+            {new Intl.NumberFormat('en-US', {
+              notation: 'compact',
+              maximumFractionDigits: 1,
+            }).format(data.stargazers_count)}
+          </div>
         </div>
       </div>
     </a>
