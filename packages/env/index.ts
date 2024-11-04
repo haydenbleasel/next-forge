@@ -12,18 +12,18 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   BETTERSTACK_API_KEY: z.string().min(1),
   BETTERSTACK_URL: z.string().min(1).url(),
-  ANALYZE: z.boolean().optional(),
+  ANALYZE: z.string().optional(),
 
   // Added by Node
   NODE_ENV: z.enum(['development', 'production']),
-  CI: z.boolean().optional(),
+  CI: z.string().optional(),
 
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),
   SENTRY_PROJECT: z.string().min(1).optional(),
 
   // Added by Vercel
-  VERCEL: z.boolean().optional(),
+  VERCEL: z.string().optional(),
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
 };
 
