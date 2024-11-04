@@ -6,12 +6,12 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   CLERK_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   RESEND_AUDIENCE_ID: z.string().min(1),
   RESEND_FROM: z.string().min(1).email(),
-  DATABASE_URL: z.string().url(),
+  DATABASE_URL: z.string().min(1).url(),
   RESEND_TOKEN: z.string().min(1).startsWith('re_'),
   STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   BETTERSTACK_API_KEY: z.string().min(1),
-  BETTERSTACK_URL: z.string().url(),
+  BETTERSTACK_URL: z.string().min(1).url(),
   ANALYZE: z.boolean().optional(),
 
   // Added by Node
