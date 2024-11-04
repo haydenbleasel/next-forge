@@ -10,8 +10,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@repo/design-system/components/ui/navigation-menu';
-import { appUrl } from '@repo/design-system/lib/consts';
-import { docsUrl } from '@repo/design-system/lib/consts';
+import { env } from '@repo/env';
 import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -55,7 +54,7 @@ export const Header = () => {
     },
     {
       title: 'Docs',
-      href: docsUrl,
+      href: env.NEXT_PUBLIC_DOCS_URL,
       description: '',
     },
   ];
@@ -133,10 +132,10 @@ export const Header = () => {
           <div className="hidden border-r md:inline" />
           <ModeToggle />
           <Button variant="outline" asChild>
-            <Link href={`${appUrl}/sign-in`}>Sign in</Link>
+            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>Sign in</Link>
           </Button>
           <Button asChild>
-            <Link href={`${appUrl}/sign-up`}>Get started</Link>
+            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>Get started</Link>
           </Button>
         </div>
         <div className="flex w-12 shrink items-end justify-end lg:hidden">
