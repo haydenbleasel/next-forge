@@ -1,4 +1,5 @@
 import { withContentCollections } from '@content-collections/next';
+import { env } from '@repo/env';
 import { config, withAnalyzer, withSentry } from '@repo/next-config';
 import type { NextConfig } from 'next';
 
@@ -16,11 +17,11 @@ if (process.env.NODE_ENV === 'production') {
   nextConfig.redirects = redirects;
 }
 
-if (process.env.VERCEL) {
+if (env.VERCEL) {
   nextConfig = withSentry(nextConfig);
 }
 
-if (process.env.ANALYZE === 'true') {
+if (env.ANALYZE === 'true') {
   nextConfig = withAnalyzer(nextConfig);
 }
 
