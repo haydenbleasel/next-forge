@@ -16,18 +16,18 @@ export const Coauthors = ({ authors }: CoauthorsProps) => (
       {authors.map((author) => (
         <div
           key={author.name}
-          className="flex items-center gap-1 rounded-full bg-foreground/5 py-1.5 pr-4 pl-2 text-xs backdrop-blur-sm"
+          className="flex items-center gap-2 rounded-full bg-foreground/5 py-1.5 pr-4 pl-2 text-xs backdrop-blur-sm"
         >
           <div className="-space-x-1 flex items-center">
             <Image
-              className="m-0 overflow-hidden rounded-full"
+              className="m-0 overflow-hidden rounded-full object-cover"
               src={author.avatar}
               alt={author.name}
               width={24}
               height={24}
             />
             <Image
-              className="m-0 overflow-hidden rounded-full"
+              className="m-0 overflow-hidden rounded-full object-cover"
               src={`https://img.logo.dev/${new URL(author.logo).hostname}?token=${process.env.NEXT_PUBLIC_LOGO_DEV_TOKEN}`}
               alt={author.name}
               width={24}
