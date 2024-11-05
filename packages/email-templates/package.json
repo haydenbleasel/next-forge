@@ -6,13 +6,13 @@
     "./*": "./src/*.tsx"
   },
   "dependencies": {
-    "@react-email/components": "0.0.26",
+    "@react-email/components": "0.0.27",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.8.7",
+    "@types/node": "22.9.0",
     "@types/react": "18.3.12",
     "@types/react-dom": "^18.3.1",
     "typescript": "^5.6.3"
