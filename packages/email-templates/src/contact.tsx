@@ -1,5 +1,3 @@
-/* eslint-disable import/named */
-
 import {
   Body,
   Container,

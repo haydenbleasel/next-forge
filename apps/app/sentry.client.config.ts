@@ -4,9 +4,9 @@
  * https://docs.sentry.io/platforms/javascript/guides/nextjs/
  */
 
-import * as Sentry from '@sentry/nextjs';
+import { init, replayIntegration } from '@sentry/nextjs';
 
-Sentry.init({
+init({
   dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
   // Adjust this value in production, or use tracesSampler for greater control
@@ -25,8 +25,7 @@ Sentry.init({
 
   // You can remove this option if you're not planning to use the Sentry Session Replay feature:
   integrations: [
-    // eslint-disable-next-line import/namespace
-    Sentry.replayIntegration({
+    replayIntegration({
       // Additional Replay configuration goes in here, for example:
       maskAllText: true,
       blockAllMedia: true,

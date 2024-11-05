@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@repo/design-system/components/ui/button';
+import { fonts } from '@repo/design-system/lib/fonts';
 import { captureException } from '@sentry/nextjs';
 import type NextError from 'next/error';
 import { useEffect } from 'react';
@@ -16,7 +17,7 @@ const GlobalError = ({ error, reset }: GlobalErrorProperties) => {
   }, [error]);
 
   return (
-    <html lang="en">
+    <html lang="en" className={fonts}>
       <body>
         <h1>Oops, something went wrong</h1>
         <Button onClick={() => reset()}>Try again</Button>

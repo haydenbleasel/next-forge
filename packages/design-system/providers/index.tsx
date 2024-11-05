@@ -17,8 +17,8 @@ export const DesignSystemProvider = ({
   <PostHogProvider>
     <ThemeProvider {...properties}>
       <TooltipProvider>{children}</TooltipProvider>
+      <Toaster />
     </ThemeProvider>
-    <Toaster />
     <VercelAnalytics />
     {env.NODE_ENV === 'development' ? (
       <VercelToolbar />

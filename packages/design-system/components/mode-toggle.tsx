@@ -2,7 +2,6 @@
 
 import { MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
-import type { FC } from 'react';
 import { Button } from '../components/ui/button';
 import {
   DropdownMenu,
@@ -11,14 +10,14 @@ import {
   DropdownMenuTrigger,
 } from '../components/ui/dropdown-menu';
 
-export const ModeToggle: FC = () => {
-  const { setTheme } = useTheme();
+const themes = [
+  { label: 'Light', value: 'light' },
+  { label: 'Dark', value: 'dark' },
+  { label: 'System', value: 'system' },
+];
 
-  const themes = [
-    { onClick: () => setTheme('light'), children: 'Light' },
-    { onClick: () => setTheme('dark'), children: 'Dark' },
-    { onClick: () => setTheme('system'), children: 'System' },
-  ];
+export const ModeToggle = () => {
+  const { setTheme } = useTheme();
 
   return (
     <DropdownMenu>
@@ -34,9 +33,9 @@ export const ModeToggle: FC = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        {themes.map(({ onClick, children }) => (
-          <DropdownMenuItem key={children} onClick={onClick}>
-            {children}
+        {themes.map(({ label, value }) => (
+          <DropdownMenuItem key={value} onClick={() => setTheme(value)}>
+            {label}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

@@ -3,7 +3,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { ComponentProps, HTMLProps } from 'react';
 
-// eslint-disable-next-line id-length
 const a = ({ href, ...properties }: HTMLProps<HTMLAnchorElement>) => {
   if (typeof href !== 'string') {
     throw new TypeError('href is required');

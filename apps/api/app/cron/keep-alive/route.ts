@@ -1,8 +1,18 @@
 import { database } from '@repo/database';
-import { NextResponse } from 'next/server';
 
 export const POST = async () => {
-  const pages = await database.page.count();
+  const newPage = await database.page.create({
+    data: {
+      name: 'cron-temp',
+      email: 'test@test.com',
+    },
+  });
 
-  return NextResponse.json({ pages });
+  await database.page.delete({
+    where: {
+      id: newPage.id,
+    },
+  });
+
+  return new Response('OK', { status: 200 });
 };
