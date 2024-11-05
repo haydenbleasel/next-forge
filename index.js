@@ -14,7 +14,7 @@ if (args.length !== 2 || args[0] !== 'init' || !args[1].trim()) {
 try {
   const projectName = args[1];
 
-  execSync(`pnpm create next-app ${projectName} --example ${url}`, opts);
+  execSync(`pnpm create next-app@latest ${projectName} --example ${url}`, opts);
   execSync(`cd ${projectName} && ./setup.sh`, opts);
 } catch (error) {
   console.error('Failed to initialize project:', error.message);
