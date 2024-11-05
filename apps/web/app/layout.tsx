@@ -1,6 +1,4 @@
 import '@repo/design-system/styles/globals.css';
-import { Toaster } from '@repo/design-system/components/ui/sonner';
-import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { cn } from '@repo/design-system/lib/utils';
 import { DesignSystemProvider } from '@repo/design-system/providers';
 import { Analytics } from '@vercel/analytics/react';
@@ -26,13 +24,10 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
   >
     <body>
       <DesignSystemProvider>
-        <TooltipProvider>
-          <Header />
-          {children}
-          <Footer />
-        </TooltipProvider>
+        <Header />
+        {children}
+        <Footer />
       </DesignSystemProvider>
-      <Toaster />
       <Analytics />
     </body>
   </html>

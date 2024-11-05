@@ -1,6 +1,4 @@
 import '@repo/design-system/styles/globals.css';
-import { Toaster } from '@repo/design-system/components/ui/sonner';
-import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { cn } from '@repo/design-system/lib/utils';
 import { DesignSystemProvider } from '@repo/design-system/providers';
 import { ClerkProvider } from '@repo/design-system/providers/clerk';
@@ -25,12 +23,9 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
   >
     <body>
       <DesignSystemProvider>
-        <ClerkProvider>
-          <TooltipProvider>{children}</TooltipProvider>
-          <Toaster />
-          <Analytics />
-        </ClerkProvider>
+        <ClerkProvider>{children}</ClerkProvider>
       </DesignSystemProvider>
+      <Analytics />
     </body>
   </html>
 );
