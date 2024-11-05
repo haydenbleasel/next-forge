@@ -1,3 +1,24 @@
+# v2.10.3 (Tue Nov 05 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Alfredo José ([@fredojbg](https://github.com/fredojbg)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: add repo/env to app [#188](https://github.com/haydenbleasel/next-forge/pull/188) ([@fredojbg](https://github.com/fredojbg) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #183 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Alfredo José ([@fredojbg](https://github.com/fredojbg))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.10.2 (Tue Nov 05 2024)
 
 #### 🐛 Bug Fix
