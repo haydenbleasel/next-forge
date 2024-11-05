@@ -2,11 +2,11 @@
 
 import { Button } from '@repo/design-system/components/ui/button';
 import { captureException } from '@sentry/nextjs';
-import type Error from 'next/error';
+import type NextError from 'next/error';
 import { useEffect } from 'react';
 
 type GlobalErrorProperties = {
-  readonly error: Error & { digest?: string };
+  readonly error: NextError & { digest?: string };
   readonly reset: () => void;
 };
 
