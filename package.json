@@ -4,14 +4,13 @@
   "bin": {
     "next-forge": "./index.js"
   },
-  "files": [
-    "index.js"
-  ],
+  "files": ["index.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
     "lint": "turbo lint",
     "test": "turbo test",
+    "analyze": "turbo analyze",
     "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
