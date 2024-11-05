@@ -25,6 +25,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   // Added by Vercel
   VERCEL: z.string().optional(),
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
+  FLAGS_SECRET: z.string().min(1),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
@@ -48,11 +49,39 @@ export const env = createEnv({
   client,
   server,
   runtimeEnv: {
-    ...Object.fromEntries(
-      Object.keys(server).map((key) => [key, process.env[key]])
-    ),
-    ...Object.fromEntries(
-      Object.keys(client).map((key) => [key, process.env[key]])
-    ),
+    CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
+    CLERK_WEBHOOK_SECRET: process.env.CLERK_WEBHOOK_SECRET,
+    RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
+    RESEND_FROM: process.env.RESEND_FROM,
+    DATABASE_URL: process.env.DATABASE_URL,
+    RESEND_TOKEN: process.env.RESEND_TOKEN,
+    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
+    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
+    BETTERSTACK_API_KEY: process.env.BETTERSTACK_API_KEY,
+    BETTERSTACK_URL: process.env.BETTERSTACK_URL,
+    ANALYZE: process.env.ANALYZE,
+    NODE_ENV: process.env.NODE_ENV,
+    CI: process.env.CI,
+    SENTRY_ORG: process.env.SENTRY_ORG,
+    SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+    VERCEL: process.env.VERCEL,
+    NEXT_RUNTIME: process.env.NEXT_RUNTIME,
+    FLAGS_SECRET: process.env.FLAGS_SECRET,
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+      process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL,
+    NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL:
+      process.env.NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL,
+    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+    NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
+    NEXT_PUBLIC_DOCS_URL: process.env.NEXT_PUBLIC_DOCS_URL,
+    NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
+    NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
+    NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL:
+      process.env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL,
   },
 });
