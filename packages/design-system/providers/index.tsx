@@ -2,7 +2,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { env } from '@repo/env';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { VercelToolbar } from '@vercel/toolbar/next';
-import type { ThemeProviderProps } from 'next-themes/dist/types';
+import type { ThemeProviderProps } from 'next-themes';
 import { Toaster } from '../components/ui/sonner';
 import { TooltipProvider } from '../components/ui/tooltip';
 import { PostHogProvider } from './posthog';
