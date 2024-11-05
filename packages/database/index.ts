@@ -9,7 +9,6 @@ import ws from 'ws';
 neonConfig.webSocketConstructor = ws;
 
 declare global {
-  // eslint-disable-next-line no-var, vars-on-top
   var cachedPrisma: PrismaClient | undefined;
 }
 

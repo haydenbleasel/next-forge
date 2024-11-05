@@ -12,7 +12,6 @@ type GlobalErrorProperties = {
 
 const GlobalError = ({ error, reset }: GlobalErrorProperties) => {
   useEffect(() => {
-    // eslint-disable-next-line import/namespace
     Sentry.captureException(error);
   }, [error]);
 

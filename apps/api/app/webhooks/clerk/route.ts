@@ -160,7 +160,6 @@ export const POST = async (request: Request): Promise<Response> => {
   // Create a new SVIX instance with your secret.
   const wh = new Webhook(env.CLERK_WEBHOOK_SECRET);
 
-  // eslint-disable-next-line no-undef-init
   let event: WebhookEvent | undefined;
 
   // Verify the payload with the headers

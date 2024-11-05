@@ -36,7 +36,6 @@ const typographyConfig = (theme: (path: string) => string) => ({
         boxShadow: `0 0 0 1px ${theme('colors.gray.200')}`,
         borderRadius: theme('borderRadius.md'),
         overflow: 'hidden',
-        // eslint-disable-next-line id-length
         p: {
           margin: 0,
         },
