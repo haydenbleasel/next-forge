@@ -10,6 +10,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@arcjet/next": "1.0.0-alpha.28",
     "@clerk/nextjs": "^6.2.0",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
