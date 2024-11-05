@@ -1,9 +1,11 @@
 'use server';
 
 import { parseError } from '@repo/design-system/lib/error';
-import { resend } from '@repo/design-system/lib/resend';
 import { ContactTemplate } from '@repo/email-templates/contact';
 import { env } from '@repo/env';
+import { Resend } from 'resend';
+
+const resend = new Resend(env.RESEND_TOKEN);
 
 export const contact = async (
   name: string,
