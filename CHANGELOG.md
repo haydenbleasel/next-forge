@@ -1,3 +1,18 @@
+# v2.10.8 (Tue Nov 05 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Build fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+- Use latest create-next-app ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update setup.sh ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.10.7 (Tue Nov 05 2024)
 
 #### ⚠️ Pushed to `main`
