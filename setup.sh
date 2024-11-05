@@ -11,7 +11,7 @@ echo "Copying .env.example files to .env.local..."
 cp apps/api/.env.example apps/api/.env.local
 cp apps/app/.env.example apps/app/.env.local
 cp apps/web/.env.example apps/web/.env.local
-cp apps/database/.env.example apps/database/.env
+cp packages/database/.env.example packages/database/.env
 
 # Delete demo folder
 echo "Deleting demo folder..."
