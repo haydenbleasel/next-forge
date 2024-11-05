@@ -1,34 +1,20 @@
 import { auth } from '@clerk/nextjs/server';
 import { analytics } from '@repo/design-system/lib/analytics/server';
-import { type FlagOverridesType, decrypt } from '@vercel/flags';
 import { unstable_flag as flag } from '@vercel/flags/next';
 
-export const createFlag = (key: string) => {
-  return flag({
+export const createFlag = (key: string) =>
+  flag({
     key,
-    async decide(params) {
-      const overrideCookie = params.cookies.get('vercel-flag-overrides')?.value;
-      const overrides = overrideCookie
-        ? await decrypt<FlagOverridesType>(overrideCookie)
-        : {};
+    defaultValue: false,
+    async decide() {
+      const { userId } = await auth();
 
-      if (overrides && key in overrides) {
-        return overrides[key];
+      if (!userId) {
+        return this.defaultValue as boolean;
       }
 
-      try {
-        const { userId } = await auth();
+      const isEnabled = await analytics.isFeatureEnabled(key, userId);
 
-        if (!userId) {
-          return false;
-        }
-
-        const isEnabled = await analytics.isFeatureEnabled(key, userId);
-
-        return isEnabled ?? false;
-      } catch (_error) {
-        return false;
-      }
+      return isEnabled ?? (this.defaultValue as boolean);
     },
   });
-};
