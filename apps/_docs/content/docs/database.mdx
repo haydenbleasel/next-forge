@@ -3,9 +3,7 @@ title: Changing the database
 description: How to switch from Neon to something else.
 ---
 
-By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](https://planetscale.com), [Supabase](https://supabase.com), or any other PostgreSQL/MySQL provider.
-
-Here's an example of how to switch from Neon to PlanetScale.
+By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](https://planetscale.com), [Prisma Postgres](https://www.prisma.io/postgres), [Supabase](https://supabase.com), or any other PostgreSQL/MySQL provider.
 
 ## Switching from Neon to PlanetScale
 
@@ -45,10 +43,10 @@ import 'server-only';
 
 import { Pool, neonConfig } from '@neondatabase/serverless'; // [!code --]
 import { PrismaNeon } from '@prisma/adapter-neon'; // [!code --]
+import ws from 'ws'; // [!code --]
 import { Client, connect } from '@planetscale/database'; // [!code ++]
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale'; // [!code ++]
 import { PrismaClient } from '@prisma/client';
-import ws from 'ws';
 
 const databaseUrl = process.env.DATABASE_URL;
 
@@ -106,3 +104,134 @@ model Page {
   }
 }
 ```
+
+## Switching from Neon to Prisma Postgres
+
+Prisma Postgres is a serverless database with zero cold starts and a generous free tier. You can learn more about its architecture that enables this [here](https://www.prisma.io/blog/announcing-prisma-postgres-early-access). 
+
+
+1. Create a new Prisma Postgres instance via the [Prisma Data Platform](https://console.prisma.io/) and get your connection string. It will look something like this:
+
+```
+prisma+postgres://accelerate.prisma-data.net/?api_key=ey....
+```
+
+2. Update your environment variables to use the new Prisma Postgres connection string:
+
+```js title="apps/database/.env"
+DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
+DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...." // [!code ++]
+```
+
+3. Swap out the required dependencies in `@repo/database`:
+
+```package-install
+npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+npm install @prisma/extension-accelerate
+```
+
+4. Update the database connection code:
+
+```ts title="packages/database/index.ts"
+import 'server-only';
+
+import { Pool, neonConfig } from '@neondatabase/serverless'; // [!code --]
+import { PrismaNeon } from '@prisma/adapter-neon'; // [!code --]
+import ws from 'ws'; // [!code --]
+import { withAccelerate } from '@prisma/extension-accelerate'; // [!code ++]
+import { PrismaClient } from '@prisma/client';
+
+const databaseUrl = process.env.DATABASE_URL;
+
+neonConfig.webSocketConstructor = ws; // [!code --]
+
+if (!databaseUrl) {
+  throw new Error('Missing DATABASE_URL environment variable.');
+}
+
+declare global {
+  var cachedPrisma: PrismaClient | undefined;
+}
+
+const pool = new Pool({ connectionString: databaseUrl }); // [!code --]
+const adapter = new PrismaNeon(pool); // [!code --]
+
+export const database = new PrismaClient().$extends(withAccelerate()); // [!code ++]
+```
+
+Your project is now configured to use your Prisma Postgres instance for migrations and queries. 
+
+5. Explore caching and real-time database events with Prisma Postgres
+
+Note that thanks to the first-class integration of other Prisma products, Prisma Postgres comes with additional features out-of-the-box that you may find useful:
+
+- [Prisma Accelerate](https://www.prisma.io/accelerate): Enables connection pooling and global caching
+- [Prisma Pulse](https://www.prisma.io/pulse): Enables real-time streaming of database events
+
+**Caching**
+
+To cache a query with Prisma Client, you can add the [`swr`](https://www.prisma.io/docs/accelerate/caching#stale-while-revalidate-swr) and [`ttl`](https://www.prisma.io/docs/accelerate/caching#time-to-live-ttl) options to any given query, for example:
+
+```ts
+const pages = await prisma.page.findMany({
+  swr: 60, // 60 seconds
+  ttl: 60  // 60 seconds
+})
+```
+
+Learn more in the [Accelerate documentation](https://www.prisma.io/docs/accelerate).
+
+**Real-time database events**
+
+To stream database change events from your database, you first need to install the Pulse extension:
+
+```package-install
+npm install @prisma/extension-pulse
+```
+
+Next, you need to add your Pulse API key as an environment variable:
+
+```js title="apps/database/.env"
+PULSE_API_KEY="ey...." // [!code ++]
+```
+
+> **Note**: You can find your Pulse API key in your Prisma Postgres connection string, it's the value of the `api_key` argument and starts with `ey...`. Alternatively, you can find the API key in your [Prisma Postgres Dashboard](https://console.prisma.io). 
+
+```ts title="packages/database/index.ts"
+import 'server-only';
+import { withPulse } from '@prisma/extension-pulse'; // [!code ++]
+import { withAccelerate } from '@prisma/extension-accelerate';
+import { PrismaClient } from '@prisma/client';
+
+const databaseUrl = process.env.DATABASE_URL;
+const pulseApiKey = process.env.PULSE_API_KEY; // [!code ++]
+
+if (!databaseUrl) {
+  throw new Error('Missing DATABASE_URL environment variable.');
+}
+
+if (!pulseApiKey) { // [!code ++]
+  throw new Error('Missing PULSE_API_KEY environment variable.'); // [!code ++]
+} // [!code ++]
+
+declare global {
+  var cachedPrisma: PrismaClient | undefined;
+}
+
+export const database = new PrismaClient() // [!code ++]
+  .$extends(withAccelerate())              // [!code ++]
+  .$extends(withPulse({ apiKey: pulseApiKey })) ; // [!code ++]
+```
+
+You can now stream any change events from your database using the following code:
+
+```ts
+const stream = await prisma.page.stream();
+
+console.log(`Waiting for an event on the \`Page\` table ... `);
+for await (const event of stream) {
+  console.log('Received an event:', event);
+}
+```
+
+Learn more in the [Pulse documentation](https://www.prisma.io/docs/pulse).
