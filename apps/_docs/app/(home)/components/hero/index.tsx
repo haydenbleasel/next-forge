@@ -1,9 +1,9 @@
 import Image from 'next/image';
 
 import { Installer } from '../installer';
-import { GitHubButton } from './github-button';
 import Logo from './logo.svg';
 import NextLogo from './next.svg';
+import { RepoInfo } from './repo-info';
 import TurborepoLogo from './turborepo.svg';
 
 export const Hero = () => (
@@ -40,9 +40,9 @@ export const Hero = () => (
         new SaaS app as quick as possible. Authentication, billing, analytics,
         SEO, database ORM and more — it's all here.
       </p>
-      <div className="mt-4 flex w-full flex-col items-center justify-center gap-4 sm:flex-row">
+      <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
         <Installer />
-        <GitHubButton />
+        <RepoInfo />
       </div>
     </section>
   </div>
