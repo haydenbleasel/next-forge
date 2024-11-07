@@ -1,3 +1,20 @@
+# v2.11.1 (Thu Nov 07 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update security.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Add Windows support ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Co-author: Drizzle [#168](https://github.com/haydenbleasel/next-forge/pull/168) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.11.0 (Thu Nov 07 2024)
 
 :tada: This release contains work from new contributors! :tada:
