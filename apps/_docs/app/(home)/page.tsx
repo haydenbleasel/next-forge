@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Apps } from './components/apps';
+import { Attribution } from './components/attribution';
 import { CallToAction } from './components/cta';
 import { Features } from './components/features';
 import { Hero } from './components/hero';
@@ -16,6 +17,7 @@ const Home = () => (
     <Apps />
     <Features />
     <CallToAction />
+    <Attribution />
   </>
 );
 
