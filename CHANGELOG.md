@@ -1,3 +1,15 @@
+# v2.11.5 (Thu Nov 07 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update attribution.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.11.4 (Thu Nov 07 2024)
 
 #### ⚠️ Pushed to `main`
