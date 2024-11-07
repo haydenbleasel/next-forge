@@ -1,9 +1,11 @@
 ---
-title: ORM
-description: How to handle ORM in next-forge
+title: Database and ORM
+description: How the database is configured in next-forge.
 ---
 
-[Prisma](https://www.prisma.io/) is used as the ORM (Object-Relational Mapping) in next-forge. It provides a type-safe database client that makes it easy to work with your database while maintaining strong typing throughout your application.
+By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](/docs/database/planetscale), [Prisma Postgres](/docs/database/prisma-postgres), Supabase, or any other PostgreSQL/MySQL provider.
+
+Database access is configured in `@repo/database` via [Prisma](https://www.prisma.io/) as the ORM (Object-Relational Mapping). It provides a type-safe database client that makes it easy to work with your database while maintaining strong typing throughout your application.
 
 ## Overview
 
