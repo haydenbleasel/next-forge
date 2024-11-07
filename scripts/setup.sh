@@ -17,6 +17,9 @@ cp packages/database/.env.example packages/database/.env
 echo "Deleting demo folder..."
 rm -rf apps/_docs
 
+echo "Setting up Prisma..."
+pnpm build --filter @repo/database
+
 # Finish setup
 echo "Setup complete! Deleting setup folder..."
 rm -rf scripts

@@ -16,6 +16,10 @@ copy packages\database\.env.example packages\database\.env
 echo Deleting demo folder...
 rmdir /S /Q apps\_docs
 
+:: Setup Prisma
+echo Setting up Prisma...
+pnpm build --filter @repo/database
+
 :: Finish setup
 echo Setup complete! Deleting setup folder...
 rmdir /S /Q scripts
