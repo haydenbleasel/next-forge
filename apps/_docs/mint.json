@@ -1,0 +1,77 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+
+  "name": "next-forge docs",
+
+  "logo": {
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
+  },
+
+  "favicon": "/images/icon.png",
+
+  "layout": "topnav",
+
+  "colors": {
+    "primary": "#727272",
+    "light": "#A0A0A0",
+    "dark": "#727272"
+  },
+
+  "background": {
+    "style": "grid"
+  },
+
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/haydenbleasel/next-forge"
+  },
+
+  "search": {
+    "prompt": "Search or ask..."
+  },
+
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": [
+        "docs/index",
+        "docs/setup",
+        "docs/structure",
+        "docs/deploying",
+        "docs/faq"
+      ]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "docs/analytics",
+        "docs/authentication",
+        "docs/blog",
+        "docs/bundle-analysis",
+        "docs/cron",
+        "docs/dark-mode",
+        {
+          "group": "Database and ORM",
+          "pages": [
+            "docs/database/index",
+            "docs/database/drizzle",
+            "docs/database/planetscale",
+            "docs/database/prisma-postgres"
+          ]
+        },
+        "docs/debugging",
+        "docs/email",
+        "docs/env",
+        "docs/flags",
+        "docs/formatting",
+        "docs/monitoring",
+        "docs/payments",
+        "docs/security",
+        "docs/seo",
+        "docs/sitemap",
+        "docs/testing"
+      ]
+    }
+  ]
+}
