@@ -1,3 +1,15 @@
+# v2.11.3 (Thu Nov 07 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Rework database / orm docs ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.11.1 (Thu Nov 07 2024)
 
 #### ⚠️ Pushed to `main`
