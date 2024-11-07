@@ -1,3 +1,18 @@
+# v2.11.4 (Thu Nov 07 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Redesign hero ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update installer.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Add logo.dev attribution ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.11.3 (Thu Nov 07 2024)
 
 #### ⚠️ Pushed to `main`
