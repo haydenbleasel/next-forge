@@ -18,7 +18,6 @@ echo "Deleting demo folder..."
 rm -rf apps/_docs
 
 # Finish setup
-echo "Setup complete! Deleting setup script..."
+echo "Setup complete! Deleting setup folder..."
+rm -rf scripts
 
-# Script self-deletion command
-rm -- "$0"

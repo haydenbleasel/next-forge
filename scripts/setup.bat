@@ -17,7 +17,5 @@ echo Deleting demo folder...
 rmdir /S /Q apps\_docs
 
 :: Finish setup
-echo Setup complete! Deleting setup script...
-
-:: Script self-deletion command
-del "%~f0"
+echo Setup complete! Deleting setup folder...
+rmdir /S /Q scripts
