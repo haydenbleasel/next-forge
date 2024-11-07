@@ -1,21 +1,23 @@
 ---
-title: Changing the database
-description: How to switch from Neon to something else.
+title: PlanetScale
+description: How to switch from Neon to PlanetScale.
 ---
 
 By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](https://planetscale.com), [Prisma Postgres](https://www.prisma.io/postgres), [Supabase](https://supabase.com), or any other PostgreSQL/MySQL provider.
 
-## Switching from Neon to PlanetScale
+## 1. Create a new database on PlanetScale
 
-Here's a step-by-step guide to switch from Neon to PlanetScale:
-
-1. Create a new database on PlanetScale and get your connection string. It will look something like this:
+Once you create a database on PlanetScale, you will get a connection string. It will look something like this:
 
 ```
 mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>
 ```
 
-2. Update your environment variables to use the new PlanetScale connection string:
+Keep this connection string handy, you will need it in the next step.
+
+## 2. Update your environment variables
+
+Update your environment variables to use the new PlanetScale connection string:
 
 ```js title="apps/database/.env"
 DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
@@ -29,14 +31,23 @@ DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<dat
 
 Etcetera.
 
-3. Swap out the required dependencies in `@repo/database`:
+## 3. Swap out the required dependencies in `@repo/database`
+
+Uninstall the existing dependencies...
 
 ```package-install
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws
-npm install @planetscale/database @prisma/adapter-planetscale
+npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
 ```
 
-4. Update the database connection code:
+...and install the new ones:
+
+```package-install
+npm install @planetscale/database @prisma/adapter-planetscale --filter database
+```
+
+## 4. Update the database connection code
+
+Update the database connection code to use the new PlanetScale adapter:
 
 ```ts title="packages/database/index.ts"
 import 'server-only';
@@ -68,7 +79,9 @@ const adapter = new PrismaPlanetScale(client); // [!code ++]
 export const database = new PrismaClient({ adapter });
 ```
 
-5. Update your Prisma schema to use the new database provider:
+## 5. Update your Prisma schema
+
+Update your Prisma schema to use the new database provider:
 
 ```prisma title="packages/database/prisma/schema.prisma"
 // This is your Prisma schema file,
@@ -95,7 +108,9 @@ model Page {
 }
 ```
 
-6. Add a `dev` script to your `package.json`:
+## 6. Add a `dev` script
+
+Add a `dev` script to your `package.json`:
 
 ```json title="packages/database/package.json"
 {

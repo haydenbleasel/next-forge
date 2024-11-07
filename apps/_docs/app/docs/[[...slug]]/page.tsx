@@ -12,6 +12,7 @@ import {
   DocsTitle,
 } from 'fumadocs-ui/page';
 import { notFound } from 'next/navigation';
+import { Coauthors } from '../components/coauthors';
 import { Mermaid } from '../components/mermaid';
 
 type PageProps = {
@@ -44,6 +45,7 @@ const Page = async (props: PageProps) => {
             img: (props) => <ImageZoom {...(props as ImageZoomProps)} />,
             Tab,
             Tabs,
+            Coauthors,
           }}
         />
       </DocsBody>
