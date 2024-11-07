@@ -18,7 +18,10 @@ export const Installer = () => {
   };
 
   return (
-    <div className="inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 font-medium text-sm ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50">
+    <div className="dark inline-flex h-10 items-center justify-center gap-2 whitespace-nowrap rounded-md border border-input bg-background px-4 py-2 font-medium text-foreground text-sm shadow-sm ring-1 ring-foreground/5">
+      <p className="pointer-events-none select-none text-muted-foreground text-xs">
+        $
+      </p>
       <div className="max-w-[300px] truncate font-mono">{command}</div>
       <Tooltip delayDuration={0}>
         <TooltipTrigger asChild>
