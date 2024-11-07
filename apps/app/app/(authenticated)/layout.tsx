@@ -1,3 +1,5 @@
+import arcjet, {detectBot, slidingWindow} from "@/lib/arcjet";
+import { request } from "@arcjet/next";
 import { auth, currentUser } from '@clerk/nextjs/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
 import { showBetaFeature } from '@repo/feature-flags';
@@ -9,9 +11,31 @@ type AppLayoutProperties = {
   readonly children: ReactNode;
 };
 
+const aj = arcjet.withRule(
+  detectBot({
+    mode: "LIVE",
+    // Allow preview links to show OG images, but no other bots should be
+    // allowed. See https://docs.arcjet.com/bot-protection/identifying-bots
+    allow: ["CATEGORY:PREVIEW"]
+  }),
+);
+
 const AppLayout = async ({
   children,
 }: AppLayoutProperties): Promise<ReactElement> => {
+  const req = await request();
+  const decision = await aj.protect(req);
+
+  // These errors are handled by the global error boundary, but you could also
+  // redirect or show a custom error page
+  if (decision.isDenied()) {
+    if (decision.reason.isBot()) {
+      throw new Error("No bots allowed");
+    } else {
+      throw new Error("Access denied");
+    }
+  }
+
   const user = await currentUser();
   const { redirectToSignIn } = await auth();
   const betaFeature = await showBetaFeature();

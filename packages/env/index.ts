@@ -12,6 +12,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
   BETTERSTACK_API_KEY: z.string().min(1),
   BETTERSTACK_URL: z.string().min(1).url(),
+  ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
   ANALYZE: z.string().optional(),
 
   // Added by Node
@@ -59,6 +60,7 @@ export const env = createEnv({
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     BETTERSTACK_API_KEY: process.env.BETTERSTACK_API_KEY,
     BETTERSTACK_URL: process.env.BETTERSTACK_URL,
+    ARCJET_KEY: process.env.ARCJET_KEY,
     ANALYZE: process.env.ANALYZE,
     NODE_ENV: process.env.NODE_ENV,
     CI: process.env.CI,
