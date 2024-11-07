@@ -1,3 +1,36 @@
+# v2.11.0 (Thu Nov 07 2024)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Kaique da Silva ([@ktfth](https://github.com/ktfth))
+
+:heart: David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+:heart: Nikolas ([@nikolasburk](https://github.com/nikolasburk))
+
+#### 🚀 Enhancement
+
+- feat: Add Arcjet security [#187](https://github.com/haydenbleasel/next-forge/pull/187) ([@davidmytton](https://github.com/davidmytton) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🐛 Bug Fix
+
+- chore(windows_setup): add windows setup script [#196](https://github.com/haydenbleasel/next-forge/pull/196) ([@ktfth](https://github.com/ktfth))
+
+#### 📝 Documentation
+
+- add docs for switching to Prisma Postgres [#192](https://github.com/haydenbleasel/next-forge/pull/192) ([@nikolasburk](https://github.com/nikolasburk))
+
+#### Authors: 4
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Kaique da Silva ([@ktfth](https://github.com/ktfth))
+- Nikolas ([@nikolasburk](https://github.com/nikolasburk))
+
+---
+
 # v2.10.10 (Tue Nov 05 2024)
 
 #### ⚠️ Pushed to `main`
