@@ -15,7 +15,7 @@ import Svix from './svix.svg';
 import Tailwind from './tailwind.svg';
 import TypeScript from './typescript.svg';
 
-import DateFns from './date-fns.svg';
+import Arcjet from './arcjet.svg';
 import Lucide from './lucide.svg';
 import Neon from './neon.svg';
 import React from './react.svg';
@@ -91,8 +91,8 @@ const rows = [
         className: '[animation-delay:-32s] [animation-duration:40s]',
       },
       {
-        label: 'Date-fns',
-        src: DateFns,
+        label: 'Arcjet',
+        src: Arcjet,
         className: '[animation-delay:-22s] [animation-duration:40s]',
       },
       {
