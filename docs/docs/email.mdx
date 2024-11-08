@@ -27,7 +27,7 @@ The `email-templates` package is separated from the app folder for two reasons:
 
 Resend and React Email play nicely together. For example, here's how we send the contact form email:
 
-```tsx title="apps/web/app/contact/actions/contact.tsx"
+```tsx apps/web/app/contact/actions/contact.tsx
 await resend.emails.send({
   from,
   to: from,
@@ -41,6 +41,6 @@ await resend.emails.send({
 
 To preview the emails templates, simply run the `email` app:
 
-```bash title="Terminal"
+```bash Terminal
 pnpm dev --filter email
 ```

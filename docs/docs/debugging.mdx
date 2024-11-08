@@ -23,7 +23,7 @@ The `next.config.ts` file imports shared Sentry-specific settings through `withS
 
 If you want to capture a specific exception rather than letting it bubble up to Sentry, you can use the `captureException` function:
 
-```tsx title="page.tsx"
+```tsx page.tsx
 import { captureException } from '@sentry/nextjs';
 
 captureException(new Error('My error message'));

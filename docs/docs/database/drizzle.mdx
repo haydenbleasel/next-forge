@@ -45,7 +45,7 @@ npm install -D drizzle-kit --filter database
 
 Delete everything in `@repo/database/index.ts` and replace it with the following:
 
-```ts title="packages/database/index.ts"
+```ts packages/database/index.ts
 import 'server-only';
 
 import { neon } from '@neondatabase/serverless';
@@ -61,7 +61,7 @@ export const database = drizzle({ client });
 
 Next we'll create a Drizzle configuration file, used by Drizzle Kit and contains all the information about your database connection, migration folder and schema files. Create a `drizzle.config.ts` file in the `packages/database` directory with the following contents:
 
-```ts title="packages/database/drizzle.config.ts"
+```ts packages/database/drizzle.config.ts
 import { defineConfig } from 'drizzle-kit';
 import { env } from '@repo/env';
 
@@ -91,7 +91,7 @@ Now you can update your queries to use the Drizzle ORM.
 
 For example, here's how we can update the `page` query in `app/(authenticated)/page.tsx`:
 
-```ts title="apps/app/app/(authenticated)/page.tsx"
+```ts apps/app/app/(authenticated)/page.tsx
 import { database } from '@repo/database';
 import { page } from '@repo/database/schema'; // [!code ++]
 

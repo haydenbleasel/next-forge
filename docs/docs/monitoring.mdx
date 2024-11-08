@@ -33,7 +33,7 @@ The logging functionality is abstracted through a simple wrapper in `packages/ob
 
 To use this logging setup, simply import and use the `log` object. It shares the same interface as the `console` object, so you can replace `console` with `log` in your codebase.
 
-```tsx title="page.tsx"
+```tsx page.tsx
 import { log } from '@repo/observability/log';
 
 log.info('Hello, world!');

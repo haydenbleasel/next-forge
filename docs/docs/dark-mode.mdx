@@ -17,7 +17,7 @@ By default, each application theme will default to the user's operating system p
 
 To allow the user to change theme manually, you can use the `ModeToggle` component which is located in the Design System package. We've already added it to the `app` sidebar and `web` navbar, but you can import it anywhere:
 
-```tsx title="page.tsx"
+```tsx page.tsx
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 
 const MyPage = () => (
@@ -27,7 +27,7 @@ const MyPage = () => (
 
 You can check the theme by using the `useTheme` hook directly from `next-themes`. For example:
 
-```tsx title="page.tsx"
+```tsx page.tsx
 import { useTheme } from 'next-themes';
 
 const MyPage = () => {
@@ -41,7 +41,7 @@ const MyPage = () => {
 
 Currently, it's not possible to change the Clerk theme to match the exact theme of the app. This is because Clerk's Theme doesn't accept custom CSS variables. We'd like to be able to add the following in the future:
 
-```jsx title="packages/design-system/providers/clerk.tsx"
+```jsx packages/design-system/providers/clerk.tsx
 const variables: Theme['variables'] = {
   // ...
 

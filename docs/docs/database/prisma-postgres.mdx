@@ -29,7 +29,7 @@ prisma+postgres://accelerate.prisma-data.net/?api_key=ey....
 
 Update your environment variables to use the new Prisma Postgres connection string:
 
-```js title="apps/database/.env"
+```js apps/database/.env
 DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
 DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...." // [!code ++]
 ```
@@ -52,7 +52,7 @@ npm install @prisma/extension-accelerate
 
 Update the database connection code to use the new Prisma Postgres adapter:
 
-```ts title="packages/database/index.ts"
+```ts packages/database/index.ts
 import 'server-only';
 
 import { Pool, neonConfig } from '@neondatabase/serverless'; // [!code --]
@@ -83,7 +83,7 @@ Note that thanks to the first-class integration of other Prisma products, Prisma
 
 To cache a query with Prisma Client, you can add the [`swr`](https://www.prisma.io/docs/accelerate/caching#stale-while-revalidate-swr) and [`ttl`](https://www.prisma.io/docs/accelerate/caching#time-to-live-ttl) options to any given query, for example:
 
-```ts title="page.tsx"
+```ts page.tsx
 const pages = await prisma.page.findMany({
   swr: 60, // 60 seconds
   ttl: 60  // 60 seconds
@@ -102,7 +102,7 @@ npm install @prisma/extension-pulse
 
 Next, you need to add your Pulse API key as an environment variable:
 
-```ts title="apps/database/.env"
+```ts apps/database/.env
 PULSE_API_KEY="ey...." // [!code ++]
 ```
 
@@ -110,7 +110,7 @@ PULSE_API_KEY="ey...." // [!code ++]
 
 Then, update the `env` package to include the new `PULSE_API_KEY` environment variable:
 
-```ts title="packages/env/index.ts"
+```ts packages/env/index.ts
 export const server = {
   // ...
   PULSE_API_KEY: z.string().min(1).startsWith('ey...'), // [!code ++]
@@ -128,7 +128,7 @@ export const env = createEnv({
 
 Finally, update the database connection code to include the Pulse extension:
 
-```ts title="packages/database/index.ts"
+```ts packages/database/index.ts
 import 'server-only';
 import { withPulse } from '@prisma/extension-pulse'; // [!code ++]
 import { withAccelerate } from '@prisma/extension-accelerate';
@@ -142,7 +142,7 @@ export const database = new PrismaClient() // [!code ++]
 
 You can now stream any change events from your database using the following code:
 
-```ts title="page.tsx"
+```ts page.tsx
 const stream = await prisma.page.stream();
 
 console.log(`Waiting for an event on the \`Page\` table ... `);

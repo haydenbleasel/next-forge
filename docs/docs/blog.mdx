@@ -9,7 +9,7 @@ next-forge uses [Content Collections](https://www.content-collections.dev/) to g
 
 To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
 
-```md title="apps/web/content/blog/my-first-post.mdx"
+```md apps/web/content/blog/my-first-post.mdx
 ---
 title: 'My First Post'
 description: 'This is my first blog post'
@@ -24,7 +24,7 @@ The same concept applies to the `legal` collection, which is used to generate th
 
 To create a new collection, you'll need to define it in the `content-collections.ts` file in the web directory. For example, here's how you can define a simple new collection called `docs`:
 
-```ts title="apps/web/content-collections.ts"
+```ts apps/web/content-collections.ts
 import { defineCollection } from '@content-collections/core';
 
 const docs = defineCollection({ // [!code ++]
