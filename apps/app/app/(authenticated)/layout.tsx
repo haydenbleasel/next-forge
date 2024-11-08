@@ -1,5 +1,5 @@
-import arcjet, {detectBot, slidingWindow} from "@/lib/arcjet";
-import { request } from "@arcjet/next";
+import arcjet, { detectBot } from '@/lib/arcjet';
+import { request } from '@arcjet/next';
 import { auth, currentUser } from '@clerk/nextjs/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
 import { showBetaFeature } from '@repo/feature-flags';
@@ -13,11 +13,11 @@ type AppLayoutProperties = {
 
 const aj = arcjet.withRule(
   detectBot({
-    mode: "LIVE",
+    mode: 'LIVE',
     // Allow preview links to show OG images, but no other bots should be
     // allowed. See https://docs.arcjet.com/bot-protection/identifying-bots
-    allow: ["CATEGORY:PREVIEW"]
-  }),
+    allow: ['CATEGORY:PREVIEW'],
+  })
 );
 
 const AppLayout = async ({
@@ -30,9 +30,9 @@ const AppLayout = async ({
   // redirect or show a custom error page
   if (decision.isDenied()) {
     if (decision.reason.isBot()) {
-      throw new Error("No bots allowed");
+      throw new Error('No bots allowed');
     } else {
-      throw new Error("Access denied");
+      throw new Error('Access denied');
     }
   }
 

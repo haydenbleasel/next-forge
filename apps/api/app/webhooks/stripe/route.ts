@@ -1,6 +1,6 @@
 import { clerkClient } from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
-import { posthog } from '@repo/analytics/posthog/server';
+import { analytics } from '@repo/analytics/posthog/server';
 import { parseError } from '@repo/design-system/lib/error';
 import { stripe } from '@repo/design-system/lib/stripe';
 import { env } from '@repo/env';
@@ -28,7 +28,7 @@ const handleCheckoutSessionCompleted = async (
     return;
   }
 
-  posthog.capture({
+  analytics.capture({
     event: 'User Subscribed',
     distinctId: user.id,
   });
@@ -54,7 +54,7 @@ const handleSubscriptionScheduleCanceled = async (
     return;
   }
 
-  posthog.capture({
+  analytics.capture({
     event: 'User Unsubscribed',
     distinctId: user.id,
   });
@@ -90,7 +90,7 @@ export const POST = async (request: Request): Promise<Response> => {
       }
     }
 
-    await posthog.shutdown();
+    await analytics.shutdown();
 
     return NextResponse.json({ result: event, ok: true });
   } catch (error) {

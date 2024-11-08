@@ -5,7 +5,7 @@ import posthogRaw, { type PostHog } from 'posthog-js';
 import { PostHogProvider as PostHogProviderRaw } from 'posthog-js/react';
 import type { ReactNode } from 'react';
 
-export const posthog = posthogRaw.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
+export const analytics = posthogRaw.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
   api_host: '/ingest',
   ui_host: env.NEXT_PUBLIC_POSTHOG_HOST,
   person_profiles: 'identified_only',
@@ -14,5 +14,5 @@ export const posthog = posthogRaw.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
 }) as PostHog;
 
 export const PostHogProvider = ({ children }: { children: ReactNode }) => (
-  <PostHogProviderRaw client={posthog}>{children}</PostHogProviderRaw>
+  <PostHogProviderRaw client={analytics}>{children}</PostHogProviderRaw>
 );
