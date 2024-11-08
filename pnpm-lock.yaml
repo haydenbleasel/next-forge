@@ -811,6 +811,28 @@ importers:
         specifier: 15.0.2
         version: 15.0.2(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
 
+  packages/status:
+    dependencies:
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
+      react:
+        specifier: ^18.3.1
+        version: 18.3.1
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/node':
+        specifier: 22.9.0
+        version: 22.9.0
+      '@types/react':
+        specifier: 18.3.12
+        version: 18.3.12
+      '@types/react-dom':
+        specifier: ^18.3.1
+        version: 18.3.1
+
   packages/tailwind-config:
     dependencies:
       '@tailwindcss/typography':
