@@ -1,36 +1,28 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-
   "name": "next-forge docs",
-
   "logo": {
     "dark": "/images/logo-dark.svg",
     "light": "/images/logo-light.svg"
   },
-
   "favicon": "/images/icon.png",
-
   "layout": "topnav",
-
   "colors": {
-    "primary": "#727272",
-    "light": "#A0A0A0",
-    "dark": "#727272"
+    "primary": "#0D9373",
+    "light": "#07C983",
+    "dark": "#0D9373",
+    "anchors": {
+      "from": "#0D9373",
+      "to": "#07C983"
+    }
   },
-
-  "background": {
-    "style": "grid"
-  },
-
   "topbarCtaButton": {
     "type": "github",
     "url": "https://github.com/haydenbleasel/next-forge"
   },
-
   "search": {
     "prompt": "Search or ask..."
   },
-
   "navigation": [
     {
       "group": "Getting Started",
@@ -73,5 +65,10 @@
         "docs/testing"
       ]
     }
-  ]
+  ],
+  "footerSocials": {
+    "x": "https://x.com/haydenbleasel",
+    "github": "https://github.com/haydenbleasel/next-forge",
+    "linkedin": "https://www.linkedin.com/in/haydenbleasel"
+  }
 }
