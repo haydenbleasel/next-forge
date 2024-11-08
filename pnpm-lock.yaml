@@ -402,6 +402,31 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  packages/auth:
+    dependencies:
+      '@clerk/nextjs':
+        specifier: ^6.2.0
+        version: 6.2.0(next@15.0.2(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@clerk/themes':
+        specifier: ^2.1.41
+        version: 2.1.41
+      next-themes:
+        specifier: ^0.4.3
+        version: 0.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+    devDependencies:
+      '@clerk/types':
+        specifier: ^4.30.0
+        version: 4.30.0
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+
   packages/database:
     dependencies:
       '@neondatabase/serverless':

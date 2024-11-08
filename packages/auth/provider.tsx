@@ -1,15 +1,13 @@
 'use client';
 
-import { ClerkProvider as ClerkProviderRaw } from '@clerk/nextjs';
+import { ClerkProvider } from '@clerk/nextjs';
 import { dark } from '@clerk/themes';
 import type { Theme } from '@clerk/types';
 import { tailwind } from '@repo/design-system/lib/tailwind';
 import { useTheme } from 'next-themes';
 import type { ComponentProps } from 'react';
 
-export const ClerkProvider = (
-  props: ComponentProps<typeof ClerkProviderRaw>
-) => {
+export const AuthProvider = (props: ComponentProps<typeof ClerkProvider>) => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === 'dark';
   const baseTheme = isDark ? dark : undefined;
@@ -38,9 +36,6 @@ export const ClerkProvider = (
   };
 
   return (
-    <ClerkProviderRaw
-      {...props}
-      appearance={{ baseTheme, variables, elements }}
-    />
+    <ClerkProvider {...props} appearance={{ baseTheme, variables, elements }} />
   );
 };
