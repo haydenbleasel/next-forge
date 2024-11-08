@@ -1,0 +1,11 @@
+{
+  "name": "docs",
+  "private": true,
+  "scripts": {
+    "dev": "mintlify dev --port 3004",
+    "lint": "mintlify broken-links"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
