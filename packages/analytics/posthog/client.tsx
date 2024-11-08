@@ -1,3 +1,5 @@
+'use client';
+
 import { env } from '@repo/env';
 import posthogRaw, { type PostHog } from 'posthog-js';
 import { PostHogProvider as PostHogProviderRaw } from 'posthog-js/react';
