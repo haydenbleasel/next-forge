@@ -1,9 +1,9 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
+import { analytics } from '@repo/analytics/posthog/client';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
-import { analytics } from '../../../../../packages/analytics/posthog/client';
 
 export const PostHogIdentifier = () => {
   const { user } = useUser();

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@clerk/nextjs": "^6.2.0",
+    "@repo/analytics": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@vercel/flags": "^2.6.3"
   },

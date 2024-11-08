@@ -6,13 +6,13 @@ import type {
   WebhookEvent,
 } from '@clerk/nextjs/server';
 import { log } from '@logtail/next';
-import { analytics } from '@repo/design-system/lib/analytics/server';
+import { posthog } from '@repo/analytics/posthog/server';
 import { env } from '@repo/env';
 import { headers } from 'next/headers';
 import { Webhook } from 'svix';
 
 const handleUserCreated = (data: UserJSON) => {
-  analytics.identify({
+  posthog.identify({
     distinctId: data.id,
     properties: {
       email: data.email_addresses.at(0)?.email_address,
@@ -24,7 +24,7 @@ const handleUserCreated = (data: UserJSON) => {
     },
   });
 
-  analytics.capture({
+  posthog.capture({
     event: 'User Created',
     distinctId: data.id,
   });
@@ -33,7 +33,7 @@ const handleUserCreated = (data: UserJSON) => {
 };
 
 const handleUserUpdated = (data: UserJSON) => {
-  analytics.identify({
+  posthog.identify({
     distinctId: data.id,
     properties: {
       email: data.email_addresses.at(0)?.email_address,
@@ -45,7 +45,7 @@ const handleUserUpdated = (data: UserJSON) => {
     },
   });
 
-  analytics.capture({
+  posthog.capture({
     event: 'User Updated',
     distinctId: data.id,
   });
@@ -55,14 +55,14 @@ const handleUserUpdated = (data: UserJSON) => {
 
 const handleUserDeleted = (data: DeletedObjectJSON) => {
   if (data.id) {
-    analytics.identify({
+    posthog.identify({
       distinctId: data.id,
       properties: {
         deleted: new Date(),
       },
     });
 
-    analytics.capture({
+    posthog.capture({
       event: 'User Deleted',
       distinctId: data.id,
     });
@@ -72,7 +72,7 @@ const handleUserDeleted = (data: DeletedObjectJSON) => {
 };
 
 const handleOrganizationCreated = (data: OrganizationJSON) => {
-  analytics.groupIdentify({
+  posthog.groupIdentify({
     groupKey: data.id,
     groupType: 'company',
     distinctId: data.created_by,
@@ -82,7 +82,7 @@ const handleOrganizationCreated = (data: OrganizationJSON) => {
     },
   });
 
-  analytics.capture({
+  posthog.capture({
     event: 'Organization Created',
     distinctId: data.created_by,
   });
@@ -91,7 +91,7 @@ const handleOrganizationCreated = (data: OrganizationJSON) => {
 };
 
 const handleOrganizationUpdated = (data: OrganizationJSON) => {
-  analytics.groupIdentify({
+  posthog.groupIdentify({
     groupKey: data.id,
     groupType: 'company',
     distinctId: data.created_by,
@@ -101,7 +101,7 @@ const handleOrganizationUpdated = (data: OrganizationJSON) => {
     },
   });
 
-  analytics.capture({
+  posthog.capture({
     event: 'Organization Updated',
     distinctId: data.created_by,
   });
@@ -112,13 +112,13 @@ const handleOrganizationUpdated = (data: OrganizationJSON) => {
 const handleOrganizationMembershipCreated = (
   data: OrganizationMembershipJSON
 ) => {
-  analytics.groupIdentify({
+  posthog.groupIdentify({
     groupKey: data.organization.id,
     groupType: 'company',
     distinctId: data.public_user_data.user_id,
   });
 
-  analytics.capture({
+  posthog.capture({
     event: 'Organization Member Created',
     distinctId: data.public_user_data.user_id,
   });
@@ -131,7 +131,7 @@ const handleOrganizationMembershipDeleted = (
 ) => {
   // Need to unlink the user from the group
 
-  analytics.capture({
+  posthog.capture({
     event: 'Organization Member Deleted',
     distinctId: data.public_user_data.user_id,
   });
@@ -218,7 +218,7 @@ export const POST = async (request: Request): Promise<Response> => {
     }
   }
 
-  await analytics.shutdown();
+  await posthog.shutdown();
 
   return response;
 };

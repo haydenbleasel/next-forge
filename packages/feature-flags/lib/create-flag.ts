@@ -1,5 +1,5 @@
 import { auth } from '@clerk/nextjs/server';
-import { analytics } from '@repo/design-system/lib/analytics/server';
+import { posthog } from '@repo/analytics/posthog/server';
 import { unstable_flag as flag } from '@vercel/flags/next';
 
 export const createFlag = (key: string) =>
@@ -14,7 +14,7 @@ export const createFlag = (key: string) =>
           return this.defaultValue as boolean;
         }
 
-        const isEnabled = await analytics.isFeatureEnabled(key, userId);
+        const isEnabled = await posthog.isFeatureEnabled(key, userId);
 
         return isEnabled ?? (this.defaultValue as boolean);
       } catch (_error) {
