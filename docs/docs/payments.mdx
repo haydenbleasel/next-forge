@@ -9,12 +9,12 @@ next-forge uses [Stripe](https://stripe.com/) by default for payments and billin
 
 You can use Stripe anywhere in your app by importing the `stripe` object like so:
 
-```ts page.tsx
-import { stripe } from '@repo/design-system/lib/stripe'; // [!code ++]
+```ts page.tsx {1,5}
+import { stripe } from '@repo/design-system/lib/stripe';
 
 // ...
 
-await stripe.prices.list(); // [!code ++]
+await stripe.prices.list();
 ```
 
 ## Webhooks

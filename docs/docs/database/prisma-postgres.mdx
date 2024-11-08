@@ -30,42 +30,54 @@ prisma+postgres://accelerate.prisma-data.net/?api_key=ey....
 Update your environment variables to use the new Prisma Postgres connection string:
 
 ```js apps/database/.env
-DATABASE_URL="postgresql://<username>:<password>@<region>.aws.neon.tech/<database>" // [!code --]
-DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...." // [!code ++]
+DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...."
 ```
 
 ## 3. Swap out the required dependencies in `@repo/database`
 
 Uninstall the existing dependencies...
-
-```package-install
+<CodeGroup>
+```sh npm
 npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws
 ```
+```sh pnpm
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+```
+```sh yarn
+yarn remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+```
+```sh bun
+bun remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
+```
+</CodeGroup>
 
 ... and install the new dependencies:
 
-```package-install
+<CodeGroup>
+```sh npm
 npm install @prisma/extension-accelerate
 ```
+```sh pnpm
+pnpm add @prisma/extension-accelerate
+```
+```sh yarn
+yarn add @prisma/extension-accelerate
+```
+```sh bun
+bun add @prisma/extension-accelerate
+```
+</CodeGroup>
 
 ## 4. Update the database connection code
 
 Update the database connection code to use the new Prisma Postgres adapter:
 
-```ts packages/database/index.ts
+```ts packages/database/index.ts {4,7}
 import 'server-only';
 
-import { Pool, neonConfig } from '@neondatabase/serverless'; // [!code --]
-import { PrismaNeon } from '@prisma/adapter-neon'; // [!code --]
 import { env } from '@repo/env';
-import ws from 'ws'; // [!code --]
-import { withAccelerate } from '@prisma/extension-accelerate'; // [!code ++]
+import { withAccelerate } from '@prisma/extension-accelerate';
 import { PrismaClient } from '@prisma/client';
-
-neonConfig.webSocketConstructor = ws; // [!code --]
-
-const pool = new Pool({ connectionString: env.DATABASE_URL }); // [!code --]
-const adapter = new PrismaNeon(pool); // [!code --]
 
 export const database = new PrismaClient().$extends(withAccelerate()); // [!code ++]
 ```
@@ -96,24 +108,37 @@ Learn more in the [Accelerate documentation](https://www.prisma.io/docs/accelera
 
 To stream database change events from your database, you first need to install the Pulse extension:
 
-```package-install
+<CodeGroup>
+```sh npm
 npm install @prisma/extension-pulse
 ```
+```sh pnpm
+pnpm add @prisma/extension-pulse
+```
+```sh yarn
+yarn add @prisma/extension-pulse
+```
+```sh bun
+bun add @prisma/extension-pulse
+```
+</CodeGroup>
 
 Next, you need to add your Pulse API key as an environment variable:
 
 ```ts apps/database/.env
-PULSE_API_KEY="ey...." // [!code ++]
+PULSE_API_KEY="ey...."
 ```
 
-<Tip>You can find your Pulse API key in your Prisma Postgres connection string, it's the value of the `api_key` argument and starts with `ey...`. Alternatively, you can find the API key in your [Prisma Postgres Dashboard](https://console.prisma.io).</Tip>
+<Info>
+  You can find your Pulse API key in your Prisma Postgres connection string, it's the value of the `api_key` argument and starts with `ey...`. Alternatively, you can find the API key in your [Prisma Postgres Dashboard](https://console.prisma.io).
+</Info>
 
 Then, update the `env` package to include the new `PULSE_API_KEY` environment variable:
 
-```ts packages/env/index.ts
+```ts packages/env/index.ts {3,11}
 export const server = {
   // ...
-  PULSE_API_KEY: z.string().min(1).startsWith('ey...'), // [!code ++]
+  PULSE_API_KEY: z.string().min(1).startsWith('ey...'),
 };
 
 export const env = createEnv({
@@ -121,23 +146,23 @@ export const env = createEnv({
   server,
   runtimeEnv: {
     // ...
-    PULSE_API_KEY: process.env.PULSE_API_KEY, // [!code ++]
+    PULSE_API_KEY: process.env.PULSE_API_KEY,
   },
 });
 ```
 
 Finally, update the database connection code to include the Pulse extension:
 
-```ts packages/database/index.ts
+```ts packages/database/index.ts {2, 7-9}
 import 'server-only';
-import { withPulse } from '@prisma/extension-pulse'; // [!code ++]
+import { withPulse } from '@prisma/extension-pulse';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { PrismaClient } from '@prisma/client';
 import { env } from '@repo/env';
 
-export const database = new PrismaClient() // [!code ++]
-  .$extends(withAccelerate())              // [!code ++]
-  .$extends(withPulse({ apiKey: env.PULSE_API_KEY })) ; // [!code ++]
+export const database = new PrismaClient()
+  .$extends(withAccelerate())
+  .$extends(withPulse({ apiKey: env.PULSE_API_KEY })) ;
 ```
 
 You can now stream any change events from your database using the following code:

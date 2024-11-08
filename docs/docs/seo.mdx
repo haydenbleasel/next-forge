@@ -18,13 +18,13 @@ export const metadata = createMetadata({
 
 While this looks similar to just exporting a `metadata` object from your page, the `createMetadata` function deep merges your metadata with our default metadata, allowing you to customize only the metadata that you need to. It's also much easier to specify a cover photo for the page, for example:
 
-```tsx page.tsx
+```tsx page.tsx {6}
 import { createMetadata } from '@repo/design-system/lib/metadata';
 
 export const metadata = createMetadata({
   title: 'My Page',
   description: 'My page description',
-  image: '/my-page-image.png', // [!code ++]
+  image: '/my-page-image.png',
 });
 ```
 

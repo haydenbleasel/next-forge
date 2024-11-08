@@ -41,21 +41,21 @@ const MyPage = () => {
 
 Currently, it's not possible to change the Clerk theme to match the exact theme of the app. This is because Clerk's Theme doesn't accept custom CSS variables. We'd like to be able to add the following in the future:
 
-```jsx packages/design-system/providers/clerk.tsx
+```jsx packages/design-system/providers/clerk.tsx {4-15}
 const variables: Theme['variables'] = {
   // ...
 
-  colorBackground: 'hsl(var(--background))', // [!code ++]
-  colorPrimary: 'hsl(var(--primary))', // [!code ++]
-  colorDanger: 'hsl(var(--destructive))', // [!code ++]
-  colorInputBackground: 'hsl(var(--transparent))', // [!code ++]
-  colorInputText: 'hsl(var(--text-foreground))', // [!code ++]
-  colorNeutral: 'hsl(var(--neutral))', // [!code ++]
-  colorShimmer: 'hsl(var(--primary) / 10%)', // [!code ++]
-  colorSuccess: 'hsl(var(--success))', // [!code ++]
-  colorText: 'hsl(var(--text-foreground))', // [!code ++]
-  colorTextOnPrimaryBackground: 'hsl(var(--text-foreground))', // [!code ++]
-  colorTextSecondary: 'hsl(var(--text-muted-foreground))', // [!code ++]
-  colorWarning: 'hsl(var(--warning))', // [!code ++]
+  colorBackground: 'hsl(var(--background))',
+  colorPrimary: 'hsl(var(--primary))',
+  colorDanger: 'hsl(var(--destructive))',
+  colorInputBackground: 'hsl(var(--transparent))',
+  colorInputText: 'hsl(var(--text-foreground))',
+  colorNeutral: 'hsl(var(--neutral))',
+  colorShimmer: 'hsl(var(--primary) / 10%)',
+  colorSuccess: 'hsl(var(--success))',
+  colorText: 'hsl(var(--text-foreground))',
+  colorTextOnPrimaryBackground: 'hsl(var(--text-foreground))',
+  colorTextSecondary: 'hsl(var(--text-muted-foreground))',
+  colorWarning: 'hsl(var(--warning))',
 };
 ```

@@ -27,7 +27,7 @@ PostHog's web analytics tool is enabled by default and captures pageviews, pagel
 
 We've combined PostHog's Node.js server-side library with Clerk and Stripe webhooks to wire it up as follows:
 
-```mermaid
+<Mermaid chart={`
 graph TD
   A[User Action in App] -->|Triggers| B[Clerk Webhook]
   A -->|Triggers| E[Stripe Webhook]
@@ -45,7 +45,7 @@ graph TD
 
   C1 -->|Clerk Events| PostHog
   C2 -->|Stripe Events| PostHog
-```
+`} />
 
 We've also setup Next.js rewrites to reverse proxy PostHog requests, meaning your client-side analytics events won't be blocked by ad blockers.
 
