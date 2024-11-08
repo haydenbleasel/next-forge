@@ -1,0 +1,13 @@
+{
+  "name": "@repo/analytics",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@next/third-parties": "^15.0.2",
+    "@repo/env": "workspace:*",
+    "@vercel/analytics": "^1.3.2",
+    "posthog-js": "^1.181.0",
+    "posthog-node": "^4.2.1",
+    "server-only": "^0.0.1"
+  }
+}
