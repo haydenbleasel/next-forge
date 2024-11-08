@@ -306,6 +306,9 @@ importers:
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
+      '@repo/status':
+        specifier: workspace:*
+        version: link:../../packages/status
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
@@ -704,9 +707,6 @@ importers:
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
-      ultracite:
-        specifier: ^4.1.6
-        version: 4.1.6
 
   packages/email-templates:
     dependencies:
