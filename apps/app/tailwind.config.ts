@@ -1,1 +1,1 @@
-export { default } from '@repo/design-system/tailwind.config';
+export { config as default } from '@repo/tailwind-config/config';
