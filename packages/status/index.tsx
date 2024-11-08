@@ -1,23 +1,14 @@
 import 'server-only';
 import { env } from '@repo/env';
 import type { ReactElement } from 'react';
-import type { BetterStackResponse } from './types';
+import { getStatus } from './get';
 
 export const Status = async (): Promise<ReactElement> => {
-  const response = await fetch(
-    'https://uptime.betterstack.com/api/v2/monitors',
-    {
-      headers: {
-        Authorization: `Bearer ${env.BETTERSTACK_API_KEY}`,
-      },
-    }
-  );
-
   let statusColor = 'bg-success';
   let statusLabel = 'All systems normal';
 
-  if (response.ok) {
-    const { data } = (await response.json()) as BetterStackResponse;
+  try {
+    const data = await getStatus();
 
     const status =
       data.filter((monitor) => monitor.attributes.status === 'up').length /
@@ -30,7 +21,7 @@ export const Status = async (): Promise<ReactElement> => {
       statusColor = 'bg-warning';
       statusLabel = 'Partial outage';
     }
-  } else {
+  } catch {
     statusColor = 'bg-muted-foreground';
     statusLabel = 'Unable to fetch status';
   }
