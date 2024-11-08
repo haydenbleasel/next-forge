@@ -7,18 +7,14 @@ export const createFlag = (key: string) =>
     key,
     defaultValue: false,
     async decide() {
-      try {
-        const { userId } = await auth();
+      const { userId } = await auth();
 
-        if (!userId) {
-          return this.defaultValue as boolean;
-        }
-
-        const isEnabled = await analytics.isFeatureEnabled(key, userId);
-
-        return isEnabled ?? (this.defaultValue as boolean);
-      } catch (_error) {
+      if (!userId) {
         return this.defaultValue as boolean;
       }
+
+      const isEnabled = await analytics.isFeatureEnabled(key, userId);
+
+      return isEnabled ?? (this.defaultValue as boolean);
     },
   });
