@@ -1,3 +1,15 @@
+# v2.12.0 (Sat Nov 09 2024)
+
+#### 🚀 Enhancement
+
+- 198 improve package isolation [#200](https://github.com/haydenbleasel/next-forge/pull/200) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.11.7 (Thu Nov 07 2024)
 
 #### ⚠️ Pushed to `main`
