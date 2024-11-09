@@ -1,7 +1,4 @@
-'use client';
-
 import { captureException } from '@sentry/nextjs';
-import { toast } from 'sonner';
 import { log } from './log';
 
 export const parseError = (error: unknown): string => {
@@ -24,10 +21,4 @@ export const parseError = (error: unknown): string => {
   }
 
   return message;
-};
-
-export const handleError = (error: unknown): void => {
-  const message = parseError(error);
-
-  toast.error(message);
 };

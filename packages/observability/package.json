@@ -1,0 +1,14 @@
+{
+  "name": "@repo/observability",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@logtail/next": "^0.1.5",
+    "@repo/env": "workspace:*",
+    "@sentry/nextjs": "^8.37.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}
