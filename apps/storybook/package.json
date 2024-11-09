@@ -14,6 +14,7 @@
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
+    "@repo/typescript-config": "workspace:*",
     "@storybook/addon-essentials": "^8.4.1",
     "@storybook/addon-interactions": "^8.4.1",
     "@storybook/addon-onboarding": "^8.4.1",
