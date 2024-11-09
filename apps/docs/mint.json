@@ -5,6 +5,16 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
+  "font": {
+    "body": {
+      "family": "Switzer",
+      "url": "https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&display=swap"
+    },
+    "headings": {
+      "family": "Switzer",
+      "url": "https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&display=swap"
+    }
+  },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#0D9373",
@@ -51,11 +61,7 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "development"
-      ]
+      "pages": ["introduction", "quickstart", "development"]
     },
     {
       "group": "Essentials",
@@ -70,9 +76,7 @@
     },
     {
       "group": "API Documentation",
-      "pages": [
-        "api-reference/introduction"
-      ]
+      "pages": ["api-reference/introduction"]
     },
     {
       "group": "Endpoint Examples",
