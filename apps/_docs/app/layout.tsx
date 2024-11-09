@@ -1,5 +1,4 @@
 import './global.css';
-import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { Analytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
 import type { ReactNode } from 'react';
@@ -23,11 +22,9 @@ export default function Layout({ children }: { children: ReactNode }) {
         />
       </head>
       <body className="flex min-h-screen flex-col">
-        <TooltipProvider>
-          <RootProvider>{children}</RootProvider>
-          <Analytics />
-          <Toaster />
-        </TooltipProvider>
+        <RootProvider>{children}</RootProvider>
+        <Analytics />
+        <Toaster />
       </body>
     </html>
   );

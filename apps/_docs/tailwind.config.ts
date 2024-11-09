@@ -9,7 +9,6 @@ const config: Config = {
     './content/**/*.{md,mdx}',
     './mdx-components.{ts,tsx}',
     './node_modules/fumadocs-ui/dist/**/*.js',
-    './node_modules/@repo/design-system/components/**/*.{ts,tsx}',
   ],
   theme: {
     extend: {

@@ -1,4 +1,3 @@
-import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
 import ApiImage from './api.png';
 import AppImage from './app.png';

@@ -1,5 +1,5 @@
-import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
+import { twMerge } from 'tailwind-merge';
 
 import BetterStack from './better-stack.svg';
 import Clerk from './clerk.svg';
@@ -200,7 +200,7 @@ export const Features = () => (
             {rowData.row.map((logo, _logoIndex) => (
               <div
                 key={logo.label}
-                className={cn(
+                className={twMerge(
                   logo.className,
                   'absolute top-[50px] grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
                   'rounded-full bg-gradient-to-t from-50% from-background/50 to-secondary/50 ring-1 ring-foreground/10 ring-inset backdrop-blur-sm',
