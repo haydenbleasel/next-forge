@@ -1,7 +1,7 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
-import { analytics } from '@repo/design-system/lib/analytics/client';
+import { analytics } from '@repo/analytics/posthog/client';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
 

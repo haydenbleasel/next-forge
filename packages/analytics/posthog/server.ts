@@ -1,3 +1,4 @@
+import 'server-only';
 import { env } from '@repo/env';
 import { PostHog } from 'posthog-node';
 

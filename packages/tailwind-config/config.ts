@@ -4,7 +4,7 @@ import animate from 'tailwindcss-animate';
 import defaultTheme from 'tailwindcss/defaultTheme';
 import typographyConfig from './typography.config';
 
-const config: Config = {
+export const config: Config = {
   darkMode: ['class'],
   content: [
     './node_modules/@repo/design-system/components/**/*.{ts,tsx}',
@@ -102,5 +102,3 @@ const config: Config = {
   },
   plugins: [animate, typography],
 };
-
-export default config;

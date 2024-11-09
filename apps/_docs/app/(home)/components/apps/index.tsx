@@ -1,5 +1,5 @@
-import { cn } from '@repo/design-system/lib/utils';
 import Image from 'next/image';
+import { twMerge } from 'tailwind-merge';
 import ApiImage from './api.png';
 import AppImage from './app.png';
 import DocsImage from './docs.png';
@@ -64,21 +64,21 @@ export const Apps = () => (
       <div className="mt-10 grid grid-cols-1 gap-4 sm:mt-16 lg:grid-cols-6 lg:grid-rows-2">
         {apps.map((app, index) => (
           <div
-            className={cn(
+            className={twMerge(
               'relative',
               [0, 3, 4].includes(index) ? 'lg:col-span-4' : 'lg:col-span-2'
             )}
             key={app.name}
           >
             <div
-              className={cn(
+              className={twMerge(
                 'absolute inset-px rounded-lg bg-background max-lg:rounded-t-[2rem]',
                 !index && 'lg:rounded-tl-[2rem]',
                 index === 1 && 'lg:rounded-tr-[2rem]'
               )}
             />
             <div
-              className={cn(
+              className={twMerge(
                 'relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]',
                 !index && 'lg:rounded-tl-[calc(2rem+1px)]',
                 index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
@@ -88,7 +88,7 @@ export const Apps = () => (
                 <Image
                   alt=""
                   src={app.image}
-                  className={cn(
+                  className={twMerge(
                     'h-auto w-full overflow-hidden rounded-md border object-cover object-left',
                     [0, 3, 4].includes(index)
                       ? ''
@@ -109,7 +109,7 @@ export const Apps = () => (
               </div>
             </div>
             <div
-              className={cn(
+              className={twMerge(
                 'pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-foreground/5 max-lg:rounded-t-[2rem]',
                 !index && 'lg:rounded-tl-[2rem]',
                 index === 1 && 'lg:rounded-tr-[2rem]'
