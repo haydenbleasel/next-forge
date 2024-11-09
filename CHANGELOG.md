@@ -1,3 +1,15 @@
+# v2.12.4 (Sat Nov 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update packages.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.3 (Sat Nov 09 2024)
 
 #### ⚠️ Pushed to `main`
