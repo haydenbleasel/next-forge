@@ -10,7 +10,7 @@ Clone the repo using:
 npx next-forge init [my-project]
 ```
 
-Then read the [docs](https://www.next-forge.com/docs) for more information.
+Then read the [docs](https://docs.next-forge.com) for more information.
 
 <a href="https://github.com/haydenbleasel/next-forge/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=haydenbleasel/next-forge" />
