@@ -81,7 +81,7 @@ import { env } from '@repo/env';
 import { withAccelerate } from '@prisma/extension-accelerate';
 import { PrismaClient } from '@prisma/client';
 
-export const database = new PrismaClient().$extends(withAccelerate()); // [!code ++]
+export const database = new PrismaClient().$extends(withAccelerate());
 ```
 
 Your project is now configured to use your Prisma Postgres instance for migrations and queries.
