@@ -1,13 +1,11 @@
 ---
-title: Structure
-description: The structure of next-forge
+title: Apps
+description: The apps of next-forge
 ---
 
 next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
 
 The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
-
-## Applications
 
 The monorepo contains the following apps:
 
@@ -19,22 +17,3 @@ The monorepo contains the following apps:
 | `email` | The email preview server from [react.email](https://react.email/). | 3003 |
 | `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 |
 | `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 |
-
-## Packages
-
-It also contains the following packages:
-
-| Package | Description |
-| ------- | ----------- |
-| `analytics` | Analytics systems. |
-| `auth` | Authentication provider. |
-| `database` | Database schema and migrations. |
-| `design-system` | Contains shared components, utility files and styles. |
-| `email-templates` | Email templates. |
-| `env` | Environment variables. |
-| `feature-flags` | Feature flags. |
-| `next-config` | Shared Next.js configuration. |
-| `observability` | Observability utilities, including logging and error handling. |
-| `status` | Status (uptime) component. |
-| `tailwind-config` | Shared Tailwind CSS configuration. |
-| `typescript-config` | Shared TypeScript configuration. |

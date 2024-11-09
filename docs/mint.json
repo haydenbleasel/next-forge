@@ -30,7 +30,11 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["overview", "setup", "structure", "deploying", "faq"]
+      "pages": ["overview", "setup", "deploying", "faq"]
+    },
+    {
+      "group": "Structure",
+      "pages": ["structure/apps", "structure/packages"]
     },
     {
       "group": "Features",
