@@ -1,0 +1,72 @@
+{
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "next-forge docs",
+  "logo": {
+    "dark": "/images/logo-dark.svg",
+    "light": "/images/logo-light.svg"
+  },
+  "background": { "style": "windows" },
+  "codeBlock": {
+    "mode": "auto"
+  },
+  "favicon": "/images/icon.png",
+  "layout": "topnav",
+  "colors": {
+    "primary": "#f35815",
+    "light": "#f35815",
+    "dark": "#f35815",
+    "anchors": {
+      "from": "#f35815",
+      "to": "#f35815"
+    }
+  },
+  "topbarCtaButton": {
+    "type": "github",
+    "url": "https://github.com/haydenbleasel/next-forge"
+  },
+  "search": {
+    "prompt": "Search or ask..."
+  },
+  "navigation": [
+    {
+      "group": "Getting Started",
+      "pages": ["overview", "setup", "structure", "deploying", "faq"]
+    },
+    {
+      "group": "Features",
+      "pages": [
+        "analytics",
+        "authentication",
+        "blog",
+        "bundle-analysis",
+        "cron",
+        "dark-mode",
+        {
+          "group": "Database and ORM",
+          "pages": [
+            "database/overview",
+            "database/drizzle",
+            "database/planetscale",
+            "database/prisma-postgres"
+          ]
+        },
+        "debugging",
+        "email",
+        "env",
+        "flags",
+        "formatting",
+        "monitoring",
+        "payments",
+        "security",
+        "seo",
+        "sitemap",
+        "testing"
+      ]
+    }
+  ],
+  "footerSocials": {
+    "x": "https://x.com/haydenbleasel",
+    "github": "https://github.com/haydenbleasel/next-forge",
+    "linkedin": "https://www.linkedin.com/in/haydenbleasel"
+  }
+}

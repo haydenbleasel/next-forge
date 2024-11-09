@@ -1,0 +1,51 @@
+---
+title: Blog
+description: Type-safe, intelligent blog content.
+---
+
+next-forge uses [Content Collections](https://www.content-collections.dev/) to generate type-safe data collections from MDX files. This approach provides a structured way to manage blog posts while maintaining full type safety throughout your application.
+
+## Creating blog posts
+
+To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
+
+```mdx apps/web/content/blog/my-first-post.mdx
+---
+title: 'My First Post'
+description: 'This is my first blog post'
+date: 2024-10-23
+image: /blog/my-first-post.png
+---
+```
+
+The same concept applies to the `legal` collection, which is used to generate the legal policy pages.
+
+## Creating a collection
+
+To create a new collection, you'll need to define it in the `content-collections.ts` file in the web directory. For example, here's how you can define a simple new collection called `docs`:
+
+```ts apps/web/content-collections.ts {3-7, 10}
+import { defineCollection } from '@content-collections/core';
+
+const docs = defineCollection({
+  name: 'docs',
+  directory: 'content/docs',
+  include: '**/*.mdx',
+});
+
+export default defineConfig({
+  collections: [posts, legals, docs],
+});
+```
+
+## Custom collection properties
+
+Collections in next-forge are enhanced with several utilities to improve the reading experience and performance:
+
+### Reading Time
+
+The `reading-time` package is used to calculate the estimated reading time for each post based on its content. This is added to both blog and legal posts through a transform function. You can then reference it in your components using `page.readingTime`.
+
+### Low-Quality Image Placeholder (LQIP)
+
+The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`.

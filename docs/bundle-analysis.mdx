@@ -1,0 +1,16 @@
+---
+title: Bundle Analysis
+description: How to analyze and optimize your app's bundle size
+---
+
+next-forge uses [@vercel/next-bundle-analyzer](https://github.com/vercel/next-bundle-analyzer) to analyze and optimize your app's bundle size. Each app has a `next.config.ts` file that is configured to use the analyzer when the `ANALYZE` environment variable is set to `true`.
+
+## Usage
+
+To run the analyzer, simply run the following command from the root of the project:
+
+```bash Terminal
+pnpm analyze
+```
+
+Turborepo will automatically run the analyzer for each app when the command is executed.

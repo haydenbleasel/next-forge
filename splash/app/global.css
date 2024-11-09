@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply min-w-0 border-neutral-200 dark:border-neutral-800;
+  }
+  html {
+    text-rendering: optimizelegibility;
+  }
+  body {
+    @apply bg-white dark:bg-neutral-950 text-neutral-950 dark:text-white min-h-[100dvh];
+  }
+}
+
+@keyframes move-x {
+  0% {
+    transform: translateX(var(--move-x-from));
+  }
+  100% {
+    transform: translateX(var(--move-x-to));
+  }
+}

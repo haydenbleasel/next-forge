@@ -1,0 +1,22 @@
+---
+title: Authentication
+description: We use Clerk to handle authentication, user and organization management.
+---
+
+[Clerk](https://clerk.com/) is used for authentication in next-forge. Clerk provides a complete authentication and user management solution that integrates seamlessly with Next.js applications.
+
+## In-App
+
+The shared provider from the `@repo/design-system` package (called `DesignSystemProvider`) includes the Clerk provider. This means that you only need to include the `DesignSystemProvider` in your app to use Clerk.
+
+From here, you can use all the pre-built components and hooks provided by Clerk. To demonstrate this, we've added the `<OrganizationSwitcher>` and `<UserButton>` components to the sidebar, as well as built out the Sign In and Sign Up pages.
+
+![Sign In Page](/images/sign-in.png)
+
+## Webhooks
+
+Clerk uses webhooks to handle authentication events. These are handled in the `POST /webhooks/clerk` route in the `api` app. Make sure you enable the webhook events you need in your Clerk project settings.
+
+### Local Development
+
+Currently there's no way to easily test Clerk webhooks locally, so you'll have to test them in a staging environment. This means deploying your app to a "production" state Vercel project with development environment variables e.g. `staging-api.example.com`. Then you can add this URL to your Clerk project's webhook settings.

@@ -1,0 +1,39 @@
+---
+title: Security
+description: Security measures taken to protect your site.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  name: 'Hayden Bleasel',
+  company: 'next-forge',
+  avatar: 'https://github.com/haydenbleasel.png',
+  logo: 'https://www.next-forge.com/',
+}, {
+  name: 'David Mytton',
+  company: 'Arcjet',
+  avatar: 'https://github.com/davidmytton.png',
+  logo: 'https://arcjet.com/',
+}]} />
+
+## Arcjet
+
+[Arcjet](https://arcjet.com/) is a security as code product that we have included in next-forge. It includes several features that can be used individually or combined to provide defense in depth for your site. You can [sign up for a free account](https://arcjet.com/) and add the API key to the environment variables to use the features we have included.
+
+### Bot detection and WAF
+
+[Arcjet bot detection](https://docs.arcjet.com/bot-protection/concepts) is configured to prevent scrapers and other automated clients. You can [configure additional bot types](https://docs.arcjet.com/bot-protection/identifying-bots) to allow or block. [Arcjet Shield WAF](https://docs.arcjet.com/shield/concepts) will detect and block common attacks such as SQL injection, cross-site scripting, and other OWASP Top 10 vulnerabilities.
+
+- For the website, bot detection and the Arcjet Shield WAF are both configured in `apps/web/middleware.ts` to block scrapers and other bots, but still allow search engines and preview link generators. This will run on every request by default, except for static assets.
+- For the app, there is a central Arcjet client configured at `apps/app/lib/arcjet.ts` which includes the Arcjet Shield WAF rules. This client is extended in the authenticated route layout in `apps/app/app/(authenticated)/layout.tsx` with bot detection to block all bots except preview link generators. This will run just on authenticated routes. Clerk includes bot detection and rate limiting in their login route handlers by default.
+
+When a rule is triggered, the request will be blocked and an error returned. You can customize the error message in code, redirect to a different page, or handle the error in a different way as needed.
+
+Arcjet includes other features like PII detection, rate limiting, and email validation. They're not used in the boilerplate, but can be added as needed.
+
+## Dependencies
+
+Dependabot is configured in `.github/dependabot.yml` to check for updates every month. When there are package updates, a pull request will be opened.
+
+You may want to consider a dependency analysis tool like Socket to check for issues with dependencies in pull requests. We also recommend enabling [GitHub Secret Scanning](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning) or a tool [Gitleaks](https://github.com/gitleaks/gitleaks) or [Trufflehog](https://github.com/trufflesecurity/trufflehog) to check for secrets in your code.
