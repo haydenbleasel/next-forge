@@ -239,9 +239,6 @@ importers:
       '@repo/observability':
         specifier: workspace:*
         version: link:../../packages/observability
-      '@repo/status':
-        specifier: workspace:*
-        version: link:../../packages/status
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
@@ -753,28 +750,6 @@ importers:
       typescript:
         specifier: ^5.6.3
         version: 5.6.3
-
-  packages/status:
-    dependencies:
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@types/node':
-        specifier: 22.9.0
-        version: 22.9.0
-      '@types/react':
-        specifier: 18.3.12
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18.3.1
-        version: 18.3.1
 
   packages/tailwind-config:
     dependencies:
