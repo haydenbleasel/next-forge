@@ -7,7 +7,7 @@
 Clone the repo using:
 
 ```sh
-npx next-forge init [my-project]
+npx next-forge@latest init [my-project]
 ```
 
 Then read the [docs](https://docs.next-forge.com) for more information.
