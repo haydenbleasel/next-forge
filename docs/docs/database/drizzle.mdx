@@ -3,18 +3,19 @@ title: Change ORM to Drizzle
 description: How to switch from Prisma to Drizzle.
 ---
 
-This page is co-authored by:
+import { Authors } from '/snippets/authors.mdx';
 
-<CardGroup cols={2}>
-  <Card title="Hayden Bleasel" href="https://github.com/haydenbleasel" horizontal>
-    next-forge
-  </Card>
-  <Card title="Alex Blokh" href="https://github.com/alexblokh" horizontal>
-    Drizzle
-  </Card>
-</CardGroup>
-
----
+<Authors data={[{
+  name: 'Hayden Bleasel',
+  company: 'next-forge',
+  avatar: 'https://github.com/haydenbleasel.png',
+  logo: 'https://www.next-forge.com/',
+}, {
+  name: 'Alex Blokh',
+  company: 'Drizzle',
+  avatar: 'https://github.com/alexblokh.png',
+  logo: 'https://orm.drizzle.team/',
+}]} />
 
 next-forge uses [Prisma](https://prisma.io) as its ORM by default. However, you can easily switch to another ORM like [Drizzle](https://orm.drizzle.team) or [Kysely](https://kysely.dev/).
 
