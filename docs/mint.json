@@ -30,43 +30,37 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": [
-        "docs/overview",
-        "docs/setup",
-        "docs/structure",
-        "docs/deploying",
-        "docs/faq"
-      ]
+      "pages": ["overview", "setup", "structure", "deploying", "faq"]
     },
     {
       "group": "Features",
       "pages": [
-        "docs/analytics",
-        "docs/authentication",
-        "docs/blog",
-        "docs/bundle-analysis",
-        "docs/cron",
-        "docs/dark-mode",
+        "analytics",
+        "authentication",
+        "blog",
+        "bundle-analysis",
+        "cron",
+        "dark-mode",
         {
           "group": "Database and ORM",
           "pages": [
-            "docs/database/overview",
-            "docs/database/drizzle",
-            "docs/database/planetscale",
-            "docs/database/prisma-postgres"
+            "database/overview",
+            "database/drizzle",
+            "database/planetscale",
+            "database/prisma-postgres"
           ]
         },
-        "docs/debugging",
-        "docs/email",
-        "docs/env",
-        "docs/flags",
-        "docs/formatting",
-        "docs/monitoring",
-        "docs/payments",
-        "docs/security",
-        "docs/seo",
-        "docs/sitemap",
-        "docs/testing"
+        "debugging",
+        "email",
+        "env",
+        "flags",
+        "formatting",
+        "monitoring",
+        "payments",
+        "security",
+        "seo",
+        "sitemap",
+        "testing"
       ]
     }
   ],
