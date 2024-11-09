@@ -1,3 +1,17 @@
+# v2.12.5 (Sat Nov 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #202 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #201 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps, add clerk/next to web ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.4 (Sat Nov 09 2024)
 
 #### ⚠️ Pushed to `main`
