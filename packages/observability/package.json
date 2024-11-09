@@ -5,10 +5,14 @@
   "dependencies": {
     "@logtail/next": "^0.1.5",
     "@repo/env": "workspace:*",
-    "@sentry/nextjs": "^8.37.1"
+    "@sentry/nextjs": "^8.37.1",
+    "react": "^18.3.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "^18.3.1",
     "typescript": "^5.6.3"
   }
 }
