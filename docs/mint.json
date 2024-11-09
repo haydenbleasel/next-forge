@@ -54,12 +54,19 @@
             "database/prisma-postgres"
           ]
         },
-        "debugging",
         "email",
         "env",
         "flags",
         "formatting",
-        "monitoring",
+        {
+          "group": "Observability",
+          "pages": [
+            "observability/error-capture",
+            "observability/debugging",
+            "observability/logging",
+            "observability/uptime"
+          ]
+        },
         "payments",
         "security",
         "seo",

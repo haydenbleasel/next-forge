@@ -1,13 +1,9 @@
 ---
-title: Debugging
-description: How we've configured error capture and debugging in next-forge.
+title: Error Capture
+description: How we've configured error capture in next-forge.
 ---
 
-next-forge uses two different tools for finding and fixing bugs: [Sentry](https://sentry.io/) for error capture and [VSCode](https://code.visualstudio.com/) for debugging.
-
-## Sentry
-
-Sentry is used for error tracking and performance monitoring. It helps identify, debug, and resolve issues by providing detailed error reports, stack traces, and performance metrics across both server and client environments. When an error occurs, Sentry captures the full context including the user's browser information, the sequence of events that led to the error, and relevant application state.
+next-forge uses [Sentry](https://sentry.io/) for error tracking and performance monitoring. It helps identify, debug, and resolve issues by providing detailed error reports, stack traces, and performance metrics across both server and client environments. When an error occurs, Sentry captures the full context including the user's browser information, the sequence of events that led to the error, and relevant application state.
 
 ### Configuration
 
@@ -37,8 +33,3 @@ The `tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes br
   Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.
 </Warning>
 
-## VSCode
-
-VSCode is used for debugging the application. The `.vscode/launch.json` file contains the configuration for the debugger and is configured to work for all the apps in the monorepo.
-
-To use the debugger, simply open the app in VSCode (or any VSCode-compatible editor) and go to the Debug panel (Ctrl+Shift+D on Windows/Linux, ⇧+⌘+D on macOS). Select a launch configuration, then press `F5` or select `Debug: Start Debugging` from the Command Palette to start your debugging session.
