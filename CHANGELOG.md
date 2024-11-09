@@ -1,3 +1,16 @@
+# v2.12.7 (Sat Nov 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update prisma-postgres.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Create new SEO docs category ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.6 (Sat Nov 09 2024)
 
 #### ⚠️ Pushed to `main`
