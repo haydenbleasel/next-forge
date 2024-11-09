@@ -1,3 +1,24 @@
+# v2.12.1 (Sat Nov 09 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, flo merian ([@fmerian](https://github.com/fmerian)), for all your work!
+
+#### ⚠️ Pushed to `main`
+
+- Misc cleanup ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Switch docs to Mintlify [#197](https://github.com/haydenbleasel/next-forge/pull/197) ([@fmerian](https://github.com/fmerian) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- flo merian ([@fmerian](https://github.com/fmerian))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.0 (Sat Nov 09 2024)
 
 #### 🚀 Enhancement
