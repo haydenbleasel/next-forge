@@ -5,7 +5,7 @@
     "dark": "/images/logo-dark.svg",
     "light": "/images/logo-light.svg"
   },
-  "background": {"style": "windows"},
+  "background": { "style": "windows" },
   "codeBlock": {
     "mode": "auto"
   },
@@ -31,7 +31,7 @@
     {
       "group": "Getting Started",
       "pages": [
-        "docs/index",
+        "docs/overview",
         "docs/setup",
         "docs/structure",
         "docs/deploying",
@@ -50,7 +50,7 @@
         {
           "group": "Database and ORM",
           "pages": [
-            "docs/database/index",
+            "docs/database/overview",
             "docs/database/drizzle",
             "docs/database/planetscale",
             "docs/database/prisma-postgres"
