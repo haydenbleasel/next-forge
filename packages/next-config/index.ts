@@ -58,6 +58,8 @@ export const config: NextConfig = withVercelToolbar()({
       config.plugins = [...config.plugins, new PrismaPlugin()];
     }
 
+    config.ignoreWarnings = [{ module: /@opentelemetry\/instrumentation/ }];
+
     return config;
   },
 
