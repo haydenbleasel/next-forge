@@ -1,3 +1,18 @@
+# v2.12.3 (Sat Nov 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge repo/status into repo/observability ([@haydenbleasel](https://github.com/haydenbleasel))
+- Create "Observability" group ([@haydenbleasel](https://github.com/haydenbleasel))
+- Break up structure pages ([@haydenbleasel](https://github.com/haydenbleasel))
+- Shorten guide names ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.2 (Sat Nov 09 2024)
 
 #### ⚠️ Pushed to `main`
