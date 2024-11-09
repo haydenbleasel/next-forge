@@ -15,10 +15,6 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
   ANALYZE: z.string().optional(),
 
-  // Added by Node
-  NODE_ENV: z.enum(['development', 'production']),
-  CI: z.string().optional(),
-
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),
   SENTRY_PROJECT: z.string().min(1).optional(),
@@ -62,8 +58,6 @@ export const env = createEnv({
     BETTERSTACK_URL: process.env.BETTERSTACK_URL,
     ARCJET_KEY: process.env.ARCJET_KEY,
     ANALYZE: process.env.ANALYZE,
-    NODE_ENV: process.env.NODE_ENV,
-    CI: process.env.CI,
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
     VERCEL: process.env.VERCEL,

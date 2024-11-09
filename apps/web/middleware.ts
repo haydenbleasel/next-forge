@@ -1,12 +1,14 @@
 import arcjet, { detectBot } from '@arcjet/next';
+import { clerkMiddleware } from '@clerk/nextjs/server';
 import { env } from '@repo/env';
-import { type NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 
 export const config = {
   // matcher tells Next.js which routes to run the middleware on. This runs the
   // middleware on all routes except for static assets and Posthog ingest
   matcher: ['/((?!_next/static|_next/image|ingest|favicon.ico).*)'],
 };
+
 const aj = arcjet({
   // Get your site key from https://app.arcjet.com
   key: env.ARCJET_KEY,
@@ -21,7 +23,7 @@ const aj = arcjet({
   ],
 });
 
-export default async function middleware(request: NextRequest) {
+export default clerkMiddleware(async (auth, request) => {
   const decision = await aj.protect(request);
 
   if (
@@ -34,4 +36,4 @@ export default async function middleware(request: NextRequest) {
   }
 
   return NextResponse.next();
-}
+});
