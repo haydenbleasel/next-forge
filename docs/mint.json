@@ -69,8 +69,10 @@
         },
         "payments",
         "security",
-        "seo",
-        "sitemap",
+        {
+          "group": "SEO",
+          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
+        },
         "testing"
       ]
     }
