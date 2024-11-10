@@ -1,3 +1,15 @@
+# v2.12.12 (Sun Nov 10 2024)
+
+#### 🐛 Bug Fix
+
+- Include database scaffolding step in setup instructions [#208](https://github.com/haydenbleasel/next-forge/pull/208) ([@paulgrieselhuber](https://github.com/paulgrieselhuber))
+
+#### Authors: 1
+
+- Paul Grieselhuber ([@paulgrieselhuber](https://github.com/paulgrieselhuber))
+
+---
+
 # v2.12.11 (Sun Nov 10 2024)
 
 :tada: This release contains work from a new contributor! :tada:
