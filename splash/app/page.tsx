@@ -4,6 +4,7 @@ import { Attribution } from './components/attribution';
 import { CallToAction } from './components/cta';
 import { Features } from './components/features';
 import { Hero } from './components/hero';
+import { Social } from './components/social';
 
 export const metadata: Metadata = {
   title: 'Production-grade Turborepo template for Next.js apps',
@@ -16,6 +17,7 @@ const Home = () => (
     <Hero />
     <Apps />
     <Features />
+    <Social />
     <CallToAction />
     <Attribution />
   </>
