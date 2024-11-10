@@ -1,3 +1,19 @@
+# v2.12.9 (Sun Nov 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@000-KunalPal](https://github.com/000-KunalPal), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: Remove duplicate "is" in text [#205](https://github.com/haydenbleasel/next-forge/pull/205) ([@000-KunalPal](https://github.com/000-KunalPal))
+
+#### Authors: 1
+
+- [@000-KunalPal](https://github.com/000-KunalPal)
+
+---
+
 # v2.12.8 (Sun Nov 10 2024)
 
 :tada: This release contains work from a new contributor! :tada:
