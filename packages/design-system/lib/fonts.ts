@@ -1,9 +1,14 @@
 import { cn } from '@repo/design-system/lib/utils';
-import { GeistMono } from 'geist/font/mono';
-import { GeistSans } from 'geist/font/sans';
+import { Geist, Geist_Mono } from 'next/font/google';
+
+const sans = Geist({ subsets: ['latin'], variable: '--font-sans' });
+const mono = Geist_Mono({
+  subsets: ['latin'],
+  variable: '--font-mono',
+});
 
 export const fonts = cn(
-  GeistSans.variable,
-  GeistMono.variable,
+  sans.variable,
+  mono.variable,
   'touch-manipulation font-sans antialiased'
 );
