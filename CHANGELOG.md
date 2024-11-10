@@ -1,3 +1,19 @@
+# v2.12.11 (Sun Nov 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Paul Grieselhuber ([@paulgrieselhuber](https://github.com/paulgrieselhuber)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Include necessary global env vars for turbo.json to allow Vercel builds [#206](https://github.com/haydenbleasel/next-forge/pull/206) ([@paulgrieselhuber](https://github.com/paulgrieselhuber))
+
+#### Authors: 1
+
+- Paul Grieselhuber ([@paulgrieselhuber](https://github.com/paulgrieselhuber))
+
+---
+
 # v2.12.10 (Sun Nov 10 2024)
 
 #### ⚠️ Pushed to `main`
