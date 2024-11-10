@@ -3,11 +3,11 @@
 import { CopyIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
-const command = 'npx next-forge init [my-project]';
+const command = 'npx next-forge@latest init [my-project]';
 
 export const Installer = () => {
   const handleCopy = () => {
-    navigator.clipboard.writeText('npx next-forge init [my-project]');
+    navigator.clipboard.writeText(command);
     toast.success('Copied to clipboard');
   };
 
