@@ -1,3 +1,20 @@
+# v2.12.8 (Sun Nov 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Yam Catzenelson ([@yamz8](https://github.com/yamz8)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Update README.md [#204](https://github.com/haydenbleasel/next-forge/pull/204) ([@yamz8](https://github.com/yamz8) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
 # v2.12.7 (Sat Nov 09 2024)
 
 #### ⚠️ Pushed to `main`
