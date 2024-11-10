@@ -83,6 +83,14 @@ cd apps/app
 vercel link
 ```
 
+### Database
+
+You will need to scaffold the database using the schema defined in `packages/database/prisma/schema.prisma`:
+
+```sh Terminal
+pnpm migrate
+```
+
 ## Development
 
 Run the development server with:
