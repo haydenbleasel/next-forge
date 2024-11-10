@@ -14,7 +14,7 @@ export const RepoInfo = async (): Promise<ReactElement> => {
   });
 
   return (
-    <div className="flex items-center gap-6 text-sm text-muted-foreground">
+    <div className="flex flex-col items-center gap-3 text-muted-foreground text-sm sm:flex-row sm:gap-6">
       <div className="flex items-center gap-1">
         <StarIcon size={12} />
         {new Intl.NumberFormat('en-US', {

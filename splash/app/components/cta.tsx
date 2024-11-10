@@ -19,7 +19,7 @@ export const CallToAction = () => (
             Authentication, billing, analytics, SEO, database ORM and more —
             it's all here.
           </p>
-          <div className="mt-6 flex items-center justify-center gap-2">
+          <div className="mt-6 flex flex-col items-center justify-center gap-2 sm:flex-row">
             <Installer />
             <a
               href="https://docs.next-forge.com/"

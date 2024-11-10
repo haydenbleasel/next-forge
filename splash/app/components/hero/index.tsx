@@ -41,7 +41,7 @@ export const Hero = () => (
         SEO, database ORM and more — it's all here.
       </p>
       <div className="mt-4 flex w-full flex-col items-center justify-center gap-4">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-col items-center gap-2 sm:flex-row">
           <Installer />
           <a
             href="https://docs.next-forge.com/"

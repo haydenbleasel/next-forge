@@ -16,7 +16,9 @@ export const Installer = () => {
       <p className="pointer-events-none select-none text-neutral-500 dark:text-neutral-400">
         $
       </p>
-      <div className="max-w-[300px] truncate font-mono">{command}</div>
+      <div className="max-w-[240px] truncate font-mono sm:max-w-[300px]">
+        {command}
+      </div>
       <div className="flex items-center gap-2">
         <button type="button" aria-label="Copy" onClick={handleCopy}>
           <CopyIcon
