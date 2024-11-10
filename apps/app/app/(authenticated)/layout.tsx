@@ -31,9 +31,9 @@ const AppLayout = async ({
   if (decision.isDenied()) {
     if (decision.reason.isBot()) {
       throw new Error('No bots allowed');
-    } else {
-      throw new Error('Access denied');
     }
+
+    throw new Error('Access denied');
   }
 
   const user = await currentUser();
