@@ -1,3 +1,16 @@
+# v2.12.13 (Sun Nov 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Move security file to github folder ([@haydenbleasel](https://github.com/haydenbleasel))
+- Create CONTRIBUTING.md ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.12 (Sun Nov 10 2024)
 
 #### 🐛 Bug Fix
