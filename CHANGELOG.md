@@ -1,3 +1,18 @@
+# v2.12.10 (Sun Nov 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Add socials to homepage ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update layout.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Load Geist from Google Fonts ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.9 (Sun Nov 10 2024)
 
 :tada: This release contains work from a new contributor! :tada:
