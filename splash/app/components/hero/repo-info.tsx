@@ -3,6 +3,7 @@ import { ArrowUpRightIcon, GitForkIcon, StarIcon } from 'lucide-react';
 import Image from 'next/image';
 import type { ReactElement } from 'react';
 import GitHubIcon from './github.svg';
+import xIcon from './x.svg';
 
 export const RepoInfo = async (): Promise<ReactElement> => {
   const octokit = new Octokit();
@@ -44,6 +45,21 @@ export const RepoInfo = async (): Promise<ReactElement> => {
           className="opacity-60 dark:invert"
         />
         View on GitHub <ArrowUpRightIcon size={12} />
+      </a>
+      <a
+        className="flex items-center gap-1"
+        target="_blank"
+        rel="noreferrer"
+        href="https://x.com/haydenbleasel"
+      >
+        <Image
+          src={xIcon}
+          alt="X"
+          width={16}
+          height={16}
+          className="opacity-60 dark:invert"
+        />
+        By @haydenbleasel <ArrowUpRightIcon size={12} />
       </a>
     </div>
   );
