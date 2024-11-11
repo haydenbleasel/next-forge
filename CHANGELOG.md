@@ -1,3 +1,19 @@
+# v2.12.17 (Mon Nov 11 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, jcchrrr ([@jcchrrr](https://github.com/jcchrrr)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: vscode settings, tailwind config location [#211](https://github.com/haydenbleasel/next-forge/pull/211) ([@jcchrrr](https://github.com/jcchrrr))
+
+#### Authors: 1
+
+- jcchrrr ([@jcchrrr](https://github.com/jcchrrr))
+
+---
+
 # v2.12.16 (Sun Nov 10 2024)
 
 #### ⚠️ Pushed to `main`
