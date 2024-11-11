@@ -65,6 +65,7 @@ jobs:
           echo "BETTERSTACK_URL=https://test.com" >> apps/app/.env.local
           echo "FLAGS_SECRET=FcnUGt7tT-4cOw-D_1GoXAH1bU7ljDBr01F5w4dxrdQ" >> apps/app/.env.local
           echo "ARCJET_KEY=ajkey_test" >> apps/app/.env.local
+          echo "SVIX_TOKEN=testsk_test" >> apps/app/.env.local
 
           echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_JA==" >> apps/app/.env.local
           echo "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in" >> apps/app/.env.local
