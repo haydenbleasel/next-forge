@@ -1,3 +1,15 @@
+# v2.13.3 (Tue Nov 12 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Create CODE_OF_CONDUCT.md ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.2 (Tue Nov 12 2024)
 
 #### 🐛 Bug Fix
