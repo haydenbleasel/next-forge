@@ -33,37 +33,15 @@ Etcetera.
 
 Uninstall the existing dependencies...
 
-<CodeGroup>
-```sh npm
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
 ```
-```sh yarn
-yarn remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-```sh bun
-bun remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-</CodeGroup>
 
 ...and install the new ones:
 
-<CodeGroup>
-```sh npm
-npm install @planetscale/database @prisma/adapter-planetscale --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm add @planetscale/database @prisma/adapter-planetscale --filter database
 ```
-```sh yarn
-yarn add @planetscale/database @prisma/adapter-planetscale --filter database
-```
-```sh bun
-bun add @planetscale/database @prisma/adapter-planetscale --filter database
-```
-</CodeGroup>
 
 ## 4. Update the database connection code
 

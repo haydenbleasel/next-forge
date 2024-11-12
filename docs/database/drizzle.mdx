@@ -28,41 +28,16 @@ Here, we'll assume you have a working Neon database and cover the second option.
 
 Uninstall the existing dependencies...
 
-<CodeGroup>
-```sh npm
-npm uninstall @prisma/adapter-neon @prisma/client prisma --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm remove @prisma/adapter-neon @prisma/client prisma --filter database
 ```
-```sh yarn
-yarn remove @prisma/adapter-neon @prisma/client prisma --filter database
-```
-```sh bun
-bun remove @prisma/adapter-neon @prisma/client prisma --filter database
-```
-</CodeGroup>
 
 ...and install the new ones:
 
-<CodeGroup>
-```sh npm
-npm install drizzle-orm --filter database
-npm install -D drizzle-kit --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm add drizzle-orm --filter database
 pnpm add -D drizzle-kit --filter database
 ```
-```sh yarn
-yarn add drizzle-orm --filter database
-yarn add --dev drizzle-kit --filter database
-```
-```sh bun
-bun add drizzle-orm --filter database
-bun add --dev drizzle-kit --filter database
-```
-</CodeGroup>
 
 ## 2. Update the database connection code
 

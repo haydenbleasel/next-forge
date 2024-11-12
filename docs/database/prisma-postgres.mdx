@@ -38,37 +38,16 @@ DATABASE_URL="prisma+postgres://accelerate.prisma-data.net/?api_key=ey...."
 ## 3. Swap out the required dependencies in `@repo/database`
 
 Uninstall the existing dependencies...
-<CodeGroup>
-```sh npm
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws
-```
-```sh pnpm
+
+```sh Terminal
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
 ```
-```sh yarn
-yarn remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
-```
-```sh bun
-bun remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws
-```
-</CodeGroup>
 
 ... and install the new dependencies:
 
-<CodeGroup>
-```sh npm
-npm install @prisma/extension-accelerate
-```
-```sh pnpm
+```sh Terminal
 pnpm add @prisma/extension-accelerate
 ```
-```sh yarn
-yarn add @prisma/extension-accelerate
-```
-```sh bun
-bun add @prisma/extension-accelerate
-```
-</CodeGroup>
 
 ## 4. Update the database connection code
 
@@ -110,20 +89,9 @@ Learn more in the [Accelerate documentation](https://www.prisma.io/docs/accelera
 
 To stream database change events from your database, you first need to install the Pulse extension:
 
-<CodeGroup>
-```sh npm
-npm install @prisma/extension-pulse
-```
-```sh pnpm
+```sh Terminal
 pnpm add @prisma/extension-pulse
 ```
-```sh yarn
-yarn add @prisma/extension-pulse
-```
-```sh bun
-bun add @prisma/extension-pulse
-```
-</CodeGroup>
 
 Next, you need to add your Pulse API key as an environment variable:
 
