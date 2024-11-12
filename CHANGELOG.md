@@ -1,3 +1,15 @@
+# v2.13.4 (Tue Nov 12 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Simplify authors data ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.3 (Tue Nov 12 2024)
 
 #### ⚠️ Pushed to `main`
