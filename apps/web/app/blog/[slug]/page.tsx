@@ -10,6 +10,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 import type { BlogPosting, WithContext } from 'schema-dts';
+
 type BlogPostProperties = {
   readonly params: Promise<{
     slug: string;
