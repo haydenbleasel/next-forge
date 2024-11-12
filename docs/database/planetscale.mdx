@@ -53,18 +53,13 @@ import 'server-only';
 import { Client, connect } from '@planetscale/database';
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
 import { PrismaClient } from '@prisma/client';
-
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error('Missing DATABASE_URL environment variable.');
-}
+import { env } from '@repo/env';
 
 declare global {
   var cachedPrisma: PrismaClient | undefined;
 }
 
-const client = connect({ url: databaseUrl });
+const client = connect({ url: env.DATABASE_URL });
 const adapter = new PrismaPlanetScale(client);
 
 export const database = new PrismaClient({ adapter });
