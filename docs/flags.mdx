@@ -3,14 +3,14 @@ title: Feature Flags
 description: Control access to features in your application.
 ---
 
-## Overview
-
 Feature flags (also known as feature toggles) allow you to control access to specific features in your application. next-forge provides a simple but powerful feature flag system that can be used to:
 
 - Roll out features gradually to users
 - A/B test new functionality
 - Enable/disable features based on user segments
 - Control access to beta or experimental features
+
+## How it works
 
 next-forge implements feature flags using Vercel's [Flags SDK](https://vercel.com/docs/workflow-collaboration/feature-flags/flags-pattern-nextjs), which is mostly an architectural pattern for working with feature flags. This setup exists in the `@repo/feature-flags` package, so you can import and use it in as many projects as you'd like.
 
