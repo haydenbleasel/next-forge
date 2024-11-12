@@ -5,7 +5,7 @@ description: How we've configured error capture in next-forge.
 
 next-forge uses [Sentry](https://sentry.io/) for error tracking and performance monitoring. It helps identify, debug, and resolve issues by providing detailed error reports, stack traces, and performance metrics across both server and client environments. When an error occurs, Sentry captures the full context including the user's browser information, the sequence of events that led to the error, and relevant application state.
 
-### Configuration
+## Configuration
 
 Sentry is configured and managed in three key places:
 
@@ -15,7 +15,7 @@ The `sentry.client.config.ts` file configures Sentry for the client environment.
 
 The `next.config.ts` file imports shared Sentry-specific settings through `withSentryConfig`. This enables features like source map uploads for better stack traces and automatic instrumentation of Vercel Cron Monitors. The configuration also optimizes bundle size by tree-shaking logger statements and hiding source maps in production builds.
 
-### Manual Usage
+## Manual Usage
 
 If you want to capture a specific exception rather than letting it bubble up to Sentry, you can use the `captureException` function:
 
@@ -25,7 +25,7 @@ import { captureException } from '@sentry/nextjs';
 captureException(new Error('My error message'));
 ```
 
-### Tunneling
+## Tunneling
 
 The `sentryConfig.tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
 
