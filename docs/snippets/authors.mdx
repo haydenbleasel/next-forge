@@ -10,15 +10,15 @@ export const Authors = ({ data }) => (
           <div className="-space-x-1 flex items-center">
             <img
               className="m-0 overflow-hidden rounded-full object-cover"
-              src={author.avatar}
-              alt={author.name}
+              src={`https://github.com/${author.username}.png`}
+              alt=""
               width={24}
               height={24}
             />
             <img
               className="m-0 overflow-hidden rounded-full object-cover"
               src={`https://img.logo.dev/${new URL(author.logo).hostname}?token=pk_a7kMUiN0TCe8qXA6vbcfMw`}
-              alt={author.name}
+              alt=""
               width={24}
               height={24}
             />
