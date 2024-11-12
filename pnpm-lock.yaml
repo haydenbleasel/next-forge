@@ -181,9 +181,9 @@ importers:
       '@react-email/components':
         specifier: 0.0.28
         version: 0.0.28(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@repo/email-templates':
+      '@repo/email':
         specifier: workspace:*
-        version: link:../../packages/email-templates
+        version: link:../../packages/email
       react:
         specifier: 18.3.1
         version: 18.3.1
@@ -227,9 +227,9 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
-      '@repo/email-templates':
+      '@repo/email':
         specifier: workspace:*
-        version: link:../../packages/email-templates
+        version: link:../../packages/email
       '@repo/env':
         specifier: workspace:*
         version: link:../../packages/env
@@ -629,7 +629,7 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/email-templates:
+  packages/email:
     dependencies:
       '@react-email/components':
         specifier: 0.0.28
