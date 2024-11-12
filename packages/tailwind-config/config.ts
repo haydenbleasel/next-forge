@@ -8,7 +8,8 @@ export const config: Config = {
   darkMode: ['class'],
   content: [
     './node_modules/@repo/design-system/components/**/*.{ts,tsx}',
-    './node_modules/@repo/design-system/providers/**/*.{ts,tsx}',
+    './node_modules/@repo/design-system/lib/**/*.{ts,tsx}',
+    './node_modules/@repo/design-system/index.tsx',
     './components/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
