@@ -8,6 +8,17 @@ import type { Stripe } from '@repo/payments';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
 
+const getUserFromCustomerId = async (customerId: string) => {
+  const clerk = await clerkClient();
+  const users = await clerk.users.getUserList();
+
+  const user = users.data.find(
+    (user) => user.privateMetadata.stripeCustomerId === customerId
+  );
+
+  return user;
+};
+
 const handleCheckoutSessionCompleted = async (
   data: Stripe.Checkout.Session
 ) => {
@@ -15,14 +26,9 @@ const handleCheckoutSessionCompleted = async (
     return;
   }
 
-  const clerk = await clerkClient();
   const customerId =
     typeof data.customer === 'string' ? data.customer : data.customer.id;
-  const users = await clerk.users.getUserList();
-
-  const user = users.data.find(
-    (user) => user.privateMetadata.stripeCustomerId === customerId
-  );
+  const user = await getUserFromCustomerId(customerId);
 
   if (!user) {
     return;
@@ -41,14 +47,9 @@ const handleSubscriptionScheduleCanceled = async (
     return;
   }
 
-  const clerk = await clerkClient();
   const customerId =
     typeof data.customer === 'string' ? data.customer : data.customer.id;
-  const users = await clerk.users.getUserList();
-
-  const user = users.data.find(
-    (user) => user.privateMetadata.stripeCustomerId === customerId
-  );
+  const user = await getUserFromCustomerId(customerId);
 
   if (!user) {
     return;
