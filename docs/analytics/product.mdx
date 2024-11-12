@@ -3,29 +3,7 @@ title: Product Analytics
 description: Captures product events and metrics.
 ---
 
-## Overview
-
-We've combined PostHog's Node.js server-side library with Clerk and Stripe webhooks to wire it up as follows:
-
-<Mermaid chart={`
-graph TD
-  A[User Action in App] -->|Triggers| B[Clerk Webhook]
-  A -->|Triggers| E[Stripe Webhook]
-  A -->|Client-Side Call| PostHog
-  B -->|Sends Data| C1[webhooks/clerk]
-  E -->|Sends Data| C2[webhooks/stripe]
-
-  subgraph API
-    C1
-    C2
-  end
-
-  subgraph PostHog
-  end
-
-  C1 -->|Clerk Events| PostHog
-  C2 -->|Stripe Events| PostHog
-`} />
+next-forge has support for product analytics via PostHog — a single platform to analyze, test, observe, and deploy new features.
 
 ## Usage
 
@@ -49,6 +27,30 @@ analytics.capture({
   distinctId: 'user_123',
 });
 ```
+
+## Webhooks
+
+To automatically capture authentication and payment events, we've combined PostHog's Node.js server-side library with Clerk and Stripe webhooks to wire it up as follows:
+
+<Mermaid chart={`
+graph TD
+  A[User Action in App] -->|Triggers| B[Clerk Webhook]
+  A -->|Triggers| E[Stripe Webhook]
+  A -->|Client-Side Call| PostHog
+  B -->|Sends Data| C1[webhooks/clerk]
+  E -->|Sends Data| C2[webhooks/stripe]
+
+  subgraph API
+    C1
+    C2
+  end
+
+  subgraph PostHog
+  end
+
+  C1 -->|Clerk Events| PostHog
+  C2 -->|Stripe Events| PostHog
+`} />
 
 ## Reverse Proxy
 
