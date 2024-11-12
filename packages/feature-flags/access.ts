@@ -10,8 +10,8 @@ export const getFlags = async (request: NextRequest) => {
   }
 
   const definitions = Object.fromEntries(
-    Object.entries(flags).map(([key, flag]) => [
-      key,
+    Object.values(flags).map((flag) => [
+      flag.key,
       {
         origin: flag.origin,
         description: flag.description,

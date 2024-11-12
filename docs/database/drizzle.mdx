@@ -1,6 +1,6 @@
 ---
-title: Change ORM to Drizzle
-description: How to switch from Prisma to Drizzle.
+title: Switch to Drizzle
+description: How to change the ORM from Prisma to Drizzle.
 ---
 
 import { Authors } from '/snippets/authors.mdx';
@@ -17,56 +17,27 @@ import { Authors } from '/snippets/authors.mdx';
   logo: 'https://orm.drizzle.team/',
 }]} />
 
-next-forge uses [Prisma](https://prisma.io) as its ORM by default. However, you can easily switch to another ORM like [Drizzle](https://orm.drizzle.team) or [Kysely](https://kysely.dev/).
-
-We selected Prisma because as of writing this, it's the most popular ORM and has a large community and many adapters. However, Drizzle is coming up fast and has some great benefits, primarily around performance.
-
-If you want to switch to Drizzle, you have two options:
+Drizzle is a brilliant, type-safe ORM growing quickly in popularity. If you want to switch to Drizzle, you have two options:
 
 1. Keep Prisma and add the Drizzle API to the Prisma client. Drizzle have a [great guide](https://orm.drizzle.team/docs/prisma) on how to do this.
 2. Go all-in and switch to Drizzle.
 
-Here, I'll assume you have a working Neon database and cover the second option.
+Here, we'll assume you have a working Neon database and cover the second option.
 
 ## 1. Swap out the required dependencies in `@repo/database`
 
 Uninstall the existing dependencies...
 
-<CodeGroup>
-```sh npm
-npm uninstall @prisma/adapter-neon @prisma/client prisma --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm remove @prisma/adapter-neon @prisma/client prisma --filter database
 ```
-```sh yarn
-yarn remove @prisma/adapter-neon @prisma/client prisma --filter database
-```
-```sh bun
-bun remove @prisma/adapter-neon @prisma/client prisma --filter database
-```
-</CodeGroup>
 
 ...and install the new ones:
 
-<CodeGroup>
-```sh npm
-npm install drizzle-orm --filter database
-npm install -D drizzle-kit --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm add drizzle-orm --filter database
 pnpm add -D drizzle-kit --filter database
 ```
-```sh yarn
-yarn add drizzle-orm --filter database
-yarn add --dev drizzle-kit --filter database
-```
-```sh bun
-bun add drizzle-orm --filter database
-bun add --dev drizzle-kit --filter database
-```
-</CodeGroup>
 
 ## 2. Update the database connection code
 
@@ -106,7 +77,7 @@ export default defineConfig({
 
 Drizzle uses a schema file to define your database tables. Rather than create one from scratch, we can generate it from the existing database. In the `packages/database` folder, run the following command to generate the schema file:
 
-```bash
+```sh
 npx drizzle-kit pull
 ```
 
@@ -124,11 +95,19 @@ import { page } from '@repo/database/schema';
 
 // ...
 
-const App = async (): Promise<ReactElement> => {
+const App = async () => {
   const pages = await database.select().from(page);
 
   // ...
 };
 
 export default App;
+```
+
+## 6. Remove Prisma Studio
+
+You can also delete the now unused Prisma Studio app located at `apps/studio`:
+
+```sh Terminal
+rm -fr apps/studio
 ```

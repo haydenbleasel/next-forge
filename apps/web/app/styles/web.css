@@ -1,0 +1,36 @@
+.shiki {
+  background-color: var(--shiki-light-bg);
+  color: var(--shiki-light);
+  @apply border-border;
+}
+
+.shiki span {
+  color: var(--shiki-light);
+}
+
+.dark .shiki {
+  background-color: var(--shiki-dark-bg);
+  color: var(--shiki-dark);
+}
+
+.dark .shiki span {
+  color: var(--shiki-dark);
+}
+
+.shiki code {
+  display: grid;
+  font-size: 13px;
+  counter-reset: line;
+}
+
+.shiki .line:before {
+  content: counter(line);
+  counter-increment: line;
+
+  @apply inline-block w-4 mr-8 text-muted-foreground text-right;
+}
+
+.shiki[title]:before {
+  content: attr(title);
+  @apply inline-block text-muted-foreground text-right mb-6 text-sm;
+}

@@ -2,11 +2,9 @@
   "name": "next-forge",
   "version": "2.12.19",
   "bin": {
-    "next-forge": "./index.js"
+    "next-forge": "./scripts/init.js"
   },
-  "files": [
-    "index.js"
-  ],
+  "files": ["scripts/init.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",

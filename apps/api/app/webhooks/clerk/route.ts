@@ -158,13 +158,13 @@ export const POST = async (request: Request): Promise<Response> => {
   const body = JSON.stringify(payload);
 
   // Create a new SVIX instance with your secret.
-  const wh = new Webhook(env.CLERK_WEBHOOK_SECRET);
+  const webhook = new Webhook(env.CLERK_WEBHOOK_SECRET);
 
   let event: WebhookEvent | undefined;
 
   // Verify the payload with the headers
   try {
-    event = wh.verify(body, {
+    event = webhook.verify(body, {
       'svix-id': svixId,
       'svix-timestamp': svixTimestamp,
       'svix-signature': svixSignature,

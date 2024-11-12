@@ -18,7 +18,7 @@ image: /blog/my-first-post.png
 ---
 ```
 
-The same concept applies to the `legal` collection, which is used to generate the legal policy pages.
+The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
 
 ## Creating a collection
 
@@ -48,4 +48,11 @@ The `reading-time` package is used to calculate the estimated reading time for e
 
 ### Low-Quality Image Placeholder (LQIP)
 
-The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`.
+The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`, like so:
+
+```tsx blog/[slug]/page.tsx
+<Image
+  // ...
+  blurDataURL={page.imageBlur}
+  placeholder="blur"
+/>

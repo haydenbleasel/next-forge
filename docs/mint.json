@@ -53,12 +53,14 @@
     {
       "group": "Features",
       "pages": [
-        "analytics",
+        {
+          "group": "Analytics",
+          "pages": ["analytics/web", "analytics/product"]
+        },
         "authentication",
         "blog",
         "bundle-analysis",
         "cron",
-        "dark-mode",
         {
           "group": "Database and ORM",
           "pages": [
@@ -68,7 +70,20 @@
             "database/prisma-postgres"
           ]
         },
-        "email",
+        {
+          "group": "Design System",
+          "pages": [
+            "design-system/colors",
+            "design-system/components",
+            "design-system/dark-mode",
+            "design-system/provider",
+            "design-system/typography"
+          ]
+        },
+        {
+          "group": "Email",
+          "pages": ["email/clerk", "email/resend"]
+        },
         "env",
         "flags",
         "formatting",
@@ -82,7 +97,10 @@
           ]
         },
         "payments",
-        "security",
+        {
+          "group": "Security",
+          "pages": ["security/application", "security/dependencies"]
+        },
         {
           "group": "SEO",
           "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]

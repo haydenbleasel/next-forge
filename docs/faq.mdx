@@ -7,10 +7,16 @@ description: Frequently asked questions about next-forge
 
 While tRPC is a great tool for building type-safe APIs, Next.js Server Actions provide similar benefits with tighter framework integration. This native solution reduces complexity while maintaining the type safety that makes tRPC attractive. Since Server Actions are part of the framework itself, they're also likely to receive continued optimization and feature improvements directly from the Next.js team.
 
-## Why did you pick Prisma over Drizzle?
+## Why did you pick X as the default tool instead of Y?
 
-While Drizzle is an awesome lightweight and performant ORM, we chose Prisma for several key reasons, primarily around developer experience, type safety and simplicity. We're open to exploring other ORMs in the future, but for now Prisma is the best fit for our needs.
+The default next-forge tooling was chosen by [myself](https://x.com/haydenbleasel) after having used them in numerous production applications. It doesn't mean they're the best tools, it means they're the ones that helped me launch quickly. Tools and tastes change over time and it's inevitable that the defaults will change at some point.
+
+That being said, if you really believe tool Y is a much better choice than tool X, feel free to start up a conversation with me on X and we can hash it out!
 
 ## Why does `apps/web` have a `prebuild` script?
 
 The website has a prebuild script in order to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).
+
+## Why is there a `suppressHydrationWarning` on every `html` tag?
+
+This is the recommendation by `next-themes` to supress the warning stemming from determining theme on the client side.

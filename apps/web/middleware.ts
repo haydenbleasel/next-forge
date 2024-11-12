@@ -23,7 +23,7 @@ const aj = arcjet({
   ],
 });
 
-export default clerkMiddleware(async (auth, request) => {
+export default clerkMiddleware(async (_auth, request) => {
   const decision = await aj.protect(request);
 
   if (

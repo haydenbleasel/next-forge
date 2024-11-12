@@ -1,0 +1,31 @@
+---
+title: Components
+description: next-forge offers a default component library by shadcn/ui
+---
+
+next-forge contains a design system out of the box powered by [shadcn/ui](https://ui.shadcn.com/).
+
+## Default configuration
+
+shadcn/ui has been configured by default to use the "New York" style, Tailwind's `neutral` color palette and CSS variables. You can customize the component configuration in `@repo/design-system`, specifically the `components.json` file. All components have been installed and are regularly updated.
+
+## Updating components
+
+To update shadcn/ui, go into the Design System package and use the `shadcn` CLI:
+
+```sh Terminal
+cd packages/design-system
+npx shadcn@latest add --all --overwrite
+```
+
+<Warning>
+This will override all customization you've made to the components. To avoid this happening, we recommend proxying the components into a new folder, such as `@repo/design-system/components`.
+</Warning>
+
+<Warning>
+The `shadcn` CLI will likely make some unwanted changes to your shared Tailwind config file and global CSS. Make sure you review changes before committing them.
+</Warning>
+
+## Changing libraries
+
+If you prefer a different component library, you can replace it at any time with something similar, such as Tailwind's [Catalyst](https://catalyst.tailwindui.com/).

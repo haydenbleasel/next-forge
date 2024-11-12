@@ -8,6 +8,8 @@ export const config: Config = {
   darkMode: ['class'],
   content: [
     './node_modules/@repo/design-system/components/**/*.{ts,tsx}',
+    './node_modules/@repo/design-system/lib/**/*.{ts,tsx}',
+    './node_modules/@repo/design-system/index.tsx',
     './components/**/*.{ts,tsx}',
     './lib/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
@@ -80,8 +82,8 @@ export const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-sans)', ...defaultTheme.fontFamily.sans],
-        mono: ['var(--font-mono)', ...defaultTheme.fontFamily.mono],
+        sans: ['var(--font-geist-sans)', ...defaultTheme.fontFamily.sans],
+        mono: ['var(--font-geist-mono)', ...defaultTheme.fontFamily.mono],
       },
       keyframes: {
         'accordion-down': {

@@ -1,0 +1,18 @@
+{
+  "name": "@repo/seo",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "lodash.merge": "^4.6.2",
+    "react": "^18.3.1",
+    "schema-dts": "^1.1.2"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/lodash.merge": "^4.6.9",
+    "@types/node": "22.9.0",
+    "@types/react": "18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "next": "15.0.3"
+  }
+}

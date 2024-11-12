@@ -1,15 +1,16 @@
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { createMetadata } from '@repo/design-system/lib/metadata';
 import { env } from '@repo/env';
+import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld';
+import { createMetadata } from '@repo/seo/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
-import type { BlogPosting, WithContext } from 'schema-dts';
+
 type BlogPostProperties = {
   readonly params: Promise<{
     slug: string;
@@ -67,11 +68,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: "This is a JSON-LD script, not user-generated content."
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd code={jsonLd} />
       <div className="container py-16">
         <Link
           className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"

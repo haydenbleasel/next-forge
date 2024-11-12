@@ -1,6 +1,5 @@
 import { capitalize } from '@repo/design-system/lib/utils';
 import { getTableOfContents } from 'fumadocs-core/server';
-import type { ReactElement } from 'react';
 
 type SidebarProperties = {
   readonly date: Date;
@@ -14,7 +13,7 @@ export const Sidebar = async ({
   readingTime,
   tags,
   content,
-}: SidebarProperties): Promise<ReactElement> => {
+}: SidebarProperties) => {
   const toc = await getTableOfContents(content);
 
   return (

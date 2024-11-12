@@ -4,7 +4,11 @@ import { CommandIcon } from 'lucide-react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';
 
-const AuthLayout = ({ children }: { children: ReactNode }) => (
+type AuthLayoutProps = {
+  readonly children: ReactNode;
+};
+
+const AuthLayout = ({ children }: AuthLayoutProps) => (
   <div className="container relative grid h-dvh flex-col items-center justify-center lg:max-w-none lg:grid-cols-2 lg:px-0">
     <div className="relative hidden h-full flex-col bg-muted p-10 text-white lg:flex dark:border-r">
       <div className="absolute inset-0 bg-zinc-900" />

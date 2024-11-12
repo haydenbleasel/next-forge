@@ -33,37 +33,15 @@ Etcetera.
 
 Uninstall the existing dependencies...
 
-<CodeGroup>
-```sh npm
-npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
 ```
-```sh yarn
-yarn remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-```sh bun
-bun remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-```
-</CodeGroup>
 
 ...and install the new ones:
 
-<CodeGroup>
-```sh npm
-npm install @planetscale/database @prisma/adapter-planetscale --filter database
-```
-```sh pnpm
+```sh Terminal
 pnpm add @planetscale/database @prisma/adapter-planetscale --filter database
 ```
-```sh yarn
-yarn add @planetscale/database @prisma/adapter-planetscale --filter database
-```
-```sh bun
-bun add @planetscale/database @prisma/adapter-planetscale --filter database
-```
-</CodeGroup>
 
 ## 4. Update the database connection code
 
@@ -75,18 +53,13 @@ import 'server-only';
 import { Client, connect } from '@planetscale/database';
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
 import { PrismaClient } from '@prisma/client';
-
-const databaseUrl = process.env.DATABASE_URL;
-
-if (!databaseUrl) {
-  throw new Error('Missing DATABASE_URL environment variable.');
-}
+import { env } from '@repo/env';
 
 declare global {
   var cachedPrisma: PrismaClient | undefined;
 }
 
-const client = connect({ url: databaseUrl });
+const client = connect({ url: env.DATABASE_URL });
 const adapter = new PrismaPlanetScale(client);
 
 export const database = new PrismaClient({ adapter });

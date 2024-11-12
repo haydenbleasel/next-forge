@@ -1,6 +1,28 @@
 ---
 title: JSON-LD
-description: How we've implemented JSON-LD for our blog posts
+description: How we've implemented JSON-LD structured data.
 ---
 
-We rely on `ArticleJsonLd` component from [next-seo](https://github.com/garmeeh/next-seo) to generate JSON-LD for blog posts. It's currently wired up to convey the title, description, author, date published, and tags. This is fully validated Google structured data validated JSON-LD markup for the ARTICLE schema markup type and should make your blog posts more likely to be featured in Google Search results.
+## Default Configuration
+
+next-forge has a dedicated JSON+LD helper designed to create fully validated Google structured data, making your content more likely to be featured in Google Search results.
+
+By default, structured data is implemented on the following pages:
+
+- `Blog` for the blog index
+- `BlogPosting` for the blog post pages
+
+## Usage
+
+Our `@repo/seo` package provides a JSON+LD helper built on `schema-dts`, allowing for structured data generation in a type-safe way. You can declare your own JSON+LD implementations like so:
+
+```page.tsx
+import { JsonLd } from '@repo/seo/json-ld';
+import type { WithContext, YourInterface } from '@repo/seo/json-ld';
+
+const jsonLd: WithContext<YourInterface> = {
+  // ...
+};
+
+return <JsonLd code={jsonLd} />;
+```

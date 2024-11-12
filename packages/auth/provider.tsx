@@ -7,7 +7,9 @@ import { tailwind } from '@repo/tailwind-config';
 import { useTheme } from 'next-themes';
 import type { ComponentProps } from 'react';
 
-export const AuthProvider = (props: ComponentProps<typeof ClerkProvider>) => {
+export const AuthProvider = (
+  properties: ComponentProps<typeof ClerkProvider>
+) => {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === 'dark';
   const baseTheme = isDark ? dark : undefined;
@@ -36,6 +38,9 @@ export const AuthProvider = (props: ComponentProps<typeof ClerkProvider>) => {
   };
 
   return (
-    <ClerkProvider {...props} appearance={{ baseTheme, variables, elements }} />
+    <ClerkProvider
+      {...properties}
+      appearance={{ baseTheme, variables, elements }}
+    />
   );
 };
