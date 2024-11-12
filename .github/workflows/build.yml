@@ -18,6 +18,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
+          version: 8
           run_install: false
 
       - name: Install Node.js
@@ -42,9 +43,41 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Create .env.local files
+      - name: Create root .env.local file
         run: |
-          # Your existing .env.local file creation steps here
+          cat << EOF > .env.local
+          CLERK_SECRET_KEY=sk_test_JA==
+          CLERK_WEBHOOK_SECRET=whsec_test
+          RESEND_AUDIENCE_ID=test
+          RESEND_FROM=test@test.com
+          DATABASE_URL=postgresql://test:test@localhost:5432/test
+          RESEND_TOKEN=re_test
+          STRIPE_SECRET_KEY=sk_test
+          STRIPE_WEBHOOK_SECRET=whsec_test
+          BETTERSTACK_API_KEY=test
+          BETTERSTACK_URL=https://test.com
+          FLAGS_SECRET=FcnUGt7tT-4cOw-D_1GoXAH1bU7ljDBr01F5w4dxrdQ
+          ARCJET_KEY=ajkey_test
+          NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_JA==
+          NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+          NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+          NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
+          NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
+          NEXT_PUBLIC_GA_MEASUREMENT_ID=G-test
+          NEXT_PUBLIC_POSTHOG_KEY=phc_test
+          NEXT_PUBLIC_POSTHOG_HOST=https://test.com
+          NEXT_PUBLIC_APP_URL=http://localhost:3000
+          NEXT_PUBLIC_WEB_URL=http://localhost:3001
+          NEXT_PUBLIC_DOCS_URL=http://localhost:3004
+          NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL=http://localhost:3002
+          EOF
+
+      - name: Create symbolic links for .env.local
+        run: |
+          ln -s ../../.env.local apps/app/.env.local
+          ln -s ../../.env.local apps/web/.env.local
+          ln -s ../../.env.local apps/api/.env.local
+          ln -s ../../.env.local packages/database/.env
 
       - name: Build
         run: pnpm build
@@ -65,6 +98,7 @@ jobs:
       - uses: pnpm/action-setup@v4
         name: Install pnpm
         with:
+          version: 8
           run_install: false
 
       - name: Install Node.js
