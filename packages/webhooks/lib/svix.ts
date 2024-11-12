@@ -24,3 +24,18 @@ export const send = async (eventType: string, payload: any) => {
     }
   });
 }
+
+export const getAppPortal = async () => {
+  const { orgId } = await auth();
+
+  if (!orgId) {
+    return;
+  }
+
+  return svix.authentication.appPortalAccess(orgId, {
+    application: {
+      name: orgId,
+      uid: orgId,
+    }
+  });
+}
