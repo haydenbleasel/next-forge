@@ -48,4 +48,11 @@ The `reading-time` package is used to calculate the estimated reading time for e
 
 ### Low-Quality Image Placeholder (LQIP)
 
-The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`.
+The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`, like so:
+
+```tsx blog/[slug]/page.tsx
+<Image
+  // ...
+  blurDataURL={page.imageBlur}
+  placeholder="blur"
+/>
