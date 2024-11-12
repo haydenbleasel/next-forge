@@ -1,3 +1,19 @@
+# v2.13.7 (Tue Nov 12 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Christian Leonardo ([@whyleonardo](https://github.com/whyleonardo)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix fetch status response error check condition [#217](https://github.com/haydenbleasel/next-forge/pull/217) ([@whyleonardo](https://github.com/whyleonardo))
+
+#### Authors: 1
+
+- Christian Leonardo ([@whyleonardo](https://github.com/whyleonardo))
+
+---
+
 # v2.13.6 (Tue Nov 12 2024)
 
 #### ⚠️ Pushed to `main`
