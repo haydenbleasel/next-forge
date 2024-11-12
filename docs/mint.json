@@ -83,7 +83,10 @@
           ]
         },
         "payments",
-        "security",
+        {
+          "group": "Security",
+          "pages": ["security/application", "security/dependencies"]
+        },
         {
           "group": "SEO",
           "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
