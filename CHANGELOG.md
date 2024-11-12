@@ -1,3 +1,15 @@
+# v2.13.2 (Tue Nov 12 2024)
+
+#### 🐛 Bug Fix
+
+- Update `mint.json` [#216](https://github.com/haydenbleasel/next-forge/pull/216) ([@fmerian](https://github.com/fmerian))
+
+#### Authors: 1
+
+- flo merian ([@fmerian](https://github.com/fmerian))
+
+---
+
 # v2.13.1 (Tue Nov 12 2024)
 
 #### 🐛 Bug Fix
