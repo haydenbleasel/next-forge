@@ -13,6 +13,10 @@ export const analytics = posthogRaw.init(env.NEXT_PUBLIC_POSTHOG_KEY, {
   capture_pageleave: true, // Overrides the `capture_pageview` setting
 }) as PostHog;
 
-export const PostHogProvider = ({ children }: { children: ReactNode }) => (
+type PostHogProviderProps = {
+  readonly children: ReactNode;
+};
+
+export const PostHogProvider = ({ children }: PostHogProviderProps) => (
   <PostHogProviderRaw client={analytics}>{children}</PostHogProviderRaw>
 );
