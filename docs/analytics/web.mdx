@@ -1,7 +1,9 @@
 ---
-title: Analytics
-description: We have three analytics libraries in next-forge.
+title: Web Analytics
+description: Captures pageviews, pageleave and custom events.
 ---
+
+next-forge comes with three web analytics libraries.
 
 ## Vercel Web Analytics
 
@@ -19,37 +21,8 @@ To enable it, simply add a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variabl
 
 PostHog is a single platform to analyze, test, observe, and deploy new features. It comes with lots of products, including a web analytics tool, event analytics, feature flagging, and more.
 
-### Web Analytics
-
 PostHog's web analytics tool is enabled by default and captures pageviews, pageleave and custom events.
-
-### Product Analytics
-
-We've combined PostHog's Node.js server-side library with Clerk and Stripe webhooks to wire it up as follows:
-
-<Mermaid chart={`
-graph TD
-  A[User Action in App] -->|Triggers| B[Clerk Webhook]
-  A -->|Triggers| E[Stripe Webhook]
-  A -->|Client-Side Call| PostHog
-  B -->|Sends Data| C1[webhooks/clerk]
-  E -->|Sends Data| C2[webhooks/stripe]
-
-  subgraph API
-    C1
-    C2
-  end
-
-  subgraph PostHog
-  end
-
-  C1 -->|Clerk Events| PostHog
-  C2 -->|Stripe Events| PostHog
-`} />
-
-We've also setup Next.js rewrites to reverse proxy PostHog requests, meaning your client-side analytics events won't be blocked by ad blockers.
 
 ### Session Replay
 
 PostHog's session replays let you see exactly what users do on your site. It records console logs and network errors, and captures performance data like resource timings and blocked requests. This is disabled by default, so make sure you enable it in your project settings.
-

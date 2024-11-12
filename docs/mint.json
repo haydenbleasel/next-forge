@@ -39,7 +39,10 @@
     {
       "group": "Features",
       "pages": [
-        "analytics",
+        {
+          "group": "Analytics",
+          "pages": ["analytics/overview", "analytics/web", "analytics/product"]
+        },
         "authentication",
         "blog",
         "bundle-analysis",
