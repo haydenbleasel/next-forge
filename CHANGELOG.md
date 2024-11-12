@@ -1,3 +1,15 @@
+# v2.13.6 (Tue Nov 12 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.5 (Tue Nov 12 2024)
 
 #### ⚠️ Pushed to `main`
