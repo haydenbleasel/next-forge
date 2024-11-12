@@ -1,0 +1,13 @@
+{
+  "name": "@repo/payments",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "stripe": "^17.3.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}

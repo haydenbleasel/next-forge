@@ -1,12 +1,12 @@
 import { clerkClient } from '@clerk/nextjs/server';
 import { analytics } from '@repo/analytics/posthog/server';
-import { stripe } from '@repo/design-system/lib/stripe';
 import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 import { log } from '@repo/observability/log';
+import { stripe } from '@repo/payments';
+import type { Stripe } from '@repo/payments';
 import { headers } from 'next/headers';
 import { NextResponse } from 'next/server';
-import type Stripe from 'stripe';
 
 const handleCheckoutSessionCompleted = async (
   data: Stripe.Checkout.Session
