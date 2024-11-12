@@ -11,7 +11,7 @@ export const getStatus = async () => {
     }
   );
 
-  if (response.ok) {
+  if (!response.ok) {
     throw new Error('Failed to fetch status');
   }
 
