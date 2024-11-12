@@ -1,3 +1,16 @@
+# v2.13.1 (Tue Nov 12 2024)
+
+#### 🐛 Bug Fix
+
+- Add Documentation section to docs [#214](https://github.com/haydenbleasel/next-forge/pull/214) ([@fmerian](https://github.com/fmerian) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- flo merian ([@fmerian](https://github.com/fmerian))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.0 (Tue Nov 12 2024)
 
 #### 🚀 Enhancement
