@@ -1,3 +1,16 @@
+# v2.12.19 (Tue Nov 12 2024)
+
+#### 🐛 Bug Fix
+
+- Fix `.font` instructions in docs app [#213](https://github.com/haydenbleasel/next-forge/pull/213) ([@fmerian](https://github.com/fmerian) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- flo merian ([@fmerian](https://github.com/fmerian))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.12.18 (Mon Nov 11 2024)
 
 #### ⚠️ Pushed to `main`
