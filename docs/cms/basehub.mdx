@@ -1,0 +1,112 @@
+---
+title: Switch to BaseHub
+description: How to change the CMS provider from <CMS> to BaseHub.
+---
+
+Here's how to switch from `<CMS>` to [BaseHub](https://basehub.com).
+
+## 1. Fork the [`basehub/next-forge`](https://basehub.com/basehub/next-forge) template
+
+You'll be forking a BaseHub repository which contains the next-forge compatible content schema.
+
+Once you fork the repository, you'll need to get your Read Token from the Connect page:
+
+```
+https://basehub.com/<team-slug>/<repo-slug>/dev/main/dev:connect
+```
+
+The token will look something like this:
+
+```
+bshb_pk_<password>
+```
+
+Keep this connection string handy, you will need it in the next step.
+
+## 2. Update your environment variables
+
+Update your environment variables to use the new BaseHub token:
+
+```js apps/web/.env
+BASEHUB_TOKEN="<token>"
+```
+
+## 3. Install `basehub`
+
+```sh Terminal
+pnpm add basehub --filter web
+```
+
+## 4. Update `package.json` scripts
+
+Run `basehub dev` in parallel to your existing dev script, and `basehub build` before your existing build script:
+
+```ts apps/web/package.json
+{
+  "scripts": {
+    "dev": "concurrently \"basehub dev\" \"next dev -p 3001\"",
+    "build": "basehub build && next build",
+  }
+}
+```
+
+Both of these scripts generate the type-safe SDK, but they do so in different ways:
+
+- `basehub dev` generates the SDK by targeting your repo's Draft API. Additionally, it will watch for schema changes and update the types accordingly.
+- `basehub build` generates the SDK by targeting your repo's Production API.
+
+## 5. Update the queries
+
+In `apps/web/cms.ts`, you'll need to update the queries to use the new BaseHub SDK.
+
+```ts apps/web/cms.ts
+import { basehub, fragmentOn } from 'basehub';
+
+const imageFragment = fragmentOn('BlockImage', {
+    url: true,
+    width: true,
+    height: true,
+    alt: true,
+});
+
+const postMetaFragment = fragmentOn('PostsItem', {
+    _id: true,
+    _slug: true,
+    _title: true,
+    date: true,
+    description: true,
+    image: imageFragment,
+    authors: { _title: true, avatar: imageFragment },
+})
+
+export const getPost = async (slug: string) => {
+  const data = await basehub().query({
+    blog: {
+        posts: {
+            __args: {
+                filter: {
+                    _sys_slug: { eq: slug }
+                }
+            },
+            items: {
+                ...postMetaFragment,
+                body: {
+                    readingTime: true,
+                    json: { content: true }
+                }
+            }
+        }
+    }
+  });
+  return data.blog.posts.items[0];
+};
+
+export const getPosts = async () => {
+    const data = await basehub().query({
+        blog: { posts: { items: postMetaFragment } },
+    });
+  return data.blog.posts.items;
+};
+```
+
+Learn more about BaseHub in their [docs](https://docs.basehub.com).
