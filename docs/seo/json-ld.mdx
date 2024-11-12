@@ -1,8 +1,33 @@
 ---
 title: JSON-LD
-description: How we've implemented JSON-LD for our blog posts
+description: How we've implemented JSON-LD structured data.
 ---
 
-next-forge has JSON+LD structured data configured for blog posts by default. It's currently wired up to convey the title, description, author, date published, and tags. This is fully validated Google structured data validated JSON-LD markup for the ARTICLE schema markup type and should make your blog posts more likely to be featured in Google Search results.
+## Default Configuration
 
-JSON+LD is implemented in a type-safe way through the use of `schema-dts`.
+next-forge has JSON+LD structured data configured for certain pages by default. It's currently wired up to convey the title, description, author, date published, and tags. This is fully validated Google structured data validated JSON-LD markup for the ARTICLE schema markup type and should make your blog posts more likely to be featured in Google Search results.
+
+JSON+LD is implemented in a type-safe way through the use of `schema-dts` in the following instances:
+
+- `Blog` for the blog index
+- `BlogPosting` for the blog post pages
+
+## Usage
+
+You can declare your own JSON+LD implementations like so:
+
+```page.tsx
+import { YourInterface } from 'schema-dts';
+
+const jsonLd: WithContext<YourInterface> = {
+  // ...
+};
+
+return (
+  <script
+    type="application/ld+json"
+    // biome-ignore lint/security/noDangerouslySetInnerHtml: "This is a JSON-LD script, not user-generated content."
+    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+  />
+);
+```
