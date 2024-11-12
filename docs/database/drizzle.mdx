@@ -124,7 +124,7 @@ import { page } from '@repo/database/schema';
 
 // ...
 
-const App = async (): Promise<ReactElement> => {
+const App = async () => {
   const pages = await database.select().from(page);
 
   // ...

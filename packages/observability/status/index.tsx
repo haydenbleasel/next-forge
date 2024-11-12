@@ -1,9 +1,8 @@
 import 'server-only';
 import { env } from '@repo/env';
-import type { ReactElement } from 'react';
 import { getStatus } from './get';
 
-export const Status = async (): Promise<ReactElement> => {
+export const Status = async () => {
   let statusColor = 'bg-success';
   let statusLabel = 'All systems normal';
 

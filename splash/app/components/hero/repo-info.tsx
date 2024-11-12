@@ -1,11 +1,10 @@
 import { Octokit } from '@octokit/rest';
 import { ArrowUpRightIcon, GitForkIcon, StarIcon } from 'lucide-react';
 import Image from 'next/image';
-import type { ReactElement } from 'react';
 import GitHubIcon from './github.svg';
 import xIcon from './x.svg';
 
-export const RepoInfo = async (): Promise<ReactElement> => {
+export const RepoInfo = async () => {
   const octokit = new Octokit();
 
   const { data } = await octokit.repos.get({

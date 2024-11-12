@@ -10,7 +10,6 @@ import {
 import { Separator } from '@repo/design-system/components/ui/separator';
 import { SidebarTrigger } from '@repo/design-system/components/ui/sidebar';
 import type { Metadata } from 'next';
-import type { ReactElement } from 'react';
 
 const title = 'Acme Inc';
 const description = 'My application.';
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
   description,
 };
 
-const App = async (): Promise<ReactElement> => {
+const App = async () => {
   const pages = await database.page.findMany();
 
   return (
