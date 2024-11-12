@@ -1,21 +1,35 @@
 ---
-title: Database and ORM
-description: How the database is configured in next-forge.
-sidebarTitle: Overview
+title: Overview
+description: How the database and ORM are configured in next-forge.
 ---
 
-By default, next-forge uses [Neon](https://neon.tech) as its database provider. However, you can easily switch to another provider like [PlanetScale](/database/planetscale), [Prisma Postgres](/database/prisma-postgres), Supabase, or any other PostgreSQL/MySQL provider.
+next-forge aims to provide a robust, type-safe database client that makes it easy to work with your database while maintaining strong typing throughout your application. We aim to support tooling that:
 
-Database access is configured in `@repo/database` via [Prisma](https://www.prisma.io/) as the ORM (Object-Relational Mapping). It provides a type-safe database client that makes it easy to work with your database while maintaining strong typing throughout your application.
+- Provide a declarative way to define your database schema
+- Generate type-safe database client
+- Handle database migrations
+- Offer powerful query capabilities with full TypeScript support
 
-## Overview
+## Default Configuration
 
-Prisma serves several key purposes in our stack:
+By default, next-forge uses [Neon](https://neon.tech) as its database provider and [Prisma](https://prisma.io) as its ORM. However, you can easily switch to other providers if you'd prefer, for example:
 
-- Provides a declarative way to define your database schema
-- Generates type-safe database client
-- Handles database migrations
-- Offers powerful query capabilities with full TypeScript support
+- You can use other ORMs like [Drizzle](/database/drizzle), Kysely or any other type-safe ORM.
+- You can use other database providers like [PlanetScale](/database/planetscale), [Prisma Postgres](/database/prisma-postgres), Supabase, or any other PostgreSQL/MySQL provider.
+
+## Usage
+
+Database and ORM configuration is located in `@repo/database`. You can import this package into any server-side component, like so:
+
+```page.tsx {1,4}
+import { database } from '@repo/database';
+
+const Page = async () => {
+  const users = await database.user.findMany();
+
+  // Do something with users!
+}
+```
 
 ## Schema Definition
 

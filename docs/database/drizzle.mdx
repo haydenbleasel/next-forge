@@ -17,16 +17,12 @@ import { Authors } from '/snippets/authors.mdx';
   logo: 'https://orm.drizzle.team/',
 }]} />
 
-next-forge uses [Prisma](https://prisma.io) as its ORM by default. However, you can easily switch to another ORM like [Drizzle](https://orm.drizzle.team) or [Kysely](https://kysely.dev/).
-
-We selected Prisma because as of writing this, it's the most popular ORM and has a large community and many adapters. However, Drizzle is coming up fast and has some great benefits, primarily around performance.
-
-If you want to switch to Drizzle, you have two options:
+Drizzle is a brilliant, type-safe ORM growing quickly in popularity. If you want to switch to Drizzle, you have two options:
 
 1. Keep Prisma and add the Drizzle API to the Prisma client. Drizzle have a [great guide](https://orm.drizzle.team/docs/prisma) on how to do this.
 2. Go all-in and switch to Drizzle.
 
-Here, I'll assume you have a working Neon database and cover the second option.
+Here, we'll assume you have a working Neon database and cover the second option.
 
 ## 1. Swap out the required dependencies in `@repo/database`
 
