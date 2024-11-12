@@ -5,16 +5,6 @@
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
-  "font": {
-    "body": {
-      "family": "Switzer",
-      "url": "https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&display=swap"
-    },
-    "headings": {
-      "family": "Switzer",
-      "url": "https://api.fontshare.com/css?f%5B%5D=switzer@400,500,600,700&display=swap"
-    }
-  },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#0D9373",
@@ -28,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@mintlify.com"
     }
   ],
   "topbarCtaButton": {
@@ -90,6 +80,6 @@
   "footerSocials": {
     "x": "https://x.com/mintlify",
     "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "linkedin": "https://www.linkedin.com/company/mintlify"
   }
 }
