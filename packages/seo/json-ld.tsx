@@ -1,7 +1,7 @@
-import type { WithContext } from 'schema-dts';
+import type { Thing, WithContext } from 'schema-dts';
 
 type JsonLdProps = {
-  code: WithContext<never>;
+  code: WithContext<Thing>;
 };
 
 export const JsonLd = ({ code }: JsonLdProps) => (

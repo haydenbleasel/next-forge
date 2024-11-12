@@ -2,9 +2,6 @@
   "name": "@repo/email",
   "version": "0.0.0",
   "private": true,
-  "exports": {
-    "./*": "./src/*.tsx"
-  },
   "dependencies": {
     "@react-email/components": "0.0.28",
     "@repo/env": "workspace:*",

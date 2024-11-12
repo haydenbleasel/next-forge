@@ -1,5 +1,6 @@
 import { cn } from '@repo/design-system/lib/utils';
 import type { Blog, WithContext } from '@repo/seo/json-ld';
+import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
