@@ -7,7 +7,7 @@ description: We use Clerk to handle authentication, user and organization manage
 
 ## In-App
 
-The shared provider from the `@repo/design-system` package (called `DesignSystemProvider`) includes the Clerk provider. This means that you only need to include the `DesignSystemProvider` in your app to use Clerk.
+The `@repo/auth` package exposes an `AuthProvider`, however you don't need to use this directly. The [`DesignSystemProvider`](/design-system/provider) includes all relevant providers and higher-order components.
 
 From here, you can use all the pre-built components and hooks provided by Clerk. To demonstrate this, we've added the `<OrganizationSwitcher>` and `<UserButton>` components to the sidebar, as well as built out the Sign In and Sign Up pages.
 
