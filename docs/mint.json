@@ -1,11 +1,15 @@
 {
   "$schema": "https://mintlify.com/schema.json",
+
   "name": "next-forge docs",
+
   "logo": {
     "dark": "/images/logo-dark.svg",
     "light": "/images/logo-light.svg"
   },
+
   "background": { "style": "windows" },
+
   "codeBlock": {
     "mode": "auto"
   },
@@ -24,7 +28,9 @@
     }
   },
   "favicon": "/images/icon.png",
+
   "layout": "topnav",
+
   "colors": {
     "primary": "#f35815",
     "light": "#f35815",
@@ -34,13 +40,16 @@
       "to": "#f35815"
     }
   },
+
   "topbarCtaButton": {
     "type": "github",
     "url": "https://github.com/haydenbleasel/next-forge"
   },
+
   "search": {
     "prompt": "Search or ask..."
   },
+
   "navigation": [
     {
       "group": "Getting Started",
@@ -80,6 +89,7 @@
             "design-system/typography"
           ]
         },
+        "documentation",
         {
           "group": "Email",
           "pages": ["email/clerk", "email/resend"]
@@ -107,8 +117,13 @@
         },
         "testing"
       ]
+    },
+    {
+      "group": "Releases",
+      "pages": ["changelog"]
     }
   ],
+
   "footerSocials": {
     "x": "https://x.com/haydenbleasel",
     "github": "https://github.com/haydenbleasel/next-forge",
