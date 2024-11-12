@@ -41,7 +41,7 @@
       "pages": [
         {
           "group": "Analytics",
-          "pages": ["analytics/overview", "analytics/web", "analytics/product"]
+          "pages": ["analytics/web", "analytics/product"]
         },
         "authentication",
         "blog",
@@ -59,7 +59,6 @@
         {
           "group": "Design System",
           "pages": [
-            "design-system/overview",
             "design-system/colors",
             "design-system/components",
             "design-system/dark-mode",
@@ -69,7 +68,7 @@
         },
         {
           "group": "Email",
-          "pages": ["email/overview", "email/clerk", "email/resend"]
+          "pages": ["email/clerk", "email/resend"]
         },
         "env",
         "flags",
@@ -87,12 +86,7 @@
         "security",
         {
           "group": "SEO",
-          "pages": [
-            "seo/overview",
-            "seo/metadata",
-            "seo/json-ld",
-            "seo/sitemap"
-          ]
+          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
         },
         "testing"
       ]
