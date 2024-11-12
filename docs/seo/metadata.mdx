@@ -3,10 +3,10 @@ title: Metadata
 description: How we optimize your site for search engines.
 ---
 
-next-forge has a relatively simple SEO setup. We rely on Next.js's built-in [Metadata](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) API to handle most of our SEO needs. Specifically, the `@repo/design-system` package provides a `createMetadata` function that you can use to generate metadata for your pages. For example:
+next-forge has a relatively simple SEO setup. We rely on Next.js's built-in [Metadata](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) API to handle most of our SEO needs. Specifically, the `@repo/seo` package provides a `createMetadata` function that you can use to generate metadata for your pages. For example:
 
 ```tsx page.tsx
-import { createMetadata } from '@repo/design-system/lib/metadata';
+import { createMetadata } from '@repo/seo/metadata';
 
 export const metadata = createMetadata({
   title: 'My Page',
@@ -17,7 +17,7 @@ export const metadata = createMetadata({
 While this looks similar to just exporting a `metadata` object from your page, the `createMetadata` function deep merges your metadata with our default metadata, allowing you to customize only the metadata that you need to. It's also much easier to specify a cover photo for the page, for example:
 
 ```tsx page.tsx {6}
-import { createMetadata } from '@repo/design-system/lib/metadata';
+import { createMetadata } from '@repo/seo/metadata';
 
 export const metadata = createMetadata({
   title: 'My Page',

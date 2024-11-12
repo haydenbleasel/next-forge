@@ -1,10 +1,10 @@
-import { createMetadata } from '@repo/design-system/lib/metadata';
 import { cn } from '@repo/design-system/lib/utils';
+import type { Blog, WithContext } from '@repo/seo/json-ld';
+import { createMetadata } from '@repo/seo/metadata';
 import { allPosts } from 'content-collections';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Blog, WithContext } from 'schema-dts';
 
 const title = 'Blog';
 const description = 'Thoughts, ideas, and opinions.';
@@ -19,11 +19,7 @@ const BlogIndex = () => {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        // biome-ignore lint/security/noDangerouslySetInnerHtml: "This is a JSON-LD script, not user-generated content."
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd code={jsonLd} />
       <div className="w-full py-20 lg:py-40">
         <div className="container mx-auto flex flex-col gap-14">
           <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">

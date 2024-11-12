@@ -1,7 +1,7 @@
 import { Mdx } from '@/components/mdx';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { createMetadata } from '@repo/design-system/lib/metadata';
+import { createMetadata } from '@repo/seo/metadata';
 import { allLegals } from 'content-collections';
 import type { Metadata } from 'next';
 import Link from 'next/link';
