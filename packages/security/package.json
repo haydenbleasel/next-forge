@@ -1,0 +1,13 @@
+{
+  "name": "@repo/security",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@arcjet/next": "1.0.0-alpha.28",
+    "@repo/env": "workspace:*"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}
