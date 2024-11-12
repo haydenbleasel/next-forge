@@ -17,6 +17,6 @@ type PostHogProviderProps = {
   readonly children: ReactNode;
 };
 
-export const PostHogProvider = ({ children }: PostHogProviderProps) => (
-  <PostHogProviderRaw client={analytics}>{children}</PostHogProviderRaw>
-);
+export const PostHogProvider = (
+  properties: Omit<PostHogProviderProps, 'client'>
+) => <PostHogProviderRaw client={analytics} {...properties} />;
