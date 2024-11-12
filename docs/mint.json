@@ -89,14 +89,7 @@
             "design-system/typography"
           ]
         },
-        {
-          "group": "Documentation",
-          "pages": [
-            "documentation/overview",
-            "documentation/settings",
-            "documentation/components"
-          ]
-        },
+        "documentation",
         {
           "group": "Email",
           "pages": ["email/clerk", "email/resend"]
