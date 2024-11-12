@@ -47,7 +47,6 @@
         "blog",
         "bundle-analysis",
         "cron",
-        "dark-mode",
         {
           "group": "Database and ORM",
           "pages": [
@@ -57,8 +56,21 @@
             "database/prisma-postgres"
           ]
         },
-        "design-system",
-        "email",
+        {
+          "group": "Design System",
+          "pages": [
+            "design-system/overview",
+            "design-system/colors",
+            "design-system/components",
+            "design-system/dark-mode",
+            "design-system/provider",
+            "design-system/typography"
+          ]
+        },
+        {
+          "group": "Email",
+          "pages": ["email/overview", "email/clerk", "email/resend"]
+        },
         "env",
         "flags",
         "formatting",
@@ -75,7 +87,12 @@
         "security",
         {
           "group": "SEO",
-          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
+          "pages": [
+            "seo/overview",
+            "seo/metadata",
+            "seo/json-ld",
+            "seo/sitemap"
+          ]
         },
         "testing"
       ]
