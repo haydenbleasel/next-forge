@@ -1,3 +1,15 @@
+# v2.13.8 (Wed Nov 13 2024)
+
+#### 🐛 Bug Fix
+
+- Finish extracting arcjet package [#221](https://github.com/haydenbleasel/next-forge/pull/221) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.7 (Tue Nov 12 2024)
 
 :tada: This release contains work from a new contributor! :tada:
