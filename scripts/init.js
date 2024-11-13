@@ -15,7 +15,10 @@ try {
   const projectName = args[1];
   const isWindows = process.platform === 'win32';
 
-  execSync(`pnpm create next-app@latest ${projectName} --example ${url}`, opts);
+  execSync(
+    `pnpm create next-app@latest ${projectName} --example "${url}"`,
+    opts
+  );
   execSync(
     `cd ${projectName} && ${isWindows ? '.\\scripts\\setup.bat' : './scripts/setup.sh'}`,
     opts
