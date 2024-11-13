@@ -6,15 +6,23 @@ description: How the documentation is configured in next-forge.
 import { Authors } from '/snippets/authors.mdx';
 
 <Authors data={[{
-  name: 'Hayden Bleasel',
-  company: 'next-forge',
-  username: 'haydenbleasel',
-  logo: 'https://www.next-forge.com/',
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
 }, {
-  name: 'Flo Merian',
-  company: 'Mintlify',
-  username: 'fmerian',
-  logo: 'https://mintlify.com/',
+  user: {
+    name: 'Flo Merian',
+    id: 'fmerian',
+  },
+  company: {
+    name: 'Mintlify',
+    id: 'mintlify',
+  },
 }]} />
 
 next-forge uses [Mintlify](https://mintlify.com) to generate beautiful docs. Each page is a `.mdx` file, written in Markdown, with built-in UI components and API playground.

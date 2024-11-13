@@ -6,15 +6,23 @@ description: Security measures taken to protect your applications.
 import { Authors } from '/snippets/authors.mdx';
 
 <Authors data={[{
-  name: 'Hayden Bleasel',
-  company: 'next-forge',
-  username: 'haydenbleasel',
-  logo: 'https://www.next-forge.com/',
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
 }, {
-  name: 'David Mytton',
-  company: 'Arcjet',
-  username: 'davidmytton',
-  logo: 'https://arcjet.com/',
+  user: {
+    name: 'David Mytton',
+    id: 'davidmytton',
+  },
+  company: {
+    name: 'Arcjet',
+    id: 'arcjet',
+  },
 }]} />
 
 next-forge uses [Arcjet](https://arcjet.com/), a security as code product that includes several features that can be used individually or combined to provide defense in depth for your site. You can [sign up for a free account](https://arcjet.com/) and add the API key to the environment variables to use the features we have included.

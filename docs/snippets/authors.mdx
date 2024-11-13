@@ -10,14 +10,14 @@ export const Authors = ({ data }) => (
           <div className="-space-x-1 flex items-center">
             <img
               className="m-0 overflow-hidden rounded-full object-cover"
-              src={`https://github.com/${author.username}.png`}
+              src={`/images/authors/${author.company.id}/${author.user.id}.jpg`}
               alt=""
               width={24}
               height={24}
             />
             <img
               className="m-0 overflow-hidden rounded-full object-cover"
-              src={`https://img.logo.dev/${new URL(author.logo).hostname}?token=pk_a7kMUiN0TCe8qXA6vbcfMw`}
+              src={`/images/authors/${author.company.id}/logo.jpg`}
               alt=""
               width={24}
               height={24}
@@ -30,7 +30,7 @@ export const Authors = ({ data }) => (
                 fontSize: '13px',
               }}
             >
-              {author.name}
+              {author.user.name}
             </span>
             <span
               className="text-gray-500 dark:text-gray-400 leading-tight"
@@ -38,7 +38,7 @@ export const Authors = ({ data }) => (
                 fontSize: '11px',
               }}
             >
-              {author.company}
+              {author.company.name}
             </span>
           </div>
         </div>
