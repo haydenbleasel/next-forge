@@ -1,3 +1,17 @@
+# v2.13.12 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix authors styling ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix author images ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.11 (Wed Nov 13 2024)
 
 :tada: This release contains work from a new contributor! :tada:
