@@ -154,6 +154,25 @@ Now install the new dependencies for Turso & libSQL:
 
 </CodeGroup>
 
+<Step title="Update Webpack configuration">
+
+Open `packages/next-config/index.ts` and add `@libsql/client` to the list of externals:
+
+```ts packages/next-config/index.ts {5}
+let nextConfig: NextConfig = {
+  ...config,
+  webpack: (config, { isServer }) => {
+    if (isServer) {
+      config.externals = [...(config.externals || []), "@libsql/client"];
+    }
+
+    // ...
+  },
+};
+```
+
+</Step>
+
 </Step>
 
 <Step title="Update the database connection code">
