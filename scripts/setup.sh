@@ -14,7 +14,7 @@ cp packages/database/.env.example packages/database/.env
 echo "Deleting internal content..."
 rm -rf .github/workflows
 rm .github/CONTRIBUTING.md
-rm .github/FUNDING.md
+rm .github/FUNDING.yml
 rm .github/SECURITY.md
 rm -rf docs
 rm -rf splash

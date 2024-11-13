@@ -14,7 +14,7 @@ copy packages\database\.env.example packages\database\.env
 echo Deleting internal content...
 rmdir /S /Q .github/workflows
 del .github/CONTRIBUTING.md
-del .github/FUNDING.md
+del .github/FUNDING.yml
 del .github/SECURITY.md
 rmdir /S /Q docs
 rmdir /S /Q splash
