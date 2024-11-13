@@ -9,6 +9,7 @@ export {
   sensitiveInfo,
   shield,
   slidingWindow,
+  request,
 } from '@arcjet/next';
 
 // Create a base Arcjet instance which can be imported and extended in each route.
