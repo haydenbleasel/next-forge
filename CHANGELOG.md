@@ -1,3 +1,15 @@
+# v2.13.13 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Expose Clerk components from auth package ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.12 (Wed Nov 13 2024)
 
 #### ⚠️ Pushed to `main`
