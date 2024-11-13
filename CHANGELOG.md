@@ -1,3 +1,15 @@
+# v2.13.10 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #222 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.9 (Wed Nov 13 2024)
 
 #### ⚠️ Pushed to `main`
