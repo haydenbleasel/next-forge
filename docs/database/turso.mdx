@@ -26,27 +26,23 @@ import { Authors } from "/snippets/authors.mdx";
 
 Here's how to switch from Neon to [Turso](https://turso.tech) for your `next-forge` project.
 
-<Steps>
-
-<Step title="Sign up to Turso">
+## 1. Sign up to Turso
 
 You can use the [Dashboard](https://app.turso.tech), or the [CLI](https://docs.turso.tech/cli) to manage your account, database, and auth tokens.
 
 _We'll be using the CLI throughout this guide._
 
-</Step>
-
-<Step title="Create a Database">
+## 2. Create a Database
 
 Create a new database and give it a name using the Turso CLI:
 
-```bash
+```sh Terminal
 turso db create <database-name>
 ```
 
 You can now fetch the URL to the database:
 
-```bash
+```sh Terminal
 turso db show <database-name> --url
 ```
 
@@ -56,39 +52,33 @@ It will look something like this:
 libsql://<database-name>-<account-or-org-slug>.turso.io
 ```
 
-</Step>
-
-<Step title="Create a Database Auth Token">
+## 3. Create a Database Auth Token
 
 You will need to create an auth token to connect to your Turso database:
 
-```bash
+```sh Terminal
 turso db tokens create <database-name>
 ```
 
-</Step>
-
-<Step title="Update your environment variables">
+## 4. Update your environment variables
 
 Update your environment variables to use the new Turso connection string:
 
-<CodeGroup>
-
-```bash apps/database/.env
+```js apps/database/.env
 DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
 DATABASE_AUTH_TOKEN="..."
 ```
 
-```bash apps/app/.env.local
+```js apps/app/.env.local
 DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
 DATABASE_AUTH_TOKEN="..."
 ```
 
-</CodeGroup>
+Etcetera.
 
 Now inside `packages/env/index.ts`, add `DATABASE_AUTH_TOKEN` to the `server` and `runtimeEnv` objects:
 
-```ts
+```ts {3,12}
 const server: Parameters<typeof createEnv>[0]["server"] = {
   // ...
   DATABASE_AUTH_TOKEN: z.string(),
@@ -106,57 +96,23 @@ export const env = createEnv({
 });
 ```
 
-</Step>
+## 5. Install @libsql/client
 
-<Step title="Install @libsql/client">
-
-The [`@libsql/client`](https://www.npmjs.com/@libsql/client) is used to connect to the hosted Turso database:
+The [`@libsql/client`](https://www.npmjs.com/@libsql/client) is used to connect to the hosted Turso database.
 
 Uninstall the existing dependencies for Neon...
 
-<CodeGroup>
-    ```sh npm
-    npm uninstall @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-    ```
+```sh Terminal
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
+```
 
-    ```sh pnpm
-    pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-    ```
+... and install the new dependencies for Turso & libSQL:
 
-    ```sh yarn
-    yarn remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-    ```
+```sh Terminal
+pnpm add @libsql/client --filter database
+```
 
-    ```sh bun
-    bun remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
-    ```
-
-</CodeGroup>
-
-Now install the new dependencies for Turso & libSQL:
-
-<CodeGroup>
-    ```sh npm
-    npm install @libsql/client --filter database
-    ```
-
-    ```sh pnpm
-    pnpm add @libsql/client --filter database
-    ```
-
-    ```sh yarn
-    yarn add @libsql/client --filter database
-    ```
-
-    ```sh bun
-    bun add @libsql/client --filter database
-    ```
-
-</CodeGroup>
-
-</Step>
-
-<Step title="Update Webpack configuration">
+## 6. Update Webpack configuration
 
 Open `packages/next-config/index.ts` and add `@libsql/client` to the list of externals:
 
@@ -173,9 +129,7 @@ let nextConfig: NextConfig = {
 };
 ```
 
-</Step>
-
-<Step title="Update the database connection code">
+## 7. Update the database connection code
 
 Open `packages/database/index.ts` and make the following changes:
 
@@ -193,13 +147,11 @@ const libsql = createClient({
 export const database = libsql;
 ```
 
-</Step>
-
-<Step title="Apply schema changes">
+## 8. Apply schema changes
 
 Now connect to the Turso database using the CLI:
 
-```bash
+```sh Terminal
 turso db shell <database-name>
 ```
 
@@ -207,15 +159,13 @@ And apply the schema to the database:
 
 ```sql
 CREATE TABLE pages (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    email TEXT UNIQUE NOT NULL,
-    name TEXT
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  email TEXT UNIQUE NOT NULL,
+  name TEXT
 );
 ```
 
-</Step>
-
-<Step title="Update application code">
+## 9. Update application code
 
 Now wherever you would usually call Prisma, use the `libsql` client instead:
 
@@ -235,6 +185,3 @@ const { rows } = await database.execute(`SELECT * FROM pages`);
 const pages = rows as unknown as Array<PageType>;
 ```
 
-</Step>
-
-</Steps>
