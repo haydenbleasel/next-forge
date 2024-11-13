@@ -14,6 +14,7 @@ const author: Metadata['authors'] = {
 };
 const publisher = 'Hayden Bleasel';
 const twitterHandle = '@haydenbleasel';
+const siteUrl = 'https://www.next-forge.com/';
 
 export const createMetadata = ({
   title,
@@ -23,6 +24,7 @@ export const createMetadata = ({
 }: MetadataGenerator): Metadata => {
   const parsedTitle = `${title} | ${applicationName}`;
   const defaultMetadata: Metadata = {
+    metadataBase: new URL(siteUrl),
     title: parsedTitle,
     description,
     applicationName,
@@ -45,6 +47,8 @@ export const createMetadata = ({
     },
     publisher,
     twitter: {
+      title: parsedTitle,
+      description,
       card: 'summary_large_image',
       creator: twitterHandle,
     },
