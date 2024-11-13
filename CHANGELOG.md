@@ -1,3 +1,20 @@
+# v2.13.11 (Wed Nov 13 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jamie Barton ([@notrab](https://github.com/notrab)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: add turso guide [#226](https://github.com/haydenbleasel/next-forge/pull/226) ([@notrab](https://github.com/notrab) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Jamie Barton ([@notrab](https://github.com/notrab))
+
+---
+
 # v2.13.10 (Wed Nov 13 2024)
 
 #### ⚠️ Pushed to `main`
