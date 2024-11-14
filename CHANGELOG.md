@@ -1,3 +1,21 @@
+# v2.13.19 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, David Mytton ([@davidmytton](https://github.com/davidmytton)), for all your work!
+
+#### 🐛 Bug Fix
+
+- List the required accounts in setup [#229](https://github.com/haydenbleasel/next-forge/pull/229) ([@davidmytton](https://github.com/davidmytton))
+- Update drizzle.mdx [#230](https://github.com/haydenbleasel/next-forge/pull/230) ([@yamz8](https://github.com/yamz8))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
 # v2.13.18 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
