@@ -1,3 +1,15 @@
+# v2.14.11 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update deploying.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.10 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
