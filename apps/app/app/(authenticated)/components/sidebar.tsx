@@ -34,6 +34,7 @@ import {
 } from '@repo/design-system/components/ui/sidebar';
 import { cn } from '@repo/design-system/lib/utils';
 import {
+  AnchorIcon,
   BookOpenIcon,
   BotIcon,
   ChevronRightIcon,
@@ -149,6 +150,11 @@ const data = {
     },
   ],
   navSecondary: [
+    {
+      title: 'Webhooks',
+      url: '/webhooks',
+      icon: AnchorIcon,
+    },
     {
       title: 'Support',
       url: '#',
