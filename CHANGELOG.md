@@ -1,3 +1,15 @@
+# v2.14.10 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add Vercel marketplace link ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.9 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
