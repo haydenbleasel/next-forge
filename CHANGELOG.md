@@ -1,3 +1,15 @@
+# v2.14.13 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix SVIX_TOKEN deploy issue ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.12 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
