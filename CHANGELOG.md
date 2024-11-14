@@ -1,3 +1,20 @@
+# v2.14.0 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@svix-lucho](https://github.com/svix-lucho), for all your work!
+
+#### 🚀 Enhancement
+
+- Add Svix Webhooks [#212](https://github.com/haydenbleasel/next-forge/pull/212) ([@svix-lucho](https://github.com/svix-lucho) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@svix-lucho](https://github.com/svix-lucho)
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.21 (Thu Nov 14 2024)
 
 #### 🐛 Bug Fix
