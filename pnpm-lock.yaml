@@ -844,6 +844,25 @@ importers:
 
   packages/typescript-config: {}
 
+  packages/webhooks:
+    dependencies:
+      '@clerk/nextjs':
+        specifier: ^6.3.0
+        version: 6.3.1(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@repo/env':
+        specifier: workspace:*
+        version: link:../env
+      svix:
+        specifier: ^1.39.0
+        version: 1.40.0
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: ^5.6.3
+        version: 5.6.3
+
 packages:
 
   '@algolia/cache-browser-local-storage@4.24.0':

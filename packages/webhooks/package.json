@@ -1,0 +1,14 @@
+{
+  "name": "@repo/webhooks",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "@clerk/nextjs": "^6.3.0",
+    "svix": "^1.39.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3",
+    "@repo/typescript-config": "workspace:*"
+  }
+}
