@@ -1,6 +1,11 @@
 import { webhooks } from '@repo/webhooks';
 import { notFound } from 'next/navigation';
 
+export const metadata = {
+  title: 'Webhooks',
+  description: 'Send webhooks to your users.',
+};
+
 const WebhooksPage = async () => {
   const response = await webhooks.getAppPortal();
 
