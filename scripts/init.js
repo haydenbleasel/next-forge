@@ -19,7 +19,10 @@ try {
   });
 
   console.log('Setting up next-forge...');
+  const cwd = process.cwd();
+  const projectDir = path.join(cwd, projectName);
 
+  process.chdir(projectDir);
   console.log('Installing dependencies...');
   execSync('pnpm install', { stdio: 'inherit' });
 
