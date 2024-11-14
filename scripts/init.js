@@ -2,6 +2,7 @@
 
 const { execSync } = require('node:child_process');
 const fs = require('node:fs');
+const path = require('node:path');
 
 const args = process.argv.slice(2);
 const url = 'https://github.com/haydenbleasel/next-forge';
