@@ -1,3 +1,15 @@
+# v2.14.2 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.1 (Thu Nov 14 2024)
 
 :tada: This release contains work from a new contributor! :tada:
