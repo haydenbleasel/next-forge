@@ -1,3 +1,15 @@
+# v2.13.19 (Thu Nov 14 2024)
+
+#### 🐛 Bug Fix
+
+- Update drizzle.mdx [#230](https://github.com/haydenbleasel/next-forge/pull/230) ([@yamz8](https://github.com/yamz8))
+
+#### Authors: 1
+
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
 # v2.13.18 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
