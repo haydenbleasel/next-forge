@@ -29,9 +29,27 @@ We use the Mintlify CLI to preview the docs locally. You can install it with:
 pnpm add -g @mintlify/cli
 ```
 
+The boilerplate template docs will be launched at [http://localhost:3004/](http://localhost:3004/) when you start the development server (see below).
+
+For the next-forge docs (what you're reading now), run:
+
+```sh Terminal
+cd docs
+mintlify dev
+```
+
 ### Accounts
 
-next-forge relies on a lot of SaaS software, like Mintlify and BetterStack. You should create accounts with all the relative platforms to obtain API keys. Some tools require setup - for instance, check out our document on [Monitoring](/monitoring) on how best to configure uptime monitoring endpoints.
+next-forge relies on various SaaS products. You will need to create accounts with the following services then set the API keys in your [environment variables](/env):
+
+- [Arcjet](https://arcjet.com), for [application security](/security/application).
+- [BetterStack](https://betterstack.com), for [logging](/observability/logging) and [uptime monitoring](/observability/uptime).
+- [Clerk](https://clerk.com), for [authentication](/authentication).
+- [Google Analytics](https://developers.google.com/analytics), for [web analytics](/analytics/web).
+- [Posthog](https://posthog.com), for [product analytics](/analytics/product).
+- [Resend](https://resend.com), for [transactional emails](/email/resend).
+- [Sentry](https://sentry.io), for [error tracking](/observability/error-capture).
+- [Stripe](https://stripe.com), for [payments](/payments).
 
 ## Installation
 
@@ -92,3 +110,6 @@ Open the localhost URLs with the relevant ports listed above to see the app, e.g
 
 - [http://localhost:3000/](http://localhost:3000/) — The main app.
 - [http://localhost:3001/](http://localhost:3001/) — The website.
+- [http://localhost:3002/](http://localhost:3002/) — The API.
+- [http://localhost:3003/](http://localhost:3003/) — Email preview server.
+- [http://localhost:3004/](http://localhost:3004/) — The docs
