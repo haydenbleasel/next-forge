@@ -1,3 +1,21 @@
+# v2.14.1 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Anthony Shew ([@anthonyshew](https://github.com/anthonyshew)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Update `turbo.json` to improve cache hit ratios [#235](https://github.com/haydenbleasel/next-forge/pull/235) ([@anthonyshew](https://github.com/anthonyshew) [@haydenbleasel](https://github.com/haydenbleasel))
+- Remove root tsconfig.json [#236](https://github.com/haydenbleasel/next-forge/pull/236) ([@anthonyshew](https://github.com/anthonyshew))
+
+#### Authors: 2
+
+- Anthony Shew ([@anthonyshew](https://github.com/anthonyshew))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.0 (Thu Nov 14 2024)
 
 :tada: This release contains work from a new contributor! :tada:
