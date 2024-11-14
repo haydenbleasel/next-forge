@@ -1,3 +1,15 @@
+# v2.13.15 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update issue templates ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.14 (Wed Nov 13 2024)
 
 #### ⚠️ Pushed to `main`
