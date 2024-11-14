@@ -21,12 +21,12 @@
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "turbo": "^2.2.3",
+    "turbo": "^2.3.0",
     "typescript": "^5.6.3",
     "ultracite": "^4.1.6"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.12.3"
+  "packageManager": "pnpm@9.13.1"
 }

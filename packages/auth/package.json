@@ -3,14 +3,14 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@clerk/nextjs": "^6.3.1",
-    "@clerk/themes": "^2.1.43",
+    "@clerk/nextjs": "^6.3.4",
+    "@clerk/themes": "^2.1.45",
     "@repo/tailwind-config": "workspace:*",
     "next-themes": "^0.4.3",
     "react": "^18.3.1"
   },
   "devDependencies": {
-    "@clerk/types": "^4.32.0",
+    "@clerk/types": "^4.34.0",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.9.0",
     "@types/react": "18.3.12",

@@ -9,7 +9,7 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.3.1",
+    "@clerk/nextjs": "^6.3.4",
     "@repo/analytics": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
@@ -36,6 +36,6 @@
     "@vitejs/plugin-react": "^4.3.3",
     "jsdom": "^25.0.1",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.4"
+    "vitest": "^2.1.5"
   }
 }
