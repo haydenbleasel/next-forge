@@ -6,7 +6,6 @@
     "next": "next dev -p 3002",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
     "analyze": "ANALYZE=true pnpm build",
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },

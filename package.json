@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "./scripts/init.js"
   },
-  "files": [
-    "scripts/init.js"
-  ],
+  "files": ["scripts/init.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
