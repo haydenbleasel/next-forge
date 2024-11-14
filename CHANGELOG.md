@@ -1,3 +1,279 @@
+# v2.14.8 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update setup.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.7 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #238, resolves #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.6 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.5 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.4 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.2 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.1 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Anthony Shew ([@anthonyshew](https://github.com/anthonyshew)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Update `turbo.json` to improve cache hit ratios [#235](https://github.com/haydenbleasel/next-forge/pull/235) ([@anthonyshew](https://github.com/anthonyshew) [@haydenbleasel](https://github.com/haydenbleasel))
+- Remove root tsconfig.json [#236](https://github.com/haydenbleasel/next-forge/pull/236) ([@anthonyshew](https://github.com/anthonyshew))
+
+#### Authors: 2
+
+- Anthony Shew ([@anthonyshew](https://github.com/anthonyshew))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.0 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@svix-lucho](https://github.com/svix-lucho), for all your work!
+
+#### 🚀 Enhancement
+
+- Add Svix Webhooks [#212](https://github.com/haydenbleasel/next-forge/pull/212) ([@svix-lucho](https://github.com/svix-lucho) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@svix-lucho](https://github.com/svix-lucho)
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.21 (Thu Nov 14 2024)
+
+#### 🐛 Bug Fix
+
+- Adjust Arcjet middleware to allow monitoring & expand docs [#231](https://github.com/haydenbleasel/next-forge/pull/231) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 1
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+---
+
+# v2.13.19 (Thu Nov 14 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, David Mytton ([@davidmytton](https://github.com/davidmytton)), for all your work!
+
+#### 🐛 Bug Fix
+
+- List the required accounts in setup [#229](https://github.com/haydenbleasel/next-forge/pull/229) ([@davidmytton](https://github.com/davidmytton))
+- Update drizzle.mdx [#230](https://github.com/haydenbleasel/next-forge/pull/230) ([@yamz8](https://github.com/yamz8))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
+# v2.13.18 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update vitest.config.ts ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.17 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.16 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Create pull_request_template.md ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.15 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update issue templates ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.14 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.13 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Expose Clerk components from auth package ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.12 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix authors styling ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix author images ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.11 (Wed Nov 13 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jamie Barton ([@notrab](https://github.com/notrab)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: add turso guide [#226](https://github.com/haydenbleasel/next-forge/pull/226) ([@notrab](https://github.com/notrab) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Jamie Barton ([@notrab](https://github.com/notrab))
+
+---
+
+# v2.13.10 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #222 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.9 (Wed Nov 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #222 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.13.8 (Wed Nov 13 2024)
+
+#### 🐛 Bug Fix
+
+- Finish extracting arcjet package [#221](https://github.com/haydenbleasel/next-forge/pull/221) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.13.7 (Tue Nov 12 2024)
 
 :tada: This release contains work from a new contributor! :tada:

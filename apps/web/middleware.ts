@@ -1,6 +1,5 @@
-import arcjet, { detectBot } from '@arcjet/next';
 import { clerkMiddleware } from '@clerk/nextjs/server';
-import { env } from '@repo/env';
+import arcjet, { detectBot } from '@repo/security';
 import { NextResponse } from 'next/server';
 
 export const config = {
@@ -9,19 +8,18 @@ export const config = {
   matcher: ['/((?!_next/static|_next/image|ingest|favicon.ico).*)'],
 };
 
-const aj = arcjet({
-  // Get your site key from https://app.arcjet.com
-  key: env.ARCJET_KEY,
-  rules: [
-    detectBot({
-      mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
-      // Block all bots except search engine crawlers and preview link
-      // generators. See the full list of bots for other options:
-      // https://docs.arcjet.com/bot-protection/identifying-bots
-      allow: ['CATEGORY:SEARCH_ENGINE', 'CATEGORY:PREVIEW'],
-    }),
-  ],
-});
+const aj = arcjet.withRule(
+  detectBot({
+    mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
+    // Block all bots except the following
+    allow: [
+      // See https://docs.arcjet.com/bot-protection/identifying-bots
+      'CATEGORY:SEARCH_ENGINE', // Allow search engines
+      'CATEGORY:PREVIEW', // Allow preview links to show OG images
+      'CATEGORY:MONITOR', // Allow uptime monitoring services
+    ],
+  })
+);
 
 export default clerkMiddleware(async (_auth, request) => {
   const decision = await aj.protect(request);

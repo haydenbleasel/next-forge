@@ -13,20 +13,7 @@
   "codeBlock": {
     "mode": "auto"
   },
-  "font": {
-    "body": {
-      "family": "Switzer",
-      "format": "woff2",
-      "weight": 400,
-      "url": "https://cdn.fontshare.com/wf/BLNB4FAQFNK56DWWNF7PMGTCOTZHOEII/ST3WKSSDMBK2MIQQO3MAVYWLF4FTOLFV/6IN5WOLRCYP4G4MOCOHOMXNON6Q7MDAR.woff2"
-    },
-    "headings": {
-      "family": "Switzer",
-      "format": "woff2",
-      "weight": 700,
-      "url": "https://cdn.fontshare.com/wf/HBNTRIISA5MEXGL5WPYI7CV2HIWTDV3Q/YDPDINVT673XLXNSTMLG4JNCZZMVVNPN/Y7SCNZJOT2MW5ADSGOFLDGH4TNL4JCQY.woff2"
-    }
-  },
+
   "favicon": "/images/icon.png",
 
   "layout": "topnav",
@@ -76,7 +63,8 @@
             "database/overview",
             "database/drizzle",
             "database/planetscale",
-            "database/prisma-postgres"
+            "database/prisma-postgres",
+            "database/turso"
           ]
         },
         {
@@ -111,6 +99,7 @@
           "group": "Security",
           "pages": ["security/application", "security/dependencies"]
         },
+        "webhooks",
         {
           "group": "SEO",
           "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]

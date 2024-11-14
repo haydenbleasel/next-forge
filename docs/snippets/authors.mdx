@@ -1,44 +1,77 @@
 export const Authors = ({ data }) => (
-  <div className="-mt-8 mb-16 flex flex-col gap-2">
-    <span className="text-gray-500 dark:text-gray-400 text-sm">Co-authored by</span>
-    <div className="flex flex-wrap items-center gap-2">
+  <div style={{ marginBottom: '3rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+    <span style={{ color: 'rgb(107, 114, 128)', fontSize: '0.875rem' }}>Co-authored by</span>
+    <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '0.5rem' }}>
       {data.map((author) => (
         <div
           key={author.name}
-          className="card p-3 pr-4 inline-flex items-center gap-2 not-prose font-normal group relative ring-2 ring-transparent rounded-xl bg-white dark:bg-background-dark border border-gray-950/10 dark:border-white/10 overflow-hidden"
+          style={{
+            padding: '0.75rem',
+            paddingRight: '1rem',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            fontWeight: 'normal',
+            position: 'relative',
+            ringWidth: '2px',
+            ringColor: 'transparent',
+            borderRadius: '0.75rem',
+            backgroundColor: 'white',
+            border: '1px solid rgba(0,0,0,0.1)',
+            overflow: 'hidden'
+          }}
         >
-          <div className="-space-x-1 flex items-center">
-            <img
-              className="m-0 overflow-hidden rounded-full object-cover"
-              src={`https://github.com/${author.username}.png`}
-              alt=""
-              width={24}
-              height={24}
-            />
-            <img
-              className="m-0 overflow-hidden rounded-full object-cover"
-              src={`https://img.logo.dev/${new URL(author.logo).hostname}?token=pk_a7kMUiN0TCe8qXA6vbcfMw`}
-              alt=""
-              width={24}
-              height={24}
-            />
-          </div>
-          <div className="flex flex-col">
-            <span
-              className="font-medium leading-tight"
+          <div style={{ position: 'relative' }}>
+            <div style={{ overflow: 'hidden', border: '1px solid #e5e7eb', borderRadius: '9999px', width: '2rem', height: '2rem' }}>
+              <img
+                style={{ margin: 0, width: '100%', height: '100%' }}
+                src={`/images/authors/${author.company.id}/${author.user.id}.jpg`}
+                alt=""
+                width={32}
+                height={32}
+              />
+            </div>
+            <div
               style={{
-                fontSize: '13px',
+                position: 'absolute',
+                border: '1px solid white',
+                overflow: 'hidden',
+                borderRadius: '9999px',
+                objectFit: 'cover',
+                width: '1rem',
+                height: '1rem',
+                right: '-0.25rem',
+                bottom: '-0.25rem'
               }}
             >
-              {author.name}
+              <img
+                style={{ margin: 0, width: '100%', height: '100%' }}
+                src={`/images/authors/${author.company.id}/logo.jpg`}
+                alt=""
+                width={16}
+                height={16}
+              />
+            </div>
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <span
+              style={{
+                fontWeight: 600,
+                lineHeight: 1.25,
+                fontSize: '13px',
+                letterSpacing: '-0.01em'
+              }}
+            >
+              {author.user.name}
             </span>
             <span
-              className="text-gray-500 dark:text-gray-400 leading-tight"
               style={{
-                fontSize: '11px',
+                color: 'rgb(107, 114, 128)',
+                lineHeight: 1.25,
+                fontSize: '11px'
               }}
             >
-              {author.company}
+              {author.company.name}
             </span>
           </div>
         </div>
