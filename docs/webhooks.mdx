@@ -5,11 +5,13 @@ description: Send webhooks to your users using Svix.
 
 next-forge supports sending webhooks to your users using [Svix](https://www.svix.com/). Svix is an enterprise-ready webhooks sending service.
 
-## Overview
+## How it works
 
-next-forge uses the Svix API in a stateless manner. The organization ID (from the logged in user) is used as the Svix application UID, which is created automatically when the first message is sent.
+next-forge uses the Svix API in a stateless manner. The organization ID from the authenticated user is used as the Svix application UID, which is created automatically when the first message is sent.
 
-## Send a Webhook
+## Usage
+
+### Send a webhook
 
 To send a webhook, simply use the `send` function from the `@repo/webhooks` package:
 
@@ -17,13 +19,13 @@ To send a webhook, simply use the `send` function from the `@repo/webhooks` pack
 import { webhooks } from '@repo/webhooks';
 
 await webhooks.send('invoice.created', {
-    data: {
-        id: 'inv_1234567890',
-    },
+  data: {
+    id: 'inv_1234567890',
+  },
 });
 ```
 
-## Add Webhook Endpoints
+### Add webhook endpoints
 
 Svix provides a pre-built [consumer application portal](https://docs.svix.com/app-portal), where users add endpoints and manage everything related to their webhooks subscriptions. App portal access is based on short-lived sessions using special magic links, and can be [embed in an iframe in your dashboard](https://docs.svix.com/app-portal#embedding-in-a-react-application).
 
@@ -38,3 +40,5 @@ return (
   <iframe src={url} style="width: 100%; height: 100%; border: none;" allow="clipboard-write" loading="lazy" />
 );
 ```
+
+We have a prebuilt page at `/webhooks` that you can use as a starting point.
