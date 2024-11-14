@@ -1,3 +1,15 @@
+# v2.13.21 (Thu Nov 14 2024)
+
+#### 🐛 Bug Fix
+
+- Adjust Arcjet middleware to allow monitoring & expand docs [#231](https://github.com/haydenbleasel/next-forge/pull/231) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 1
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+---
+
 # v2.13.19 (Thu Nov 14 2024)
 
 :tada: This release contains work from a new contributor! :tada:
