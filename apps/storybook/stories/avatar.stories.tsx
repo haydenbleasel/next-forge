@@ -6,23 +6,30 @@ import {
   AvatarImage,
 } from '@repo/design-system/components/ui/avatar';
 
-const meta: Meta<typeof Avatar> = {
+/**
+ * An image element with a fallback for representing the user.
+ */
+const meta = {
   title: 'ui/Avatar',
   component: Avatar,
   tags: ['autodocs'],
   argTypes: {},
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Avatar>;
-
-export const Base: Story = {
-  render: () => (
-    <Avatar>
+  render: (args) => (
+    <Avatar {...args}>
       <AvatarImage src="https://github.com/shadcn.png" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
-  args: {},
-};
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof Avatar>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the avatar.
+ */
+export const Default: Story = {};

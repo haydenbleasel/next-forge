@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Button } from '@repo/design-system/components/ui/button';
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -10,51 +10,48 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@repo/design-system/components/ui/dialog';
-import { Input } from '@repo/design-system/components/ui/input';
-import { Label } from '@repo/design-system/components/ui/label';
 
-const meta: Meta<typeof Dialog> = {
+/**
+ * A window overlaid on either the primary window or another dialog window,
+ * rendering the content underneath inert.
+ */
+const meta = {
   title: 'ui/Dialog',
   component: Dialog,
   tags: ['autodocs'],
   argTypes: {},
-};
-export default meta;
-
-type Story = StoryObj<typeof Dialog>;
-
-export const Base: Story = {
   render: (args) => (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+    <Dialog {...args}>
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent>
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Are you absolutely sure?</DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            This action cannot be undone. This will permanently delete your
+            account and remove your data from our servers.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-4 py-4">
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="name" className="text-right">
-              Name
-            </Label>
-            <Input id="name" value="Pedro Duarte" className="col-span-3" />
-          </div>
-          <div className="grid grid-cols-4 items-center gap-4">
-            <Label htmlFor="username" className="text-right">
-              Username
-            </Label>
-            <Input id="username" value="@peduarte" className="col-span-3" />
-          </div>
-        </div>
-        <DialogFooter>
-          <Button type="submit">Save changes</Button>
+        <DialogFooter className="gap-4">
+          <button className="hover:underline">Cancel</button>
+          <DialogClose>
+            <button className="rounded bg-primary px-4 py-2 text-primary-foreground">
+              Continue
+            </button>
+          </DialogClose>
         </DialogFooter>
       </DialogContent>
     </Dialog>
   ),
-  args: {},
-};
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof Dialog>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the dialog.
+ */
+export const Default: Story = {};

@@ -1,37 +1,40 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from '@repo/design-system/components/ui/label';
 import {
   RadioGroup,
   RadioGroupItem,
 } from '@repo/design-system/components/ui/radio-group';
 
-const meta: Meta<typeof RadioGroup> = {
+/**
+ * A set of checkable buttons—known as radio buttons—where no more than one of
+ * the buttons can be checked at a time.
+ */
+const meta = {
   title: 'ui/RadioGroup',
   component: RadioGroup,
   tags: ['autodocs'],
   argTypes: {},
-};
-export default meta;
-
-type Story = StoryObj<typeof RadioGroup>;
-
-export const Base: Story = {
+  args: {
+    defaultValue: 'comfortable',
+    className: 'grid gap-2 grid-cols-[1rem_1fr] items-center',
+  },
   render: (args) => (
-    <RadioGroup defaultValue="comfortable">
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="default" id="r1" />
-        <Label htmlFor="r1">Default</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="comfortable" id="r2" />
-        <Label htmlFor="r2">Comfortable</Label>
-      </div>
-      <div className="flex items-center space-x-2">
-        <RadioGroupItem value="compact" id="r3" />
-        <Label htmlFor="r3">Compact</Label>
-      </div>
+    <RadioGroup {...args}>
+      <RadioGroupItem value="default" id="r1" />
+      <label htmlFor="r1">Default</label>
+      <RadioGroupItem value="comfortable" id="r2" />
+      <label htmlFor="r2">Comfortable</label>
+      <RadioGroupItem value="compact" id="r3" />
+      <label htmlFor="r3">Compact</label>
     </RadioGroup>
   ),
-  args: {},
-};
+} satisfies Meta<typeof RadioGroup>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the radio group.
+ */
+export const Default: Story = {};

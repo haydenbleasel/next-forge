@@ -2,17 +2,29 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { Label } from '@repo/design-system/components/ui/label';
 
-const meta: Meta<typeof Label> = {
+/**
+ * Renders an accessible label associated with controls.
+ */
+const meta = {
   title: 'ui/Label',
   component: Label,
   tags: ['autodocs'],
-  argTypes: {},
-};
+  argTypes: {
+    children: {
+      control: { type: 'text' },
+    },
+  },
+  args: {
+    children: 'Your email address',
+    htmlFor: 'email',
+  },
+} satisfies Meta<typeof Label>;
+
 export default meta;
 
 type Story = StoryObj<typeof Label>;
 
-export const Base: Story = {
-  render: (args) => <Label htmlFor="email">Your email address</Label>,
-  args: {},
-};
+/**
+ * The default form of the label.
+ */
+export const Default: Story = {};

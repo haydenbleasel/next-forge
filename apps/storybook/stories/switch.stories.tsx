@@ -1,24 +1,47 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Label } from '@repo/design-system/components/ui/label';
 import { Switch } from '@repo/design-system/components/ui/switch';
 
-const meta: Meta<typeof Switch> = {
+/**
+ * A control that allows the user to toggle between checked and not checked.
+ */
+const meta = {
   title: 'ui/Switch',
   component: Switch,
   tags: ['autodocs'],
   argTypes: {},
-};
-export default meta;
-
-type Story = StoryObj<typeof Switch>;
-
-export const Base: Story = {
+  parameters: {
+    layout: 'centered',
+  },
   render: (args) => (
     <div className="flex items-center space-x-2">
-      <Switch id="airplane-mode" />
-      <Label htmlFor="airplane-mode">Airplane Mode</Label>
+      <Switch {...args} />
+      <label htmlFor={args.id} className="peer-disabled:text-foreground/50">
+        Airplane Mode
+      </label>
     </div>
   ),
-  args: {},
+} satisfies Meta<typeof Switch>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the switch.
+ */
+export const Default: Story = {
+  args: {
+    id: 'default-switch',
+  },
+};
+
+/**
+ * Use the `disabled` prop to disable the switch.
+ */
+export const Disabled: Story = {
+  args: {
+    id: 'disabled-switch',
+    disabled: true,
+  },
 };

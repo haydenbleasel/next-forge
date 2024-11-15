@@ -7,18 +7,24 @@ import {
   AccordionTrigger,
 } from '@repo/design-system/components/ui/accordion';
 
-const meta: Meta<typeof Accordion> = {
+/**
+ * A vertically stacked set of interactive headings that each reveal a section
+ * of content.
+ */
+const meta = {
   title: 'ui/Accordion',
   component: Accordion,
   tags: ['autodocs'],
-  argTypes: {},
-};
-
-export default meta;
-
-type Story = StoryObj<typeof Accordion>;
-
-export const Base: Story = {
+  argTypes: {
+    type: {
+      options: ['single', 'multiple'],
+      control: { type: 'radio' },
+    },
+  },
+  args: {
+    type: 'single',
+    collapsible: true,
+  },
   render: (args) => (
     <Accordion {...args}>
       <AccordionItem value="item-1">
@@ -42,8 +48,13 @@ export const Base: Story = {
       </AccordionItem>
     </Accordion>
   ),
-  args: {
-    type: 'single',
-    collapsible: true,
-  },
-};
+} satisfies Meta<typeof Accordion>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default behavior of the accordion allows only one item to be open.
+ */
+export const Default: Story = {};

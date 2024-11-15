@@ -11,20 +11,17 @@ import {
   SelectValue,
 } from '@repo/design-system/components/ui/select';
 
+/**
+ * Displays a list of options for the user to pick from—triggered by a button.
+ */
 const meta: Meta<typeof Select> = {
   title: 'ui/Select',
   component: Select,
   tags: ['autodocs'],
   argTypes: {},
-};
-export default meta;
-
-type Story = StoryObj<typeof Select>;
-
-export const Base: Story = {
   render: (args) => (
-    <Select>
-      <SelectTrigger className="w-[180px]">
+    <Select {...args}>
+      <SelectTrigger className="w-96">
         <SelectValue placeholder="Select a fruit" />
       </SelectTrigger>
       <SelectContent>
@@ -58,5 +55,16 @@ export const Base: Story = {
       </SelectContent>
     </Select>
   ),
-  args: {},
-};
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof Select>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the select.
+ */
+export const Default: Story = {};

@@ -11,25 +11,19 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from '@repo/design-system/components/ui/alert-dialog';
-import { Button } from '@repo/design-system/components/ui/button';
 
-const meta: Meta<typeof AlertDialog> = {
+/**
+ * A modal dialog that interrupts the user with important content and expects
+ * a response.
+ */
+const meta = {
   title: 'ui/AlertDialog',
   component: AlertDialog,
   tags: ['autodocs'],
   argTypes: {},
-};
-
-export default meta;
-
-type Story = StoryObj<typeof AlertDialog>;
-
-export const Base: Story = {
-  render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
-        <Button variant="outline">Open</Button>
-      </AlertDialogTrigger>
+  render: (args) => (
+    <AlertDialog {...args}>
+      <AlertDialogTrigger>Open</AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle>Are you sure absolutely sure?</AlertDialogTitle>
@@ -45,5 +39,16 @@ export const Base: Story = {
       </AlertDialogContent>
     </AlertDialog>
   ),
-  args: {},
-};
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof AlertDialog>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the alert dialog.
+ */
+export const Default: Story = {};

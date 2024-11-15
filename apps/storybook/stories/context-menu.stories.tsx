@@ -16,38 +16,87 @@ import {
   ContextMenuTrigger,
 } from '@repo/design-system/components/ui/context-menu';
 
-const meta: Meta<typeof ContextMenu> = {
+/**
+ * Displays a menu to the user — such as a set of actions or functions —
+ * triggered by a button.
+ */
+const meta = {
   title: 'ui/ContextMenu',
   component: ContextMenu,
   tags: ['autodocs'],
   argTypes: {},
-};
-export default meta;
-
-type Story = StoryObj<typeof ContextMenu>;
-
-export const Base: Story = {
+  args: {},
   render: (args) => (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed border-slate-200 text-sm dark:border-slate-700">
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed bg-accent text-sm">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent className="w-64">
-        <ContextMenuItem inset>
+      <ContextMenuContent className="w-32">
+        <ContextMenuItem>Profile</ContextMenuItem>
+        <ContextMenuItem>Billing</ContextMenuItem>
+        <ContextMenuItem>Team</ContextMenuItem>
+        <ContextMenuItem>Subscription</ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
+  parameters: {
+    layout: 'centered',
+  },
+} satisfies Meta<typeof ContextMenu>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
+/**
+ * The default form of the context menu.
+ */
+export const Default: Story = {};
+
+/**
+ * A context menu with shortcuts.
+ */
+export const WithShortcuts: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed bg-accent text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-32">
+        <ContextMenuItem>
           Back
           <ContextMenuShortcut>⌘[</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset disabled>
+        <ContextMenuItem disabled>
           Forward
           <ContextMenuShortcut>⌘]</ContextMenuShortcut>
         </ContextMenuItem>
-        <ContextMenuItem inset>
+        <ContextMenuItem>
           Reload
           <ContextMenuShortcut>⌘R</ContextMenuShortcut>
         </ContextMenuItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
+};
+
+/**
+ * A context menu with a submenu.
+ */
+export const WithSubmenu: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed bg-accent text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-32">
+        <ContextMenuItem>
+          New Tab
+          <ContextMenuShortcut>⌘N</ContextMenuShortcut>
+        </ContextMenuItem>
         <ContextMenuSub>
-          <ContextMenuSubTrigger inset>More Tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent className="w-48">
+          <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
+          <ContextMenuSubContent>
             <ContextMenuItem>
               Save Page As...
               <ContextMenuShortcut>⇧⌘S</ContextMenuShortcut>
@@ -58,23 +107,47 @@ export const Base: Story = {
             <ContextMenuItem>Developer Tools</ContextMenuItem>
           </ContextMenuSubContent>
         </ContextMenuSub>
-        <ContextMenuSeparator />
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
+};
+
+/**
+ * A context menu with checkboxes.
+ */
+export const WithCheckboxes: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed bg-accent text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
         <ContextMenuCheckboxItem checked>
-          Show Bookmarks Bar
-          <ContextMenuShortcut>⌘⇧B</ContextMenuShortcut>
+          Show Comments
+          <ContextMenuShortcut>⌘⇧C</ContextMenuShortcut>
         </ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem>Show Full URLs</ContextMenuCheckboxItem>
-        <ContextMenuSeparator />
-        <ContextMenuRadioGroup value="pedro">
-          <ContextMenuLabel inset>People</ContextMenuLabel>
-          <ContextMenuSeparator />
-          <ContextMenuRadioItem value="pedro">
-            Pedro Duarte
-          </ContextMenuRadioItem>
-          <ContextMenuRadioItem value="colm">Colm Tuite</ContextMenuRadioItem>
+        <ContextMenuCheckboxItem>Show Preview</ContextMenuCheckboxItem>
+      </ContextMenuContent>
+    </ContextMenu>
+  ),
+};
+
+/**
+ * A context menu with a radio group.
+ */
+export const WithRadioGroup: Story = {
+  render: (args) => (
+    <ContextMenu {...args}>
+      <ContextMenuTrigger className="flex h-48 w-96 items-center justify-center rounded-md border border-dashed bg-accent text-sm">
+        Right click here
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
+        <ContextMenuRadioGroup value="light">
+          <ContextMenuLabel inset>Theme</ContextMenuLabel>
+          <ContextMenuRadioItem value="light">Light</ContextMenuRadioItem>
+          <ContextMenuRadioItem value="dark">Dark</ContextMenuRadioItem>
         </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
   ),
-  args: {},
 };
