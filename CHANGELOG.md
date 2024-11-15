@@ -1,3 +1,20 @@
+# v2.14.16 (Fri Nov 15 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Added anti-fraud advice [#237](https://github.com/haydenbleasel/next-forge/pull/237) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.15 (Fri Nov 15 2024)
 
 :tada: This release contains work from a new contributor! :tada:
