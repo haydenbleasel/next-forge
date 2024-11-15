@@ -16,7 +16,7 @@ export const authenticate = async ({ userId, orgId }: AuthenticateOptions) => {
   const session = liveblocks.prepareSession(userId, { userInfo: {} });
 
   // Use a naming pattern to allow access to rooms with wildcards
-  // Giving the user write access on their group
+  // Giving the user write access on their organization
   session.allow(`${orgId}:*`, session.FULL_ACCESS);
 
   // Authorize the user and return the result

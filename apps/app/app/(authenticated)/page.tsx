@@ -1,3 +1,4 @@
+import { auth } from '@clerk/nextjs/server';
 import { Room } from '@repo/collaboration/room';
 import { database } from '@repo/database';
 import {
@@ -11,6 +12,7 @@ import {
 import { Separator } from '@repo/design-system/components/ui/separator';
 import { SidebarTrigger } from '@repo/design-system/components/ui/sidebar';
 import type { Metadata } from 'next';
+import { Presence } from './components/presence';
 
 const title = 'Acme Inc';
 const description = 'My application.';
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
 
 const App = async () => {
   const pages = await database.page.findMany();
+  const { orgId } = await auth();
 
   return (
     <>
@@ -43,7 +46,7 @@ const App = async () => {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <Room id="my-room" authEndpoint="/api/liveblocks/auth">
+        <Room id={`${orgId}:presence`} authEndpoint="/api/collaboration/auth">
           <Presence />
         </Room>
       </header>
