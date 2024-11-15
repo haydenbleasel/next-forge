@@ -1,3 +1,163 @@
+# v2.14.15 (Fri Nov 15 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Michael Zavattaro ([@mzavattaro](https://github.com/mzavattaro)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Update location of .env file in directory docs [#241](https://github.com/haydenbleasel/next-forge/pull/241) ([@mzavattaro](https://github.com/mzavattaro))
+
+#### Authors: 1
+
+- Michael Zavattaro ([@mzavattaro](https://github.com/mzavattaro))
+
+---
+
+# v2.14.14 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.13 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix SVIX_TOKEN deploy issue ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.12 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update deploying.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.11 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update deploying.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.10 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add Vercel marketplace link ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.9 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add Vercel deploy button ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.8 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update setup.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.7 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #238, resolves #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.6 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.5 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.4 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #234 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.2 (Thu Nov 14 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.1 (Thu Nov 14 2024)
 
 :tada: This release contains work from a new contributor! :tada:
