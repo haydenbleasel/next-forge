@@ -11,8 +11,7 @@
     "noEmit": true,
     "paths": {
       "@/*": ["./*"],
-      "@repo/*": ["../../packages/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "@repo/*": ["../../packages/*"]
     }
   },
   "exclude": ["node_modules"]

@@ -20,3 +20,11 @@ The website has a prebuild script in order to use the Content Collections CLI di
 ## Why is there a `suppressHydrationWarning` on every `html` tag?
 
 This is the recommendation by `next-themes` to supress the warning stemming from determining theme on the client side.
+
+## Why are there unused dependencies like `import-in-the-middle`?
+
+> Without these packages, Turbopack throws warnings highlighting cases where packages are being used but are not installed so it can fail when running in production.
+> 
+> This was already an issue when we were using Webpack, it just never warned us that it was missing. This can be fixed by installing the external packages into the project itself.
+
+- [@timneutkens](https://github.com/haydenbleasel/next-forge/pull/170#issuecomment-2459255583)
