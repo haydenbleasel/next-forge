@@ -1,3 +1,15 @@
+# v2.14.17 (Fri Nov 15 2024)
+
+#### 🐛 Bug Fix
+
+- Add IP geolocation docs [#248](https://github.com/haydenbleasel/next-forge/pull/248) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 1
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+---
+
 # v2.14.16 (Fri Nov 15 2024)
 
 #### ⚠️ Pushed to `main`
