@@ -1,0 +1,13 @@
+{
+  "name": "@repo/convex",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "convex": "^1.9.0"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.6.3"
+  }
+}
