@@ -96,6 +96,9 @@ importers:
       '@clerk/nextjs':
         specifier: ^6.3.4
         version: 6.3.4(next@15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      '@prisma/client':
+        specifier: 5.22.0
+        version: 5.22.0(prisma@5.22.0)
       '@repo/analytics':
         specifier: workspace:*
         version: link:../../packages/analytics
@@ -126,6 +129,9 @@ importers:
       '@sentry/nextjs':
         specifier: ^8.38.0
         version: 8.38.0(@opentelemetry/core@1.26.0(@opentelemetry/api@1.9.0))(@opentelemetry/instrumentation@0.54.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.26.0(@opentelemetry/api@1.9.0))(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react@18.3.1)(webpack@5.91.0(@swc/core@1.3.101(@swc/helpers@0.5.13)))
+      import-in-the-middle:
+        specifier: ^1.11.2
+        version: 1.11.2
       lucide-react:
         specifier: ^0.456.0
         version: 0.456.0(react@18.3.1)
@@ -141,6 +147,9 @@ importers:
       react-dom:
         specifier: 18.3.1
         version: 18.3.1(react@18.3.1)
+      require-in-the-middle:
+        specifier: ^7.4.0
+        version: 7.4.0
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
@@ -260,9 +269,15 @@ importers:
       fumadocs-core:
         specifier: ^14.4.0
         version: 14.4.0(@types/react@18.3.12)(algoliasearch@4.24.0)(next@15.0.3(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      import-in-the-middle:
+        specifier: ^1.11.2
+        version: 1.11.2
       lucide-react:
         specifier: ^0.456.0
         version: 0.456.0(react@18.3.1)
+      mdx-bundler:
+        specifier: ^10.0.3
+        version: 10.0.3(acorn@8.13.0)(esbuild@0.21.4)
       next:
         specifier: 15.0.3
         version: 15.0.3(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -278,6 +293,15 @@ importers:
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
+      require-in-the-middle:
+        specifier: ^7.4.0
+        version: 7.4.0
+      sharp:
+        specifier: ^0.33.5
+        version: 0.33.5
+      shiki:
+        specifier: ^1.22.2
+        version: 1.22.2
       sqip:
         specifier: 1.0.0-alpha.51
         version: 1.0.0-alpha.51(sqip-plugin-blur@1.0.0-alpha.22)(sqip-plugin-data-uri@1.0.0-alpha.52)(sqip-plugin-primitive@1.0.0-alpha.53)(sqip-plugin-svgo@1.0.0-alpha.54)
@@ -4749,9 +4773,6 @@ packages:
   es-mime-types@0.0.16:
     resolution: {integrity: sha512-84QoSLeA7cdTeHpALFNl3ZOstXfvLt426/kaOgmSxmNUOhi4GesKVkhJgIfnsqGNziYezVA8rvZUsXj7oWX2qQ==}
     engines: {node: '>=12.x'}
-
-  es-module-lexer@1.5.3:
-    resolution: {integrity: sha512-i1gCgmR9dCl6Vil6UKPI/trA69s08g/syhiDK9TG0Nf1RJjjFI+AzoWW7sPufzkgYAn861skuCwJa0pIIHYxvg==}
 
   es-module-lexer@1.5.4:
     resolution: {integrity: sha512-MVNK56NiMrOwitFB7cqDwq0CQutbw+0BvLshJSse0MUNU+y1FC3bUS/AQg7oUng+/wKrrki7JfmwtVHkVfPLlw==}
@@ -12047,8 +12068,6 @@ snapshots:
     dependencies:
       mime-db: 1.52.0
 
-  es-module-lexer@1.5.3: {}
-
   es-module-lexer@1.5.4: {}
 
   es-object-atoms@1.0.0:
@@ -14649,7 +14668,6 @@ snapshots:
       '@img/sharp-wasm32': 0.33.5
       '@img/sharp-win32-ia32': 0.33.5
       '@img/sharp-win32-x64': 0.33.5
-    optional: true
 
   shebang-command@1.2.0:
     dependencies:
@@ -15605,7 +15623,7 @@ snapshots:
       browserslist: 4.24.2
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.16.1
-      es-module-lexer: 1.5.3
+      es-module-lexer: 1.5.4
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
@@ -15636,7 +15654,7 @@ snapshots:
       browserslist: 4.24.2
       chrome-trace-event: 1.0.4
       enhanced-resolve: 5.16.1
-      es-module-lexer: 1.5.3
+      es-module-lexer: 1.5.4
       eslint-scope: 5.1.1
       events: 3.3.0
       glob-to-regexp: 0.4.1
