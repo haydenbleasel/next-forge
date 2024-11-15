@@ -102,6 +102,9 @@ importers:
       '@repo/analytics':
         specifier: workspace:*
         version: link:../../packages/analytics
+      '@repo/collaboration':
+        specifier: workspace:*
+        version: link:../../packages/collaboration
       '@repo/database':
         specifier: workspace:*
         version: link:../../packages/database
