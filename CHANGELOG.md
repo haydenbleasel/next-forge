@@ -1,3 +1,19 @@
+# v2.14.15 (Fri Nov 15 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Michael Zavattaro ([@mzavattaro](https://github.com/mzavattaro)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Update location of .env file in directory docs [#241](https://github.com/haydenbleasel/next-forge/pull/241) ([@mzavattaro](https://github.com/mzavattaro))
+
+#### Authors: 1
+
+- Michael Zavattaro ([@mzavattaro](https://github.com/mzavattaro))
+
+---
+
 # v2.14.14 (Thu Nov 14 2024)
 
 #### ⚠️ Pushed to `main`
