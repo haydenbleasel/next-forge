@@ -1,3 +1,15 @@
+# v2.15.0 (Fri Nov 15 2024)
+
+#### 🚀 Enhancement
+
+- Turbo [#170](https://github.com/haydenbleasel/next-forge/pull/170) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.17 (Fri Nov 15 2024)
 
 #### 🐛 Bug Fix
