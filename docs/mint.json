@@ -97,7 +97,11 @@
         "payments",
         {
           "group": "Security",
-          "pages": ["security/application", "security/dependencies"]
+          "pages": [
+            "security/application",
+            "security/dependencies",
+            "security/ip-geolocation"
+          ]
         },
         "webhooks",
         {
