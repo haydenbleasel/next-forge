@@ -1,8 +1,9 @@
 import 'server-only';
 import { Liveblocks } from '@liveblocks/node';
+import { env } from '@repo/env';
 
 const liveblocks = new Liveblocks({
-  secret: 'sk_prod_xxxxxxxxxxxxxxxxxxxxxxxx',
+  secret: env.LIVEBLOCKS_SECRET,
 });
 
 type AuthenticateOptions = {
