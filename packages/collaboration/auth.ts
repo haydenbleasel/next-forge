@@ -9,11 +9,19 @@ const liveblocks = new Liveblocks({
 type AuthenticateOptions = {
   userId: string;
   orgId: string;
+  userInfo: {
+    name?: string;
+    avatar?: string;
+  };
 };
 
-export const authenticate = async ({ userId, orgId }: AuthenticateOptions) => {
+export const authenticate = async ({
+  userId,
+  orgId,
+  userInfo,
+}: AuthenticateOptions) => {
   // Start an auth session inside your endpoint
-  const session = liveblocks.prepareSession(userId, { userInfo: {} });
+  const session = liveblocks.prepareSession(userId, { userInfo });
 
   // Use a naming pattern to allow access to rooms with wildcards
   // Giving the user write access on their organization

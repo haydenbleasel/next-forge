@@ -9,5 +9,12 @@ export const POST = async () => {
     return new Response('Unauthorized', { status: 401 });
   }
 
-  return authenticate({ userId: user.id, orgId });
+  return authenticate({
+    userId: user.id,
+    orgId,
+    userInfo: {
+      name: user.fullName ?? undefined,
+      avatar: user.imageUrl ?? undefined,
+    },
+  });
 };

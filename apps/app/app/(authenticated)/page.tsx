@@ -46,7 +46,13 @@ const App = async () => {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <Room id={`${orgId}:presence`} authEndpoint="/api/collaboration/auth">
+        <Room
+          id={`${orgId}:presence`}
+          authEndpoint="/api/collaboration/auth"
+          fallback={
+            <div className="px-3 text-muted-foreground text-xs">Loading...</div>
+          }
+        >
           <Presence />
         </Room>
       </header>
