@@ -2,6 +2,9 @@
   "name": "@repo/convex",
   "version": "0.0.0",
   "private": true,
+   "scripts": {
+    "dev": "npx convex dev"
+  },
   "dependencies": {
     "@repo/env": "workspace:*",
     "convex": "^1.9.0"
