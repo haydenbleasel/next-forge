@@ -57,7 +57,18 @@ Both of these scripts generate the type-safe SDK, but they do so in different wa
 - `basehub dev` generates the SDK by targeting your repo's Draft API. Additionally, it will watch for schema changes and update the types accordingly.
 - `basehub build` generates the SDK by targeting your repo's Production API.
 
-## 5. Create your queries
+## 5. Add `assets.basehub.com` as a valid image host
+
+```ts apps/web/next.config.ts
+nextConfig.images?.remotePatterns?.push({
+  protocol: 'https',
+  hostname: 'assets.basehub.com',
+});
+
+// Note: you can either push it to the existing array, or modify `packages/next-config/index.ts`
+```
+
+## 6. Create your queries
 
 Create a new file called `apps/web/cms.ts` and add the queries to use the new BaseHub SDK.
 
@@ -65,10 +76,11 @@ Create a new file called `apps/web/cms.ts` and add the queries to use the new Ba
 import { basehub, fragmentOn } from 'basehub';
 
 const imageFragment = fragmentOn('BlockImage', {
-    url: true,
-    width: true,
-    height: true,
-    alt: true,
+  url: true,
+  width: true,
+  height: true,
+  alt: true,
+  blurDataURL: true,
 });
 
 const postMetaFragment = fragmentOn('PostsItem', {
@@ -113,16 +125,70 @@ export const getPosts = async () => {
 };
 ```
 
-## 6. Use the queries in your app
+## 7. Use the queries in your app
 
 Now you can use the `getPost` and `getPosts` queries in your app, like so:
 
-```tsx apps/web/pages/blog/[slug].tsx
-import { getPost } from '../cms';
+```tsx apps/web/pages/blog/page.tsx
+import { getPosts } from '../../cms';
 
-export default async function BlogPost({ params }: { params: { slug: string } }) {
-  const post = await getPost(params.slug);
-  
+const BlogIndex = async () => {
+  const allPosts = await getPosts();
+
+  // ... rest of the page omitted for brevity
+
+  return (
+    <>
+      {allPosts.map((post) => (
+        <Link href={`/blog/${post._slug}`} key={post._id}>
+          <div>{post._title}</div>
+        </Link>
+      ))}
+    </>
+  );
+};
+```
+
+```tsx apps/web/pages/blog/[slug].tsx
+import { getPost } from '../../../cms';
+
+const BlogPost = async ({ params }: BlogPostProperties) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  // ... rest of the page omitted for brevity
+
   return <div>{post._title}</div>;
 }
+```
+
+## 8. Bonus: `Toolbar`
+
+Mount the `Toolbar` component in your `apps/web/app/layout.tsx` file to ensure [Automatic On-Demand Revalidation](https://docs.basehub.com/documentation/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended) works as expected, and Preview Links from the BaseHub Dashboard do so as well.
+
+```tsx apps/web/app/layout.tsx {11}
+import { Toolbar } from 'basehub/next-toolbar';
+
+const RootLayout = ({ children }: RootLayoutProperties) => (
+  <html lang="en" className={fonts} suppressHydrationWarning>
+    <body>
+      <DesignSystemProvider>
+        <Header />
+        {children}
+        <Footer />
+      </DesignSystemProvider>
+      <Toolbar />
+    </body>
+  </html>
+);
+```
+
+## 9. Bonus: `BaseHubImage`
+
+BaseHub comes with built in image resizing and optimization. It is recommended to use the `BaseHubImage` component instead of the standard `Image` component. This component uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+
+Import it like so:
+
+```tsx
+import { BaseHubImage } from 'basehub/next-image';
 ```
