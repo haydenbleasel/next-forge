@@ -1,3 +1,16 @@
+# v2.15.1 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps, simplify DS icons ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.15.0 (Fri Nov 15 2024)
 
 #### 🚀 Enhancement
