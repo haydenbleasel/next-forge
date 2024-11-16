@@ -5,34 +5,45 @@ import { tailwind } from '@repo/tailwind-config';
 import { useEffect } from 'react';
 
 const Cursor = ({
+  name,
   color,
   x,
   y,
 }: {
+  name: string | undefined;
   color: string;
   x: number;
   y: number;
 }) => (
-  <svg
+  <div
+    className="pointer-events-none absolute top-0 left-0 z-[999] select-none transition-transform duration-100"
     style={{
-      position: 'absolute',
-      left: 0,
-      top: 0,
       transform: `translateX(${x}px) translateY(${y}px)`,
     }}
-    className="transition-transform duration-100"
-    width="24"
-    height="36"
-    viewBox="0 0 24 36"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
   >
-    <title>Cursor</title>
-    <path
-      d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
-      fill={color}
-    />
-  </svg>
+    <svg
+      className="absolute top-0 left-0"
+      width="24"
+      height="36"
+      viewBox="0 0 24 36"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <title>Cursor</title>
+      <path
+        d="M5.65376 12.3673H5.46026L5.31717 12.4976L0.500002 16.8829L0.500002 1.19841L11.7841 12.3673H5.65376Z"
+        fill={color}
+      />
+    </svg>
+    <div
+      className="absolute top-4 left-1.5 px-2 py-0.5 whitespace-nowrap rounded-full text-white text-xs"
+      style={{
+        backgroundColor: color,
+      }}
+    >
+      {name}
+    </div>
+  </div>
 );
 
 const COLORS = [
@@ -71,7 +82,7 @@ export const Cursors = () => {
     const onPointerLeave = () => {
       // When the pointer goes out, set cursor to null
       updateMyPresence({
-        cursor: null,
+        // cursor: null,
       });
     };
 
@@ -84,7 +95,7 @@ export const Cursors = () => {
     };
   }, [updateMyPresence]);
 
-  return others.map(({ connectionId, presence }) => {
+  return others.map(({ connectionId, presence, info }) => {
     if (!presence.cursor) {
       return null;
     }
@@ -97,6 +108,7 @@ export const Cursors = () => {
         color={COLORS[connectionId % COLORS.length]}
         x={presence.cursor.x}
         y={presence.cursor.y}
+        name={info?.name}
       />
     );
   });
