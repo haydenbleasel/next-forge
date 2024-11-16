@@ -1,3 +1,20 @@
+# v2.15.2 (Sat Nov 16 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Matthew Lewis ([@malewis5](https://github.com/malewis5)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: add sheet title for a11y. [#250](https://github.com/haydenbleasel/next-forge/pull/250) ([@malewis5](https://github.com/malewis5) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Matthew Lewis ([@malewis5](https://github.com/malewis5))
+
+---
+
 # v2.15.1 (Sat Nov 16 2024)
 
 #### ⚠️ Pushed to `main`
