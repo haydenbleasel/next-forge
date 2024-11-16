@@ -23,7 +23,7 @@ import Ultracite from './ultracite.svg';
 import Vercel from './vercel.svg';
 
 import Cmdk from './cmdk.svg';
-import Fumadocs from './fumadocs.svg';
+import Liveblocks from './liveblocks.svg';
 import Posthog from './posthog.svg';
 import Recharts from './recharts.svg';
 import Resend from './resend.svg';
@@ -96,8 +96,8 @@ const rows = [
         className: '[animation-delay:-22s] [animation-duration:40s]',
       },
       {
-        label: 'Fumadocs',
-        src: Fumadocs,
+        label: 'Liveblocks',
+        src: Liveblocks,
         className: '[animation-delay:-28s] [animation-duration:40s]',
       },
     ],
