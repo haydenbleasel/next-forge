@@ -20,6 +20,7 @@ const Cursor = ({
       top: 0,
       transform: `translateX(${x}px) translateY(${y}px)`,
     }}
+    className="transition-transform duration-100"
     width="24"
     height="36"
     viewBox="0 0 24 36"
@@ -49,7 +50,7 @@ export const Cursors = () => {
    * You don't need to pass the full presence object to update it.
    * See https://liveblocks.io/docs/api-reference/liveblocks-react#useMyPresence for more information
    */
-  const [{ cursor }, updateMyPresence] = useMyPresence();
+  const [_cursor, updateMyPresence] = useMyPresence();
 
   /**
    * Return all the other users in the room and their presence (a cursor position in this case)
