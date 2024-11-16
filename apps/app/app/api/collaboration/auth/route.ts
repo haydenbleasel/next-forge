@@ -13,7 +13,8 @@ export const POST = async () => {
     userId: user.id,
     orgId,
     userInfo: {
-      name: user.fullName ?? undefined,
+      name:
+        user.fullName ?? user.emailAddresses.at(0)?.emailAddress ?? undefined,
       avatar: user.imageUrl ?? undefined,
     },
   });
