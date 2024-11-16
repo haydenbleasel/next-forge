@@ -16,3 +16,5 @@ const pool = new Pool({ connectionString: env.DATABASE_URL });
 const adapter = new PrismaNeon(pool);
 
 export const database = new PrismaClient({ adapter });
+
+export * from '@prisma/client';
