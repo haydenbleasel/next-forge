@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    // Linting / Formatting
+    "biomejs.biome",
+    "usernamehw.errorlens",
+    "ast-grep.ast-grep-vscode",
+
+    // PR management / Reviewing
+    "github.vscode-pull-request-github",
+
+    // Showing todo comments
+    "gruntfuggly.todo-tree",
+
+    // Debugging
+    "ms-vscode.vscode-js-profile-flame"
+  ]
+}
