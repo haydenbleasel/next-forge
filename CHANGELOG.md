@@ -1,3 +1,16 @@
+# v2.15.4 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #184 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Ultracite fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.15.3 (Sat Nov 16 2024)
 
 #### ⚠️ Pushed to `main`
