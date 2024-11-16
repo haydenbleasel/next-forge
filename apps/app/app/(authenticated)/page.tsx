@@ -12,7 +12,8 @@ import {
 import { Separator } from '@repo/design-system/components/ui/separator';
 import { SidebarTrigger } from '@repo/design-system/components/ui/sidebar';
 import type { Metadata } from 'next';
-import { Presence } from './components/presence';
+import { AvatarStack } from './components/avatar-stack';
+import { Cursors } from './components/cursors';
 
 const title = 'Acme Inc';
 const description = 'My application.';
@@ -53,7 +54,8 @@ const App = async () => {
             <div className="px-3 text-muted-foreground text-xs">Loading...</div>
           }
         >
-          <Presence />
+          <AvatarStack />
+          <Cursors />
         </Room>
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
