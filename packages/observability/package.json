@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@logtail/next": "^0.1.5",
+    "@logtail/next": "^0.1.6",
     "@repo/env": "workspace:*",
     "@sentry/nextjs": "^8.38.0",
     "react": "^18.3.1"
