@@ -1,3 +1,111 @@
+# v2.15.5 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.4 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #184 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Ultracite fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.3 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #139 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.2 (Sat Nov 16 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Matthew Lewis ([@malewis5](https://github.com/malewis5)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: add sheet title for a11y. [#250](https://github.com/haydenbleasel/next-forge/pull/250) ([@malewis5](https://github.com/malewis5) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Matthew Lewis ([@malewis5](https://github.com/malewis5))
+
+---
+
+# v2.15.1 (Sat Nov 16 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps, simplify DS icons ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.0 (Fri Nov 15 2024)
+
+#### 🚀 Enhancement
+
+- Turbo [#170](https://github.com/haydenbleasel/next-forge/pull/170) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.14.17 (Fri Nov 15 2024)
+
+#### 🐛 Bug Fix
+
+- Add IP geolocation docs [#248](https://github.com/haydenbleasel/next-forge/pull/248) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 1
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+---
+
+# v2.14.16 (Fri Nov 15 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Added anti-fraud advice [#237](https://github.com/haydenbleasel/next-forge/pull/237) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.14.15 (Fri Nov 15 2024)
 
 :tada: This release contains work from a new contributor! :tada:

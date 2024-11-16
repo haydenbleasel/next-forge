@@ -2,7 +2,7 @@
   "name": "app",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3000",
+    "dev": "next dev -p 3000 --turbopack",
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^6.3.4",
+    "@prisma/client": "5.22.0",
     "@repo/analytics": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
@@ -20,11 +21,13 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@sentry/nextjs": "^8.38.0",
-    "lucide-react": "^0.456.0",
+    "import-in-the-middle": "^1.11.2",
+    "lucide-react": "^0.460.0",
     "next": "15.0.3",
     "next-themes": "^0.4.3",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "require-in-the-middle": "^7.4.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

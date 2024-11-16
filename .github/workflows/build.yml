@@ -1,20 +1,15 @@
-# Name of our action
+
 name: Build
 
-# The event that will trigger the action
 on:
   pull_request:
     branches: [main]
 
-# what the action will do
 jobs:
   
   build:
-    # The operating system it will run on
     runs-on: ubuntu-latest
-    # This check needs to be in place to prevent a publish loop with auto and github actions
     if: "!contains(github.event.head_commit.message, 'ci skip') && !contains(github.event.head_commit.message, 'skip ci')"
-    # The list of steps that the action will go through
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -85,5 +80,11 @@ jobs:
           cp apps/app/.env.local apps/web/.env.local
           cp apps/app/.env.local apps/api/.env.local
 
-      - name: Build
-        run: pnpm build
+      - name: Build with bundle analysis
+        run: pnpm analyze
+
+      - name: Upload bundle analysis artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-analysis
+          path: apps/**/.next/analyze/*.html

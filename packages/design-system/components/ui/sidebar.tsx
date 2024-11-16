@@ -3,14 +3,12 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { VariantProps, cva } from "class-variance-authority"
-import { PanelLeft } from "lucide-react"
-
 import { useIsMobile } from "@repo/design-system/hooks/use-mobile"
 import { cn } from "@repo/design-system/lib/utils"
 import { Button } from "@repo/design-system/components/ui/button"
 import { Input } from "@repo/design-system/components/ui/input"
 import { Separator } from "@repo/design-system/components/ui/separator"
-import { Sheet, SheetContent } from "@repo/design-system/components/ui/sheet"
+import { Sheet, SheetContent, SheetTitle } from "@repo/design-system/components/ui/sheet"
 import { Skeleton } from "@repo/design-system/components/ui/skeleton"
 import {
   Tooltip,
@@ -18,6 +16,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@repo/design-system/components/ui/tooltip"
+import { ViewVerticalIcon } from "@radix-ui/react-icons"
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -206,6 +205,7 @@ const Sidebar = React.forwardRef<
             }
             side={side}
           >
+            <SheetTitle className="sr-only" />
             <div className="flex h-full w-full flex-col">{children}</div>
           </SheetContent>
         </Sheet>
@@ -278,7 +278,7 @@ const SidebarTrigger = React.forwardRef<
       }}
       {...props}
     >
-      <PanelLeft />
+      <ViewVerticalIcon />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
-    "next": "next dev -p 3002",
+    "next": "next dev -p 3002 --turbopack",
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",

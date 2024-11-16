@@ -1,10 +1,9 @@
 "use client"
 
 import * as React from "react"
-import { DashIcon } from "@radix-ui/react-icons"
 import { OTPInput, OTPInputContext } from "input-otp"
-
 import { cn } from "@repo/design-system/lib/utils"
+import { MinusIcon } from "@radix-ui/react-icons"
 
 const InputOTP = React.forwardRef<
   React.ElementRef<typeof OTPInput>,
@@ -63,7 +62,7 @@ const InputOTPSeparator = React.forwardRef<
   React.ComponentPropsWithoutRef<"div">
 >(({ ...props }, ref) => (
   <div ref={ref} role="separator" {...props}>
-    <DashIcon />
+    <MinusIcon />
   </div>
 ))
 InputOTPSeparator.displayName = "InputOTPSeparator"
