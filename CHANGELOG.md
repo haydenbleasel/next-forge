@@ -1,3 +1,24 @@
+# v2.15.7 (Sun Nov 17 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Dade ([@shengdade](https://github.com/shengdade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Remove duplicate Tailwind utility classes [#255](https://github.com/haydenbleasel/next-forge/pull/255) ([@shengdade](https://github.com/shengdade))
+
+#### ⚠️ Pushed to `main`
+
+- Update package.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Dade ([@shengdade](https://github.com/shengdade))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.15.6 (Sun Nov 17 2024)
 
 #### ⚠️ Pushed to `main`
