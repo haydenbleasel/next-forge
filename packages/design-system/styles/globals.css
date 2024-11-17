@@ -106,14 +106,25 @@
   }
 }
 
+/* This layer is added by shadcn/ui */
 @layer base {
   * {
-    @apply border-border min-w-0;
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* This layer is by next-forge */
+@layer base {
+  * {
+    @apply min-w-0;
   }
   html {
     text-rendering: optimizelegibility;
   }
   body {
-    @apply bg-background text-foreground min-h-[100dvh];
+    @apply min-h-[100dvh];
   }
 }
