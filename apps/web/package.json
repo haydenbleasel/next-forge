@@ -23,7 +23,7 @@
     "@repo/tailwind-config": "workspace:*",
     "@sentry/nextjs": "^8.38.0",
     "date-fns": "^4.1.0",
-    "fumadocs-core": "^14.4.0",
+    "fumadocs-core": "^14.4.2",
     "import-in-the-middle": "^1.11.2",
     "lucide-react": "^0.460.0",
     "mdx-bundler": "^10.0.3",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "@content-collections/cli": "^0.1.6",
     "@content-collections/core": "^0.7.3",
-    "@content-collections/next": "^0.2.3",
+    "@content-collections/next": "^0.2.4",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.9.0",
     "@types/react": "18.3.12",
