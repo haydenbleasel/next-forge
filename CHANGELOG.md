@@ -1,3 +1,15 @@
+# v2.15.10 (Sun Nov 17 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update faq.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.15.9 (Sun Nov 17 2024)
 
 :tada: This release contains work from a new contributor! :tada:
