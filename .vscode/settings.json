@@ -4,13 +4,29 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": true,
   "emmet.showExpandedAbbreviation": "never",
+
   "editor.codeActionsOnSave": {
     "quickfix.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
-  "[typescript][json][javascript][jsonc][typescriptreact]": {
+
+  "prettier.enable": false,
+
+  "tailwindCSS.experimental.configFile": "./packages/tailwind-config/config.ts",
+
+  "[typescript]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  
-  "tailwindCSS.experimental.configFile": "./packages/tailwind-config/config.ts"
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
 }
