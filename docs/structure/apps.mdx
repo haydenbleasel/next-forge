@@ -9,11 +9,13 @@ The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a too
 
 The monorepo contains the following apps:
 
-| App | Description | Port |
-| --- | ----------- | ---- |
-| `api` | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. | 3002 |
-| `app` | The main application, featuring a [shadcn/ui](https://ui.shadcn.com/) template. | 3000 |
-| `docs` | The documentation, which contains the documentation for the app e.g. guides and tutorials. | 3004 |
-| `email` | The email preview server from [react.email](https://react.email/). | 3003 |
-| `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 |
-| `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 |
+| App | Description | Port | Recommended URL |
+| --- | ----------- | ---- | --------------- |
+| `api` | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. | 3002 | `api.acme.com` |
+| `app` | The main application, featuring a [shadcn/ui](https://ui.shadcn.com/) template. | 3000 | `app.acme.com` |
+| `docs` | The documentation, which contains the documentation for the app e.g. guides and tutorials. | 3004 | `docs.acme.com` |
+| `email` | The email preview server from [react.email](https://react.email/). | 3003 | |
+| `studio` | [Prisma Studio](https://www.prisma.io/studio), which is a graphical editor for the database. | 3005 | |
+| `web` | The website, featuring a [twblocks](https://www.twblocks.com/) template. | 3001 | `acme.com` |
+
+While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed above. Remember to add them to your [environment variables](/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
