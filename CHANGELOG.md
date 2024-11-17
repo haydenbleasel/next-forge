@@ -1,3 +1,19 @@
+# v2.15.8 (Sun Nov 17 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Pere Bruy ([@OsoThevenin](https://github.com/OsoThevenin)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Export PrismaClient in database package [#258](https://github.com/haydenbleasel/next-forge/pull/258) ([@OsoThevenin](https://github.com/OsoThevenin))
+
+#### Authors: 1
+
+- Pere Bruy ([@OsoThevenin](https://github.com/OsoThevenin))
+
+---
+
 # v2.15.7 (Sun Nov 17 2024)
 
 :tada: This release contains work from a new contributor! :tada:
