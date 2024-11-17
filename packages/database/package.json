@@ -4,6 +4,7 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
+    "analyze": "prisma generate --no-hints",
     "build": "prisma generate --no-hints"
   },
   "dependencies": {

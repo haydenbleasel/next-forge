@@ -1,3 +1,86 @@
+# v2.15.10 (Sun Nov 17 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update faq.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.9 (Sun Nov 17 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Kaiden Riley ([@krpleo](https://github.com/krpleo)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: sidebar collapsible triggers [#256](https://github.com/haydenbleasel/next-forge/pull/256) ([@krpleo](https://github.com/krpleo))
+
+#### ⚠️ Pushed to `main`
+
+- Improve shadcn CLI updating ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Kaiden Riley ([@krpleo](https://github.com/krpleo))
+
+---
+
+# v2.15.8 (Sun Nov 17 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Pere Bruy ([@OsoThevenin](https://github.com/OsoThevenin)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Export PrismaClient in database package [#258](https://github.com/haydenbleasel/next-forge/pull/258) ([@OsoThevenin](https://github.com/OsoThevenin))
+
+#### Authors: 1
+
+- Pere Bruy ([@OsoThevenin](https://github.com/OsoThevenin))
+
+---
+
+# v2.15.7 (Sun Nov 17 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Dade ([@shengdade](https://github.com/shengdade)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Remove duplicate Tailwind utility classes [#255](https://github.com/haydenbleasel/next-forge/pull/255) ([@shengdade](https://github.com/shengdade))
+
+#### ⚠️ Pushed to `main`
+
+- Update package.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Dade ([@shengdade](https://github.com/shengdade))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.15.6 (Sun Nov 17 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #260 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.15.5 (Sat Nov 16 2024)
 
 #### ⚠️ Pushed to `main`
