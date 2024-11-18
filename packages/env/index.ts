@@ -19,7 +19,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
     .min(1)
     .startsWith('sk_')
     .or(z.string().min(1).startsWith('testsk_')),
-  LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_'),
+  LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
 
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),

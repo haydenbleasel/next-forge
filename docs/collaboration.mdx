@@ -29,9 +29,13 @@ import { Authors } from '/snippets/authors.mdx';
 
 next-forge maintains a `collaboration` package designed to provide real-time collaborative features to your apps. By default, we use [Liveblocks](https://liveblocks.io) as our collaboration engine. To showcase what you can do with this package, we've built a simple collaborative experience in the `app` application, featuring an avatar stack and live cursors.
 
+<Tip>Collaboration is enabled by the existence of the `LIVEBLOCKS_SECRET` environment variable.</Tip>
+
 ## How it works
 
-Liveblocks relies on the concept of rooms, digital spaces where people collaborate. To set this up, you need to [authenticate your users](https://liveblocks.io/docs/authentication/access-token/nextjs), and [add the correct providers](https://liveblocks.io/docs/get-started/nextjs), however next-forge has already integrated this, meaning you can start building your collaborative application immediately.  
+Liveblocks relies on the concept of rooms, digital spaces where people collaborate. To set this up, you need to [authenticate your users](https://liveblocks.io/docs/authentication/access-token/nextjs), and [add the correct providers](https://liveblocks.io/docs/get-started/nextjs), however next-forge has already integrated this, meaning you can start building your collaborative application immediately.
+
+We've also wired up two key props for the Liveblocks provider, `resolveUsers` and `resolveMentionSuggestions`, which are used to resolve the users and mention suggestions respectively.
 
 ## Usage
 
