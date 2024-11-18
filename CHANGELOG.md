@@ -1,3 +1,20 @@
+# v2.16.4 (Mon Nov 18 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@idkgene](https://github.com/idkgene), for all your work!
+
+#### 🐛 Bug Fix
+
+- VSCode workspace configuration [#253](https://github.com/haydenbleasel/next-forge/pull/253) ([@idkgene](https://github.com/idkgene) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@idkgene](https://github.com/idkgene)
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.3 (Mon Nov 18 2024)
 
 #### 🐛 Bug Fix
