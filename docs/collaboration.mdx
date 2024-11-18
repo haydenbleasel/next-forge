@@ -3,6 +3,28 @@ title: Collaboration
 description: next-forge is multiplayer out of the box.
 ---
 
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Chris Nicholas',
+    id: 'ctnicholas',
+  },
+  company: {
+    name: 'Liveblocks',
+    id: 'liveblocks',
+  },
+}]} />
+
 ![Presence](/images/collaboration.png)
 
 next-forge maintains a `collaboration` package designed to provide real-time collaborative features to your apps. By default, we use [Liveblocks](https://liveblocks.io) as our collaboration engine. To showcase what you can do with this package, we've built a simple collaborative experience in the `app` application, featuring an avatar stack and live cursors.
