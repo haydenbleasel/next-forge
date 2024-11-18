@@ -327,7 +327,7 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                 showName
                 appearance={{
                   elements: {
-                    rootBox: 'flex overflow-hidden',
+                    rootBox: 'flex overflow-hidden w-full',
                     userButtonBox: 'flex-row-reverse',
                     userButtonOuterIdentifier: 'truncate pl-0',
                   },
