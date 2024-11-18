@@ -1,3 +1,15 @@
+# v2.16.3 (Mon Nov 18 2024)
+
+#### 🐛 Bug Fix
+
+- Extract testing configuration into repo/testing package [#182](https://github.com/haydenbleasel/next-forge/pull/182) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.2 (Mon Nov 18 2024)
 
 #### ⚠️ Pushed to `main`
