@@ -2,11 +2,12 @@
   "name": "api",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
+    "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\" \"pnpm:ngrok\"",
     "next": "next dev -p 3002 --turbopack",
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",
+    "ngrok": "ngrok http http://localhost:3002",
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {

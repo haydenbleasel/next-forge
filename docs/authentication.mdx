@@ -19,4 +19,17 @@ Clerk uses webhooks to handle authentication events. These are handled in the `P
 
 ### Local Development
 
-Currently there's no way to easily test Clerk webhooks locally, so you'll have to test them in a staging environment. This means deploying your app to a "production" state Vercel project with development environment variables e.g. `staging-api.example.com`. Then you can add this URL to your Clerk project's webhook settings.
+To test webhooks locally, you can use Ngrok to expose your local server to the internet. This allows Clerk to send webhooks to your local development environment.
+
+1. Install Ngrok by following the instructions on the [Ngrok website](https://ngrok.com/download).
+2. Start your local development server and Ngrok by running the following command in the `api` app:
+
+```sh
+pnpm dev
+```
+
+This will start the Next.js development server on port 3002, the Stripe CLI to forward webhooks to your local server, and Ngrok to expose your local server to the internet.
+
+3. Copy the forwarding URL provided by Ngrok (e.g., `https://<your-ngrok-subdomain>.ngrok.io`) and add it to your Clerk project's webhook settings.
+
+4. Now you can test Clerk webhooks locally without needing to deploy your app to a staging environment.
