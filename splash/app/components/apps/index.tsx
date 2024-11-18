@@ -74,14 +74,18 @@ export const Apps = () => (
               className={twMerge(
                 'absolute inset-px rounded-lg bg-white max-lg:rounded-t-[2rem] dark:bg-neutral-950',
                 !index && 'lg:rounded-tl-[2rem]',
-                index === 1 && 'lg:rounded-tr-[2rem]'
+                index === 1 && 'lg:rounded-tr-[2rem]',
+                index === 4 && 'lg:rounded-bl-[2rem]',
+                index === 5 && 'lg:rounded-br-[2rem]'
               )}
             />
             <div
               className={twMerge(
                 'relative flex h-full flex-col overflow-hidden rounded-[calc(theme(borderRadius.lg)+1px)] max-lg:rounded-t-[calc(2rem+1px)]',
                 !index && 'lg:rounded-tl-[calc(2rem+1px)]',
-                index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]'
+                index === 1 && 'lg:rounded-tr-[calc(2rem+1px)]',
+                index === 4 && 'lg:rounded-bl-[calc(2rem+1px)]',
+                index === 5 && 'lg:rounded-br-[calc(2rem+1px)]'
               )}
             >
               <div className="h-48 overflow-hidden border-b bg-neutral-50 p-8 md:h-80 dark:bg-neutral-950">
@@ -112,7 +116,9 @@ export const Apps = () => (
               className={twMerge(
                 'pointer-events-none absolute inset-px rounded-lg shadow ring-1 ring-black/5 max-lg:rounded-t-[2rem] dark:ring-white/5',
                 !index && 'lg:rounded-tl-[2rem]',
-                index === 1 && 'lg:rounded-tr-[2rem]'
+                index === 1 && 'lg:rounded-tr-[2rem]',
+                index === 4 && 'lg:rounded-bl-[2rem]',
+                index === 5 && 'lg:rounded-br-[2rem]'
               )}
             />
           </div>

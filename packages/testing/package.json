@@ -1,0 +1,11 @@
+{
+  "name": "@repo/testing",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./index.js",
+  "type": "commonjs",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "vitest": "^2.1.4"
+  }
+}
