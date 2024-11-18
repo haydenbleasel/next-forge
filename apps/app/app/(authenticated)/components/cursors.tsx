@@ -73,7 +73,7 @@ export const Cursors = () => {
     const onPointerLeave = () => {
       // When the pointer goes out, set cursor to null
       updateMyPresence({
-        // cursor: null,
+        cursor: null,
       });
     };
 
