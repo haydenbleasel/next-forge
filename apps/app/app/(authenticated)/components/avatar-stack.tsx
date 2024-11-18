@@ -11,6 +11,7 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@repo/design-system/components/ui/tooltip';
+import { tailwind } from '@repo/tailwind-config';
 
 const PresenceAvatar = ({
   info,
@@ -47,7 +48,12 @@ export const AvatarStack = () => {
       ))}
 
       {hasMoreUsers && (
-        <PresenceAvatar info={{ name: `+${others.length - 3}` }} />
+        <PresenceAvatar
+          info={{
+            name: `+${others.length - 3}`,
+            color: tailwind.theme.colors.gray[500],
+          }}
+        />
       )}
 
       {self && <PresenceAvatar info={self.info} />}

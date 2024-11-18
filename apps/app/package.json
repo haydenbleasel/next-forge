@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.3.4",
     "@prisma/client": "5.22.0",
+    "@repo/auth": "workspace:*",
     "@repo/analytics": "workspace:*",
     "@repo/collaboration": "workspace:*",
     "@repo/database": "workspace:*",
@@ -21,6 +22,7 @@
     "@repo/security": "workspace:*",
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
+    "@repo/webhooks": "workspace:*",
     "@sentry/nextjs": "^8.38.0",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.2",

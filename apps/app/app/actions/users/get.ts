@@ -20,7 +20,6 @@ const getName = (user: OrganizationMembership): string | undefined => {
 };
 
 const colors = [
-  tailwind.theme.colors.gray[500],
   tailwind.theme.colors.red[500],
   tailwind.theme.colors.orange[500],
   tailwind.theme.colors.amber[500],
