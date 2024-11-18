@@ -1,8 +1,8 @@
-import path from 'node:path';
-import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vitest/config';
+const path = require('node:path');
+const react = require('@vitejs/plugin-react');
+const { defineConfig } = require('vitest/config');
 
-export const config = defineConfig({
+const config = defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom',
@@ -14,3 +14,5 @@ export const config = defineConfig({
     },
   },
 });
+
+module.exports = config;

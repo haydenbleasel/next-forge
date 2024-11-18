@@ -1,1 +1,1 @@
-export { config as default } from '@repo/testing';
+export { default } from '@repo/testing';
