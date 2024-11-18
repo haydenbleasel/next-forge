@@ -1,5 +1,4 @@
 import { auth } from '@clerk/nextjs/server';
-import { Room } from '@repo/collaboration/room';
 import { database } from '@repo/database';
 import {
   Breadcrumb,
@@ -12,7 +11,9 @@ import {
 import { Separator } from '@repo/design-system/components/ui/separator';
 import { SidebarTrigger } from '@repo/design-system/components/ui/sidebar';
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { AvatarStack } from './components/avatar-stack';
+import { CollaborationProvider } from './components/collaboration-provider';
 import { Cursors } from './components/cursors';
 
 const title = 'Acme Inc';
@@ -26,6 +27,10 @@ export const metadata: Metadata = {
 const App = async () => {
   const pages = await database.page.findMany();
   const { orgId } = await auth();
+
+  if (!orgId) {
+    notFound();
+  }
 
   return (
     <>
@@ -47,16 +52,10 @@ const App = async () => {
             </BreadcrumbList>
           </Breadcrumb>
         </div>
-        <Room
-          id={`${orgId}:presence`}
-          authEndpoint="/api/collaboration/auth"
-          fallback={
-            <div className="px-3 text-muted-foreground text-xs">Loading...</div>
-          }
-        >
+        <CollaborationProvider orgId={orgId}>
           <AvatarStack />
           <Cursors />
-        </Room>
+        </CollaborationProvider>
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
