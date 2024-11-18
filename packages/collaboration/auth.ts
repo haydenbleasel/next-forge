@@ -1,18 +1,15 @@
 import 'server-only';
-import { Liveblocks } from '@liveblocks/node';
+import { Liveblocks as LiveblocksNode } from '@liveblocks/node';
 import { env } from '@repo/env';
 
-const liveblocks = new Liveblocks({
+const liveblocks = new LiveblocksNode({
   secret: env.LIVEBLOCKS_SECRET,
 });
 
 type AuthenticateOptions = {
   userId: string;
   orgId: string;
-  userInfo: {
-    name?: string;
-    avatar?: string;
-  };
+  userInfo: Liveblocks['UserMeta']['info'];
 };
 
 export const authenticate = async ({

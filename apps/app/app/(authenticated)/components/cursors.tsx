@@ -1,7 +1,6 @@
 'use client';
 
 import { useMyPresence, useOthers } from '@repo/collaboration/hooks';
-import { tailwind } from '@repo/tailwind-config';
 import { useEffect } from 'react';
 
 const Cursor = ({
@@ -45,26 +44,6 @@ const Cursor = ({
     </div>
   </div>
 );
-
-const COLORS = [
-  tailwind.theme.colors.red[500],
-  tailwind.theme.colors.orange[500],
-  tailwind.theme.colors.amber[500],
-  tailwind.theme.colors.yellow[500],
-  tailwind.theme.colors.lime[500],
-  tailwind.theme.colors.green[500],
-  tailwind.theme.colors.emerald[500],
-  tailwind.theme.colors.teal[500],
-  tailwind.theme.colors.cyan[500],
-  tailwind.theme.colors.sky[500],
-  tailwind.theme.colors.blue[500],
-  tailwind.theme.colors.indigo[500],
-  tailwind.theme.colors.violet[500],
-  tailwind.theme.colors.purple[500],
-  tailwind.theme.colors.fuchsia[500],
-  tailwind.theme.colors.pink[500],
-  tailwind.theme.colors.rose[500],
-];
 
 export const Cursors = () => {
   /**
@@ -117,7 +96,7 @@ export const Cursors = () => {
         key={`cursor-${connectionId}`}
         // connectionId is an integer that is incremented at every new connections
         // Assigning a color with a modulo makes sure that a specific user has the same colors on every clients
-        color={COLORS[connectionId % COLORS.length]}
+        color={info.color}
         x={presence.cursor.x}
         y={presence.cursor.y}
         name={info?.name}

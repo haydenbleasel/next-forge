@@ -20,6 +20,7 @@ declare global {
       info: {
         name?: string;
         avatar?: string;
+        color: string;
       };
     };
 
