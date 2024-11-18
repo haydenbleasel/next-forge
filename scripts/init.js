@@ -45,7 +45,6 @@ try {
     '.github/FUNDING.yml',
     '.github/SECURITY.md',
     '.autorc',
-    '.coderabbit.yaml',
     'CHANGELOG.md',
     'license.md',
   ]) {
