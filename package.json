@@ -13,7 +13,7 @@
     "lint": "turbo lint",
     "test": "turbo test",
     "analyze": "turbo analyze",
-    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "bump-deps": "npx npm-check-updates --deep -u && pnpm install",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
