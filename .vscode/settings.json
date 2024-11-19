@@ -27,5 +27,10 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#1dd1e6",
+    "titleBar.inactiveBackground": "#1dd1e6",
+    "titleBar.activeForeground": "#000000"
   }
 }
