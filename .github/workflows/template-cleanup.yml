@@ -42,7 +42,7 @@ jobs:
           git commit -m "chore: cleanup template files [skip ci]" || echo "No changes to commit"
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
+        uses: ad-m/github-push-action@0.8.0
         with:
           branch: main
           github_token: ${{ secrets.GITHUB_TOKEN }}
