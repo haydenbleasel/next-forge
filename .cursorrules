@@ -1,0 +1,69 @@
+# Always consider the following
+
+This is a Next.js project using App Router, Shadcn/UI, Tailwind, Resend, Builder.io, Payload CMS 3, NextAuth/AuthJS@v5, TypeScript.
+Be aware of the latest versions of all libraries.
+
+## Comments
+
+pre-emptively add comments to explain "why" behind the code.
+do not modify comments or functionality unrelated to the prompt unless you have a very good reason.
+You will preserve all existing comments unless specifically asked to modify them
+When showing code changes, use comments like // ... to indicate unchanged sections of code
+
+## File structure
+
+Prefer `hyphen-case.ext` over `CamelCase.ext`.
+Use `@/server/actions` for all server actions.
+Use `@/server/services` for all internal services.
+
+## Coding conventions
+
+pre-emptively ask questions if you are unsure about the requirements.
+pre-emptively optimize code for production.
+pre-emptively add types to all functions and variables.
+pre-emptively fix any typescript errors or warnings.
+
+Use open-source libraries when they would enhance the user/developer experience.
+Use best practices, write production-ready code.
+Fix bugs and improve performance.
+Comment any complex or hard-to-read code.
+fix all typescript errors and warnings.
+
+## When writing React
+
+Prefer `export const fn = () => {}` over `export default function fn() {}`.
+Use functional components and hooks for state management.
+Ensure components are reusable and maintainable.
+Prefer server actions for internal API requests.
+Maintain a separation of concerns between client and server components.
+
+## When interacting with the database
+
+1. Ensure all required fields are provided when interacting with the database.
+2. Check for potential undefined values and handle them appropriately.
+3. Use TypeScript's type system to enforce correct data structures.
+4. Implement error handling for database operations and API requests.
+5. Validate input data to prevent runtime errors and ensure data integrity.
+6. Add comments to explain complex logic or important decisions in the code.
+7. Regularly review and test code to catch and fix errors early.
+
+## API Integration
+
+- Use environment variables for sensitive data like API keys.
+- Handle API errors gracefully and provide user feedback.
+- Use async/await for asynchronous operations to improve readability.
+- Document API interactions and expected responses.
+
+## UI/UX Design
+
+- Follow Tailwind CSS conventions for styling.
+- Ensure responsive design for all components.
+- Use Shadcn/UI components for consistency in UI elements.
+- Prioritize accessibility in UI design.
+
+## Performance Optimization
+
+- Optimize images and assets for faster load times.
+- Use lazy loading for components and images where applicable.
+- Minimize the use of heavy libraries and dependencies.
+- Regularly audit and improve performance metrics.

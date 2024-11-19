@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    container_name: lacy_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-lacy}
+      POSTGRES_USER: ${POSTGRES_USER:-lacy_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-lacy_password}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
