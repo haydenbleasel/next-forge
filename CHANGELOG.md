@@ -1,3 +1,15 @@
+# v2.16.5 (Tue Nov 19 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #267 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.4 (Mon Nov 18 2024)
 
 :tada: This release contains work from a new contributor! :tada:
