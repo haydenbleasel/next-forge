@@ -53,7 +53,10 @@
           "group": "Analytics",
           "pages": ["analytics/web", "analytics/product"]
         },
-        "authentication",
+        {
+          "group": "Authentication",
+          "pages": ["authentication/overview", "authentication/authjs"]
+        },
         "blog",
         "bundle-analysis",
         "collaboration",
