@@ -1,4 +1,4 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { clerkMiddleware } from '@repo/auth/middleware';
 import arcjet, { detectBot } from '@repo/security';
 import { NextResponse } from 'next/server';
 

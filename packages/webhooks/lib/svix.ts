@@ -1,5 +1,5 @@
 import 'server-only';
-import { auth } from '@clerk/nextjs/server';
+import { auth } from '@repo/auth/server';
 import { env } from '@repo/env';
 import { Svix } from 'svix';
 

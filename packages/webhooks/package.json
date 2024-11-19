@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
+    "@repo/auth": "workspace:*",
     "@repo/env": "workspace:*",
-    "@clerk/nextjs": "^6.3.4",
     "svix": "^1.40.0"
   },
   "devDependencies": {

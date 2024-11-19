@@ -1,6 +1,5 @@
 'use client';
 
-import { OrganizationSwitcher, UserButton } from '@clerk/nextjs';
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import {
   Collapsible,
@@ -51,6 +50,7 @@ import {
   Trash2Icon,
 } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { OrganizationSwitcher, UserButton } from 'repo/auth/client';
 
 type GlobalSidebarProperties = {
   readonly children: ReactNode;

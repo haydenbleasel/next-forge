@@ -4,7 +4,7 @@ import {
   type OrganizationMembership,
   auth,
   clerkClient,
-} from '@clerk/nextjs/server';
+} from '@repo/auth/server';
 import { tailwind } from '@repo/tailwind-config';
 
 const getName = (user: OrganizationMembership): string | undefined => {
