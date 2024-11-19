@@ -1,6 +1,6 @@
-import { clerkMiddleware } from '@repo/auth/middleware';
+import { authMiddleware } from '@repo/auth/middleware';
 
-export default clerkMiddleware();
+export default authMiddleware();
 
 export const config = {
   matcher: [
