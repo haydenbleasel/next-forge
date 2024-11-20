@@ -1,0 +1,48 @@
+---
+title: "nuqs"
+description: "Type-safe search params state manager for React"
+---
+
+## nuqs
+
+nuqs is a type-safe search params state manager for React applications. It provides a familiar useState-like API that syncs with the URL, making it perfect for managing state through URL parameters.
+
+### Example
+
+Here's an example of using nuqs in a React component:
+
+```jsx
+'use client'
+
+import { parseAsInteger, useQueryState } from 'nuqs'
+
+function Demo() {
+  const [hello, setHello] = useQueryState('hello', { defaultValue: '' })
+  const [count, setCount] = useQueryState(
+    'count',
+    parseAsInteger.withDefault(0)
+  )
+
+  return (
+    <>
+      <button onClick={() => setCount(c => c + 1)}>
+        Count: {count}
+      </button>
+      <input
+        value={hello}
+        placeholder="Enter your name"
+        onChange={e => setHello(e.target.value || null)}
+      />
+      <p>Hello, {hello || 'anonymous visitor'}!</p>
+    </>
+  )
+}
+
+export default Demo;
+```
+
+The example demonstrates two key features:
+1. Managing a string state parameter ('hello')
+2. Managing a numeric state parameter with automatic parsing ('count')
+
+Both values are automatically synchronized with the URL search parameters, enabling shareable URLs and browser history integration.
