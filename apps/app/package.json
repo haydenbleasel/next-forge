@@ -9,7 +9,6 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.3.4",
     "@prisma/client": "5.22.0",
     "@repo/auth": "workspace:*",
     "@repo/analytics": "workspace:*",

@@ -1,5 +1,5 @@
-import { clerkClient } from '@clerk/nextjs/server';
 import { analytics } from '@repo/analytics/posthog/server';
+import { clerkClient } from '@repo/auth/server';
 import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 import { log } from '@repo/observability/log';

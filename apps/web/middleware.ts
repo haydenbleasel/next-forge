@@ -1,4 +1,4 @@
-import { clerkMiddleware } from '@clerk/nextjs/server';
+import { authMiddleware } from '@repo/auth/middleware';
 import arcjet, { detectBot } from '@repo/security';
 import { NextResponse } from 'next/server';
 
@@ -21,7 +21,7 @@ const aj = arcjet.withRule(
   })
 );
 
-export default clerkMiddleware(async (_auth, request) => {
+export default authMiddleware(async (_auth, request) => {
   const decision = await aj.protect(request);
 
   if (

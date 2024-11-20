@@ -1,11 +1,11 @@
+import { analytics } from '@repo/analytics/posthog/server';
 import type {
   DeletedObjectJSON,
   OrganizationJSON,
   OrganizationMembershipJSON,
   UserJSON,
   WebhookEvent,
-} from '@clerk/nextjs/server';
-import { analytics } from '@repo/analytics/posthog/server';
+} from '@repo/auth/server';
 import { env } from '@repo/env';
 import { log } from '@repo/observability/log';
 import { headers } from 'next/headers';
