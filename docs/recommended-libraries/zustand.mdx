@@ -1,0 +1,56 @@
+---
+title: "zustand Library"
+description: "Details about the zustand library for state management"
+---
+
+## zustand Library
+
+The `zustand` library is a small, fast, and scalable bearbones state-management solution for React applications. It provides a simple and efficient way to manage state in your application.
+
+### Installation
+
+To install the `zustand` library, you can use npm or yarn:
+
+```bash npm
+npm install zustand
+```
+
+```bash yarn
+yarn add zustand
+```
+
+### Usage
+
+Here is an example of how to use the `zustand` library for state management:
+
+```javascript
+import create from 'zustand';
+
+const useStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+function Counter() {
+  const { count, increment, decrement } = useStore();
+
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+```
+
+In this example, the `create` function from the `zustand` library is used to create a store with a `count` state and `increment` and `decrement` actions. The `useStore` hook is then used in the `Counter` component to access the state and actions.
+
+### Benefits
+
+- **Simple API**: The `zustand` library provides a simple and intuitive API for managing state in your React application.
+- **Performance**: The `zustand` library is optimized for performance, making it suitable for large-scale applications.
+- **Scalability**: The `zustand` library is scalable and can be used to manage state in applications of any size.
+
+For more information and detailed documentation, visit the [zustand library website](https://zustand.docs.pmnd.rs/guides/nextjs).
