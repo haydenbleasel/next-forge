@@ -17,8 +17,8 @@ import { notFound } from 'next/navigation';
 import { AvatarStack } from './components/avatar-stack';
 import { Cursors } from './components/cursors';
 
-const title = 'Acme Inc';
-const description = 'My application.';
+const title = 'ShipKit';
+const description = 'Build and ship faster with ShipKit.';
 
 const CollaborationProvider = dynamic(() =>
   import('./components/collaboration-provider').then(
@@ -68,7 +68,7 @@ const App = async () => {
       </header>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         <div className="grid auto-rows-min gap-4 md:grid-cols-3">
-          {pages.map((page) => (
+          {pages.map((page: { id: string; name: string }) => (
             <div key={page.id} className="aspect-video rounded-xl bg-muted/50">
               {page.name}
             </div>

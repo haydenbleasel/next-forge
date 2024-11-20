@@ -2,42 +2,82 @@ import { env } from '@repo/env';
 import { Status } from '@repo/observability/status';
 import Link from 'next/link';
 
+interface FooterItem {
+  title: string;
+  description: string;
+  href?: string;
+  items?: { title: string; href: string }[];
+}
+
 export const Footer = () => {
-  const navigationItems = [
+  const navigationItems: FooterItem[] = [
     {
-      title: 'Home',
-      href: '/',
-      description: '',
+      title: 'Product',
+      description: 'Everything you need to build and ship faster.',
+      items: [
+        {
+          title: 'Features',
+          href: '/features',
+        },
+        {
+          title: 'Templates',
+          href: '/templates',
+        },
+        {
+          title: 'Integrations',
+          href: '/integrations',
+        },
+        {
+          title: 'Enterprise',
+          href: '/enterprise',
+        },
+        {
+          title: 'Pricing',
+          href: '/pricing',
+        },
+      ],
     },
     {
-      title: 'Pages',
-      description: 'Managing a small business today is already tough.',
+      title: 'Resources',
+      description: 'Learn and build with ShipKit.',
       items: [
+        {
+          title: 'Documentation',
+          href: env.NEXT_PUBLIC_DOCS_URL,
+        },
         {
           title: 'Blog',
           href: '/blog',
         },
         {
-          title: 'Docs',
-          href: env.NEXT_PUBLIC_DOCS_URL,
+          title: 'Guides',
+          href: '/guides',
+        },
+        {
+          title: 'Showcase',
+          href: '/showcase',
         },
       ],
     },
     {
-      title: 'Legal',
-      description: 'We stay on top of the latest legal requirements.',
+      title: 'Company',
+      description: 'Learn more about us and our mission.',
       items: [
         {
-          title: 'Terms of Service',
+          title: 'About',
+          href: '/about',
+        },
+        {
+          title: 'Contact',
+          href: '/contact',
+        },
+        {
+          title: 'Terms',
           href: '/legal/terms',
         },
         {
-          title: 'Privacy Policy',
+          title: 'Privacy',
           href: '/legal/privacy',
-        },
-        {
-          title: 'Acceptable Use',
-          href: '/legal/acceptable-use',
         },
       ],
     },
@@ -51,10 +91,11 @@ export const Footer = () => {
             <div className="flex flex-col items-start gap-8">
               <div className="flex flex-col gap-2">
                 <h2 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
-                  next-forge
+                  ShipKit
                 </h2>
                 <p className="max-w-lg text-left text-foreground/75 text-lg leading-relaxed tracking-tight">
-                  This is the start of something new.
+                  The modern toolkit for building and shipping web applications
+                  faster.
                 </p>
               </div>
               <Status />
@@ -66,7 +107,7 @@ export const Footer = () => {
                   className="flex flex-col items-start gap-1 text-base"
                 >
                   <div className="flex flex-col gap-2">
-                    {item.href ? (
+                    {item?.href ? (
                       <Link
                         href={item.href}
                         className="flex items-center justify-between"

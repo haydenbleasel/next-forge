@@ -27,19 +27,19 @@ export const Header = () => {
     },
     {
       title: 'Product',
-      description: 'Managing a small business today is already tough.',
+      description: 'Everything you need to build and ship faster.',
       items: [
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: 'Features',
+          href: '/features',
         },
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: 'Templates',
+          href: '/templates',
         },
         {
-          title: 'Pricing',
-          href: '/pricing',
+          title: 'Integrations',
+          href: '/integrations',
         },
         {
           title: 'Pricing',
@@ -48,13 +48,30 @@ export const Header = () => {
       ],
     },
     {
-      title: 'Blog',
-      href: '/blog',
-      description: '',
+      title: 'Resources',
+      description: 'Learn and build with ShipKit.',
+      items: [
+        {
+          title: 'Documentation',
+          href: env.NEXT_PUBLIC_DOCS_URL,
+        },
+        {
+          title: 'Blog',
+          href: '/blog',
+        },
+        {
+          title: 'Guides',
+          href: '/guides',
+        },
+        {
+          title: 'Showcase',
+          href: '/showcase',
+        },
+      ],
     },
     {
-      title: 'Docs',
-      href: env.NEXT_PUBLIC_DOCS_URL,
+      title: 'Enterprise',
+      href: '/enterprise',
       description: '',
     },
   ];
@@ -118,12 +135,12 @@ export const Header = () => {
         <div className="flex items-center gap-2 lg:justify-center">
           <Image
             src={Logo}
-            alt="Logo"
+            alt="ShipKit Logo"
             width={24}
             height={24}
             className="dark:invert"
           />
-          <p className="whitespace-nowrap font-semibold">next-forge</p>
+          <p className="whitespace-nowrap font-semibold">ShipKit</p>
         </div>
         <div className="flex w-full justify-end gap-4">
           <Button variant="ghost" className="hidden md:inline" asChild>
