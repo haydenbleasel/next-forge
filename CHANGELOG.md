@@ -1,3 +1,16 @@
+# v2.16.8 (Wed Nov 20 2024)
+
+#### 🐛 Bug Fix
+
+- Add recommended libraries documentation [#270](https://github.com/haydenbleasel/next-forge/pull/270) ([@yamz8](https://github.com/yamz8) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
 # v2.16.7 (Wed Nov 20 2024)
 
 #### ⚠️ Pushed to `main`
