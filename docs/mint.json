@@ -109,7 +109,14 @@
           "group": "SEO",
           "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
         },
-        "testing"
+        "testing",
+        {
+          "group": "Recommended Libraries",
+          "pages": [
+            "recommended-libraries/overview",
+            "recommended-libraries/zustand"
+          ]
+        }
       ]
     }
   ],

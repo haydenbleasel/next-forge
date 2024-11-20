@@ -1,0 +1,43 @@
+---
+title: "Zustand"
+description: "State management library for React"
+---
+
+## Zustand
+
+Zustand is a small, fast, and scalable state management library for React applications. It provides a simple and intuitive API for managing state in your React components.
+
+### Features
+
+- Small and fast: Zustand has a small bundle size and minimal performance overhead.
+- Scalable: Zustand can handle large and complex state trees with ease.
+- Simple API: Zustand provides a simple and intuitive API for managing state.
+
+### Example
+
+Here is an example of using Zustand in a React component:
+
+```jsx
+import create from 'zustand';
+
+// Create a Zustand store
+const useStore = create((set) => ({
+  count: 0,
+  increment: () => set((state) => ({ count: state.count + 1 })),
+  decrement: () => set((state) => ({ count: state.count - 1 })),
+}));
+
+// React component using the Zustand store
+function Counter() {
+  const { count, increment, decrement } = useStore();
+  return (
+    <div>
+      <h1>{count}</h1>
+      <button onClick={increment}>Increment</button>
+      <button onClick={decrement}>Decrement</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
