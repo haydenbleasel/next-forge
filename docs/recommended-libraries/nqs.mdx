@@ -1,0 +1,57 @@
+---
+title: "nqs Library"
+description: "Details about the nqs library for URL search parameter state management"
+---
+
+## nqs Library
+
+The `nqs` library is a powerful tool for managing URL search parameters in your application. It provides a simple and efficient way to handle state management through URL search parameters.
+
+### Installation
+
+To install the `nqs` library, you can use npm or yarn:
+
+```bash npm
+npm install nqs
+```
+
+```bash yarn
+yarn add nqs
+```
+
+### Usage
+
+Here is an example of how to use the `nqs` library for URL search parameter state management:
+
+```javascript
+import { useSearchParams } from 'nqs';
+
+function MyComponent() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const handleInputChange = (event) => {
+    setSearchParams({ query: event.target.value });
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={searchParams.query || ''}
+        onChange={handleInputChange}
+      />
+      <p>Search Query: {searchParams.query}</p>
+    </div>
+  );
+}
+```
+
+In this example, the `useSearchParams` hook from the `nqs` library is used to manage the state of the search query through URL search parameters. The `setSearchParams` function updates the URL search parameters whenever the input value changes.
+
+### Benefits
+
+- **Simplified State Management**: The `nqs` library simplifies state management by using URL search parameters, making it easy to share and persist state across different parts of your application.
+- **SEO-Friendly**: By using URL search parameters, the `nqs` library helps improve the SEO of your application by making the state accessible through the URL.
+- **Easy Integration**: The `nqs` library is easy to integrate into your existing React application, providing a seamless experience for managing URL search parameters.
+
+For more information and detailed documentation, visit the [nqs library website](https://nuqs.47ng.com/).
