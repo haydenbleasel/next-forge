@@ -1,3 +1,16 @@
+# v2.16.10 (Wed Nov 20 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+- Document header security ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.9 (Wed Nov 20 2024)
 
 #### ⚠️ Pushed to `main`
