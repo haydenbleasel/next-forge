@@ -40,7 +40,19 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["overview", "setup", "deploying", "faq"]
+      "pages": [
+        "overview",
+        "setup",
+        "deploying",
+        "faq",
+        {
+          "group": "Recommended Libraries",
+          "pages": [
+            "recommended-libraries/nuqs",
+            "recommended-libraries/zustand"
+          ]
+        }
+      ]
     },
     {
       "group": "Structure",
