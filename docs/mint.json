@@ -40,7 +40,19 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["overview", "setup", "deploying", "faq"]
+      "pages": [
+        "overview",
+        "setup",
+        "deploying",
+        "faq",
+        {
+          "group": "Recommended Libraries",
+          "pages": [
+            "recommended-libraries/nqs",
+            "recommended-libraries/zustand"
+          ]
+        }
+      ]
     },
     {
       "group": "Structure",
@@ -109,15 +121,7 @@
           "group": "SEO",
           "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
         },
-        "testing",
-        {
-          "group": "Recommended Libraries",
-          "pages": [
-            "recommended-libraries/overview",
-            "recommended-libraries/nqs",
-            "recommended-libraries/zustand"
-          ]
-        }
+        "testing"
       ]
     }
   ],
