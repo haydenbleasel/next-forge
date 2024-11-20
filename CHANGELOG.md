@@ -1,3 +1,15 @@
+# v2.16.9 (Wed Nov 20 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #272 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.8 (Wed Nov 20 2024)
 
 #### 🐛 Bug Fix
