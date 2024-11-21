@@ -1,3 +1,19 @@
+# v2.16.12 (Thu Nov 21 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Create Auth.js migration guide [#268](https://github.com/haydenbleasel/next-forge/pull/268) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.11 (Wed Nov 20 2024)
 
 #### ⚠️ Pushed to `main`
