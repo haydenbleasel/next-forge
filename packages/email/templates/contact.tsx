@@ -9,6 +9,7 @@ import {
   Tailwind,
   Text,
 } from '@react-email/components';
+import { EmailHeader } from '../components/email-header';
 
 type ContactTemplateProps = {
   readonly name: string;
@@ -29,6 +30,7 @@ export const ContactTemplate = ({
         <Container className="mx-auto py-12">
           <Section className="mt-8 rounded-md bg-zinc-200 p-px">
             <Section className="rounded-[5px] bg-white p-8">
+              <EmailHeader />
               <Text className="mt-0 mb-4 font-semibold text-2xl text-zinc-950">
                 New email from {name}
               </Text>
