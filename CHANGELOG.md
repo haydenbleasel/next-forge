@@ -1,3 +1,15 @@
+# v2.16.14 (Sat Nov 23 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Attempt to fix Mintlify images again ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.13 (Sat Nov 23 2024)
 
 #### ⚠️ Pushed to `main`
