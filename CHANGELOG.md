@@ -1,3 +1,19 @@
+# v2.16.15 (Sat Nov 23 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Yanis Vestfalskii ([@yanisneverlies](https://github.com/yanisneverlies)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: resolve submenu duplication issues by using index as a key [#278](https://github.com/haydenbleasel/next-forge/pull/278) ([@yanisneverlies](https://github.com/yanisneverlies))
+
+#### Authors: 1
+
+- Yanis Vestfalskii ([@yanisneverlies](https://github.com/yanisneverlies))
+
+---
+
 # v2.16.14 (Sat Nov 23 2024)
 
 #### ⚠️ Pushed to `main`
