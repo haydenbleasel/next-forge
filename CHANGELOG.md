@@ -1,3 +1,19 @@
+# v2.16.16 (Sun Nov 24 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Pierangelo Di Pilato ([@pierDipi](https://github.com/pierDipi)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Minor: fix authjs migration secrets creation command [#281](https://github.com/haydenbleasel/next-forge/pull/281) ([@pierDipi](https://github.com/pierDipi))
+
+#### Authors: 1
+
+- Pierangelo Di Pilato ([@pierDipi](https://github.com/pierDipi))
+
+---
+
 # v2.16.15 (Sat Nov 23 2024)
 
 :tada: This release contains work from a new contributor! :tada:
