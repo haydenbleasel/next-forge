@@ -62,6 +62,8 @@ jobs:
           echo "ARCJET_KEY=ajkey_test" >> apps/app/.env.local
           echo "SVIX_TOKEN=testsk_test" >> apps/app/.env.local
           echo "LIVEBLOCKS_SECRET=sk_test" >> apps/app/.env.local
+          echo "KNOCK_API_KEY=test" >> apps/app/.env.local
+          echo "KNOCK_FEED_CHANNEL_ID=test" >> apps/app/.env.local
 
           echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_JA==" >> apps/app/.env.local
           echo "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in" >> apps/app/.env.local
