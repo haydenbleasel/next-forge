@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { useToast } from '@/registry/default/hooks/use-toast';
 import {
   Toast,
   ToastAction,
@@ -8,6 +7,7 @@ import {
   type ToastProps,
 } from '@repo/design-system/components/ui/toast';
 import { Toaster } from '@repo/design-system/components/ui/toaster';
+import { useToast } from '@repo/design-system/hooks/use-toast';
 
 /**
  * A succinct message that is displayed temporarily.
