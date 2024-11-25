@@ -1,3 +1,16 @@
+# v2.16.17 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update authors.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.16 (Sun Nov 24 2024)
 
 :tada: This release contains work from a new contributor! :tada:
