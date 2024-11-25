@@ -1,3 +1,28 @@
+# v2.18.2 (Mon Nov 25 2024)
+
+#### 🐛 Bug Fix
+
+- Added env variable NEXT_PUBLIC_API_URL [#245](https://github.com/haydenbleasel/next-forge/pull/245) ([@OsoThevenin](https://github.com/OsoThevenin) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Pere Bruy ([@OsoThevenin](https://github.com/OsoThevenin))
+
+---
+
+# v2.18.1 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #286, resolves #247 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.0 (Mon Nov 25 2024)
 
 #### 🚀 Enhancement
