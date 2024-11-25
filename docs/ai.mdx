@@ -10,8 +10,8 @@ next-forge has a pre-configured `ai` package that uses [ai-sdk](https://sdk.verc
 To use the `ai` package, you can import it from the `@repo/ai` package. For example:
 
 ```ts
-import { generateText, provider } from '@repo/ai';
-
+import { generateText } from '@repo/ai';
+import { provider } from '@repo/ai/provider';
 const response = await generateText({
   model: provider('gpt-4o'),
   prompt: 'Hello, world!',
@@ -23,8 +23,9 @@ const response = await generateText({
 You can use the `paymentsAgentToolkit` to add payments capabilities to your AI agent for financial services. As next-forge uses Stripe by default, here's an example of how to use it:
 
 ```ts
-import { generateText, provider } from '@repo/ai';
+import { generateText } from '@repo/ai';
 import { paymentsAgentToolkit } from '@repo/payments/ai';
+import { provider } from '@repo/ai/provider';
 
 const response = await generateText({
   model: provider('gpt-4o'),
@@ -43,9 +44,10 @@ There are quite a few ways to add analytics to your AI agent depending on your u
 Here's a simple example of how to add analytics to a `generateText` request using our `analytics` package:
 
 ```tsx
-import { generateText, provider } from '@repo/ai';
+import { generateText } from '@repo/ai';
 import { analytics } from '@repo/analytics/posthog/server';
 import { currentUser } from '@repo/auth/server';
+import { provider } from '@repo/ai/provider';
 
 const model = provider('gpt-4o');
 const prompt = 'Hello, world!';
