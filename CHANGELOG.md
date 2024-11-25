@@ -1,3 +1,15 @@
+# v2.17.0 (Mon Nov 25 2024)
+
+#### 🚀 Enhancement
+
+- Add Storybook [#167](https://github.com/haydenbleasel/next-forge/pull/167) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.16.17 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
