@@ -1,3 +1,15 @@
+# v2.18.7 (Mon Nov 25 2024)
+
+#### 🐛 Bug Fix
+
+- feat: Add built-in components for readability [#287](https://github.com/haydenbleasel/next-forge/pull/287) ([@fmerian](https://github.com/fmerian))
+
+#### Authors: 1
+
+- flo merian ([@fmerian](https://github.com/fmerian))
+
+---
+
 # v2.18.6 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
