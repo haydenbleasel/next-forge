@@ -85,3 +85,15 @@ analytics.capture({
   },
 });
 ```
+
+## Using a different provider
+
+If you want to use a different provider, you can modify the `provider` in `@repo/ai/provider.ts` to use the one you want. For example, to use Anthropic, you can change it to:
+
+```ts packages/ai/provider.ts
+import { createAnthropic } from '@ai-sdk/anthropic';
+
+export const provider = createAnthropic({
+  apiKey: env.ANTHROPIC_API_KEY,
+});
+```
