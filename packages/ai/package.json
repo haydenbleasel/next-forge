@@ -4,7 +4,8 @@
   "private": true,
   "dependencies": {
     "@ai-sdk/openai": "^1.0.4",
-    "@repo/env": "workspace:*"
+    "@repo/env": "workspace:*",
+    "ai": "^4.0.4"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*"
