@@ -12,6 +12,7 @@ To use the `ai` package, you can import it from the `@repo/ai` package. For exam
 ```ts
 import { generateText } from '@repo/ai';
 import { provider } from '@repo/ai/provider';
+
 const response = await generateText({
   model: provider('gpt-4o'),
   prompt: 'Hello, world!',
