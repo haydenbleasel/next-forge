@@ -1,3 +1,15 @@
+# v2.18.0 (Mon Nov 25 2024)
+
+#### 🚀 Enhancement
+
+- Symlink environment variables [#285](https://github.com/haydenbleasel/next-forge/pull/285) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.17.3 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
