@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",
-    "ngrok": "ngrok http http://localhost:3002",
+    "ngrok": "ngrok http --url=your-domain-name 3002",
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
   },
   "dependencies": {
