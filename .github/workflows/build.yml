@@ -50,7 +50,6 @@ jobs:
 
           echo "CLERK_SECRET_KEY=sk_test_JA==" >> .env.local
           echo "CLERK_WEBHOOK_SECRET=whsec_test" >> .env.local
-          echo "RESEND_AUDIENCE_ID=test" >> .env.local
           echo "RESEND_FROM=test@test.com" >> .env.local
           echo "DATABASE_URL=postgresql://test:test@localhost:5432/test" >> .env.local
           echo "RESEND_TOKEN=re_test" >> .env.local

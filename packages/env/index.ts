@@ -4,7 +4,6 @@ import { z } from 'zod';
 const server: Parameters<typeof createEnv>[0]['server'] = {
   CLERK_SECRET_KEY: z.string().min(1).startsWith('sk_'),
   CLERK_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
-  RESEND_AUDIENCE_ID: z.string().min(1),
   RESEND_FROM: z.string().min(1).email(),
   DATABASE_URL: z.string().min(1).url(),
   RESEND_TOKEN: z.string().min(1).startsWith('re_'),
@@ -56,7 +55,6 @@ export const env = createEnv({
   runtimeEnv: {
     CLERK_SECRET_KEY: process.env.CLERK_SECRET_KEY,
     CLERK_WEBHOOK_SECRET: process.env.CLERK_WEBHOOK_SECRET,
-    RESEND_AUDIENCE_ID: process.env.RESEND_AUDIENCE_ID,
     RESEND_FROM: process.env.RESEND_FROM,
     DATABASE_URL: process.env.DATABASE_URL,
     RESEND_TOKEN: process.env.RESEND_TOKEN,
