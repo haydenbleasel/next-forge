@@ -130,8 +130,10 @@ export const Header = () => {
             <Link href="/contact">Contact us</Link>
           </Button>
           <div className="hidden border-r md:inline" />
-          <ModeToggle />
-          <Button variant="outline" asChild>
+          <div className="hidden md:inline">
+            <ModeToggle />
+          </div>
+          <Button variant="outline" asChild className="hidden md:inline">
             <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>Sign in</Link>
           </Button>
           <Button asChild>
