@@ -220,12 +220,10 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                 >
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild tooltip={item.title}>
-                      <CollapsibleTrigger asChild>
-                        <a href={item.url}>
-                          <item.icon />
-                          <span>{item.title}</span>
-                        </a>
-                      </CollapsibleTrigger>
+                      <a href={item.url}>
+                        <item.icon />
+                        <span>{item.title}</span>
+                      </a>
                     </SidebarMenuButton>
                     {item.items?.length ? (
                       <>
