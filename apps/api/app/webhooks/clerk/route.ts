@@ -9,6 +9,7 @@ import type {
 import { env } from '@repo/env';
 import { log } from '@repo/observability/log';
 import { headers } from 'next/headers';
+import { NextResponse } from 'next/server';
 import { Webhook } from 'svix';
 
 const handleUserCreated = (data: UserJSON) => {
@@ -140,6 +141,10 @@ const handleOrganizationMembershipDeleted = (
 };
 
 export const POST = async (request: Request): Promise<Response> => {
+  if (!env.CLERK_WEBHOOK_SECRET) {
+    return NextResponse.json({ message: 'Not configured', ok: false });
+  }
+
   // Get the headers
   const headerPayload = await headers();
   const svixId = headerPayload.get('svix-id');
