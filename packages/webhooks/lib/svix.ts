@@ -5,7 +5,7 @@ import { Svix } from 'svix';
 
 const svix = new Svix(env.SVIX_TOKEN);
 
-export const send = async (eventType: string, payload: any) => {
+export const send = async (eventType: string, payload: object) => {
   const { orgId } = await auth();
 
   if (!orgId) {
