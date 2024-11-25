@@ -1,3 +1,19 @@
+# v2.18.3 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update .gitignore ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #275 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #199 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.2 (Mon Nov 25 2024)
 
 #### 🐛 Bug Fix
