@@ -1,3 +1,18 @@
+# v2.17.3 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #271 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #272 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #280 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.17.2 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
