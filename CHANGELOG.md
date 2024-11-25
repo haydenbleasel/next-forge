@@ -1,3 +1,15 @@
+# v2.18.12 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Temporarily revert symlinks due to prod build issue ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.11 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
