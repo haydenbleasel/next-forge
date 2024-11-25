@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@repo/env": "workspace:*",
+    "@stripe/agent-toolkit": "^0.1.21",
     "stripe": "^17.3.1"
   },
   "devDependencies": {

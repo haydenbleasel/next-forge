@@ -1,0 +1,37 @@
+---
+title: AI
+description: How to use AI in next-forge.
+---
+
+next-forge has a pre-configured `ai` package that uses [ai-sdk](https://github.com/vercel/ai-sdk) to provide a simple interface for interacting with AI models.
+
+## Usage
+
+To use the `ai` package, you can import it from the `@repo/ai` package. For example:
+
+```tsx
+import { ai } from '@repo/ai';
+
+const response = await ai.generateText({
+  model: 'gpt-4o',
+  prompt: 'Hello, world!',
+});
+```
+
+## Adding payment agentic capabilities
+
+You can use the `paymentsAgentToolkit` to add payments capabilities to your AI agent for financial services. As next-forge uses Stripe by default, here's an example of how to use it:
+
+```tsx
+import { ai } from '@repo/ai';
+import { paymentsAgentToolkit } from '@repo/payments/ai';
+
+const response = await ai.generateText({
+  model: 'gpt-4o',
+  tools: {
+    ...paymentsAgentToolkit.getTools(),
+  },
+  maxSteps: 5,
+  prompt: 'Create a payment link for a new product called \"Test\" with a price of $100.',
+})
+```
