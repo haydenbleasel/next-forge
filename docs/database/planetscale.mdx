@@ -17,17 +17,11 @@ Keep this connection string handy, you will need it in the next step.
 
 ## 2. Update your environment variables
 
-Update your environment variables to use the new PlanetScale connection string:
+Update your `DATABASE_URL` environment variable to use the new PlanetScale connection string:
 
-```js apps/database/.env
+```js .env.local
 DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
 ```
-
-```js apps/app/.env.local
-DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
-```
-
-Etcetera.
 
 ## 3. Swap out the required dependencies in `@repo/database`
 

@@ -25,15 +25,13 @@ pnpm add next-auth@beta --filter auth
 
 ## 2. Generate an Auth.js secret
 
-Auth.js requires a random value secret, used by the library to encrypt tokens and email verification hashes. In each of the relevant app directories, generate a secret with the following command:
+Auth.js requires a random value secret, used by the library to encrypt tokens and email verification hashes. Generate a secret with the following command:
 
 ```sh Terminal
-cd apps/app && npx auth secret && cd -
-cd apps/web && npx auth secret && cd -
-cd apps/api && npx auth secret && cd -
+npx auth secret
 ```
 
-This will automatically add an `AUTH_SECRET` environment variable to the `.env.local` file in each directory.
+This will automatically add an `AUTH_SECRET` environment variable to the root `.env.local` file.
 
 ## 3. Replace the relevant files
 
