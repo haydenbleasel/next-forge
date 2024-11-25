@@ -10,8 +10,8 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   RESEND_TOKEN: z.string().min(1).startsWith('re_'),
   STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
-  BETTERSTACK_API_KEY: z.string().min(1),
-  BETTERSTACK_URL: z.string().min(1).url(),
+  BETTERSTACK_API_KEY: z.string().min(1).optional(),
+  BETTERSTACK_URL: z.string().min(1).url().optional(),
   ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
   ANALYZE: z.string().optional(),
   SVIX_TOKEN: z
