@@ -1,3 +1,16 @@
+# v2.18.6 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update ai.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix AI provider snippet ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.5 (Mon Nov 25 2024)
 
 #### ⚠️ Pushed to `main`
