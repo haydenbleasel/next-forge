@@ -62,6 +62,10 @@ const handleSubscriptionScheduleCanceled = async (
 };
 
 export const POST = async (request: Request): Promise<Response> => {
+  if (!env.STRIPE_WEBHOOK_SECRET) {
+    return NextResponse.json({ message: 'Not configured', ok: false });
+  }
+
   try {
     const body = await request.text();
     const headerPayload = await headers();

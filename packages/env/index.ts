@@ -9,7 +9,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   DATABASE_URL: z.string().min(1).url(),
   RESEND_TOKEN: z.string().min(1).startsWith('re_'),
   STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
-  STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_'),
+  STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
   BETTERSTACK_API_KEY: z.string().min(1).optional(),
   BETTERSTACK_URL: z.string().min(1).url().optional(),
   ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
