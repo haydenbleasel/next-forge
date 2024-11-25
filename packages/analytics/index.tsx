@@ -12,7 +12,7 @@ export const AnalyticsProvider = ({ children }: AnalyticsProviderProps) => (
   <PostHogProvider>
     {children}
     <VercelAnalytics />
-    {env.NODE_ENV !== 'development' && (
+    {env.NODE_ENV !== 'development' && env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
       <GoogleAnalytics gaId={env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
     )}
   </PostHogProvider>
