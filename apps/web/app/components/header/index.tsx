@@ -52,12 +52,15 @@ export const Header = () => {
       href: '/blog',
       description: '',
     },
-    {
+  ];
+
+  if (env.NEXT_PUBLIC_DOCS_URL) {
+    navigationItems.push({
       title: 'Docs',
       href: env.NEXT_PUBLIC_DOCS_URL,
       description: '',
-    },
-  ];
+    });
+  }
 
   const [isOpen, setOpen] = useState(false);
   return (

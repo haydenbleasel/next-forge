@@ -41,7 +41,7 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
   NEXT_PUBLIC_APP_URL: z.string().min(1).url(),
   NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
   NEXT_PUBLIC_API_URL: z.string().min(1).url().optional(),
-  NEXT_PUBLIC_DOCS_URL: z.string().min(1).url(),
+  NEXT_PUBLIC_DOCS_URL: z.string().min(1).url().optional(),
   NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().min(1).startsWith('G-').optional(),
   NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1).startsWith('phc_'),
   NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1).url(),
