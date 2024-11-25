@@ -70,12 +70,19 @@ turso db tokens create <database-name>
 
 ## 4. Update your environment variables
 
-Update your `DATABASE_URL` and `DATABASE_AUTH_TOKEN` environment variables to use the new Turso connection string and auth token:
+Update your environment variables to use the new Turso connection string:
 
-```js .env.local
+```js apps/database/.env
 DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
 DATABASE_AUTH_TOKEN="..."
 ```
+
+```js apps/app/.env.local
+DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
+DATABASE_AUTH_TOKEN="..."
+```
+
+Etcetera.
 
 Now inside `packages/env/index.ts`, add `DATABASE_AUTH_TOKEN` to the `server` and `runtimeEnv` objects:
 

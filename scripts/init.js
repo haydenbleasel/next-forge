@@ -27,6 +27,14 @@ try {
   console.log('Installing dependencies...');
   execSync('pnpm install', { stdio: 'inherit' });
 
+  console.log('Copying .env.example files to .env.local...');
+
+  for (const app of ['api', 'app', 'web']) {
+    fs.copyFileSync(`apps/${app}/.env.example`, `apps/${app}/.env.local`);
+  }
+
+  fs.copyFileSync('packages/database/.env.example', 'packages/database/.env');
+
   console.log('Deleting internal content...');
   for (const dir of ['.github/workflows', 'docs', 'splash']) {
     fs.rmSync(dir, { recursive: true, force: true });
