@@ -1,3 +1,15 @@
+# v2.17.1 (Mon Nov 25 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.17.0 (Mon Nov 25 2024)
 
 #### 🚀 Enhancement
