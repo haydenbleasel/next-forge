@@ -43,7 +43,6 @@
       "pages": [
         "overview",
         "setup",
-        "deploying",
         "faq",
         {
           "group": "Recommended Libraries",
@@ -133,6 +132,10 @@
         },
         "testing"
       ]
+    },
+    {
+      "group": "Deployment",
+      "pages": ["deployment/vercel"]
     }
   ],
 
