@@ -29,6 +29,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   VERCEL: z.string().optional(),
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
   FLAGS_SECRET: z.string().min(1),
+  BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
 };
 
 const client: Parameters<typeof createEnv>[0]['client'] = {
@@ -69,6 +70,7 @@ export const env = createEnv({
     VERCEL: process.env.VERCEL,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     FLAGS_SECRET: process.env.FLAGS_SECRET,
+    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     SVIX_TOKEN: process.env.SVIX_TOKEN,
     LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
