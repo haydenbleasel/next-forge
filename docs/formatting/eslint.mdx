@@ -94,10 +94,9 @@ Add the following to your `.vscode/settings.json` file to match the following:
 
 As Next.js uses ESLint for linting, we can re-enable the `lint` script in the root `package.json` files. In each of the Next.js apps, update the `package.json` file to include the following:
 
-```json apps/app/package.json
+```json apps/app/package.json {2}
 {
   "scripts": {
-    // ...
     "lint": "next lint"
   }
 }
