@@ -5,10 +5,10 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "@stripe/agent-toolkit": "^0.1.21",
-    "stripe": "^17.3.1"
+    "stripe": "^17.4.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "typescript": "^5.6.3"
+    "typescript": "^5.7.2"
   }
 }
