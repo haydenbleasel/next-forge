@@ -1,3 +1,29 @@
+# v2.18.19 (Wed Nov 27 2024)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Bereket Engida ([@Bekacru](https://github.com/Bekacru))
+
+:heart: Matthew Hefferon ([@matthewhefferon](https://github.com/matthewhefferon))
+
+#### 🐛 Bug Fix
+
+- docs: add better-auth guide [#294](https://github.com/haydenbleasel/next-forge/pull/294) ([@Bekacru](https://github.com/Bekacru) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Added Metabase documentation [#292](https://github.com/haydenbleasel/next-forge/pull/292) ([@matthewhefferon](https://github.com/matthewhefferon) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 3
+
+- Bereket Engida ([@Bekacru](https://github.com/Bekacru))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Matthew Hefferon ([@matthewhefferon](https://github.com/matthewhefferon))
+
+---
+
 # v2.18.18 (Tue Nov 26 2024)
 
 #### ⚠️ Pushed to `main`
