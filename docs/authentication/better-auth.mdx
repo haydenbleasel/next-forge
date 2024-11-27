@@ -1,0 +1,162 @@
+---
+title: Switch to Better Auth
+description: How to switch from Clerk to Better Auth.
+---
+
+Better Auth is a comprehensive open source library, that integrates well with Next.js and provides a lot of features out of the box.
+
+## 1. Remove all clerk related dependencies
+
+Uninstall the existing Clerk dependencies from the auth package…
+
+```sh Terminal
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
+```
+
+and install Better Auth dependency
+
+```sh Terminal
+pnpm add better-auth
+```
+
+## 2. Set Environment Variables
+
+Generate a secret with the following command to add it to the `.env.local` file.
+
+```sh Terminal
+npx @better-auth/cli secret
+```
+
+## 3. Create a Better Auth Instance
+
+create `auth.ts` field in the `auth` package. And add the following code:
+
+```tsx packages/auth/auth.ts
+import { betterAuth } from 'better-auth';
+import { nextCookies } from "better-auth/next-js";
+import { prismaAdapter } from "better-auth/adapters/prisma-adapter";
+import { database } from "@repo/db"
+
+const auth = betterAuth({
+    database: prismAdapter(database),
+    plugins: [
+        nextCookies()
+    ],
+    //...add more options here
+});
+```
+
+Read more about [Better Auth installation guide](https://better-auth.coms/docs/installtion).
+
+## 4. Generate Prisma Models
+
+Generate Prisma models for Better Auth by running the following command:
+
+```sh Terminal
+npx @better-auth/cli generate --output ../database/prisma/schema.prisma
+```
+
+## 5. Create A Client Instance
+
+Create a client instance in the `auth` package. And add the following code:
+
+```tsx packages/auth/client.ts
+import { createAuthClient } from 'better-auth/react';
+
+export const authClient = createAuthClient();
+
+export const { signIn, signOut, signUp, useSession } = authClient;
+```
+
+## 6. Change Sign In and Sign Up Components
+
+Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `authClient`.
+
+```tsx packages/auth/components/sign-in.tsx
+"use client";
+import { signIn } from '../client';
+
+export const SignIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    return (
+        <form
+            onSubmit={async (e) => {
+                e.preventDefault();
+                await signIn.email({
+                    email,
+                    password,
+                    name
+                })
+            }}
+        >
+            <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
+            <button type="submit">Sign in</button>
+        </form>
+    );
+}
+```
+
+You can use different sign-in methods like social providers, phone, username etc. Read more about [Better Auth basic usage](https://better-auth.coms/docs/basic-usage).
+
+## 7. Remove Clerk Provider
+
+Remove the Clerk provider from `index` file in `design-system` package. Better Auth doesn't require a provider. To get the session, you can use the `useSession` hook from the `authClient`. Which behind the scene uses [nanostores](https://nanostores.com) to manage the session.
+
+## 8. Change Middleware
+
+Change the middleware in the `auth` package to the following:
+
+```tsx packages/auth/middleware.ts
+import { NextRequest } from "next/server";
+import { createAuthClient } from "better-auth/client";
+
+const { getSession } = createAuthClient();
+
+const isProtectedRoute = (request: NextRequest) => {
+    return request.url.startsWith("/dashboard"); // change this to your protected route
+}
+
+export async function authMiddleware(request: NextRequest){
+    const session = await getSession(request);
+    if(isProtectedRoute(request) && !session){
+        return NextResponse.redirect(new URL("/sign-in", request.url));
+    }
+    return NextResponse.next();
+}
+```
+
+## 9. Update your apps
+
+From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth. For example, you can replace the `auth` import in the `page.tsx` file in the `dashboard` package with the `auth` import from the `auth` package.
+
+```tsx page.tsx
+const { orgId } = await auth();
+const { redirectToSignIn } = await auth();
+const user = await currentUser();
+```
+
+to
+    
+```tsx page.tsx
+const organization = useActiveOrganization();
+const session = await auth.api.getSession();
+```
+
+For using organization, check [organization plugin](https://better-auth.com/docs/plugins/organization) and more from the [Better Auth documentation](https://better-auth.com/docs).
