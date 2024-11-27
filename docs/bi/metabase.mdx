@@ -1,7 +1,29 @@
 ---
 title: Metabase
-description: Business Intelligence and Analytics
+description: How to add business intelligence and analytics to your app with Metabase
 ---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Matthew Hefferon',
+    id: 'heffhq',
+  },
+  company: {
+    name: 'Metabase',
+    id: 'metabase',
+  },
+}]} />
 
 next-forge has support for business intelligence and analytics via Metabase.
 
@@ -33,10 +55,16 @@ By default, next-forge uses Neon as its database provider. Metabase works great 
 - The `password` you use for the database
 
 In Neon, you can find your connection details under your Project Dashboard:
-![Connection Details](../images/authors/metabase/metabase-neon-connection-details.png "Connection Details")
+
+<Frame>
+  <img src="/images/metabase-neon-connection-details.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
 
 Next, plug your database connection credentials into Metabase:
-![Add Database](../images/authors/metabase/metabase-add-database.png "Add Database")
+
+<Frame>
+  <img src="/images/metabase-add-database.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
 
 Metabase supports over 20 databases. If you're working with a database other than postgres and want to integrate it, check out the [Metabase Database Documentation](https://www.metabase.com/docs/latest/databases/connecting).
 

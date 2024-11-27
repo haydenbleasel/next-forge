@@ -72,6 +72,10 @@
           "group": "Authentication",
           "pages": ["authentication/overview", "authentication/authjs"]
         },
+        {
+          "group": "BI",
+          "pages": ["bi/metabase"]
+        },
         "blog",
         "bundle-analysis",
         "collaboration",
