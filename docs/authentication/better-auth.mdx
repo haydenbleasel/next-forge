@@ -86,47 +86,93 @@ Read more in the Better Auth [installation guide](https://www.better-auth.com/do
 
 Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `client` file.
 
-```tsx packages/auth/components/sign-in.tsx
-"use client";
+<CodeGroup>
 
-import { signIn } from '../client';
+  ```tsx packages/auth/components/sign-in.tsx
+  "use client";
 
-export const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
+  import { signIn } from '../client';
 
-  return (
-    <form
-      onSubmit={async (e) => {
-        e.preventDefault();
-        await signIn.email({
-          email,
-          password,
-          name
-        })
-      }}
-    >
-      <input
-        type="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <input
-        type="text"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <button type="submit">Sign in</button>
-    </form>
-  );
-}
-```
+  export const SignIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    return (
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await signIn.email({
+            email,
+            password,
+            name
+          })
+        }}
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit">Sign in</button>
+      </form>
+    );
+  }
+  ```
+
+  ```tsx packages/auth/components/sign-up.tsx
+  "use client";
+
+  import { signUp } from '../client';
+
+  export const SignUp = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    return (
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await signUp.email({
+            email,
+            password,
+            name
+          })
+        }}
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit">Sign up</button>
+      </form>
+    );
+  }
+  ```
+
+</CodeGroup>
 
 You can use different sign-in methods like social providers, phone, username etc. Read more about Better Auth [basic usage](https://better-auth.com/docs/basic-usage).
 
@@ -166,7 +212,7 @@ const isProtectedRoute = (request: NextRequest) => {
   return request.url.startsWith("/dashboard"); // change this to your protected route
 }
 
-export async function authMiddleware (request: NextRequest) {
+export const authMiddleware = async (request: NextRequest) => {
   const session = await getSession(request);
   
   if (isProtectedRoute(request) && !session) {
