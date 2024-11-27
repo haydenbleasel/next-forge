@@ -3,17 +3,39 @@ title: Switch to Better Auth
 description: How to switch from Clerk to Better Auth.
 ---
 
-Better Auth is a comprehensive open source library, that integrates well with Next.js and provides a lot of features out of the box.
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Bereket Engida',
+    id: 'imbereket',
+  },
+  company: {
+    name: 'Better Auth',
+    id: 'better-auth',
+  },
+}]} />
+
+Better Auth is a comprehensive, open-source authentication framework for TypeScript. It is designed to be framework agnostic, but integrates well with Next.js and provides a lot of features out of the box.
 
 ## 1. Swap out the `auth` package dependencies
 
-Uninstall the existing Clerk dependencies from the auth package...
+Uninstall the existing Clerk dependencies from the `auth` package...
 
 ```sh Terminal
 pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
 ```
 
-...and install Better Auth:
+...and install the Better Auth dependencies:
 
 ```sh Terminal
 pnpm add better-auth --filter auth
@@ -21,7 +43,7 @@ pnpm add better-auth --filter auth
 
 ## 2. Update your environment variables
 
-Generate a secret with the following command to add it to the `.env.local` file in each package:
+Generate a secret with the following command to add it to the `.env.local` file in each Next.js application (`app`, `web` and `api`):
 
 ```sh Terminal
 npx @better-auth/cli secret
@@ -31,7 +53,7 @@ This will add a `BETTER_AUTH_SECRET` environment variable to the `.env.local` fi
 
 ## 3. Setup the server and client auth
 
-Replace the contents of the `server.ts` file in the `auth` package with the following code:
+Update the `auth` package files with the following code:
 
 <CodeGroup>
 
@@ -58,7 +80,7 @@ Replace the contents of the `server.ts` file in the `auth` package with the foll
 
 </CodeGroup>
 
-Read more in the [Better Auth installation guide](https://www.better-auth.com/docs/installation).
+Read more in the Better Auth [installation guide](https://www.better-auth.com/docs/installation).
 
 ## 5. Update the auth components
 
@@ -106,7 +128,7 @@ export const SignIn = () => {
 }
 ```
 
-You can use different sign-in methods like social providers, phone, username etc. Read more about [Better Auth basic usage](https://better-auth.com/docs/basic-usage).
+You can use different sign-in methods like social providers, phone, username etc. Read more about Better Auth [basic usage](https://better-auth.com/docs/basic-usage).
 
 ## 6. Generate Prisma Models
 
