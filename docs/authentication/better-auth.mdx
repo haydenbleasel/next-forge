@@ -5,119 +5,130 @@ description: How to switch from Clerk to Better Auth.
 
 Better Auth is a comprehensive open source library, that integrates well with Next.js and provides a lot of features out of the box.
 
-## 1. Remove all clerk related dependencies
+## 1. Swap out the `auth` package dependencies
 
-Uninstall the existing Clerk dependencies from the auth package…
+Uninstall the existing Clerk dependencies from the auth package...
 
 ```sh Terminal
 pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
 ```
 
-and install Better Auth dependency
+...and install Better Auth:
 
 ```sh Terminal
-pnpm add better-auth
+pnpm add better-auth --filter auth
 ```
 
-## 2. Set Environment Variables
+## 2. Update your environment variables
 
-Generate a secret with the following command to add it to the `.env.local` file.
+Generate a secret with the following command to add it to the `.env.local` file in each package:
 
 ```sh Terminal
 npx @better-auth/cli secret
 ```
 
-## 3. Create a Better Auth Instance
+This will add a `BETTER_AUTH_SECRET` environment variable to the `.env.local` file.
 
-create `auth.ts` field in the `auth` package. And add the following code:
+## 3. Setup the server and client auth
 
-```tsx packages/auth/auth.ts
-import { betterAuth } from 'better-auth';
-import { nextCookies } from "better-auth/next-js";
-import { prismaAdapter } from "better-auth/adapters/prisma-adapter";
-import { database } from "@repo/db"
+Replace the contents of the `server.ts` file in the `auth` package with the following code:
 
-const auth = betterAuth({
+<CodeGroup>
+
+  ```ts packages/auth/server.ts
+  import { betterAuth } from 'better-auth';
+  import { nextCookies } from "better-auth/next-js";
+  import { prismaAdapter } from "better-auth/adapters/prisma-adapter";
+  import { database } from "@repo/database"
+
+  export const auth = betterAuth({
     database: prismAdapter(database),
     plugins: [
-        nextCookies()
+      nextCookies()
     ],
     //...add more options here
-});
-```
+  });
+  ```
 
-Read more about [Better Auth installation guide](https://better-auth.coms/docs/installtion).
+  ```ts packages/auth/client.ts
+  import { createAuthClient } from 'better-auth/react';
 
-## 4. Generate Prisma Models
+  export const { signIn, signOut, signUp, useSession } = createAuthClient();
+  ```
 
-Generate Prisma models for Better Auth by running the following command:
+</CodeGroup>
 
-```sh Terminal
-npx @better-auth/cli generate --output ../database/prisma/schema.prisma
-```
+Read more in the [Better Auth installation guide](https://www.better-auth.com/docs/installation).
 
-## 5. Create A Client Instance
+## 5. Update the auth components
 
-Create a client instance in the `auth` package. And add the following code:
-
-```tsx packages/auth/client.ts
-import { createAuthClient } from 'better-auth/react';
-
-export const authClient = createAuthClient();
-
-export const { signIn, signOut, signUp, useSession } = authClient;
-```
-
-## 6. Change Sign In and Sign Up Components
-
-Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `authClient`.
+Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `client` file.
 
 ```tsx packages/auth/components/sign-in.tsx
 "use client";
+
 import { signIn } from '../client';
 
 export const SignIn = () => {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
 
-    return (
-        <form
-            onSubmit={async (e) => {
-                e.preventDefault();
-                await signIn.email({
-                    email,
-                    password,
-                    name
-                })
-            }}
-        >
-            <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-            />
-            <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-            />
-            <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
-            <button type="submit">Sign in</button>
-        </form>
-    );
+  return (
+    <form
+      onSubmit={async (e) => {
+        e.preventDefault();
+        await signIn.email({
+          email,
+          password,
+          name
+        })
+      }}
+    >
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+      />
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button type="submit">Sign in</button>
+    </form>
+  );
 }
 ```
 
-You can use different sign-in methods like social providers, phone, username etc. Read more about [Better Auth basic usage](https://better-auth.coms/docs/basic-usage).
+You can use different sign-in methods like social providers, phone, username etc. Read more about [Better Auth basic usage](https://better-auth.com/docs/basic-usage).
 
-## 7. Remove Clerk Provider
+## 6. Generate Prisma Models
 
-Remove the Clerk provider from `index` file in `design-system` package. Better Auth doesn't require a provider. To get the session, you can use the `useSession` hook from the `authClient`. Which behind the scene uses [nanostores](https://nanostores.com) to manage the session.
+From the root folder, generate Prisma models for Better Auth by running the following command:
+
+```sh Terminal
+npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma
+```
+
+## 7. Update the Provider file
+
+Better Auth has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
+
+```tsx packages/auth/provider.tsx
+import type { ReactNode } from 'react';
+
+type AuthProviderProps = {
+  children: ReactNode;
+};
+
+export const AuthProvider = ({ children }: AuthProviderProps) => children;
+```
 
 ## 8. Change Middleware
 
@@ -130,15 +141,17 @@ import { createAuthClient } from "better-auth/client";
 const { getSession } = createAuthClient();
 
 const isProtectedRoute = (request: NextRequest) => {
-    return request.url.startsWith("/dashboard"); // change this to your protected route
+  return request.url.startsWith("/dashboard"); // change this to your protected route
 }
 
-export async function authMiddleware(request: NextRequest){
-    const session = await getSession(request);
-    if(isProtectedRoute(request) && !session){
-        return NextResponse.redirect(new URL("/sign-in", request.url));
-    }
-    return NextResponse.next();
+export async function authMiddleware (request: NextRequest) {
+  const session = await getSession(request);
+  
+  if (isProtectedRoute(request) && !session) {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  
+  return NextResponse.next();
 }
 ```
 
