@@ -64,7 +64,7 @@ Update the `auth` package files with the following code:
   import { database } from "@repo/database"
 
   export const auth = betterAuth({
-    database: prismAdapter(database),
+    database: prismaAdapter(database),
     plugins: [
       nextCookies()
     ],
@@ -92,6 +92,7 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
   "use client";
 
   import { signIn } from '../client';
+  import { useState } from 'react';
 
   export const SignIn = () => {
     const [email, setEmail] = useState("");
@@ -134,6 +135,7 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
   "use client";
 
   import { signUp } from '../client';
+  import { useState } from 'react';
 
   export const SignUp = () => {
     const [email, setEmail] = useState("");
