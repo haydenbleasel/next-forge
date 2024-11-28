@@ -1,3 +1,19 @@
+# v2.18.20 (Thu Nov 28 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, DaniEnsi ([@DaniEnsi](https://github.com/DaniEnsi)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: added missing imports and fixed speeling [#295](https://github.com/haydenbleasel/next-forge/pull/295) ([@DaniEnsi](https://github.com/DaniEnsi))
+
+#### Authors: 1
+
+- DaniEnsi ([@DaniEnsi](https://github.com/DaniEnsi))
+
+---
+
 # v2.18.19 (Wed Nov 27 2024)
 
 :tada: This release contains work from new contributors! :tada:
