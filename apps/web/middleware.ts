@@ -24,12 +24,10 @@ const aj = arcjet.withRule(
 export default authMiddleware(async (_auth, request) => {
   const decision = await aj.protect(request);
 
-  if (
-    // If this deny comes from a bot rule then block the request. You can
-    // customize this logic to fit your needs e.g. changing the status code.
-    decision.isDenied() &&
-    decision.reason.isBot()
-  ) {
+  // This returns a generic error message, but you could also redirect or show a
+  // custom error page depending on the reason for the denial
+  if (decision.isDenied()) {
+    console.warn('Arcjet denied request', decision);
     return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
   }
 

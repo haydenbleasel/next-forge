@@ -26,6 +26,8 @@ const AppLayout = async ({ children }: AppLayoutProperties) => {
   // These errors are handled by the global error boundary, but you could also
   // redirect or show a custom error page
   if (decision.isDenied()) {
+    console.warn('Arcjet denied request', decision);
+
     if (decision.reason.isBot()) {
       throw new Error('No bots allowed');
     }
