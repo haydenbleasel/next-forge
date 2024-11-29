@@ -1,3 +1,15 @@
+# v2.18.21 (Fri Nov 29 2024)
+
+#### 🐛 Bug Fix
+
+- fix: Log Arcjet deny reason [#299](https://github.com/haydenbleasel/next-forge/pull/299) ([@davidmytton](https://github.com/davidmytton))
+
+#### Authors: 1
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+
+---
+
 # v2.18.20 (Thu Nov 28 2024)
 
 :tada: This release contains work from a new contributor! :tada:
