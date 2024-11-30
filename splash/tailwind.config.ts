@@ -7,8 +7,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Switzer', ...fontFamily.sans],
-        mono: ['JetBrains Mono', ...fontFamily.mono],
+        sans: ['var(--font-sans)', ...fontFamily.sans],
+        mono: ['var(--font-mono)', ...fontFamily.mono],
       },
       borderRadius: {
         '4xl': '1.5rem',
