@@ -1,0 +1,13 @@
+{
+  "name": "@repo/internationalization",
+  "version": "0.0.0",
+  "private": true,
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/negotiator": "^0.6.3"
+  },
+  "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.8",
+    "negotiator": "^1.0.0"
+  }
+}

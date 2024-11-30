@@ -845,6 +845,22 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
+  packages/internationalization:
+    dependencies:
+      '@formatjs/intl-localematcher':
+        specifier: ^0.5.8
+        version: 0.5.8
+      negotiator:
+        specifier: ^1.0.0
+        version: 1.0.0
+    devDependencies:
+      '@repo/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      '@types/negotiator':
+        specifier: ^0.6.3
+        version: 0.6.3
+
   packages/next-config:
     dependencies:
       '@logtail/next':
@@ -4737,6 +4753,9 @@ packages:
 
   '@types/mysql@2.15.26':
     resolution: {integrity: sha512-DSLCOXhkvfS5WNNPbfn2KdICAmk8lLc+/PNvnPnF7gOdMZCxopXduqv0OQ13y/yA/zXTSikZZqVgybUxOEg6YQ==}
+
+  '@types/negotiator@0.6.3':
+    resolution: {integrity: sha512-JkXTOdKs5MF086b/pt8C3+yVp3iDUwG635L7oCH6HvJvvr6lSUU5oe/gLXnPEfYRROHjJIPgCV6cuAg8gGkntQ==}
 
   '@types/node@20.17.0':
     resolution: {integrity: sha512-a7zRo0f0eLo9K5X9Wp5cAqTUNGzuFLDG2R7C4HY2BhcMAsxgSPuRvAC1ZB6QkuUQXf0YZAgfOX2ZyrBa2n4nHQ==}
@@ -14142,6 +14161,8 @@ snapshots:
   '@types/mysql@2.15.26':
     dependencies:
       '@types/node': 22.9.4
+
+  '@types/negotiator@0.6.3': {}
 
   '@types/node@20.17.0':
     dependencies:
