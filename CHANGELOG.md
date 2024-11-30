@@ -1,3 +1,15 @@
+# v2.18.22 (Sat Nov 30 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update fonts to match docs ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.21 (Fri Nov 29 2024)
 
 #### 🐛 Bug Fix
