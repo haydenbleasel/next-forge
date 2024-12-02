@@ -13,7 +13,7 @@
     "@prisma/client": "5.22.0",
     "@repo/env": "workspace:*",
     "server-only": "^0.0.1",
-    "undici": "^6.21.0",
+    "undici": "^7.0.0",
     "ws": "^8.18.0"
   },
   "devDependencies": {
