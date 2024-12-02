@@ -256,8 +256,8 @@ importers:
         specifier: ^8.4.5
         version: 8.4.5(storybook@8.4.5(bufferutil@4.0.8))
       '@storybook/addon-onboarding':
-        specifier: ^8.4.5
-        version: 8.4.5(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))
+        specifier: ^8.4.6
+        version: 8.4.6(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))
       '@storybook/blocks':
         specifier: ^8.4.5
         version: 8.4.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))
@@ -4259,10 +4259,10 @@ packages:
     peerDependencies:
       storybook: ^8.4.5
 
-  '@storybook/addon-onboarding@8.4.5':
-    resolution: {integrity: sha512-+FW50yVw2NMxYvk3uMpIberfkG4Sn0qRpiMse7MGHgTimtaJ0Mo1AUIrSfyIJCVTuxiWZud1a5DAnH0ybbWjjA==}
+  '@storybook/addon-onboarding@8.4.6':
+    resolution: {integrity: sha512-fCV7ipRYXTfOtK1ybh+jwgZB9DsNibn9zWKthmnGAXHgpB2qmvuDlnax8mz54pmsodL4ZnccYutUrPbsgjfEZw==}
     peerDependencies:
-      storybook: ^8.4.5
+      storybook: ^8.4.6
 
   '@storybook/addon-outline@8.4.5':
     resolution: {integrity: sha512-XlpN98AUDnWQWNFSFVm+HkRUzm3xIUMjBGTkv6HsL6zt6XoJ+LsQMca+PPtYqlBJA+5CU41xMDaG8HC/p+sd3A==}
@@ -13555,7 +13555,7 @@ snapshots:
       storybook: 8.4.5(bufferutil@4.0.8)
       tiny-invariant: 1.3.3
 
-  '@storybook/addon-onboarding@8.4.5(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))':
+  '@storybook/addon-onboarding@8.4.6(react@18.3.1)(storybook@8.4.5(bufferutil@4.0.8))':
     dependencies:
       react-confetti: 6.1.0(react@18.3.1)
       storybook: 8.4.5(bufferutil@4.0.8)
