@@ -10,7 +10,7 @@
   "dependencies": {
     "@neondatabase/serverless": "^0.10.4",
     "@prisma/adapter-neon": "^5.22.0",
-    "@prisma/client": "5.22.0",
+    "@prisma/client": "6.0.0",
     "@repo/env": "workspace:*",
     "server-only": "^0.0.1",
     "undici": "^7.0.0",
