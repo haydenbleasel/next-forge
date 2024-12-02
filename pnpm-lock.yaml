@@ -444,8 +444,8 @@ importers:
         specifier: ^1.194.1
         version: 1.194.1
       posthog-node:
-        specifier: ^4.3.0
-        version: 4.3.0
+        specifier: ^4.3.1
+        version: 4.3.1
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -8152,8 +8152,8 @@ packages:
   posthog-js@1.194.1:
     resolution: {integrity: sha512-d68hmU9DY4iPe3WneBlnglERhimRhXuF7Lx0Au6OTmOL+IFdFUxB3Qf5LaLqJc1QLt3NUolMq1HiXOaIULe3kQ==}
 
-  posthog-node@4.3.0:
-    resolution: {integrity: sha512-FWyVB3nuoXcyQGyFlw92mXrPKAlImJL7iDTKj31W7OBtt1T3/Fo3tcKMD8P7WgooOd3F19exgDWeqX4wfXYVyw==}
+  posthog-node@4.3.1:
+    resolution: {integrity: sha512-By9SEGZxBLC7GVyVb+HlJlpxM/xI4iLUgwtsBS8f4bZ0wqYKiNHoYcFEwMJnTM9xQcQZztr6dqLmsJ7jCv0vxA==}
     engines: {node: '>=15.0.0'}
 
   preact@10.24.3:
@@ -18075,7 +18075,7 @@ snapshots:
       preact: 10.24.3
       web-vitals: 4.2.4
 
-  posthog-node@4.3.0:
+  posthog-node@4.3.1:
     dependencies:
       axios: 1.7.7
       rusha: 0.8.14
