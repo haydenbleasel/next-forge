@@ -1,3 +1,19 @@
+# v2.18.23 (Mon Dec 02 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Michael Slocum ([@Balance8](https://github.com/Balance8)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Set defaults for Shadcn darkmode in Storybook [#311](https://github.com/haydenbleasel/next-forge/pull/311) ([@Balance8](https://github.com/Balance8))
+
+#### Authors: 1
+
+- Michael Slocum ([@Balance8](https://github.com/Balance8))
+
+---
+
 # v2.18.22 (Sat Nov 30 2024)
 
 #### ⚠️ Pushed to `main`
