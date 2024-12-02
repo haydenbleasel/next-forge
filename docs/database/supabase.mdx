@@ -1,0 +1,116 @@
+---
+title: Switch to Supabase
+description: How to change the database provider from Neon to Supabase.
+---
+
+[Supabase](https://supabase.com) is an open source Firebase alternative providing a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.
+
+`next-forge` uses Neon as the database provider with Prisma as the ORM as well as Clerk for authentication.
+
+This guide will provide the steps you need to switch the database provider from Neon to Supabase. For authentication, another guide will be provided to switch to Supabase Auth with feature parity to Clerk like organization management, user roles, and more (coming soon).
+
+Here's how to switch from Neon to [Supabase](https://supabase.com) for your `next-forge` project.
+
+## 1. Sign up to Supabase
+
+Create a free account at [supabase.com](https://supabase.com). You can manage your projects through the Dashboard or use the [Supabase CLI](https://supabase.com/docs/guides/local-development).
+
+_We'll be using both the Dashboard and CLI throughout this guide._
+
+## 2. Create a Project
+
+Create a new project from the [Supabase Dashboard](https://supabase.com/dashboard). Give it a name and choose your preferred region.
+
+Once created, you'll get access to your project's connection details including:
+
+- Project URL
+
+## 3. Setting up Supabase
+
+If you want to use the CLI, follow this [guide](https://supabase.com/docs/guides/local-development).
+
+#### Remove Neon from the project
+
+```sh Terminal
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
+```
+
+#### Connection to remote Supabase
+
+Please follow this [guide](https://supabase.com/partners/integrations/prisma)
+
+#### Local connection
+
+##### Install Supabase
+
+```sh Terminal
+pnpm install supabase --save-dev --filter database
+```
+
+First go into the `database` folder and run the following command to start the local Supabase server:
+
+```sh Terminal
+cd packages/database
+supabase init
+supabase start
+```
+
+Update the `.env` file with the connection details
+
+```.env
+DATABASE_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres?pgbouncer=true&connection_limit=1"
+DIRECT_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres"
+```
+
+Update `prisma/schema.prisma` to use the Supabase connection details:
+
+```prisma prisma/schema.prisma
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  directUrl    = env("DIRECT_URL")
+  relationMode = "prisma"
+}
+
+// This is a stub model.
+// Delete it and add your own Prisma models.
+model Page {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+```
+
+Update `packages/database/index.ts` to remove the Neon extensions
+
+```ts packages/database/index.ts
+import 'server-only';
+
+import { PrismaClient } from '@prisma/client';
+
+declare global {
+  var cachedPrisma: PrismaClient | undefined;
+}
+
+export const database = new PrismaClient();
+
+export * from '@prisma/client';
+
+```
+
+
+
+Now you can run the migration from the root of your `next-forge` project:
+
+```sh Terminal
+pnpm run migrate
+```
+
+You should be able to run the migration and see the Page table in your Supabase Studio at http://localhost:54323.
