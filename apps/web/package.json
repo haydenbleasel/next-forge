@@ -9,7 +9,7 @@
     "prebuild": "content-collections build"
   },
   "dependencies": {
-    "@arcjet/next": "1.0.0-alpha.31",
+    "@arcjet/next": "1.0.0-alpha.33",
     "@content-collections/mdx": "^0.2.0",
     "@radix-ui/react-icons": "^1.3.2",
     "@repo/design-system": "workspace:*",
