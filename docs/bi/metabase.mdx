@@ -1,0 +1,74 @@
+---
+title: Metabase
+description: How to add business intelligence and analytics to your app with Metabase.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Matthew Hefferon',
+    id: 'heffhq',
+  },
+  company: {
+    name: 'Metabase',
+    id: 'metabase',
+  },
+}]} />
+
+While next-forge does not come with BI tooling out of the box, you can easily add business intelligence and analytics to your app with [Metabase](https://www.metabase.com/).
+
+## Overview
+
+Metabase is an open-source business intelligence platform. You can use Metabase to ask questions about your data, or embed Metabase in your app to let your customers explore their data on their own.
+
+## Installing Metabase
+
+Metabase provides an official Docker image via Dockerhub that can be used for deployments on any system that is running Docker. Here's a one-liner that will start a container running Metabase.
+
+```sh
+docker run -d --name metabase -p 3000:3000 metabase/metabase
+```
+
+You can also install Metabase by running the JAR file. Links to different installations:
+
+- [Quick Start](https://www.metabase.com/start/oss/)
+- [Docker Documentation](https://www.metabase.com/docs/latest/installation-and-operation/running-metabase-on-docker)
+- [Jar File Documentation](https://www.metabase.com/docs/latest/installation-and-operation/running-the-metabase-jar-file)
+
+## Database Connection
+
+By default, next-forge uses Neon as its database provider. Metabase works great with Postgres databases so if you're ready to connect, here's what you'll need:
+
+- The `hostname` of the server where your database lives
+- The `port` the database server uses
+- The `database name`
+- The `username` you use for the database
+- The `password` you use for the database
+
+You can find these details in your `DATABASE_URL` environment variable:
+
+```js
+DATABASE_URL="postgresql://[username]:[password]@[hostname]:[port]/[database_name]?sslmode=require"
+```
+
+Next, plug your database connection credentials into Metabase:
+
+<Frame>
+  <img src="/images/metabase-add-database.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+Metabase supports over 20 databases. If you're working with a database other than postgres and want to integrate it, check out the [Metabase Database Documentation](https://www.metabase.com/docs/latest/databases/connecting).
+
+## Asking Questions and building Dashboards
+
+Now that you have installed Metabase, have database credentials, you can start asking [Questions](https://www.metabase.com/docs/latest/questions/query-builder/introduction) and building [Dashboards](https://www.metabase.com/docs/latest/dashboards/introduction).

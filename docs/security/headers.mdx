@@ -1,0 +1,27 @@
+---
+title: Security Headers
+description: Security headers used to protect your application.
+---
+
+next-forge uses [next-secure-headers](https://github.com/jagaapple/next-secure-headers) to set HTTP response headers related to security.
+
+## Configuration
+
+Here are the headers we have enabled:
+
+| Property | Header | Description | Value |
+| --- | --- | --- | --- |
+| `forceHTTPSRedirect` | `Strict-Transport-Security` | Prevents browsers from connecting to your site over HTTP. | `[true, { maxAge: 63_072_000, includeSubDomains: true, preload: true }]` |
+| `frameGuard` | `X-Frame-Options` | Prevents browsers from rendering your site in an iframe. | `deny` |
+| `noopen` | `X-Download-Options` | Prevents browsers from automatically opening downloaded files in the same origin as the page. | `noopen` |
+| `nosniff` | `X-Content-Type-Options` | Prevents browsers from MIME-sniffing a response away from the declared content type. | `nosniff` |
+| `xssProtection` | `X-XSS-Protection` | Prevents browsers from executing inline scripts if a cross-site scripting attack is detected. | `sanitize` |
+| `contentSecurityPolicy` | `Content-Security-Policy` | Sets a policy to prevent a wide range of different types of attacks, including Cross Site Scripting (XSS) and data injection attacks. | `false` |
+| `expectCT` | `Expect-CT` | Enables a mechanism to mitigate the risk of fraudulent certificates being used in connections to your site. | `false` |
+| `referrerPolicy` | `Referrer-Policy` | Controls how much of the full URL is included in the `Referer` header. | `false` |
+
+<Tip>The `forceHTTPSRedirect` property has been customized from the default to include subdomains and preload the HSTS policy. This should allow you to submit your site at [hstspreload.org](https://hstspreload.org/) without any issues.</Tip>
+
+## Usage
+
+The headers are enabled by default when using the `next-config` package. If you are customizing your `next.config.ts` file, you can extend the headers manually.

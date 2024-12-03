@@ -1,4 +1,4 @@
-import { auth, currentUser } from '@clerk/nextjs/server';
+import { auth, currentUser } from '@repo/auth/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
 import { showBetaFeature } from '@repo/feature-flags';
 import arcjet, { detectBot, request } from '@repo/security';
@@ -26,6 +26,8 @@ const AppLayout = async ({ children }: AppLayoutProperties) => {
   // These errors are handled by the global error boundary, but you could also
   // redirect or show a custom error page
   if (decision.isDenied()) {
+    console.warn('Arcjet denied request', decision);
+
     if (decision.reason.isBot()) {
       throw new Error('No bots allowed');
     }

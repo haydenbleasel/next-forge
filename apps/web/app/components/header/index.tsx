@@ -69,12 +69,15 @@ export const Header = () => {
         },
       ],
     },
-    {
-      title: 'Enterprise',
-      href: '/enterprise',
-      description: '',
-    },
   ];
+
+  if (env.NEXT_PUBLIC_DOCS_URL) {
+    navigationItems.push({
+      title: 'Docs',
+      href: env.NEXT_PUBLIC_DOCS_URL,
+      description: '',
+    });
+  }
 
   const [isOpen, setOpen] = useState(false);
   return (
@@ -112,10 +115,10 @@ export const Header = () => {
                             </Button>
                           </div>
                           <div className="flex h-full flex-col justify-end text-sm">
-                            {item.items?.map((subItem) => (
+                            {item.items?.map((subItem, idx) => (
                               <NavigationMenuLink
                                 href={subItem.href}
-                                key={subItem.title}
+                                key={idx}
                                 className="flex flex-row items-center justify-between rounded px-4 py-2 hover:bg-muted"
                               >
                                 <span>{subItem.title}</span>
@@ -147,8 +150,10 @@ export const Header = () => {
             <Link href="/contact">Contact us</Link>
           </Button>
           <div className="hidden border-r md:inline" />
-          <ModeToggle />
-          <Button variant="outline" asChild>
+          <div className="hidden md:inline">
+            <ModeToggle />
+          </div>
+          <Button variant="outline" asChild className="hidden md:inline">
             <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>Sign in</Link>
           </Button>
           <Button asChild>

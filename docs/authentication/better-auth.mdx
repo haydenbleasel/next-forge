@@ -1,0 +1,245 @@
+---
+title: Switch to Better Auth
+description: How to switch from Clerk to Better Auth.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Bereket Engida',
+    id: 'imbereket',
+  },
+  company: {
+    name: 'Better Auth',
+    id: 'better-auth',
+  },
+}]} />
+
+Better Auth is a comprehensive, open-source authentication framework for TypeScript. It is designed to be framework agnostic, but integrates well with Next.js and provides a lot of features out of the box.
+
+## 1. Swap out the `auth` package dependencies
+
+Uninstall the existing Clerk dependencies from the `auth` package...
+
+```sh Terminal
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
+```
+
+...and install the Better Auth dependencies:
+
+```sh Terminal
+pnpm add better-auth --filter auth
+```
+
+## 2. Update your environment variables
+
+Generate a secret with the following command to add it to the `.env.local` file in each Next.js application (`app`, `web` and `api`):
+
+```sh Terminal
+npx @better-auth/cli secret
+```
+
+This will add a `BETTER_AUTH_SECRET` environment variable to the `.env.local` file.
+
+## 3. Setup the server and client auth
+
+Update the `auth` package files with the following code:
+
+<CodeGroup>
+
+  ```ts packages/auth/server.ts
+  import { betterAuth } from 'better-auth';
+  import { nextCookies } from "better-auth/next-js";
+  import { prismaAdapter } from "better-auth/adapters/prisma-adapter";
+  import { database } from "@repo/database"
+
+  export const auth = betterAuth({
+    database: prismaAdapter(database),
+    plugins: [
+      nextCookies()
+    ],
+    //...add more options here
+  });
+  ```
+
+  ```ts packages/auth/client.ts
+  import { createAuthClient } from 'better-auth/react';
+
+  export const { signIn, signOut, signUp, useSession } = createAuthClient();
+  ```
+
+</CodeGroup>
+
+Read more in the Better Auth [installation guide](https://www.better-auth.com/docs/installation).
+
+## 5. Update the auth components
+
+Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `client` file.
+
+<CodeGroup>
+
+  ```tsx packages/auth/components/sign-in.tsx
+  "use client";
+
+  import { signIn } from '../client';
+  import { useState } from 'react';
+
+  export const SignIn = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    return (
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await signIn.email({
+            email,
+            password,
+            name
+          })
+        }}
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit">Sign in</button>
+      </form>
+    );
+  }
+  ```
+
+  ```tsx packages/auth/components/sign-up.tsx
+  "use client";
+
+  import { signUp } from '../client';
+  import { useState } from 'react';
+
+  export const SignUp = () => {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+
+    return (
+      <form
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await signUp.email({
+            email,
+            password,
+            name
+          })
+        }}
+      >
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <button type="submit">Sign up</button>
+      </form>
+    );
+  }
+  ```
+
+</CodeGroup>
+
+You can use different sign-in methods like social providers, phone, username etc. Read more about Better Auth [basic usage](https://better-auth.com/docs/basic-usage).
+
+## 6. Generate Prisma Models
+
+From the root folder, generate Prisma models for Better Auth by running the following command:
+
+```sh Terminal
+npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma
+```
+
+## 7. Update the Provider file
+
+Better Auth has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
+
+```tsx packages/auth/provider.tsx
+import type { ReactNode } from 'react';
+
+type AuthProviderProps = {
+  children: ReactNode;
+};
+
+export const AuthProvider = ({ children }: AuthProviderProps) => children;
+```
+
+## 8. Change Middleware
+
+Change the middleware in the `auth` package to the following:
+
+```tsx packages/auth/middleware.ts
+import { NextRequest } from "next/server";
+import { createAuthClient } from "better-auth/client";
+
+const { getSession } = createAuthClient();
+
+const isProtectedRoute = (request: NextRequest) => {
+  return request.url.startsWith("/dashboard"); // change this to your protected route
+}
+
+export const authMiddleware = async (request: NextRequest) => {
+  const session = await getSession(request);
+  
+  if (isProtectedRoute(request) && !session) {
+    return NextResponse.redirect(new URL("/sign-in", request.url));
+  }
+  
+  return NextResponse.next();
+}
+```
+
+## 9. Update your apps
+
+From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth. For example, you can replace the `auth` import in the `page.tsx` file in the `dashboard` package with the `auth` import from the `auth` package.
+
+```tsx page.tsx
+const { orgId } = await auth();
+const { redirectToSignIn } = await auth();
+const user = await currentUser();
+```
+
+to
+    
+```tsx page.tsx
+const organization = useActiveOrganization();
+const session = await auth.api.getSession();
+```
+
+For using organization, check [organization plugin](https://better-auth.com/docs/plugins/organization) and more from the [Better Auth documentation](https://better-auth.com/docs).

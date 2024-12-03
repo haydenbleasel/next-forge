@@ -40,7 +40,21 @@
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": ["overview", "setup", "deploying", "faq"]
+      "pages": [
+        "overview",
+        "setup",
+        "faq",
+        {
+          "group": "Recommended Libraries",
+          "pages": [
+            "recommended-libraries/friendlier-words",
+            "recommended-libraries/motion",
+            "recommended-libraries/nuqs",
+            "recommended-libraries/react-wrap-balancer",
+            "recommended-libraries/zustand"
+          ]
+        }
+      ]
     },
     {
       "group": "Structure",
@@ -49,11 +63,19 @@
     {
       "group": "Features",
       "pages": [
+        "ai",
         {
           "group": "Analytics",
           "pages": ["analytics/web", "analytics/product"]
         },
-        "authentication",
+        {
+          "group": "Authentication",
+          "pages": ["authentication/overview", "authentication/authjs", "authentication/better-auth"]
+        },
+        {
+          "group": "Business Intelligence",
+          "pages": ["bi/metabase"]
+        },
         "blog",
         "bundle-analysis",
         "collaboration",
@@ -101,9 +123,12 @@
           "pages": [
             "security/application",
             "security/dependencies",
+            "security/headers",
             "security/ip-geolocation"
           ]
         },
+        "storage",
+        "storybook",
         "webhooks",
         {
           "group": "SEO",
@@ -111,6 +136,10 @@
         },
         "testing"
       ]
+    },
+    {
+      "group": "Deployment",
+      "pages": ["deployment/vercel"]
     }
   ],
 

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@clerk/nextjs": "^6.3.4",
+    "@repo/auth": "workspace:*",
     "@repo/analytics": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@vercel/flags": "^2.6.3"
@@ -12,7 +12,7 @@
     "next": "15.0.1"
   },
   "devDependencies": {
-    "typescript": "^5.6.3",
+    "typescript": "^5.7.2",
     "@repo/typescript-config": "workspace:*"
   }
 }

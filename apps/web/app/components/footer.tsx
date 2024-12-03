@@ -49,14 +49,6 @@ export const Footer = () => {
           title: 'Blog',
           href: '/blog',
         },
-        {
-          title: 'Guides',
-          href: '/guides',
-        },
-        {
-          title: 'Showcase',
-          href: '/showcase',
-        },
       ],
     },
     {
@@ -82,6 +74,13 @@ export const Footer = () => {
       ],
     },
   ];
+
+  if (env.NEXT_PUBLIC_DOCS_URL) {
+    navigationItems.at(1)?.items?.push({
+      title: 'Docs',
+      href: env.NEXT_PUBLIC_DOCS_URL,
+    });
+  }
 
   return (
     <section className="dark border-foreground/10 border-t">

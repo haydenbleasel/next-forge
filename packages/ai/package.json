@@ -1,0 +1,13 @@
+{
+  "name": "@repo/ai",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "@ai-sdk/openai": "^1.0.4",
+    "@repo/env": "workspace:*",
+    "ai": "^4.0.9"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}
