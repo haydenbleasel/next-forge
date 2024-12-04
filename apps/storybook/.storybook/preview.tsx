@@ -13,29 +13,50 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    backgrounds: {
-      default: 'dark',
-      values: [
-        {
-          name: 'light',
-          value: 'hsl(0 0% 100%)',
+    chromatic: {
+      modes: {
+        light: {
+          theme: 'light',
+          className: 'light'
         },
-        {
-          name: 'dark',
-          value: 'hsl(0 0% 3.9%)',
-        },
-      ],
+        dark: {
+          theme: 'dark',
+          className: 'dark'
+        }
+      }
+    }
+  },
+  globalTypes: {
+    theme: {
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light', icon: 'sun' },
+          { value: 'dark', title: 'Dark', icon: 'moon' },
+        ],
+        dynamicTitle: true,
+      },
     },
   },
   decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <TooltipProvider>
-          <Story />
-        </TooltipProvider>
-        <Toaster />
-      </ThemeProvider>
-    ),
+    (Story, context) => {
+      if (typeof document !== 'undefined') {
+        const mode = context.globals.theme;
+        document.documentElement.className = mode;
+      }
+
+      return (
+        <ThemeProvider defaultTheme={context.globals.theme}>
+          <TooltipProvider>
+            <Story />
+          </TooltipProvider>
+          <Toaster />
+        </ThemeProvider>
+      );
+    },
   ],
 };
 
