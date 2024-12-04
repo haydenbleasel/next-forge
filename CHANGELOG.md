@@ -1,3 +1,19 @@
+# v2.18.27 (Wed Dec 04 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Add Netlify deployment doc ([@haydenbleasel](https://github.com/haydenbleasel))
+- Build fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.26 (Wed Dec 04 2024)
 
 :tada: This release contains work from a new contributor! :tada:
