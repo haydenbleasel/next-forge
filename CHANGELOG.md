@@ -1,3 +1,24 @@
+# v2.18.26 (Wed Dec 04 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Sergiy Dybskiy ([@sergical](https://github.com/sergical)), for all your work!
+
+#### ⚠️ Pushed to `main`
+
+- Redesign splash page hero ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- [Docs] Supabase database [#312](https://github.com/haydenbleasel/next-forge/pull/312) ([@sergical](https://github.com/sergical) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Sergiy Dybskiy ([@sergical](https://github.com/sergical))
+
+---
+
 # v2.18.25 (Wed Dec 04 2024)
 
 :tada: This release contains work from a new contributor! :tada:
