@@ -63,6 +63,13 @@ program
 
       log(chalk.green('Setup complete! Deleting scripts folder...'));
       rmSync('scripts', { recursive: true, force: true });
+
+      log(chalk.green('Done!'));
+      log(
+        chalk.yellow(
+          'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'
+        )
+      );
     } catch (error) {
       log(chalk.red('Failed to initialize project:', error.message));
       process.exit(1);
