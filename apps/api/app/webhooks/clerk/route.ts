@@ -83,10 +83,12 @@ const handleOrganizationCreated = (data: OrganizationJSON) => {
     },
   });
 
-  analytics.capture({
-    event: 'Organization Created',
-    distinctId: data.created_by,
-  });
+  if (data.created_by) {
+    analytics.capture({
+      event: 'Organization Created',
+      distinctId: data.created_by,
+    });
+  }
 
   return new Response('Organization created', { status: 201 });
 };
@@ -102,10 +104,12 @@ const handleOrganizationUpdated = (data: OrganizationJSON) => {
     },
   });
 
-  analytics.capture({
-    event: 'Organization Updated',
-    distinctId: data.created_by,
-  });
+  if (data.created_by) {
+    analytics.capture({
+      event: 'Organization Updated',
+      distinctId: data.created_by,
+    });
+  }
 
   return new Response('Organization updated', { status: 201 });
 };
