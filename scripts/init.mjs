@@ -11,10 +11,10 @@ const url = 'https://github.com/haydenbleasel/next-forge';
 
 program
   .command('init <name>')
-  .description('Initialize a new Next Forge project')
+  .description('Initialize a new next-forge project')
   .action((projectName) => {
     try {
-      log(chalk.green('Creating new Next Forge project...'));
+      log(chalk.green('Creating new next-forge project...'));
 
       execSync(
         `pnpm create next-app@latest ${projectName} --example "${url}"`,
