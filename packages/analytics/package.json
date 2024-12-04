@@ -6,15 +6,15 @@
     "@next/third-parties": "^15.0.3",
     "@repo/env": "workspace:*",
     "@vercel/analytics": "^1.4.1",
-    "posthog-js": "^1.194.1",
+    "posthog-js": "^1.194.3",
     "posthog-node": "^4.3.1",
     "react": "^18.3.1",
     "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.9.4",
-    "@types/react": "18.3.12",
+    "@types/node": "22.10.1",
+    "@types/react": "18.3.13",
     "@types/react-dom": "^18.3.1"
   }
 }

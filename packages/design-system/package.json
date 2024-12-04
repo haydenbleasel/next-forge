@@ -50,7 +50,7 @@
     "react-hook-form": "^7.53.2",
     "react-moveable": "^0.56.0",
     "react-resizable-panels": "^2.1.7",
-    "recharts": "^2.13.3",
+    "recharts": "^2.14.1",
     "server-only": "^0.0.1",
     "sonner": "^1.7.0",
     "tailwind-merge": "^2.5.5",
@@ -59,11 +59,11 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "^22.9.4",
-    "@types/react": "^18.3.12",
+    "@types/node": "^22.10.1",
+    "@types/react": "^18.3.13",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.49",
-    "tailwindcss": "^3.4.15",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
   }
 }

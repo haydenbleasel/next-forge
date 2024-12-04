@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@ai-sdk/openai": "^1.0.4",
+    "@ai-sdk/openai": "^1.0.6",
     "@repo/env": "workspace:*",
-    "ai": "^4.0.9"
+    "ai": "^4.0.11"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*"
