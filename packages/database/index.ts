@@ -8,10 +8,6 @@ import ws from 'ws';
 
 neonConfig.webSocketConstructor = ws;
 
-declare global {
-  var cachedPrisma: PrismaClient | undefined;
-}
-
 const pool = new Pool({ connectionString: env.DATABASE_URL });
 const adapter = new PrismaNeon(pool);
 
