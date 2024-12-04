@@ -1,3 +1,33 @@
+# v2.18.25 (Wed Dec 04 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Emmanuel Isenah ([@Armadillidiid](https://github.com/Armadillidiid)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Improve Grammer in Turso Docs [#319](https://github.com/haydenbleasel/next-forge/pull/319) ([@Armadillidiid](https://github.com/Armadillidiid))
+
+#### 🔩 Dependency Updates
+
+- Bump @storybook/react from 8.4.5 to 8.4.6 [#301](https://github.com/haydenbleasel/next-forge/pull/301) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump posthog-node from 4.3.0 to 4.3.1 [#303](https://github.com/haydenbleasel/next-forge/pull/303) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump class-variance-authority from 0.7.0 to 0.7.1 [#302](https://github.com/haydenbleasel/next-forge/pull/302) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump posthog-js from 1.188.0 to 1.194.1 [#304](https://github.com/haydenbleasel/next-forge/pull/304) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @prisma/client from 5.22.0 to 6.0.0 [#305](https://github.com/haydenbleasel/next-forge/pull/305) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @arcjet/next from 1.0.0-alpha.31 to 1.0.0-alpha.33 [#306](https://github.com/haydenbleasel/next-forge/pull/306) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump fumadocs-core from 14.5.4 to 14.5.5 [#307](https://github.com/haydenbleasel/next-forge/pull/307) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump undici from 6.21.0 to 7.0.0 [#308](https://github.com/haydenbleasel/next-forge/pull/308) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump ai from 4.0.4 to 4.0.9 [#309](https://github.com/haydenbleasel/next-forge/pull/309) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @storybook/addon-onboarding from 8.4.5 to 8.4.6 [#310](https://github.com/haydenbleasel/next-forge/pull/310) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Emmanuel Isenah ([@Armadillidiid](https://github.com/Armadillidiid))
+
+---
+
 # v2.18.24 (Mon Dec 02 2024)
 
 #### ⚠️ Pushed to `main`
