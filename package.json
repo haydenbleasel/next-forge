@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "scripts/init.js"
   },
-  "files": [
-    "scripts/init.js"
-  ],
+  "files": ["scripts/init.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -29,5 +27,9 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.15.0"
+  "packageManager": "pnpm@9.15.0",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
 }
