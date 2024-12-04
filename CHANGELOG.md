@@ -1,3 +1,15 @@
+# v2.18.29 (Wed Dec 04 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add bump-ui script and a doc on updates ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.28 (Wed Dec 04 2024)
 
 #### ⚠️ Pushed to `main`
