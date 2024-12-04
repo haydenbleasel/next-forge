@@ -70,7 +70,11 @@
         },
         {
           "group": "Authentication",
-          "pages": ["authentication/overview", "authentication/authjs", "authentication/better-auth"]
+          "pages": [
+            "authentication/overview",
+            "authentication/authjs",
+            "authentication/better-auth"
+          ]
         },
         {
           "group": "Business Intelligence",
@@ -140,7 +144,7 @@
     },
     {
       "group": "Deployment",
-      "pages": ["deployment/vercel"]
+      "pages": ["deployment/vercel", "deployment/netlify"]
     }
   ],
 
