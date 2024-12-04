@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "./scripts/init.js"
   },
-  "files": [
-    "scripts/init.js"
-  ],
+  "files": ["scripts/init.js"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -14,6 +12,7 @@
     "test": "turbo test",
     "analyze": "turbo analyze",
     "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
