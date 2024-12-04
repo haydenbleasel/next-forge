@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const { program } = require('commander');
-const { execSync } = require('node:child_process');
-const fs = require('node:fs');
-const path = require('node:path');
-const chalk = require('chalk');
+import { execSync } from 'node:child_process';
+import { copyFileSync, rmSync, unlinkSync } from 'node:fs';
+import { join } from 'node:path';
+import chalk from 'chalk';
+import { program } from 'commander';
 const { log } = console;
 
 const url = 'https://github.com/haydenbleasel/next-forge';
@@ -25,7 +25,7 @@ program
 
       log(chalk.green('Setting up next-forge...'));
       const cwd = process.cwd();
-      const projectDir = path.join(cwd, projectName);
+      const projectDir = join(cwd, projectName);
 
       process.chdir(projectDir);
       log(chalk.green('Installing dependencies...'));
@@ -34,19 +34,16 @@ program
       log(chalk.green('Copying .env.example files to .env.local...'));
 
       for (const app of ['api', 'app', 'web']) {
-        fs.copyFileSync(`apps/${app}/.env.example`, `apps/${app}/.env.local`);
+        copyFileSync(`apps/${app}/.env.example`, `apps/${app}/.env.local`);
       }
 
-      fs.copyFileSync(
-        'packages/database/.env.example',
-        'packages/database/.env'
-      );
+      copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
       fs.copyFileSync('packages/cms/.env.example', 'packages/cms/.env.local');
 
       log(chalk.green('Deleting internal content...'));
       for (const dir of ['.github/workflows', 'docs', 'splash']) {
-        fs.rmSync(dir, { recursive: true, force: true });
+        rmSync(dir, { recursive: true, force: true });
       }
 
       for (const file of [
@@ -57,14 +54,14 @@ program
         'CHANGELOG.md',
         'license.md',
       ]) {
-        fs.unlinkSync(file);
+        unlinkSync(file);
       }
 
       log(chalk.green('Setting up Prisma...'));
       execSync('pnpm build --filter @repo/database', { stdio: 'inherit' });
 
       log(chalk.green('Setup complete! Deleting scripts folder...'));
-      fs.rmSync('scripts', { recursive: true, force: true });
+      rmSync('scripts', { recursive: true, force: true });
     } catch (error) {
       log(chalk.red('Failed to initialize project:', error.message));
       process.exit(1);
