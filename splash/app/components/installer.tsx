@@ -12,14 +12,12 @@ export const Installer = () => {
   };
 
   return (
-    <div className="dark inline-flex h-10 items-center justify-center gap-3 whitespace-nowrap rounded-md border border-neutral-200 bg-white px-4 py-2 text-neutral-950 text-sm shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
-      <p className="pointer-events-none select-none text-neutral-500 dark:text-neutral-400">
+    <div className="dark flex h-10 w-full items-center justify-center gap-3 whitespace-nowrap rounded-md border border-neutral-200 bg-white px-4 py-2 text-neutral-950 text-sm shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-white">
+      <p className="pointer-events-none shrink-0 select-none text-neutral-500 dark:text-neutral-400">
         $
       </p>
-      <div className="max-w-[240px] truncate font-mono sm:max-w-[300px]">
-        {command}
-      </div>
-      <div className="flex items-center gap-2">
+      <div className="flex-1 truncate font-mono">{command}</div>
+      <div className="flex shrink-0 items-center gap-2">
         <button type="button" aria-label="Copy" onClick={handleCopy}>
           <CopyIcon
             size={14}

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Apps } from './components/apps';
 import { CallToAction } from './components/cta';
 import { Features } from './components/features';
+import { Header } from './components/header';
 import { Hero } from './components/hero';
 import { Social } from './components/social';
 
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 
 const Home = () => (
   <>
+    <Header />
     <Hero />
     <Apps />
     <Features />
