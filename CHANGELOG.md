@@ -1,3 +1,19 @@
+# v2.18.30 (Thu Dec 05 2024)
+
+#### 🐛 Bug Fix
+
+- Add ESLint migration doc [#291](https://github.com/haydenbleasel/next-forge/pull/291) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### ⚠️ Pushed to `main`
+
+- Update eslint.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.29 (Wed Dec 04 2024)
 
 #### ⚠️ Pushed to `main`
