@@ -113,7 +113,10 @@
         },
         "env",
         "flags",
-        "formatting",
+        {
+          "group": "Formatting",
+          "pages": ["formatting/overview", "formatting/eslint"]
+        },
         {
           "group": "Observability",
           "pages": [
