@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@repo/design-system": "workspace:*",
@@ -19,6 +20,7 @@
     "@storybook/addon-essentials": "^8.4.6",
     "@storybook/addon-interactions": "^8.4.6",
     "@storybook/addon-onboarding": "^8.4.6",
+    "@storybook/addon-themes": "^8.4.6",
     "@storybook/blocks": "^8.4.6",
     "@storybook/nextjs": "^8.4.6",
     "@storybook/react": "^8.4.6",
@@ -26,6 +28,7 @@
     "@types/node": "^22",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "chromatic": "^11.20.0",
     "postcss": "^8",
     "storybook": "^8.4.6",
     "tailwindcss": "^3.4.16",

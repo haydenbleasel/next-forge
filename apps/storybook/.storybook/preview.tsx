@@ -1,6 +1,7 @@
 import { Toaster } from '@repo/design-system/components/ui/sonner';
 import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { ThemeProvider } from '@repo/design-system/providers/theme';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 
 import '@repo/design-system/styles/globals.css';
@@ -13,29 +14,39 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    backgrounds: {
-      default: 'dark',
-      values: [
-        {
-          name: 'light',
-          value: 'hsl(0 0% 100%)',
+    chromatic: {
+      modes: {
+        light: {
+          theme: 'light',
+          className: 'light',
         },
-        {
-          name: 'dark',
-          value: 'hsl(0 0% 3.9%)',
+        dark: {
+          theme: 'dark',
+          className: 'dark',
         },
-      ],
+      },
     },
   },
   decorators: [
-    (Story) => (
-      <ThemeProvider>
-        <TooltipProvider>
-          <Story />
-        </TooltipProvider>
-        <Toaster />
-      </ThemeProvider>
-    ),
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+    }),
+    (Story) => {
+      return (
+        <div className="bg-background">
+          <ThemeProvider>
+            <TooltipProvider>
+              <Story />
+            </TooltipProvider>
+            <Toaster />
+          </ThemeProvider>
+        </div>
+      );
+    },
   ],
 };
 

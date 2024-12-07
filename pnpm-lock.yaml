@@ -258,6 +258,9 @@ importers:
       '@storybook/addon-onboarding':
         specifier: ^8.4.6
         version: 8.4.6(react@18.3.1)(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))
+      '@storybook/addon-themes':
+        specifier: ^8.4.6
+        version: 8.4.7(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))
       '@storybook/blocks':
         specifier: ^8.4.6
         version: 8.4.6(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))
@@ -279,6 +282,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.1
+      chromatic:
+        specifier: ^11.20.0
+        version: 11.20.0
       postcss:
         specifier: ^8
         version: 8.4.49
@@ -4159,6 +4165,11 @@ packages:
     peerDependencies:
       storybook: ^8.4.6
 
+  '@storybook/addon-themes@8.4.7':
+    resolution: {integrity: sha512-MZa3eWTz0b3BQvF71WqLqvEYzDtbMhQx1IIluWBMMGzJ4sWBzLX85LoNMUlHsNd4EhEmAZ1xQQFIJpDWTBx0nQ==}
+    peerDependencies:
+      storybook: ^8.4.7
+
   '@storybook/addon-toolbars@8.4.6':
     resolution: {integrity: sha512-+Xao/uGa8FnYsyUiREUkYXWNysm3Aba8tL/Bwd+HufHtdiKJGa9lrXaC7VLCqBUaEjwqM3aaPwqEWIROsthmPQ==}
     peerDependencies:
@@ -5399,8 +5410,8 @@ packages:
   chownr@1.1.4:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
 
-  chromatic@11.18.1:
-    resolution: {integrity: sha512-hkNT9vA6K9+PnE/khhZYBnRCOm8NonaQDs7RZ8YHFo7/lh1b/x/uFMkTjWjaj/mkM6QOR/evu5VcZMtcaauSlw==}
+  chromatic@11.20.0:
+    resolution: {integrity: sha512-Btdli1qoAI01UKmk3Iqe6vKhAhePRXqNI/2uKKy2R16q7SN/5kLTqhd1JI20LFOZSnH3xSJaUXeJ2xZOJB//3A==}
     hasBin: true
     peerDependencies:
       '@chromatic-com/cypress': ^0.*.* || ^1.0.0
@@ -10906,7 +10917,7 @@ snapshots:
 
   '@chromatic-com/storybook@3.2.2(react@18.3.1)(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))':
     dependencies:
-      chromatic: 11.18.1
+      chromatic: 11.20.0
       filesize: 10.1.6
       jsonfile: 6.1.0
       react-confetti: 6.1.0(react@18.3.1)
@@ -13318,6 +13329,11 @@ snapshots:
       storybook: 8.4.6(bufferutil@4.0.8)(prettier@3.3.3)
       ts-dedent: 2.2.0
 
+  '@storybook/addon-themes@8.4.7(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))':
+    dependencies:
+      storybook: 8.4.6(bufferutil@4.0.8)(prettier@3.3.3)
+      ts-dedent: 2.2.0
+
   '@storybook/addon-toolbars@8.4.6(storybook@8.4.6(bufferutil@4.0.8)(prettier@3.3.3))':
     dependencies:
       storybook: 8.4.6(bufferutil@4.0.8)(prettier@3.3.3)
@@ -14791,7 +14807,7 @@ snapshots:
 
   chownr@1.1.4: {}
 
-  chromatic@11.18.1: {}
+  chromatic@11.20.0: {}
 
   chrome-trace-event@1.0.4: {}
 
