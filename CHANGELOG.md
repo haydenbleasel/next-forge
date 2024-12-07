@@ -1,3 +1,15 @@
+# v2.18.31 (Sat Dec 07 2024)
+
+#### 🐛 Bug Fix
+
+- Set up storybook tool bar for dark + light mode swap. [#318](https://github.com/haydenbleasel/next-forge/pull/318) ([@Balance8](https://github.com/Balance8))
+
+#### Authors: 1
+
+- Michael Slocum ([@Balance8](https://github.com/Balance8))
+
+---
+
 # v2.18.30 (Thu Dec 05 2024)
 
 #### 🐛 Bug Fix
