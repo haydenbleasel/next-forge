@@ -1,6 +1,7 @@
 import { Toaster } from '@repo/design-system/components/ui/sonner';
 import { TooltipProvider } from '@repo/design-system/components/ui/tooltip';
 import { ThemeProvider } from '@repo/design-system/providers/theme';
+import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 
 import '@repo/design-system/styles/globals.css';
@@ -17,44 +18,33 @@ const preview: Preview = {
       modes: {
         light: {
           theme: 'light',
-          className: 'light'
+          className: 'light',
         },
         dark: {
           theme: 'dark',
-          className: 'dark'
-        }
-      }
-    }
-  },
-  globalTypes: {
-    theme: {
-      description: 'Global theme for components',
-      defaultValue: 'light',
-      toolbar: {
-        title: 'Theme',
-        icon: 'circlehollow',
-        items: [
-          { value: 'light', title: 'Light', icon: 'sun' },
-          { value: 'dark', title: 'Dark', icon: 'moon' },
-        ],
-        dynamicTitle: true,
+          className: 'dark',
+        },
       },
     },
   },
   decorators: [
-    (Story, context) => {
-      if (typeof document !== 'undefined') {
-        const mode = context.globals.theme;
-        document.documentElement.className = mode;
-      }
-
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+    }),
+    (Story) => {
       return (
-        <ThemeProvider defaultTheme={context.globals.theme}>
-          <TooltipProvider>
-            <Story />
-          </TooltipProvider>
-          <Toaster />
-        </ThemeProvider>
+        <div className="bg-background">
+          <ThemeProvider>
+            <TooltipProvider>
+              <Story />
+            </TooltipProvider>
+            <Toaster />
+          </ThemeProvider>
+        </div>
       );
     },
   ],
