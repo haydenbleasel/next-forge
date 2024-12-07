@@ -44,6 +44,7 @@
         "overview",
         "setup",
         "faq",
+        "updates",
         {
           "group": "Recommended Libraries",
           "pages": [
@@ -70,7 +71,11 @@
         },
         {
           "group": "Authentication",
-          "pages": ["authentication/overview", "authentication/authjs", "authentication/better-auth"]
+          "pages": [
+            "authentication/overview",
+            "authentication/authjs",
+            "authentication/better-auth"
+          ]
         },
         {
           "group": "Business Intelligence",
@@ -87,6 +92,7 @@
             "database/drizzle",
             "database/planetscale",
             "database/prisma-postgres",
+            "database/supabase",
             "database/turso"
           ]
         },
@@ -107,7 +113,10 @@
         },
         "env",
         "flags",
-        "formatting",
+        {
+          "group": "Formatting",
+          "pages": ["formatting/overview", "formatting/eslint"]
+        },
         {
           "group": "Observability",
           "pages": [
@@ -139,7 +148,7 @@
     },
     {
       "group": "Deployment",
-      "pages": ["deployment/vercel"]
+      "pages": ["deployment/vercel", "deployment/netlify"]
     }
   ],
 

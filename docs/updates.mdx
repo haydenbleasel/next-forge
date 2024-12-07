@@ -1,0 +1,30 @@
+---
+title: Updates
+description: Keeping your dependencies up to date.
+---
+
+next-forge comes with two built-in commands to help you keep your dependencies up to date.
+
+## Upgrading dependencies
+
+You can upgrade all the dependencies in all your `package.json` files and installs the new versions with the `bump-deps` command:
+
+```sh Terminal
+pnpm bump-deps
+```
+
+## Upgrading shadcn/ui components
+
+You can upgrade all the shadcn/ui components in the [Design System](/design-system/components) package with the `bump-ui` command:
+
+```sh Terminal
+pnpm bump-ui
+```
+
+<Warning>
+This will override all customization you've made to the components. To avoid this happening, we recommend proxying the components into a new folder, such as `@repo/design-system/components`.
+</Warning>
+
+<Warning>
+The `shadcn` CLI will likely make some unwanted changes to your shared Tailwind config file and global CSS. Make sure you review changes before committing them.
+</Warning>

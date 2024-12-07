@@ -25,13 +25,11 @@ import { Authors } from '/snippets/authors.mdx';
   },
 }]} />
 
-next-forge is designed to be deployed on [Vercel](https://vercel.com), however you can likely deploy it to any other platform that supports Next.js such as [Netlify](https://www.netlify.com/).
+To deploy next-forge on Vercel, you need to create 3 new projects for the `app`, `api` and `web` apps. After selecting your repository, change the Root Directory option to the app of choice e.g. `apps/app`. This should automatically detect the Next.js setup and as such, the build command and output directory.
 
-## How to deploy
+Then, add all your environment variables to the project.
 
-To deploy next-forge, you need to create 3 new projects on Vercel for the `app`, `api` and `web` apps. After selecting your repository, change the Root Directory option to the app of choice e.g. `apps/app`. This should automatically detect the Next.js setup and as such, the build command and output directory.
-
-Then, just hit "Deploy" and Vercel will take care of the rest!
+Finally, just hit "Deploy" and Vercel will take care of the rest!
 
 Want to see it in action? next-forge is featured on the [Vercel Marketplace](https://vercel.com/templates/Next.js/next-forge) - try deploying the `app`:
 

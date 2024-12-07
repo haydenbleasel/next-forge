@@ -1,6 +1,6 @@
 {
   "name": "next-forge",
-  "version": "2.18.24",
+  "version": "2.18.30",
   "bin": {
     "next-forge": "./scripts/init.js"
   },
@@ -14,6 +14,7 @@
     "test": "turbo test",
     "analyze": "turbo analyze",
     "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push"
   },
   "devDependencies": {
@@ -21,12 +22,12 @@
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "turbo": "^2.3.2",
+    "turbo": "^2.3.3",
     "typescript": "^5.7.2",
-    "ultracite": "^4.1.7"
+    "ultracite": "^4.1.8"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.14.2"
+  "packageManager": "pnpm@9.14.4"
 }

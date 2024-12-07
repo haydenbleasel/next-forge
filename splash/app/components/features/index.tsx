@@ -177,7 +177,7 @@ const rows = [
 ];
 
 export const Features = () => (
-  <section className="dark h-[400px] sm:h-[800px]">
+  <section className="dark h-[400px] sm:h-[800px]" id="features">
     <div
       aria-hidden="true"
       className="relative mx-2 h-full overflow-hidden rounded-4xl bg-neutral-50 py-24 ring-1 ring-black/5 ring-inset sm:py-32 dark:bg-neutral-950"

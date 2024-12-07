@@ -26,7 +26,7 @@ const Layout = ({ children }: LayoutProps) => (
   <html
     lang="en"
     className={twMerge(
-      'touch-manipulation font-sans antialiased',
+      'touch-manipulation scroll-smooth font-sans antialiased',
       sans.variable,
       mono.variable
     )}

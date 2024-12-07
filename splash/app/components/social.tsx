@@ -34,7 +34,6 @@ const tweets = [
   '1856003447549538392',
   '1855956182823014891',
   '1855656670346825737',
-  '1856003447549538392',
   '1856782547046600770',
   '1856800101718499701',
   '1854993374207422474',
@@ -52,15 +51,17 @@ const tweets = [
   '1859478851513909690',
   '1857116639029874782',
   '1859898994148737286',
+  '1863494562871746847',
+  '1862904464715473405',
 ];
 
 export const Social = () => (
-  <div className="py-24 sm:py-32">
+  <div className="py-24 sm:py-32" id="community">
     <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
       <h2 className="font-medium text-base/7 text-neutral-500 dark:text-neutral-400">
         Loved by the community
       </h2>
-      <p className="mt-2 max-w-lg text-pretty font-bold text-3xl text-neutral-950 tracking-tighter sm:text-4xl sm:text-5xl dark:text-white">
+      <p className="mt-2 max-w-lg text-pretty font-bold text-3xl text-neutral-950 tracking-tighter sm:text-5xl dark:text-white">
         Free and open source, forever.
       </p>
       <div className="mt-10 columns-1 gap-4 sm:mt-16 md:columns-2 lg:columns-3">
