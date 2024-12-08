@@ -88,26 +88,28 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 <ArrowLeftIcon className="h-4 w-4" />
                 Back to Blog
               </Link>
-              <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
-                <Balancer>{page._title}</Balancer>
-              </h1>
-              <p className="leading-7 [&:not(:first-child)]:mt-6">
-                <Balancer>{page.description}</Balancer>
-              </p>
-              {page.image ? (
-                <Image
-                  src={page.image.url}
-                  width={page.image.width}
-                  height={page.image.height}
-                  alt={page.image.alt ?? ''}
-                  className="my-16 h-full w-full rounded-xl"
-                  priority
-                />
-              ) : undefined}
               <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
                 <div className="sm:flex-1">
-                  <div className="prose prose-neutral dark:prose-invert">
-                    <Body content={page.body.json.content} />
+                  <div className="prose prose-neutral dark:prose-invert max-w-none">
+                    <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
+                      <Balancer>{page._title}</Balancer>
+                    </h1>
+                    <p className="leading-7 [&:not(:first-child)]:mt-6">
+                      <Balancer>{page.description}</Balancer>
+                    </p>
+                    {page.image ? (
+                      <Image
+                        src={page.image.url}
+                        width={page.image.width}
+                        height={page.image.height}
+                        alt={page.image.alt ?? ''}
+                        className="my-16 h-full w-full rounded-xl"
+                        priority
+                      />
+                    ) : undefined}
+                    <div className="mx-auto max-w-prose">
+                      <Body content={page.body.json.content} />
+                    </div>
                   </div>
                 </div>
                 <div className="sticky top-24 hidden shrink-0 md:block">
