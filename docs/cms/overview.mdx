@@ -1,58 +1,196 @@
 ---
-title: Overview
-description: next-forge comes with a type-safe, intelligent blog.
+title: Switch to BaseHub
+description: How to change the CMS provider to BaseHub.
 ---
 
-next-forge uses [Content Collections](https://www.content-collections.dev/) to generate type-safe data collections from MDX files. This approach provides a structured way to manage blog posts while maintaining full type safety throughout your application.
+Here's how to implement [BaseHub](https://basehub.com) as your CMS. Learn more about BaseHub in their [docs](https://docs.basehub.com).
 
-## Creating blog posts
+## 1. Fork the [`basehub/next-forge`](https://basehub.com/basehub/next-forge) template
 
-To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
+You'll be forking a BaseHub repository which contains the next-forge compatible content schema.
 
-```mdx apps/web/content/blog/my-first-post.mdx
----
-title: 'My First Post'
-description: 'This is my first blog post'
-date: 2024-10-23
-image: /blog/my-first-post.png
----
+Once you fork the repository, you'll need to get your Read Token from the Connect page:
+
+```
+https://basehub.com/<team-slug>/<repo-slug>/dev/main/dev:connect
 ```
 
-The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
+The token will look something like this:
 
-## Creating a collection
+```
+bshb_pk_<password>
+```
 
-To create a new collection, you'll need to define it in the `content-collections.ts` file in the web directory. For example, here's how you can define a simple new collection called `docs`:
+Keep this connection string handy, you will need it in the next step.
 
-```ts apps/web/content-collections.ts {3-7, 10}
-import { defineCollection } from '@content-collections/core';
+## 2. Update your environment variables
 
-const docs = defineCollection({
-  name: 'docs',
-  directory: 'content/docs',
-  include: '**/*.mdx',
-});
+Update your [environment variables](/env) to use the new BaseHub token. For example:
 
-export default defineConfig({
-  collections: [posts, legals, docs],
+```ts apps/web/.env
+BASEHUB_TOKEN="<token>"
+```
+
+## 3. Install the `basehub` SDK
+
+Install the `basehub` package in the `web` app:
+
+```sh Terminal
+pnpm add basehub --filter web
+```
+
+## 4. Update `package.json` scripts
+
+Run `basehub dev` in parallel to your existing dev script, and `basehub build` before your existing build script:
+
+```ts apps/web/package.json {3-4}
+{
+  "scripts": {
+    "dev": "concurrently \"basehub dev\" \"next dev -p 3001\"",
+    "build": "basehub build && next build",
+  }
+}
+```
+
+Both of these scripts generate the type-safe SDK, but they do so in different ways:
+
+- `basehub dev` generates the SDK by targeting your repo's Draft API. Additionally, it will watch for schema changes and update the types accordingly.
+- `basehub build` generates the SDK by targeting your repo's Production API.
+
+## 5. Add `assets.basehub.com` as a valid image host
+
+<Note>You can either push it to the existing array, or modify `packages/next-config/index.ts`</Note>
+
+```ts apps/web/next.config.ts
+nextConfig.images?.remotePatterns?.push({
+  protocol: 'https',
+  hostname: 'assets.basehub.com',
 });
 ```
 
-## Custom collection properties
+## 6. Create your queries
 
-Collections in next-forge are enhanced with several utilities to improve the reading experience and performance:
+Create a new file called `apps/web/cms.ts` and add the queries to use the new BaseHub SDK.
 
-### Reading Time
+```ts apps/web/cms.ts
+import { basehub, fragmentOn } from 'basehub';
 
-The `reading-time` package is used to calculate the estimated reading time for each post based on its content. This is added to both blog and legal posts through a transform function. You can then reference it in your components using `page.readingTime`.
+const imageFragment = fragmentOn('BlockImage', {
+  url: true,
+  width: true,
+  height: true,
+  alt: true,
+  blurDataURL: true,
+});
 
-### Low-Quality Image Placeholder (LQIP)
+const postMetaFragment = fragmentOn('PostsItem', {
+  _id: true,
+  _slug: true,
+  _title: true,
+  date: true,
+  description: true,
+  image: imageFragment,
+  authors: { _title: true, avatar: imageFragment },
+})
 
-The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`, like so:
+export const getPost = async (slug: string) => {
+  const data = await basehub().query({
+    blog: {
+      posts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: slug }
+          }
+        },
+        items: {
+          ...postMetaFragment,
+          body: {
+            readingTime: true,
+            json: { content: true }
+          }
+        }
+      }
+    }
+  });
+  
+  return data.blog.posts.items[0];
+};
 
-```tsx blog/[slug]/page.tsx
-<Image
-  // ...
-  blurDataURL={page.imageBlur}
-  placeholder="blur"
-/>
+export const getPosts = async () => {
+  const data = await basehub().query({
+    blog: { posts: { items: postMetaFragment } },
+  });
+
+  return data.blog.posts.items;
+};
+```
+
+## 7. Use the queries in your app
+
+Now you can use the `getPost` and `getPosts` queries in your app, like so:
+
+```tsx apps/web/pages/blog/page.tsx
+import { getPosts } from '../../cms';
+
+const BlogIndex = async () => {
+  const allPosts = await getPosts();
+
+  // ... rest of the page omitted for brevity
+
+  return (
+    <>
+      {allPosts.map((post) => (
+        <Link href={`/blog/${post._slug}`} key={post._id}>
+          <div>{post._title}</div>
+        </Link>
+      ))}
+    </>
+  );
+};
+```
+
+```tsx apps/web/pages/blog/[slug].tsx
+import { getPost } from '../../../cms';
+
+const BlogPost = async ({ params }: BlogPostProperties) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  // ... rest of the page omitted for brevity
+
+  return <div>{post._title}</div>;
+}
+```
+
+## 8. Bonus features
+
+### BaseHub Toolbar
+
+Mount the `Toolbar` component in your `apps/web/app/layout.tsx` file to ensure [Automatic On-Demand Revalidation](https://docs.basehub.com/documentation/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended) works as expected, and Preview Links from the BaseHub Dashboard do so as well.
+
+```tsx apps/web/app/layout.tsx {11}
+import { Toolbar } from 'basehub/next-toolbar';
+
+const RootLayout = ({ children }: RootLayoutProperties) => (
+  <html lang="en" className={fonts} suppressHydrationWarning>
+    <body>
+      <DesignSystemProvider>
+        <Header />
+        {children}
+        <Footer />
+      </DesignSystemProvider>
+      <Toolbar />
+    </body>
+  </html>
+);
+```
+
+### BaseHub Image
+
+BaseHub comes with built in image resizing and optimization. It is recommended to use the `BaseHubImage` component instead of the standard `Image` component. This component uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+
+Import it like so:
+
+```tsx
+import { BaseHubImage } from 'basehub/next-image';
+```
