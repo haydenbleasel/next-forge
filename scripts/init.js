@@ -34,6 +34,7 @@ try {
   }
 
   fs.copyFileSync('packages/database/.env.example', 'packages/database/.env');
+  fs.copyFileSync('packages/cms/.env.example', 'packages/cms/.env.local');
 
   console.log('Deleting internal content...');
   for (const dir of ['.github/workflows', 'docs', 'splash']) {
