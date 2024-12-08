@@ -1,3 +1,4 @@
+import { withCMS } from '@repo/cms/next-config';
 import { env } from '@repo/env';
 import { config, withAnalyzer, withSentry } from '@repo/next-config';
 import type { NextConfig } from 'next';
@@ -29,4 +30,4 @@ if (env.ANALYZE === 'true') {
   nextConfig = withAnalyzer(nextConfig);
 }
 
-export default nextConfig;
+export default withCMS(nextConfig);
