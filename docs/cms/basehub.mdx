@@ -162,7 +162,9 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
 }
 ```
 
-## 8. Bonus: `Toolbar`
+## 8. Bonus features
+
+### BaseHub Toolbar
 
 Mount the `Toolbar` component in your `apps/web/app/layout.tsx` file to ensure [Automatic On-Demand Revalidation](https://docs.basehub.com/documentation/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended) works as expected, and Preview Links from the BaseHub Dashboard do so as well.
 
@@ -183,7 +185,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
 );
 ```
 
-## 9. Bonus: `BaseHubImage`
+### BaseHub Image
 
 BaseHub comes with built in image resizing and optimization. It is recommended to use the `BaseHubImage` component instead of the standard `Image` component. This component uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
 
