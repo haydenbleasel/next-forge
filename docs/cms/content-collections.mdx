@@ -3,7 +3,222 @@ title: Switch to Content Collections
 description: How to switch to Content Collections.
 ---
 
-next-forge uses [Content Collections](https://www.content-collections.dev/) to generate type-safe data collections from MDX files. This approach provides a structured way to manage blog posts while maintaining full type safety throughout your application.
+It's possible to switch to [Content Collections](https://www.content-collections.dev/) to generate type-safe data collections from MDX files. This approach provides a structured way to manage blog posts while maintaining full type safety throughout your application.
+
+## 1. Swap out the required dependencies
+
+Remove the existing dependencies...
+
+```sh Terminal
+pnpm remove basehub --filter web
+```
+
+... and install the new dependencies...
+
+```sh Terminal
+pnpm add @content-collections/mdx
+pnpm add -D @content-collections/cli @content-collections/core @content-collections/next
+```
+
+## 2. Add a prebuild script
+
+Add a prebuild script to the `web` package to build the content collections:
+
+```json apps/web/package.json {2}
+"scripts": {
+  "prebuild": "content-collections build"
+}
+```
+
+<Note>The prebuild script exists to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).</Note>
+
+## 3. Update the `.gitignore` file
+
+Update the `.gitignore` file to ignore the `.content-collections` directory:
+
+```git apps/web/.gitignore {1-2}
+# content-collections
+.content-collections
+```
+
+## 4. Update the `next.config.ts` file
+
+Update the `next.config.ts` file to include the content collections:
+
+```ts apps/web/next.config.ts {1,5}
+import { withContentCollections } from '@content-collections/next';
+
+// ...
+
+export default withContentCollections(nextConfig);
+```
+
+## 5. Update the `tsconfig.json` file
+
+Update the `tsconfig.json` file to include content collections:
+
+```json apps/web/tsconfig.json {4}
+{
+  "compilerOptions": {
+    "paths": {
+      "content-collections": ["./.content-collections/generated"]
+    }
+  }
+}
+```
+
+## 6. Create the `content-collections.ts` file
+
+```ts apps/web/content-collections.ts
+import { defineCollection, defineConfig } from '@content-collections/core';
+import { compileMDX } from '@content-collections/mdx';
+
+const posts = defineCollection({
+  name: 'posts',
+  directory: 'content/blog',
+  include: '**/*.mdx',
+  schema: (z) => ({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+    image: z.string(),
+    authors: z.array(z.string()),
+    tags: z.array(z.string()),
+  }),
+  transform: async (page, context) => {
+    const body = await context.cache(page.content, async () =>
+      compileMDX(context, page)
+    );
+
+    return {
+      ...page,
+      body,
+      date: new Date(page.date),
+      slug: page._meta.path,
+    };
+  },
+});
+
+const legals = defineCollection({
+  name: 'legal',
+  directory: 'content/legal',
+  include: '**/*.mdx',
+  schema: (z) => ({
+    title: z.string(),
+    description: z.string(),
+    date: z.string(),
+  }),
+  transform: async (page, context) => {
+    const body = await context.cache(page.content, async () =>
+      compileMDX(context, page)
+    );
+
+    return {
+      ...page,
+      body,
+      date: new Date(page.date),
+      slug: page._meta.path,
+    };
+  },
+});
+
+export default defineConfig({
+  collections: [posts, legals],
+});
+```
+
+## 7. Bonus features
+
+### Fumadocs MDX Plugins
+
+You can use the [Fumadocs](/documentation/fumadocs) MDX plugins to enhance your MDX content.
+
+```ts {1-6,8-13,20-23}
+import {
+  type RehypeCodeOptions,
+  rehypeCode,
+  remarkGfm,
+  remarkHeading,
+} from 'fumadocs-core/mdx-plugins';
+
+const rehypeCodeOptions: RehypeCodeOptions = {
+  themes: {
+    light: 'catppuccin-mocha',
+    dark: 'catppuccin-mocha',
+  },
+};
+
+const posts = defineCollection({
+  // ...
+  transform: async (page, context) => {
+    // ...
+    const body = await context.cache(page.content, async () =>
+      compileMDX(context, page, {
+        remarkPlugins: [remarkGfm, remarkHeading],
+        rehypePlugins: [[rehypeCode, rehypeCodeOptions]],
+      })
+    );
+
+    // ...
+  },
+});
+```
+
+### Reading Time
+
+You can calculate reading time for your collection by adding a transform function.
+
+```ts {1,10}
+import readingTime from 'reading-time';
+
+const posts = defineCollection({
+  // ...
+  transform: async (page, context) => {
+    // ...
+
+    return {
+      // ...
+      readingTime: readingTime(page.content).text,
+    };
+  },
+});
+```
+
+### Low-Quality Image Placeholder (LQIP)
+
+You can generate a low-quality image placeholder for your collection by adding a transform function.
+
+```ts {1,8-19,23,24}
+import { sqip } from 'sqip';
+
+const posts = defineCollection({
+  // ...
+  transform: async (page, context) => {
+    // ...
+
+    const blur = await context.cache(page._meta.path, async () =>
+      sqip({
+        input: `./public/${page.image}`,
+        plugins: [
+          'sqip-plugin-primitive',
+          'sqip-plugin-svgo',
+          'sqip-plugin-data-uri',
+        ],
+      })
+    );
+
+    const result = Array.isArray(blur) ? blur[0] : blur;
+
+    return {
+      // ...
+      image: page.image,
+      imageBlur: result.metadata.dataURIBase64 as string,
+    };
+  },
+});
+```
+
+-----
 
 ## Creating blog posts
 
@@ -37,22 +252,3 @@ export default defineConfig({
   collections: [posts, legals, docs],
 });
 ```
-
-## Custom collection properties
-
-Collections in next-forge are enhanced with several utilities to improve the reading experience and performance:
-
-### Reading Time
-
-The `reading-time` package is used to calculate the estimated reading time for each post based on its content. This is added to both blog and legal posts through a transform function. You can then reference it in your components using `page.readingTime`.
-
-### Low-Quality Image Placeholder (LQIP)
-
-The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`, like so:
-
-```tsx blog/[slug]/page.tsx
-<Image
-  // ...
-  blurDataURL={page.imageBlur}
-  placeholder="blur"
-/>
