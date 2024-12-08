@@ -10,32 +10,37 @@ It's possible to switch to [Content Collections](https://www.content-collections
 Remove the existing dependencies...
 
 ```sh Terminal
-pnpm remove basehub concurrently --filter web
+pnpm remove basehub --filter cms
+pnpm remove concurrently --filter web
 ```
 
 ... and install the new dependencies...
 
 ```sh Terminal
-pnpm add @content-collections/mdx
-pnpm add -D @content-collections/cli @content-collections/core @content-collections/next
+pnpm add @content-collections/mdx --filter cms
+pnpm add -D @content-collections/cli @content-collections/core @content-collections/next --filter cms
 ```
 
-## 2. Update the prebuild script
+## 2. Update the `web` scripts
 
-Update the `package.json` file to replace the `basehub` scripts with the `content-collections` script:
+Update the `package.json` file to remove the `prebuild` and `concurrently` scripts:
 
-```json apps/web/package.json {2,3}
+```json apps/web/package.json {2}
 "scripts": {
-  "dev": "next dev -p 3001 --turbopack",
-  "prebuild": "content-collections build"
+  "dev": "next dev -p 3001 --turbopack"
 }
 ```
 
-<Note>The prebuild script exists to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).</Note>
-
 ## 3. Update the `.gitignore` file
 
-Update the `.gitignore` file to ignore the `.content-collections` directory:
+Remove `.basehub` from the `.gitignore` file...
+
+```git apps/web/.gitignore {1-2}
+# basehub
+.basehub
+```
+
+... and add `.content-collections` to the `.gitignore` file:
 
 ```git apps/web/.gitignore {1-2}
 # content-collections
@@ -68,9 +73,13 @@ Update the `tsconfig.json` file to include content collections:
 }
 ```
 
-## 6. Create the `content-collections.ts` file
+## 6. Create your content collections
 
-```ts apps/web/content-collections.ts
+Create a new content collections file in the `cms` package, then import the collections in the `web` package.
+
+<CodeGroup>
+
+```ts packages/cms/collections.ts
 import { defineCollection, defineConfig } from '@content-collections/core';
 import { compileMDX } from '@content-collections/mdx';
 
@@ -127,6 +136,12 @@ export default defineConfig({
   collections: [posts, legals],
 });
 ```
+
+```ts packages/web/content-collections.ts
+export { default } from '@repo/cms/collections';
+```
+
+</CodeGroup>
 
 ## 7. Update the blog and legal pages
 
