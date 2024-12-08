@@ -17,7 +17,7 @@ export const TableOfContents = ({ data }: TableOfContentsProperties) => (
             href={item.url}
             className="line-clamp-3 flex rounded-sm text-foreground text-sm underline decoration-foreground/0 transition-colors hover:decoration-foreground/50"
           >
-            {item.title}
+            {item._title}
           </a>
         </li>
       ))}
