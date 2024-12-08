@@ -2,12 +2,12 @@ import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { blog } from '@repo/cms';
 import { Body } from '@repo/cms/components/body';
+import { Feed } from '@repo/cms/components/feed';
 import { Image } from '@repo/cms/components/image';
 import { TableOfContents } from '@repo/cms/components/toc';
 import { env } from '@repo/env';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
-import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
@@ -46,9 +46,10 @@ export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
 
 const BlogPost = async ({ params }: BlogPostProperties) => {
   const { slug } = await params;
+  const draft = await draftMode();
 
   return (
-    <Pump queries={[blog.postsQuery]} draft={draftMode().isEnabled}>
+    <Feed queries={[blog.postsQuery]} draft={draft.isEnabled}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';
@@ -125,7 +126,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
           </>
         );
       }}
-    </Pump>
+    </Feed>
   );
 };
 

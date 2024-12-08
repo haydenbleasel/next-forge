@@ -1,10 +1,10 @@
 import { blog } from '@repo/cms';
+import { Feed } from '@repo/cms/components/feed';
 import { Image } from '@repo/cms/components/image';
 import { cn } from '@repo/design-system/lib/utils';
 import type { Blog, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
-import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
@@ -14,7 +14,9 @@ const description = 'Thoughts, ideas, and opinions.';
 
 export const metadata: Metadata = createMetadata({ title, description });
 
-const BlogIndex = () => {
+const BlogIndex = async () => {
+  const draft = await draftMode();
+
   const jsonLd: WithContext<Blog> = {
     '@type': 'Blog',
     '@context': 'https://schema.org',
@@ -31,7 +33,7 @@ const BlogIndex = () => {
             </h4>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Pump queries={[blog.postsQuery]} draft={draftMode().isEnabled}>
+            <Feed queries={[blog.postsQuery]} draft={draft.isEnabled}>
               {async ([data]) => {
                 'use server';
 
@@ -74,7 +76,7 @@ const BlogIndex = () => {
                   </Link>
                 ));
               }}
-            </Pump>
+            </Feed>
           </div>
         </div>
       </div>
