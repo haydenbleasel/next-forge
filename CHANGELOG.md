@@ -1,3 +1,15 @@
+# v2.19.0 (Sun Dec 08 2024)
+
+#### 🚀 Enhancement
+
+- New CMS package [#325](https://github.com/haydenbleasel/next-forge/pull/325) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.33 (Sun Dec 08 2024)
 
 :tada: This release contains work from a new contributor! :tada:
