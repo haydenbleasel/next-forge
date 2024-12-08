@@ -88,8 +88,8 @@ jobs:
 
       - name: Create specific CMS .env file
         run: |
-          touch packages/cms/.env
-          echo "DATABASE_URL=postgresql://test:test@localhost:5432/test" >> packages/cms/.env
+          touch packages/cms/.env.local
+          echo "BASEHUB_TOKEN=${{ secrets.BASEHUB_TOKEN }}" >> packages/cms/.env.local
 
       - name: Build with bundle analysis
         run: pnpm analyze
