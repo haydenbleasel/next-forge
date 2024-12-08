@@ -11,6 +11,7 @@
   "dependencies": {
     "@arcjet/next": "1.0.0-alpha.34",
     "@radix-ui/react-icons": "^1.3.2",
+    "@repo/cms": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/email": "workspace:*",
     "@repo/env": "workspace:*",
