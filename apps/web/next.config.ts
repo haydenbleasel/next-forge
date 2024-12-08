@@ -4,6 +4,11 @@ import type { NextConfig } from 'next';
 
 let nextConfig: NextConfig = { ...config };
 
+nextConfig.images?.remotePatterns?.push({
+  protocol: 'https',
+  hostname: 'assets.basehub.com',
+});
+
 if (process.env.NODE_ENV === 'production') {
   const redirects: NextConfig['redirects'] = async () => [
     {

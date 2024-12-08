@@ -128,7 +128,267 @@ export default defineConfig({
 });
 ```
 
-## 7. Bonus features
+## 7. Update the blog and legal pages
+
+```tsx apps/web/app/blog/page.tsx
+import { cn } from '@repo/design-system/lib/utils';
+import type { Blog, WithContext } from '@repo/seo/json-ld';
+import { JsonLd } from '@repo/seo/json-ld';
+import { createMetadata } from '@repo/seo/metadata';
+import { allPosts } from 'content-collections';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+
+const title = 'Blog';
+const description = 'Thoughts, ideas, and opinions.';
+
+export const metadata: Metadata = createMetadata({ title, description });
+
+const BlogIndex = () => {
+  const jsonLd: WithContext<Blog> = {
+    '@type': 'Blog',
+    '@context': 'https://schema.org',
+  };
+
+  return (
+    <>
+      <JsonLd code={jsonLd} />
+      <div className="w-full py-20 lg:py-40">
+        <div className="container mx-auto flex flex-col gap-14">
+          <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:justify-between">
+            <h4 className="max-w-xl font-regular text-3xl tracking-tighter md:text-5xl">
+              Latest articles
+            </h4>
+          </div>
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+            {allPosts.map((post, index) => (
+              <Link
+                href={`/blog/${post._meta.path}`}
+                className={cn(
+                  'flex cursor-pointer flex-col gap-4 hover:opacity-75',
+                  !index && 'md:col-span-2'
+                )}
+                key={post.title}
+              >
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  width={1336}
+                  height={751}
+                  blurDataURL={post.imageBlur}
+                  placeholder="blur"
+                />
+                <div className="flex flex-row items-center gap-4">
+                  <p className="text-muted-foreground text-sm">
+                    {new Date(post.date).toLocaleDateString('en-US', {
+                      month: 'long',
+                      day: 'numeric',
+                      year: 'numeric',
+                    })}
+                  </p>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <h3 className="max-w-3xl text-4xl tracking-tight">
+                    {post.title}
+                  </h3>
+                  <p className="max-w-3xl text-base text-muted-foreground">
+                    {post.description}
+                  </p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default BlogIndex;
+```
+
+```tsx apps/web/app/blog/[slug]/page.tsx {1}
+import { Mdx } from '@/components/mdx';
+import { Sidebar } from '@/components/sidebar';
+import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import { env } from '@repo/env';
+import { type BlogPosting, JsonLd, type WithContext } from '@repo/seo/json-ld';
+import { createMetadata } from '@repo/seo/metadata';
+import { allPosts } from 'content-collections';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import Balancer from 'react-wrap-balancer';
+
+type BlogPostProperties = {
+  readonly params: Promise<{
+    slug: string;
+  }>;
+};
+
+export const generateMetadata = async ({
+  params,
+}: BlogPostProperties): Promise<Metadata> => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
+
+  if (!page) {
+    return {};
+  }
+
+  return createMetadata({
+    title: page.title,
+    description: page.description,
+    image: page.image,
+  });
+};
+
+export const generateStaticParams = (): { slug: string }[] =>
+  allPosts.map((page) => ({
+    slug: page._meta.path,
+  }));
+
+const BlogPost = async ({ params }: BlogPostProperties) => {
+  const { slug } = await params;
+  const page = allPosts.find(({ _meta }) => _meta.path === slug);
+
+  if (!page) {
+    notFound();
+  }
+
+  const jsonLd: WithContext<BlogPosting> = {
+    '@type': 'BlogPosting',
+    '@context': 'https://schema.org',
+    datePublished: page.date.toISOString(),
+    description: page.description,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': new URL(
+        `/blog/${slug}`,
+        env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+      ).toString(),
+    },
+    headline: page.title,
+    image: page.image,
+    dateModified: page.date.toISOString(),
+    author: page.authors.at(0),
+    isAccessibleForFree: true,
+  };
+
+  return (
+    <>
+      <JsonLd code={jsonLd} />
+      <div className="container py-16">
+        <Link
+          className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
+          href="/blog"
+        >
+          <ArrowLeftIcon className="h-4 w-4" />
+          Back to Blog
+        </Link>
+        <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
+          <Balancer>{page.title}</Balancer>
+        </h1>
+        <p className="leading-7 [&:not(:first-child)]:mt-6">
+          <Balancer>{page.description}</Balancer>
+        </p>
+        {page.image ? (
+          <Image
+            src={page.image}
+            width={1920}
+            height={1080}
+            alt=""
+            className="my-16 h-full w-full rounded-xl"
+            priority
+            blurDataURL={page.imageBlur}
+            placeholder="blur"
+          />
+        ) : undefined}
+        <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
+          <div className="sm:flex-1">
+            <Mdx code={page.body} />
+          </div>
+          <div className="sticky top-24 hidden shrink-0 md:block">
+            <Sidebar
+              content={page.content}
+              readingTime={page.readingTime}
+              date={page.date}
+            />
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default BlogPost;
+```
+
+## 9. Update the rich text renderer
+
+```tsx apps/web/components/mdx.tsx
+import { MDXContent } from '@content-collections/mdx/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import type { ComponentProps, HTMLProps } from 'react';
+
+const a = ({ href, ...properties }: HTMLProps<HTMLAnchorElement>) => {
+  if (typeof href !== 'string') {
+    throw new TypeError('href is required');
+  }
+
+  if (href.startsWith('/')) {
+    return <Link href={href} {...properties} />;
+  }
+
+  return (
+    <a {...properties} href={href} target="_blank" rel="noopener noreferrer" />
+  );
+};
+
+const img = (properties: HTMLProps<HTMLImageElement>) => {
+  if (
+    typeof properties.src !== 'string' ||
+    typeof properties.alt !== 'string'
+  ) {
+    throw new TypeError('Image src and alt are required');
+  }
+
+  return (
+    <Image
+      src={properties.src}
+      alt={properties.alt}
+      width={1240}
+      height={698}
+      unoptimized={properties.src.startsWith('http')}
+      className="overflow-hidden rounded"
+    />
+  );
+};
+
+const CompanyName = () => 'next-forge';
+
+export const Mdx = ({
+  code,
+  components,
+}: ComponentProps<typeof MDXContent>) => (
+  <div className="prose prose-neutral dark:prose-invert">
+    <MDXContent
+      code={code}
+      components={{
+        a,
+        img,
+        CompanyName,
+        ...components,
+      }}
+    />
+  </div>
+);
+```
+
+## 8. Bonus features
 
 ### Fumadocs MDX Plugins
 
