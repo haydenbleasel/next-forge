@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "basehub dev",
-    "build": "basehub"
+    "build": "basehub",
+    "analyze": "basehub"
   },
   "dependencies": {
     "@repo/env": "workspace:*",
