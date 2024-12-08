@@ -1,3 +1,16 @@
+# v2.19.2 (Sun Dec 08 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+- Upgrade to React 19 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.19.1 (Sun Dec 08 2024)
 
 #### ⚠️ Pushed to `main`
