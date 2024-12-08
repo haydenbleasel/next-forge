@@ -39,33 +39,22 @@ BASEHUB_TOKEN="<token>"
 
 ## How it works
 
-### BaseHub Toolbar
+### The `Feed` component
 
-Mount the `Toolbar` component in your `apps/web/app/layout.tsx` file to ensure [Automatic On-Demand Revalidation](https://docs.basehub.com/documentation/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended) works as expected, and Preview Links from the BaseHub Dashboard do so as well.
+The `Feed` component is a wrapper around BaseHub's `Pump` component — a React Server Component that gets generated with the basehub SDK. It leverages RSC, Server Actions, and the existing BaseHub client to subscribe to changes in real time with minimal development effort.
 
-```tsx apps/web/app/layout.tsx {11}
-import { Toolbar } from 'basehub/next-toolbar';
+### The `Body` component
 
-const RootLayout = ({ children }: RootLayoutProperties) => (
-  <html lang="en" className={fonts} suppressHydrationWarning>
-    <body>
-      <DesignSystemProvider>
-        <Header />
-        {children}
-        <Footer />
-      </DesignSystemProvider>
-      <Toolbar />
-    </body>
-  </html>
-);
-```
+The `Body` component is a wrapper around BaseHub's `RichText` component — BaseHub's rich text renderer which supports passing custom handlers for native html elements and BaseHub components.
 
-### BaseHub Image
+### The `TableOfContents` component
 
-BaseHub comes with built in image resizing and optimization. It is recommended to use the `BaseHubImage` component instead of the standard `Image` component. This component uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+The `TableOfContents` component leverages the `Body` component to render the table of contents for the current page.
 
-Import it like so:
+### The `Image` component
 
-```tsx
-import { BaseHubImage } from 'basehub/next-image';
-```
+The `Image` component is a wrapper around BaseHub's `BaseHubImage` component, which comes with built-in image resizing and optimization. BaseHub recommendeds using the `BaseHubImage` component instead of the standard Next.js `Image` component as it uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+
+## The `Toolbar` component
+
+The `Toolbar` component is a wrapper around BaseHub's `Toolbar` component, which helps manage draft mode and switch branches in your site previews. It's automatically mounted on CMS pages.
