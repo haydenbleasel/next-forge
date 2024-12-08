@@ -1,21 +1,18 @@
 import { capitalize } from '@repo/design-system/lib/utils';
-import { getTableOfContents } from 'fumadocs-core/server';
 
 type SidebarProperties = {
   readonly date: Date;
   readonly readingTime: string;
   readonly tags?: string[];
-  readonly content: string;
+  readonly toc: object;
 };
 
 export const Sidebar = async ({
   date,
   readingTime,
   tags,
-  content,
+  toc,
 }: SidebarProperties) => {
-  const toc = await getTableOfContents(content);
-
   return (
     <div className="col-span-4 flex w-72 flex-col items-start gap-8 border-foreground/10 border-l px-6 lg:col-span-2">
       <div className="grid gap-2">

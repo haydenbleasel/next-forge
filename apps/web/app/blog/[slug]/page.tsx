@@ -1,11 +1,11 @@
-import { basehub } from '@/.basehub';
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
+import { blog } from '@repo/cms';
+import { Body } from '@repo/cms/body';
 import { env } from '@repo/env';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { Pump } from 'basehub/react-pump';
-import { RichText } from 'basehub/react-rich-text';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -23,54 +23,23 @@ export const generateMetadata = async ({
 }: BlogPostProperties): Promise<Metadata> => {
   const { slug } = await params;
 
-  const data = await basehub().query({
-    blog: {
-      posts: {
-        __args: {
-          filter: {
-            _sys_id: {
-              eq: slug,
-            },
-          },
-        },
-        items: {
-          _title: true,
-          description: true,
-          image: {
-            url: true,
-          },
-        },
-      },
-    },
-  });
+  const post = await blog.getPost(slug);
 
-  const [page] = data.blog.posts.items;
-
-  if (!page) {
+  if (!post) {
     return {};
   }
 
   return createMetadata({
-    title: page._title,
-    description: page.description,
-    image: page.image.url,
+    title: post.title,
+    description: post.description,
+    image: post.image.url,
   });
 };
 
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
-  const data = await basehub().query({
-    blog: {
-      posts: {
-        items: {
-          _slug: true,
-        },
-      },
-    },
-  });
+  const posts = await blog.getPosts();
 
-  return data.blog.posts.items.map(({ _slug }) => ({
-    slug: _slug,
-  }));
+  return posts.map(({ slug }) => ({ slug }));
 };
 
 const BlogPost = async ({ params }: BlogPostProperties) => {
@@ -103,6 +72,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 body: {
                   json: {
                     content: true,
+                    toc: true,
                   },
                   readingTime: true,
                 },
@@ -141,9 +111,9 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 image: page.image.url
                   ? {
                       url: page.image.url,
-                      width: page.image.width,
-                      height: page.image.height,
-                      alt: page.image.alt,
+                      width: `${page.image.width}`,
+                      height: `${page.image.height}`,
+                      alt: page.image.alt ?? '',
                     }
                   : undefined,
                 dateModified: page.date,
@@ -177,11 +147,11 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
               ) : undefined}
               <div className="mt-16 flex flex-col items-start gap-8 sm:flex-row">
                 <div className="sm:flex-1">
-                  <RichText content={page.body.json.content} />
+                  <Body content={page.body.json.content} />
                 </div>
                 <div className="sticky top-24 hidden shrink-0 md:block">
                   <Sidebar
-                    content={page.body.json.content}
+                    toc={page.body.json.toc}
                     readingTime={`${page.body.readingTime} min read`}
                     date={new Date(page.date)}
                   />
