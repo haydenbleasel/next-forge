@@ -1,3 +1,20 @@
+# v2.18.33 (Sun Dec 08 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Julian Benegas ([@julianbenegas](https://github.com/julianbenegas)), for all your work!
+
+#### 🐛 Bug Fix
+
+- [wip] basehub docs [#219](https://github.com/haydenbleasel/next-forge/pull/219) ([@julianbenegas](https://github.com/julianbenegas) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Julian Benegas ([@julianbenegas](https://github.com/julianbenegas))
+
+---
+
 # v2.18.32 (Sun Dec 08 2024)
 
 :tada: This release contains work from a new contributor! :tada:
