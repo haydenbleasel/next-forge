@@ -35,11 +35,6 @@ const postFragment = fragmentOn('PostsItem', {
 const legalPostFragment = fragmentOn('LegalPagesItem', {
   _slug: true,
   _title: true,
-  authors: {
-    _title: true,
-    avatar: imageFragment,
-    xUrl: true,
-  },
   body: {
     plainText: true,
     json: {
@@ -48,12 +43,8 @@ const legalPostFragment = fragmentOn('LegalPagesItem', {
     },
     readingTime: true,
   },
-  categories: {
-    _title: true,
-  },
   date: true,
   description: true,
-  image: imageFragment,
 });
 
 export const blog = {
