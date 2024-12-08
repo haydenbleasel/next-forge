@@ -143,7 +143,31 @@ export const TableOfContents = async ({
 
 </CodeGroup>
 
-## 5. Create your collections
+## 5. Update the `sitemap.ts` file
+
+Update the `sitemap.ts` file to scan the `content` directory for MDX files:
+
+```tsx apps/web/app/sitemap.ts
+// ...
+
+const blogs = fs
+  .readdirSync('content/blog', { withFileTypes: true })
+  .filter((file) => !file.isDirectory())
+  .filter((file) => !file.name.startsWith('_'))
+  .filter((file) => !file.name.startsWith('('))
+  .map((file) => file.name.replace('.mdx', ''));
+
+const legals = fs
+  .readdirSync('content/legal', { withFileTypes: true })
+  .filter((file) => !file.isDirectory())
+  .filter((file) => !file.name.startsWith('_'))
+  .filter((file) => !file.name.startsWith('('))
+  .map((file) => file.name.replace('.mdx', ''));
+
+// ...
+```
+
+## 6. Create your collections
 
 Create a new content collections file in the `cms` package, then import the collections in the `web` package.
 
@@ -215,7 +239,7 @@ export { default } from '@repo/cms/collections';
 
 </CodeGroup>
 
-## 6. Create your content
+## 7. Create your content
 
 To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
 
@@ -230,11 +254,11 @@ image: /blog/my-first-post.png
 
 The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
 
-## 7. Remove the environment variables
+## 8. Remove the environment variables
 
 Finally, remove all instances of `BASEHUB_TOKEN` from the `@repo/env` package.
 
-## 8. Bonus features
+## 9. Bonus features
 
 ### Fumadocs MDX Plugins
 
