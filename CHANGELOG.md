@@ -1,3 +1,15 @@
+# v2.19.3 (Sun Dec 08 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Document CMS environment variable ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.19.2 (Sun Dec 08 2024)
 
 #### ⚠️ Pushed to `main`
