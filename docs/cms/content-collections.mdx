@@ -16,7 +16,7 @@ pnpm remove basehub --filter cms
 ... and install the new dependencies...
 
 ```sh Terminal
-pnpm add @content-collections/mdx next --filter cms
+pnpm add @content-collections/mdx fumadocs-core --filter cms
 pnpm add -D @content-collections/cli @content-collections/core @content-collections/next --filter cms
 ```
 
@@ -105,6 +105,40 @@ export const Body = ({ content, ...props }: BodyProperties) => (
 
 ```tsx packages/cms/components/toolbar.tsx
 export const Toolbar = () => null;
+```
+
+```tsx packages/cms/components/toc.tsx
+import { getTableOfContents } from 'fumadocs-core/server';
+
+type TableOfContentsProperties = {
+  data: string;
+};
+
+export const TableOfContents = async ({
+  data,
+}: TableOfContentsProperties) => {
+  const toc = await getTableOfContents(data);
+
+  return (
+    <ul className="flex list-none flex-col gap-2 text-sm">
+      {toc.map((item) => (
+        <li
+          key={item.url}
+          style={{
+            paddingLeft: `${item.depth - 2}rem`,
+          }}
+        >
+          <a
+            href={item.url}
+            className="line-clamp-3 flex rounded-sm text-foreground text-sm underline decoration-foreground/0 transition-colors hover:decoration-foreground/50"
+          >
+            {item.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  );
+};
 ```
 
 </CodeGroup>
