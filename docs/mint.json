@@ -81,9 +81,12 @@
           "group": "Business Intelligence",
           "pages": ["bi/metabase"]
         },
-        "blog",
         "bundle-analysis",
         "collaboration",
+        {
+          "group": "CMS",
+          "pages": ["cms/overview", "cms/basehub"]
+        },
         "cron",
         {
           "group": "Database and ORM",

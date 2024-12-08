@@ -1,0 +1,196 @@
+---
+title: Switch to BaseHub
+description: How to change the CMS provider to BaseHub.
+---
+
+Here's how to implement [BaseHub](https://basehub.com) as your CMS. Learn more about BaseHub in their [docs](https://docs.basehub.com).
+
+## 1. Fork the [`basehub/next-forge`](https://basehub.com/basehub/next-forge) template
+
+You'll be forking a BaseHub repository which contains the next-forge compatible content schema.
+
+Once you fork the repository, you'll need to get your Read Token from the Connect page:
+
+```
+https://basehub.com/<team-slug>/<repo-slug>/dev/main/dev:connect
+```
+
+The token will look something like this:
+
+```
+bshb_pk_<password>
+```
+
+Keep this connection string handy, you will need it in the next step.
+
+## 2. Update your environment variables
+
+Update your [environment variables](/env) to use the new BaseHub token. For example:
+
+```ts apps/web/.env
+BASEHUB_TOKEN="<token>"
+```
+
+## 3. Install the `basehub` SDK
+
+Install the `basehub` package in the `web` app:
+
+```sh Terminal
+pnpm add basehub --filter web
+```
+
+## 4. Update `package.json` scripts
+
+Run `basehub dev` in parallel to your existing dev script, and `basehub build` before your existing build script:
+
+```ts apps/web/package.json {3-4}
+{
+  "scripts": {
+    "dev": "concurrently \"basehub dev\" \"next dev -p 3001\"",
+    "build": "basehub build && next build",
+  }
+}
+```
+
+Both of these scripts generate the type-safe SDK, but they do so in different ways:
+
+- `basehub dev` generates the SDK by targeting your repo's Draft API. Additionally, it will watch for schema changes and update the types accordingly.
+- `basehub build` generates the SDK by targeting your repo's Production API.
+
+## 5. Add `assets.basehub.com` as a valid image host
+
+<Note>You can either push it to the existing array, or modify `packages/next-config/index.ts`</Note>
+
+```ts apps/web/next.config.ts
+nextConfig.images?.remotePatterns?.push({
+  protocol: 'https',
+  hostname: 'assets.basehub.com',
+});
+```
+
+## 6. Create your queries
+
+Create a new file called `apps/web/cms.ts` and add the queries to use the new BaseHub SDK.
+
+```ts apps/web/cms.ts
+import { basehub, fragmentOn } from 'basehub';
+
+const imageFragment = fragmentOn('BlockImage', {
+  url: true,
+  width: true,
+  height: true,
+  alt: true,
+  blurDataURL: true,
+});
+
+const postMetaFragment = fragmentOn('PostsItem', {
+  _id: true,
+  _slug: true,
+  _title: true,
+  date: true,
+  description: true,
+  image: imageFragment,
+  authors: { _title: true, avatar: imageFragment },
+})
+
+export const getPost = async (slug: string) => {
+  const data = await basehub().query({
+    blog: {
+      posts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: slug }
+          }
+        },
+        items: {
+          ...postMetaFragment,
+          body: {
+            readingTime: true,
+            json: { content: true }
+          }
+        }
+      }
+    }
+  });
+  
+  return data.blog.posts.items[0];
+};
+
+export const getPosts = async () => {
+  const data = await basehub().query({
+    blog: { posts: { items: postMetaFragment } },
+  });
+
+  return data.blog.posts.items;
+};
+```
+
+## 7. Use the queries in your app
+
+Now you can use the `getPost` and `getPosts` queries in your app, like so:
+
+```tsx apps/web/pages/blog/page.tsx
+import { getPosts } from '../../cms';
+
+const BlogIndex = async () => {
+  const allPosts = await getPosts();
+
+  // ... rest of the page omitted for brevity
+
+  return (
+    <>
+      {allPosts.map((post) => (
+        <Link href={`/blog/${post._slug}`} key={post._id}>
+          <div>{post._title}</div>
+        </Link>
+      ))}
+    </>
+  );
+};
+```
+
+```tsx apps/web/pages/blog/[slug].tsx
+import { getPost } from '../../../cms';
+
+const BlogPost = async ({ params }: BlogPostProperties) => {
+  const { slug } = await params;
+  const post = await getPost(slug);
+
+  // ... rest of the page omitted for brevity
+
+  return <div>{post._title}</div>;
+}
+```
+
+## 8. Bonus features
+
+### BaseHub Toolbar
+
+Mount the `Toolbar` component in your `apps/web/app/layout.tsx` file to ensure [Automatic On-Demand Revalidation](https://docs.basehub.com/documentation/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended) works as expected, and Preview Links from the BaseHub Dashboard do so as well.
+
+```tsx apps/web/app/layout.tsx {11}
+import { Toolbar } from 'basehub/next-toolbar';
+
+const RootLayout = ({ children }: RootLayoutProperties) => (
+  <html lang="en" className={fonts} suppressHydrationWarning>
+    <body>
+      <DesignSystemProvider>
+        <Header />
+        {children}
+        <Footer />
+      </DesignSystemProvider>
+      <Toolbar />
+    </body>
+  </html>
+);
+```
+
+### BaseHub Image
+
+BaseHub comes with built in image resizing and optimization. It is recommended to use the `BaseHubImage` component instead of the standard `Image` component. This component uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+
+Import it like so:
+
+```tsx
+import { BaseHubImage } from 'basehub/next-image';
+```
