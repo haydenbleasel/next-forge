@@ -2,8 +2,7 @@
   "name": "web",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"basehub\" \"next dev -p 3001 --turbopack\"",
-    "prebuild": "basehub",
+    "dev": "next dev -p 3001 --turbopack",
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build"
@@ -21,7 +20,7 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@sentry/nextjs": "^8.42.0",
-    "basehub": "^7.5.28",
+
     "date-fns": "^4.1.0",
     "fumadocs-core": "^14.5.6",
     "import-in-the-middle": "^1.11.3",
@@ -45,7 +44,6 @@
     "@types/node": "22.10.1",
     "@types/react": "18.3.13",
     "@types/react-dom": "18.3.1",
-    "concurrently": "^9.1.0",
     "typescript": "^5.7.2"
   }
 }

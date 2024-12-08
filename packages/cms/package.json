@@ -2,6 +2,10 @@
   "name": "@repo/cms",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "dev": "basehub dev",
+    "build": "basehub"
+  },
   "dependencies": {
     "@repo/env": "workspace:*",
     "basehub": "^7.5.28",
