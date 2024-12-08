@@ -24,7 +24,6 @@ export const generateMetadata = async ({
   params,
 }: BlogPostProperties): Promise<Metadata> => {
   const { slug } = await params;
-
   const post = await blog.getPost(slug);
 
   if (!post) {
@@ -49,7 +48,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
   const draft = await draftMode();
 
   return (
-    <Feed queries={[blog.postsQuery]} draft={draft.isEnabled}>
+    <Feed queries={[blog.postQuery(slug)]} draft={draft.isEnabled}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';
