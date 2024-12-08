@@ -108,7 +108,7 @@ export const Mdx = (props: ComponentProps<typeof MDXContent>) => (
 
 </CodeGroup>
 
-## 6. Create your content collections
+## 5. Create your collections
 
 Create a new content collections file in the `cms` package, then import the collections in the `web` package.
 
@@ -180,7 +180,22 @@ export { default } from '@repo/cms/collections';
 
 </CodeGroup>
 
-## 8. Bonus features
+## 6. Create your content
+
+To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
+
+```mdx apps/web/content/blog/my-first-post.mdx
+---
+title: 'My First Post'
+description: 'This is my first blog post'
+date: 2024-10-23
+image: /blog/my-first-post.png
+---
+```
+
+The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
+
+## 7. Bonus features
 
 ### Fumadocs MDX Plugins
 
@@ -268,40 +283,5 @@ const posts = defineCollection({
       imageBlur: result.metadata.dataURIBase64 as string,
     };
   },
-});
-```
-
------
-
-## Creating blog posts
-
-To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
-
-```mdx apps/web/content/blog/my-first-post.mdx
----
-title: 'My First Post'
-description: 'This is my first blog post'
-date: 2024-10-23
-image: /blog/my-first-post.png
----
-```
-
-The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
-
-## Creating a collection
-
-To create a new collection, you'll need to define it in the `content-collections.ts` file in the web directory. For example, here's how you can define a simple new collection called `docs`:
-
-```ts apps/web/content-collections.ts {3-7, 10}
-import { defineCollection } from '@content-collections/core';
-
-const docs = defineCollection({
-  name: 'docs',
-  directory: 'content/docs',
-  include: '**/*.mdx',
-});
-
-export default defineConfig({
-  collections: [posts, legals, docs],
 });
 ```
