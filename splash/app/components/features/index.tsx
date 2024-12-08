@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
-import BaseHub from './basehub.png';
+import BaseHub from './basehub.svg';
 import BetterStack from './better-stack.svg';
 import Clerk from './clerk.svg';
 import GoogleAnalytics from './google-analytics.svg';
