@@ -1,3 +1,4 @@
+import { blog } from '@repo/cms';
 import { Image } from '@repo/cms/components/image';
 import { cn } from '@repo/design-system/lib/utils';
 import type { Blog, WithContext } from '@repo/seo/json-ld';
@@ -29,32 +30,7 @@ const BlogIndex = () => {
             </h4>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Pump
-              queries={[
-                {
-                  blog: {
-                    posts: {
-                      __args: {
-                        first: 1,
-                        orderBy: '_sys_createdAt__DESC',
-                      },
-                      items: {
-                        _slug: true,
-                        _title: true,
-                        description: true,
-                        date: true,
-                        image: {
-                          url: true,
-                          width: true,
-                          height: true,
-                          alt: true,
-                        },
-                      },
-                    },
-                  },
-                },
-              ]}
-            >
+            <Pump queries={[blog.postsQuery]}>
               {async ([data]) => {
                 'use server';
 

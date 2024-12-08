@@ -1,3 +1,4 @@
+import { blog } from '@repo/cms';
 import { Button } from '@repo/design-system/components/ui/button';
 import { env } from '@repo/env';
 import { Pump } from 'basehub/react-pump';
@@ -9,23 +10,7 @@ export const Hero = () => (
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
         <div>
-          <Pump
-            queries={[
-              {
-                blog: {
-                  posts: {
-                    __args: {
-                      first: 1,
-                      orderBy: '_sys_createdAt__DESC',
-                    },
-                    items: {
-                      _slug: true,
-                    },
-                  },
-                },
-              },
-            ]}
-          >
+          <Pump queries={[blog.latestPostQuery]}>
             {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
             {async ([data]) => {
               'use server';
