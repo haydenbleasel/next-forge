@@ -155,6 +155,15 @@
     {
       "group": "Deployment",
       "pages": ["deployment/vercel", "deployment/netlify"]
+    },
+    {
+      "group": "Recipes",
+      "pages": [
+        "recipes/chat-app",
+        "recipes/ai-chatbot",
+        "recipes/subscription-saas",
+        "recipes/analytics-app"
+      ]
     }
   ],
 
