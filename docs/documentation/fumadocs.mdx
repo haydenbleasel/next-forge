@@ -189,11 +189,7 @@ To use components without import, add them to your MDX component.
 ```tsx app/docs/[[...slug]]/page.tsx
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
  
-<MDX
-  components={{
-    Tabs, Tab
-  }}
-/>;
+<MDX components={{ Tabs, Tab }} />;
 ```
 
 ## 3. Migrate `mint.json` File
