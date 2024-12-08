@@ -8,7 +8,7 @@ const imageFragment = fragmentOn('BlockImage', {
   blurDataURL: true,
 });
 
-const postMetaFragment = fragmentOn('PostsItem', {
+const postFragment = fragmentOn('PostsItem', {
   _slug: true,
   _title: true,
   authors: {
@@ -33,14 +33,41 @@ const postMetaFragment = fragmentOn('PostsItem', {
 });
 
 export const blog = {
-  getPosts: async () => {
-    const data = await basehub().query({
-      blog: {
-        posts: {
-          items: postMetaFragment,
-        },
+  postsQuery: {
+    blog: {
+      posts: {
+        items: postFragment,
       },
-    });
+    },
+  } as const,
+
+  latestPostQuery: {
+    blog: {
+      posts: {
+        __args: {
+          orderBy: '_sys_createdAt__DESC',
+          first: 1,
+        },
+        items: postFragment,
+      },
+    },
+  } as const,
+
+  postQuery: (slug: string) => ({
+    blog: {
+      posts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: slug },
+          },
+        },
+        items: postFragment,
+      },
+    },
+  }),
+
+  getPosts: async () => {
+    const data = await basehub().query(blog.postsQuery);
 
     return data.blog.posts.items.map((post) => ({
       title: post._title,
@@ -50,17 +77,7 @@ export const blog = {
   },
 
   getLatestPost: async () => {
-    const data = await basehub().query({
-      blog: {
-        posts: {
-          __args: {
-            orderBy: '_sys_createdAt__DESC',
-            first: 1,
-          },
-          items: postMetaFragment,
-        },
-      },
-    });
+    const data = await basehub().query(blog.latestPostQuery);
 
     return data.blog.posts.items
       .map((post) => ({
@@ -72,20 +89,8 @@ export const blog = {
   },
 
   getPost: async (slug: string) => {
-    const data = await basehub().query({
-      blog: {
-        posts: {
-          __args: {
-            filter: {
-              _sys_slug: {
-                eq: slug,
-              },
-            },
-          },
-          items: postMetaFragment,
-        },
-      },
-    });
+    const query = blog.postQuery(slug);
+    const data = await basehub().query(query);
 
     return data.blog.posts.items
       .map((post) => ({

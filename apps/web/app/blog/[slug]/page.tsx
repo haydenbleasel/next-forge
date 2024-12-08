@@ -47,45 +47,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
   const { slug } = await params;
 
   return (
-    <Pump
-      queries={[
-        {
-          blog: {
-            posts: {
-              __args: {
-                filter: {
-                  _sys_slug: {
-                    eq: slug,
-                  },
-                },
-              },
-              items: {
-                _slug: true,
-                _title: true,
-                description: true,
-                date: true,
-                image: {
-                  url: true,
-                  width: true,
-                  height: true,
-                  alt: true,
-                },
-                authors: {
-                  _title: true,
-                },
-                body: {
-                  json: {
-                    content: true,
-                    toc: true,
-                  },
-                  readingTime: true,
-                },
-              },
-            },
-          },
-        },
-      ]}
-    >
+    <Pump queries={[blog.postsQuery]}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';
