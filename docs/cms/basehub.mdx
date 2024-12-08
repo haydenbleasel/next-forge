@@ -31,7 +31,7 @@ Update your [environment variables](/env) to use the new BaseHub token. For exam
 BASEHUB_TOKEN="<token>"
 ```
 
-## 3. Install `basehub`
+## 3. Install the `basehub` SDK
 
 Install the `basehub` package in the `web` app:
 
@@ -59,13 +59,13 @@ Both of these scripts generate the type-safe SDK, but they do so in different wa
 
 ## 5. Add `assets.basehub.com` as a valid image host
 
+<Note>You can either push it to the existing array, or modify `packages/next-config/index.ts`</Note>
+
 ```ts apps/web/next.config.ts
 nextConfig.images?.remotePatterns?.push({
   protocol: 'https',
   hostname: 'assets.basehub.com',
 });
-
-// Note: you can either push it to the existing array, or modify `packages/next-config/index.ts`
 ```
 
 ## 6. Create your queries
