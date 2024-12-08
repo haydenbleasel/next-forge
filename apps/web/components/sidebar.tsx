@@ -5,7 +5,7 @@ type SidebarProperties = {
   readonly date: Date;
   readonly readingTime: string;
   readonly tags?: string[];
-  readonly toc: ReactNode;
+  readonly toc?: ReactNode;
 };
 
 export const Sidebar = async ({
