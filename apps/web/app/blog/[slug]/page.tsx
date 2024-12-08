@@ -1,13 +1,13 @@
 import { Sidebar } from '@/components/sidebar';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { blog } from '@repo/cms';
-import { Body } from '@repo/cms/body';
+import { Body } from '@repo/cms/components/body';
+import { Image } from '@repo/cms/components/image';
 import { env } from '@repo/env';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';

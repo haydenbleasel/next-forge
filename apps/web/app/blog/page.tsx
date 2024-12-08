@@ -1,10 +1,10 @@
+import { Image } from '@repo/cms/components/image';
 import { cn } from '@repo/design-system/lib/utils';
 import type { Blog, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 
 const title = 'Blog';
