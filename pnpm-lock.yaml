@@ -403,6 +403,9 @@ importers:
       '@types/react-dom':
         specifier: 18.3.1
         version: 18.3.1
+      concurrently:
+        specifier: ^9.1.0
+        version: 9.1.0
       typescript:
         specifier: ^5.7.2
         version: 5.7.2
@@ -19652,7 +19655,7 @@ snapshots:
   yargs@17.7.2:
     dependencies:
       cliui: 8.0.1
-      escalade: 3.1.2
+      escalade: 3.2.0
       get-caller-file: 2.0.5
       require-directory: 2.1.1
       string-width: 4.2.3

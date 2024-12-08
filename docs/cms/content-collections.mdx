@@ -10,7 +10,7 @@ It's possible to switch to [Content Collections](https://www.content-collections
 Remove the existing dependencies...
 
 ```sh Terminal
-pnpm remove basehub --filter web
+pnpm remove basehub concurrently --filter web
 ```
 
 ... and install the new dependencies...
@@ -20,12 +20,13 @@ pnpm add @content-collections/mdx
 pnpm add -D @content-collections/cli @content-collections/core @content-collections/next
 ```
 
-## 2. Add a prebuild script
+## 2. Update the prebuild script
 
-Add a prebuild script to the `web` package to build the content collections:
+Update the `package.json` file to replace the `basehub` scripts with the `content-collections` script:
 
-```json apps/web/package.json {2}
+```json apps/web/package.json {2,3}
 "scripts": {
+  "dev": "next dev -p 3001 --turbopack",
   "prebuild": "content-collections build"
 }
 ```
