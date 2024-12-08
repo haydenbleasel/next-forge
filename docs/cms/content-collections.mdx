@@ -17,7 +17,7 @@ pnpm remove concurrently --filter web
 ... and install the new dependencies...
 
 ```sh Terminal
-pnpm add @content-collections/mdx --filter cms
+pnpm add @content-collections/mdx next --filter cms
 pnpm add -D @content-collections/cli @content-collections/core @content-collections/next --filter cms
 ```
 
@@ -47,21 +47,81 @@ Remove `.basehub` from the `.gitignore` file...
 .content-collections
 ```
 
-## 4. Update the `next.config.ts` file
+## 4. Modify the relevant CMS package files
 
-Update the `next.config.ts` file to include the content collections:
+<CodeGroup>
 
-```ts apps/web/next.config.ts {1,5}
-import { withContentCollections } from '@content-collections/next';
-
-// ...
-
-export default withContentCollections(nextConfig);
+```ts packages/cms/next-config.ts {1}
+export { withContentCollections as withCMS } from '@content-collections/next';
 ```
 
-## 5. Update the `tsconfig.json` file
+```ts packages/cms/index.ts
+// TBD
+```
 
-Update the `tsconfig.json` file to include content collections:
+```tsx packages/cms/components/body.tsx
+import { MDXContent } from '@content-collections/mdx/react';
+import Image from 'next/image';
+import Link from 'next/link';
+import type { ComponentProps, HTMLProps } from 'react';
+
+const a = ({ href, ...properties }: HTMLProps<HTMLAnchorElement>) => {
+  if (typeof href !== 'string') {
+    throw new TypeError('href is required');
+  }
+
+  if (href.startsWith('/')) {
+    return <Link href={href} {...properties} />;
+  }
+
+  return (
+    <a {...properties} href={href} target="_blank" rel="noopener noreferrer" />
+  );
+};
+
+const img = (properties: HTMLProps<HTMLImageElement>) => {
+  if (
+    typeof properties.src !== 'string' ||
+    typeof properties.alt !== 'string'
+  ) {
+    throw new TypeError('Image src and alt are required');
+  }
+
+  return (
+    <Image
+      src={properties.src}
+      alt={properties.alt}
+      width={1240}
+      height={698}
+      unoptimized={properties.src.startsWith('http')}
+      className="overflow-hidden rounded"
+    />
+  );
+};
+
+const CompanyName = () => 'next-forge';
+
+export const Mdx = ({
+  code,
+  components,
+}: ComponentProps<typeof MDXContent>) => (
+  <div className="prose prose-neutral dark:prose-invert">
+    <MDXContent
+      code={code}
+      components={{
+        a,
+        img,
+        CompanyName,
+        ...components,
+      }}
+    />
+  </div>
+);
+```
+
+</CodeGroup>
+
+## 5. Modify the relevant `web` package files
 
 ```json apps/web/tsconfig.json {4}
 {
@@ -144,6 +204,8 @@ export { default } from '@repo/cms/collections';
 </CodeGroup>
 
 ## 7. Update the blog and legal pages
+
+<CodeGroup>
 
 ```tsx apps/web/app/blog/page.tsx
 import { cn } from '@repo/design-system/lib/utils';
@@ -341,67 +403,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
 export default BlogPost;
 ```
 
-## 9. Update the rich text renderer
-
-```tsx apps/web/components/mdx.tsx
-import { MDXContent } from '@content-collections/mdx/react';
-import Image from 'next/image';
-import Link from 'next/link';
-import type { ComponentProps, HTMLProps } from 'react';
-
-const a = ({ href, ...properties }: HTMLProps<HTMLAnchorElement>) => {
-  if (typeof href !== 'string') {
-    throw new TypeError('href is required');
-  }
-
-  if (href.startsWith('/')) {
-    return <Link href={href} {...properties} />;
-  }
-
-  return (
-    <a {...properties} href={href} target="_blank" rel="noopener noreferrer" />
-  );
-};
-
-const img = (properties: HTMLProps<HTMLImageElement>) => {
-  if (
-    typeof properties.src !== 'string' ||
-    typeof properties.alt !== 'string'
-  ) {
-    throw new TypeError('Image src and alt are required');
-  }
-
-  return (
-    <Image
-      src={properties.src}
-      alt={properties.alt}
-      width={1240}
-      height={698}
-      unoptimized={properties.src.startsWith('http')}
-      className="overflow-hidden rounded"
-    />
-  );
-};
-
-const CompanyName = () => 'next-forge';
-
-export const Mdx = ({
-  code,
-  components,
-}: ComponentProps<typeof MDXContent>) => (
-  <div className="prose prose-neutral dark:prose-invert">
-    <MDXContent
-      code={code}
-      components={{
-        a,
-        img,
-        CompanyName,
-        ...components,
-      }}
-    />
-  </div>
-);
-```
+</CodeGroup>
 
 ## 8. Bonus features
 
