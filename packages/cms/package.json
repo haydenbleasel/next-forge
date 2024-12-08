@@ -10,13 +10,13 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "basehub": "^7.5.28",
-    "react": "^18.3.1"
+    "react": "^19.0.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
-    "@types/react": "18.3.13",
-    "@types/react-dom": "^18.3.1",
-    "next": "15.0.3"
+    "@types/react": "19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "next": "15.0.4"
   }
 }

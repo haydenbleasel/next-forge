@@ -4,15 +4,15 @@
   "private": true,
   "dependencies": {
     "lodash.merge": "^4.6.2",
-    "react": "^18.3.1",
+    "react": "^19.0.0",
     "schema-dts": "^1.1.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/lodash.merge": "^4.6.9",
     "@types/node": "22.10.1",
-    "@types/react": "18.3.13",
-    "@types/react-dom": "^18.3.1",
-    "next": "15.0.3"
+    "@types/react": "19.0.1",
+    "@types/react-dom": "^19.0.1",
+    "next": "15.0.4"
   }
 }
