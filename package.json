@@ -2,11 +2,9 @@
   "name": "next-forge",
   "version": "2.18.33",
   "bin": {
-    "next-forge": "./scripts/init.js"
+    "next-forge": "./scripts/init.mjs"
   },
-  "files": [
-    "scripts/init.js"
-  ],
+  "files": ["scripts/init.mjs"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -29,5 +27,9 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@9.14.4"
+  "packageManager": "pnpm@9.14.4",
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "commander": "^12.1.0"
+  }
 }
