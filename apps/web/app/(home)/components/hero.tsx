@@ -3,6 +3,7 @@ import { Button } from '@repo/design-system/components/ui/button';
 import { env } from '@repo/env';
 import { Pump } from 'basehub/react-pump';
 import { MoveRight, PhoneCall } from 'lucide-react';
+import { draftMode } from 'next/headers';
 import Link from 'next/link';
 
 export const Hero = () => (
@@ -10,7 +11,7 @@ export const Hero = () => (
     <div className="container mx-auto">
       <div className="flex flex-col items-center justify-center gap-8 py-20 lg:py-40">
         <div>
-          <Pump queries={[blog.latestPostQuery]}>
+          <Pump queries={[blog.latestPostQuery]} draft={draftMode().isEnabled}>
             {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
             {async ([data]) => {
               'use server';

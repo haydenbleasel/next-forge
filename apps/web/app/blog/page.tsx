@@ -6,6 +6,7 @@ import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import Link from 'next/link';
 
 const title = 'Blog';
@@ -30,7 +31,7 @@ const BlogIndex = () => {
             </h4>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Pump queries={[blog.postsQuery]}>
+            <Pump queries={[blog.postsQuery]} draft={draftMode().isEnabled}>
               {async ([data]) => {
                 'use server';
 

@@ -9,6 +9,7 @@ import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import { Pump } from 'basehub/react-pump';
 import type { Metadata } from 'next';
+import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -31,7 +32,7 @@ export const generateMetadata = async ({
   }
 
   return createMetadata({
-    title: post.title,
+    title: post._title,
     description: post.description,
     image: post.image.url,
   });
@@ -40,14 +41,14 @@ export const generateMetadata = async ({
 export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
   const posts = await blog.getPosts();
 
-  return posts.map(({ slug }) => ({ slug }));
+  return posts.map(({ _slug }) => ({ slug: _slug }));
 };
 
 const BlogPost = async ({ params }: BlogPostProperties) => {
   const { slug } = await params;
 
   return (
-    <Pump queries={[blog.postsQuery]}>
+    <Pump queries={[blog.postsQuery]} draft={draftMode().isEnabled}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';

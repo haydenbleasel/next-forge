@@ -258,7 +258,6 @@ const posts = defineCollection({
       _title: title,
       _slug: page._meta.path,
       body,
-      date: new Date(page.date),
     };
   },
 });
@@ -282,7 +281,6 @@ const legals = defineCollection({
       _title: title,
       _slug: page._meta.path,
       body,
-      date: new Date(page.date),
     };
   },
 });
