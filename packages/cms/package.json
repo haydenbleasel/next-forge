@@ -1,0 +1,22 @@
+{
+  "name": "@repo/cms",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "basehub dev",
+    "build": "basehub",
+    "analyze": "basehub"
+  },
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "basehub": "^7.5.28",
+    "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "@types/react": "18.3.13",
+    "@types/react-dom": "^18.3.1",
+    "next": "15.0.3"
+  }
+}

@@ -20,6 +20,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
     .or(z.string().min(1).startsWith('testsk_')),
   LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
+  BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),
 
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),
@@ -74,6 +75,7 @@ export const env = createEnv({
     SVIX_TOKEN: process.env.SVIX_TOKEN,
     LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
     OPENAI_API_KEY: process.env.OPENAI_API_KEY,
+    BASEHUB_TOKEN: process.env.BASEHUB_TOKEN,
     NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
       process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
     NEXT_PUBLIC_CLERK_SIGN_IN_URL: process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL,

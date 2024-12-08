@@ -13,10 +13,6 @@ The default next-forge tooling was chosen by [myself](https://x.com/haydenblease
 
 That being said, if you really believe tool Y is a much better choice than tool X, feel free to start up a conversation with me on X and we can hash it out!
 
-## Why does `apps/web` have a `prebuild` script?
-
-The website has a prebuild script in order to use the Content Collections CLI directly. The files are cached and not rebuilt in the Next.js build process. This is a workaround for [this issue](https://github.com/sdorra/content-collections/issues/214).
-
 ## Why is there a `suppressHydrationWarning` on every `html` tag?
 
 This is the recommendation by `next-themes` to supress the warning stemming from determining theme on the client side.

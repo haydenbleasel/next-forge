@@ -1,58 +1,62 @@
 ---
 title: Overview
-description: next-forge comes with a type-safe, intelligent blog.
+description: How the CMS is configured in next-forge.
 ---
 
-next-forge uses [Content Collections](https://www.content-collections.dev/) to generate type-safe data collections from MDX files. This approach provides a structured way to manage blog posts while maintaining full type safety throughout your application.
+next-forge has a dedicated CMS package that can be used to generate type-safe data collections from your content. This approach provides a structured way to manage your content while maintaining full type safety throughout your application.
 
-## Creating blog posts
+By default, next-forge uses [BaseHub](https://basehub.com) as the CMS. However, it is also possible to use other sources, such as [Content Collections](/cms/content-collections) to generate type-safe data collections from MDX files.
 
-To create a new blog post, add a new MDX file to the `apps/web/content/blog` directory. The file name will be used as the slug for the blog post and the frontmatter will be used to generate the blog post page. For example:
+## Setup
 
-```mdx apps/web/content/blog/my-first-post.mdx
----
-title: 'My First Post'
-description: 'This is my first blog post'
-date: 2024-10-23
-image: /blog/my-first-post.png
----
+Here's how to quickly get started with your new CMS.
+
+### 1. Fork the [`basehub/next-forge`](https://basehub.com/basehub/next-forge) template
+
+You'll be forking a BaseHub repository which contains the next-forge compatible content schema.
+
+Once you fork the repository, you'll need to get your Read Token from the Connect page:
+
+```
+https://basehub.com/<team-slug>/<repo-slug>/dev/main/dev:connect
 ```
 
-The same concept applies to the `legal` collection, which is used to generate the legal policy pages. Also, the `image` field is the path relative to the app's root `public` directory.
+The token will look something like this:
 
-## Creating a collection
-
-To create a new collection, you'll need to define it in the `content-collections.ts` file in the web directory. For example, here's how you can define a simple new collection called `docs`:
-
-```ts apps/web/content-collections.ts {3-7, 10}
-import { defineCollection } from '@content-collections/core';
-
-const docs = defineCollection({
-  name: 'docs',
-  directory: 'content/docs',
-  include: '**/*.mdx',
-});
-
-export default defineConfig({
-  collections: [posts, legals, docs],
-});
+```
+bshb_pk_<password>
 ```
 
-## Custom collection properties
+Keep this connection string handy, you will need it in the next step.
 
-Collections in next-forge are enhanced with several utilities to improve the reading experience and performance:
+### 2. Update your environment variables
 
-### Reading Time
+Update your [environment variables](/env) to use the new BaseHub token. For example:
 
-The `reading-time` package is used to calculate the estimated reading time for each post based on its content. This is added to both blog and legal posts through a transform function. You can then reference it in your components using `page.readingTime`.
+```ts apps/web/.env
+BASEHUB_TOKEN="<token>"
+```
 
-### Low-Quality Image Placeholder (LQIP)
+## How it works
 
-The `sqip` package is used to generate a low-quality image placeholder for each post. This is added to both blog and legal posts through a transform function. You can then use it in your components using `page.imageBlur`, like so:
+### The `Feed` component
 
-```tsx blog/[slug]/page.tsx
-<Image
-  // ...
-  blurDataURL={page.imageBlur}
-  placeholder="blur"
-/>
+The `Feed` component is a wrapper around BaseHub's `Pump` component — a React Server Component that gets generated with the basehub SDK. It leverages RSC, Server Actions, and the existing BaseHub client to subscribe to changes in real time with minimal development effort.
+
+It's also setup by default to use Next.js [Draft Mode](https://nextjs.org/docs/app/building-your-application/configuring/draft-mode), allowing you to preview draft content in your app.
+
+### The `Body` component
+
+The `Body` component is a wrapper around BaseHub's `RichText` component — BaseHub's rich text renderer which supports passing custom handlers for native html elements and BaseHub components.
+
+### The `TableOfContents` component
+
+The `TableOfContents` component leverages the `Body` component to render the table of contents for the current page.
+
+### The `Image` component
+
+The `Image` component is a wrapper around BaseHub's `BaseHubImage` component, which comes with built-in image resizing and optimization. BaseHub recommendeds using the `BaseHubImage` component instead of the standard Next.js `Image` component as it uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+
+## The `Toolbar` component
+
+The `Toolbar` component is a wrapper around BaseHub's `Toolbar` component, which helps manage draft mode and switch branches in your site previews. It's automatically mounted on CMS pages.

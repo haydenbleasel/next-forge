@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import { twMerge } from 'tailwind-merge';
 
+import BaseHub from './basehub.svg';
 import BetterStack from './better-stack.svg';
 import Clerk from './clerk.svg';
-import ContentCollections from './content-collections.png';
 import GoogleAnalytics from './google-analytics.svg';
 import Prisma from './prisma.svg';
 import Radix from './radix.svg';
@@ -57,8 +57,8 @@ const rows = [
   {
     row: [
       {
-        label: 'Content Collections',
-        src: ContentCollections,
+        label: 'BaseHub',
+        src: BaseHub,
         className: '[animation-delay:-40s] [animation-duration:40s]',
       },
       {

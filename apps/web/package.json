@@ -5,13 +5,12 @@
     "dev": "next dev -p 3001 --turbopack",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true pnpm build",
-    "prebuild": "content-collections build"
+    "analyze": "ANALYZE=true pnpm build"
   },
   "dependencies": {
     "@arcjet/next": "1.0.0-alpha.34",
-    "@content-collections/mdx": "^0.2.0",
     "@radix-ui/react-icons": "^1.3.2",
+    "@repo/cms": "workspace:*",
     "@repo/design-system": "workspace:*",
     "@repo/email": "workspace:*",
     "@repo/env": "workspace:*",
@@ -21,6 +20,7 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@sentry/nextjs": "^8.42.0",
+
     "date-fns": "^4.1.0",
     "fumadocs-core": "^14.5.6",
     "import-in-the-middle": "^1.11.3",
@@ -40,9 +40,6 @@
     "sqip-plugin-svgo": "1.0.0-alpha.54"
   },
   "devDependencies": {
-    "@content-collections/cli": "^0.1.6",
-    "@content-collections/core": "^0.7.3",
-    "@content-collections/next": "^0.2.4",
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "18.3.13",

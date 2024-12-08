@@ -61,6 +61,7 @@ jobs:
           echo "ARCJET_KEY=ajkey_test" >> apps/app/.env.local
           echo "SVIX_TOKEN=testsk_test" >> apps/app/.env.local
           echo "LIVEBLOCKS_SECRET=sk_test" >> apps/app/.env.local
+          echo "BASEHUB_TOKEN=${{ secrets.BASEHUB_TOKEN }}" >> apps/app/.env.local
 
           echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_JA==" >> apps/app/.env.local
           echo "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in" >> apps/app/.env.local
@@ -79,6 +80,16 @@ jobs:
         run: |
           cp apps/app/.env.local apps/web/.env.local
           cp apps/app/.env.local apps/api/.env.local
+
+      - name: Create specific Database .env file
+        run: |
+          touch packages/database/.env
+          echo "DATABASE_URL=postgresql://test:test@localhost:5432/test" >> packages/database/.env
+
+      - name: Create specific CMS .env file
+        run: |
+          touch packages/cms/.env.local
+          echo "BASEHUB_TOKEN=${{ secrets.BASEHUB_TOKEN }}" >> packages/cms/.env.local
 
       - name: Build with bundle analysis
         run: pnpm analyze
