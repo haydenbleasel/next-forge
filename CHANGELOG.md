@@ -1,3 +1,20 @@
+# v2.18.32 (Sun Dec 08 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Fuma Nama ([@fuma-nama](https://github.com/fuma-nama)), for all your work!
+
+#### 🐛 Bug Fix
+
+- add Fumadocs guide [#324](https://github.com/haydenbleasel/next-forge/pull/324) ([@fuma-nama](https://github.com/fuma-nama) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Fuma Nama ([@fuma-nama](https://github.com/fuma-nama))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.18.31 (Sat Dec 07 2024)
 
 #### 🐛 Bug Fix
