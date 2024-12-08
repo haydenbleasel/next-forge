@@ -33,7 +33,7 @@ Add `.content-collections` to the `.gitignore` file:
 
 Now we need to modify the CMS package scripts to replace the `basehub` commands with `content-collections`.
 
-```json packages/cms/package.json {1}
+```json packages/cms/package.json {3-5}
 {
   "scripts": {
     "dev": "content-collections build",
@@ -51,7 +51,7 @@ Now we need to modify the CMS package scripts to replace the `basehub` commands 
 
 <CodeGroup>
 
-```ts packages/cms/next-config.ts {1}
+```ts packages/cms/next-config.ts
 export { withContentCollections as withCMS } from '@content-collections/next';
 ```
 
