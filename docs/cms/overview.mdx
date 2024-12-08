@@ -43,6 +43,8 @@ BASEHUB_TOKEN="<token>"
 
 The `Feed` component is a wrapper around BaseHub's `Pump` component — a React Server Component that gets generated with the basehub SDK. It leverages RSC, Server Actions, and the existing BaseHub client to subscribe to changes in real time with minimal development effort.
 
+It's also setup by default to use Next.js [Draft Mode](https://nextjs.org/docs/app/building-your-application/configuring/draft-mode), allowing you to preview draft content in your app.
+
 ### The `Body` component
 
 The `Body` component is a wrapper around BaseHub's `RichText` component — BaseHub's rich text renderer which supports passing custom handlers for native html elements and BaseHub components.
