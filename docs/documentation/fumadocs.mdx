@@ -27,7 +27,7 @@ import { Authors } from '/snippets/authors.mdx';
 
 [Fumadocs](https://fumadocs.vercel.app) is a beautiful & powerful docs framework powered by Next.js, allowing advanced customisations.
 
-## Create a Fumadocs App
+## 1. Create a Fumadocs App
 
 Fumadocs is similar to a set of libraries built on **Next.js App Router**, which works very differently from a hosted solution like Mintlify, or other frameworks/static site generator that takes complete control over your app.
 
@@ -47,13 +47,13 @@ Fumadocs is designed carefully to allow a custom content source, there's also ex
 
 <Note>`lib/source.ts` is where you organize code for content sources.</Note>
 
-## Tailwind CSS
+### Update your Tailwind CSS
 
 Start the app with `pnpm dev`.
 
 If some styles are missing, it could be due to your monorepo setup, you can change the `content` property in your Tailwind CSS config (`tailwind.config.mjs`) to ensure it works:
 
-```js
+```js tailwind.config.mjs
 export default {
   content: [
     // from
@@ -67,53 +67,80 @@ export default {
 };
 ```
 
-## Migrate MDX Files
+You can either keep the Tailwind config file isolated to the docs, or merge it with your existing config from the `tailwind-config` package.
 
-Fumadocs, same as Mintlify, utilize MDX for content files.
-You can move the `.mdx` files from your Mintlify app to `content/docs` directory.
+## 2. Migrate MDX Files
+
+Fumadocs, same as Mintlify, utilize MDX for content files. You can move the `.mdx` files from your Mintlify app to `content/docs` directory.
 
 <Note>Fumadocs requires a `title` frontmatter property.</Note>
 
-The MDX syntax of Fumadocs is almost identical to Mintlify, despite from having different components and usage for code blocks.
-
-Visit [Markdown](https://fumadocs.vercel.app/docs/ui/markdown) for supported Markdown syntax.
+The MDX syntax of Fumadocs is almost identical to Mintlify, despite from having different components and usage for code blocks. Visit [Markdown](https://fumadocs.vercel.app/docs/ui/markdown) for supported Markdown syntax.
 
 ### Code Block
 
-From:
+Code block titles are formatted with `title="Title"`.
 
-````mdx
+<CodeGroup>
+
+````sh Mintlify
 ```sh Name
 pnpm i
 ```
 ````
 
-To:
-
-````mdx
+````sh Fumadocs
 ```sh title="Name"
 pnpm i
 ```
 ````
 
-Syntax highlighting is powered by Shiki, with a set of transformers added by default.
+</CodeGroup>
 
-````mdx
-```ts
-console.log('Not highlighted')
-console.log('Highlighted') // [!code highlight]
-console.log('Not highlighted')
-```
+Code highlighting is done with an inline comment.
 
-```ts
-const message = 'Hello World' // [!code word:Hello]
-console.log(message)
+<CodeGroup>
+
+````ts Mintlify
+```ts {1}
+console.log('Highlighted');
 ```
 ````
 
-For code block groups, use `Tabs`:
+````ts Fumadocs
+```ts
+console.log('Highlighted'); // [!code highlight]
+```
+````
 
-````mdx
+</CodeGroup>
+
+In Fumadocs, you can also highlight specific words.
+
+````ts Fumadocs
+console.log('Highlighted'); // [!code word:Highlighted]
+````
+
+### Code Groups
+
+For code groups, you can use the `Tabs` component:
+
+<CodeGroup>
+
+````tsx Mintlify
+<CodeGroup>
+
+```ts Tab One
+console.log('Hello, world!');
+```
+
+```ts Tab Two
+console.log('Hello, world!');
+```
+</CodeGroup>
+````
+
+````tsx Fumadocs
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
  
 <Tabs items={["Tab 1", "Tab 2"]}>
@@ -129,21 +156,37 @@ console.log('B');
 </Tabs>
 ````
 
-Fumadocs also have built-in integration for TypeScript Twoslash, you see visit the [Setup Guide](https://fumadocs.vercel.app/docs/ui/twoslash).
+</CodeGroup>
+
+Fumadocs also has a built-in integration for TypeScript Twoslash, check it out in the [Setup Guide](https://fumadocs.vercel.app/docs/ui/twoslash).
 
 ### Callout
 
-````mdx
-<Callout title="Title" type="info | warn | error">
-  Hello World
-</Callout>
-````
+Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify's specific ones.
+
+<CodeGroup>
+
+```tsx Mintlify
+<Note>Hello World</Note>
+<Warning>Hello World</Warning>
+<Info>Hello World</Info>
+<Tip>Hello World</Tip>
+<Check>Hello World</Check>
+```
+
+```tsx Fumadocs
+<Callout title="Title" type="info">Hello World</Callout>
+<Callout title="Title" type="warn">Hello World</Callout>
+<Callout title="Title" type="error">Hello World</Callout>
+```
+
+</CodeGroup>
 
 ### Adding Components
 
-To use components without import, add them to your MDX component in `app/docs/[[...slug]]/page.tsx`.
+To use components without import, add them to your MDX component.
 
-```tsx
+```tsx app/docs/[[...slug]]/page.tsx
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
  
 <MDX
@@ -153,7 +196,7 @@ import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 />;
 ```
 
-## Migrate Mint File
+## 3. Migrate `mint.json` File
 
 Instead of a single file, you can configure Fumadocs using code.
 
@@ -164,19 +207,19 @@ You don't need to hardcode the sidebar config manually.
 
 For example, to customise the order of pages in `content/docs/components` folder, you can create a `meta.json` folder in the directory:
 
-```json
+```json meta.json
 {
-    "title": "Components", // optional
-    "pages": ["index", "apple"] // file names (without extension)
+  "title": "Components", // optional
+  "pages": ["index", "apple"] // file names (without extension)
 }
 ```
 
 Fumadocs also support the rest operator (`...`) if you want to include the other pages.
 
-```json
-{
-    "title": "Components", // optional
-    "pages": ["index", "apple", "..."] // file names (without extension)
+```json meta.json
+{ 
+  "title": "Components", // optional
+  "pages": ["index", "apple", "..."] // file names (without extension)
 }
 ```
 
@@ -184,32 +227,32 @@ Visit the [Pages Organization Guide](https://fumadocs.vercel.app/docs/ui/page-co
 
 ### Appearance
 
-The overall theme can be customised using:
+The overall theme can be customised using CSS variables and/or presets.
 
 #### CSS variables
 
-In `global.css`:
+In your global CSS file:
 
-```css
+```css global.css
 :root {
-    /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
-    --background: 239 37% 50%;
+  /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
+  --background: 239 37% 50%;
 
-    /* Want a max width for docs layout? */
-    --fd-layout-width: 1400px;
+  /* Want a max width for docs layout? */
+  --fd-layout-width: 1400px;
 }
 
 .dark {
-    /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
-    --background: 239 37% 50%;
+  /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
+  --background: 239 37% 50%;
 }
 ```
 
-#### In `tailwind.config.mjs`
+#### Tailwind Presets
 
-Use `preset` option.
+In your Tailwind config, use the `preset` option.
 
-```js
+```js tailwind.config.mjs
 import { createPreset } from 'fumadocs-ui/tailwind-plugin';
  
 /** @type {import('tailwindcss').Config} */
@@ -237,9 +280,9 @@ You can customise the layouts in `layout.tsx`.
 
 ### Navigation Links
 
-Navigation links are passed to layouts, you can also customise them in `layout.config.tsx`.
+Navigation links are passed to layouts, you can also customise them in your Layout config.
 
-```tsx
+```tsx app/layout.config.tsx
 import { BookIcon } from 'lucide-react';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  
@@ -260,4 +303,4 @@ See [all supported items](https://fumadocs.vercel.app/docs/ui/blocks/links).
 
 Now, you should be able to build and preview the docs.
 
-Welcome to visit [Fumadocs](https://fumadocs.vercel.app/docs/ui) for details and additonal features.
+Visit [Fumadocs](https://fumadocs.vercel.app/docs/ui) for details and additional features.
