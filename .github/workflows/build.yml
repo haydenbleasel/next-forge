@@ -80,6 +80,8 @@ jobs:
         run: |
           cp apps/app/.env.local apps/web/.env.local
           cp apps/app/.env.local apps/api/.env.local
+          cp apps/app/.env.local packages/database/.env
+          cp apps/app/.env.local packages/cms/.env.local
 
       - name: Build with bundle analysis
         run: pnpm analyze
