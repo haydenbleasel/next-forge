@@ -43,7 +43,6 @@ const legalPostFragment = fragmentOn('LegalPagesItem', {
     },
     readingTime: true,
   },
-  date: true,
   description: true,
 });
 
