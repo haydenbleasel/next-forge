@@ -1,12 +1,12 @@
 type TableOfContentsProperties = {
-  readonly toc: object;
+  readonly data: object;
 };
 
-export const TableOfContents = ({ toc }: TableOfContentsProperties) => (
+export const TableOfContents = ({ data }: TableOfContentsProperties) => (
   <div>
-    <pre>{JSON.stringify(toc, null, 2)}</pre>
+    <pre>{JSON.stringify(data, null, 2)}</pre>
     {/* <ul className="flex list-none flex-col gap-2 text-sm">
-      {toc.map((item) => (
+      {data.map((item) => (
         <li
           key={item.url}
           style={{

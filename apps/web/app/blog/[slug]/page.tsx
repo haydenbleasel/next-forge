@@ -3,6 +3,7 @@ import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { blog } from '@repo/cms';
 import { Body } from '@repo/cms/components/body';
 import { Image } from '@repo/cms/components/image';
+import { TableOfContents } from '@repo/cms/components/toc';
 import { env } from '@repo/env';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
@@ -149,7 +150,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 </div>
                 <div className="sticky top-24 hidden shrink-0 md:block">
                   <Sidebar
-                    toc={page.body.json.toc}
+                    toc={<TableOfContents data={page.body.json.toc} />}
                     readingTime={`${page.body.readingTime} min read`}
                     date={new Date(page.date)}
                   />
