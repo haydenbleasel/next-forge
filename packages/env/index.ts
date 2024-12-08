@@ -20,7 +20,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
     .or(z.string().min(1).startsWith('testsk_')),
   LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
-  BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_').optional(),
+  BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),
 
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),
