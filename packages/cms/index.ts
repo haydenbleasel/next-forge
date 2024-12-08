@@ -32,6 +32,30 @@ const postFragment = fragmentOn('PostsItem', {
   image: imageFragment,
 });
 
+const legalPostFragment = fragmentOn('LegalPagesItem', {
+  _slug: true,
+  _title: true,
+  authors: {
+    _title: true,
+    avatar: imageFragment,
+    xUrl: true,
+  },
+  body: {
+    plainText: true,
+    json: {
+      content: true,
+      toc: true,
+    },
+    readingTime: true,
+  },
+  categories: {
+    _title: true,
+  },
+  date: true,
+  description: true,
+  image: imageFragment,
+});
+
 export const blog = {
   postsQuery: {
     blog: {
@@ -69,83 +93,66 @@ export const blog = {
   getPosts: async () => {
     const data = await basehub().query(blog.postsQuery);
 
-    return data.blog.posts.items.map((post) => ({
-      title: post._title,
-      slug: post._slug,
-      ...post,
-    }));
+    return data.blog.posts.items;
   },
 
   getLatestPost: async () => {
     const data = await basehub().query(blog.latestPostQuery);
 
-    return data.blog.posts.items
-      .map((post) => ({
-        title: post._title,
-        slug: post._slug,
-        ...post,
-      }))
-      .at(0);
+    return data.blog.posts.items.at(0);
   },
 
   getPost: async (slug: string) => {
     const query = blog.postQuery(slug);
     const data = await basehub().query(query);
 
-    return data.blog.posts.items
-      .map((post) => ({
-        title: post._title,
-        slug: post._slug,
-        ...post,
-      }))
-      .at(0);
+    return data.blog.posts.items.at(0);
   },
 };
 
 export const legal = {
-  getPosts: async () => {
-    const data = await basehub().query({
-      legalPages: {
-        items: {
-          _slug: true,
+  postsQuery: {
+    legalPages: {
+      items: legalPostFragment,
+    },
+  } as const,
+
+  latestPostQuery: {
+    legalPages: {
+      __args: {
+        orderBy: '_sys_createdAt__DESC',
+        first: 1,
+      },
+      items: legalPostFragment,
+    },
+  } as const,
+
+  postQuery: (slug: string) => ({
+    legalPages: {
+      __args: {
+        filter: {
+          _sys_slug: { eq: slug },
         },
       },
-    });
+      items: legalPostFragment,
+    },
+  }),
+
+  getPosts: async () => {
+    const data = await basehub().query(legal.postsQuery);
 
     return data.legalPages.items;
   },
 
   getLatestPost: async () => {
-    const data = await basehub().query({
-      legalPages: {
-        __args: {
-          orderBy: '_sys_createdAt__DESC',
-          first: 1,
-        },
-        items: {
-          _slug: true,
-        },
-      },
-    });
+    const data = await basehub().query(legal.latestPostQuery);
 
     return data.legalPages.items.at(0);
   },
 
   getPost: async (slug: string) => {
-    const data = await basehub().query({
-      legalPages: {
-        __args: {
-          filter: {
-            _sys_slug: {
-              eq: slug,
-            },
-          },
-        },
-        items: {
-          _slug: true,
-        },
-      },
-    });
+    const query = legal.postQuery(slug);
+    const data = await basehub().query(query);
 
     return data.legalPages.items.at(0);
   },
