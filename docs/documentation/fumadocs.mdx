@@ -1,0 +1,263 @@
+---
+title: Switch to Fumadocs
+description: How to switch to Fumadocs
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Fuma Nama',
+    id: 'fuma-nama',
+  },
+  company: {
+    name: 'Fumadocs',
+    id: 'fumadocs',
+  },
+}]} />
+
+[Fumadocs](https://fumadocs.vercel.app) is a beautiful & powerful docs framework powered by Next.js, allowing advanced customisations.
+
+## Create a Fumadocs App
+
+Fumadocs is similar to a set of libraries built on **Next.js App Router**, which works very differently from a hosted solution like Mintlify, or other frameworks/static site generator that takes complete control over your app.
+
+To begin, you can use a command to initialize a Fumadocs app quicky:
+
+```sh Terminal
+pnpm create fumadocs-app
+```
+
+Here we assume you have enabled Fumadocs MDX, Tailwind CSS, and without a default ESLint config.
+
+### What is a Content Source?
+
+The input/source of your content, it can be a CMS, or local data layers like **Content Collections** and **Fumadocs MDX** (the official content source).
+
+Fumadocs is designed carefully to allow a custom content source, there's also examples for [Sanity](https://github.com/fuma-nama/fumadocs-sanity) if you are interested.
+
+<Note>`lib/source.ts` is where you organize code for content sources.</Note>
+
+## Tailwind CSS
+
+Start the app with `pnpm dev`.
+
+If some styles are missing, it could be due to your monorepo setup, you can change the `content` property in your Tailwind CSS config (`tailwind.config.mjs`) to ensure it works:
+
+```js
+export default {
+  content: [
+    // from
+    './node_modules/fumadocs-ui/dist/**/*.js',
+    // to
+    '../../node_modules/fumadocs-ui/dist/**/*.js',
+
+    './components/**/*.{ts,tsx}',
+    // ...
+  ],
+};
+```
+
+## Migrate MDX Files
+
+Fumadocs, same as Mintlify, utilize MDX for content files.
+You can move the `.mdx` files from your Mintlify app to `content/docs` directory.
+
+<Note>Fumadocs requires a `title` frontmatter property.</Note>
+
+The MDX syntax of Fumadocs is almost identical to Mintlify, despite from having different components and usage for code blocks.
+
+Visit [Markdown](https://fumadocs.vercel.app/docs/ui/markdown) for supported Markdown syntax.
+
+### Code Block
+
+From:
+
+````mdx
+```sh Name
+pnpm i
+```
+````
+
+To:
+
+````mdx
+```sh title="Name"
+pnpm i
+```
+````
+
+Syntax highlighting is powered by Shiki, with a set of transformers added by default.
+
+````mdx
+```ts
+console.log('Not highlighted')
+console.log('Highlighted') // [!code highlight]
+console.log('Not highlighted')
+```
+
+```ts
+const message = 'Hello World' // [!code word:Hello]
+console.log(message)
+```
+````
+
+For code block groups, use `Tabs`:
+
+````mdx
+import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
+ 
+<Tabs items={["Tab 1", "Tab 2"]}>
+ 
+```ts tab="Tab 1"
+console.log('A');
+```
+ 
+```ts tab="Tab 2"
+console.log('B');
+```
+ 
+</Tabs>
+````
+
+Fumadocs also have built-in integration for TypeScript Twoslash, you see visit the [Setup Guide](https://fumadocs.vercel.app/docs/ui/twoslash).
+
+### Callout
+
+````mdx
+<Callout title="Title" type="info | warn | error">
+  Hello World
+</Callout>
+````
+
+### Adding Components
+
+To use components without import, add them to your MDX component in `app/docs/[[...slug]]/page.tsx`.
+
+```tsx
+import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
+ 
+<MDX
+  components={{
+    Tabs, Tab
+  }}
+/>;
+```
+
+## Migrate Mint File
+
+Instead of a single file, you can configure Fumadocs using code.
+
+### Sidebar Items
+
+The sidebar items are generated from your file system, Fumadocs takes `meta.json` as the configurations of a folder.
+You don't need to hardcode the sidebar config manually.
+
+For example, to customise the order of pages in `content/docs/components` folder, you can create a `meta.json` folder in the directory:
+
+```json
+{
+    "title": "Components", // optional
+    "pages": ["index", "apple"] // file names (without extension)
+}
+```
+
+Fumadocs also support the rest operator (`...`) if you want to include the other pages.
+
+```json
+{
+    "title": "Components", // optional
+    "pages": ["index", "apple", "..."] // file names (without extension)
+}
+```
+
+Visit the [Pages Organization Guide](https://fumadocs.vercel.app/docs/ui/page-conventions) for an overview of supported syntaxs.
+
+### Appearance
+
+The overall theme can be customised using:
+
+#### CSS variables
+
+In `global.css`:
+
+```css
+:root {
+    /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
+    --background: 239 37% 50%;
+
+    /* Want a max width for docs layout? */
+    --fd-layout-width: 1400px;
+}
+
+.dark {
+    /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
+    --background: 239 37% 50%;
+}
+```
+
+#### In `tailwind.config.mjs`
+
+Use `preset` option.
+
+```js
+import { createPreset } from 'fumadocs-ui/tailwind-plugin';
+ 
+/** @type {import('tailwindcss').Config} */
+export default {
+  presets: [
+    createPreset({
+      preset: 'ocean',
+    }),
+  ],
+};
+```
+
+See [all available presets](https://fumadocs.vercel.app/docs/ui/theme#presets).
+
+### Layout Styles
+
+You can open `app/layout.config.tsx`, it contains the shared options for layouts.
+Fumadocs offer a default **Docs Layout** for documentation pages, and **Home Layout** for other pages.
+
+You can customise the layouts in `layout.tsx`.
+
+### Search
+
+`app/api/search/route.ts` contains the Route Handler for search, it is powered by [Orama](https://orama.com) by default.
+
+### Navigation Links
+
+Navigation links are passed to layouts, you can also customise them in `layout.config.tsx`.
+
+```tsx
+import { BookIcon } from 'lucide-react';
+import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
+ 
+export const baseOptions: BaseLayoutProps = {
+  links: [
+    {
+      icon: <BookIcon />,
+      text: 'Blog',
+      url: '/blog',
+    },
+  ],
+};
+```
+
+See [all supported items](https://fumadocs.vercel.app/docs/ui/blocks/links).
+
+## Done
+
+Now, you should be able to build and preview the docs.
+
+Welcome to visit [Fumadocs](https://fumadocs.vercel.app/docs/ui) for details and additonal features.
