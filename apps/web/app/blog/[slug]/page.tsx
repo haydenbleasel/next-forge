@@ -53,7 +53,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
             posts: {
               __args: {
                 filter: {
-                  _sys_id: {
+                  _sys_slug: {
                     eq: slug,
                   },
                 },
@@ -68,6 +68,9 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                   width: true,
                   height: true,
                   alt: true,
+                },
+                authors: {
+                  _title: true,
                 },
                 body: {
                   json: {
@@ -108,16 +111,9 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                   ).toString(),
                 },
                 headline: page._title,
-                image: page.image.url
-                  ? {
-                      url: page.image.url,
-                      width: `${page.image.width}`,
-                      height: `${page.image.height}`,
-                      alt: page.image.alt ?? '',
-                    }
-                  : undefined,
+                image: page.image.url,
                 dateModified: page.date,
-                author: page.authors.at(0),
+                author: page.authors.at(0)?._title,
                 isAccessibleForFree: true,
               }}
             />
