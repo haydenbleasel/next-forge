@@ -68,7 +68,11 @@ Clone the repo using `next-forge` init, replacing `[my-project]` with your proje
 npx next-forge@latest init [my-project]
 ```
 
-You can also specify the package manager to use, e.g. `npx next-forge@latest init [my-project] --package-manager yarn`.
+You can also specify the package manager to use with the `package-manager` option, e.g.
+
+```sh Terminal
+npx next-forge@latest init [my-project] --package-manager bun
+```
 
 This will create a new directory with your project name and clone the repo into it. It will run a setup script to install dependencies and copy `.env` files.
 
