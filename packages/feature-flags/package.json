@@ -12,6 +12,7 @@
     "@repo/design-system": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@vercel/flags": "^2.6.3",
+    "@vercel/toolbar": "^0.1.27",
     "zod": "^3.23.8"
   },
   "peerDependencies": {

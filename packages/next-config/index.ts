@@ -2,14 +2,12 @@ import withBundleAnalyzer from '@next/bundle-analyzer';
 
 // @ts-expect-error No declaration file
 import { PrismaPlugin } from '@prisma/nextjs-monorepo-workaround-plugin';
-import { env } from '@repo/env';
 import { withSentryConfig } from '@sentry/nextjs';
-import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 
 const otelRegex = /@opentelemetry\/instrumentation/;
 
-const baseConfig: NextConfig = {
+export const config: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -51,10 +49,6 @@ const baseConfig: NextConfig = {
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 };
-
-export const config: NextConfig = env.FLAGS_SECRET
-  ? withVercelToolbar()(baseConfig)
-  : baseConfig;
 
 export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   org: env.SENTRY_ORG,
