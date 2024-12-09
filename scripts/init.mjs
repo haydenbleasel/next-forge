@@ -1,7 +1,13 @@
 #!/usr/bin/env node
 
 import { execSync } from 'node:child_process';
-import { copyFileSync, rmSync, unlinkSync } from 'node:fs';
+import {
+  copyFileSync,
+  existsSync,
+  readFileSync,
+  rmSync,
+  unlinkSync,
+} from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import chalk from 'chalk';
@@ -10,43 +16,47 @@ const { log } = console;
 
 const url = 'https://github.com/haydenbleasel/next-forge';
 
+// Escapes special characters in filenames that would cause issues in bash commands
+// Adds backslash before: () [] {} ^ $ * + ? . | and \
+const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
+
+const execSyncOpts = { stdio: 'ignore' };
+
 program
   .command('init <name>')
   .description('Initialize a new next-forge project')
   .action((projectName) => {
     try {
-      log(chalk.green('Creating new next-forge project...'));
-
-      execSync(
-        `pnpm create next-app@latest ${projectName} --example "${url}"`,
-        {
-          stdio: 'inherit',
-        }
-      );
-
-      log(chalk.green('Setting up next-forge...'));
       const cwd = process.cwd();
       const projectDir = join(cwd, projectName);
 
+      log(chalk.green('Creating new next-forge project...'));
+      execSync(
+        `pnpm create next-app@latest ${projectName} --example "${url}"`,
+        execSyncOpts
+      );
       process.chdir(projectDir);
+
       log(chalk.green('Installing dependencies...'));
-      execSync('pnpm install', { stdio: 'inherit' });
+      execSync('pnpm install', execSyncOpts);
 
       log(chalk.green('Copying .env.example files to .env.local...'));
 
-      for (const app of ['api', 'app', 'web']) {
-        copyFileSync(`apps/${app}/.env.example`, `apps/${app}/.env.local`);
+      for (const path of [
+        'apps/api',
+        'apps/app',
+        'apps/web',
+        'packages/cms',
+        'packages/database',
+      ]) {
+        copyFileSync(`${path}/.env.example`, `${path}/.env.local`);
       }
-
       copyFileSync('packages/database/.env.example', 'packages/database/.env');
-
-      fs.copyFileSync('packages/cms/.env.example', 'packages/cms/.env.local');
 
       log(chalk.green('Deleting internal content...'));
       for (const dir of ['.github/workflows', 'docs', 'splash']) {
         rmSync(dir, { recursive: true, force: true });
       }
-
       for (const file of [
         '.github/CONTRIBUTING.md',
         '.github/FUNDING.yml',
@@ -59,7 +69,7 @@ program
       }
 
       log(chalk.green('Setting up Prisma...'));
-      execSync('pnpm build --filter @repo/database', { stdio: 'inherit' });
+      execSync('pnpm build --filter @repo/database', execSyncOpts);
 
       log(chalk.green('Setup complete! Deleting scripts folder...'));
       rmSync('scripts', { recursive: true, force: true });
@@ -79,63 +89,54 @@ program
 program
   .command('update')
   .description('Update the project from one version to another')
-  .argument('<fromVersion>', 'Version to update from')
-  .argument('<toVersion>', 'Version to update to')
-  .action(async (fromVersion, toVersion) => {
+  .option('--from <version>', 'Version to update from')
+  .option('--to <version>', 'Version to update to')
+  .action(async (options) => {
+    const tempDir = join(import.meta.dirname, 'next-forge-update');
+
     try {
-      log(
-        chalk.green(
-          `Preparing to update from ${fromVersion} to ${toVersion}...`
-        )
-      );
+      const from = options.from.startsWith('v')
+        ? options.from
+        : `v${options.from}`;
+      const to = options.to.startsWith('v') ? options.to : `v${options.to}`;
+
+      log(chalk.green(`Preparing to update from ${from} to ${to}...`));
 
       // Ensure git is available
-      try {
-        execSync('git --version', { stdio: 'ignore' });
-      } catch {
-        log(chalk.red('Git is required for updating. Please install git.'));
-        process.exit(1);
-      }
+      execSync('git --version', execSyncOpts);
 
-      // Create a temporary directory for downloading source
-      const tempDir = join(import.meta.dirname, 'next-forge-update');
-
-      // Create a temporary directory for downloading source
+      log(chalk.blue('Creating temporary directory...'));
+      rmSync(tempDir, { recursive: true, force: true });
       await mkdir(tempDir);
 
-      log(chalk.blue('Cloning repository...'));
-      execSync(`git clone ${url} ${tempDir}`, { stdio: 'inherit' });
-
+      log(chalk.blue('Cloning next-forge...'));
+      execSync(`git clone ${url} ${tempDir}`, execSyncOpts);
       process.chdir(tempDir);
 
-      log(
-        chalk.blue(`Checking out versions ${fromVersion} and ${toVersion}...`)
-      );
-
-      execSync(`git checkout ${fromVersion}`, { stdio: 'inherit' });
+      log(chalk.blue(`Checking out version ${from}...`));
+      execSync(`git checkout ${from}`, execSyncOpts);
       const fromFiles = execSync('git ls-files').toString().trim().split('\n');
 
-      execSync(`git checkout ${toVersion}`, { stdio: 'inherit' });
+      log(chalk.blue(`Checking out version ${to}...`));
+      execSync(`git checkout ${to}`, execSyncOpts);
       const toFiles = execSync('git ls-files').toString().trim().split('\n');
 
-      // Compute diff between versions
+      log(chalk.blue('Computing diff between versions...'));
       const filesToUpdate = toFiles.filter(
         (file) =>
           !fromFiles.includes(file) ||
-          execSync(`git diff ${fromVersion} ${toVersion} -- ${file}`)
+          execSync(`git diff ${from} ${to} -- ${cleanFileName(file)}`)
             .toString()
             .trim() !== ''
       );
 
       log(chalk.green(`Found ${filesToUpdate.length} files to update`));
-
-      // Return to original project directory
       process.chdir(import.meta.dirname);
 
-      // Apply updates
+      log(chalk.blue('Applying updates...'));
       for (const file of filesToUpdate) {
         const sourcePath = join(tempDir, file);
-        const destPath = join(import.meta.dirname, file);
+        const destPath = join(import.meta.dirname, '..', file);
 
         // Ensure destination directory exists
         await mkdir(dirname(destPath), { recursive: true });
@@ -154,12 +155,7 @@ program
       log(chalk.blue('Cleaning up...'));
       rmSync(tempDir, { recursive: true, force: true });
 
-      log(
-        chalk.green(
-          `Successfully updated project from ${fromVersion} to ${toVersion}!`
-        )
-      );
-
+      log(chalk.green(`Successfully updated project from ${from} to ${to}!`));
       log(chalk.yellow('Note: Please review and test the changes carefully.'));
     } catch (error) {
       log(chalk.red('Failed to update project:', error.message));
