@@ -3,6 +3,7 @@ import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
 import { keys as cms } from '@repo/cms/keys';
 import { keys as collaboration } from '@repo/collaboration/keys';
+import { keys as database } from '@repo/database/keys';
 import { keys as email } from '@repo/email/keys';
 import { keys as flags } from '@repo/feature-flags/keys';
 import { vercel } from '@t3-oss/env-core/presets';
@@ -11,7 +12,6 @@ import { z } from 'zod';
 import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
-  DATABASE_URL: z.string().min(1).url(),
   STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
   BETTERSTACK_API_KEY: z.string().min(1).optional(),
@@ -48,6 +48,7 @@ export const env = createEnv({
     analytics(),
     cms(),
     collaboration(),
+    database(),
     email(),
     flags(),
   ],
