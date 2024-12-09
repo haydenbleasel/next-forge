@@ -2,6 +2,7 @@ import { keys as ai } from '@repo/ai/keys';
 import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
 import { keys as cms } from '@repo/cms/keys';
+import { keys as collaboration } from '@repo/collaboration/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
@@ -23,7 +24,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
       z.string().min(1).startsWith('testsk_'),
     ])
     .optional(),
-  LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
+
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
   BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),
   UPSTASH_REDIS_REST_URL: z.string().min(1).url().optional(),
@@ -40,7 +41,15 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
 };
 
 export const env = createEnv({
-  extends: [core(), vercel(), auth(), ai(), analytics(), cms()],
+  extends: [
+    core(),
+    vercel(),
+    auth(),
+    ai(),
+    analytics(),
+    cms(),
+    collaboration(),
+  ],
   server,
   runtimeEnv: {
     RESEND_FROM: process.env.RESEND_FROM,
@@ -58,6 +67,5 @@ export const env = createEnv({
     FLAGS_SECRET: process.env.FLAGS_SECRET,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     SVIX_TOKEN: process.env.SVIX_TOKEN,
-    LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
   },
 });
