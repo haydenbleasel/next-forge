@@ -740,9 +740,6 @@ importers:
       '@repo/auth':
         specifier: workspace:*
         version: link:../auth
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@repo/observability':
         specifier: workspace:*
         version: link:../observability
