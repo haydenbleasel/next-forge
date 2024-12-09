@@ -1,3 +1,19 @@
+# v2.20.5 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add BaseHub as co-author ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Tabs [#330](https://github.com/haydenbleasel/next-forge/pull/330) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.4 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
