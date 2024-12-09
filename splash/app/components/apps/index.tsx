@@ -33,7 +33,7 @@ const apps = [
     name: 'Website',
     title: 'Robust, type-safe website',
     description:
-      'A twblocks website template with a type-safe blog, bulletproof SEO and legal pages, powered by Content Collections.',
+      'A twblocks website template with a type-safe blog, bulletproof SEO and legal pages, powered by BaseHub.',
     image: WebImage,
   },
   {
