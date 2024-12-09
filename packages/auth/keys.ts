@@ -1,7 +1,7 @@
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
-export const auth = () =>
+export const keys = () =>
   createEnv({
     server: {
       CLERK_SECRET_KEY: z.string().min(1).startsWith('sk_'),
