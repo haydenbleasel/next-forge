@@ -55,8 +55,8 @@
       "url": "/migrations"
     },
     {
-      "name": "Recommended Libraries",
-      "url": "/recommended-libraries"
+      "name": "Addons",
+      "url": "/addons"
     }
   ],
 
@@ -182,11 +182,11 @@
     {
       "group": "",
       "pages": [
-        "recommended-libraries/friendlier-words",
-        "recommended-libraries/motion",
-        "recommended-libraries/nuqs",
-        "recommended-libraries/react-wrap-balancer",
-        "recommended-libraries/zustand"
+        "addons/friendlier-words",
+        "addons/motion",
+        "addons/nuqs",
+        "addons/react-wrap-balancer",
+        "addons/zustand"
       ]
     }
   ],
@@ -329,6 +329,10 @@
     {
       "source": "/testing/:path*",
       "destination": "/features/testing/:path*"
+    },
+    {
+      "source": "/recommended-libraries/:path*",
+      "destination": "/addons/:path*"
     }
   ]
 }
