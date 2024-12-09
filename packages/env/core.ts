@@ -3,6 +3,12 @@ import { z } from 'zod';
 
 export const core = () =>
   createEnv({
+    server: {
+      ANALYZE: z.string().optional(),
+
+      // Added by Vercel
+      NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
+    },
     client: {
       NEXT_PUBLIC_APP_URL: z.string().min(1).url(),
       NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
@@ -10,6 +16,8 @@ export const core = () =>
       NEXT_PUBLIC_DOCS_URL: z.string().min(1).url().optional(),
     },
     runtimeEnv: {
+      ANALYZE: process.env.ANALYZE,
+      NEXT_RUNTIME: process.env.NEXT_RUNTIME,
       NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
       NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
       NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,

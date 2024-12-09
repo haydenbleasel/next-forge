@@ -16,10 +16,6 @@ import { z } from 'zod';
 import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
-  ANALYZE: z.string().optional(),
-
-  // Added by Vercel
-  NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
   BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
 };
 
@@ -42,8 +38,6 @@ export const env = createEnv({
   ],
   server,
   runtimeEnv: {
-    ANALYZE: process.env.ANALYZE,
-    NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
   },
 });
