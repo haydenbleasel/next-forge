@@ -5,9 +5,15 @@
   "dependencies": {
     "@ai-sdk/openai": "^1.0.7",
     "@repo/env": "workspace:*",
-    "ai": "^4.0.13"
+    "ai": "^4.0.13",
+    "react": "^19.0.0",
+    "react-markdown": "^9.0.1",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
-    "@repo/typescript-config": "workspace:*"
+    "@repo/typescript-config": "workspace:*",
+    "@types/node": "22.10.1",
+    "@types/react": "19.0.1",
+    "@types/react-dom": "^19.0.1"
   }
 }

@@ -25,36 +25,28 @@ Specifically, make sure you set an `OPENAI_API_KEY` environment variable.
 
 <Tip>Make sure you have some credits in your OpenAI account.</Tip>
 
-## 3. Install the required packages
-
-next-forge comes with almost everything you need to build an AI chatbot. The only package we'll need is called `react-markdown`, which we'll use to render the chatbot's responses.
-
-```sh Terminal
-pnpm add react-markdown --filter app
-```
-
-## 4. Create the chatbot UI
+## 3. Create the chatbot UI
 
 We're going to start by creating a simple chatbot UI with a text input and a button to send messages.
 
 Create a new file called `Chatbot` in the `app/components` directory. We're going to use a few things here:
 
 - `useChat` from our AI package to handle the chat logic.
-- `Button` and `Input` from our Design System to render the form.
-- `cn` from our Design System to merge class names.
+- `Button` and `Input` components from our Design System to render the form.
+- `Thread` and `Message` components from our AI package to render the chat history.
 - `handleError` from our Design System to handle errors.
 - `SendIcon` from `lucide-react` to create a send icon.
-- `Markdown` from `react-markdown` to render the chatbot's responses.
 
 ```tsx apps/app/app/(authenticated)/components/chatbot.tsx
 'use client';
 
-import { useChat } from '@repo/ai/react';
+import { Message } from '@repo/ai/components/message';
+import { Thread } from '@repo/ai/components/thread';
+import { useChat } from '@repo/ai/lib/react';
 import { Button } from '@repo/design-system/components/ui/button';
 import { Input } from '@repo/design-system/components/ui/input';
-import { cn, handleError } from '@repo/design-system/lib/utils';
+import { handleError } from '@repo/design-system/lib/utils';
 import { SendIcon } from 'lucide-react';
-import Markdown from 'react-markdown';
 
 export const Chatbot = () => {
   const { messages, input, handleInputChange, isLoading, handleSubmit } =
@@ -65,21 +57,11 @@ export const Chatbot = () => {
 
   return (
     <div className="flex h-[calc(100vh-64px-16px)] flex-col divide-y overflow-hidden">
-      <div className="flex flex-1 flex-col items-start gap-4 overflow-y-auto p-8 pb-0">
-        {messages.map((message, index) => (
-          <div
-            key={`${message.role}-${index}`}
-            className={cn(
-              'flex max-w-[80%] flex-col gap-2 rounded-xl px-4 py-2',
-              message.role === 'user'
-                ? 'self-end bg-foreground text-background'
-                : 'self-start bg-muted'
-            )}
-          >
-            <Markdown>{message.content}</Markdown>
-          </div>
+      <Thread>
+        {messages.map((message) => (
+          <Message key={message.id} data={message} />
         ))}
-      </div>
+      </Thread>
       <form
         onSubmit={handleSubmit}
         className="flex shrink-0 items-center gap-2 px-8 py-4"
@@ -99,7 +81,7 @@ export const Chatbot = () => {
 };
 ```
 
-## 5. Create the chatbot API route
+## 4. Create the chatbot API route
 
 Create a new file called `chat` in the `app/api` directory. This Next.js route handler will handle the chatbot's responses.
 
@@ -107,7 +89,7 @@ We're going to use the `streamText` function from our AI package to stream the c
 
 ```tsx apps/app/app/api/chat.ts
 import { streamText } from '@repo/ai';
-import { provider } from '@repo/ai/provider';
+import { provider } from '@repo/ai/lib/provider';
 import { log } from '@repo/observability/log';
 
 export const POST = async (req: Request) => {
@@ -128,7 +110,7 @@ export const POST = async (req: Request) => {
 };
 ```
 
-## 6. Update the app
+## 5. Update the app
 
 Finally, we'll update the `app/page.tsx` file to be a simple entry point that renders the chatbot UI.
 
