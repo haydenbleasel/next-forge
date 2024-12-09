@@ -1,5 +1,7 @@
 import arcjet, { shield } from '@arcjet/next';
 import { env } from '@repo/env';
+import { Ratelimit } from '@upstash/ratelimit';
+import { redis } from '@repo/database';
 
 // Re-export the rules to simplify imports inside handlers
 export {
@@ -12,8 +14,14 @@ export {
   request,
 } from '@arcjet/next';
 
+export const ratelimit = new Ratelimit({
+  redis,
+  limiter: Ratelimit.slidingWindow(10, "10 s"),
+  prefix: "next-forge",
+})
+
 // Create a base Arcjet instance which can be imported and extended in each route.
-export default arcjet({
+export const arcjetClient = arcjet({
   // Get your site key from https://app.arcjet.com
   key: env.ARCJET_KEY,
   // Identify the user by their IP address
@@ -26,3 +34,4 @@ export default arcjet({
     // Other rules are added in different routes
   ],
 });
+
