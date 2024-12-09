@@ -204,8 +204,8 @@
 
   "redirects": [
     {
-      "source": "/ai/:path*",
-      "destination": "/features/ai/:path*"
+      "source": "/ai",
+      "destination": "/features/ai"
     },
     {
       "source": "/analytics/:path*",
@@ -224,16 +224,16 @@
       "destination": "/migrations/authentication/better-auth"
     },
     {
-      "source": "/bi/:path*",
-      "destination": "/features/bi/:path*"
+      "source": "/bi",
+      "destination": "/features/bi"
     },
     {
-      "source": "/bundle-analysis/:path*",
-      "destination": "/features/bundle-analysis/:path*"
+      "source": "/bundle-analysis",
+      "destination": "/features/bundle-analysis"
     },
     {
-      "source": "/collaboration/:path*",
-      "destination": "/features/collaboration/:path*"
+      "source": "/collaboration",
+      "destination": "/features/collaboration"
     },
     {
       "source": "/cms/overview",
@@ -244,8 +244,8 @@
       "destination": "/migrations/cms/content-collections"
     },
     {
-      "source": "/cron/:path*",
-      "destination": "/features/cron/:path*"
+      "source": "/cron",
+      "destination": "/features/cron"
     },
     {
       "source": "/database/overview",
@@ -292,8 +292,8 @@
       "destination": "/features/env/:path*"
     },
     {
-      "source": "/flags/:path*",
-      "destination": "/features/flags/:path*"
+      "source": "/flags",
+      "destination": "/features/flags"
     },
     {
       "source": "/formatting/overview",
@@ -308,32 +308,32 @@
       "destination": "/features/observability/:path*"
     },
     {
-      "source": "/payments/:path*",
-      "destination": "/features/payments/:path*"
+      "source": "/payments",
+      "destination": "/features/payments"
     },
     {
       "source": "/security/:path*",
       "destination": "/features/security/:path*"
     },
     {
-      "source": "/storage/:path*",
-      "destination": "/features/storage/:path*"
+      "source": "/storage",
+      "destination": "/features/storage"
     },
     {
-      "source": "/storybook/:path*",
-      "destination": "/features/storybook/:path*"
+      "source": "/storybook",
+      "destination": "/features/storybook"
     },
     {
-      "source": "/webhooks/:path*",
-      "destination": "/features/webhooks/:path*"
+      "source": "/webhooks",
+      "destination": "/features/webhooks"
     },
     {
-      "source": "/seo/:path*",
-      "destination": "/features/seo/:path*"
+      "source": "/seo",
+      "destination": "/features/seo"
     },
     {
-      "source": "/testing/:path*",
-      "destination": "/features/testing/:path*"
+      "source": "/testing",
+      "destination": "/features/testing"
     },
     {
       "source": "/recommended-libraries/:path*",
