@@ -1,3 +1,15 @@
+# v2.20.6 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Rename "Recommended Libraries" to "Addons" ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.5 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
