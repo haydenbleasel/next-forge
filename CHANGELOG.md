@@ -1,3 +1,15 @@
+# v2.20.9 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix redirects ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.8 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
