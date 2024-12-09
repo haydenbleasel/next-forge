@@ -208,8 +208,8 @@
       "destination": "/features/ai"
     },
     {
-      "source": "/analytics/:path*",
-      "destination": "/features/analytics/:path*"
+      "source": "/analytics/:slug*",
+      "destination": "/features/analytics/:slug*"
     },
     {
       "source": "/authentication/overview",
@@ -224,8 +224,8 @@
       "destination": "/migrations/authentication/better-auth"
     },
     {
-      "source": "/bi/:path*",
-      "destination": "/features/bi/:path*"
+      "source": "/bi/:slug*",
+      "destination": "/features/bi/:slug*"
     },
     {
       "source": "/bundle-analysis",
@@ -272,8 +272,8 @@
       "destination": "/migrations/database/turso"
     },
     {
-      "source": "/design-system/:path*",
-      "destination": "/features/design-system/:path*"
+      "source": "/design-system/:slug*",
+      "destination": "/features/design-system/:slug*"
     },
     {
       "source": "/documentation/overview",
@@ -284,12 +284,12 @@
       "destination": "/migrations/documentation/fumadocs"
     },
     {
-      "source": "/email/:path*",
-      "destination": "/features/email/:path*"
+      "source": "/email/:slug*",
+      "destination": "/features/email/:slug*"
     },
     {
-      "source": "/env/:path*",
-      "destination": "/features/env/:path*"
+      "source": "/env/:slug*",
+      "destination": "/features/env/:slug*"
     },
     {
       "source": "/flags",
@@ -304,16 +304,16 @@
       "destination": "/migrations/formatting/eslint"
     },
     {
-      "source": "/observability/:path*",
-      "destination": "/features/observability/:path*"
+      "source": "/observability/:slug*",
+      "destination": "/features/observability/:slug*"
     },
     {
       "source": "/payments",
       "destination": "/features/payments"
     },
     {
-      "source": "/security/:path*",
-      "destination": "/features/security/:path*"
+      "source": "/security/:slug*",
+      "destination": "/features/security/:slug*"
     },
     {
       "source": "/storage",
@@ -336,8 +336,8 @@
       "destination": "/features/testing"
     },
     {
-      "source": "/recommended-libraries/:path*",
-      "destination": "/addons/:path*"
+      "source": "/recommended-libraries/:slug*",
+      "destination": "/addons/:slug*"
     }
   ]
 }
