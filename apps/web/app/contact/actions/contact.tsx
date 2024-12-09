@@ -1,8 +1,8 @@
 'use server';
 
+import { env } from '@/env';
 import { resend } from '@repo/email';
 import { ContactTemplate } from '@repo/email/templates/contact';
-import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 
 export const contact = async (
