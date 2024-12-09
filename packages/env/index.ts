@@ -3,6 +3,7 @@ import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
 import { keys as cms } from '@repo/cms/keys';
 import { keys as collaboration } from '@repo/collaboration/keys';
+import { keys as flags } from '@repo/feature-flags/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
@@ -36,7 +37,6 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
 
   // Added by Vercel
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
-  FLAGS_SECRET: z.string().min(1).optional(),
   BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
 };
 
@@ -49,6 +49,7 @@ export const env = createEnv({
     analytics(),
     cms(),
     collaboration(),
+    flags(),
   ],
   server,
   runtimeEnv: {
@@ -64,7 +65,6 @@ export const env = createEnv({
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
-    FLAGS_SECRET: process.env.FLAGS_SECRET,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     SVIX_TOKEN: process.env.SVIX_TOKEN,
   },
