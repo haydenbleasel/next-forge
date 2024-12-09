@@ -36,4 +36,7 @@ export const env = createEnv({
     storage(),
     webhooks(),
   ],
+  server: {},
+  client: {},
+  runtimeEnv: {},
 });
