@@ -1,5 +1,5 @@
+import { env } from '@/env';
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
-import { env } from '@repo/env';
 import { CommandIcon } from 'lucide-react';
 import Link from 'next/link';
 import type { ReactNode } from 'react';

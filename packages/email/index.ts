@@ -1,4 +1,4 @@
-import { env } from '@repo/env';
 import { Resend } from 'resend';
+import { keys } from './keys';
 
-export const resend = new Resend(env.RESEND_TOKEN);
+export const resend = new Resend(keys().RESEND_TOKEN);

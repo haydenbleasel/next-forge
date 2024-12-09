@@ -62,6 +62,7 @@ jobs:
           echo "SVIX_TOKEN=testsk_test" >> apps/app/.env.local
           echo "LIVEBLOCKS_SECRET=sk_test" >> apps/app/.env.local
           echo "BASEHUB_TOKEN=${{ secrets.BASEHUB_TOKEN }}" >> apps/app/.env.local
+          echo "VERCEL_PROJECT_PRODUCTION_URL=http://localhost:3002" >> apps/app/.env.local
 
           echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_JA==" >> apps/app/.env.local
           echo "NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in" >> apps/app/.env.local
@@ -74,7 +75,6 @@ jobs:
           echo "NEXT_PUBLIC_APP_URL=http://localhost:3000" >> apps/app/.env.local
           echo "NEXT_PUBLIC_WEB_URL=http://localhost:3001" >> apps/app/.env.local
           echo "NEXT_PUBLIC_DOCS_URL=http://localhost:3004" >> apps/app/.env.local
-          echo "NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL=http://localhost:3002" >> apps/app/.env.local
 
       - name: Copy .env.local file
         run: |

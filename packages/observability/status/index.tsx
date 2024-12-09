@@ -1,9 +1,12 @@
 import 'server-only';
-import { env } from '@repo/env';
+import { keys } from '../keys';
 import type { BetterStackResponse } from './types';
 
+const apiKey = keys().BETTERSTACK_API_KEY;
+const url = keys().BETTERSTACK_URL;
+
 export const Status = async () => {
-  if (!env.BETTERSTACK_API_KEY || !env.BETTERSTACK_URL) {
+  if (!apiKey || !url) {
     return null;
   }
 
@@ -15,7 +18,7 @@ export const Status = async () => {
       'https://uptime.betterstack.com/api/v2/monitors',
       {
         headers: {
-          Authorization: `Bearer ${env.BETTERSTACK_API_KEY}`,
+          Authorization: `Bearer ${apiKey}`,
         },
       }
     );
@@ -50,7 +53,7 @@ export const Status = async () => {
       className="flex items-center gap-3 font-medium text-sm"
       target="_blank"
       rel="noreferrer"
-      href={env.BETTERSTACK_URL}
+      href={url}
     >
       <span className="relative flex h-2 w-2">
         <span
