@@ -2,6 +2,12 @@
   "name": "@repo/storage",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
   "dependencies": {
     "@vercel/blob": "^0.27.0"
   },

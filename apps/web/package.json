@@ -5,7 +5,11 @@
     "dev": "next dev -p 3001 --turbopack",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true pnpm build"
+    "analyze": "ANALYZE=true pnpm build",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@arcjet/next": "1.0.0-alpha.34",
