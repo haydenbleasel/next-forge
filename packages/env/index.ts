@@ -4,6 +4,7 @@ import { keys as auth } from '@repo/auth/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
+import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
   RESEND_FROM: z.string().min(1).email(),
@@ -37,16 +38,8 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
 };
 
-const client: Parameters<typeof createEnv>[0]['client'] = {
-  NEXT_PUBLIC_APP_URL: z.string().min(1).url(),
-  NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
-  NEXT_PUBLIC_API_URL: z.string().min(1).url().optional(),
-  NEXT_PUBLIC_DOCS_URL: z.string().min(1).url().optional(),
-};
-
 export const env = createEnv({
-  extends: [vercel(), auth(), ai(), analytics()],
-  client,
+  extends: [core(), vercel(), auth(), ai(), analytics()],
   server,
   runtimeEnv: {
     RESEND_FROM: process.env.RESEND_FROM,
@@ -66,9 +59,5 @@ export const env = createEnv({
     SVIX_TOKEN: process.env.SVIX_TOKEN,
     LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
     BASEHUB_TOKEN: process.env.BASEHUB_TOKEN,
-    NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
-    NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
-    NEXT_PUBLIC_DOCS_URL: process.env.NEXT_PUBLIC_DOCS_URL,
   },
 });
