@@ -176,6 +176,10 @@
       "pages": ["deployment/vercel", "deployment/netlify"]
     },
     {
+      "group": "Payments",
+      "pages": ["migrations/payments/lemon-squeezy"]
+    },
+    {
       "group": "",
       "pages": ["recipes/ai-chatbot"]
     },
