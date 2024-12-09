@@ -1,3 +1,15 @@
+# v2.20.2 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update setup.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.1 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
