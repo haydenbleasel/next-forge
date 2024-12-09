@@ -51,8 +51,6 @@ export const env = createEnv({
   ],
   server,
   runtimeEnv: {
-    ANALYZE: process.env.ANALYZE,
-    NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
   },
 });
