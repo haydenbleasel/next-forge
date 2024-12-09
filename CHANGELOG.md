@@ -1,3 +1,21 @@
+# v2.20.0 (Mon Dec 09 2024)
+
+#### 🚀 Enhancement
+
+- New update command [#320](https://github.com/haydenbleasel/next-forge/pull/320) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### ⚠️ Pushed to `main`
+
+- Update vercel.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update docs ([@haydenbleasel](https://github.com/haydenbleasel))
+- For #251 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.19.4 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
