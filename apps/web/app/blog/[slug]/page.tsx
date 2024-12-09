@@ -71,7 +71,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                   '@type': 'WebPage',
                   '@id': new URL(
                     `/blog/${slug}`,
-                    env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+                    env.VERCEL_PROJECT_PRODUCTION_URL
                   ).toString(),
                 },
                 headline: page._title,
