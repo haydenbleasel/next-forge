@@ -910,6 +910,9 @@ importers:
       '@repo/payments':
         specifier: workspace:*
         version: link:../payments
+      '@repo/security':
+        specifier: workspace:*
+        version: link:../security
       '@t3-oss/env-core':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.23.8)
@@ -1053,9 +1056,6 @@ importers:
       '@arcjet/next':
         specifier: 1.0.0-alpha.34
         version: 1.0.0-alpha.34(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.6.1(@bufbuild/protobuf@1.10.0))(next@15.0.4(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.23.8)
