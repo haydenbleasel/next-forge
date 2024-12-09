@@ -1,0 +1,19 @@
+{
+  "name": "@repo/feature-flags",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "next-international": "^1.3.1",
+    "server-only": "^0.0.1"
+  },
+  "peerDependencies": {
+    "next": "15.0.4",
+    "international-types": "^0.8.1",
+    "@types/react": "^19.0.1",
+    "@types/react-dom": "^19.0.2"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2",
+    "@repo/typescript-config": "workspace:*"
+  }
+}
