@@ -8,6 +8,7 @@ import { keys as email } from '@repo/email/keys';
 import { keys as flags } from '@repo/feature-flags/keys';
 import { keys as observability } from '@repo/observability/keys';
 import { keys as payments } from '@repo/payments/keys';
+import { keys as security } from '@repo/security/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
@@ -51,6 +52,7 @@ export const env = createEnv({
     flags(),
     observability(),
     payments(),
+    security(),
   ],
   server,
   runtimeEnv: {
