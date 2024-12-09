@@ -1,3 +1,21 @@
+# v2.20.4 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update ai-chatbot.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update ai.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Export AI components ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Recipes [#329](https://github.com/haydenbleasel/next-forge/pull/329) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.3 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
