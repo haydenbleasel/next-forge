@@ -8,7 +8,7 @@ import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
-export const config: NextConfig = withVercelToolbar()({
+const baseConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -65,7 +65,11 @@ export const config: NextConfig = withVercelToolbar()({
 
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
-});
+};
+
+export const config: NextConfig = env.FLAGS_SECRET
+  ? withVercelToolbar()(baseConfig)
+  : baseConfig;
 
 export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   org: env.SENTRY_ORG,
