@@ -1,5 +1,5 @@
-import { ai } from '@repo/ai/keys';
-import { auth } from '@repo/auth/keys';
+import { keys as ai } from '@repo/ai/keys';
+import { keys as auth } from '@repo/auth/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
