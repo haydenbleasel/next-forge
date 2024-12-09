@@ -1,4 +1,5 @@
 import { keys as ai } from '@repo/ai/keys';
+import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
@@ -41,13 +42,10 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
   NEXT_PUBLIC_WEB_URL: z.string().min(1).url(),
   NEXT_PUBLIC_API_URL: z.string().min(1).url().optional(),
   NEXT_PUBLIC_DOCS_URL: z.string().min(1).url().optional(),
-  NEXT_PUBLIC_GA_MEASUREMENT_ID: z.string().min(1).startsWith('G-').optional(),
-  NEXT_PUBLIC_POSTHOG_KEY: z.string().min(1).startsWith('phc_'),
-  NEXT_PUBLIC_POSTHOG_HOST: z.string().min(1).url(),
 };
 
 export const env = createEnv({
-  extends: [vercel(), auth(), ai()],
+  extends: [vercel(), auth(), ai(), analytics()],
   client,
   server,
   runtimeEnv: {
@@ -72,8 +70,5 @@ export const env = createEnv({
     NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
     NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
     NEXT_PUBLIC_DOCS_URL: process.env.NEXT_PUBLIC_DOCS_URL,
-    NEXT_PUBLIC_GA_MEASUREMENT_ID: process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID,
-    NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
-    NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
   },
 });
