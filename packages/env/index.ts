@@ -31,7 +31,6 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   SENTRY_PROJECT: z.string().min(1).optional(),
 
   // Added by Vercel
-  VERCEL: z.string().optional(),
   NEXT_RUNTIME: z.enum(['nodejs', 'edge']).optional(),
   FLAGS_SECRET: z.string().min(1).optional(),
   BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
@@ -70,7 +69,6 @@ export const env = createEnv({
     ANALYZE: process.env.ANALYZE,
     SENTRY_ORG: process.env.SENTRY_ORG,
     SENTRY_PROJECT: process.env.SENTRY_PROJECT,
-    VERCEL: process.env.VERCEL,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     FLAGS_SECRET: process.env.FLAGS_SECRET,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
