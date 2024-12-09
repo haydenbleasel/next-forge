@@ -459,9 +459,6 @@ importers:
       '@next/third-parties':
         specifier: ^15.0.4
         version: 15.0.4(next@15.0.4(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@t3-oss/env-nextjs':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.23.8)
@@ -898,6 +895,9 @@ importers:
       '@repo/ai':
         specifier: workspace:*
         version: link:../ai
+      '@repo/analytics':
+        specifier: workspace:*
+        version: link:../analytics
       '@repo/auth':
         specifier: workspace:*
         version: link:../auth

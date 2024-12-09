@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@next/third-parties": "^15.0.4",
-    "@repo/env": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
     "@vercel/analytics": "^1.4.1",
     "posthog-js": "^1.194.5",
