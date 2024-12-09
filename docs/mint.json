@@ -37,128 +37,157 @@
     "prompt": "Search or ask..."
   },
 
+  "tabs": [
+    {
+      "name": "Getting Started",
+      "url": "/"
+    },
+    {
+      "name": "Features",
+      "url": "/features"
+    },
+    {
+      "name": "Recipes",
+      "url": "/recipes"
+    },
+    {
+      "name": "Migrations",
+      "url": "/migrations"
+    },
+    {
+      "name": "Recommended Libraries",
+      "url": "/recommended-libraries"
+    }
+  ],
+
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": [
-        "overview",
-        "setup",
-        "faq",
-        "updates",
-        {
-          "group": "Recommended Libraries",
-          "pages": [
-            "recommended-libraries/friendlier-words",
-            "recommended-libraries/motion",
-            "recommended-libraries/nuqs",
-            "recommended-libraries/react-wrap-balancer",
-            "recommended-libraries/zustand"
-          ]
-        }
-      ]
+      "group": "Introduction",
+      "pages": ["overview", "faq", "updates"]
+    },
+    {
+      "group": "Setup",
+      "pages": ["setup/prerequisites", "setup/installation"]
     },
     {
       "group": "Structure",
       "pages": ["structure/apps", "structure/packages"]
     },
     {
-      "group": "Features",
+      "group": "",
       "pages": [
-        "ai",
+        "features/ai",
         {
           "group": "Analytics",
-          "pages": ["analytics/web", "analytics/product"]
+          "pages": ["features/analytics/web", "features/analytics/product"]
         },
-        {
-          "group": "Authentication",
-          "pages": [
-            "authentication/overview",
-            "authentication/authjs",
-            "authentication/better-auth"
-          ]
-        },
+        "features/authentication",
         {
           "group": "Business Intelligence",
-          "pages": ["bi/metabase"]
+          "pages": ["features/bi/metabase"]
         },
-        "bundle-analysis",
-        "collaboration",
-        {
-          "group": "CMS",
-          "pages": ["cms/overview", "cms/content-collections"]
-        },
-        "cron",
-        {
-          "group": "Database and ORM",
-          "pages": [
-            "database/overview",
-            "database/drizzle",
-            "database/planetscale",
-            "database/prisma-postgres",
-            "database/supabase",
-            "database/turso"
-          ]
-        },
+        "features/bundle-analysis",
+        "features/collaboration",
+        "features/cms",
+        "features/cron",
+        "features/database",
         {
           "group": "Design System",
           "pages": [
-            "design-system/colors",
-            "design-system/components",
-            "design-system/dark-mode",
-            "design-system/provider",
-            "design-system/typography"
+            "features/design-system/colors",
+            "features/design-system/components",
+            "features/design-system/dark-mode",
+            "features/design-system/provider",
+            "features/design-system/typography"
           ]
         },
-        {
-          "group": "Documentation",
-          "pages": ["documentation/overview", "documentation/fumadocs"]
-        },
+        "features/documentation",
         {
           "group": "Email",
-          "pages": ["email/clerk", "email/resend"]
+          "pages": ["features/email/clerk", "features/email/resend"]
         },
-        "env",
-        "flags",
-        {
-          "group": "Formatting",
-          "pages": ["formatting/overview", "formatting/eslint"]
-        },
+        "features/env",
+        "features/flags",
+        "features/formatting",
         {
           "group": "Observability",
           "pages": [
-            "observability/error-capture",
-            "observability/debugging",
-            "observability/logging",
-            "observability/uptime"
+            "features/observability/error-capture",
+            "features/observability/debugging",
+            "features/observability/logging",
+            "features/observability/uptime"
           ]
         },
-        "payments",
+        "features/payments",
         {
           "group": "Security",
           "pages": [
-            "security/application",
-            "security/dependencies",
-            "security/headers",
-            "security/ip-geolocation"
+            "features/security/application",
+            "features/security/dependencies",
+            "features/security/headers",
+            "features/security/ip-geolocation"
           ]
         },
-        "storage",
-        "storybook",
-        "webhooks",
+        "features/storage",
+        "features/storybook",
+        "features/webhooks",
         {
           "group": "SEO",
-          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
+          "pages": [
+            "features/seo/metadata",
+            "features/seo/json-ld",
+            "features/seo/sitemap"
+          ]
         },
-        "testing"
+        "features/testing"
       ]
+    },
+    {
+      "group": "Authentication",
+      "pages": [
+        "migrations/authentication/authjs",
+        "migrations/authentication/better-auth"
+      ]
+    },
+    {
+      "group": "CMS",
+      "pages": ["migrations/cms/content-collections"]
+    },
+    {
+      "group": "Database",
+      "pages": [
+        "migrations/database/drizzle",
+        "migrations/database/planetscale",
+        "migrations/database/prisma-postgres",
+        "migrations/database/supabase",
+        "migrations/database/turso"
+      ]
+    },
+    {
+      "group": "Documentation",
+      "pages": ["migrations/documentation/fumadocs"]
+    },
+    {
+      "group": "Formatting",
+      "pages": ["migrations/formatting/eslint"]
     },
     {
       "group": "Deployment",
       "pages": ["deployment/vercel", "deployment/netlify"]
     },
     {
-      "group": "Recipes",
+      "group": "",
       "pages": ["recipes/ai-chatbot"]
+    },
+    {
+      "group": "",
+      "pages": [
+        "recommended-libraries/friendlier-words",
+        "recommended-libraries/motion",
+        "recommended-libraries/nuqs",
+        "recommended-libraries/react-wrap-balancer",
+        "recommended-libraries/zustand"
+      ]
     }
   ],
 
@@ -166,5 +195,140 @@
     "x": "https://x.com/haydenbleasel",
     "github": "https://github.com/haydenbleasel/next-forge",
     "linkedin": "https://www.linkedin.com/in/haydenbleasel"
-  }
+  },
+
+  "redirects": [
+    {
+      "source": "/ai/:path*",
+      "destination": "/features/ai/:path*"
+    },
+    {
+      "source": "/analytics/:path*",
+      "destination": "/features/analytics/:path*"
+    },
+    {
+      "source": "/authentication/overview",
+      "destination": "/features/authentication"
+    },
+    {
+      "source": "/authentication/authjs",
+      "destination": "/migrations/authentication/authjs"
+    },
+    {
+      "source": "/authentication/better-auth",
+      "destination": "/migrations/authentication/better-auth"
+    },
+    {
+      "source": "/bi/:path*",
+      "destination": "/features/bi/:path*"
+    },
+    {
+      "source": "/bundle-analysis/:path*",
+      "destination": "/features/bundle-analysis/:path*"
+    },
+    {
+      "source": "/collaboration/:path*",
+      "destination": "/features/collaboration/:path*"
+    },
+    {
+      "source": "/cms/overview",
+      "destination": "/features/cms"
+    },
+    {
+      "source": "/cms/content-collections",
+      "destination": "/migrations/cms/content-collections"
+    },
+    {
+      "source": "/cron/:path*",
+      "destination": "/features/cron/:path*"
+    },
+    {
+      "source": "/database/overview",
+      "destination": "/features/database"
+    },
+    {
+      "source": "/database/drizzle",
+      "destination": "/migrations/database/drizzle"
+    },
+    {
+      "source": "/database/planetscale",
+      "destination": "/migrations/database/planetscale"
+    },
+    {
+      "source": "/database/prisma-postgres",
+      "destination": "/migrations/database/prisma-postgres"
+    },
+    {
+      "source": "/database/supabase",
+      "destination": "/migrations/database/supabase"
+    },
+    {
+      "source": "/database/turso",
+      "destination": "/migrations/database/turso"
+    },
+    {
+      "source": "/design-system/:path*",
+      "destination": "/features/design-system/:path*"
+    },
+    {
+      "source": "/documentation/overview",
+      "destination": "/features/documentation"
+    },
+    {
+      "source": "/documentation/fumadocs",
+      "destination": "/migrations/documentation/fumadocs"
+    },
+    {
+      "source": "/email/:path*",
+      "destination": "/features/email/:path*"
+    },
+    {
+      "source": "/env/:path*",
+      "destination": "/features/env/:path*"
+    },
+    {
+      "source": "/flags/:path*",
+      "destination": "/features/flags/:path*"
+    },
+    {
+      "source": "/formatting/overview",
+      "destination": "/features/formatting"
+    },
+    {
+      "source": "/formatting/eslint",
+      "destination": "/migrations/formatting/eslint"
+    },
+    {
+      "source": "/observability/:path*",
+      "destination": "/features/observability/:path*"
+    },
+    {
+      "source": "/payments/:path*",
+      "destination": "/features/payments/:path*"
+    },
+    {
+      "source": "/security/:path*",
+      "destination": "/features/security/:path*"
+    },
+    {
+      "source": "/storage/:path*",
+      "destination": "/features/storage/:path*"
+    },
+    {
+      "source": "/storybook/:path*",
+      "destination": "/features/storybook/:path*"
+    },
+    {
+      "source": "/webhooks/:path*",
+      "destination": "/features/webhooks/:path*"
+    },
+    {
+      "source": "/seo/:path*",
+      "destination": "/features/seo/:path*"
+    },
+    {
+      "source": "/testing/:path*",
+      "destination": "/features/testing/:path*"
+    }
+  ]
 }

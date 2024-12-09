@@ -1,11 +1,9 @@
 ---
-title: Setup
-description: How to setup next-forge
+title: Prerequisites
+description: How to configure your development environment for next-forge
 ---
 
-## Prerequisites
-
-### Operating System
+## Operating System
 
 next-forge is designed to work on macOS, Linux and Windows. While next-forge itself is platform-agnostic, the tooling and dependencies we use have different requirements. We've tested and confirmed that next-forge works on the following combinations of operating systems and versions:
 
@@ -18,7 +16,7 @@ next-forge is designed to work on macOS, Linux and Windows. While next-forge its
 
 We're aware of issues on [non-Ubuntu Linux distributions](https://github.com/haydenbleasel/next-forge/issues/238). While we don't officially support them, we'd love to know if you get it working!
 
-### Package Manager
+## Package Manager
 
 next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead.
 
@@ -31,13 +29,13 @@ next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but 
 
 Learn how to [install pnpm](https://pnpm.io/installation).
 
-### Stripe CLI
+## Stripe CLI
 
 We use the Stripe CLI to forward webhooks to your local machine. You can read more about that [here](/payments).
 
 Learn how to [install the Stripe CLI](https://docs.stripe.com/stripe-cli) for your operating system.
 
-### Mintlify CLI
+## Mintlify CLI
 
 We use the Mintlify CLI to preview the docs locally. You can install it with:
 
@@ -45,7 +43,7 @@ We use the Mintlify CLI to preview the docs locally. You can install it with:
 pnpm add -g @mintlify/cli
 ```
 
-### Accounts
+## Accounts
 
 next-forge relies on various SaaS products. You will need to create accounts with the following services then set the API keys in your [environment variables](/env):
 
@@ -57,72 +55,3 @@ next-forge relies on various SaaS products. You will need to create accounts wit
 - [Resend](https://resend.com), for [transactional emails](/email/resend).
 - [Sentry](https://sentry.io), for [error tracking](/observability/error-capture).
 - [Stripe](https://stripe.com), for [payments](/payments).
-
-## Installation
-
-### Cloning
-
-Clone the repo using `next-forge` init, replacing `[my-project]` with your project name.
-
-```sh Terminal
-npx next-forge@latest init [my-project]
-```
-
-You can also specify the package manager to use with the `package-manager` option, e.g.
-
-```sh Terminal
-npx next-forge@latest init [my-project] --package-manager bun
-```
-
-This will create a new directory with your project name and clone the repo into it. It will run a setup script to install dependencies and copy `.env` files.
-
-### Login
-
-Login to Stripe with:
-
-```sh Terminal
-stripe login
-```
-
-### Environment variables
-
-You should change the environment variables in each `.env` or `.env.local` file to match your own configuration e.g.
-
-```js .env.local
-DATABASE_URL="postgres://..."
-```
-
-Read more about environment variables [here](/env).
-
-### Vercel Toolbar
-
-Go into each application and run `vercel link`, like so:
-
-```sh Terminal
-cd apps/app
-vercel link
-```
-
-### Database
-
-You will need to scaffold the database using the schema defined in `packages/database/prisma/schema.prisma`:
-
-```sh Terminal
-pnpm migrate
-```
-
-## Development
-
-Run the development server with:
-
-```sh Terminal
-pnpm dev
-```
-
-Open the localhost URLs with the relevant ports listed above to see the app, e.g.
-
-- [http://localhost:3000/](http://localhost:3000/) — The main app.
-- [http://localhost:3001/](http://localhost:3001/) — The website.
-- [http://localhost:3002/](http://localhost:3002/) — The API.
-- [http://localhost:3003/](http://localhost:3003/) — Email preview server.
-- [http://localhost:3004/](http://localhost:3004/) — The docs
