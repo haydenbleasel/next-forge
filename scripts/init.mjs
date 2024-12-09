@@ -111,6 +111,7 @@ program
       log(
         chalk.blue(`Checking out versions ${fromVersion} and ${toVersion}...`)
       );
+
       execSync(`git checkout ${fromVersion}`, { stdio: 'inherit' });
       const fromFiles = execSync('git ls-files').toString().trim().split('\n');
 
