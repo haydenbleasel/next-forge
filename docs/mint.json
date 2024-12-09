@@ -195,5 +195,140 @@
     "x": "https://x.com/haydenbleasel",
     "github": "https://github.com/haydenbleasel/next-forge",
     "linkedin": "https://www.linkedin.com/in/haydenbleasel"
-  }
+  },
+
+  "redirects": [
+    {
+      "source": "/ai/:path*",
+      "destination": "/features/ai/:path*"
+    },
+    {
+      "source": "/analytics/:path*",
+      "destination": "/features/analytics/:path*"
+    },
+    {
+      "source": "/authentication/overview",
+      "destination": "/features/authentication"
+    },
+    {
+      "source": "/authentication/authjs",
+      "destination": "/migrations/authentication/authjs"
+    },
+    {
+      "source": "/authentication/better-auth",
+      "destination": "/migrations/authentication/better-auth"
+    },
+    {
+      "source": "/bi/:path*",
+      "destination": "/features/bi/:path*"
+    },
+    {
+      "source": "/bundle-analysis/:path*",
+      "destination": "/features/bundle-analysis/:path*"
+    },
+    {
+      "source": "/collaboration/:path*",
+      "destination": "/features/collaboration/:path*"
+    },
+    {
+      "source": "/cms/overview",
+      "destination": "/features/cms"
+    },
+    {
+      "source": "/cms/content-collections",
+      "destination": "/migrations/cms/content-collections"
+    },
+    {
+      "source": "/cron/:path*",
+      "destination": "/features/cron/:path*"
+    },
+    {
+      "source": "/database/overview",
+      "destination": "/features/database"
+    },
+    {
+      "source": "/database/drizzle",
+      "destination": "/migrations/database/drizzle"
+    },
+    {
+      "source": "/database/planetscale",
+      "destination": "/migrations/database/planetscale"
+    },
+    {
+      "source": "/database/prisma-postgres",
+      "destination": "/migrations/database/prisma-postgres"
+    },
+    {
+      "source": "/database/supabase",
+      "destination": "/migrations/database/supabase"
+    },
+    {
+      "source": "/database/turso",
+      "destination": "/migrations/database/turso"
+    },
+    {
+      "source": "/design-system/:path*",
+      "destination": "/features/design-system/:path*"
+    },
+    {
+      "source": "/documentation/overview",
+      "destination": "/features/documentation"
+    },
+    {
+      "source": "/documentation/fumadocs",
+      "destination": "/migrations/documentation/fumadocs"
+    },
+    {
+      "source": "/email/:path*",
+      "destination": "/features/email/:path*"
+    },
+    {
+      "source": "/env/:path*",
+      "destination": "/features/env/:path*"
+    },
+    {
+      "source": "/flags/:path*",
+      "destination": "/features/flags/:path*"
+    },
+    {
+      "source": "/formatting/overview",
+      "destination": "/features/formatting"
+    },
+    {
+      "source": "/formatting/eslint",
+      "destination": "/migrations/formatting/eslint"
+    },
+    {
+      "source": "/observability/:path*",
+      "destination": "/features/observability/:path*"
+    },
+    {
+      "source": "/payments/:path*",
+      "destination": "/features/payments/:path*"
+    },
+    {
+      "source": "/security/:path*",
+      "destination": "/features/security/:path*"
+    },
+    {
+      "source": "/storage/:path*",
+      "destination": "/features/storage/:path*"
+    },
+    {
+      "source": "/storybook/:path*",
+      "destination": "/features/storybook/:path*"
+    },
+    {
+      "source": "/webhooks/:path*",
+      "destination": "/features/webhooks/:path*"
+    },
+    {
+      "source": "/seo/:path*",
+      "destination": "/features/seo/:path*"
+    },
+    {
+      "source": "/testing/:path*",
+      "destination": "/features/testing/:path*"
+    }
+  ]
 }
