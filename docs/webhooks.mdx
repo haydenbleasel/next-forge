@@ -5,6 +5,10 @@ description: Send webhooks to your users using Svix.
 
 next-forge supports sending webhooks to your users using [Svix](https://www.svix.com/). Svix is an enterprise-ready webhooks sending service.
 
+<Note>
+  Webhooks are automatically enabled by the existence of the `SVIX_TOKEN` environment variable.
+</Note>
+
 ## How it works
 
 next-forge uses the Svix API in a stateless manner. The organization ID from the authenticated user is used as the Svix application UID, which is created automatically when the first message is sent.
