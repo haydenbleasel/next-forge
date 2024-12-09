@@ -3,7 +3,17 @@ title: Updates
 description: Keeping your dependencies up to date.
 ---
 
-next-forge comes with two built-in commands to help you keep your dependencies up to date.
+next-forge comes with some built-in helpers to help you keep your dependencies up to date.
+
+## Upgrading next-forge
+
+As next-forge evolves, you may want to stay up to date with the latest changes. This can be difficult to do manually, so we've created a script to help you.
+
+```sh Terminal
+npx next-forge@latest update --from 2.18.30 --to 2.18.31
+```
+
+This will clone the latest version of next-forge into a temporary directory, apply the updates, and then copy the files over to your project.
 
 ## Upgrading dependencies
 
