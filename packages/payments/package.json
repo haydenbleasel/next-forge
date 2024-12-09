@@ -9,7 +9,9 @@
   "dependencies": {
     "@repo/env": "workspace:*",
     "@stripe/agent-toolkit": "^0.2.0",
-    "stripe": "^17.4.0"
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "stripe": "^17.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
