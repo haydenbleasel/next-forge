@@ -14,10 +14,11 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
   ANALYZE: z.string().optional(),
   SVIX_TOKEN: z
-    .string()
-    .min(1)
-    .startsWith('sk_')
-    .or(z.string().min(1).startsWith('testsk_')),
+    .union([
+      z.string().min(1).startsWith('sk_'),
+      z.string().min(1).startsWith('testsk_'),
+    ])
+    .optional(),
   LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
   BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),

@@ -3,9 +3,12 @@ import { auth } from '@repo/auth/server';
 import { env } from '@repo/env';
 import { Svix } from 'svix';
 
-const svix = new Svix(env.SVIX_TOKEN);
-
 export const send = async (eventType: string, payload: object) => {
+  if (!env.SVIX_TOKEN) {
+    throw new Error('SVIX_TOKEN is not set');
+  }
+
+  const svix = new Svix(env.SVIX_TOKEN);
   const { orgId } = await auth();
 
   if (!orgId) {
@@ -26,6 +29,11 @@ export const send = async (eventType: string, payload: object) => {
 };
 
 export const getAppPortal = async () => {
+  if (!env.SVIX_TOKEN) {
+    throw new Error('SVIX_TOKEN is not set');
+  }
+
+  const svix = new Svix(env.SVIX_TOKEN);
   const { orgId } = await auth();
 
   if (!orgId) {
