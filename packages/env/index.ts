@@ -9,16 +9,11 @@ import { keys as flags } from '@repo/feature-flags/keys';
 import { keys as observability } from '@repo/observability/keys';
 import { keys as payments } from '@repo/payments/keys';
 import { keys as security } from '@repo/security/keys';
+import { keys as storage } from '@repo/storage/keys';
 import { keys as webhooks } from '@repo/webhooks/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
 import { core } from './core';
-
-const server: Parameters<typeof createEnv>[0]['server'] = {
-  BLOB_READ_WRITE_TOKEN: z.string().min(1).optional(),
-};
-
 export const env = createEnv({
   extends: [
     core(),
@@ -34,10 +29,7 @@ export const env = createEnv({
     observability(),
     payments(),
     security(),
+    storage(),
     webhooks(),
   ],
-  server,
-  runtimeEnv: {
-    BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
-  },
 });
