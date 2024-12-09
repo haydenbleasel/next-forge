@@ -4,7 +4,6 @@
   "private": true,
   "dependencies": {
     "@logtail/next": "^0.1.7",
-    "@repo/env": "workspace:*",
     "@sentry/nextjs": "^8.42.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "react": "^19.0.0",
