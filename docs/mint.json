@@ -224,8 +224,8 @@
       "destination": "/migrations/authentication/better-auth"
     },
     {
-      "source": "/bi",
-      "destination": "/features/bi"
+      "source": "/bi/:path*",
+      "destination": "/features/bi/:path*"
     },
     {
       "source": "/bundle-analysis",
