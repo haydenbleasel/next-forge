@@ -58,8 +58,12 @@
 
   "navigation": [
     {
-      "group": "Getting Started",
-      "pages": ["overview", "setup", "faq", "updates"]
+      "group": "Introduction",
+      "pages": ["overview", "faq", "updates"]
+    },
+    {
+      "group": "Setup",
+      "pages": ["setup/prerequisites", "setup/installation"]
     },
     {
       "group": "Structure",
