@@ -3,6 +3,7 @@ import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
 import { keys as cms } from '@repo/cms/keys';
 import { keys as collaboration } from '@repo/collaboration/keys';
+import { keys as email } from '@repo/email/keys';
 import { keys as flags } from '@repo/feature-flags/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
@@ -10,9 +11,7 @@ import { z } from 'zod';
 import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
-  RESEND_FROM: z.string().min(1).email(),
   DATABASE_URL: z.string().min(1).url(),
-  RESEND_TOKEN: z.string().min(1).startsWith('re_'),
   STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
   BETTERSTACK_API_KEY: z.string().min(1).optional(),
@@ -49,13 +48,12 @@ export const env = createEnv({
     analytics(),
     cms(),
     collaboration(),
+    email(),
     flags(),
   ],
   server,
   runtimeEnv: {
-    RESEND_FROM: process.env.RESEND_FROM,
     DATABASE_URL: process.env.DATABASE_URL,
-    RESEND_TOKEN: process.env.RESEND_TOKEN,
     STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
     STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     BETTERSTACK_API_KEY: process.env.BETTERSTACK_API_KEY,
