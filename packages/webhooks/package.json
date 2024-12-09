@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@repo/auth": "workspace:*",
-    "@repo/env": "workspace:*",
     "@t3-oss/env-nextjs": "^0.11.1",
     "svix": "^1.43.0",
     "zod": "^3.23.8"

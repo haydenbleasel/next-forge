@@ -18,6 +18,7 @@
     "@repo/observability": "workspace:*",
     "@repo/payments": "workspace:*",
     "@repo/security": "workspace:*",
+    "@repo/webhooks": "workspace:*",
     "@t3-oss/env-core": "^0.11.1",
     "@t3-oss/env-nextjs": "^0.11.1",
     "zod": "^3.24.1"

@@ -9,20 +9,14 @@ import { keys as flags } from '@repo/feature-flags/keys';
 import { keys as observability } from '@repo/observability/keys';
 import { keys as payments } from '@repo/payments/keys';
 import { keys as security } from '@repo/security/keys';
+import { keys as webhooks } from '@repo/webhooks/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
-  ARCJET_KEY: z.string().min(1).startsWith('ajkey_').optional(),
   ANALYZE: z.string().optional(),
-  SVIX_TOKEN: z
-    .union([
-      z.string().min(1).startsWith('sk_'),
-      z.string().min(1).startsWith('testsk_'),
-    ])
-    .optional(),
 
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
   BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),
@@ -53,13 +47,12 @@ export const env = createEnv({
     observability(),
     payments(),
     security(),
+    webhooks(),
   ],
   server,
   runtimeEnv: {
-    ARCJET_KEY: process.env.ARCJET_KEY,
     ANALYZE: process.env.ANALYZE,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
-    SVIX_TOKEN: process.env.SVIX_TOKEN,
   },
 });
