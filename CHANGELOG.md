@@ -1,3 +1,15 @@
+# v2.20.11 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix broken links ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.10 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
