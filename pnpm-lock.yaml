@@ -907,6 +907,9 @@ importers:
       '@repo/observability':
         specifier: workspace:*
         version: link:../observability
+      '@repo/payments':
+        specifier: workspace:*
+        version: link:../payments
       '@t3-oss/env-core':
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.23.8)
@@ -1025,9 +1028,6 @@ importers:
 
   packages/payments:
     dependencies:
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@stripe/agent-toolkit':
         specifier: ^0.2.0
         version: 0.2.0(@langchain/core@0.3.18)(ai@4.0.13(react@19.0.0)(zod@3.23.8))
