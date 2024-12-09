@@ -1,6 +1,7 @@
 import { keys as ai } from '@repo/ai/keys';
 import { keys as analytics } from '@repo/analytics/keys';
 import { keys as auth } from '@repo/auth/keys';
+import { keys as cms } from '@repo/cms/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
@@ -39,7 +40,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
 };
 
 export const env = createEnv({
-  extends: [core(), vercel(), auth(), ai(), analytics()],
+  extends: [core(), vercel(), auth(), ai(), analytics(), cms()],
   server,
   runtimeEnv: {
     RESEND_FROM: process.env.RESEND_FROM,
@@ -58,6 +59,5 @@ export const env = createEnv({
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     SVIX_TOKEN: process.env.SVIX_TOKEN,
     LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
-    BASEHUB_TOKEN: process.env.BASEHUB_TOKEN,
   },
 });
