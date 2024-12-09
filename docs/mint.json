@@ -37,28 +37,36 @@
     "prompt": "Search or ask..."
   },
 
+  "tabs": [
+    {
+      "name": "Getting Started",
+      "url": "/"
+    },
+    {
+      "name": "Structure",
+      "url": "/structure"
+    },
+    {
+      "name": "Deployment",
+      "url": "/deployment"
+    },
+    {
+      "name": "Recipes",
+      "url": "/recipes"
+    },
+    {
+      "name": "Recommended Libraries",
+      "url": "/recommended-libraries"
+    }
+  ],
+
   "navigation": [
     {
       "group": "Getting Started",
-      "pages": [
-        "overview",
-        "setup",
-        "faq",
-        "updates",
-        {
-          "group": "Recommended Libraries",
-          "pages": [
-            "recommended-libraries/friendlier-words",
-            "recommended-libraries/motion",
-            "recommended-libraries/nuqs",
-            "recommended-libraries/react-wrap-balancer",
-            "recommended-libraries/zustand"
-          ]
-        }
-      ]
+      "pages": ["overview", "setup", "faq", "updates"]
     },
     {
-      "group": "Structure",
+      "group": "",
       "pages": ["structure/apps", "structure/packages"]
     },
     {
@@ -153,12 +161,22 @@
       ]
     },
     {
-      "group": "Deployment",
+      "group": "",
       "pages": ["deployment/vercel", "deployment/netlify"]
     },
     {
-      "group": "Recipes",
+      "group": "",
       "pages": ["recipes/ai-chatbot"]
+    },
+    {
+      "group": "",
+      "pages": [
+        "recommended-libraries/friendlier-words",
+        "recommended-libraries/motion",
+        "recommended-libraries/nuqs",
+        "recommended-libraries/react-wrap-balancer",
+        "recommended-libraries/zustand"
+      ]
     }
   ],
 
