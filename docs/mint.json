@@ -43,12 +43,8 @@
       "url": "/"
     },
     {
-      "name": "Structure",
-      "url": "/structure"
-    },
-    {
-      "name": "Deployment",
-      "url": "/deployment"
+      "name": "Features",
+      "url": "/features"
     },
     {
       "name": "Recipes",
@@ -66,102 +62,112 @@
       "pages": ["overview", "setup", "faq", "updates"]
     },
     {
-      "group": "",
+      "group": "Structure",
       "pages": ["structure/apps", "structure/packages"]
     },
     {
-      "group": "Features",
+      "group": "",
       "pages": [
-        "ai",
+        "features/ai",
         {
           "group": "Analytics",
-          "pages": ["analytics/web", "analytics/product"]
+          "pages": ["features/analytics/web", "features/analytics/product"]
         },
         {
           "group": "Authentication",
           "pages": [
-            "authentication/overview",
-            "authentication/authjs",
-            "authentication/better-auth"
+            "features/authentication/overview",
+            "features/authentication/authjs",
+            "features/authentication/better-auth"
           ]
         },
         {
           "group": "Business Intelligence",
-          "pages": ["bi/metabase"]
+          "pages": ["features/bi/metabase"]
         },
-        "bundle-analysis",
-        "collaboration",
+        "features/bundle-analysis",
+        "features/collaboration",
         {
           "group": "CMS",
-          "pages": ["cms/overview", "cms/content-collections"]
+          "pages": ["features/cms/overview", "features/cms/content-collections"]
         },
-        "cron",
+        "features/cron",
         {
           "group": "Database and ORM",
           "pages": [
-            "database/overview",
-            "database/drizzle",
-            "database/planetscale",
-            "database/prisma-postgres",
-            "database/supabase",
-            "database/turso"
+            "features/database/overview",
+            "features/database/drizzle",
+            "features/database/planetscale",
+            "features/database/prisma-postgres",
+            "features/database/supabase",
+            "features/database/turso"
           ]
         },
         {
           "group": "Design System",
           "pages": [
-            "design-system/colors",
-            "design-system/components",
-            "design-system/dark-mode",
-            "design-system/provider",
-            "design-system/typography"
+            "features/design-system/colors",
+            "features/design-system/components",
+            "features/design-system/dark-mode",
+            "features/design-system/provider",
+            "features/design-system/typography"
           ]
         },
         {
           "group": "Documentation",
-          "pages": ["documentation/overview", "documentation/fumadocs"]
+          "pages": [
+            "features/documentation/overview",
+            "features/documentation/fumadocs"
+          ]
         },
         {
           "group": "Email",
-          "pages": ["email/clerk", "email/resend"]
+          "pages": ["features/email/clerk", "features/email/resend"]
         },
-        "env",
-        "flags",
+        "features/env",
+        "features/flags",
         {
           "group": "Formatting",
-          "pages": ["formatting/overview", "formatting/eslint"]
+          "pages": [
+            "features/formatting/overview",
+            "features/formatting/eslint"
+          ]
         },
         {
           "group": "Observability",
           "pages": [
-            "observability/error-capture",
-            "observability/debugging",
-            "observability/logging",
-            "observability/uptime"
+            "features/observability/error-capture",
+            "features/observability/debugging",
+            "features/observability/logging",
+            "features/observability/uptime"
           ]
         },
-        "payments",
+        "features/payments",
         {
           "group": "Security",
           "pages": [
-            "security/application",
-            "security/dependencies",
-            "security/headers",
-            "security/ip-geolocation"
+            "features/security/application",
+            "features/security/dependencies",
+            "features/security/headers",
+            "features/security/ip-geolocation"
           ]
         },
-        "storage",
-        "storybook",
-        "webhooks",
+        "features/storage",
+        "features/storybook",
+        "features/webhooks",
         {
           "group": "SEO",
-          "pages": ["seo/metadata", "seo/json-ld", "seo/sitemap"]
+          "pages": [
+            "features/seo/metadata",
+            "features/seo/json-ld",
+            "features/seo/sitemap"
+          ]
         },
-        "testing"
+        "features/testing"
       ]
     },
     {
-      "group": "",
+      "group": "Deployment",
       "pages": ["deployment/vercel", "deployment/netlify"]
     },
     {
@@ -184,5 +190,100 @@
     "x": "https://x.com/haydenbleasel",
     "github": "https://github.com/haydenbleasel/next-forge",
     "linkedin": "https://www.linkedin.com/in/haydenbleasel"
-  }
+  },
+
+  "redirects": [
+    {
+      "source": "/ai/:path*",
+      "destination": "/features/ai/:path*"
+    },
+    {
+      "source": "/analytics/:path*",
+      "destination": "/features/analytics/:path*"
+    },
+    {
+      "source": "/authentication/:path*",
+      "destination": "/features/authentication/:path*"
+    },
+    {
+      "source": "/bi/:path*",
+      "destination": "/features/bi/:path*"
+    },
+    {
+      "source": "/bundle-analysis",
+      "destination": "/features/bundle-analysis"
+    },
+    {
+      "source": "/collaboration",
+      "destination": "/features/collaboration"
+    },
+    {
+      "source": "/cms/:path*",
+      "destination": "/features/cms/:path*"
+    },
+    {
+      "source": "/cron",
+      "destination": "/features/cron"
+    },
+    {
+      "source": "/database/:path*",
+      "destination": "/features/database/:path*"
+    },
+    {
+      "source": "/design-system/:path*",
+      "destination": "/features/design-system/:path*"
+    },
+    {
+      "source": "/documentation/:path*",
+      "destination": "/features/documentation/:path*"
+    },
+    {
+      "source": "/email/:path*",
+      "destination": "/features/email/:path*"
+    },
+    {
+      "source": "/env/:path*",
+      "destination": "/features/env/:path*"
+    },
+    {
+      "source": "/flags/:path*",
+      "destination": "/features/flags/:path*"
+    },
+    {
+      "source": "/formatting/:path*",
+      "destination": "/features/formatting/:path*"
+    },
+    {
+      "source": "/observability/:path*",
+      "destination": "/features/observability/:path*"
+    },
+    {
+      "source": "/payments",
+      "destination": "/features/payments"
+    },
+    {
+      "source": "/security/:path*",
+      "destination": "/features/security/:path*"
+    },
+    {
+      "source": "/storage",
+      "destination": "/features/storage"
+    },
+    {
+      "source": "/storybook",
+      "destination": "/features/storybook"
+    },
+    {
+      "source": "/webhooks",
+      "destination": "/features/webhooks"
+    },
+    {
+      "source": "/seo/:path*",
+      "destination": "/features/seo/:path*"
+    },
+    {
+      "source": "/testing",
+      "destination": "/features/testing"
+    }
+  ]
 }
