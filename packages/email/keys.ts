@@ -5,7 +5,7 @@ export const keys = () =>
   createEnv({
     server: {
       RESEND_FROM: z.string().min(1).email(),
-      RESEND_TOKEN: z.string().min(1).startsWith('resend_'),
+      RESEND_TOKEN: z.string().min(1).startsWith('re_'),
     },
     runtimeEnv: {
       RESEND_FROM: process.env.RESEND_FROM,
