@@ -24,7 +24,6 @@
     "@repo/webhooks": "workspace:*",
     "@sentry/nextjs": "^8.42.0",
     "@t3-oss/env-nextjs": "^0.11.1",
-    "api": "^6.1.2",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
@@ -33,7 +32,6 @@
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "require-in-the-middle": "^7.4.0",
-    "web": "^0.0.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {

@@ -1,4 +1,4 @@
-import { env } from '@repo/env';
+import { env } from '@/env';
 import { config, withAnalyzer, withSentry } from '@repo/next-config';
 import type { NextConfig } from 'next';
 

@@ -1,6 +1,6 @@
+import { env } from '@/env';
 import { analytics } from '@repo/analytics/posthog/server';
 import { clerkClient } from '@repo/auth/server';
-import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 import { log } from '@repo/observability/log';
 import { stripe } from '@repo/payments';
