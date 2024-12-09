@@ -1,5 +1,5 @@
+import { env } from '@/env';
 import { authMiddleware } from '@repo/auth/middleware';
-import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 import { secure } from '@repo/security';
 import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';

@@ -1,4 +1,4 @@
-import { env } from '@repo/env';
+import { env } from '@/env';
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
