@@ -18,9 +18,16 @@ next-forge is designed to work on macOS, Linux and Windows. While next-forge its
 
 We're aware of issues on [non-Ubuntu Linux distributions](https://github.com/haydenbleasel/next-forge/issues/238). While we don't officially support them, we'd love to know if you get it working!
 
-### pnpm
+### Package Manager
 
 next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead.
+
+| Package Manager | Supported |
+| ---------------- | ----------------- |
+| pnpm | ✅ |
+| npm | ✅ |
+| yarn | ✅ |
+| bun | ✅ |
 
 Learn how to [install pnpm](https://pnpm.io/installation).
 
@@ -60,6 +67,8 @@ Clone the repo using `next-forge` init, replacing `[my-project]` with your proje
 ```sh Terminal
 npx next-forge@latest init [my-project]
 ```
+
+You can also specify the package manager to use, e.g. `npx next-forge@latest init [my-project] --package-manager yarn`.
 
 This will create a new directory with your project name and clone the repo into it. It will run a setup script to install dependencies and copy `.env` files.
 

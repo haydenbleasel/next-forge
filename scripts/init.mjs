@@ -25,20 +25,31 @@ const execSyncOpts = { stdio: 'ignore' };
 program
   .command('init <name>')
   .description('Initialize a new next-forge project')
-  .action((projectName) => {
+  .option(
+    '--package-manager <manager>',
+    'Package manager to use (npm, yarn, bun, pnpm)',
+    'pnpm'
+  )
+  .action((projectName, options) => {
     try {
       const cwd = process.cwd();
       const projectDir = join(cwd, projectName);
+      const { packageManager } = options;
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `pnpm create next-app@latest ${projectName} --example "${url}"`,
+        `${packageManager} create next-app@latest ${projectName} --example "${url}"`,
         execSyncOpts
       );
       process.chdir(projectDir);
 
+      if (packageManager !== 'pnpm') {
+        log(chalk.green('Removing pnpm lockfile...'));
+        rmSync('pnpm-lock.yaml', { force: true });
+      }
+
       log(chalk.green('Installing dependencies...'));
-      execSync('pnpm install', execSyncOpts);
+      execSync(`${packageManager} install`, execSyncOpts);
 
       log(chalk.green('Copying .env.example files to .env.local...'));
 
@@ -69,7 +80,7 @@ program
       }
 
       log(chalk.green('Setting up Prisma...'));
-      execSync('pnpm build --filter @repo/database', execSyncOpts);
+      execSync(`${packageManager} build --filter @repo/database`, execSyncOpts);
 
       log(chalk.green('Setup complete! Deleting scripts folder...'));
       rmSync('scripts', { recursive: true, force: true });
