@@ -11,7 +11,7 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
   BETTERSTACK_API_KEY: z.string().min(1).optional(),
   BETTERSTACK_URL: z.string().min(1).url().optional(),
-  ARCJET_KEY: z.string().min(1).startsWith('ajkey_'),
+  ARCJET_KEY: z.string().min(1).startsWith('ajkey_').optional(),
   ANALYZE: z.string().optional(),
   SVIX_TOKEN: z
     .union([

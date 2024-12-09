@@ -1,7 +1,8 @@
 import { auth, currentUser } from '@repo/auth/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
+import { env } from '@repo/env';
 import { showBetaFeature } from '@repo/feature-flags';
-import arcjet, { detectBot, request } from '@repo/security';
+import { secure } from '@repo/security';
 import type { ReactNode } from 'react';
 import { PostHogIdentifier } from './components/posthog-identifier';
 import { GlobalSidebar } from './components/sidebar';
@@ -10,29 +11,9 @@ type AppLayoutProperties = {
   readonly children: ReactNode;
 };
 
-const aj = arcjet.withRule(
-  detectBot({
-    mode: 'LIVE',
-    // Allow preview links to show OG images, but no other bots should be
-    // allowed. See https://docs.arcjet.com/bot-protection/identifying-bots
-    allow: ['CATEGORY:PREVIEW'],
-  })
-);
-
 const AppLayout = async ({ children }: AppLayoutProperties) => {
-  const req = await request();
-  const decision = await aj.protect(req);
-
-  // These errors are handled by the global error boundary, but you could also
-  // redirect or show a custom error page
-  if (decision.isDenied()) {
-    console.warn('Arcjet denied request', decision);
-
-    if (decision.reason.isBot()) {
-      throw new Error('No bots allowed');
-    }
-
-    throw new Error('Access denied');
+  if (env.ARCJET_KEY) {
+    await secure(['CATEGORY:PREVIEW']);
   }
 
   const user = await currentUser();

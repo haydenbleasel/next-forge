@@ -27,6 +27,8 @@ import { Authors } from '/snippets/authors.mdx';
 
 next-forge uses [Arcjet](https://arcjet.com/), a security as code product that includes several features that can be used individually or combined to provide defense in depth for your site. You can [sign up for a free account](https://arcjet.com/) and add the API key to the environment variables to use the features we have included.
 
+<Note>Security is automatically enabled by the existence of the `ARCJET_KEY` environment variable.</Note>
+
 ## Philosophy
 
 Proper security protections need the full context of the application, which is why security rules and protections should be located alongside the code they are protecting.
