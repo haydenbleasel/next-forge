@@ -1,3 +1,4 @@
+import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
@@ -55,6 +56,7 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
 };
 
 export const env = createEnv({
+  extends: [vercel()],
   client,
   server,
   runtimeEnv: {
