@@ -212,7 +212,7 @@
       "destination": "/features/analytics/:slug*"
     },
     {
-      "source": "/authentication/overview",
+      "source": "/authentication",
       "destination": "/features/authentication"
     },
     {
@@ -236,7 +236,7 @@
       "destination": "/features/collaboration"
     },
     {
-      "source": "/cms/overview",
+      "source": "/cms",
       "destination": "/features/cms"
     },
     {
@@ -248,7 +248,7 @@
       "destination": "/features/cron"
     },
     {
-      "source": "/database/overview",
+      "source": "/database",
       "destination": "/features/database"
     },
     {
@@ -276,7 +276,7 @@
       "destination": "/features/design-system/:slug*"
     },
     {
-      "source": "/documentation/overview",
+      "source": "/documentation",
       "destination": "/features/documentation"
     },
     {
@@ -296,7 +296,7 @@
       "destination": "/features/flags"
     },
     {
-      "source": "/formatting/overview",
+      "source": "/formatting",
       "destination": "/features/formatting"
     },
     {

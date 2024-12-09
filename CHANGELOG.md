@@ -1,3 +1,39 @@
+# v2.20.14 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #333 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.13 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.12 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Start adding documentation images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.11 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`

@@ -103,7 +103,8 @@ program
   .option('--from <version>', 'Version to update from')
   .option('--to <version>', 'Version to update to')
   .action(async (options) => {
-    const tempDir = join(import.meta.dirname, 'next-forge-update');
+    const cwd = process.cwd();
+    const tempDir = join(cwd, 'next-forge-update');
 
     try {
       const from = options.from.startsWith('v')
@@ -141,13 +142,14 @@ program
             .trim() !== ''
       );
 
-      log(chalk.green(`Found ${filesToUpdate.length} files to update`));
-      process.chdir(import.meta.dirname);
-
-      log(chalk.blue('Applying updates...'));
+      log(
+        chalk.green(
+          `Found ${filesToUpdate.length} files to update, applying updates...`
+        )
+      );
       for (const file of filesToUpdate) {
         const sourcePath = join(tempDir, file);
-        const destPath = join(import.meta.dirname, '..', file);
+        const destPath = join(cwd, file);
 
         // Ensure destination directory exists
         await mkdir(dirname(destPath), { recursive: true });
