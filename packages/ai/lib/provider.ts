@@ -1,7 +1,7 @@
 import { createOpenAI } from '@ai-sdk/openai';
-import { env } from '@repo/env';
+import { ai } from '@repo/ai/keys';
 
 export const provider = createOpenAI({
-  apiKey: env.OPENAI_API_KEY,
+  apiKey: ai().OPENAI_API_KEY,
   compatibility: 'strict',
 });

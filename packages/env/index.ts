@@ -1,3 +1,4 @@
+import { ai } from '@repo/ai/keys';
 import { auth } from '@repo/auth/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
@@ -44,7 +45,7 @@ const client: Parameters<typeof createEnv>[0]['client'] = {
 };
 
 export const env = createEnv({
-  extends: [vercel(), auth()],
+  extends: [vercel(), auth(), ai()],
   client,
   server,
   runtimeEnv: {
@@ -64,7 +65,6 @@ export const env = createEnv({
     BLOB_READ_WRITE_TOKEN: process.env.BLOB_READ_WRITE_TOKEN,
     SVIX_TOKEN: process.env.SVIX_TOKEN,
     LIVEBLOCKS_SECRET: process.env.LIVEBLOCKS_SECRET,
-    OPENAI_API_KEY: process.env.OPENAI_API_KEY,
     BASEHUB_TOKEN: process.env.BASEHUB_TOKEN,
     NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
     NEXT_PUBLIC_WEB_URL: process.env.NEXT_PUBLIC_WEB_URL,
