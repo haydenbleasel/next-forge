@@ -7,15 +7,13 @@ import { keys as database } from '@repo/database/keys';
 import { keys as email } from '@repo/email/keys';
 import { keys as flags } from '@repo/feature-flags/keys';
 import { keys as observability } from '@repo/observability/keys';
+import { keys as payments } from '@repo/payments/keys';
 import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 import { core } from './core';
 
 const server: Parameters<typeof createEnv>[0]['server'] = {
-  STRIPE_SECRET_KEY: z.string().min(1).startsWith('sk_'),
-  STRIPE_WEBHOOK_SECRET: z.string().min(1).startsWith('whsec_').optional(),
-
   ARCJET_KEY: z.string().min(1).startsWith('ajkey_').optional(),
   ANALYZE: z.string().optional(),
   SVIX_TOKEN: z
@@ -52,11 +50,10 @@ export const env = createEnv({
     email(),
     flags(),
     observability(),
+    payments(),
   ],
   server,
   runtimeEnv: {
-    STRIPE_SECRET_KEY: process.env.STRIPE_SECRET_KEY,
-    STRIPE_WEBHOOK_SECRET: process.env.STRIPE_WEBHOOK_SECRET,
     ARCJET_KEY: process.env.ARCJET_KEY,
     ANALYZE: process.env.ANALYZE,
     NEXT_RUNTIME: process.env.NEXT_RUNTIME,
