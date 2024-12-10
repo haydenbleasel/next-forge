@@ -1,3 +1,15 @@
+# v2.20.18 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Ultracite fixes, for #338 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.17 (Tue Dec 10 2024)
 
 :tada: This release contains work from a new contributor! :tada:
