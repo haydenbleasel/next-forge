@@ -6,7 +6,6 @@ import { env } from '@repo/env';
 import { withSentryConfig } from '@sentry/nextjs';
 import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
-import { createSecureHeaders } from 'next-secure-headers';
 
 const otelRegex = /@opentelemetry\/instrumentation/;
 
@@ -35,22 +34,6 @@ const baseConfig: NextConfig = {
       {
         source: '/ingest/decide',
         destination: 'https://us.i.posthog.com/decide',
-      },
-    ];
-  },
-
-  // biome-ignore lint/suspicious/useAwait: headers is async
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: createSecureHeaders({
-          // HSTS Preload: https://hstspreload.org/
-          forceHTTPSRedirect: [
-            true,
-            { maxAge: 63_072_000, includeSubDomains: true, preload: true },
-          ],
-        }),
       },
     ];
   },
