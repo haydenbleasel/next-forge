@@ -59,10 +59,17 @@ program
       }
 
       log(chalk.green('Deleting internal content...'));
-      for (const dir of internalContentDirs) {
+      for (const dir of ['.github/workflows', 'docs', 'splash', 'scripts']) {
         rmSync(dir, { recursive: true, force: true });
       }
-      for (const file of internalContentFiles) {
+      for (const file of [
+        '.github/CONTRIBUTING.md',
+        '.github/FUNDING.yml',
+        '.github/SECURITY.md',
+        '.autorc',
+        'CHANGELOG.md',
+        'license.md',
+      ]) {
         if (existsSync(file)) {
           unlinkSync(file);
         }
@@ -96,9 +103,6 @@ program
 
       log(chalk.green('Setting up Prisma...'));
       execSync(`${packageManager} build --filter @repo/database`, execSyncOpts);
-
-      log(chalk.green('Setup complete! Deleting scripts folder...'));
-      rmSync('scripts', { recursive: true, force: true });
 
       log(chalk.green('Done!'));
       log(
