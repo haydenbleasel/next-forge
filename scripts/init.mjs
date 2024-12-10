@@ -22,6 +22,17 @@ const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
 
 const execSyncOpts = { stdio: 'ignore' };
 
+const internalContentDirs = ['.github/workflows', 'docs', 'splash'];
+const internalContentFiles = [
+  '.github/CONTRIBUTING.md',
+  '.github/FUNDING.yml',
+  '.github/SECURITY.md',
+  '.autorc',
+  'CHANGELOG.md',
+  'license.md',
+];
+const allInternalContent = [...internalContentDirs, ...internalContentFiles];
+
 program
   .command('init <name>')
   .description('Initialize a new next-forge project')
@@ -43,6 +54,27 @@ program
       );
       process.chdir(projectDir);
 
+      if (existsSync('.git')) {
+        rmSync('.git', { recursive: true, force: true });
+      }
+
+      log(chalk.green('Deleting internal content...'));
+      for (const dir of ['.github/workflows', 'docs', 'splash', 'scripts']) {
+        rmSync(dir, { recursive: true, force: true });
+      }
+      for (const file of [
+        '.github/CONTRIBUTING.md',
+        '.github/FUNDING.yml',
+        '.github/SECURITY.md',
+        '.autorc',
+        'CHANGELOG.md',
+        'license.md',
+      ]) {
+        if (existsSync(file)) {
+          unlinkSync(file);
+        }
+      }
+
       if (packageManager !== 'pnpm') {
         log(chalk.green('Removing pnpm lockfile...'));
         rmSync('pnpm-lock.yaml', { force: true });
@@ -50,6 +82,11 @@ program
 
       log(chalk.green('Installing dependencies...'));
       execSync(`${packageManager} install`, execSyncOpts);
+
+      log(chalk.green('Re-initializing git repository after install...'));
+      execSync('git init', execSyncOpts);
+      execSync('git add .', execSyncOpts);
+      execSync('git commit -m "✨ Initial commit"', execSyncOpts);
 
       log(chalk.green('Copying .env.example files to .env.local...'));
 
@@ -64,26 +101,8 @@ program
       }
       copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
-      log(chalk.green('Deleting internal content...'));
-      for (const dir of ['.github/workflows', 'docs', 'splash']) {
-        rmSync(dir, { recursive: true, force: true });
-      }
-      for (const file of [
-        '.github/CONTRIBUTING.md',
-        '.github/FUNDING.yml',
-        '.github/SECURITY.md',
-        '.autorc',
-        'CHANGELOG.md',
-        'license.md',
-      ]) {
-        unlinkSync(file);
-      }
-
       log(chalk.green('Setting up Prisma...'));
       execSync(`${packageManager} build --filter @repo/database`, execSyncOpts);
-
-      log(chalk.green('Setup complete! Deleting scripts folder...'));
-      rmSync('scripts', { recursive: true, force: true });
 
       log(chalk.green('Done!'));
       log(
@@ -134,19 +153,29 @@ program
       const toFiles = execSync('git ls-files').toString().trim().split('\n');
 
       log(chalk.blue('Computing diff between versions...'));
-      const filesToUpdate = toFiles.filter(
-        (file) =>
+      const filesToUpdate = toFiles.filter((file) => {
+        if (allInternalContent.some((ic) => file.startsWith(ic))) {
+          // Skip internal content that is meant to be deleted during init
+          return false;
+        }
+
+        const hasChanged =
           !fromFiles.includes(file) ||
           execSync(`git diff ${from} ${to} -- ${cleanFileName(file)}`)
             .toString()
-            .trim() !== ''
-      );
+            .trim() !== '';
+
+        return hasChanged;
+      });
 
       log(
         chalk.green(
           `Found ${filesToUpdate.length} files to update, applying updates...`
         )
       );
+
+      process.chdir(cwd);
+
       for (const file of filesToUpdate) {
         const sourcePath = join(tempDir, file);
         const destPath = join(cwd, file);
