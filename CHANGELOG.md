@@ -1,3 +1,15 @@
+# v2.20.20 (Tue Dec 10 2024)
+
+#### 🐛 Bug Fix
+
+- Update Drizzle migration documentation [#341](https://github.com/haydenbleasel/next-forge/pull/341) ([@yamz8](https://github.com/yamz8))
+
+#### Authors: 1
+
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
 # v2.20.19 (Tue Dec 10 2024)
 
 #### ⚠️ Pushed to `main`
