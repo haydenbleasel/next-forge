@@ -1,10 +1,40 @@
 ---
 title: Webhooks
-description: Clerk uses webhooks to handle authentication events.
+description: How authentication webhooks are handled in next-forge.
 ---
 
-Clerk uses webhooks to handle authentication events. These are handled in the `POST /webhooks/clerk` route in the `api` app. Make sure you enable the webhook events you need in your Clerk project settings.
+next-forge has a built-in webhook handler for authentication events. This is handled in the `/app/webhooks/clerk` route handler in the `api` app. We can receive webhooks events from Clerk whenever a key event occurs, such as a user being created, an organization being deleted or a membership invite being sent.
 
-### Local Development
+In their dashboard, Clerk uses Svix to configure webhooks. They can send an HTTP POST request to our webhook endpoint configured for the event type. The payload carries a JSON object. We can then use the information from the request's JSON payload to trigger actions in our app, such as sending a notification or updating a database.
+
+## Setting up webhooks
+
+In your Clerk dashboard, you can configure webhooks for your project.
+
+<Frame>
+  <img src="/images/clerk-webhooks.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+You'll need to add the URL of your `api` app to the webhook settings. For instance, if we're deploying to `api.acme.com`, we'll add the following URL to the webhook settings:
+
+```
+https://api.acme.com/webhooks/clerk
+```
+
+## Enabling webhook events
+
+After our webhooks are configured, we need to enable the specific events we want to receive. By default, next-forge is configured to receive the following events and perform the following actions with the [Analytics](/features/analytics/product) package:
+
+| Event | Analytics Event |
+| ----- | ------ |
+| User created | Identify the user and capture the `User Created` event. |
+| User updated | Identify the user and capture the `User Updated` event. |
+| User deleted | Identify the user and capture the `User Deleted` event. |
+| Organization created | Identify the organization, associate it with the user and capture the `Organization Created` event. |
+| Organization deleted | Identify the organization, associate it with the user and capture the `Organization Deleted` event. |
+| Organization membership created | Associate the new user with the organization and capture the `Organization Membership Created` event. |
+| Organization membership deleted | Capture the `Organization Membership Deleted` event. |
+
+## Local Development
 
 Currently there's no way to easily test Clerk webhooks locally, so you'll have to test them in a staging environment. This means deploying your app to a "production" state Vercel project with development environment variables e.g. `staging-api.example.com`. Then you can add this URL to your Clerk project's webhook settings.
