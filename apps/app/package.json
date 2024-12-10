@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@prisma/client": "6.0.1",
-    "@repo/auth": "workspace:*",
     "@repo/analytics": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/collaboration": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
