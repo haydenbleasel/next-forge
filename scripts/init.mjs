@@ -90,13 +90,7 @@ program
 
       log(chalk.green('Copying .env.example files to .env.local...'));
 
-      for (const path of [
-        'apps/api',
-        'apps/app',
-        'apps/web',
-        'packages/cms',
-        'packages/database',
-      ]) {
+      for (const path of ['apps/api', 'apps/app', 'apps/web', 'packages/cms']) {
         copyFileSync(`${path}/.env.example`, `${path}/.env.local`);
       }
       copyFileSync('packages/database/.env.example', 'packages/database/.env');
