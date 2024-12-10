@@ -1,6 +1,28 @@
 ---
 title: Middleware
-description: Middleware is used to handle authentication and authorization in the Next.js app.
+description: How authentication middleware is configured in next-forge.
 ---
 
-Middleware is used to handle authentication and authorization in the Next.js app.
+Middleware allows you to run code before a request is completed. Then, based on the incoming request, you can modify the response by rewriting, redirecting, modifying the request or response headers, or responding directly.
+
+## Default configuration
+
+next-forge's Authentication package includes a middleware component called `authMiddleware` that is used to handle authentication and authorization in the Next.js app. By default, this middleware is simply a wrapper around Clerk's `clerkMiddleware` function.
+
+The authentication middleware is setup in the `middleware.ts` file in the root of the app. This file is used to define the middleware for the app, and is used to handle authentication and authorization in the Next.js app.
+
+## Advanced configuration
+
+Clerk's Middleware is a powerful tool that allows you to customize the authentication process. If you want to take it further, check out the following resources:
+
+<Card title="createRouteMatcher()" icon="route" href="https://clerk.com/docs/references/nextjs/clerk-middleware#create-route-matcher" horizontal>
+  A Clerk helper function that allows you to protect multiple routes.
+</Card>
+
+<Card title="Protecting routes" icon="shield" href="https://clerk.com/docs/references/nextjs/clerk-middleware#protect-routes" horizontal>
+  You can protect routes by user authentication and/or authorization status.
+</Card>
+
+<Card title="Debugging Middleware" icon="ban-bug" href="https://clerk.com/docs/references/nextjs/clerk-middleware#debug-your-middleware" horizontal>
+  If you are having issues getting your Middleware dialed in, you can use their debugging feature.
+</Card>
