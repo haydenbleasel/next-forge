@@ -1,3 +1,19 @@
+# v2.20.16 (Tue Dec 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Chore: cleaner git repo with init and update scripts [#336](https://github.com/haydenbleasel/next-forge/pull/336) ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### Authors: 1
+
+- Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+---
+
 # v2.20.15 (Tue Dec 10 2024)
 
 #### ⚠️ Pushed to `main`
