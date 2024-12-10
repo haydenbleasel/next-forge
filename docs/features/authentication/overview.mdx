@@ -15,16 +15,6 @@ It also provides a series of helpful utilities and components for managing authe
 
 next-forge has a default configuration for Clerk, enabling users and organizations to be managed.
 
-## Usage
-
-The `@repo/auth` package exposes an `AuthProvider`, however you don't need to use this directly. The [`DesignSystemProvider`](/features/design-system/provider) includes all relevant providers and higher-order components.
-
-From here, you can use all the pre-built components and hooks provided by Clerk. To demonstrate this, we've added the `<OrganizationSwitcher>` and `<UserButton>` components to the sidebar, as well as built out the Sign In and Sign Up pages.
-
-<Frame>
-  <img src="/images/sign-in.png" alt="Sign In Page" />
-</Frame>
-
 ### Local Development
 
 Currently there's no way to easily test Clerk webhooks locally, so you'll have to test them in a staging environment. This means deploying your app to a "production" state Vercel project with development environment variables e.g. `staging-api.example.com`. Then you can add this URL to your Clerk project's webhook settings.
