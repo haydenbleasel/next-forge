@@ -55,6 +55,7 @@ Delete everything in `@repo/database/index.ts` and replace it with the following
 import 'server-only';
 
 import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 import { env } from '@repo/env';
 
 const client = neon(env.DATABASE_URL);
@@ -75,7 +76,7 @@ export default defineConfig({
   out: './',
   dialect: 'postgresql',
   dbCredentials: {
-    url: databaseUrl,
+    url: env.DATABASE_URL,
   },
 });
 ```
@@ -117,4 +118,16 @@ You can also delete the now unused Prisma Studio app located at `apps/studio`:
 
 ```sh Terminal
 rm -fr apps/studio
+```
+
+## 7. Update the migration script in the root `package.json`
+
+Change the migration script in the root `package.json` from Prisma to Drizzle. Update the `migrate` script to use Drizzle commands:
+
+```json
+"scripts": {
+  "db:migrate": "cd packages/database && npx drizzle-kit migrate"
+  "db:generate": "cd packages/database && npx drizzle-kit generate"
+  "db:pull": "cd packages/database && npx drizzle-kit pull"
+}
 ```
