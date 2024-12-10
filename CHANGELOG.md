@@ -1,3 +1,15 @@
+# v2.20.15 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Switch to TUI mode ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.14 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`
