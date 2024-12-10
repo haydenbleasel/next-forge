@@ -2,28 +2,11 @@
   "$schema": "https://turbo.build/schema.json",
   "globalDependencies": ["**/.env.*local"],
   "ui": "tui",
+  "envMode": "loose",
   "tasks": {
     "build": {
       "dependsOn": ["^build", "test"],
-      "outputs": [".next/**", "!.next/cache/**"],
-      "env": [
-        "ARCJET_KEY",
-        "BASEHUB_TOKEN",
-        "BETTERSTACK_API_KEY",
-        "BETTERSTACK_URL",
-        "CLERK_SECRET_KEY",
-        "CLERK_WEBHOOK_SECRET",
-        "DATABASE_URL",
-        "FLAGS_SECRET",
-        "STRIPE_SECRET_KEY",
-        "RESEND_FROM",
-        "RESEND_TOKEN",
-        "SENTRY_AUTH_TOKEN",
-        "SENTRY_ORG",
-        "SENTRY_PROJECT",
-        "STRIPE_WEBHOOK_SECRET",
-        "SVIX_TOKEN"
-      ]
+      "outputs": [".next/**", "!.next/cache/**"]
     },
     "test": {
       "dependsOn": ["^test"]
