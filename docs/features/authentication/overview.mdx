@@ -9,8 +9,18 @@ description: How authentication is configured in next-forge.
 
 next-forge manages authentication through the use of a `auth` package. By default, this package is a wrapper around [Clerk](https://clerk.com/) which provides a complete authentication and user management solution that integrates seamlessly with Next.js applications.
 
-It also provides a series of helpful utilities and components for managing authentication in the app.
+It also provides a series of helpful utilities, components and middleware for managing authentication in your application. next-forge is configured by default to support Users and Organizations.
 
-## Configuration
+## User Management
 
-next-forge has a default configuration for Clerk, enabling users and organizations to be managed.
+Through the use of the `UserButton`, `SignIn` and `SignUp` [components](/features/authentication/components), as well as the pre-configured [middleware](/features/authentication/middleware), next-forge allows users to sign up, sign in, sign out, and manage their account on your application.
+
+Clerk only enables email / password authentication by default. You can enable other authentication methods including Social Login, Passwordless Login and Passkeys in your Clerk dashboard.
+
+## Organization Management
+
+Through the use of the `OrganizationSwitcher` [component](/features/authentication/components), next-forge allows authenticated users to create and switch between organizations.
+
+<Tip>You need to manually enable organizations in your Clerk dashboard.</Tip>
+
+
