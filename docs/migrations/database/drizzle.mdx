@@ -45,6 +45,7 @@ pnpm remove @prisma/adapter-neon @prisma/client prisma --filter database
 ```sh Terminal
 pnpm add drizzle-orm --filter database
 pnpm add -D drizzle-kit --filter database
+pnpm add @neondatabase/serverless --filter database
 ```
 
 ## 2. Update the database connection code
@@ -75,7 +76,7 @@ export default defineConfig({
   out: './',
   dialect: 'postgresql',
   dbCredentials: {
-    url: databaseUrl,
+    url: env.DATABASE_URL,
   },
 });
 ```
@@ -117,4 +118,16 @@ You can also delete the now unused Prisma Studio app located at `apps/studio`:
 
 ```sh Terminal
 rm -fr apps/studio
+```
+
+## 7. Update the migration script in the root `package.json`
+
+Change the migration script in the root `package.json` from Prisma to Drizzle. Update the `migrate` script to use Drizzle commands:
+
+```json
+"scripts": {
+  "db:migrate": "cd packages/database && npx drizzle-kit migrate"
+  "db:generate": "cd packages/database && npx drizzle-kit generate"
+  "db:pull": "cd packages/database && npx drizzle-kit pull"
+}
 ```
