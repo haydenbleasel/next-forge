@@ -1,3 +1,16 @@
+# v2.20.25 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+- Upgrade to Next.js 15.1 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.24 (Tue Dec 10 2024)
 
 #### ⚠️ Pushed to `main`
