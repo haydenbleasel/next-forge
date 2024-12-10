@@ -1,3 +1,15 @@
+# v2.20.22 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #337 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.21 (Tue Dec 10 2024)
 
 #### ⚠️ Pushed to `main`
