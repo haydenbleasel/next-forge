@@ -1,3 +1,24 @@
+# v2.20.17 (Tue Dec 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@pedrocarlo](https://github.com/pedrocarlo), for all your work!
+
+#### 🐛 Bug Fix
+
+- Feature: Turborepo generator [#334](https://github.com/haydenbleasel/next-forge/pull/334) ([@pedrocarlo](https://github.com/pedrocarlo))
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@pedrocarlo](https://github.com/pedrocarlo)
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.16 (Tue Dec 10 2024)
 
 :tada: This release contains work from a new contributor! :tada:
