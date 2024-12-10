@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noNodejsModules: This is a Node.js module
 import { dirname, join } from 'node:path';
 import type { StorybookConfig } from '@storybook/nextjs';
 

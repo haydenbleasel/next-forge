@@ -29,8 +29,9 @@ type Story = StoryObj<typeof meta>;
  */
 export const Default: Story = {
   render: (args) => (
-    <div className="min-h-96 flex items-center justify-center space-x-2">
+    <div className="flex min-h-96 items-center justify-center space-x-2">
       <button
+        type="button"
         onClick={() =>
           toast('Event has been created', {
             description: new Date().toLocaleString(),

@@ -1,4 +1,3 @@
-// biome-ignore lint/correctness/noNodejsModules: Generates sitemap on Node.js
 import fs from 'node:fs';
 import { blog, legal } from '@repo/cms';
 import { env } from '@repo/env';

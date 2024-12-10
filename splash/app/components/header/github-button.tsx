@@ -17,6 +17,7 @@ export const GitHubButton = async (): Promise<ReactElement> => {
     stars = data.stargazers_count;
     url = data.html_url;
   } catch (error) {
+    // biome-ignore lint/suspicious/noConsole: "it's fine"
     console.error(error);
   }
 

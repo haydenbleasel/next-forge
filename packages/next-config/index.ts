@@ -8,6 +8,8 @@ import withVercelToolbar from '@vercel/toolbar/plugins/next';
 import type { NextConfig } from 'next';
 import { createSecureHeaders } from 'next-secure-headers';
 
+const otelRegex = /@opentelemetry\/instrumentation/;
+
 const baseConfig: NextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
@@ -58,7 +60,7 @@ const baseConfig: NextConfig = {
       config.plugins = [...config.plugins, new PrismaPlugin()];
     }
 
-    config.ignoreWarnings = [{ module: /@opentelemetry\/instrumentation/ }];
+    config.ignoreWarnings = [{ module: otelRegex }];
 
     return config;
   },

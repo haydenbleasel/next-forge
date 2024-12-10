@@ -86,30 +86,30 @@ export const WithSubmenus: Story = {
       <DropdownMenuTrigger>Open</DropdownMenuTrigger>
       <DropdownMenuContent className="w-44">
         <DropdownMenuItem>
-          <Search className="size-4 mr-2" />
+          <Search className="mr-2 size-4" />
           <span>Search</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Plus className="size-4 mr-2" />
+            <Plus className="mr-2 size-4" />
             <span>New Team</span>
             <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
           </DropdownMenuItem>
           <DropdownMenuSub>
             <DropdownMenuSubTrigger>
-              <UserPlus className="size-4 mr-2" />
+              <UserPlus className="mr-2 size-4" />
               <span>Invite users</span>
             </DropdownMenuSubTrigger>
             <DropdownMenuPortal>
               <DropdownMenuSubContent>
                 <DropdownMenuItem>
-                  <Mail className="size-4 mr-2" />
+                  <Mail className="mr-2 size-4" />
                   <span>Email</span>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem>
-                  <PlusCircle className="size-4 mr-2" />
+                  <PlusCircle className="mr-2 size-4" />
                   <span>More...</span>
                 </DropdownMenuItem>
               </DropdownMenuSubContent>

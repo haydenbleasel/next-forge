@@ -37,8 +37,8 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
       ultracite:
-        specifier: ^4.1.8
-        version: 4.1.8
+        specifier: ^4.1.9
+        version: 4.1.9
 
   apps/api:
     dependencies:
@@ -9728,8 +9728,8 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  ultracite@4.1.8:
-    resolution: {integrity: sha512-oDB80YZ6aXGEuHtEHuOjOMhbyU/hxGvfWdO+rs5Tlq2C2sB1WGVtHXsX7t934ukcH3v7aCBOo4HVHx27JaBsKw==}
+  ultracite@4.1.9:
+    resolution: {integrity: sha512-3R/KCqJw9dzdTARSUQBub5MdC4AnSWo5JTw3CmyoaRskWoO3y7jJ3Nk9TFBIgxnROsMzLQkFhHORHYBpTuMang==}
     hasBin: true
 
   unbox-primitive@1.0.2:
@@ -20490,7 +20490,7 @@ snapshots:
   uglify-js@3.19.3:
     optional: true
 
-  ultracite@4.1.8: {}
+  ultracite@4.1.9: {}
 
   unbox-primitive@1.0.2:
     dependencies:
