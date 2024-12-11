@@ -13,7 +13,7 @@
 Clone the repo using:
 
 ```sh
-npx next-forge@latest init [my-project]
+npx next-forge@latest init [my-app]
 ```
 
 Then read the [docs](https://docs.next-forge.com) for more information.

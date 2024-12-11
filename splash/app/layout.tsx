@@ -5,6 +5,7 @@ import { JetBrains_Mono as createMono } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { Toaster } from 'sonner';
 import { twMerge } from 'tailwind-merge';
+import { Header } from './components/header';
 
 const sans = createSans({
   subsets: ['latin'],
@@ -32,8 +33,11 @@ const Layout = ({ children }: LayoutProps) => (
     )}
     suppressHydrationWarning
   >
-    <body className="flex min-h-screen flex-col">
-      {children}
+    <body className="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
+      <main className="container mx-auto border-x">
+        <Header />
+        <div className="divide-y">{children}</div>
+      </main>
       <Analytics />
       <Toaster />
     </body>

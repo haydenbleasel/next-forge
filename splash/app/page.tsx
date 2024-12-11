@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Apps } from './components/apps';
 import { CallToAction } from './components/cta';
 import { Features } from './components/features';
-import { Header } from './components/header';
 import { Hero } from './components/hero';
+import { OpenSource } from './components/open-source';
+import { Review } from './components/review';
 import { Social } from './components/social';
 
 export const metadata: Metadata = {
@@ -14,10 +15,20 @@ export const metadata: Metadata = {
 
 const Home = () => (
   <>
-    <Header />
     <Hero />
+    <div className="grid divide-y sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+      <div className="sm:col-span-2">
+        <Review />
+      </div>
+      <div className="sm:col-span-1">
+        <OpenSource />
+      </div>
+    </div>
+    <div className="h-8 bg-dashed" />
     <Apps />
+    <div className="h-8 bg-dashed" />
     <Features />
+    <div className="h-8 bg-dashed" />
     <Social />
     <CallToAction />
   </>

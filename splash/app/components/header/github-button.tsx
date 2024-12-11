@@ -1,11 +1,16 @@
-import { Octokit } from '@octokit/rest';
+import Image from 'next/image';
 import type { ReactElement } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { octokit } from '../../lib/octokit';
 import GitHub from './github.svg';
 
-import Image from 'next/image';
+type GitHubButtonProps = {
+  className?: string;
+};
 
-export const GitHubButton = async (): Promise<ReactElement> => {
-  const octokit = new Octokit();
+export const GitHubButton = async ({
+  className,
+}: GitHubButtonProps): Promise<ReactElement> => {
   let stars = 0;
   let url = '';
 
@@ -25,7 +30,10 @@ export const GitHubButton = async (): Promise<ReactElement> => {
     <a
       target="_blank"
       rel="noreferrer"
-      className="group relative inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border border-neutral-200 bg-white font-medium text-sm ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
+      className={twMerge(
+        'group relative inline-flex h-10 items-center justify-center whitespace-nowrap rounded-md border bg-white font-medium text-sm ring-offset-background transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
+        className
+      )}
       href={url}
     >
       <div className="flex h-full items-center">

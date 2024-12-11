@@ -1,7 +1,6 @@
 import { Tweet } from 'react-tweet';
 
 const tweets = [
-  '1853171412766466119',
   '1853560800050651632',
   '1853447982781239383',
   '1853242495540363750',
@@ -60,21 +59,20 @@ const tweets = [
 ];
 
 export const Social = () => (
-  <div className="py-24 sm:py-32" id="community">
-    <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
-      <h2 className="font-medium text-base/7 text-neutral-500 dark:text-neutral-400">
-        Loved by the community
-      </h2>
-      <p className="mt-2 max-w-lg text-pretty font-bold text-3xl text-neutral-950 tracking-tighter sm:text-5xl dark:text-white">
-        Free and open source, forever.
-      </p>
-      <div className="mt-10 columns-1 gap-4 sm:mt-16 md:columns-2 lg:columns-3">
-        {tweets.map((tweet, index) => (
-          <div key={tweet} className={index ? '' : 'sm:-mt-6'}>
-            <Tweet id={tweet} />
-          </div>
-        ))}
+  <section className="grid sm:grid-cols-3 sm:divide-x" id="community">
+    <div className="hidden bg-dashed sm:block">
+      <div className="sticky top-14 p-8">
+        <h2 className="font-bold text-4xl tracking-tight">
+          Loved by the community
+        </h2>
       </div>
     </div>
-  </div>
+    <div className="columns-1 gap-4 p-8 sm:col-span-2 md:columns-2">
+      {tweets.map((tweet, index) => (
+        <div key={tweet} className={index ? '' : 'sm:-mt-6'}>
+          <Tweet id={tweet} />
+        </div>
+      ))}
+    </div>
+  </section>
 );
