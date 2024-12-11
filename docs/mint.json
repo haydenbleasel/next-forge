@@ -81,7 +81,17 @@
           "group": "Analytics",
           "pages": ["features/analytics/web", "features/analytics/product"]
         },
-        "features/authentication",
+        {
+          "group": "Authentication",
+          "pages": [
+            "features/authentication/overview",
+            "features/authentication/components",
+            "features/authentication/middleware",
+            "features/authentication/roles",
+            "features/authentication/security",
+            "features/authentication/webhooks"
+          ]
+        },
         {
           "group": "Business Intelligence",
           "pages": ["features/bi/metabase"]
