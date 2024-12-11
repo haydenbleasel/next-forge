@@ -1,3 +1,15 @@
+# v2.20.29 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- More images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.28 (Wed Dec 11 2024)
 
 #### ⚠️ Pushed to `main`
