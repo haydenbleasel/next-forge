@@ -918,9 +918,6 @@ importers:
       '@vercel/toolbar':
         specifier: ^0.1.28
         version: 0.1.28(next@15.1.0(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react@19.0.0)(vite@5.4.10(@types/node@22.10.1)(terser@5.31.0))
-      next-secure-headers:
-        specifier: ^2.2.0
-        version: 2.2.0
     devDependencies:
       '@repo/env':
         specifier: workspace:*
@@ -987,6 +984,9 @@ importers:
       '@arcjet/next':
         specifier: 1.0.0-alpha.34
         version: 1.0.0-alpha.34(@bufbuild/protobuf@1.10.0)(@connectrpc/connect@1.6.1(@bufbuild/protobuf@1.10.0))(next@15.1.0(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
+      '@nosecone/next':
+        specifier: 1.0.0-alpha.34
+        version: 1.0.0-alpha.34(next@15.1.0(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))
       '@repo/env':
         specifier: workspace:*
         version: link:../env
@@ -2843,6 +2843,12 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
+
+  '@nosecone/next@1.0.0-alpha.34':
+    resolution: {integrity: sha512-4KXgjR580QTsdbM/F9WoLR/AQxJD48na27XnS9De5LIFBemDZ5ObC6L901WrBF3EJGz1M0E9AFQ0nKGUh+ascQ==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      next: '>=14'
 
   '@octokit/auth-token@2.5.0':
     resolution: {integrity: sha512-r5FVUJCOLl19AxiuZD2VRZ/ORjp/4IN98Of6YJoJOkY75CIBuYfmiNHGrDwXr+aLGG55igl9QrxX3hbiXlLb+g==}
@@ -7813,10 +7819,6 @@ packages:
     resolution: {integrity: sha512-dBpDMdxv9Irdq66304OLfEmQ9tbNRFnFTuZiLo+bD+r332bBmMJ8GBLXklIXXgxd3+v9+KUnZaUR5PJMa75Gsg==}
     engines: {node: '>= 0.4.0'}
 
-  next-secure-headers@2.2.0:
-    resolution: {integrity: sha512-C7OfZ9JdSJyYMz2ZBMI/WwNbt0qNjlFWX9afUp8nEUzbz6ez3JbeopdyxSZJZJAzVLIAfyk6n73rFpd4e22jRg==}
-    engines: {node: '>=10.0.0'}
-
   next-themes@0.4.4:
     resolution: {integrity: sha512-LDQ2qIOJF0VnuVrrMSMLrWGjRMkq+0mpgl6e0juCLqdJ+oo8Q84JRWT6Wh11VDQKkMMe+dVzDKLWs5n87T+PkQ==}
     peerDependencies:
@@ -7956,6 +7958,10 @@ packages:
   normalize-range@0.1.2:
     resolution: {integrity: sha512-bdok/XvKII3nUpklnV6P2hxtMNrCboOjAcyBuQnWEhO665FwrSNRxU+AqpsyvO6LgGYPspN+lu5CLtw4jPRKNA==}
     engines: {node: '>=0.10.0'}
+
+  nosecone@1.0.0-alpha.34:
+    resolution: {integrity: sha512-GPqypMOeGXjZXHS+I9jTBFB12GNlAmC21LRRhAKuc4v2beMDzW/ChYSQ8sMSr0f7/Ov4ffQJH0i84iAny5Y5fg==}
+    engines: {node: '>=18'}
 
   npm-run-path@2.0.2:
     resolution: {integrity: sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw==}
@@ -12124,6 +12130,11 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.17.1
+
+  '@nosecone/next@1.0.0-alpha.34(next@15.1.0(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))':
+    dependencies:
+      next: 15.1.0(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      nosecone: 1.0.0-alpha.34
 
   '@octokit/auth-token@2.5.0':
     dependencies:
@@ -18170,8 +18181,6 @@ snapshots:
 
   netmask@2.0.2: {}
 
-  next-secure-headers@2.2.0: {}
-
   next-themes@0.4.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:
       react: 19.0.0
@@ -18366,6 +18375,8 @@ snapshots:
   normalize-path@3.0.0: {}
 
   normalize-range@0.1.2: {}
+
+  nosecone@1.0.0-alpha.34: {}
 
   npm-run-path@2.0.2:
     dependencies:
