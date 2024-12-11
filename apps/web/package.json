@@ -24,7 +24,6 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@sentry/nextjs": "^8.43.0",
-
     "date-fns": "^4.1.0",
     "fumadocs-core": "^14.6.0",
     "import-in-the-middle": "^1.11.3",
@@ -48,6 +47,7 @@
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.2",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2"
   }
 }
