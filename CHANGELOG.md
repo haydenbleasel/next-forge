@@ -1,3 +1,15 @@
+# v2.20.27 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update index.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.26 (Wed Dec 11 2024)
 
 #### ⚠️ Pushed to `main`
