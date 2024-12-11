@@ -1,21 +1,5 @@
 import { authMiddleware } from '@repo/auth/middleware';
-import { env } from '@repo/env';
-import {
-  noseconeDefaults,
-  noseconeMiddleware,
-  withVercelToolbar,
-  type NoseconeOptions
-} from '@repo/security/middleware';
-
-// Nosecone security headers configuration
-// https://docs.arcjet.com/nosecone/quick-start
-const noseconeOptions: NoseconeOptions = {
-  ...noseconeDefaults,
-  contentSecurityPolicy: false,
-}
-
-// Add Vercel toolbar compatible options if we're in a preview environment
-const noseconeConfig = (env.NODE_ENV === 'development' && env.FLAGS_SECRET) ? withVercelToolbar(noseconeOptions) : noseconeOptions;
+import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
 
 const securityHeaders = noseconeMiddleware(noseconeConfig);
 
@@ -31,4 +15,3 @@ export const config = {
     '/(api|trpc)(.*)',
   ],
 };
-
