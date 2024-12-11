@@ -2,6 +2,7 @@ import { authMiddleware } from '@repo/auth/middleware';
 import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
 import { secure } from '@repo/security';
+import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
 import { NextResponse } from 'next/server';
 
 export const config = {
@@ -10,9 +11,11 @@ export const config = {
   matcher: ['/((?!_next/static|_next/image|ingest|favicon.ico).*)'],
 };
 
+const securityHeaders = noseconeMiddleware(noseconeConfig);
+
 export default authMiddleware(async (_auth, request) => {
   if (!env.ARCJET_KEY) {
-    return NextResponse.next();
+    return securityHeaders();
   }
 
   try {
@@ -26,7 +29,7 @@ export default authMiddleware(async (_auth, request) => {
       request
     );
 
-    return NextResponse.next();
+    return securityHeaders();
   } catch (error) {
     const message = parseError(error);
 
