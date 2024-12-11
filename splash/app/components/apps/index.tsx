@@ -42,7 +42,7 @@ const apps = [
   },
   {
     icon: GlobeIcon,
-    name: 'website',
+    name: 'web',
     title: 'Robust, type-safe website',
     description:
       'A twblocks website template with a type-safe blog, bulletproof SEO and legal pages, powered by BaseHub.',
