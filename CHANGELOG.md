@@ -1,3 +1,20 @@
+# v2.20.28 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Tailwind devDep needed for production dark mode ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Replace next-secure-headers with Nosecone for security headers [#343](https://github.com/haydenbleasel/next-forge/pull/343) ([@davidmytton](https://github.com/davidmytton) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.27 (Wed Dec 11 2024)
 
 #### ⚠️ Pushed to `main`
