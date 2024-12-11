@@ -3,9 +3,7 @@ import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
 
 const securityHeaders = noseconeMiddleware(noseconeConfig);
 
-export default authMiddleware(() => {
-  return securityHeaders();
-});
+export default authMiddleware(() => securityHeaders());
 
 export const config = {
   matcher: [
