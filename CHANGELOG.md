@@ -1,3 +1,15 @@
+# v2.21.0 (Thu Dec 12 2024)
+
+#### 🚀 Enhancement
+
+- Release 2.21 w/ Rate Limiting package [#349](https://github.com/haydenbleasel/next-forge/pull/349) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.31 (Thu Dec 12 2024)
 
 :tada: This release contains work from a new contributor! :tada:
