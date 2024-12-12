@@ -2,6 +2,12 @@
   "name": "@repo/design-system",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
     "@radix-ui/react-accordion": "^1.2.1",
@@ -36,7 +42,7 @@
     "@repo/auth": "workspace:*",
     "@repo/env": "workspace:*",
     "@repo/observability": "workspace:*",
-    "@vercel/toolbar": "^0.1.27",
+    "@vercel/toolbar": "^0.1.28",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.0.4",
@@ -56,7 +62,7 @@
     "sonner": "^1.7.1",
     "tailwind-merge": "^2.5.5",
     "vaul": "^1.1.1",
-    "zod": "^3.23.8"
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

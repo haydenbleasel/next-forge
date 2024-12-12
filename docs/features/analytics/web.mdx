@@ -1,0 +1,32 @@
+---
+title: Web Analytics
+description: Captures pageviews, pageleave and custom events.
+---
+
+<Frame>
+  <img src="/images/web-analytics.png" alt="" />
+</Frame>
+
+next-forge comes with three web analytics libraries.
+
+## Vercel Web Analytics
+
+Vercel's built-in analytics tool offers detailed insights into your website's visitors with new metrics like top pages, top referrers, and demographics. All you have to do to enable it is visit the Analytics tab in your Vercel project and click Enable from the dialog.
+
+Read more about it [here](https://vercel.com/docs/analytics/quickstart).
+
+## Google Analytics
+
+Google Analytics tracks user behavior, page views, session duration, and other engagement metrics to provide insights into user activity and marketing effectiveness. GA tracking code is injected using [@next/third-parties](https://nextjs.org/docs/app/building-your-application/optimizing/third-party-libraries#google-analytics) for performance reasons.
+
+To enable it, simply add a `NEXT_PUBLIC_GOOGLE_ANALYTICS_ID` environment variable to your project.
+
+## PostHog
+
+PostHog is a single platform to analyze, test, observe, and deploy new features. It comes with lots of products, including a web analytics tool, event analytics, feature flagging, and more.
+
+PostHog's web analytics tool is enabled by default and captures pageviews, pageleave and custom events.
+
+### Session Replay
+
+PostHog's session replays let you see exactly what users do on your site. It records console logs and network errors, and captures performance data like resource timings and blocked requests. This is disabled by default, so make sure you enable it in your project settings.

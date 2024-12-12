@@ -25,6 +25,7 @@ const meta = {
     return (
       <div>
         <button
+          type="button"
           onClick={() => {
             toast(args);
           }}

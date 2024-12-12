@@ -33,3 +33,11 @@ The API is separated from the web app for two reasons:
 2. To provide a dedicated endpoint for non-web applications e.g. mobile apps, smart home devices, etc.
 
 Functionally speaking, it doesn't matter as much if you're running these projects on Vercel. Serverless functions are all independent pieces of infrastructure and can scale independently.
+
+## Why are certain folders ignored by the linting configuration?
+
+There are three types of files that are ignored by the linting configuration:
+
+1. **shadcn/ui components, libraries, and hooks** - shadcn/ui has its own linting configuration that is less strict than the one used in this project. As such, we ignore these files to avoid modifying them. This makes it easier to update shadcn/ui in the future.
+2. **Collaboration package configuration** - This is a package that is used to configure the collaboration package. The types are stubs and fail some of the linting rules, but it's not important unless you're using them.
+3. **Internal documentation files** - These are the documentation files for this project. They're deleted when you initialize the project, so they're not important to lint.

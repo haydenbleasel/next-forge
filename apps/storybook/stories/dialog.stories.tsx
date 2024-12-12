@@ -32,9 +32,14 @@ const meta = {
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="gap-4">
-          <button className="hover:underline">Cancel</button>
+          <button type="button" className="hover:underline">
+            Cancel
+          </button>
           <DialogClose>
-            <button className="rounded bg-primary px-4 py-2 text-primary-foreground">
+            <button
+              type="button"
+              className="rounded bg-primary px-4 py-2 text-primary-foreground"
+            >
               Continue
             </button>
           </DialogClose>

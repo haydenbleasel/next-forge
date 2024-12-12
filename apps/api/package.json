@@ -7,7 +7,11 @@
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",
-    "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe"
+    "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@repo/analytics": "workspace:*",
@@ -18,9 +22,9 @@
     "@repo/env": "workspace:*",
     "@repo/observability": "workspace:*",
     "@repo/payments": "workspace:*",
-    "@sentry/nextjs": "^8.42.0",
+    "@sentry/nextjs": "^8.43.0",
     "@repo/next-config": "workspace:*",
-    "next": "15.0.4",
+    "next": "15.1.0",
     "react": "19.0.0",
     "react-dom": "19.0.0",
     "svix": "^1.43.0"
@@ -29,7 +33,7 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "concurrently": "^9.1.0",
     "typescript": "^5.7.2"
   }

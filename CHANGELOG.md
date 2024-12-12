@@ -1,3 +1,375 @@
+# v2.20.30 (Thu Dec 12 2024)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: null[@pedrocarlo](https://github.com/pedrocarlo)
+
+:heart: Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### 🐛 Bug Fix
+
+- fix: clean tasks needed to be added to turbo.json [#346](https://github.com/haydenbleasel/next-forge/pull/346) ([@pedrocarlo](https://github.com/pedrocarlo))
+- docs: add context to better-auth migration [#347](https://github.com/haydenbleasel/next-forge/pull/347) ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### 🔩 Dependency Updates
+
+- Bump zod from 3.24.0 to 3.24.1 in the npm_and_yarn group [#345](https://github.com/haydenbleasel/next-forge/pull/345) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@pedrocarlo](https://github.com/pedrocarlo)
+- Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+---
+
+# v2.20.29 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- More images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.28 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Tailwind devDep needed for production dark mode ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Replace next-secure-headers with Nosecone for security headers [#343](https://github.com/haydenbleasel/next-forge/pull/343) ([@davidmytton](https://github.com/davidmytton) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- David Mytton ([@davidmytton](https://github.com/davidmytton))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.27 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update index.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.26 (Wed Dec 11 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Redesign splash page ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.25 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+- Upgrade to Next.js 15.1 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.24 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update README.md ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.23 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Upgrade postcss configurations ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.22 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #337 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.21 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #338 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.20 (Tue Dec 10 2024)
+
+#### 🐛 Bug Fix
+
+- Update Drizzle migration documentation [#341](https://github.com/haydenbleasel/next-forge/pull/341) ([@yamz8](https://github.com/yamz8))
+
+#### Authors: 1
+
+- Yam Catzenelson ([@yamz8](https://github.com/yamz8))
+
+---
+
+# v2.20.19 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #339 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.18 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Ultracite fixes, for #338 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.17 (Tue Dec 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, null[@pedrocarlo](https://github.com/pedrocarlo), for all your work!
+
+#### 🐛 Bug Fix
+
+- Feature: Turborepo generator [#334](https://github.com/haydenbleasel/next-forge/pull/334) ([@pedrocarlo](https://github.com/pedrocarlo))
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@pedrocarlo](https://github.com/pedrocarlo)
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.16 (Tue Dec 10 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Chore: cleaner git repo with init and update scripts [#336](https://github.com/haydenbleasel/next-forge/pull/336) ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### Authors: 1
+
+- Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+---
+
+# v2.20.15 (Tue Dec 10 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Switch to TUI mode ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.14 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #333 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.13 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.12 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Start adding documentation images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.11 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix broken links ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.10 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update mint.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.9 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix redirects ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.8 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Make Vercel Toolbar optional, for #251 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.7 (Mon Dec 09 2024)
+
+#### 🐛 Bug Fix
+
+- Make application security optional [#327](https://github.com/haydenbleasel/next-forge/pull/327) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Add Lemon Squeezy guide [#331](https://github.com/haydenbleasel/next-forge/pull/331) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.6 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Rename "Recommended Libraries" to "Addons" ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.5 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Add BaseHub as co-author ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Tabs [#330](https://github.com/haydenbleasel/next-forge/pull/330) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v2.20.4 (Mon Dec 09 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Update ai-chatbot.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update ai.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Export AI components ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Recipes [#329](https://github.com/haydenbleasel/next-forge/pull/329) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.3 (Mon Dec 09 2024)
 
 #### ⚠️ Pushed to `main`

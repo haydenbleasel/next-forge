@@ -2,17 +2,22 @@
   "name": "@repo/next-config",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
   "devDependencies": {
     "@repo/env": "workspace:*",
     "@repo/typescript-config": "workspace:*",
-    "next": "15.0.4"
+    "next": "15.1.0"
   },
   "dependencies": {
     "@logtail/next": "^0.1.7",
-    "@next/bundle-analyzer": "^15.0.4",
+    "@next/bundle-analyzer": "^15.1.0",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.0.1",
-    "@sentry/nextjs": "^8.42.0",
-    "@vercel/toolbar": "^0.1.27",
-    "next-secure-headers": "^2.2.0"
+    "@sentry/nextjs": "^8.43.0",
+    "@vercel/toolbar": "^0.1.28"
   }
 }

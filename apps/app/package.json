@@ -6,12 +6,16 @@
     "build": "next build",
     "start": "next start",
     "analyze": "ANALYZE=true pnpm build",
-    "test": "vitest run"
+    "test": "vitest run",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
     "@prisma/client": "6.0.1",
-    "@repo/auth": "workspace:*",
     "@repo/analytics": "workspace:*",
+    "@repo/auth": "workspace:*",
     "@repo/collaboration": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
@@ -22,11 +26,11 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/webhooks": "workspace:*",
-    "@sentry/nextjs": "^8.42.0",
+    "@sentry/nextjs": "^8.43.0",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
-    "next": "15.0.4",
+    "next": "15.1.0",
     "next-themes": "^0.4.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
@@ -39,8 +43,9 @@
     "@testing-library/react": "^16.1.0",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
-    "@types/react-dom": "19.0.1",
+    "@types/react-dom": "19.0.2",
     "jsdom": "^25.0.1",
+    "tailwindcss": "^3.4.16",
     "typescript": "^5.7.2",
     "vitest": "^2.1.8"
   }

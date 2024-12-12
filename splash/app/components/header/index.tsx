@@ -24,19 +24,16 @@ const links = [
 ];
 
 export const Header = () => (
-  <div className="sticky top-0 z-50 w-full border-neutral-200 border-b bg-white/90 backdrop-blur-sm">
-    <div className="container mx-auto flex items-center justify-between px-4 py-2">
+  <div className="sticky top-0 z-50 w-full border-b bg-neutral-50/90 backdrop-blur-sm">
+    <div className="container mx-auto flex items-center justify-between px-8 py-2">
       <div className="flex items-center gap-8">
-        <Link href="/">
-          <Image
-            src={Logo}
-            alt="Logo"
-            width={32}
-            height={32}
-            className="dark:invert"
-          />
+        <Link href="/" className="flex items-center gap-2">
+          <Image src={Logo} alt="Logo" width={20} height={20} />
+          <p className="hidden font-semibold text-lg tracking-tight sm:block">
+            next-forge
+          </p>
         </Link>
-        <div className="hidden items-center gap-4 text-neutral-500 text-sm sm:flex dark:text-neutral-400">
+        <div className="hidden items-center gap-4 font-medium text-neutral-500 text-sm lg:flex">
           {links.map((link) => (
             <Link key={link.href} href={link.href}>
               {link.label}
@@ -45,7 +42,7 @@ export const Header = () => (
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <GitHubButton />
+        <GitHubButton className="hidden sm:block" />
         <DocsButton />
       </div>
     </div>

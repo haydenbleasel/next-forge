@@ -22,6 +22,17 @@ const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
 
 const execSyncOpts = { stdio: 'ignore' };
 
+const internalContentDirs = ['.github/workflows', 'docs', 'splash'];
+const internalContentFiles = [
+  '.github/CONTRIBUTING.md',
+  '.github/FUNDING.yml',
+  '.github/SECURITY.md',
+  '.autorc',
+  'CHANGELOG.md',
+  'license.md',
+];
+const allInternalContent = [...internalContentDirs, ...internalContentFiles];
+
 program
   .command('init <name>')
   .description('Initialize a new next-forge project')
@@ -43,29 +54,12 @@ program
       );
       process.chdir(projectDir);
 
-      if (packageManager !== 'pnpm') {
-        log(chalk.green('Removing pnpm lockfile...'));
-        rmSync('pnpm-lock.yaml', { force: true });
+      if (existsSync('.git')) {
+        rmSync('.git', { recursive: true, force: true });
       }
-
-      log(chalk.green('Installing dependencies...'));
-      execSync(`${packageManager} install`, execSyncOpts);
-
-      log(chalk.green('Copying .env.example files to .env.local...'));
-
-      for (const path of [
-        'apps/api',
-        'apps/app',
-        'apps/web',
-        'packages/cms',
-        'packages/database',
-      ]) {
-        copyFileSync(`${path}/.env.example`, `${path}/.env.local`);
-      }
-      copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
       log(chalk.green('Deleting internal content...'));
-      for (const dir of ['.github/workflows', 'docs', 'splash']) {
+      for (const dir of ['.github/workflows', 'docs', 'splash', 'scripts']) {
         rmSync(dir, { recursive: true, force: true });
       }
       for (const file of [
@@ -76,14 +70,33 @@ program
         'CHANGELOG.md',
         'license.md',
       ]) {
-        unlinkSync(file);
+        if (existsSync(file)) {
+          unlinkSync(file);
+        }
       }
+
+      if (packageManager !== 'pnpm') {
+        log(chalk.green('Removing pnpm lockfile...'));
+        rmSync('pnpm-lock.yaml', { force: true });
+      }
+
+      log(chalk.green('Installing dependencies...'));
+      execSync(`${packageManager} install`, execSyncOpts);
+
+      log(chalk.green('Re-initializing git repository after install...'));
+      execSync('git init', execSyncOpts);
+      execSync('git add .', execSyncOpts);
+      execSync('git commit -m "✨ Initial commit"', execSyncOpts);
+
+      log(chalk.green('Copying .env.example files to .env.local...'));
+
+      for (const path of ['apps/api', 'apps/app', 'apps/web', 'packages/cms']) {
+        copyFileSync(`${path}/.env.example`, `${path}/.env.local`);
+      }
+      copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
       log(chalk.green('Setting up Prisma...'));
       execSync(`${packageManager} build --filter @repo/database`, execSyncOpts);
-
-      log(chalk.green('Setup complete! Deleting scripts folder...'));
-      rmSync('scripts', { recursive: true, force: true });
 
       log(chalk.green('Done!'));
       log(
@@ -103,7 +116,8 @@ program
   .option('--from <version>', 'Version to update from')
   .option('--to <version>', 'Version to update to')
   .action(async (options) => {
-    const tempDir = join(import.meta.dirname, 'next-forge-update');
+    const cwd = process.cwd();
+    const tempDir = join(cwd, 'next-forge-update');
 
     try {
       const from = options.from.startsWith('v')
@@ -133,21 +147,32 @@ program
       const toFiles = execSync('git ls-files').toString().trim().split('\n');
 
       log(chalk.blue('Computing diff between versions...'));
-      const filesToUpdate = toFiles.filter(
-        (file) =>
+      const filesToUpdate = toFiles.filter((file) => {
+        if (allInternalContent.some((ic) => file.startsWith(ic))) {
+          // Skip internal content that is meant to be deleted during init
+          return false;
+        }
+
+        const hasChanged =
           !fromFiles.includes(file) ||
           execSync(`git diff ${from} ${to} -- ${cleanFileName(file)}`)
             .toString()
-            .trim() !== ''
+            .trim() !== '';
+
+        return hasChanged;
+      });
+
+      log(
+        chalk.green(
+          `Found ${filesToUpdate.length} files to update, applying updates...`
+        )
       );
 
-      log(chalk.green(`Found ${filesToUpdate.length} files to update`));
-      process.chdir(import.meta.dirname);
+      process.chdir(cwd);
 
-      log(chalk.blue('Applying updates...'));
       for (const file of filesToUpdate) {
         const sourcePath = join(tempDir, file);
-        const destPath = join(import.meta.dirname, '..', file);
+        const destPath = join(cwd, file);
 
         // Ensure destination directory exists
         await mkdir(dirname(destPath), { recursive: true });

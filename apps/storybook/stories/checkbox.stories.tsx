@@ -19,7 +19,7 @@ const meta: Meta<typeof Checkbox> = {
       <Checkbox {...args} />
       <label
         htmlFor={args.id}
-        className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
+        className="font-medium text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-50"
       >
         Accept terms and conditions
       </label>

@@ -14,6 +14,7 @@ import {
   Frame,
   GalleryVerticalEnd,
   LogOut,
+  // biome-ignore lint/suspicious/noShadowRestrictedNames: "icon name"
   Map,
   MoreHorizontal,
   PieChart,
@@ -214,7 +215,7 @@ const data = {
 };
 
 export const Base: Story = {
-  render: (args) => {
+  render: () => {
     const [activeTeam, setActiveTeam] = useState(data.teams[0]);
 
     return (
@@ -249,7 +250,7 @@ export const Base: Story = {
                     side="bottom"
                     sideOffset={4}
                   >
-                    <DropdownMenuLabel className="text-xs text-muted-foreground">
+                    <DropdownMenuLabel className="text-muted-foreground text-xs">
                       Teams
                     </DropdownMenuLabel>
                     {data.teams.map((team, index) => (

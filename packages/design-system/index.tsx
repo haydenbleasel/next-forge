@@ -18,7 +18,9 @@ export const DesignSystemProvider = ({
       <AnalyticsProvider>
         <TooltipProvider>{children}</TooltipProvider>
         <Toaster />
-        {env.NODE_ENV === 'development' && <VercelToolbar />}
+        {env.NODE_ENV === 'development' && env.FLAGS_SECRET && (
+          <VercelToolbar />
+        )}
       </AnalyticsProvider>
     </AuthProvider>
   </ThemeProvider>

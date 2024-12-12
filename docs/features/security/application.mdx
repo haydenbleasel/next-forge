@@ -1,0 +1,71 @@
+---
+title: Application Security
+description: Security measures taken to protect your applications.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'David Mytton',
+    id: 'davidmytton',
+  },
+  company: {
+    name: 'Arcjet',
+    id: 'arcjet',
+  },
+}]} />
+
+next-forge uses [Arcjet](https://arcjet.com/), a security as code product that includes several features that can be used individually or combined to provide defense in depth for your site. You can [sign up for a free account](https://arcjet.com/) and add the API key to the environment variables to use the features we have included.
+
+<Note>Security is automatically enabled by the existence of the `ARCJET_KEY` environment variable.</Note>
+
+## Philosophy
+
+Proper security protections need the full context of the application, which is why security rules and protections should be located alongside the code they are protecting.
+
+Arcjet security as code means you can version control your security rules, track changes through pull requests, and test them locally before deploying to production.
+
+## Configuration
+
+Arcjet is configured in next-forge with two main features: bot detection and the Arcjet Shield WAF:
+
+- [Bot detection](https://docs.arcjet.com/bot-protection/concepts) is configured to allow search engines, preview link generators e.g. Slack and Twitter previews, and to allow common uptime monitoring services. All other bots, such as scrapers and AI crawlers, will be blocked. You can [configure additional bot types](https://docs.arcjet.com/bot-protection/identifying-bots) to allow or block.
+- [Arcjet Shield WAF](https://docs.arcjet.com/shield/concepts) will detect and block common attacks such as SQL injection, cross-site scripting, and other [OWASP Top 10 vulnerabilities](https://owasp.org/www-project-top-ten/).
+
+Both the `web` and `app` apps have Arcjet configured with a central client at `@repo/security`  that includes the Shield WAF rules. Each app then extends this client with additional rules:
+
+### Web
+
+For the `web` app, bot detection and the Arcjet Shield WAF are both configured in the Middleware to block scrapers and other bots, but still allow search engines, preview link generators, and monitoring services. This will run on every request by default, except for static assets.
+
+### App
+
+For `app`, the central client is extended in the authenticated route layout in `apps/app/app/(authenticated)/layout.tsx` with bot detection to block all bots except preview link generators. This will run just on authenticated routes. For additional protection you may want to configure Arcjet on the `apps/app/app/(unauthenticated)/layout.tsx` route as well, but Clerk includes bot detection and rate limiting in their login route handlers by default.
+
+When a rule is triggered, the request will be blocked and an error returned. You can customize the error message in code, redirect to a different page, or handle the error in a different way as needed.
+
+## Scaling up your security
+
+next-forge includes a boilerplate setup for Arcjet that protects against common threats to SaaS applications, but since the rules are defined in code, you can easily adjust them dynamically at runtime.
+
+For example, if you build out an API for your application you could use [Arcjet rate limiting](https://docs.arcjet.com/rate-limiting/quick-start) with different quotas depending on the pricing plan of the user.
+
+Other features include [PII detection](https://docs.arcjet.com/sensitive-info/quick-start) and [email validation](https://docs.arcjet.com/email-validation/quick-start). They're not used in the boilerplate, but can be added as needed.
+
+### What about DDoS attacks?
+
+Network layer attacks are usually generic and high volume, making them best handled by your hosting platform. Most cloud providers offer network DDoS protection as a default feature.
+
+Arcjet sits closer to your application so it can understand the context. This is important because some types of traffic may not look like a DDoS attack, but can still have the same effect e.g. making too many API requests. Arcjet works in all environments so there's no lock-in to platform-specific security.
+
+Volumetric network attacks are best handled by your hosting provider. Application level attacks need to be handled by the application. That's where Arcjet helps.

@@ -2,11 +2,17 @@
   "name": "@repo/collaboration",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
   "dependencies": {
     "@repo/env": "workspace:*",
-    "@liveblocks/client": "^2.13.1",
-    "@liveblocks/node": "^2.13.1",
-    "@liveblocks/react": "^2.13.1",
+    "@liveblocks/client": "^2.14.0",
+    "@liveblocks/node": "^2.14.0",
+    "@liveblocks/react": "^2.14.0",
     "react": "^19.0.0",
     "server-only": "^0.0.1"
   },
@@ -14,6 +20,6 @@
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
-    "@types/react-dom": "^19.0.1"
+    "@types/react-dom": "^19.0.2"
   }
 }

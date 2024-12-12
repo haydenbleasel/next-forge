@@ -56,7 +56,7 @@ export const WithText: Story = {
     <div className="grid w-full gap-1.5">
       <label htmlFor="message-2">Your Message</label>
       <Textarea {...args} id="message-2" />
-      <p className="text-sm text-slate-500">
+      <p className="text-slate-500 text-sm">
         Your message will be copied to the support team.
       </p>
     </div>

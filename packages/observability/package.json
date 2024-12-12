@@ -2,17 +2,23 @@
   "name": "@repo/observability",
   "version": "0.0.0",
   "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
   "dependencies": {
     "@logtail/next": "^0.1.7",
     "@repo/env": "workspace:*",
-    "@sentry/nextjs": "^8.42.0",
+    "@sentry/nextjs": "^8.43.0",
     "react": "^19.0.0"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
-    "@types/react-dom": "^19.0.1",
+    "@types/react-dom": "^19.0.2",
     "typescript": "^5.7.2"
   }
 }

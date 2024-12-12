@@ -1,5 +1,8 @@
 import { authMiddleware } from '@repo/auth/middleware';
-import arcjet, { detectBot } from '@repo/security';
+import { env } from '@repo/env';
+import { parseError } from '@repo/observability/error';
+import { secure } from '@repo/security';
+import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
 import { NextResponse } from 'next/server';
 
 export const config = {
@@ -8,28 +11,28 @@ export const config = {
   matcher: ['/((?!_next/static|_next/image|ingest|favicon.ico).*)'],
 };
 
-const aj = arcjet.withRule(
-  detectBot({
-    mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
-    // Block all bots except the following
-    allow: [
-      // See https://docs.arcjet.com/bot-protection/identifying-bots
-      'CATEGORY:SEARCH_ENGINE', // Allow search engines
-      'CATEGORY:PREVIEW', // Allow preview links to show OG images
-      'CATEGORY:MONITOR', // Allow uptime monitoring services
-    ],
-  })
-);
+const securityHeaders = noseconeMiddleware(noseconeConfig);
 
 export default authMiddleware(async (_auth, request) => {
-  const decision = await aj.protect(request);
-
-  // This returns a generic error message, but you could also redirect or show a
-  // custom error page depending on the reason for the denial
-  if (decision.isDenied()) {
-    console.warn('Arcjet denied request', decision);
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 403 });
+  if (!env.ARCJET_KEY) {
+    return securityHeaders();
   }
 
-  return NextResponse.next();
+  try {
+    await secure(
+      [
+        // See https://docs.arcjet.com/bot-protection/identifying-bots
+        'CATEGORY:SEARCH_ENGINE', // Allow search engines
+        'CATEGORY:PREVIEW', // Allow preview links to show OG images
+        'CATEGORY:MONITOR', // Allow uptime monitoring services
+      ],
+      request
+    );
+
+    return securityHeaders();
+  } catch (error) {
+    const message = parseError(error);
+
+    return NextResponse.json({ error: message }, { status: 403 });
+  }
 });
