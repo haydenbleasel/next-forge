@@ -27,7 +27,7 @@ export const Authors = ({ data }) => {
             <div style={{ position: 'relative' }}>
               <div style={{ overflow: 'hidden', border: '1px solid #e5e7eb', borderRadius: '9999px', width: '2rem', height: '2rem' }}>
                 <img
-                  style={{ margin: 0, width: '100%', height: '100%' }}
+                  style={{ margin: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                   src={`${baseUrl}/images/authors/${author.company.id}/${author.user.id}.jpg`}
                   alt=""
                   width={32}
@@ -48,7 +48,7 @@ export const Authors = ({ data }) => {
                 }}
               >
                 <img
-                  style={{ margin: 0, width: '100%', height: '100%' }}
+                  style={{ margin: 0, width: '100%', height: '100%', objectFit: 'cover' }}
                   src={`${baseUrl}/images/authors/${author.company.id}/logo.jpg`}
                   alt=""
                   width={16}
