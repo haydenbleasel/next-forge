@@ -1,8 +1,7 @@
 {
-  "name": "@repo/security",
+  "name": "@repo/rate-limit",
   "version": "0.0.0",
   "private": true,
-  "type": "module",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "format": "biome lint --write .",
@@ -10,10 +9,9 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@arcjet/next": "1.0.0-alpha.34",
-    "@nosecone/next": "1.0.0-alpha.34",
     "@repo/env": "workspace:*",
-    "@repo/database": "workspace:*"
+    "@upstash/ratelimit": "^2.0.5",
+    "@upstash/redis": "^1.34.3"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

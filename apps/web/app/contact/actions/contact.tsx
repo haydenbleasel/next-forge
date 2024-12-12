@@ -4,6 +4,8 @@ import { resend } from '@repo/email';
 import { ContactTemplate } from '@repo/email/templates/contact';
 import { env } from '@repo/env';
 import { parseError } from '@repo/observability/error';
+import { createRateLimiter, slidingWindow } from '@repo/rate-limit';
+import { headers } from 'next/headers';
 
 export const contact = async (
   name: string,
@@ -13,6 +15,22 @@ export const contact = async (
   error?: string;
 }> => {
   try {
+    if (env.UPSTASH_REDIS_REST_URL && env.UPSTASH_REDIS_REST_TOKEN) {
+      const rateLimiter = createRateLimiter({
+        limiter: slidingWindow(1, '1d'),
+      });
+      const head = await headers();
+      const ip = head.get('x-forwarded-for');
+
+      const { success } = await rateLimiter.limit(`contact_form_${ip}`);
+
+      if (!success) {
+        throw new Error(
+          'You have reached your request limit. Please try again later.'
+        );
+      }
+    }
+
     await resend.emails.send({
       from: env.RESEND_FROM,
       to: env.RESEND_FROM,

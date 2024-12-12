@@ -123,6 +123,7 @@
           "group": "Security",
           "pages": [
             "features/security/application",
+            "features/security/rate-limiting",
             "features/security/dependencies",
             "features/security/headers",
             "features/security/ip-geolocation"

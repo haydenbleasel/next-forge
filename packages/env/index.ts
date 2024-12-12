@@ -22,6 +22,8 @@ const server: Parameters<typeof createEnv>[0]['server'] = {
   LIVEBLOCKS_SECRET: z.string().min(1).startsWith('sk_').optional(),
   OPENAI_API_KEY: z.string().min(1).startsWith('sk-').optional(),
   BASEHUB_TOKEN: z.string().min(1).startsWith('bshb_pk_'),
+  UPSTASH_REDIS_REST_URL: z.string().min(1).url().optional(),
+  UPSTASH_REDIS_REST_TOKEN: z.string().min(1).optional(),
 
   // Added by Sentry Integration, Vercel Marketplace
   SENTRY_ORG: z.string().min(1).optional(),
