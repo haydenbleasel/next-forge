@@ -1,3 +1,16 @@
+# v2.21.1 (Thu Dec 12 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Attempt to fix Mintlify image issue ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update rate-limiting.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.0 (Thu Dec 12 2024)
 
 #### 🚀 Enhancement
