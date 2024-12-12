@@ -38,7 +38,7 @@ pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
 ...and install the Better Auth dependencies:
 
 ```sh Terminal
-pnpm add better-auth --filter auth
+pnpm add better-auth @repo/database --filter auth
 ```
 
 ## 2. Update your environment variables
@@ -183,9 +183,14 @@ From the root folder, generate Prisma models for Better Auth by running the foll
 npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma --config ./packages/auth/server.ts
 ```
 
+<Warning>
+You may have to comment out the `server-only` directive in `packages/database/index.ts` temporarily. Ensure you have environment variables set.
+</Warning>
+
 <Note>
 Best practice is to have a `better-auth.ts` file, but we're just specifying the existing `server.ts` left over from Clerk here.
 </Note>
+
 
 ## 7. Update the Provider file
 
@@ -284,5 +289,6 @@ const user = await database.user.findFirst({
   },
 });
 ```
+
 
 For using organization, check [organization plugin](https://better-auth.com/docs/plugins/organization) and more from the [Better Auth documentation](https://better-auth.com/docs).
