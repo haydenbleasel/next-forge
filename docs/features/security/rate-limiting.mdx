@@ -1,12 +1,8 @@
 ---
 title: Rate Limiting
-description: Protecting your API routes from abuse using Upstash.
+description: Protecting your API routes from abuse.
 ---
 
-next-forge uses [`@upstash/ratelimit`](https://github.com/upstash/ratelimit-js) package, a connectionless (HTTP-based) rate limiting library designed specifically for serverless and edge environments. This package is in GA and fully supported by Upstash team.
-
-
-## Why Rate Limiting?
 import { Authors } from '/snippets/authors.mdx';
 
 <Authors data={[{
@@ -31,33 +27,29 @@ import { Authors } from '/snippets/authors.mdx';
 
 Modern applications need rate limiting to protect against abuse, manage resources efficiently, and enable tiered API access. Without rate limiting, your application is vulnerable to brute force attacks, scraping, and potential service disruptions from excessive usage.
 
-## Implementation
+next-forge has a `rate-limit` package powered by [`@upstash/ratelimit`](https://github.com/upstash/ratelimit-js), a connectionless (HTTP-based) rate limiting library designed specifically for serverless and edge environments.
 
-### Database setup
-next-forge uses [Upstash Redis](https://upstash.com/docs/redis/overall/getstarted) under the hood for rate limiting, which is configured in the `@repo/database` package. The Redis client is initialized and exported for use across the application:
+## Setting up
 
-```typescript packages/database/index.ts
-import { Redis } from '@upstash/redis';
+Rate limiting is enabled for the `web` package contact form automatically by the existence of a `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` environment variable.
 
-export const redis = new Redis({
-  url: env.UPSTASH_REDIS_REST_URL,
-  token: env.UPSTASH_REDIS_REST_TOKEN,
-})
-```
+To get your environment variables, you can sign up at [Upstash Console](https://console.upstash.com) and create a Redis KV database. You can then find the REST URL and REST token in the database details page. 
 
-To get your database credentials, you can sign up at [Upstash Console](https://console.upstash.com) and create a Redis database. You can then find the REST URL and REST token in the database details page. 
-You can then paste these environment variables in the `packages/database/.env` file.
+You can then paste these environment variables each of the [environment variables](/features/env) files.
 
-### Configuration
+## Configuration
 
-The rate limiting configuration in next-forge is centralized in `@repo/security`.  The default configuration allows 10 requests per 10 seconds per identifier. `@upstash/ratelimit` also has other rate limiting algorithms such as:
+The `rate-limit` package connects to an [Upstash Redis](https://upstash.com/docs/redis/overall/getstarted) database and automatically limits the number of requests to your API routes.
+
+The default rate limiting configuration allows 10 requests per 10 seconds per identifier. `@upstash/ratelimit` also has other rate limiting algorithms such as:
+
 - Fixed Window
 - Sliding Window
 - Token Bucket
 
 You can learn more about the different rate limiting strategies other features in the [Upstash documentation](https://upstash.com/docs/redis/sdks/ratelimit-ts/algorithms).
 
-```typescript packages/security/index.ts
+```ts packages/rate-limit/index.ts
 export const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),
@@ -65,14 +57,14 @@ export const ratelimit = new Ratelimit({
 })
 ```
 
-### Usage
+## Usage
 
-You can use rate limiting in any API Route by importing it from the `@repo/security` package. For example:
+You can use rate limiting in any API Route by importing it from the `rate-limit` package. For example:
 
 ```typescript apps/api/app/ratelimit/upstash/route.ts {7}
-import { ratelimit } from "@repo/security";
+import { ratelimit } from "@repo/rate-limit";
 
-export async function GET(request: NextRequest) {
+export const GET = async (request: NextRequest) => {
   // Use any identifier like username, API key, or IP address
   const identifier = "your-identifier";
   
@@ -86,14 +78,12 @@ export async function GET(request: NextRequest) {
   }
   
   // Continue with your API logic
-}
+};
 ```
 
 ## Analytics
 
-Upstash Ratelimit provides built-in analytics capabilities through the dashboard on [Upstash Console](https://console.upstash.com). 
-
-When enabled, Upstash collects information about:
+Upstash Ratelimit provides built-in analytics capabilities through the dashboard on [Upstash Console](https://console.upstash.com).  When enabled, Upstash collects information about:
 
 - Hourly request patterns
 - Identifier usage
@@ -127,17 +117,27 @@ In the dashboard, you can find information on how many requests were accepted, h
 </Frame>
 ## Best Practices
 
-1. **Choose Appropriate Identifiers**: Use meaningful identifiers for rate limiting like:
+<Steps>
+  <Step title="Choose Appropriate Identifiers">
+    Use meaningful identifiers for rate limiting like:
 
-- User IDs for authenticated requests
-- API keys for external integrations
-- IP addresses for public endpoints
+    - User IDs for authenticated requests
+    - API keys for external integrations  
+    - IP addresses for public endpoints
+  </Step>
 
-2. **Set Reasonable Limits**: Consider your application's requirements and resources when setting limits. Start conservative and adjust based on usage patterns.
+  <Step title="Configure Rate Limits">
+    Consider your application's requirements and resources when setting limits. Start conservative and adjust based on usage patterns.
+  </Step>
 
-3. **Handle Rate Limit Errors**: Always return appropriate error responses when rate limits are exceeded. Include information about when the limit will reset if possible.
+  <Step title="Implement Error Handling">
+    Always return appropriate error responses when rate limits are exceeded. Include information about when the limit will reset if possible.
+  </Step>
 
-4. **Monitor Usage**: Use the analytics feature to monitor rate limit hits and adjust limits as needed.
+  <Step title="Monitor and Adjust">
+    Use the analytics feature to monitor rate limit hits and adjust limits as needed based on actual usage patterns.
+  </Step>
+</Steps>
 
 ## Further Information
 

@@ -16,7 +16,6 @@
     "@prisma/adapter-neon": "^6.0.1",
     "@prisma/client": "6.0.1",
     "@repo/env": "workspace:*",
-    "@upstash/redis": "^1.34.3",
     "server-only": "^0.0.1",
     "undici": "^7.1.0",
     "ws": "^8.18.0"

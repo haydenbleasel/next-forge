@@ -1,0 +1,19 @@
+{
+  "name": "@repo/rate-limit",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "format": "biome lint --write .",
+    "lint": "biome lint .",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@repo/env": "workspace:*",
+    "@upstash/redis": "^1.34.3"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "typescript": "^5.7.2"
+  }
+}
