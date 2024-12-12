@@ -6,15 +6,6 @@ import arcjet, {
   shield,
 } from '@arcjet/next';
 import { env } from '@repo/env';
-import { Ratelimit } from '@upstash/ratelimit';
-import { redis } from '@repo/database';
-
-export const ratelimit = new Ratelimit({
-  redis,
-  limiter: Ratelimit.slidingWindow(10, "10 s"),
-  prefix: "next-forge",
-})
-
 
 // Create a base Arcjet instance which can be imported and extended in each route.
 const base = arcjet({

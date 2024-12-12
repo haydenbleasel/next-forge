@@ -31,7 +31,7 @@ next-forge has a `rate-limit` package powered by [`@upstash/ratelimit`](https://
 
 ## Setting up
 
-Rate limiting is enabled for the `web` package contact form automatically by the existence of a `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` environment variable.
+Rate limiting is enabled for the `web` package contact form automatically by the existence of a `UPSTASH_REDIS_REST_URL` and `UPSTASH_REDIS_REST_TOKEN` environment variable. If enabled, the contact form will limit the number of requests to 1 per day per IP address.
 
 To get your environment variables, you can sign up at [Upstash Console](https://console.upstash.com) and create a Redis KV database. You can then find the REST URL and REST token in the database details page. 
 

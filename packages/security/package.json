@@ -13,8 +13,7 @@
     "@arcjet/next": "1.0.0-alpha.34",
     "@nosecone/next": "1.0.0-alpha.34",
     "@repo/env": "workspace:*",
-    "@repo/database": "workspace:*",
-    "@upstash/ratelimit": "^2.0.5"
+    "@repo/database": "workspace:*"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",

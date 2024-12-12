@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@repo/env": "workspace:*",
+    "@upstash/ratelimit": "^2.0.5",
     "@upstash/redis": "^1.34.3"
   },
   "devDependencies": {
