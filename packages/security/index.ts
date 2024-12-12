@@ -9,17 +9,6 @@ import { env } from '@repo/env';
 import { Ratelimit } from '@upstash/ratelimit';
 import { redis } from '@repo/database';
 
-// Re-export the rules to simplify imports inside handlers
-export {
-  detectBot,
-  fixedWindow,
-  protectSignup,
-  sensitiveInfo,
-  shield,
-  slidingWindow,
-  request,
-} from '@arcjet/next';
-
 export const ratelimit = new Ratelimit({
   redis,
   limiter: Ratelimit.slidingWindow(10, "10 s"),
