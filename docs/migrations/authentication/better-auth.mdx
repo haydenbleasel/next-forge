@@ -38,7 +38,7 @@ pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
 ...and install the Better Auth dependencies:
 
 ```sh Terminal
-pnpm add better-auth --filter auth
+pnpm add better-auth @repo/database --filter auth
 ```
 
 ## 2. Update your environment variables
@@ -60,13 +60,16 @@ Update the `auth` package files with the following code:
   ```ts packages/auth/server.ts
   import { betterAuth } from 'better-auth';
   import { nextCookies } from "better-auth/next-js";
-  import { prismaAdapter } from "better-auth/adapters/prisma-adapter";
+  import { prismaAdapter } from "better-auth/adapters/prisma";
   import { database } from "@repo/database"
 
   export const auth = betterAuth({
-    database: prismaAdapter(database),
+    database: prismaAdapter(database, {
+      provider: 'postgresql',
+    }),
     plugins: [
       nextCookies()
+      // organization() // if you want to use organization plugin
     ],
     //...add more options here
   });
@@ -97,7 +100,6 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
   export const SignIn = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [name, setName] = useState("");
 
     return (
       <form
@@ -119,11 +121,6 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
         />
         <button type="submit">Sign in</button>
       </form>
@@ -183,8 +180,17 @@ You can use different sign-in methods like social providers, phone, username etc
 From the root folder, generate Prisma models for Better Auth by running the following command:
 
 ```sh Terminal
-npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma
+npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma --config ./packages/auth/server.ts
 ```
+
+<Warning>
+You may have to comment out the `server-only` directive in `packages/database/index.ts` temporarily. Ensure you have environment variables set.
+</Warning>
+
+<Note>
+Best practice is to have a `better-auth.ts` file, but we're just specifying the existing `server.ts` left over from Clerk here.
+</Note>
+
 
 ## 7. Update the Provider file
 
@@ -227,19 +233,62 @@ export const authMiddleware = async (request: NextRequest) => {
 
 ## 9. Update your apps
 
-From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth. For example, you can replace the `auth` import in the `page.tsx` file in the `dashboard` package with the `auth` import from the `auth` package.
+From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth.
 
-```tsx page.tsx
-const { orgId } = await auth();
-const { redirectToSignIn } = await auth();
+Here is some inspiration:
+
+```tsx
 const user = await currentUser();
+const { redirectToSignIn } = await auth();
+
+// to
+
+const session = await auth.api.getSession({
+  headers: await headers(), // from next/headers
+});
+if (!session?.user) {
+  return redirect('/sign-in'); // from next/navigation
+}
+// do something with session.user
 ```
 
-to
-    
-```tsx page.tsx
-const organization = useActiveOrganization();
-const session = await auth.api.getSession();
+```tsx
+const { orgId } = await auth();
+
+// to
+
+const h = await headers(); // from next/headers
+const session = await auth.api.getSession({
+  headers: h,
+});
+const orgId = session?.session.activeOrganizationId;
+const fullOrganization = await auth.api.getFullOrganization({
+  headers: h,
+  query: { organizationId: orgId },
+});
 ```
+
+```tsx webhooks/stripe/route.ts
+import { clerkClient } from '@repo/auth/server';
+
+const clerk = await clerkClient();
+const users = await clerk.users.getUserList();
+const user = users.data.find(
+  (user) => user.privateMetadata.stripeCustomerId === customerId
+);
+
+// to
+
+import { database } from '@repo/database';
+
+const user = await database.user.findFirst({
+  where: {
+    privateMetadata: {
+      contains: { stripeCustomerId: customerId },
+    },
+  },
+});
+```
+
 
 For using organization, check [organization plugin](https://better-auth.com/docs/plugins/organization) and more from the [Better Auth documentation](https://better-auth.com/docs).

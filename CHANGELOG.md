@@ -1,3 +1,30 @@
+# v2.20.30 (Thu Dec 12 2024)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: null[@pedrocarlo](https://github.com/pedrocarlo)
+
+:heart: Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### 🐛 Bug Fix
+
+- fix: clean tasks needed to be added to turbo.json [#346](https://github.com/haydenbleasel/next-forge/pull/346) ([@pedrocarlo](https://github.com/pedrocarlo))
+- docs: add context to better-auth migration [#347](https://github.com/haydenbleasel/next-forge/pull/347) ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+#### 🔩 Dependency Updates
+
+- Bump zod from 3.24.0 to 3.24.1 in the npm_and_yarn group [#345](https://github.com/haydenbleasel/next-forge/pull/345) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- [@pedrocarlo](https://github.com/pedrocarlo)
+- Simon ([@simon-v-swyftx](https://github.com/simon-v-swyftx))
+
+---
+
 # v2.20.29 (Wed Dec 11 2024)
 
 #### ⚠️ Pushed to `main`
