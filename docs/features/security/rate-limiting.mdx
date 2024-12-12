@@ -37,6 +37,32 @@ To get your environment variables, you can sign up at [Upstash Console](https://
 
 You can then paste these environment variables each of the [environment variables](/features/env) files.
 
+## Adding rate limiting
+
+You can add rate limiting to your API routes by using the `createRateLimiter` function. For example, to limit the number of AI requests to 10 per 10 seconds per IP address, you can do something like this:
+
+```ts apps/app/api/chat/route.ts
+import { currentUser } from '@repo/auth/server';
+import { createRateLimiter, slidingWindow } from '@repo/rate-limit';
+
+export const GET = async (request: NextRequest) => {
+  const user = await currentUser();
+
+  const rateLimiter = createRateLimiter({
+    limiter: slidingWindow(10, '10 s'),
+  });
+
+  const { success } = await rateLimiter.limit(`ai_${user?.id}`);
+
+  if (!success) {
+    return new Response(
+      JSON.stringify({ error: "Too many requests" }), 
+      { status: 429 }
+    );
+  }
+};
+```
+
 ## Configuration
 
 The `rate-limit` package connects to an [Upstash Redis](https://upstash.com/docs/redis/overall/getstarted) database and automatically limits the number of requests to your API routes.
