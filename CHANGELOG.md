@@ -1,3 +1,20 @@
+# v2.20.31 (Thu Dec 12 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Fahreddin Özcan ([@fahreddinozcan](https://github.com/fahreddinozcan)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: Upstash Redis and Upstash Ratelimit [#328](https://github.com/haydenbleasel/next-forge/pull/328) ([@fahreddinozcan](https://github.com/fahreddinozcan) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Fahreddin Özcan ([@fahreddinozcan](https://github.com/fahreddinozcan))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.20.30 (Thu Dec 12 2024)
 
 :tada: This release contains work from new contributors! :tada:
