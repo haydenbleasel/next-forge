@@ -1,0 +1,94 @@
+---
+title: Switch to WorkOS
+description: How to change the authentication provider to WorkOS.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}]} />
+
+WorkOS is an all-in-one solution for enterprise authentication and authorization. It provides a set of building blocks for quickly adding enterprise features to your app.
+
+## 1. Swap out the `auth` package dependencies
+
+Uninstall the existing Clerk dependencies from the `auth` package...
+
+```sh Terminal
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
+```
+
+...and install the WorkOS dependencies:
+
+```sh Terminal
+pnpm add @workos-inc/node --filter auth
+```
+
+## 2. Update your environment variables
+
+Update your [environment variables](/features/env) to use the WorkOS API key and client ID:
+
+```js apps/database/.env
+WORKOS_CLIENT_ID="client_****"
+WORKOS_API_KEY="sk_test_****"
+```
+
+```js apps/app/.env.local
+WORKOS_CLIENT_ID="..."
+WORKOS_API_KEY="..."
+```
+
+Etcetera. Now inside `packages/env/index.ts`, add `WORKOS_CLIENT_ID` and `WORKOS_API_KEY` to the `server` and `runtimeEnv` objects:
+
+```ts {3,12}
+const server: Parameters<typeof createEnv>[0]["server"] = {
+  // ...
+  WORKOS_CLIENT_ID: z.string().startsWith('client_'),
+  WORKOS_API_KEY: z.string().startsWith('sk_test_'),
+  // ...
+};
+
+export const env = createEnv({
+  client,
+  server,
+  runtimeEnv: {
+    // ...
+    WORKOS_CLIENT_ID: process.env.WORKOS_CLIENT_ID,
+    WORKOS_API_KEY: process.env.WORKOS_API_KEY,
+    // ...
+  },
+});
+```
+
+## 3. Setup the server and client auth
+
+...
+
+## 4. Update the auth components
+
+...
+
+## 5. Generate Prisma Models
+
+...
+
+## 6. Update the Provider file
+
+...
+
+## 7. Change Middleware
+
+...
+
+## 8. Update your apps
+
+...
+
