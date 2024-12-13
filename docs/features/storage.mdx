@@ -7,10 +7,12 @@ next-forge has a `storage` package that provides a simple wrapper around [Vercel
 
 ## Usage
 
+### Server uploads
+
 To use the `storage` package using Server Actions, follow the instructions on [Vercel's server action documentation](https://vercel.com/docs/storage/vercel-blob/server-upload#upload-a-file-using-server-actions).
 
 ```tsx page.tsx
-import { put } from '@repo/storage';
+import { put } from '@repo/storage/server';
 import { revalidatePath } from 'next/cache';
  
 export async function Form() {
@@ -33,6 +35,10 @@ export async function Form() {
   );
 }
 ```
+
+<Tip>If you need to upload files larger than 4.5 MB, consider using client uploads.</Tip>
+
+### Client uploads
 
 For client side usage, check out the [Vercel's client upload documentation](https://vercel.com/docs/storage/vercel-blob/client-upload).
 
