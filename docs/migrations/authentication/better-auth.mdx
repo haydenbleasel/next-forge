@@ -85,7 +85,7 @@ Update the `auth` package files with the following code:
 
 Read more in the Better Auth [installation guide](https://www.better-auth.com/docs/installation).
 
-## 5. Update the auth components
+## 4. Update the auth components
 
 Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package to use the `signIn` and `signUp` functions from the `client` file.
 
@@ -175,7 +175,7 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
 
 You can use different sign-in methods like social providers, phone, username etc. Read more about Better Auth [basic usage](https://better-auth.com/docs/basic-usage).
 
-## 6. Generate Prisma Models
+## 5. Generate Prisma Models
 
 From the root folder, generate Prisma models for Better Auth by running the following command:
 
@@ -192,7 +192,7 @@ Best practice is to have a `better-auth.ts` file, but we're just specifying the 
 </Note>
 
 
-## 7. Update the Provider file
+## 6. Update the Provider file
 
 Better Auth has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
 
@@ -206,7 +206,7 @@ type AuthProviderProps = {
 export const AuthProvider = ({ children }: AuthProviderProps) => children;
 ```
 
-## 8. Change Middleware
+## 7. Change Middleware
 
 Change the middleware in the `auth` package to the following:
 
@@ -231,7 +231,7 @@ export const authMiddleware = async (request: NextRequest) => {
 }
 ```
 
-## 9. Update your apps
+## 8. Update your apps
 
 From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth.
 
