@@ -32,13 +32,13 @@ Better Auth is a comprehensive, open-source authentication framework for TypeScr
 Uninstall the existing Clerk dependencies from the `auth` package...
 
 ```sh Terminal
-pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ```
 
 ...and install the Better Auth dependencies:
 
 ```sh Terminal
-pnpm add better-auth @repo/database --filter auth
+pnpm add better-auth @repo/database --filter @repo/auth
 ```
 
 ## 2. Update your environment variables
