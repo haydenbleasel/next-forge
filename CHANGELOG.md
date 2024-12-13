@@ -1,3 +1,17 @@
+# v2.21.3 (Fri Dec 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix last typos ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix more typos ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix typos ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.2 (Fri Dec 13 2024)
 
 #### ⚠️ Pushed to `main`
