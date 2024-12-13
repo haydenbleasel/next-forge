@@ -7,11 +7,19 @@ next-forge has pre-built webhook handlers for several key services.
 
 ## Payment Events
 
-TBD.
+[Payment events](/features/payments) are handled in the `POST /webhooks/stripe` route in the `api` app. This route constructs the event and then switches on the event type to determine how to process the event.
+
+<Info>To test webhooks locally, we've configured the Stripe CLI to forward webhooks to your local server. This will start automatically when you run `pnpm dev`.</Info>
 
 ## Authentication Events
 
-TBD.
+[Authentication events](/features/authentication) are handled in the `POST /webhooks/clerk` route in the `api` app. 
+
+<Tip>Make sure you enable the webhook events you need in your Clerk project settings.</Tip>
+
+### Local Development
+
+Currently there's no way to easily test Clerk webhooks locally, so you'll have to test them in a staging environment. This means deploying your app to a "production" state Vercel project with development environment variables e.g. `staging-api.example.com`. Then you can add this URL to your Clerk project's webhook settings.
 
 ## Database Events
 
