@@ -34,25 +34,51 @@ pnpm add @workos-inc/authkit-nextjs --filter @repo/auth
 
 ## 2. Update your environment variables
 
-Update your [environment variables](/features/env) to use the WorkOS API key and client ID:
+Update each of your Next.js app [environment variables](/features/env) to use the WorkOS ones.
 
-```js apps/database/.env
+<Tip>
+  For `WORKOS_COOKIE_PASSWORD`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
+</Tip>
+
+<CodeGroup>
+
+```js apps/api/.env.local
 WORKOS_CLIENT_ID="client_****"
 WORKOS_API_KEY="sk_test_****"
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
 ```
 
 ```js apps/app/.env.local
 WORKOS_CLIENT_ID="..."
 WORKOS_API_KEY="..."
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
 ```
 
-Etcetera. Now inside `packages/env/index.ts`, add `WORKOS_CLIENT_ID` and `WORKOS_API_KEY` to the `server` and `runtimeEnv` objects:
+```js apps/web/.env.local
+WORKOS_CLIENT_ID="..."
+WORKOS_API_KEY="..."
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
+```
 
-```ts {3,12}
+</CodeGroup>
+
+Now inside `packages/env/index.ts`, wire up the new environment variables to the `server`, `client` and `runtimeEnv` objects:
+
+```ts {3-5,11,20-23}
 const server: Parameters<typeof createEnv>[0]["server"] = {
   // ...
   WORKOS_CLIENT_ID: z.string().startsWith('client_'),
   WORKOS_API_KEY: z.string().startsWith('sk_test_'),
+  WORKOS_COOKIE_PASSWORD: z.string().min(32),
+  // ...
+};
+
+const client: Parameters<typeof createEnv>[0]["client"] = {
+  // ...
+  NEXT_PUBLIC_WORKOS_REDIRECT_URI: z.string().url(),
   // ...
 };
 
@@ -63,6 +89,8 @@ export const env = createEnv({
     // ...
     WORKOS_CLIENT_ID: process.env.WORKOS_CLIENT_ID,
     WORKOS_API_KEY: process.env.WORKOS_API_KEY,
+    WORKOS_COOKIE_PASSWORD: process.env.WORKOS_COOKIE_PASSWORD,
+    NEXT_PUBLIC_WORKOS_REDIRECT_URI: process.env.NEXT_PUBLIC_WORKOS_REDIRECT_URI,
     // ...
   },
 });
