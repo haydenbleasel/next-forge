@@ -65,7 +65,7 @@ program
         const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
 
         packageJson.workspaces = ['apps/*', 'packages/*'];
-        packageJson.packageManager = 'bun@^1.0.0';
+        packageJson.packageManager = 'bun@1.1.38';
 
         writeFileSync(
           packageJsonPath,
@@ -112,7 +112,7 @@ program
       copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
       log(chalk.green('Setting up Prisma...'));
-      execSync(`${packageManager} build --filter @repo/database`, execSyncOpts);
+      execSync(`${packageManager} run build --filter @repo/database`, execSyncOpts);
 
       log(chalk.green('Done!'));
       log(
