@@ -1,3 +1,15 @@
+# v2.21.4 (Fri Dec 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Move metabase to addons ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.3 (Fri Dec 13 2024)
 
 #### ⚠️ Pushed to `main`
