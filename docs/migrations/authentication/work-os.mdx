@@ -110,11 +110,19 @@ export const env = createEnv({
 
 ## 6. Update the Provider file
 
-...
+WorkOS has a simple higher-order component, so you can just export their `AuthProvider` directly.
+
+```tsx packages/auth/provider.tsx
+export { AuthProvider } from '@workos-inc/authkit-nextjs';
+```
 
 ## 7. Change Middleware
 
-...
+AuthKit has a very similar middleware setup to Clerk, so you can just swap out the `clerkMiddleware` export.
+
+```tsx packages/auth/middleware.ts
+export { authkitMiddleware as authMiddleware } from '@workos-inc/authkit-nextjs';
+```
 
 ## 8. Update your apps
 
