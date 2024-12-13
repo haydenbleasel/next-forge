@@ -97,7 +97,10 @@
             "features/design-system/typography"
           ]
         },
-        "features/documentation",
+        {
+          "group": "Documentation",
+          "pages": ["features/documentation/overview"]
+        },
         {
           "group": "Email",
           "pages": ["features/email/clerk", "features/email/resend"]
@@ -282,7 +285,7 @@
     },
     {
       "source": "/documentation",
-      "destination": "/features/documentation"
+      "destination": "/features/documentation/overview"
     },
     {
       "source": "/documentation/fumadocs",
