@@ -1,6 +1,6 @@
 ---
-title: Switch to WorkOS
-description: How to change the authentication provider to WorkOS.
+title: Switch to AuthKit by WorkOS
+description: How to change the authentication provider to AuthKit by WorkOS.
 ---
 
 import { Authors } from '/snippets/authors.mdx';
@@ -16,20 +16,20 @@ import { Authors } from '/snippets/authors.mdx';
   },
 }]} />
 
-WorkOS is an all-in-one solution for enterprise authentication and authorization. It provides a set of building blocks for quickly adding enterprise features to your app.
+WorkOS is an all-in-one solution for enterprise authentication and authorization. It provides a set of building blocks for quickly adding enterprise features to your app. AuthKit is their beautiful, customizable sign-in UI powered by WorkOS + Radix.
 
 ## 1. Swap out the `auth` package dependencies
 
 Uninstall the existing Clerk dependencies from the `auth` package...
 
 ```sh Terminal
-pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter auth
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ```
 
-...and install the WorkOS dependencies:
+...and install the new dependencies:
 
 ```sh Terminal
-pnpm add @workos-inc/node --filter auth
+pnpm add @workos-inc/authkit-nextjs --filter @repo/auth
 ```
 
 ## 2. Update your environment variables
