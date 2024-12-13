@@ -47,15 +47,9 @@ export * from '@lemonsqueezy/lemonsqueezy.js';
 
 ## 4. Update the payments webhook handler
 
-Remove the Stripe webhook handler from the API package...
+Modify the payments webhook handler to use the Lemon Squeezy:
 
-```sh Terminal
-rm apps/api/app/webhooks/stripe/route.ts
-```
-
-... and create a new webhook handler for Lemon Squeezy:
-
-```ts apps/api/app/webhooks/lemon-squeezy/route.ts
+```ts apps/api/app/webhooks/payments/route.ts
 import { NextResponse } from 'next/server';
 
 export const POST = async (request: Request) => {
