@@ -6,7 +6,7 @@
 
 import { init, replayIntegration } from '@sentry/nextjs';
 
-export const initializeSentry = () =>
+export const initializeSentry = (): ReturnType<typeof init> =>
   init({
     dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
 
