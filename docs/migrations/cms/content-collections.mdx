@@ -10,14 +10,14 @@ It's possible to switch to [Content Collections](https://www.content-collections
 Remove the existing dependencies...
 
 ```sh Terminal
-pnpm remove basehub --filter cms
+pnpm remove basehub --filter @repo/cms
 ```
 
 ... and install the new dependencies...
 
 ```sh Terminal
-pnpm add @content-collections/mdx fumadocs-core --filter cms
-pnpm add -D @content-collections/cli @content-collections/core @content-collections/next --filter cms
+pnpm add @content-collections/mdx fumadocs-core --filter @repo/cms
+pnpm add -D @content-collections/cli @content-collections/core @content-collections/next --filter @repo/cms
 ```
 
 ## 2. Update the `.gitignore` file
