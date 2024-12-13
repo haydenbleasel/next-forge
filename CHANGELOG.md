@@ -1,3 +1,19 @@
+# v2.21.6 (Fri Dec 13 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Mike Keating ([@mikerkeating](https://github.com/mikerkeating)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Change Cron to daily to allow vercel hobby projects [#354](https://github.com/haydenbleasel/next-forge/pull/354) ([@mikerkeating](https://github.com/mikerkeating))
+
+#### Authors: 1
+
+- Mike Keating ([@mikerkeating](https://github.com/mikerkeating))
+
+---
+
 # v2.21.5 (Fri Dec 13 2024)
 
 #### ⚠️ Pushed to `main`
