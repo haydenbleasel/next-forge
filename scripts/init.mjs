@@ -7,6 +7,7 @@ import {
   readFileSync,
   rmSync,
   unlinkSync,
+  writeFileSync,
 } from 'node:fs';
 import { mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
@@ -58,6 +59,20 @@ program
         rmSync('.git', { recursive: true, force: true });
       }
 
+      if (packageManager === 'bun') {
+        log(chalk.green('Configuring Bun workspaces...'));
+        const packageJsonPath = join(projectDir, 'package.json');
+        const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
+
+        packageJson.workspaces = ['apps/*', 'packages/*'];
+        packageJson.packageManager = 'bun@^1.0.0';
+
+        writeFileSync(
+          packageJsonPath,
+          `${JSON.stringify(packageJson, null, 2)}\n`
+        );
+      }
+
       log(chalk.green('Deleting internal content...'));
       for (const dir of ['.github/workflows', 'docs', 'splash', 'scripts']) {
         rmSync(dir, { recursive: true, force: true });
@@ -76,8 +91,9 @@ program
       }
 
       if (packageManager !== 'pnpm') {
-        log(chalk.green('Removing pnpm lockfile...'));
+        log(chalk.green('Removing pnpm lockfile and workspace config...'));
         rmSync('pnpm-lock.yaml', { force: true });
+        rmSync('pnpm-workspace.yaml', { force: true });
       }
 
       log(chalk.green('Installing dependencies...'));
