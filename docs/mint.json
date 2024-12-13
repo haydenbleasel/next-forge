@@ -82,10 +82,6 @@
           "pages": ["features/analytics/web", "features/analytics/product"]
         },
         "features/authentication",
-        {
-          "group": "Business Intelligence",
-          "pages": ["features/bi/metabase"]
-        },
         "features/bundle-analysis",
         "features/collaboration",
         "features/cms",
@@ -186,7 +182,7 @@
       "pages": ["recipes/ai-chatbot"]
     },
     {
-      "group": "",
+      "group": "Libraries",
       "pages": [
         "addons/friendlier-words",
         "addons/motion",
@@ -194,6 +190,10 @@
         "addons/react-wrap-balancer",
         "addons/zustand"
       ]
+    },
+    {
+      "group": "Tools",
+      "pages": ["addons/metabase"]
     }
   ],
 
@@ -226,7 +226,7 @@
     },
     {
       "source": "/bi/:slug*",
-      "destination": "/features/bi/:slug*"
+      "destination": "/addons/metabase"
     },
     {
       "source": "/bundle-analysis",
