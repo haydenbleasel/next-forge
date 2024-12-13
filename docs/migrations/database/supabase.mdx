@@ -48,13 +48,13 @@ Prisma doesn't have a Supabase adapter yet, so we just need to remove the Neon a
 First, remove the Neon dependencies from the project...
 
 ```sh Terminal
-pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
 ```
 
 ... and add the Supabase dependencies:
 
 ```sh Terminal
-pnpm install -D supabase --filter database
+pnpm install -D supabase --filter @repo/database
 ```
 
 ## 5. Update the database package

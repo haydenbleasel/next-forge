@@ -111,13 +111,13 @@ The [`@libsql/client`](https://www.npmjs.com/@libsql/client) is used to connect 
 Uninstall the existing dependencies for Neon...
 
 ```sh Terminal
-pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter database
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
 ```
 
 ... and install the new dependencies for Turso & libSQL:
 
 ```sh Terminal
-pnpm add @libsql/client --filter database
+pnpm add @libsql/client --filter @repo/database
 ```
 
 ## 6. Update Webpack configuration
