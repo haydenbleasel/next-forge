@@ -2,9 +2,6 @@ import { vercel } from '@t3-oss/env-core/presets';
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
-// UPSTASH_REDIS_REST_URL: z.string().min(1).url().optional(),
-// UPSTASH_REDIS_REST_TOKEN: z.string().min(1).optional(),
-
 export const keys = () =>
   createEnv({
     extends: [vercel()],

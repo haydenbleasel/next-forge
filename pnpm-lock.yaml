@@ -1062,12 +1062,18 @@ importers:
       '@repo/env':
         specifier: workspace:*
         version: link:../env
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
       '@upstash/ratelimit':
         specifier: ^2.0.5
         version: 2.0.5(@upstash/redis@1.34.3)
       '@upstash/redis':
         specifier: ^1.34.3
         version: 1.34.3
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
       '@repo/typescript-config':
         specifier: workspace:*
