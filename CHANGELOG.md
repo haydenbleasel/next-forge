@@ -1,3 +1,16 @@
+# v2.21.2 (Fri Dec 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update better-auth.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.1 (Thu Dec 12 2024)
 
 #### ⚠️ Pushed to `main`
