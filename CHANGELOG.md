@@ -1,3 +1,19 @@
+# v2.21.7 (Fri Dec 13 2024)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Donovan Dikaio ([@dikaio](https://github.com/dikaio)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix: This fixes the bun install failure when opting for bun [#355](https://github.com/haydenbleasel/next-forge/pull/355) ([@dikaio](https://github.com/dikaio))
+
+#### Authors: 1
+
+- Donovan Dikaio ([@dikaio](https://github.com/dikaio))
+
+---
+
 # v2.21.6 (Fri Dec 13 2024)
 
 :tada: This release contains work from a new contributor! :tada:
