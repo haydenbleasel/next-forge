@@ -1,3 +1,19 @@
+# v2.21.5 (Fri Dec 13 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix format and lint commands ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Add uploadthing migration guide [#353](https://github.com/haydenbleasel/next-forge/pull/353) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.4 (Fri Dec 13 2024)
 
 #### ⚠️ Pushed to `main`
