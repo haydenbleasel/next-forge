@@ -6,8 +6,6 @@
   "type": "commonjs",
   "scripts": {
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "format": "biome lint --write .",
-    "lint": "biome lint .",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "devDependencies": {

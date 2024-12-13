@@ -4,8 +4,6 @@
   "scripts": {
     "dev": "prisma studio --schema ../../packages/database/prisma/schema.prisma --port 3005",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
-    "format": "biome lint --write .",
-    "lint": "biome lint .",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "devDependencies": {

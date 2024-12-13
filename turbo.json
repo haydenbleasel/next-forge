@@ -28,9 +28,6 @@
     "test": {
       "dependsOn": ["^test"]
     },
-    "lint": {
-      "dependsOn": ["^lint"]
-    },
     "analyze": {
       "dependsOn": ["^analyze"]
     },
