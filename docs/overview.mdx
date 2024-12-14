@@ -3,11 +3,35 @@ title: Overview
 description: Overview of next-forge
 ---
 
+<Frame>
+  <img src="/images/structure/apps.png" alt="" />
+</Frame>
+
 ## What is next-forge?
 
 next-forge is a production-grade [Turborepo](https://turbo.build/repo) template for [Next.js](https://nextjs.org/) apps. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
-It is a culmination of my experience building web apps over the last decade and is designed to get you to build your new SaaS app as quick as possible
+It is a culmination of my experience building web apps over the last decade and is designed to get you to build your new SaaS app as quick as possible.
+
+## How it works
+
+next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
+
+The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
+
+The monorepo contains the following apps:
+
+| App | Documentation | Port | Recommended URL |
+| --- | ----------- | ---- | --------------- |
+| `api` | [API](/structure/apps/api) | 3002 | `api.acme.com` |
+| `app` | [App](/structure/apps/app) | 3000 | `app.acme.com` |
+| `docs` | [Docs](/structure/apps/docs) | 3004 | `docs.acme.com` |
+| `email` | [Email](/structure/apps/email) | 3003 | |
+| `storybook` | [Storybook](/structure/apps/storybook) | 6006 | |
+| `studio` | [Studio](/structure/apps/studio) | 3005 | |
+| `web` | [Web](/structure/apps/web) | 3001 | `acme.com` |
+
+While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed above. Remember to add them to your [environment variables](/features/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
 
 ## Philosophy
 

@@ -43,6 +43,10 @@
       "url": "/"
     },
     {
+      "name": "Structure",
+      "url": "/structure"
+    },
+    {
       "name": "Features",
       "url": "/features"
     },
@@ -70,8 +74,20 @@
       "pages": ["setup/prerequisites", "setup/installation"]
     },
     {
-      "group": "Structure",
-      "pages": ["structure/apps", "structure/packages"]
+      "group": "Apps",
+      "pages": [
+        "structure/apps/api",
+        "structure/apps/app",
+        "structure/apps/docs",
+        "structure/apps/email",
+        "structure/apps/storybook",
+        "structure/apps/studio",
+        "structure/apps/web"
+      ]
+    },
+    {
+      "group": "Packages",
+      "pages": ["structure/packages"]
     },
     {
       "group": "",
@@ -97,7 +113,6 @@
             "features/design-system/typography"
           ]
         },
-        "features/documentation",
         {
           "group": "Email",
           "pages": ["features/email/clerk", "features/email/resend"]
@@ -126,7 +141,6 @@
           ]
         },
         "features/storage",
-        "features/storybook",
         "features/toolbar",
         "features/webhooks",
         {
@@ -282,7 +296,7 @@
     },
     {
       "source": "/documentation",
-      "destination": "/features/documentation"
+      "destination": "/structure/apps/docs"
     },
     {
       "source": "/documentation/fumadocs",
@@ -326,7 +340,7 @@
     },
     {
       "source": "/storybook",
-      "destination": "/features/storybook"
+      "destination": "/structure/apps/storybook"
     },
     {
       "source": "/webhooks",
