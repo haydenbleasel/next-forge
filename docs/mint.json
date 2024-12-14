@@ -43,12 +43,12 @@
       "url": "/"
     },
     {
-      "name": "Structure",
-      "url": "/structure"
+      "name": "Apps",
+      "url": "/apps"
     },
     {
-      "name": "Features",
-      "url": "/features"
+      "name": "Packages",
+      "url": "/packages"
     },
     {
       "name": "Recipes",
@@ -74,84 +74,80 @@
       "pages": ["setup/prerequisites", "setup/installation"]
     },
     {
-      "group": "Apps",
+      "group": "",
       "pages": [
-        "structure/apps/api",
-        "structure/apps/app",
-        "structure/apps/docs",
-        "structure/apps/email",
-        "structure/apps/storybook",
-        "structure/apps/studio",
-        "structure/apps/web"
+        "apps/api",
+        "apps/app",
+        "apps/docs",
+        "apps/email",
+        "apps/storybook",
+        "apps/studio",
+        "apps/web"
       ]
-    },
-    {
-      "group": "Packages",
-      "pages": ["structure/packages"]
     },
     {
       "group": "",
       "pages": [
-        "features/ai",
+        "packages/ai",
         {
           "group": "Analytics",
-          "pages": ["features/analytics/web", "features/analytics/product"]
+          "pages": ["packages/analytics/web", "packages/analytics/product"]
         },
-        "features/authentication",
-        "features/bundle-analysis",
-        "features/collaboration",
-        "features/cms",
-        "features/cron",
-        "features/database",
+        "packages/authentication",
+        "packages/bundle-analysis",
+        "packages/collaboration",
+        "packages/cms",
+        "packages/cron",
+        "packages/database",
         {
           "group": "Design System",
           "pages": [
-            "features/design-system/colors",
-            "features/design-system/components",
-            "features/design-system/dark-mode",
-            "features/design-system/provider",
-            "features/design-system/typography"
+            "packages/design-system/colors",
+            "packages/design-system/components",
+            "packages/design-system/dark-mode",
+            "packages/design-system/provider",
+            "packages/design-system/typography"
           ]
         },
         {
           "group": "Email",
-          "pages": ["features/email/clerk", "features/email/resend"]
+          "pages": ["packages/email/clerk", "packages/email/resend"]
         },
-        "features/env",
-        "features/flags",
-        "features/formatting",
+        "packages/env",
+        "packages/flags",
+        "packages/formatting",
         {
           "group": "Observability",
           "pages": [
-            "features/observability/error-capture",
-            "features/observability/debugging",
-            "features/observability/logging",
-            "features/observability/uptime"
+            "packages/observability/error-capture",
+            "packages/observability/debugging",
+            "packages/observability/logging",
+            "packages/observability/uptime"
           ]
         },
-        "features/payments",
+        "packages/payments",
         {
           "group": "Security",
           "pages": [
-            "features/security/application",
-            "features/security/rate-limiting",
-            "features/security/dependencies",
-            "features/security/headers",
-            "features/security/ip-geolocation"
+            "packages/security/application",
+            "packages/security/rate-limiting",
+            "packages/security/dependencies",
+            "packages/security/headers",
+            "packages/security/ip-geolocation"
           ]
         },
-        "features/storage",
-        "features/toolbar",
-        "features/webhooks",
+        "packages/storage",
+        "packages/toolbar",
+        "packages/webhooks",
         {
           "group": "SEO",
           "pages": [
-            "features/seo/metadata",
-            "features/seo/json-ld",
-            "features/seo/sitemap"
+            "packages/seo/metadata",
+            "packages/seo/json-ld",
+            "packages/seo/sitemap"
           ]
         },
-        "features/testing"
+        "packages/testing"
       ]
     },
     {
@@ -223,16 +219,20 @@
 
   "redirects": [
     {
+      "source": "/features/:slug*",
+      "destination": "/packages/:slug*"
+    },
+    {
       "source": "/ai",
-      "destination": "/features/ai"
+      "destination": "/packages/ai"
     },
     {
       "source": "/analytics/:slug*",
-      "destination": "/features/analytics/:slug*"
+      "destination": "/packages/analytics/:slug*"
     },
     {
       "source": "/authentication",
-      "destination": "/features/authentication"
+      "destination": "/packages/authentication"
     },
     {
       "source": "/authentication/authjs",
@@ -248,15 +248,15 @@
     },
     {
       "source": "/bundle-analysis",
-      "destination": "/features/bundle-analysis"
+      "destination": "/packages/bundle-analysis"
     },
     {
       "source": "/collaboration",
-      "destination": "/features/collaboration"
+      "destination": "/packages/collaboration"
     },
     {
       "source": "/cms",
-      "destination": "/features/cms"
+      "destination": "/packages/cms"
     },
     {
       "source": "/cms/content-collections",
@@ -264,11 +264,11 @@
     },
     {
       "source": "/cron",
-      "destination": "/features/cron"
+      "destination": "/packages/cron"
     },
     {
       "source": "/database",
-      "destination": "/features/database"
+      "destination": "/packages/database"
     },
     {
       "source": "/database/drizzle",
@@ -292,7 +292,7 @@
     },
     {
       "source": "/design-system/:slug*",
-      "destination": "/features/design-system/:slug*"
+      "destination": "/packages/design-system/:slug*"
     },
     {
       "source": "/documentation",
@@ -304,19 +304,19 @@
     },
     {
       "source": "/email/:slug*",
-      "destination": "/features/email/:slug*"
+      "destination": "/packages/email/:slug*"
     },
     {
       "source": "/env/:slug*",
-      "destination": "/features/env/:slug*"
+      "destination": "/packages/env/:slug*"
     },
     {
       "source": "/flags",
-      "destination": "/features/flags"
+      "destination": "/packages/flags"
     },
     {
       "source": "/formatting",
-      "destination": "/features/formatting"
+      "destination": "/packages/formatting"
     },
     {
       "source": "/formatting/eslint",
@@ -324,19 +324,19 @@
     },
     {
       "source": "/observability/:slug*",
-      "destination": "/features/observability/:slug*"
+      "destination": "/packages/observability/:slug*"
     },
     {
       "source": "/payments",
-      "destination": "/features/payments"
+      "destination": "/packages/payments"
     },
     {
       "source": "/security/:slug*",
-      "destination": "/features/security/:slug*"
+      "destination": "/packages/security/:slug*"
     },
     {
       "source": "/storage",
-      "destination": "/features/storage"
+      "destination": "/packages/storage"
     },
     {
       "source": "/storybook",
@@ -344,15 +344,15 @@
     },
     {
       "source": "/webhooks",
-      "destination": "/features/webhooks"
+      "destination": "/packages/webhooks"
     },
     {
       "source": "/seo",
-      "destination": "/features/seo"
+      "destination": "/packages/seo"
     },
     {
       "source": "/testing",
-      "destination": "/features/testing"
+      "destination": "/packages/testing"
     },
     {
       "source": "/recommended-libraries/:slug*",
