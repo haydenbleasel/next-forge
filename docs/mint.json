@@ -300,7 +300,15 @@
     },
     {
       "source": "/documentation",
-      "destination": "/structure/apps/docs"
+      "destination": "/apps/docs"
+    },
+    {
+      "source": "/structure/apps",
+      "destination": "/apps"
+    },
+    {
+      "source": "/structure/packages",
+      "destination": "/packages"
     },
     {
       "source": "/documentation/fumadocs",
@@ -348,7 +356,7 @@
     },
     {
       "source": "/storybook",
-      "destination": "/structure/apps/storybook"
+      "destination": "/apps/storybook"
     },
     {
       "source": "/webhooks",
