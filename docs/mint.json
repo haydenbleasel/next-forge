@@ -94,8 +94,8 @@
           "pages": ["packages/analytics/web", "packages/analytics/product"]
         },
         "packages/authentication",
-        "packages/collaboration",
         "packages/cms",
+        "packages/collaboration",
         "packages/cron",
         "packages/database",
         {
@@ -108,10 +108,7 @@
             "packages/design-system/typography"
           ]
         },
-        {
-          "group": "Email",
-          "pages": ["packages/email/clerk", "packages/email/resend"]
-        },
+        "packages/email",
         "packages/env",
         "packages/flags",
         "packages/formatting",
@@ -310,8 +307,12 @@
       "destination": "/migrations/documentation/fumadocs"
     },
     {
-      "source": "/email/:slug*",
-      "destination": "/packages/email/:slug*"
+      "source": "/email/clerk",
+      "destination": "/packages/authentication"
+    },
+    {
+      "source": "/email/resend",
+      "destination": "/packages/email"
     },
     {
       "source": "/env/:slug*",
