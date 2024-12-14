@@ -94,7 +94,6 @@
           "pages": ["packages/analytics/web", "packages/analytics/product"]
         },
         "packages/authentication",
-        "packages/bundle-analysis",
         "packages/collaboration",
         "packages/cms",
         "packages/cron",
@@ -123,6 +122,13 @@
             "packages/observability/debugging",
             "packages/observability/logging",
             "packages/observability/uptime"
+          ]
+        },
+        {
+          "group": "Next.js Config",
+          "pages": [
+            "packages/next-config/overview",
+            "packages/next-config/bundle-analysis"
           ]
         },
         "packages/payments",
@@ -248,7 +254,7 @@
     },
     {
       "source": "/bundle-analysis",
-      "destination": "/packages/bundle-analysis"
+      "destination": "/packages/next-config/bundle-analysis"
     },
     {
       "source": "/collaboration",
