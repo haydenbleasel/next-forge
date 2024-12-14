@@ -5,6 +5,21 @@ descriptions: How all other transactional emails work.
 
 We use [Resend](https://resend.com/) to send transactional emails. The templates, located in `@repo/email`, are powered by [React Email](https://react.email/) - a collection of high-quality, unstyled components for creating beautiful emails using React and TypeScript.
 
+## Sending Emails
+
+To send an email, you can use the `resend` object, which is imported from the `@repo/email` package:
+
+```tsx apps/web/app/contact/actions/contact.tsx
+import { resend } from '@repo/email';
+
+await resend.emails.send({
+  from: 'sender@acme.com',
+  to: 'recipient@acme.com',
+  subject: 'The email subject',
+  text: 'The email text',
+});
+```
+
 ## Email Templates
 
 The `email` package is separated from the app folder for two reasons:
