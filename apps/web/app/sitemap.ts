@@ -16,7 +16,7 @@ const legals = (await legal.getPosts()).map((post) => post._slug);
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => [
   {
-    url: env.VERCEL_PROJECT_PRODUCTION_URL,
+    url: new URL('/', env.VERCEL_PROJECT_PRODUCTION_URL).href,
     lastModified: new Date(),
   },
   ...pages.map((page) => ({
