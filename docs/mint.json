@@ -139,10 +139,6 @@
             "packages/security/ip-geolocation"
           ]
         },
-        "packages/storage",
-        "packages/tailwind-config",
-        "packages/toolbar",
-        "packages/webhooks",
         {
           "group": "SEO",
           "pages": [
@@ -151,7 +147,11 @@
             "packages/seo/sitemap"
           ]
         },
-        "packages/testing"
+        "packages/storage",
+        "packages/tailwind-config",
+        "packages/testing",
+        "packages/toolbar",
+        "packages/webhooks"
       ]
     },
     {
