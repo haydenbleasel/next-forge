@@ -54,9 +54,6 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
@@ -127,9 +124,6 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@repo/feature-flags':
         specifier: workspace:*
         version: link:../../packages/feature-flags
@@ -349,9 +343,6 @@ importers:
       '@repo/email':
         specifier: workspace:*
         version: link:../../packages/email
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../../packages/env
       '@repo/feature-flags':
         specifier: workspace:*
         version: link:../../packages/feature-flags
@@ -969,10 +960,16 @@ importers:
       '@prisma/nextjs-monorepo-workaround-plugin':
         specifier: ^6.0.1
         version: 6.0.1
+      '@t3-oss/env-core':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
+      '@t3-oss/env-nextjs':
+        specifier: ^0.11.1
+        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
+      zod:
+        specifier: ^3.24.1
+        version: 3.24.1
     devDependencies:
-      '@repo/env':
-        specifier: workspace:*
-        version: link:../env
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
