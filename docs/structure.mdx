@@ -7,9 +7,34 @@ description: Learn how next-forge apps and packages are structured.
   <img src="/images/structure.png" alt="" />
 </Frame>
 
-- each package should be self-contained and not depend on other packages
-- each app should be self-contained and not depend on other apps
-- each package should export everything that is needed by the app e.g. middleware, hooks, components, etc.
+next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
 
-- each package can export a `keys` file that contains the package's environment variables
-- each app can export a `env` file that composes the environment variables from the packages it depends on
+The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
+
+## Apps
+
+The monorepo contains the following apps:
+
+| App | Documentation | Port | Recommended URL |
+| --- | ----------- | ---- | --------------- |
+| `api` | [API](/apps/api) | 3002 | `api.acme.com` |
+| `app` | [App](/apps/app) | 3000 | `app.acme.com` |
+| `docs` | [Docs](/apps/docs) | 3004 | `docs.acme.com` |
+| `email` | [Email](/apps/email) | 3003 | |
+| `storybook` | [Storybook](/apps/storybook) | 6006 | |
+| `studio` | [Studio](/apps/studio) | 3005 | |
+| `web` | [Web](/apps/web) | 3001 | `acme.com` |
+
+While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed above. Remember to add them to your [environment variables](/packages/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
+
+Each app should be self-contained and not depend on other apps. They should have an `env.ts` file at the root of the app that composes the environment variables from the packages it depends on.
+
+## Packages
+
+next-forge contains a number of shared packages that are used across the monorepo. The purpose of these packages is to isolate shared code from the main app, making it easier to manage and update.
+
+Additionally, it makes it easier to swap out parts of the app for different implementations. For example, the `database` package contains everything related to the database, including the schema and migrations. This allows us to easily swap out the database provider or ORM without impacting other parts of the app.
+
+Each package should be self-contained and not depend on other packages. They should export everything that is needed by the app — middleware, hooks, components, etc.
+
+Packages can have a `keys.ts` file that contains the package's environment variables. This is useful for isolating environment variables for a package, and for making it easier to swap out the package's environment variables for different implementations.

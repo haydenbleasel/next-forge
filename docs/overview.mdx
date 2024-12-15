@@ -9,26 +9,6 @@ next-forge is a production-grade [Turborepo](https://turbo.build/repo) template 
 
 It is a culmination of my experience building web apps over the last decade and is designed to get you to build your new SaaS app as quick as possible.
 
-## How it works
-
-next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
-
-The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
-
-The monorepo contains the following apps:
-
-| App | Documentation | Port | Recommended URL |
-| --- | ----------- | ---- | --------------- |
-| `api` | [API](/apps/api) | 3002 | `api.acme.com` |
-| `app` | [App](/apps/app) | 3000 | `app.acme.com` |
-| `docs` | [Docs](/apps/docs) | 3004 | `docs.acme.com` |
-| `email` | [Email](/apps/email) | 3003 | |
-| `storybook` | [Storybook](/apps/storybook) | 6006 | |
-| `studio` | [Studio](/apps/studio) | 3005 | |
-| `web` | [Web](/apps/web) | 3001 | `acme.com` |
-
-While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed above. Remember to add them to your [environment variables](/packages/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
-
 ## Philosophy
 
 next-forge is focused on these key principles.
