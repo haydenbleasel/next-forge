@@ -16,6 +16,10 @@ next-forge implements feature flags using Vercel's [Flags SDK](https://vercel.co
 
 We've created an intelligent function called `createFlag` that you can use to create new flags, complete with authentication, PostHog integration and [Vercel Toolbar](/packages/toolbar) overrides without the hassle.
 
+<Tip>
+  For `FLAGS_SECRET`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
+</Tip>
+
 ## Adding a new flag
 
 To add a new flag, simply create a feature flag in PostHog and then modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
