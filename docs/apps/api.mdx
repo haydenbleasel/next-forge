@@ -7,9 +7,16 @@ description: The next-forge API explained
 
 next-forge exports the API from the `apps/api` directory. It is designed to be run separately from the main app, and is used to run serverless functions e.g. webhooks and cron jobs.
 
+## Overview
+
 The API is separated from the web app for two reasons:
 
 1. To isolate functions that are not part of the main user-facing application i.e. background jobs, cron jobs, webhooks, etc.
 2. To provide a dedicated endpoint for non-web applications e.g. mobile apps, smart home devices, etc.
 
 Functionally speaking, it doesn't matter as much if you're running these projects on Vercel. Serverless functions are all independent pieces of infrastructure and can scale independently.
+
+## Features
+
+- **Cron jobs**: The API is used to run [cron jobs](/packages/cron). These are defined in the `apps/api/app/cron` directory. Each cron job is a `.ts` file that exports a route handler.
+- **Webhooks**: The API is used to run [inbound webhooks](/packages/webhooks). These are defined in the `apps/api/app/webhooks` directory. Each webhook is a `.ts` file that exports a route handler.
