@@ -1,3 +1,15 @@
+# v2.21.8 (Sun Dec 15 2024)
+
+#### ⚠️ Pushed to `main`
+
+- For #359 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.7 (Fri Dec 13 2024)
 
 :tada: This release contains work from a new contributor! :tada:
