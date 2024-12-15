@@ -5,16 +5,13 @@ description: How the "API" application works in next-forge.
 
 <Tip>The `api` application runs on port 3002. We recommend deploying it to `api.{yourdomain}.com`.</Tip>
 
-next-forge exports the API from the `apps/api` directory. It is designed to be run separately from the main app, and is used to run serverless functions e.g. webhooks and cron jobs.
+next-forge exports the API from the `apps/api` directory. It is designed to be run separately from the main app, and is used to run isolate functions that are not part of the main user-facing application e.g. webhooks, cron jobs, etc.
 
 ## Overview
 
-The API is separated from the web app for two reasons:
+The API is designed to run serverless functions, and is not intended to be used as a traditional Node.js server. However, it is designed to be as flexible as possible, and you can switch to running a traditional server if you need to.
 
-1. To isolate functions that are not part of the main user-facing application i.e. background jobs, cron jobs, webhooks, etc.
-2. To provide a dedicated endpoint for non-web applications e.g. mobile apps, smart home devices, etc.
-
-Functionally speaking, it doesn't matter as much if you're running these projects on Vercel. Serverless functions are all independent pieces of infrastructure and can scale independently.
+Functionally speaking, splitting the API from the main app doesn't matter if you're running these projects on Vercel. Serverless functions are all independent pieces of infrastructure and can scale independently. However, having it run independently provides a dedicated endpoint for non-web applications e.g. mobile apps, smart home devices, etc.
 
 ## Features
 
