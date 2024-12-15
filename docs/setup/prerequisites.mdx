@@ -1,11 +1,13 @@
 ---
 title: Prerequisites
-description: How to configure your development environment for next-forge
+description: How to configure your development environment for next-forge.
 ---
 
 ## Operating System
 
-next-forge is designed to work on macOS, Linux and Windows. While next-forge itself is platform-agnostic, the tooling and dependencies we use have different requirements. We've tested and confirmed that next-forge works on the following combinations of operating systems and versions:
+next-forge is designed to work on macOS, Linux and Windows. While next-forge itself is platform-agnostic, the tooling and dependencies we use have different requirements.
+
+We've tested and confirmed that next-forge works on the following combinations of operating systems, Node.js versions and next-forge versions:
 
 | Operating system | next-forge version | Node.js version | Notes |
 | ---------------- | ----------------- | --------------- | ----- |
@@ -18,30 +20,33 @@ We're aware of issues on [non-Ubuntu Linux distributions](https://github.com/hay
 
 ## Package Manager
 
-next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead.
+next-forge defaults to using [pnpm](https://pnpm.io/) as a package manager, but you can use [npm](https://www.npmjs.com/), [yarn](https://yarnpkg.com/) or [bun](https://bun.sh/) instead by passing a flag during the [installation](/setup/installation) step.
 
-| Package Manager | Supported |
-| ---------------- | ----------------- |
-| pnpm | ✅ |
-| npm | ✅ |
-| yarn | ✅ |
-| bun | ✅ |
-
-Learn how to [install pnpm](https://pnpm.io/installation).
+<Card title="Install pnpm" icon="bolt" href="https://pnpm.io/installation" horizontal>
+  Install pnpm for your operating system.
+</Card>
 
 ## Stripe CLI
 
-We use the Stripe CLI to forward webhooks to your local machine. You can read more about that [here](/packages/payments).
+We use the Stripe CLI to forward [payments webhooks](/packages/payments#webhooks) to your local machine.
 
-Learn how to [install the Stripe CLI](https://docs.stripe.com/stripe-cli) for your operating system.
+<Card title="Install the Stripe CLI" icon="bolt" href="https://docs.stripe.com/stripe-cli" horizontal>
+  Install the Stripe CLI for your operating system.
+</Card>
+
+Once installed, you can login to authenticate with your Stripe account.
+
+```sh Terminal
+stripe login
+```
 
 ## Mintlify CLI
 
-We use the Mintlify CLI to preview the docs locally. You can install it with:
+We use the Mintlify CLI to preview the [docs](/apps/docs) locally.
 
-```sh Terminal
-pnpm add -g @mintlify/cli
-```
+<Card title="Install the Mintlify CLI" icon="bolt" href="https://mintlify.com/docs/development" horizontal>
+  Install the Mintlify CLI.
+</Card>
 
 ## Accounts
 
