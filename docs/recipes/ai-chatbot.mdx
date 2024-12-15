@@ -87,7 +87,7 @@ Create a new file called `chat` in the `app/api` directory. This Next.js route h
 
 We're going to use the `streamText` function from our AI package to stream the chatbot's responses to the client. We'll also use the `provider` function from our AI package to get the OpenAI provider, and the `log` function from our Observability package to log the chatbot's responses.
 
-```tsx apps/app/app/api/chat.ts
+```tsx apps/app/app/api/chat/route.ts
 import { streamText } from '@repo/ai';
 import { provider } from '@repo/ai/lib/provider';
 import { log } from '@repo/observability/log';
