@@ -71,7 +71,7 @@
     },
     {
       "group": "Setup",
-      "pages": ["setup/prerequisites", "setup/installation"]
+      "pages": ["setup/prerequisites", "setup/installation", "setup/env"]
     },
     {
       "group": "",
@@ -109,7 +109,6 @@
           ]
         },
         "packages/email",
-        "packages/env",
         "packages/flags",
         "packages/formatting",
         {
@@ -323,8 +322,8 @@
       "destination": "/packages/email"
     },
     {
-      "source": "/env/:slug*",
-      "destination": "/packages/env/:slug*"
+      "source": "/packages/env",
+      "destination": "/setup/env"
     },
     {
       "source": "/flags",
