@@ -13,19 +13,9 @@ The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a too
 
 ## Apps
 
-The monorepo contains the following apps:
+next-forge contains a number of [apps](/apps) that make up your project. Each app is a self-contained application that can be deployed independently.
 
-| App | Documentation | Port | Recommended URL |
-| --- | ----------- | ---- | --------------- |
-| `api` | [API](/apps/api) | 3002 | `api.acme.com` |
-| `app` | [App](/apps/app) | 3000 | `app.acme.com` |
-| `docs` | [Docs](/apps/docs) | 3004 | `docs.acme.com` |
-| `email` | [Email](/apps/email) | 3003 | |
-| `storybook` | [Storybook](/apps/storybook) | 6006 | |
-| `studio` | [Studio](/apps/studio) | 3005 | |
-| `web` | [Web](/apps/web) | 3001 | `acme.com` |
-
-While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed above. Remember to add them to your [environment variables](/packages/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
+While you can choose to run these apps on the subdomain of your choice, the recommended subdomains are listed on each page. Remember to add them to your [environment variables](/packages/env) under `NEXT_PUBLIC_APP_URL`, `NEXT_PUBLIC_WEB_URL`, and `NEXT_PUBLIC_DOCS_URL`.
 
 Each app should be self-contained and not depend on other apps. They should have an `env.ts` file at the root of the app that composes the environment variables from the packages it depends on.
 
