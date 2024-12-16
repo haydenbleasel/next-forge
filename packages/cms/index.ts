@@ -1,4 +1,9 @@
-import { basehub, fragmentOn } from 'basehub';
+import { basehub as basehubClient, fragmentOn } from 'basehub';
+import { keys } from './keys';
+
+const basehub = basehubClient({
+  token: keys().BASEHUB_TOKEN,
+});
 
 const imageFragment = fragmentOn('BlockImage', {
   url: true,
