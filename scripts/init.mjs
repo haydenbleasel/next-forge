@@ -50,14 +50,10 @@ program
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `${packageManager} create next-app@latest ${projectName} --example "${url}"`,
+        `${packageManager} create next-app@latest ${projectName} --example "${url}" --disable-git`,
         execSyncOpts
       );
       process.chdir(projectDir);
-
-      if (existsSync('.git')) {
-        rmSync('.git', { recursive: true, force: true });
-      }
 
       if (packageManager === 'bun') {
         log(chalk.green('Configuring Bun workspaces...'));
@@ -112,7 +108,10 @@ program
       copyFileSync('packages/database/.env.example', 'packages/database/.env');
 
       log(chalk.green('Setting up Prisma...'));
-      execSync(`${packageManager} run build --filter @repo/database`, execSyncOpts);
+      execSync(
+        `${packageManager} run build --filter @repo/database`,
+        execSyncOpts
+      );
 
       log(chalk.green('Done!'));
       log(
