@@ -884,28 +884,6 @@ importers:
         specifier: ^5.7.2
         version: 5.7.2
 
-  packages/env:
-    dependencies:
-      '@t3-oss/env-core':
-        specifier: ^0.11.1
-        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
-      '@t3-oss/env-nextjs':
-        specifier: ^0.11.1
-        version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
-      zod:
-        specifier: ^3.24.1
-        version: 3.24.1
-    devDependencies:
-      '@repo/typescript-config':
-        specifier: workspace:*
-        version: link:../typescript-config
-      '@types/node':
-        specifier: 22.10.1
-        version: 22.10.1
-      typescript:
-        specifier: ^5.7.2
-        version: 5.7.2
-
   packages/feature-flags:
     dependencies:
       '@repo/analytics':
