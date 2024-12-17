@@ -128,7 +128,10 @@
         "features/storage",
         "features/storybook",
         "features/toolbar",
-        "features/webhooks",
+        {
+          "group": "Webhooks",
+          "pages": ["features/webhooks/inbound", "features/webhooks/outbound"]
+        },
         {
           "group": "SEO",
           "pages": [
@@ -331,7 +334,7 @@
     },
     {
       "source": "/webhooks",
-      "destination": "/features/webhooks"
+      "destination": "/features/webhooks/outbound"
     },
     {
       "source": "/seo",
