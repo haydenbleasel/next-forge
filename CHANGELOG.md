@@ -1,3 +1,15 @@
+# v2.21.11 (Tue Dec 17 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Disable git for create-next-app ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.10 (Tue Dec 17 2024)
 
 #### 🐛 Bug Fix
