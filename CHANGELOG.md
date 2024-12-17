@@ -1,3 +1,16 @@
+# v2.21.10 (Tue Dec 17 2024)
+
+#### 🐛 Bug Fix
+
+- Docs - next safe action Addon [#348](https://github.com/haydenbleasel/next-forge/pull/348) ([@pedrocarlo](https://github.com/pedrocarlo) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Pedro Muniz ([@pedrocarlo](https://github.com/pedrocarlo))
+
+---
+
 # v2.21.9 (Tue Dec 17 2024)
 
 #### 🐛 Bug Fix
