@@ -1,3 +1,15 @@
+# v2.21.9 (Tue Dec 17 2024)
+
+#### 🐛 Bug Fix
+
+- add info about getting basehub set up in the intstallation doc [#361](https://github.com/haydenbleasel/next-forge/pull/361) ([@julianbenegas](https://github.com/julianbenegas))
+
+#### Authors: 1
+
+- Julian Benegas ([@julianbenegas](https://github.com/julianbenegas))
+
+---
+
 # v2.21.8 (Sun Dec 15 2024)
 
 #### ⚠️ Pushed to `main`
