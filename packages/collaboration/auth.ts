@@ -1,6 +1,6 @@
 import 'server-only';
 import { Liveblocks as LiveblocksNode } from '@liveblocks/node';
-import { env } from '@repo/env';
+import { keys } from './keys';
 
 type AuthenticateOptions = {
   userId: string;
@@ -8,14 +8,18 @@ type AuthenticateOptions = {
   userInfo: Liveblocks['UserMeta']['info'];
 };
 
+const secret = keys().LIVEBLOCKS_SECRET;
+
 export const authenticate = async ({
   userId,
   orgId,
   userInfo,
 }: AuthenticateOptions) => {
-  const liveblocks = new LiveblocksNode({
-    secret: env.LIVEBLOCKS_SECRET,
-  });
+  if (!secret) {
+    throw new Error('LIVEBLOCKS_SECRET is not set');
+  }
+
+  const liveblocks = new LiveblocksNode({ secret });
 
   // Start an auth session inside your endpoint
   const session = liveblocks.prepareSession(userId, { userInfo });

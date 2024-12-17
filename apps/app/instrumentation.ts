@@ -1,3 +1,3 @@
-import { initializeSentry } from '@repo/next-config/instrumentation';
+import { initializeSentry } from '@repo/observability/instrumentation';
 
 export const register = initializeSentry();

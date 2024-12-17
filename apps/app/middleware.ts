@@ -1,7 +1,14 @@
 import { authMiddleware } from '@repo/auth/middleware';
-import { noseconeConfig, noseconeMiddleware } from '@repo/security/middleware';
+import {
+  noseconeMiddleware,
+  noseconeOptions,
+  noseconeOptionsWithToolbar,
+} from '@repo/security/middleware';
+import { env } from './env';
 
-const securityHeaders = noseconeMiddleware(noseconeConfig);
+const securityHeaders = env.FLAGS_SECRET
+  ? noseconeMiddleware(noseconeOptionsWithToolbar)
+  : noseconeMiddleware(noseconeOptions);
 
 export default authMiddleware(() => securityHeaders());
 

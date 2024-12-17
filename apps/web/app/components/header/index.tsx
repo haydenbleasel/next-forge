@@ -1,5 +1,6 @@
 'use client';
 
+import { env } from '@/env';
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 import { Button } from '@repo/design-system/components/ui/button';
 import {
@@ -10,7 +11,6 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from '@repo/design-system/components/ui/navigation-menu';
-import { env } from '@repo/env';
 import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';

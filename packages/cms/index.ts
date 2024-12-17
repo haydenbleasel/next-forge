@@ -1,4 +1,9 @@
-import { basehub, fragmentOn } from 'basehub';
+import { basehub as basehubClient, fragmentOn } from 'basehub';
+import { keys } from './keys';
+
+const basehub = basehubClient({
+  token: keys().BASEHUB_TOKEN,
+});
 
 const imageFragment = fragmentOn('BlockImage', {
   url: true,
@@ -81,20 +86,20 @@ export const blog = {
   }),
 
   getPosts: async () => {
-    const data = await basehub().query(blog.postsQuery);
+    const data = await basehub.query(blog.postsQuery);
 
     return data.blog.posts.items;
   },
 
   getLatestPost: async () => {
-    const data = await basehub().query(blog.latestPostQuery);
+    const data = await basehub.query(blog.latestPostQuery);
 
     return data.blog.posts.items.at(0);
   },
 
   getPost: async (slug: string) => {
     const query = blog.postQuery(slug);
-    const data = await basehub().query(query);
+    const data = await basehub.query(query);
 
     return data.blog.posts.items.at(0);
   },
@@ -129,20 +134,20 @@ export const legal = {
   }),
 
   getPosts: async () => {
-    const data = await basehub().query(legal.postsQuery);
+    const data = await basehub.query(legal.postsQuery);
 
     return data.legalPages.items;
   },
 
   getLatestPost: async () => {
-    const data = await basehub().query(legal.latestPostQuery);
+    const data = await basehub.query(legal.latestPostQuery);
 
     return data.legalPages.items.at(0);
   },
 
   getPost: async (slug: string) => {
     const query = legal.postQuery(slug);
-    const data = await basehub().query(query);
+    const data = await basehub.query(query);
 
     return data.legalPages.items.at(0);
   },
