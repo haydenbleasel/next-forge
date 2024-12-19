@@ -84,7 +84,14 @@
         "features/authentication",
         "features/bundle-analysis",
         "features/collaboration",
-        "features/cms",
+        {
+          "group": "CMS",
+          "pages": [
+            "features/cms/overview",
+            "features/cms/components",
+            "features/cms/metadata"
+          ]
+        },
         "features/cron",
         "features/database",
         {
