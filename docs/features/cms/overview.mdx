@@ -1,5 +1,5 @@
 ---
-title: CMS
+title: Overview
 description: How the CMS is configured in next-forge.
 ---
 
@@ -64,26 +64,43 @@ Update your [environment variables](/features/env) to use the new BaseHub token.
 BASEHUB_TOKEN="<token>"
 ```
 
-## How it works
+### 3. Start the dev server
 
-### The `Feed` component
+When you run `pnpm dev`, the CMS package will generate the type-safe BaseHub SDK, and watch changes to your CMS's schema.
 
-The `Feed` component is a wrapper around BaseHub's `Pump` component — a React Server Component that gets generated with the basehub SDK. It leverages RSC, Server Actions, and the existing BaseHub client to subscribe to changes in real time with minimal development effort.
+<Note>You might need to run `Restart TS Server` in your IDE for TypeScript to pick up the new types.</Note>
 
-It's also setup by default to use Next.js [Draft Mode](https://nextjs.org/docs/app/building-your-application/configuring/draft-mode), allowing you to preview draft content in your app.
+## Querying Basics
 
-### The `Body` component
+The structure of the CMS should look something like this:
 
-The `Body` component is a wrapper around BaseHub's `RichText` component — BaseHub's rich text renderer which supports passing custom handlers for native html elements and BaseHub components.
+```txt
+- Blog
+  - Posts
+  - Authors
+  - Categories
+- Legal Pages
+```
 
-### The `TableOfContents` component
+So in order to get all posts, you'd write a query like this:
 
-The `TableOfContents` component leverages the `Body` component to render the table of contents for the current page.
+```ts
+{
+  blog: {
+    posts: {
+      items: {
+        _title: true,
+        _slug: true,
+        authors: { _title: true }, // references the authors collection
+        // ...
+      },
+    },
+  },
+}
+```
 
-### The `Image` component
+Starter queries are provided for you in the `cms` package, within the `blog` and `legal` objects. You can read more about the BaseHub SDK in [their docs](https://docs.basehub.com/nextjs-integration/).
 
-The `Image` component is a wrapper around BaseHub's `BaseHubImage` component, which comes with built-in image resizing and optimization. BaseHub recommendeds using the `BaseHubImage` component instead of the standard Next.js `Image` component as it uses `Image` under the hood, but adds a custom loader to leverage BaseHub's image pipeline.
+## Revalidation
 
-## The `Toolbar` component
-
-The `Toolbar` component is a wrapper around BaseHub's `Toolbar` component, which helps manage draft mode and switch branches in your site previews. It's automatically mounted on CMS pages.
+A key part of any good CMS integration is the ability to revalidate content when it changes. To do that, BaseHub comes with automatic on-demand revalidation. Read more about how it works in [their documentation](https://docs.basehub.com/nextjs-integration/environments-and-caching#on-demand-revalidation-recommended).
