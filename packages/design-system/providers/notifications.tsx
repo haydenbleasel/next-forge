@@ -1,3 +1,5 @@
+'use client';
+
 import { KnockFeedProvider, KnockProvider } from '@knocklabs/react';
 import type { ReactNode } from 'react';
 
