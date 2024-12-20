@@ -29,3 +29,90 @@ import { Authors } from "/snippets/authors.mdx";
     },
   ]}
 />
+
+To generate metadata for a particular page or collection item, we can use the BaseHub SDK to query the metadata, then use Next.js' `generateMetadata` function to generate the metadata.
+
+For example, here's how we've wired up the metadata for the blog post page:
+
+```tsx apps/web/app/blog/[slug]/page.tsx
+import { blog } from '@repo/cms';
+
+type BlogPostProperties = {
+  readonly params: Promise<{
+    slug: string;
+  }>;
+};
+
+export const generateMetadata = async ({
+  params,
+}: BlogPostProperties): Promise<Metadata> => {
+  const { slug } = await params;
+  const post = await blog.getPost(slug);
+
+  if (!post) {
+    return {};
+  }
+
+  return createMetadata({
+    title: post._title,
+    description: post.description,
+    image: post.image.url,
+  });
+};
+```
+
+The `createMetadata` function is a utility function that creates the metadata object. It takes a title, description, and image, and returns an object that can be used by Next.js to generate the metadata for the page.
+
+`blog.getPost` is a function that abstracts the logic of fetching the blog post from the CMS. Under the hood, it uses the BaseHub SDK to fetch the blog post from the CMS:
+
+```tsx packages/cms/index.ts
+import { basehub, fragmentOn } from 'basehub';
+
+const postFragment = fragmentOn('PostsItem', {
+  _slug: true,
+  _title: true,
+  authors: {
+    _title: true,
+    avatar: imageFragment,
+    xUrl: true,
+  },
+  body: {
+    plainText: true,
+    json: {
+      content: true,
+      toc: true,
+    },
+    readingTime: true,
+  },
+  categories: {
+    _title: true,
+  },
+  date: true,
+  description: true,
+  image: imageFragment,
+});
+
+export const blog = {
+  // ...
+
+  postQuery: (slug: string) => ({
+    blog: {
+      posts: {
+        __args: {
+          filter: {
+            _sys_slug: { eq: slug },
+          },
+        },
+        items: postFragment,
+      },
+    },
+  }),
+
+  getPost: async (slug: string) => {
+    const query = blog.postQuery(slug);
+    const data = await basehub().query(query);
+
+    return data.blog.posts.items.at(0);
+  },
+};
+```
