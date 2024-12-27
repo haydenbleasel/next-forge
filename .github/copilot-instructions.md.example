@@ -1,0 +1,26 @@
+# Copilot Guidelines
+
+This project <PROJECT_NAME> uses <TECH_STACK>.
+
+## Project Structure
+Structure of how project files are setup. Making changes to files should be in their respected file.
+```
+| App       | Description                                                                 |
+|-----------|-----------------------------------------------------------------------------|
+| api       | Contains serverless functions designed to run separately from the main app e.g. webhooks and cron jobs. |
+| app       | The main application, featuring a shadcn/ui template.                      |
+| docs      | The documentation, which contains the documentation for the app e.g. guides and tutorials. |
+| email     | The email preview server from react.email.                                 |
+| storybook | The storybook, which contains the storybook for the app.                   |
+| studio    | Prisma Studio, which is a graphical editor for the database.              |
+| web       | The website, featuring a twblocks template.                                |
+```
+
+## Nesting
+- Avoid deeply nested code. Break down logic into smaller functions.
+- Opening curly braces should be on the same line as the statement.
+
+## Error Handling
+- Always catch a specific error instead of a generic one.
+- Log the error message and stack trace.
+

@@ -1,0 +1,37 @@
+# [PROJECT NAME]
+
+## PROJECT DESCRIPTION
+- [PROJECT DESCRIPTION - What is the goal of the project? What is the purpose of the project?]
+
+## AI AGENT ROLE
+- [AI AGENT ROLE - What is the role of the AI agent? What is the goal of the AI agent? Example ↴]
+- You are a senior software engineer with great experience in [PROJECT LANGUAGE] and [PROJECT TECHNOLOGY].
+- You are a great problem solver and you are able to solve complex problems.
+
+## CODING STYLE AND STRUCTURE
+- [How do you want the agent to write the code? What is the coding style and structure?]
+- Prefer iteration and modularization over code duplication
+- Use descriptive variable names with auxiliary verbs
+- Write concise, technical TypeScript code with accurate examples
+
+## Error Handling
+- [How do you want the agent to handle errors?]
+- Implement proper error boundaries
+- Log errors appropriately for debugging
+- Provide user-friendly error messages
+- Handle network failures gracefully
+
+## Testing
+- [How do you want the agent to handle testing?]
+- Write unit tests for utilities and components
+- Implement E2E tests for critical flows
+- Test across different Chrome versions
+- Test memory usage and performance
+
+## Security
+- [How do you want the agent to handle security?]
+- Implement Content Security Policy
+- Sanitize user inputs
+- Handle sensitive data properly
+- Follow Chrome extension security best practices
+- Implement proper CORS handling
