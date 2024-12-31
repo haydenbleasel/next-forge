@@ -14,6 +14,11 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
 
+const protocol = env.VERCEL_PROJECT_PRODUCTION_URL?.startsWith('https')
+  ? 'https'
+  : 'http';
+const url = new URL(`${protocol}://${env.VERCEL_PROJECT_PRODUCTION_URL}`);
+
 type BlogPostProperties = {
   readonly params: Promise<{
     slug: string;
@@ -69,10 +74,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 description: page.description,
                 mainEntityOfPage: {
                   '@type': 'WebPage',
-                  '@id': new URL(
-                    `/blog/${slug}`,
-                    env.VERCEL_PROJECT_PRODUCTION_URL
-                  ).toString(),
+                  '@id': new URL(`/blog/${slug}`, url).toString(),
                 },
                 headline: page._title,
                 image: page.image.url,
