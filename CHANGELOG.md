@@ -1,3 +1,15 @@
+# v3.0.2 (Tue Dec 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Build out stub doc files, update images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.1 (Tue Dec 31 2024)
 
 #### ⚠️ Pushed to `main`
