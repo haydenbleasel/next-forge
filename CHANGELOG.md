@@ -1,3 +1,15 @@
+# v3.0.0 (Tue Dec 31 2024)
+
+#### 💥 Breaking Change
+
+- Composable environment variables [#332](https://github.com/haydenbleasel/next-forge/pull/332) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.11 (Tue Dec 17 2024)
 
 #### ⚠️ Pushed to `main`
