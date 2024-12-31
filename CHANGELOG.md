@@ -1,3 +1,16 @@
+# v3.0.1 (Tue Dec 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix usage of VERCEL_PROJECT_PRODUCTION_URL ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.0 (Tue Dec 31 2024)
 
 #### 💥 Breaking Change
