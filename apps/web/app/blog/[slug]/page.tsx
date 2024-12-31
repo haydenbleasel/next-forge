@@ -1,11 +1,11 @@
 import { Sidebar } from '@/components/sidebar';
+import { env } from '@/env';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { blog } from '@repo/cms';
 import { Body } from '@repo/cms/components/body';
 import { Feed } from '@repo/cms/components/feed';
 import { Image } from '@repo/cms/components/image';
 import { TableOfContents } from '@repo/cms/components/toc';
-import { env } from '@repo/env';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
@@ -71,7 +71,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                   '@type': 'WebPage',
                   '@id': new URL(
                     `/blog/${slug}`,
-                    env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
+                    env.VERCEL_PROJECT_PRODUCTION_URL
                   ).toString(),
                 },
                 headline: page._title,

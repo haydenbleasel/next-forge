@@ -3,6 +3,7 @@ import './styles/web.css';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
 import { cn } from '@repo/design-system/lib/utils';
+import { Toolbar } from '@repo/feature-flags/components/toolbar';
 import type { ReactNode } from 'react';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
@@ -23,6 +24,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
         {children}
         <Footer />
       </DesignSystemProvider>
+      <Toolbar />
     </body>
   </html>
 );

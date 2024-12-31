@@ -1,4 +1,4 @@
-import { env } from '@repo/env';
+import { env } from '@/env';
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
@@ -7,9 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: new URL(
-      '/sitemap.xml',
-      env.NEXT_PUBLIC_VERCEL_PROJECT_PRODUCTION_URL
-    ).href,
+    sitemap: new URL('/sitemap.xml', env.VERCEL_PROJECT_PRODUCTION_URL).href,
   };
 }

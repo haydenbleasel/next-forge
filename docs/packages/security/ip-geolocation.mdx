@@ -1,0 +1,71 @@
+---
+title: IP Geolocation
+description: Accessing IP geolocation data in your application.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'David Mytton',
+    id: 'davidmytton',
+  },
+  company: {
+    name: 'Arcjet',
+    id: 'arcjet',
+  },
+}]} />
+
+next-forge uses [Arcjet](https://arcjet.com) for [application security](/packages/security/application) which includes [IP details and geolocation information](https://docs.arcjet.com/reference/nextjs#ip-analysis) you can use in your application.
+
+In the `app` application, Arcjet is called in the `apps/app/app/(authenticated)/layout.tsx` file which runs on every authenticated route.
+
+For the `web` application, Arcjet is called in the middleware, which runs on every request except for static assets.
+
+In both cases you could apply app-/website-wide rules based on the IP details, such as showing different content based on the user's location.
+
+## Accessing IP location data
+
+The IP details are available in the Arcjet decision object, which is returned from the all to `aj.protect()`. The IP location fields may be `undefined`, so you can use various utility functions to retrieve the data.
+
+```ts
+// ...
+const decision = await aj.protect(req);
+
+if (decision.ip.hasCity() && decision.ip.city === "San Francisco") {
+  // Create a custom response for San Francisco
+}
+
+if (decision.ip.hasRegion() && decision.ip.region === "California") {
+  // Create a custom response for California
+}
+
+if (decision.ip.hasCountry() && decision.ip.country === "US") {
+  // Create a custom response for the United States
+}
+
+if (decision.ip.hasContinent() && decision.ip.continent === "NA") {
+  // Create a custom response for North America
+}
+```
+
+See the Arcjet [IP analysis reference](https://docs.arcjet.com/reference/nextjs#ip-analysis) for more information on the fields available.
+
+## Accessing IP details elsewhere
+
+Next.js does not allow passing data from [the root layout](https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates) or middleware to other pages in your application. To access the IP details in other parts of your application, you need to remove the Arcjet call from the root layout (`app`) or middleware (`web`) and call it in the specific page where you need the IP details.
+
+See the Arcjet documentation on how to call `aj.protect()` in [route handlers](https://docs.arcjet.com/reference/nextjs#protect), [pages / server components](https://docs.arcjet.com/reference/nextjs#pages--page-components), and [server actions](https://docs.arcjet.com/reference/nextjs#server-actions).
+
+<Note>
+  If you remove the Arcjet call from `apps/app/app/(authenticated)/layout.tsx` or `middleware.ts` it will no longer run on every request. You will need to call `aj.protect()` everywhere you wish to apply Arcjet rules, even if you don't need the IP details.
+</Note>

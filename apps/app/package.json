@@ -17,14 +17,15 @@
     "@repo/collaboration": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
-    "@repo/env": "workspace:*",
     "@repo/feature-flags": "workspace:*",
     "@repo/next-config": "workspace:*",
+    "@repo/observability": "workspace:*",
     "@repo/security": "workspace:*",
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/webhooks": "workspace:*",
     "@sentry/nextjs": "^8.43.0",
+    "@t3-oss/env-nextjs": "^0.11.1",
     "fuse.js": "^7.0.0",
     "import-in-the-middle": "^1.11.3",
     "lucide-react": "^0.468.0",
@@ -32,7 +33,8 @@
     "next-themes": "^0.4.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "require-in-the-middle": "^7.4.0"
+    "require-in-the-middle": "^7.4.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@repo/testing": "workspace:*",
