@@ -5,10 +5,11 @@
  */
 
 import { init, replayIntegration } from '@sentry/nextjs';
+import { keys } from './keys';
 
 export const initializeSentry = (): ReturnType<typeof init> =>
   init({
-    dsn: process.env.NEXT_PUBLIC_SENTRY_DSN,
+    dsn: keys().NEXT_PUBLIC_SENTRY_DSN,
 
     // Adjust this value in production, or use tracesSampler for greater control
     tracesSampleRate: 1,
