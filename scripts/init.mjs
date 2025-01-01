@@ -34,6 +34,13 @@ const internalContentFiles = [
 ];
 const allInternalContent = [...internalContentDirs, ...internalContentFiles];
 
+const runCommand = {
+  pnpm: 'pnpm',
+  npm: 'npx',
+  yarn: 'yarn',
+  bun: 'bunx',
+};
+
 program
   .command('init <name>')
   .description('Initialize a new next-forge project')
@@ -50,7 +57,7 @@ program
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `${packageManager} create next-app@latest ${projectName} --example "${url}" --disable-git`,
+        `${runCommand[packageManager]} create next-app@latest ${projectName} --example "${url}" --disable-git`,
         execSyncOpts
       );
       process.chdir(projectDir);
