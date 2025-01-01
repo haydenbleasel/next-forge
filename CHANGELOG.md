@@ -1,3 +1,16 @@
+# v3.0.3 (Wed Jan 01 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Use keys for DSN ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix vitest command ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.2 (Tue Dec 31 2024)
 
 #### ⚠️ Pushed to `main`
