@@ -1,3 +1,15 @@
+# v3.0.4 (Wed Jan 01 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update Stripe API version ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.3 (Wed Jan 01 2025)
 
 #### ⚠️ Pushed to `main`
