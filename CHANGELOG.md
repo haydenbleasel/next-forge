@@ -1,3 +1,15 @@
+# v3.0.8 (Thu Jan 02 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update edgedb.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.7 (Thu Jan 02 2025)
 
 :tada: This release contains work from a new contributor! :tada:
