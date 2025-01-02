@@ -7,6 +7,15 @@ import { Authors } from '/snippets/authors.mdx';
 
 <Authors data={[{
   user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
     name: 'Aleksandra Sikora',
     id: 'beerose',
   },
@@ -33,13 +42,13 @@ Create an account at [EdgeDB Cloud](https://cloud.edgedb.com/). Once done, creat
 
 ## 2. Swap out the required dependencies in `@repo/database`
 
-Uninstall the existing dependencies…
+Uninstall the existing dependencies...
 
 ```sh Terminal
 pnpm remove @prisma/adapter-neon @prisma/client prisma --filter @repo/database
 ```
 
-… and install the new dependencies:
+... and install the new dependencies:
 
 ```sh Terminal
 pnpm add edgedb @edgedb/generate
@@ -124,12 +133,12 @@ For example, here’s how we can update the `page` query in `app/(authenticated)
 
 ```tsx app/(authenticated)/page.tsx {2,7-8}
 import { database } from '@repo/database';
-import e from '@repo/database/dbschema/edgeql-js';
+import edgeql from '@repo/database/dbschema/edgeql-js';
 
 // ...
 
 const App = async () => {
-  const pagesQuery = e.select(e.Page, () => ({ ...e.Page['*'] }));
+  const pagesQuery = edgeql.select(edgeql.Page, () => ({ ...edgeql.Page['*'] }));
   const pages = await pagesQuery.run(database);
 
   // ...
