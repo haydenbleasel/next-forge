@@ -1,3 +1,20 @@
+# v3.0.7 (Thu Jan 02 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Aleksandra ([@beerose](https://github.com/beerose)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Add EdgeDB migration guide [#383](https://github.com/haydenbleasel/next-forge/pull/383) ([@beerose](https://github.com/beerose) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Aleksandra ([@beerose](https://github.com/beerose))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.5 (Thu Jan 02 2025)
 
 #### ⚠️ Pushed to `main`
