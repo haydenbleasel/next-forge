@@ -1,3 +1,21 @@
+# v3.0.5 (Thu Jan 02 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #378 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump @types/node from 22.9.4 to 22.10.3 [#380](https://github.com/haydenbleasel/next-forge/pull/380) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.4 (Wed Jan 01 2025)
 
 #### ⚠️ Pushed to `main`
