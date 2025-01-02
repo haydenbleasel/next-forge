@@ -171,6 +171,7 @@
         "migrations/database/planetscale",
         "migrations/database/prisma-postgres",
         "migrations/database/supabase",
+        "migrations/database/edgedb",
         "migrations/database/turso"
       ]
     },
