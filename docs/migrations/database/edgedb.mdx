@@ -80,9 +80,9 @@ Update the database connection code to use an EdgeDB client:
 ```ts packages/database/index.ts
 import 'server-only';
 
-import { createClient } from "edgedb"
+import { createClient } from "edgedb";
 
-export const database = createClient()
+export const database = createClient();
 ```
 
 ## 5. Update the schema file and generate types
@@ -129,8 +129,8 @@ import e from '@repo/database/dbschema/edgeql-js';
 // ...
 
 const App = async () => {
-  const pagesQuery = e.select(e.Page, () => ({ ...e.Page['*'] }))
-  const pages = await pagesQuery.run(database)
+  const pagesQuery = e.select(e.Page, () => ({ ...e.Page['*'] }));
+  const pages = await pagesQuery.run(database);
 
   // ...
 };
