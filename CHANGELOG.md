@@ -1,3 +1,15 @@
+# v3.0.9 (Fri Jan 03 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove all-contributors ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.8 (Thu Jan 02 2025)
 
 #### ⚠️ Pushed to `main`
