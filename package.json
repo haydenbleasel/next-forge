@@ -4,9 +4,7 @@
   "bin": {
     "next-forge": "scripts/init.mjs"
   },
-  "files": [
-    "scripts/init.mjs"
-  ],
+  "files": ["scripts/init.mjs"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
@@ -20,7 +18,6 @@
     "clean": "git clean -xdf node_modules"
   },
   "devDependencies": {
-    "@auto-it/all-contributors": "^11.3.0",
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",

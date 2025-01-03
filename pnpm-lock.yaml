@@ -15,9 +15,6 @@ importers:
         specifier: ^13.0.0
         version: 13.0.0
     devDependencies:
-      '@auto-it/all-contributors':
-        specifier: ^11.3.0
-        version: 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.15))(@types/node@22.10.3)(typescript@5.7.2)
       '@auto-it/first-time-contributor':
         specifier: ^11.3.0
         version: 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.15))(@types/node@22.10.3)(typescript@5.7.2)
@@ -1300,9 +1297,6 @@ packages:
   '@arcjet/transport@1.0.0-alpha.34':
     resolution: {integrity: sha512-plcUZ75X99CHJsmWY50ZWcukmwIFISZZzKzlFk4cAiEabuAY5s6cCgTdlf2p82unYSV7VtgpQyTM2YURP+A5UQ==}
     engines: {node: '>=18'}
-
-  '@auto-it/all-contributors@11.3.0':
-    resolution: {integrity: sha512-2d9y9P5mZoqrqkvIHfQmZ57sLS6vNhLW3bilqPbWW+hzzeJeGIx5cKLIHG+RfuDCeP9d3A3Ahnj7ilIMMUVENA==}
 
   '@auto-it/bot-list@11.3.0':
     resolution: {integrity: sha512-+izoqAyOSiDVt3WcjVkSvLBV9c82VXLSf3oSWWcCeoxW/YDQ2AoInQ3M3EEyuBP+Yw9KQwGTTYHqpR7ZFkZpDQ==}
@@ -5218,11 +5212,6 @@ packages:
   algoliasearch@4.24.0:
     resolution: {integrity: sha512-bf0QV/9jVejssFBmz2HQLxUadxk574t4iwjCKp5E7NBzwKkrDEhKPISIIjAU/p6K5qDx3qoeh4+26zWN1jmw3g==}
 
-  all-contributors-cli@6.19.0:
-    resolution: {integrity: sha512-QJN4iLeTeYpTZJES8XFTzQ+itA1qSyBbxLapJLtwrnY+kipyRhCX49fS/s/qftQQym9XLATMZUpUeEeJSox1sw==}
-    engines: {node: '>=4'}
-    hasBin: true
-
   ansi-colors@4.1.3:
     resolution: {integrity: sha512-/6w/C21Pm1A7aZitlI5Ni/2J6FFQN8i1Cvz3kHABAAbw93v/NlvKdVOqz7CCWz/3iv/JplRSEEZ83XION15ovw==}
     engines: {node: '>=6'}
@@ -5346,9 +5335,6 @@ packages:
 
   async-retry@1.3.3:
     resolution: {integrity: sha512-wfr/jstw9xNi/0teMHrRW7dsz3Lt5ARhYNZ2ewpadnhaIp5mbALhOAP+EAdsC7t4Z6wqsDVv9+W6gm1Dk9mEyw==}
-
-  async@3.2.6:
-    resolution: {integrity: sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==}
 
   asynckit@0.4.0:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
@@ -7234,10 +7220,6 @@ packages:
   json-buffer@3.0.1:
     resolution: {integrity: sha512-4bV5BfR2mqfQTJm+V5tPPdf+ZpuhiIvTuAB5g8kcrXOZpTT/QwwVRWBywX1ozr6lEuPdbHxwaJlm9G6mI2sfSQ==}
 
-  json-fixer@1.6.15:
-    resolution: {integrity: sha512-TuDuZ5KrgyjoCIppdPXBMqiGfota55+odM+j2cQ5rt/XKyKmqGB3Whz1F8SN8+60yYGy/Nu5lbRZ+rx8kBIvBw==}
-    engines: {node: '>=10'}
-
   json-parse-better-errors@1.0.2:
     resolution: {integrity: sha512-mrqyZKfX5EhL7hvqcV6WG1yYjnjeuYDzDhhcAAUrq8Po85NBQBJP+ZDUT75qZQ98IkUoBqdkExkukOU7Ts2wrw==}
 
@@ -8138,11 +8120,6 @@ packages:
   peberminta@0.9.0:
     resolution: {integrity: sha512-XIxfHpEuSJbITd1H3EeQwpcZbTLHc+VVr8ANI9t5sit565tsI4/xK3KWTUFE2e6QiangUkh3B0jihzmGnNrRsQ==}
 
-  pegjs@0.10.0:
-    resolution: {integrity: sha512-qI5+oFNEGi3L5HAxDwN2LA4Gg7irF70Zs25edhjld9QemOgp0CbvMtbFcMvFtEo1OityPrcCzkQFB8JP/hxgow==}
-    engines: {node: '>=0.10'}
-    hasBin: true
-
   pg-int8@1.0.1:
     resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
     engines: {node: '>=4.0.0'}
@@ -8183,10 +8160,6 @@ packages:
   pify@3.0.0:
     resolution: {integrity: sha512-C3FsVNH1udSEX48gGX1xfvwTWfsYWj5U+8/uK15BGzIGrKoUpghX8hWZwa/OFnakBiiVNmBvemTJR5mcy7iPcg==}
     engines: {node: '>=4'}
-
-  pify@5.0.0:
-    resolution: {integrity: sha512-eW/gHNMlxdSP6dmG6uJip6FXN0EQBwm2clYYd8Wul42Cwu/DK8HEftzsapcNdYe2MfLiIwZqsDk2RDEsTE79hA==}
-    engines: {node: '>=10'}
 
   pirates@4.0.6:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
@@ -10232,28 +10205,6 @@ snapshots:
     transitivePeerDependencies:
       - '@bufbuild/protobuf'
       - '@connectrpc/connect'
-
-  '@auto-it/all-contributors@11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.15))(@types/node@22.10.3)(typescript@5.7.2)':
-    dependencies:
-      '@auto-it/bot-list': 11.3.0
-      '@auto-it/core': 11.3.0(@swc/core@1.3.101(@swc/helpers@0.5.15))(@types/node@22.10.3)(typescript@5.7.2)
-      '@octokit/rest': 18.12.0
-      all-contributors-cli: 6.19.0
-      anymatch: 3.1.3
-      await-to-js: 3.0.0
-      endent: 2.1.0
-      env-ci: 5.5.0
-      fp-ts: 2.16.9
-      fromentries: 1.3.2
-      io-ts: 2.2.21(fp-ts@2.16.9)
-      tslib: 2.1.0
-    transitivePeerDependencies:
-      - '@swc/core'
-      - '@swc/wasm'
-      - '@types/node'
-      - encoding
-      - supports-color
-      - typescript
 
   '@auto-it/bot-list@11.3.0': {}
 
@@ -14726,21 +14677,6 @@ snapshots:
       '@algolia/transporter': 4.24.0
     optional: true
 
-  all-contributors-cli@6.19.0:
-    dependencies:
-      '@babel/runtime': 7.24.6
-      async: 3.2.6
-      chalk: 4.1.2
-      didyoumean: 1.2.2
-      inquirer: 7.3.3
-      json-fixer: 1.6.15
-      lodash: 4.17.21
-      node-fetch: 2.7.0
-      pify: 5.0.0
-      yargs: 15.4.1
-    transitivePeerDependencies:
-      - encoding
-
   ansi-colors@4.1.3: {}
 
   ansi-escapes@4.3.2:
@@ -14862,8 +14798,6 @@ snapshots:
   async-retry@1.3.3:
     dependencies:
       retry: 0.13.1
-
-  async@3.2.6: {}
 
   asynckit@0.4.0: {}
 
@@ -17057,12 +16991,6 @@ snapshots:
 
   json-buffer@3.0.1: {}
 
-  json-fixer@1.6.15:
-    dependencies:
-      '@babel/runtime': 7.24.6
-      chalk: 4.1.2
-      pegjs: 0.10.0
-
   json-parse-better-errors@1.0.2: {}
 
   json-parse-even-better-errors@2.3.1: {}
@@ -18291,8 +18219,6 @@ snapshots:
 
   peberminta@0.9.0: {}
 
-  pegjs@0.10.0: {}
-
   pg-int8@1.0.1: {}
 
   pg-numeric@1.0.2: {}
@@ -18328,8 +18254,6 @@ snapshots:
   pify@2.3.0: {}
 
   pify@3.0.0: {}
-
-  pify@5.0.0: {}
 
   pirates@4.0.6: {}
 
