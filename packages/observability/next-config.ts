@@ -39,7 +39,13 @@ export const sentryConfig: Parameters<typeof withSentryConfig>[1] = {
   automaticVercelMonitors: true,
 };
 
-export const withSentry = (sourceConfig: object): object =>
-  withSentryConfig(sourceConfig, sentryConfig);
+export const withSentry = (sourceConfig: object): object => {
+  const configWithTranspile = {
+    ...sourceConfig,
+    transpilePackages: ['@sentry/nextjs'],
+  };
+
+  return withSentryConfig(configWithTranspile, sentryConfig);
+};
 
 export { withLogtail } from '@logtail/next';
