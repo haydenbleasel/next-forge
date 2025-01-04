@@ -1,3 +1,15 @@
+# v3.0.10 (Sat Jan 04 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #386 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.9 (Fri Jan 03 2025)
 
 #### ⚠️ Pushed to `main`
