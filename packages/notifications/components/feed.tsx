@@ -9,7 +9,7 @@ import { useRef, useState } from 'react';
 // Required CSS import, unless you're overriding the styling
 import '@knocklabs/react/dist/index.css';
 
-export const KnockNotificationFeed = () => {
+export const Feed = () => {
   const [isVisible, setIsVisible] = useState(false);
   const notifButtonRef = useRef(null);
 
