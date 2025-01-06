@@ -1,8 +1,8 @@
 import { env } from '@/env';
 import { auth, currentUser } from '@repo/auth/server';
 import { SidebarProvider } from '@repo/design-system/components/ui/sidebar';
-import { NotificationsProvider } from '@repo/design-system/providers/notifications';
 import { showBetaFeature } from '@repo/feature-flags';
+import { NotificationsProvider } from '@repo/notifications/components/provider';
 import { secure } from '@repo/security';
 import type { ReactNode } from 'react';
 import { PostHogIdentifier } from './components/posthog-identifier';

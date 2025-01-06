@@ -127,6 +127,9 @@ importers:
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
+      '@repo/notifications':
+        specifier: workspace:*
+        version: link:../../packages/notifications
       '@repo/observability':
         specifier: workspace:*
         version: link:../../packages/observability
