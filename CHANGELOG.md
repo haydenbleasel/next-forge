@@ -1,3 +1,15 @@
+# v3.0.19 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove unused dep ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.18 (Thu Jan 09 2025)
 
 #### ⚠️ Pushed to `main`
