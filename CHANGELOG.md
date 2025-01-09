@@ -1,3 +1,19 @@
+# v3.0.17 (Thu Jan 09 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Trevor Pfizenmaier ([@trevorpfiz](https://github.com/trevorpfiz)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix: cron jobs must use GET on Vercel [#391](https://github.com/haydenbleasel/next-forge/pull/391) ([@trevorpfiz](https://github.com/trevorpfiz))
+
+#### Authors: 1
+
+- Trevor Pfizenmaier ([@trevorpfiz](https://github.com/trevorpfiz))
+
+---
+
 # v3.0.16 (Thu Jan 09 2025)
 
 #### ⚠️ Pushed to `main`
