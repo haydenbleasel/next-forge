@@ -1,3 +1,20 @@
+# v3.0.18 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump next from 15.1.3 to 15.1.4 in the npm_and_yarn group [#392](https://github.com/haydenbleasel/next-forge/pull/392) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.0.17 (Thu Jan 09 2025)
 
 :tada: This release contains work from a new contributor! :tada:
