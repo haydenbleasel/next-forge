@@ -38,7 +38,7 @@ const runCommand = {
   pnpm: 'pnpm',
   npm: 'npx',
   yarn: 'yarn',
-  bun: 'bunx',
+  bun: 'bun',
 };
 
 program
