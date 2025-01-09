@@ -24,3 +24,46 @@ import { Authors } from '/snippets/authors.mdx';
     id: 'knock',
   },
 }]} />
+
+next-forge supports sending in-app notifications to your users using [Knock](https://knock.app/). Knock is a cross-channel notification platform that supports in-app, email, SMS, push, and chat notifications.
+
+
+## How it works
+
+Knock allows you to centralize your notification logic and templates in one place and [orchestrate complex workflows](https://docs.knock.app/designing-workflows/overview) with things like branching, batching, throttling, delays, and conditional sending. To use Knock with next-forge, you need to provide values for the `KNOCK_API_KEY`,`KNOCK_SECRET_API_KEY`, and `KNOCK_FEED_CHANNEL_ID` environment variables.
+
+## Usage
+
+### Render an in-app feed
+To render an in-app feed, import the `Feed` component from the `@repo/notifications` package and use it in your app:
+
+
+```tsx
+import { Feed } from '@repo/notifications/feed';
+
+<Feed/>
+```
+
+### Send a notification
+
+Knock sends notifications using workflows. To send an in-app notification, create a new [workflow](https://docs.knock.app/concepts/workflows) in the Knock dashboard that uses the [`in-app` channel provider](https://docs.knock.app/integrations/in-app/knock) and create a corresponding message template.
+
+Then you can [trigger that workflow](https://docs.knock.app/send-notifications/triggering-workflows) for a particular user in your app, passing in the necessary data to populate the message template:
+```tsx
+import { notifications } from '@repo/notifications';
+
+await notifications.workflows.trigger('workflow-key', {
+  recipients: [{
+    id: 'user-id',
+    email: 'user-email',
+  }],
+  data: {
+    message: 'Hello, world!',
+  },
+});
+```
+
+### Creating multi-channel notifications
+Using Knock, you can add additional channel providers to your workflow to send notifications via email, SMS, push, or chat. To do this, create a new [channel provider](https://docs.knock.app/integrations) in the Knock dashboard, follow any configuration instructions for that provider, and add it to your workflow as a channel step.
+
+
