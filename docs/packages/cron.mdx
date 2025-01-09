@@ -18,7 +18,8 @@ You can add new functions by creating the relevant `route.ts` files in the `apps
 ```ts apps/api/app/cron/[your-function]/route.ts
 import { database } from '@repo/database';
 
-export const POST = async () => {
+// Must use GET for Vercel cron jobs
+export const GET = async () => {
   // Do stuff
 
   return new Response('OK', { status: 200 });
@@ -40,10 +41,18 @@ After you write your serverless function, you can schedule it by amending the `v
 }
 ```
 
+## How Vercel triggers cron jobs
+
+To trigger a cron job, Vercel makes an HTTP GET request to your project's production deployment URL, using the path provided in your project's vercel.json file. For example, Vercel might make a request to:
+
+```
+https://*.vercel.app/cron/keep-alive
+```
+
 ## Triggering functions manually
 
 Should you need to trigger a cron job manually, you can either do so in the Vercel dashboard or just hit the endpoint with a standard HTTP request. For example:
 
 ```sh Terminal
-curl -X POST http://localhot:3002/cron/keep-alive
+curl -X GET http://localhost:3002/cron/keep-alive
 ```
