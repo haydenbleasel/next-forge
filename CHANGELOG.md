@@ -1,3 +1,253 @@
+# v3.0.19 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove unused dep ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.18 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump next from 15.1.3 to 15.1.4 in the npm_and_yarn group [#392](https://github.com/haydenbleasel/next-forge/pull/392) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.17 (Thu Jan 09 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Trevor Pfizenmaier ([@trevorpfiz](https://github.com/trevorpfiz)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix: cron jobs must use GET on Vercel [#391](https://github.com/haydenbleasel/next-forge/pull/391) ([@trevorpfiz](https://github.com/trevorpfiz))
+
+#### Authors: 1
+
+- Trevor Pfizenmaier ([@trevorpfiz](https://github.com/trevorpfiz))
+
+---
+
+# v3.0.16 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- for #389 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.15 (Thu Jan 09 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #390 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.14 (Mon Jan 06 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.13 (Sun Jan 05 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.12 (Sat Jan 04 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #381 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.11 (Sat Jan 04 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Merge commit from fork ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.10 (Sat Jan 04 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #386 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.9 (Fri Jan 03 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove all-contributors ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.8 (Thu Jan 02 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update edgedb.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.7 (Thu Jan 02 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Aleksandra ([@beerose](https://github.com/beerose)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Add EdgeDB migration guide [#383](https://github.com/haydenbleasel/next-forge/pull/383) ([@beerose](https://github.com/beerose) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Aleksandra ([@beerose](https://github.com/beerose))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.5 (Thu Jan 02 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update social.tsx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #378 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump @types/node from 22.9.4 to 22.10.3 [#380](https://github.com/haydenbleasel/next-forge/pull/380) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.4 (Wed Jan 01 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update Stripe API version ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.3 (Wed Jan 01 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Use keys for DSN ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix vitest command ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.2 (Tue Dec 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Build out stub doc files, update images ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.1 (Tue Dec 31 2024)
+
+#### ⚠️ Pushed to `main`
+
+- Fix usage of VERCEL_PROJECT_PRODUCTION_URL ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.0.0 (Tue Dec 31 2024)
+
+#### 💥 Breaking Change
+
+- Composable environment variables [#332](https://github.com/haydenbleasel/next-forge/pull/332) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v2.21.11 (Tue Dec 17 2024)
 
 #### ⚠️ Pushed to `main`

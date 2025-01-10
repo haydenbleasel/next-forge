@@ -38,7 +38,7 @@ pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ...and install the Better Auth dependencies:
 
 ```sh Terminal
-pnpm add better-auth @repo/database --filter @repo/auth
+pnpm add better-auth @repo/database next --filter @repo/auth
 ```
 
 ## 2. Update your environment variables
@@ -211,17 +211,22 @@ export const AuthProvider = ({ children }: AuthProviderProps) => children;
 Change the middleware in the `auth` package to the following:
 
 ```tsx packages/auth/middleware.ts
-import { NextRequest } from "next/server";
-import { createAuthClient } from "better-auth/client";
-
-const { getSession } = createAuthClient();
+import type { NextRequest } from "next/server";
+import { NextResponse } from 'next/server';
 
 const isProtectedRoute = (request: NextRequest) => {
   return request.url.startsWith("/dashboard"); // change this to your protected route
 }
 
 export const authMiddleware = async (request: NextRequest) => {
-  const session = await getSession(request);
+  const url = new URL('/api/auth/get-session', request.nextUrl.origin);
+  const response = await fetch(url, {
+    headers: {
+      cookie: request.headers.get('cookie') || '',
+    },
+  });
+
+  const session = await response.json();
   
   if (isProtectedRoute(request) && !session) {
     return NextResponse.redirect(new URL("/sign-in", request.url));

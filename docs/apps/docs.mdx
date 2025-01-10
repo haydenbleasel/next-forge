@@ -1,0 +1,75 @@
+---
+title: Documentation
+description: How the documentation is configured in next-forge.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Flo Merian',
+    id: 'fmerian',
+  },
+  company: {
+    name: 'Mintlify',
+    id: 'mintlify',
+  },
+}]} />
+
+<Frame>
+  <img src="/images/docs.png" alt="A preview of docs" />
+</Frame>
+
+<Tip>The `docs` application runs on port 3004. We recommend deploying it to `docs.{yourdomain}.com`.</Tip>
+
+next-forge uses [Mintlify](https://mintlify.com) to generate beautiful docs. Each page is a `.mdx` file, written in Markdown, with built-in UI components and API playground.
+
+## Creating a new page
+
+To create a new documentation page, add a new MDX file to the `apps/docs` directory. The file name will be used as the slug for the page and the frontmatter will be used to generate the docs page. For example:
+
+```mdx apps/docs/hello-world.mdx
+---
+title: 'Quickstart'
+description: 'Start building modern documentation in under five minutes.'
+---
+```
+
+Learn more supported [meta tags](https://mintlify.com/docs/page).
+
+## Adding a page to the navigation
+
+To add a page to the sidebar, you'll need to define it in the `mint.json` file in the `apps/docs` directory. From the previous example, here's how you can add it to the sidebar:
+
+```mdx mint.json {2-5}
+"navigation": [
+  {
+    "group": "Getting Started",
+    "pages": ["hello-world"]
+  },
+  {
+    // ...
+  }
+]
+```
+
+## Advanced
+
+You can build the docs you want with advanced features.
+
+<Card title="Global Settings" icon="wrench" href="https://mintlify.com/docs/settings/global" horizontal>
+  Customize your documentation using the mint.json file
+</Card>
+
+<Card title="Components" icon="shapes" href="https://mintlify.com/docs/content/components" horizontal>
+  Explore the variety of components available
+</Card>

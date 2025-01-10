@@ -1,0 +1,168 @@
+---
+title: Switch to EdgeDB
+description: How to change the database provider to EdgeDB.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Aleksandra Sikora',
+    id: 'beerose',
+  },
+  company: {
+    name: 'EdgeDB',
+    id: 'edgedb',
+  },
+}]} />
+
+[EdgeDB](https://edgedb.com) is an open-source Postgres data layer designed to address major ergonomic SQL and relational schema modeling limitations while improving type safety and performance.
+
+`next-forge` uses Neon as the database provider with Prisma as the ORM as well as Clerk for authentication. This guide will provide the steps you need to switch the database provider from Neon to EdgeDB.
+
+<Note>
+ For authentication, another guide will be provided to switch to EdgeDB Auth with access policies, social 
+ auth providers, and more.
+</Note>
+
+Here's how to switch from Neon to [EdgeDB](https://edgedb.com) for your `next-forge` project.
+
+## 1. Create a new EdgeDB database 
+
+Create an account at [EdgeDB Cloud](https://cloud.edgedb.com/). Once done, create a new instance (you can use EdgeDB's free tier). We'll later connect to it through the EdgeDB CLI.
+
+## 2. Swap out the required dependencies in `@repo/database`
+
+Uninstall the existing dependencies...
+
+```sh Terminal
+pnpm remove @prisma/adapter-neon @prisma/client prisma --filter @repo/database
+```
+
+... and install the new dependencies:
+
+```sh Terminal
+pnpm add edgedb @edgedb/generate
+```
+
+## 3. Setup EdgeDB in `@repo/database` package
+
+In the `@repo/database` directory, run:
+
+```sh Terminal
+npx edgedb project init --server-instance <org_name>/<instance_name> --non-interactive
+```
+
+<Note>
+Replace `<org_name>` and `<instance_name>` with the EdgeDB's organization and instance you've previously created in the EdgeDB Cloud.
+</Note>
+
+The `init` command creates a new subdirectory called `dbschema`, which contains everything related to EdgeDB:
+
+```sh
+dbschema
+├── default.esdl
+└── migrations
+```
+
+This command also links your environment to the EdgeDB Cloud instance, allowing the EdgeDB client libraries to automatically connect to it without any additional configuration.
+
+You can also delete `prisma/` directory from the `@repo/database`:
+
+```sh Terminal
+rm -fr packages/database/prisma
+```
+
+## 4. Update the database connection code
+
+Update the database connection code to use an EdgeDB client:
+
+```ts packages/database/index.ts
+import 'server-only';
+
+import { createClient } from "edgedb";
+
+export const database = createClient();
+```
+
+## 5. Update the schema file and generate types
+
+Now, you can modify the database schema:
+
+```sql dbschema/default.esdl
+module default {
+  type Page {
+    email: str {
+      constraint exclusive;
+    }
+    name: str
+  }
+}
+```
+
+And apply your changes by running:
+
+```sh Terminal
+npx migration create
+npx migration apply
+```
+
+Once complete, you can also generate a TypeScript query builder and types from your database schema:
+
+```sh Terminal
+npx @edgedb/generate edgeql-js
+npx @edgedb/generate interfaces
+```
+
+These commands introspect the schema of your database and generate code in the `dbschema` directory.
+
+## 6. Update your queries
+
+Now you can update your queries to use the EdgeDB client.
+
+For example, here’s how we can update the `page` query in `app/(authenticated)/page.tsx`:
+
+```tsx app/(authenticated)/page.tsx {2,7-8}
+import { database } from '@repo/database';
+import edgeql from '@repo/database/dbschema/edgeql-js';
+
+// ...
+
+const App = async () => {
+  const pagesQuery = edgeql.select(edgeql.Page, () => ({ ...edgeql.Page['*'] }));
+  const pages = await pagesQuery.run(database);
+
+  // ...
+};
+
+export default App;
+```
+
+## 7. Replace Prisma Studio with EdgeDB UI
+
+You can also delete the now unused Prisma Studio app located at `apps/studio`:
+
+```sh Terminal
+rm -fr apps/studio
+```
+
+To manage your database and browse your data, you can run:
+
+```sh Terminal
+npx edgedb ui
+```
+
+## 8. Extract EdgeDB environment variables for deployment
+
+When deploying your app, you need to provide the `EDGEDB_SECRET_KEY` and `EDGEDB_INSTANCE` environment variables in your app's cloud provider to connect to your EdgeDB Cloud instance.
+
+You can generate a dedicated secret key for your instance with `npx edgedb cloud secretkey create` or via the web UI's "Secret Keys" pane in your instance dashboard.
