@@ -35,10 +35,10 @@ const internalContentFiles = [
 const allInternalContent = [...internalContentDirs, ...internalContentFiles];
 
 const runCommand = {
-  pnpm: 'pnpm',
-  npm: 'npx',
-  yarn: 'yarn',
-  bun: 'bun',
+  pnpm: 'pnpm create next-app@latest',
+  npm: 'npx create-next-app@latest',
+  yarn: 'yarn create next-app@latest',
+  bun: 'bun create next-app@latest',
 };
 
 program
@@ -57,23 +57,36 @@ program
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `${runCommand[packageManager]} create next-app@latest ${projectName} --example "${url}" --disable-git`,
+        `${runCommand[packageManager]} ${projectName} --example "${url}" --disable-git`,
         execSyncOpts
       );
       process.chdir(projectDir);
 
-      if (packageManager === 'bun') {
-        log(chalk.green('Configuring Bun workspaces...'));
+      if (packageManager !== 'pnpm') {
         const packageJsonPath = join(projectDir, 'package.json');
         const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
 
+        log(chalk.green('Updating package manager configuration...'));
+
+        if (packageManager === 'bun') {
+          packageJson.packageManager = 'bun@1.1.43';
+        } else if (packageManager === 'npm') {
+          packageJson.packageManager = 'npm@10.8.1';
+        } else if (packageManager === 'yarn') {
+          packageJson.packageManager = 'yarn@4.6.0';
+        }
+
+        log(chalk.green('Updating workspace config...'));
         packageJson.workspaces = ['apps/*', 'packages/*'];
-        packageJson.packageManager = 'bun@1.1.38';
 
         writeFileSync(
           packageJsonPath,
           `${JSON.stringify(packageJson, null, 2)}\n`
         );
+
+        log(chalk.green('Removing pnpm configuration...'));
+        rmSync('pnpm-lock.yaml', { force: true });
+        rmSync('pnpm-workspace.yaml', { force: true });
       }
 
       log(chalk.green('Deleting internal content...'));
@@ -96,12 +109,6 @@ program
         if (existsSync(file)) {
           unlinkSync(file);
         }
-      }
-
-      if (packageManager !== 'pnpm') {
-        log(chalk.green('Removing pnpm lockfile and workspace config...'));
-        rmSync('pnpm-lock.yaml', { force: true });
-        rmSync('pnpm-workspace.yaml', { force: true });
       }
 
       log(chalk.green('Installing dependencies...'));
