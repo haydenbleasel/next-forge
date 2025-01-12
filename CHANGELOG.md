@@ -1,3 +1,15 @@
+# v3.1.3 (Sun Jan 12 2025)
+
+#### 🐛 Bug Fix
+
+- Fix installation for non-pnpm package managers [#395](https://github.com/haydenbleasel/next-forge/pull/395) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.2 (Sun Jan 12 2025)
 
 #### ⚠️ Pushed to `main`
