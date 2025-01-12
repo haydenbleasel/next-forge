@@ -1,3 +1,20 @@
+# v3.1.1 (Sun Jan 12 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Carlos Villanueva ([@carvillanueva](https://github.com/carvillanueva)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Adding AI Agent Rules (Cursor + Copilot) [#371](https://github.com/haydenbleasel/next-forge/pull/371) ([@carvillanueva](https://github.com/carvillanueva) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Carlos Villanueva ([@carvillanueva](https://github.com/carvillanueva))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.0 (Sun Jan 12 2025)
 
 :tada: This release contains work from a new contributor! :tada:
