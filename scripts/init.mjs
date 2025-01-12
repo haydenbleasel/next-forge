@@ -23,16 +23,23 @@ const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
 
 const execSyncOpts = { stdio: 'ignore' };
 
-const internalContentDirs = ['.github/workflows', 'docs', 'splash'];
+const internalContentDirs = [join('.github', 'workflows'), 'docs', 'splash'];
 const internalContentFiles = [
-  '.github/CONTRIBUTING.md',
-  '.github/FUNDING.yml',
-  '.github/SECURITY.md',
+  join('.github', 'CONTRIBUTING.md'),
+  join('.github', 'FUNDING.yml'),
+  join('.github', 'SECURITY.md'),
   '.autorc',
   'CHANGELOG.md',
   'license.md',
 ];
 const allInternalContent = [...internalContentDirs, ...internalContentFiles];
+
+const runCommand = {
+  pnpm: 'pnpm',
+  npm: 'npx',
+  yarn: 'yarn',
+  bun: 'bun',
+};
 
 program
   .command('init <name>')
@@ -50,7 +57,7 @@ program
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `${packageManager} create next-app@latest ${projectName} --example "${url}" --disable-git`,
+        `${runCommand[packageManager]} create next-app@latest ${projectName} --example "${url}" --disable-git`,
         execSyncOpts
       );
       process.chdir(projectDir);
@@ -70,13 +77,18 @@ program
       }
 
       log(chalk.green('Deleting internal content...'));
-      for (const dir of ['.github/workflows', 'docs', 'splash', 'scripts']) {
+      for (const dir of [
+        join('.github', 'workflows'),
+        'docs',
+        'splash',
+        'scripts',
+      ]) {
         rmSync(dir, { recursive: true, force: true });
       }
       for (const file of [
-        '.github/CONTRIBUTING.md',
-        '.github/FUNDING.yml',
-        '.github/SECURITY.md',
+        join('.github', 'CONTRIBUTING.md'),
+        join('.github', 'FUNDING.yml'),
+        join('.github', 'SECURITY.md'),
         '.autorc',
         'CHANGELOG.md',
         'license.md',
@@ -102,10 +114,18 @@ program
 
       log(chalk.green('Copying .env.example files to .env.local...'));
 
-      for (const path of ['apps/api', 'apps/app', 'apps/web', 'packages/cms']) {
-        copyFileSync(`${path}/.env.example`, `${path}/.env.local`);
+      for (const path of [
+        join('apps', 'api'),
+        join('apps', 'app'),
+        join('apps', 'web'),
+        join('packages', 'cms'),
+      ]) {
+        copyFileSync(join(path, '.env.example'), join(path, '.env.local'));
       }
-      copyFileSync('packages/database/.env.example', 'packages/database/.env');
+      copyFileSync(
+        join('packages', 'database', '.env.example'),
+        join('packages', 'database', '.env')
+      );
 
       log(chalk.green('Setting up Prisma...'));
       execSync(

@@ -16,22 +16,23 @@
     "@repo/auth": "workspace:*",
     "@repo/database": "workspace:*",
     "@repo/design-system": "workspace:*",
-    "@repo/env": "workspace:*",
+    "@repo/next-config": "workspace:*",
     "@repo/observability": "workspace:*",
     "@repo/payments": "workspace:*",
-    "@sentry/nextjs": "^8.43.0",
-    "@repo/next-config": "workspace:*",
-    "next": "15.1.0",
+    "@sentry/nextjs": "^8.47.0",
+    "@t3-oss/env-nextjs": "^0.11.1",
+    "next": "15.1.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "svix": "^1.43.0"
+    "svix": "^1.45.1",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.1",
-    "@types/react": "19.0.1",
+    "@types/node": "22.10.5",
+    "@types/react": "19.0.2",
     "@types/react-dom": "19.0.2",
-    "concurrently": "^9.1.0",
+    "concurrently": "^9.1.2",
     "typescript": "^5.7.2"
   }
 }
