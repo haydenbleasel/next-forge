@@ -5,6 +5,7 @@ import {
   copyFileSync,
   existsSync,
   readFileSync,
+  readdirSync,
   rmSync,
   unlinkSync,
   writeFileSync,
@@ -87,6 +88,45 @@ program
         log(chalk.green('Removing pnpm configuration...'));
         rmSync('pnpm-lock.yaml', { force: true });
         rmSync('pnpm-workspace.yaml', { force: true });
+
+        log(chalk.green('Updating workspace dependencies...'));
+        const workspaceDirs = ['apps', 'packages'];
+        for (const dir of workspaceDirs) {
+          const packages = readdirSync(join(projectDir, dir));
+          for (const pkg of packages) {
+            const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
+
+            if (!existsSync(pkgJsonPath)) {
+              continue;
+            }
+
+            const pkgJson = JSON.parse(readFileSync(pkgJsonPath, 'utf8'));
+
+            // Update dependencies
+            if (pkgJson.dependencies) {
+              for (const [dep, version] of Object.entries(
+                pkgJson.dependencies
+              )) {
+                if (version === 'workspace:*') {
+                  pkgJson.dependencies[dep] = '*';
+                }
+              }
+            }
+
+            // Update devDependencies
+            if (pkgJson.devDependencies) {
+              for (const [dep, version] of Object.entries(
+                pkgJson.devDependencies
+              )) {
+                if (version === 'workspace:*') {
+                  pkgJson.devDependencies[dep] = '*';
+                }
+              }
+            }
+
+            writeFileSync(pkgJsonPath, `${JSON.stringify(pkgJson, null, 2)}\n`);
+          }
+        }
       }
 
       log(chalk.green('Deleting internal content...'));
