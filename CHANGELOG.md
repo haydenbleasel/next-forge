@@ -1,3 +1,15 @@
+# v3.1.6 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- For #389 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.5 (Sun Jan 12 2025)
 
 #### ⚠️ Pushed to `main`
