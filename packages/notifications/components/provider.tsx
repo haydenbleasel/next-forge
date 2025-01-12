@@ -4,8 +4,8 @@ import { KnockFeedProvider, KnockProvider } from '@knocklabs/react';
 import type { ReactNode } from 'react';
 import { keys } from '../keys';
 
-const knockApiKey = keys().KNOCK_API_KEY;
-const knockFeedChannelId = keys().KNOCK_FEED_CHANNEL_ID;
+const knockApiKey = keys().NEXT_PUBLIC_KNOCK_API_KEY;
+const knockFeedChannelId = keys().NEXT_PUBLIC_KNOCK_FEED_CHANNEL_ID;
 
 type NotificationsProviderProps = {
   children: ReactNode;
