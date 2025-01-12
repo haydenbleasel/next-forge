@@ -127,3 +127,25 @@ export const provider = createAnthropic({
   apiKey: env.ANTHROPIC_API_KEY,
 });
 ```
+
+## Customizing the AI agent rules
+
+To those that use Cursor or GitHub Copilot - You can customize the AI agent rules by updating the respected file listed below. For context, each chat response will read through the file and repspond with a more currated response based on your rules. It is important to
+
+<Warning>Keep your instructions short and precise. Poor instructions can degrade Cursor and Copilots quality and performance.</Warning>
+
+### Cursor
+
+Update the `.cursorrules` file to customize the AI agent to your project needs. These rules can be updated at any time and will better help you over time.
+
+Great examples of how to customize your Cursor Rules can be found at [awesome-cursorrules](https://github.com/PatrickJS/awesome-cursorrules).
+
+Learn more about [Cursor Rules](https://docs.cursor.com/context/rules-for-ai).
+
+### GitHub Copilot
+
+In order to begin using [GitHub Copilot Instructions](https://docs.github.com/en/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot), you must first enable the `Use Instruction Files` setting in VSCode.
+
+Update the `.github/copilot-instructions.md` file to customize the AI agent to your project needs. These instructions can be updated at any time and will better help you over time.
+
+<Note>It is important to note that AI outputs may still include hallucinations or inaccuracies, so always review and validate the generated suggestions.<Note>
