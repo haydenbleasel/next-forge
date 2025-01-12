@@ -18,9 +18,7 @@ const { log } = console;
 
 const url = 'https://github.com/haydenbleasel/next-forge';
 
-// Escapes special characters in filenames that would cause issues in bash commands
-// Adds backslash before: () [] {} ^ $ * + ? . | and \
-const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
+const cleanFileName = (file) => file.replace(/"/g, '\\"').replace(/\\/g, '/');
 
 const execSyncOpts = { stdio: 'ignore' };
 
@@ -238,7 +236,7 @@ program
 
         const hasChanged =
           !fromFiles.includes(file) ||
-          execSync(`git diff ${from} ${to} -- ${cleanFileName(file)}`)
+          execSync(`git diff ${from} ${to} -- "${cleanFileName(file)}"`)
             .toString()
             .trim() !== '';
 
