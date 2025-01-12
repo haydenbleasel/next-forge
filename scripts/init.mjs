@@ -152,7 +152,8 @@ program
       }
 
       log(chalk.green('Installing dependencies...'));
-      execSync(`${packageManager} install`, execSyncOpts);
+      const suffix = packageManager === 'npm' ? '--force' : '';
+      execSync(`${packageManager} install ${suffix}`, execSyncOpts);
 
       log(chalk.green('Re-initializing git repository after install...'));
       execSync('git init', execSyncOpts);
