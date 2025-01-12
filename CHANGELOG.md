@@ -1,3 +1,20 @@
+# v3.1.0 (Sun Jan 12 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jeff Everhart ([@JEverhart383](https://github.com/JEverhart383)), for all your work!
+
+#### 🚀 Enhancement
+
+- Add Notifications [#161](https://github.com/haydenbleasel/next-forge/pull/161) ([@haydenbleasel](https://github.com/haydenbleasel) [@JEverhart383](https://github.com/JEverhart383))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Jeff Everhart ([@JEverhart383](https://github.com/JEverhart383))
+
+---
+
 # v3.0.19 (Thu Jan 09 2025)
 
 #### ⚠️ Pushed to `main`
