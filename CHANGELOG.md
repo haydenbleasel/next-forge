@@ -1,3 +1,20 @@
+# v3.1.8 (Mon Jan 13 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Kuizuo ([@kuizuo](https://github.com/kuizuo)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Imporve document for ESLint configuration [#397](https://github.com/haydenbleasel/next-forge/pull/397) ([@kuizuo](https://github.com/kuizuo) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Kuizuo ([@kuizuo](https://github.com/kuizuo))
+
+---
+
 # v3.1.7 (Sun Jan 12 2025)
 
 #### ⚠️ Pushed to `main`
