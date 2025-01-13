@@ -38,30 +38,36 @@ pnpm remove -w @biomejs/biome ultracite
 ...and install the new ones:
 
 ```sh Terminal
-pnpm add -w -D eslint eslint-plugin-next eslint-plugin-react eslint-plugin-react-hooks
+pnpm add -w -D eslint eslint-plugin-next eslint-plugin-react eslint-plugin-react-hooks typescript-eslint
 ```
 
 ## 2. Configure ESLint
 
-Delete the existing `biome.json` file in the root of the project, and create a new `eslint.config.js` file:
+Delete the existing `biome.json` file in the root of the project, and create a new `eslint.config.mjs` file:
 
-```js eslint.config.js
-const react = require('eslint-plugin-react');
-const next = require('eslint-plugin-next');
+```js eslint.config.mjs
+import react from 'eslint-plugin-react';
+import next from '@next/eslint-plugin-next';
+import hooks from 'eslint-plugin-react-hooks';
+import ts from 'typescript-eslint'
 
 export default [
+  ...ts.configs.recommended,
   {
+    ignores: ['**/.next'],
+  },
+  { 
     files: ['**/*.ts', '**/*.tsx'],
     plugins: {
-      react: reactPlugin,
-      'react-hooks': hooksPlugin,
-      '@next/next': nextPlugin,
+      react: react,
+      'react-hooks': hooks,
+      '@next/next': next,
     },
     rules: {
-      ...reactPlugin.configs['jsx-runtime'].rules,
-      ...hooksPlugin.configs.recommended.rules,
-      ...nextPlugin.configs.recommended.rules,
-      ...nextPlugin.configs['core-web-vitals'].rules,
+      ...react.configs['jsx-runtime'].rules,
+      ...hooks.configs.recommended.rules,
+      ...next.configs.recommended.rules,
+      ...next.configs['core-web-vitals'].rules,
       '@next/next/no-img-element': 'error',
     },
   },
