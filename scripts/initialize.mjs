@@ -45,10 +45,15 @@ const runCommand = {
 const cloneNextForge = (name, packageManager) => {
   log(chalk.green('Creating new next-forge project...'));
 
-  return execSync(
-    `${runCommand[packageManager]} ${name} --example "${url}" --disable-git`,
-    execSyncOpts
-  );
+  const command = [
+    runCommand[packageManager],
+    name,
+    '--example',
+    url,
+    '--disable-git',
+  ];
+
+  return execSync(command.join(' '), execSyncOpts);
 };
 
 /**
@@ -122,10 +127,15 @@ const setupEnvironmentVariables = async () => {
 const setupOrm = (packageManager) => {
   log(chalk.green('Setting up Prisma...'));
 
-  return execSync(
-    `${packageManager} run build --filter @repo/database`,
-    execSyncOpts
-  );
+  const command = [
+    packageManager,
+    'run',
+    'build',
+    '--filter',
+    '@repo/database',
+  ];
+
+  return execSync(command.join(' '), execSyncOpts);
 };
 
 /**
