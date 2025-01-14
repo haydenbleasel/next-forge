@@ -9,6 +9,7 @@ import { Toolbar } from '@repo/feature-flags/components/toolbar';
 import type { ReactNode } from 'react';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
+import { Toolbar as CMSToolbar } from '@repo/cms/components/toolbar';
 
 type RootLayoutProperties = {
   readonly children: ReactNode;
@@ -33,6 +34,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
         </Feed>
       </DesignSystemProvider>
       <Toolbar />
+      <CMSToolbar />
     </body>
   </html>
 );
