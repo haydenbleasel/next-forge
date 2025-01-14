@@ -3,23 +3,15 @@ import { copyFile, mkdir, rmdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { input } from '@inquirer/prompts';
 import chalk from 'chalk';
-
-const { log } = console;
-const url = 'https://github.com/haydenbleasel/next-forge';
-const cleanFileName = (file) => file.replace(/"/g, '\\"').replace(/\\/g, '/');
-const execSyncOpts = { stdio: 'ignore' };
-const internalContentDirs = [join('.github', 'workflows'), 'docs', 'splash'];
-const internalContentFiles = [
-  join('.github', 'CONTRIBUTING.md'),
-  join('.github', 'FUNDING.yml'),
-  join('.github', 'SECURITY.md'),
-  '.autorc',
-  'CHANGELOG.md',
-  'license.md',
-];
-const allInternalContent = [...internalContentDirs, ...internalContentFiles];
-const semver = /^\d+\.\d+\.\d+$/;
-const tempDirName = 'next-forge-update';
+import {
+  url,
+  allInternalContent,
+  cleanFileName,
+  execSyncOpts,
+  log,
+  semver,
+  tempDirName,
+} from './utils.mjs';
 
 /**
  * Creates a temporary directory

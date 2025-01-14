@@ -10,30 +10,14 @@ import {
 import { join } from 'node:path';
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
-
-const { log } = console;
-const execSyncOpts = { stdio: 'ignore' };
-const url = 'https://github.com/haydenbleasel/next-forge';
-const internalFolders = [
-  join('.github', 'workflows'),
-  'docs',
-  'splash',
-  'scripts',
-];
-const internalFiles = [
-  join('.github', 'CONTRIBUTING.md'),
-  join('.github', 'FUNDING.yml'),
-  join('.github', 'SECURITY.md'),
-  '.autorc',
-  'CHANGELOG.md',
-  'license.md',
-];
-const runCommand = {
-  pnpm: 'pnpm create next-app@latest',
-  npm: 'npx create-next-app@latest',
-  yarn: 'yarn create next-app@latest',
-  bun: 'bun create next-app@latest',
-};
+import {
+  url,
+  execSyncOpts,
+  internalContentDirs,
+  internalContentFiles,
+  log,
+  runCommand,
+} from './utils.mjs';
 
 /**
  * Clones the next-forge template repository using the specified package manager
@@ -62,11 +46,11 @@ const cloneNextForge = (name, packageManager) => {
 const deleteInternalContent = async () => {
   log(chalk.green('Deleting internal content...'));
 
-  for (const folder of internalFolders) {
+  for (const folder of internalContentDirs) {
     await rm(folder, { recursive: true, force: true });
   }
 
-  for (const file of internalFiles) {
+  for (const file of internalContentFiles) {
     if (await exists(file)) {
       await rm(file);
     }
