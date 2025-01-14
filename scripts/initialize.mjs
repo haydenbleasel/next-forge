@@ -105,15 +105,17 @@ const setupEnvironmentVariables = async () => {
 const setupOrm = (packageManager) => {
   log(chalk.green('Setting up Prisma...'));
 
+  const filterCommand = packageManager === 'yarn' ? '--workspace' : '--filter';
+
   const command = [
     packageManager,
     'run',
     'build',
-    '--filter',
+    filterCommand,
     '@repo/database',
   ];
 
-  return execSync(command.join(' '), execSyncOpts);
+  return execSync(command[packageManager].join(' '), execSyncOpts);
 };
 
 /**
@@ -137,7 +139,7 @@ const updatePackageManagerConfiguration = async (
   } else if (packageManager === 'npm') {
     packageJson.packageManager = 'npm@10.8.1';
   } else if (packageManager === 'yarn') {
-    packageJson.packageManager = 'yarn@4.6.0';
+    packageJson.packageManager = 'yarn@1.22.22';
   }
 
   const newPackageJson = JSON.stringify(packageJson, null, 2);
@@ -269,7 +271,7 @@ export const initialize = async (options) => {
     const packageManager =
       options.packageManager || (await getPackageManager());
 
-    if (!(packageManager in ['npm', 'yarn', 'bun', 'pnpm'])) {
+    if (!['npm', 'yarn', 'bun', 'pnpm'].includes(packageManager)) {
       throw new Error('Invalid package manager');
     }
 
