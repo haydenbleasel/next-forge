@@ -5,7 +5,6 @@ import {
   readFile,
   readdir,
   rm,
-  rmdir,
   writeFile,
 } from 'node:fs/promises';
 import { join } from 'node:path';
@@ -64,7 +63,7 @@ const deleteInternalContent = async () => {
   log(chalk.green('Deleting internal content...'));
 
   for (const folder of internalFolders) {
-    await rmdir(folder, { recursive: true });
+    await rm(folder, { recursive: true, force: true });
   }
 
   for (const file of internalFiles) {
