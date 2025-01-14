@@ -1,3 +1,15 @@
+# v3.2.4 (Tue Jan 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Fix typo, update workspace config in root package.json ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.3 (Tue Jan 14 2025)
 
 #### ⚠️ Pushed to `main`
