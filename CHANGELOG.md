@@ -1,3 +1,15 @@
+# v3.1.10 (Tue Jan 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Create models file ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.9 (Tue Jan 14 2025)
 
 #### 🐛 Bug Fix
