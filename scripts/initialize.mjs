@@ -1,12 +1,6 @@
 import { execSync } from 'node:child_process';
-import {
-  copyFile,
-  exists,
-  readFile,
-  readdir,
-  rm,
-  writeFile,
-} from 'node:fs/promises';
+import { existsSync } from 'node:fs';
+import { copyFile, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
@@ -53,7 +47,7 @@ const deleteInternalContent = async () => {
   }
 
   for (const file of internalContentFiles) {
-    if (await exists(file)) {
+    if (existsSync(file)) {
       await rm(file);
     }
   }
@@ -183,7 +177,7 @@ const updateWorkspaceConfiguration = async (projectDir) => {
  */
 const updateInternalPackageDependencies = async (projectDir, dir, pkg) => {
   const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
-  const doesExist = await exists(pkgJsonPath);
+  const doesExist = existsSync(pkgJsonPath);
 
   if (!doesExist) {
     return;
