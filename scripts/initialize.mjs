@@ -1,5 +1,4 @@
 import { execSync } from 'node:child_process';
-import {} from 'node:fs';
 import {
   copyFile,
   exists,
@@ -37,6 +36,12 @@ const runCommand = {
   bun: 'bun create next-app@latest',
 };
 
+/**
+ * Clones the next-forge template repository using the specified package manager
+ * @param {string} name - The name of the project
+ * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
+ * @returns {void}
+ */
 const cloneNextForge = (name, packageManager) => {
   log(chalk.green('Creating new next-forge project...'));
 
@@ -46,6 +51,10 @@ const cloneNextForge = (name, packageManager) => {
   );
 };
 
+/**
+ * Deletes internal content and files that are not needed in the new project
+ * @returns {Promise<void>}
+ */
 const deleteInternalContent = async () => {
   log(chalk.green('Deleting internal content...'));
 
@@ -60,6 +69,11 @@ const deleteInternalContent = async () => {
   }
 };
 
+/**
+ * Installs project dependencies using the specified package manager
+ * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
+ * @returns {void}
+ */
 const installDependencies = (packageManager) => {
   log(chalk.green('Installing dependencies...'));
 
@@ -68,6 +82,10 @@ const installDependencies = (packageManager) => {
   execSync(`${packageManager} install ${suffix}`, execSyncOpts);
 };
 
+/**
+ * Initializes a new git repository and creates initial commit
+ * @returns {void}
+ */
 const initializeGit = () => {
   log(chalk.green('Re-initializing git repository after install...'));
 
@@ -76,6 +94,10 @@ const initializeGit = () => {
   execSync('git commit -m "✨ Initial commit"', execSyncOpts);
 };
 
+/**
+ * Sets up environment variables by copying example files
+ * @returns {Promise<void>}
+ */
 const setupEnvironmentVariables = async () => {
   log(chalk.green('Copying .env.example files to .env.local...'));
 
@@ -92,6 +114,11 @@ const setupEnvironmentVariables = async () => {
   }
 };
 
+/**
+ * Sets up Prisma ORM by running the build command
+ * @param {string} packageManager - The package manager to use
+ * @returns {void}
+ */
 const setupOrm = (packageManager) => {
   log(chalk.green('Setting up Prisma...'));
 
@@ -101,6 +128,12 @@ const setupOrm = (packageManager) => {
   );
 };
 
+/**
+ * Updates the package manager configuration in package.json
+ * @param {string} projectDir - The project directory path
+ * @param {string} packageManager - The package manager to use
+ * @returns {Promise<void>}
+ */
 const updatePackageManagerConfiguration = async (
   projectDir,
   packageManager
@@ -124,6 +157,11 @@ const updatePackageManagerConfiguration = async (
   await writeFile(packageJsonPath, `${newPackageJson}\n`);
 };
 
+/**
+ * Updates workspace configuration in package.json and removes pnpm specific files
+ * @param {string} projectDir - The project directory path
+ * @returns {Promise<void>}
+ */
 const updateWorkspaceConfiguration = async (projectDir) => {
   log(chalk.green('Updating workspace config...'));
 
@@ -141,6 +179,11 @@ const updateWorkspaceConfiguration = async (projectDir) => {
   await rm('pnpm-workspace.yaml', { force: true });
 };
 
+/**
+ * Updates internal dependencies in all workspace packages
+ * @param {string} projectDir - The project directory path
+ * @returns {Promise<void>}
+ */
 const updateInternalDependencies = async (projectDir) => {
   log(chalk.green('Updating workspace dependencies...'));
 
@@ -190,6 +233,13 @@ const updateInternalDependencies = async (projectDir) => {
   }
 };
 
+/**
+ * Initializes a new next-forge project
+ * @param {Object} options - The initialization options
+ * @param {string} [options.name] - The project name
+ * @param {string} [options.packageManager] - The package manager to use
+ * @returns {Promise<void>}
+ */
 export const initialize = async (options) => {
   try {
     const cwd = process.cwd();
