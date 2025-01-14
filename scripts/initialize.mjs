@@ -170,20 +170,17 @@ const updateWorkspaceConfiguration = async (projectDir) => {
 
 /**
  * Updates internal package dependencies in a specific package
- * @param {string} projectDir - The project directory path
- * @param {string} dir - The directory containing the package
- * @param {string} pkg - The package name
+ * @param {string} path - The package.json path
  * @returns {Promise<void>}
  */
-const updateInternalPackageDependencies = async (projectDir, dir, pkg) => {
-  const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
-  const doesExist = existsSync(pkgJsonPath);
+const updateInternalPackageDependencies = async (path) => {
+  const doesExist = existsSync(path);
 
   if (!doesExist) {
     return;
   }
 
-  const pkgJsonFile = await readFile(pkgJsonPath, 'utf8');
+  const pkgJsonFile = await readFile(path, 'utf8');
   const pkgJson = JSON.parse(pkgJsonFile);
 
   if (pkgJson.dependencies) {
@@ -210,7 +207,7 @@ const updateInternalPackageDependencies = async (projectDir, dir, pkg) => {
 
   const newPkgJson = JSON.stringify(pkgJson, null, 2);
 
-  await writeFile(pkgJsonPath, `${newPkgJson}\n`);
+  await writeFile(path, `${newPkgJson}\n`);
 };
 
 /**
@@ -221,6 +218,9 @@ const updateInternalPackageDependencies = async (projectDir, dir, pkg) => {
 const updateInternalDependencies = async (projectDir) => {
   log(chalk.green('Updating workspace dependencies...'));
 
+  const rootPackageJsonPath = join(projectDir, 'package.json');
+  await updateInternalPackageDependencies(rootPackageJsonPath);
+
   const workspaceDirs = ['apps', 'packages'];
 
   for (const dir of workspaceDirs) {
@@ -228,7 +228,8 @@ const updateInternalDependencies = async (projectDir) => {
     const packages = await readdir(dirPath);
 
     for (const pkg of packages) {
-      await updateInternalPackageDependencies(projectDir, dir, pkg);
+      const path = join(dirPath, pkg, 'package.json');
+      await updateInternalPackageDependencies(path);
     }
   }
 };
@@ -287,7 +288,7 @@ export const initialize = async (options) => {
 
     deleteInternalContent();
     installDependencies(packageManager);
-    setupOrm();
+    setupOrm(packageManager);
 
     if (!options.disableGit) {
       initializeGit();
