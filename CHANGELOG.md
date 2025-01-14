@@ -1,3 +1,126 @@
+# v3.1.8 (Mon Jan 13 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Kuizuo ([@kuizuo](https://github.com/kuizuo)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Imporve document for ESLint configuration [#397](https://github.com/haydenbleasel/next-forge/pull/397) ([@kuizuo](https://github.com/kuizuo) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Kuizuo ([@kuizuo](https://github.com/kuizuo))
+
+---
+
+# v3.1.7 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #300 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.6 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- For #389 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.5 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- For #394 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.4 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- For #394 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.3 (Sun Jan 12 2025)
+
+#### 🐛 Bug Fix
+
+- Fix installation for non-pnpm package managers [#395](https://github.com/haydenbleasel/next-forge/pull/395) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.2 (Sun Jan 12 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Fix typo ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.1 (Sun Jan 12 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Carlos Villanueva ([@carvillanueva](https://github.com/carvillanueva)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Adding AI Agent Rules (Cursor + Copilot) [#371](https://github.com/haydenbleasel/next-forge/pull/371) ([@carvillanueva](https://github.com/carvillanueva) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Carlos Villanueva ([@carvillanueva](https://github.com/carvillanueva))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
+# v3.1.0 (Sun Jan 12 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jeff Everhart ([@JEverhart383](https://github.com/JEverhart383)), for all your work!
+
+#### 🚀 Enhancement
+
+- Add Notifications [#161](https://github.com/haydenbleasel/next-forge/pull/161) ([@haydenbleasel](https://github.com/haydenbleasel) [@JEverhart383](https://github.com/JEverhart383))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Jeff Everhart ([@JEverhart383](https://github.com/JEverhart383))
+
+---
+
 # v3.0.19 (Thu Jan 09 2025)
 
 #### ⚠️ Pushed to `main`

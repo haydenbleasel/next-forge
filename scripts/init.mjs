@@ -5,6 +5,7 @@ import {
   copyFileSync,
   existsSync,
   readFileSync,
+  readdirSync,
   rmSync,
   unlinkSync,
   writeFileSync,
@@ -17,9 +18,7 @@ const { log } = console;
 
 const url = 'https://github.com/haydenbleasel/next-forge';
 
-// Escapes special characters in filenames that would cause issues in bash commands
-// Adds backslash before: () [] {} ^ $ * + ? . | and \
-const cleanFileName = (file) => file.replace(/([()[\]{}^$*+?.|\\])/g, '\\$1');
+const cleanFileName = (file) => file.replace(/"/g, '\\"').replace(/\\/g, '/');
 
 const execSyncOpts = { stdio: 'ignore' };
 
@@ -35,10 +34,10 @@ const internalContentFiles = [
 const allInternalContent = [...internalContentDirs, ...internalContentFiles];
 
 const runCommand = {
-  pnpm: 'pnpm',
-  npm: 'npx',
-  yarn: 'yarn',
-  bun: 'bun',
+  pnpm: 'pnpm create next-app@latest',
+  npm: 'npx create-next-app@latest',
+  yarn: 'yarn create next-app@latest',
+  bun: 'bun create next-app@latest',
 };
 
 program
@@ -57,23 +56,75 @@ program
 
       log(chalk.green('Creating new next-forge project...'));
       execSync(
-        `${runCommand[packageManager]} create next-app@latest ${projectName} --example "${url}" --disable-git`,
+        `${runCommand[packageManager]} ${projectName} --example "${url}" --disable-git`,
         execSyncOpts
       );
       process.chdir(projectDir);
 
-      if (packageManager === 'bun') {
-        log(chalk.green('Configuring Bun workspaces...'));
+      if (packageManager !== 'pnpm') {
         const packageJsonPath = join(projectDir, 'package.json');
         const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
 
+        log(chalk.green('Updating package manager configuration...'));
+
+        if (packageManager === 'bun') {
+          packageJson.packageManager = 'bun@1.1.43';
+        } else if (packageManager === 'npm') {
+          packageJson.packageManager = 'npm@10.8.1';
+        } else if (packageManager === 'yarn') {
+          packageJson.packageManager = 'yarn@4.6.0';
+        }
+
+        log(chalk.green('Updating workspace config...'));
         packageJson.workspaces = ['apps/*', 'packages/*'];
-        packageJson.packageManager = 'bun@1.1.38';
 
         writeFileSync(
           packageJsonPath,
           `${JSON.stringify(packageJson, null, 2)}\n`
         );
+
+        log(chalk.green('Removing pnpm configuration...'));
+        rmSync('pnpm-lock.yaml', { force: true });
+        rmSync('pnpm-workspace.yaml', { force: true });
+
+        log(chalk.green('Updating workspace dependencies...'));
+        const workspaceDirs = ['apps', 'packages'];
+        for (const dir of workspaceDirs) {
+          const packages = readdirSync(join(projectDir, dir));
+          for (const pkg of packages) {
+            const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
+
+            if (!existsSync(pkgJsonPath)) {
+              continue;
+            }
+
+            const pkgJson = JSON.parse(readFileSync(pkgJsonPath, 'utf8'));
+
+            // Update dependencies
+            if (pkgJson.dependencies) {
+              for (const [dep, version] of Object.entries(
+                pkgJson.dependencies
+              )) {
+                if (version === 'workspace:*') {
+                  pkgJson.dependencies[dep] = '*';
+                }
+              }
+            }
+
+            // Update devDependencies
+            if (pkgJson.devDependencies) {
+              for (const [dep, version] of Object.entries(
+                pkgJson.devDependencies
+              )) {
+                if (version === 'workspace:*') {
+                  pkgJson.devDependencies[dep] = '*';
+                }
+              }
+            }
+
+            writeFileSync(pkgJsonPath, `${JSON.stringify(pkgJson, null, 2)}\n`);
+          }
+        }
       }
 
       log(chalk.green('Deleting internal content...'));
@@ -98,14 +149,9 @@ program
         }
       }
 
-      if (packageManager !== 'pnpm') {
-        log(chalk.green('Removing pnpm lockfile and workspace config...'));
-        rmSync('pnpm-lock.yaml', { force: true });
-        rmSync('pnpm-workspace.yaml', { force: true });
-      }
-
       log(chalk.green('Installing dependencies...'));
-      execSync(`${packageManager} install`, execSyncOpts);
+      const suffix = packageManager === 'npm' ? '--force' : '';
+      execSync(`${packageManager} install ${suffix}`, execSyncOpts);
 
       log(chalk.green('Re-initializing git repository after install...'));
       execSync('git init', execSyncOpts);
@@ -190,7 +236,7 @@ program
 
         const hasChanged =
           !fromFiles.includes(file) ||
-          execSync(`git diff ${from} ${to} -- ${cleanFileName(file)}`)
+          execSync(`git diff ${from} ${to} -- "${cleanFileName(file)}"`)
             .toString()
             .trim() !== '';
 

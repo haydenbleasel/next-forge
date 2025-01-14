@@ -37,6 +37,10 @@ export const secure = async (
   const decision = await aj.protect(req);
 
   if (decision.isDenied()) {
+    console.warn(
+      `Arcjet decision: ${JSON.stringify(decision.reason, null, 2)}`
+    );
+
     if (decision.reason.isBot()) {
       throw new Error('No bots allowed');
     }

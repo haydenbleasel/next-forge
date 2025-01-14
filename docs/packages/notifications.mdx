@@ -1,0 +1,72 @@
+---
+title: Notifications
+description: In-app notifications for your users.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Jeff Everhart',
+    id: 'j_everhart383',
+  },
+  company: {
+    name: 'Knock',
+    id: 'knock',
+  },
+}]} />
+
+next-forge offers a notifications package that allows you to send in-app notifications to your users. By default, it uses [Knock](https://knock.app/), a cross-channel notification platform that supports in-app, email, SMS, push, and chat notifications. Knock allows you to centralize your notification logic and templates in one place and [orchestrate complex workflows](https://docs.knock.app/designing-workflows/overview) with things like branching, batching, throttling, delays, and conditional sending.
+
+## Setup
+
+To use the notifications package, you need to add the required environment variables to your project, as specified in the `packages/notifications/keys.ts` file.
+
+## In-app notifications feed
+
+To render an in-app notifications feed, import the `NotificationsTrigger` component from the `@repo/notifications` package and use it in your app. We've already added this to the sidebar in the example app:
+
+```tsx apps/app/app/(authenticated)/components/sidebar.tsx
+import { NotificationsTrigger } from '@repo/notifications/components/trigger';
+
+<NotificationsTrigger>
+  <Button variant="ghost" size="icon" className="shrink-0">
+    <BellIcon size={16} className="text-muted-foreground" />
+  </Button>
+</NotificationsTrigger>
+```
+
+Pressing the button will open the in-app notifications feed, which displays all of the notifications for the current user.
+
+## Send a notification
+
+Knock sends notifications using workflows. To send an in-app notification, create a new [workflow](https://docs.knock.app/concepts/workflows) in the Knock dashboard that uses the [`in-app` channel provider](https://docs.knock.app/integrations/in-app/knock) and create a corresponding message template.
+
+Then you can [trigger that workflow](https://docs.knock.app/send-notifications/triggering-workflows) for a particular user in your app, passing in the necessary data to populate the message template:
+
+```tsx notify.ts
+import { notifications } from '@repo/notifications';
+
+await notifications.workflows.trigger('workflow-key', {
+  recipients: [{
+    id: 'user-id',
+    email: 'user-email',
+  }],
+  data: {
+    message: 'Hello, world!',
+  },
+});
+```
+
+## Multi-channel notifications
+
+Using Knock, you can add additional channel providers to your workflow to send notifications via email, SMS, push, or chat. To do this, create a new [channel provider](https://docs.knock.app/integrations) in the Knock dashboard, follow any configuration instructions for that provider, and add it to your workflow as a channel step.
