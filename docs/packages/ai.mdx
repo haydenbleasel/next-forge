@@ -20,9 +20,10 @@ You can use the `generateText` function to generate text from an AI model. For e
 ```ts generate.ts
 import { generateText } from '@repo/ai';
 import { provider } from '@repo/ai/lib/provider';
+import { models } from '@repo/ai/lib/models';
 
 const response = await generateText({
-  model: provider('gpt-4o'),
+  model: models.chat,
   prompt: 'Hello, world!',
 });
 ```
@@ -56,9 +57,10 @@ You can use the `paymentsAgentToolkit` to add payments capabilities to your AI a
 import { generateText } from '@repo/ai';
 import { paymentsAgentToolkit } from '@repo/payments/ai';
 import { provider } from '@repo/ai/lib/provider';
+import { models } from '@repo/ai/lib/models';
 
 const response = await generateText({
-  model: provider('gpt-4o'),
+  model: models.chat,
   tools: {
     ...paymentsAgentToolkit.getTools(),
   },
@@ -78,8 +80,8 @@ import { generateText } from '@repo/ai';
 import { analytics } from '@repo/analytics/posthog/server';
 import { currentUser } from '@repo/auth/server';
 import { provider } from '@repo/ai/lib/provider';
+import { models } from '@repo/ai/lib/models';
 
-const model = provider('gpt-4o');
 const prompt = 'Hello, world!';
 const tokenInputCost = 0.0000025;
 const tokenOutputCost = 0.00001;
@@ -101,7 +103,7 @@ analytics.capture({
   event: 'chat_completion',
   distinctId: user.id,
   properties: {
-    model: model.modelId,
+    model: models.chat.modelId,
     prompt,
     prompt_tokens: response.usage.promptTokens,
     completion_tokens: response.usage.completionTokens,
