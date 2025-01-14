@@ -238,6 +238,27 @@ const updateInternalDependencies = async (projectDir) => {
 };
 
 /**
+ * Gets the project name from the user
+ * @returns {Promise<string>}
+ */
+const getName = async () =>
+  await input({
+    message: 'What is your project named?',
+    required: true,
+  });
+
+/**
+ * Gets the package manager from the user
+ * @returns {Promise<'pnpm' | 'npm' | 'yarn' | 'bun'>}
+ */
+const getPackageManager = async () =>
+  await select({
+    message: 'What package manager do you want to use?',
+    choices: ['pnpm', 'npm', 'yarn', 'bun'],
+    default: 'pnpm',
+  });
+
+/**
  * Initializes a new next-forge project
  * @param {Object} options - The initialization options
  * @param {string} [options.name] - The project name
@@ -247,25 +268,16 @@ const updateInternalDependencies = async (projectDir) => {
 export const initialize = async (options) => {
   try {
     const cwd = process.cwd();
-    let { name, packageManager } = options;
+    const name = options.name || (await getName());
+    const packageManager =
+      options.packageManager || (await getPackageManager());
 
-    if (!name) {
-      name = await input({
-        message: 'What is your project named?',
-        required: true,
-      });
-    }
-
-    if (!packageManager) {
-      packageManager = await select({
-        message: 'What package manager do you want to use?',
-        choices: ['pnpm', 'npm', 'yarn', 'bun'],
-        default: 'pnpm',
-      });
+    if (!(packageManager in runCommand)) {
+      throw new Error('Invalid package manager');
     }
 
     const projectDir = join(cwd, name);
-    await cloneNextForge(name, packageManager);
+    cloneNextForge(name, packageManager);
     process.chdir(projectDir);
 
     if (packageManager !== 'pnpm') {
@@ -274,10 +286,11 @@ export const initialize = async (options) => {
       await updateInternalDependencies(projectDir);
     }
 
+    await setupEnvironmentVariables();
+
     deleteInternalContent();
     installDependencies(packageManager);
-    await initializeGit();
-    await setupEnvironmentVariables();
+    initializeGit();
     setupOrm();
 
     log(chalk.green('Done!'));
