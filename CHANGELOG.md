@@ -1,3 +1,16 @@
+# v3.1.13 (Tue Jan 14 2025)
+
+#### 🐛 Bug Fix
+
+- add basehub to turbo.json's build outputs, plus reorder toolbar [#401](https://github.com/haydenbleasel/next-forge/pull/401) ([@julianbenegas](https://github.com/julianbenegas) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Julian Benegas ([@julianbenegas](https://github.com/julianbenegas))
+
+---
+
 # v3.1.12 (Tue Jan 14 2025)
 
 #### ⚠️ Pushed to `main`
