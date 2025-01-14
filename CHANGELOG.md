@@ -1,3 +1,15 @@
+# v3.2.2 (Tue Jan 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Fix exists import typo ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.1 (Tue Jan 14 2025)
 
 #### ⚠️ Pushed to `main`
