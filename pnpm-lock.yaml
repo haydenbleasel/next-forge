@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@inquirer/prompts':
+        specifier: ^7.2.3
+        version: 7.2.3(@types/node@22.10.5)
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
@@ -21,9 +24,6 @@ importers:
       '@biomejs/biome':
         specifier: 1.9.4
         version: 1.9.4
-      '@inquirer/prompts':
-        specifier: ^7.2.3
-        version: 7.2.3(@types/node@22.10.5)
       '@repo/typescript-config':
         specifier: workspace:*
         version: link:packages/typescript-config
