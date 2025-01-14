@@ -142,10 +142,12 @@ export const update = async (options) => {
     const toFiles = getFiles(to);
 
     log(chalk.blue('Computing diff between versions...'));
-    const filesToUpdate = toFiles.filter((file) => {
+    const filesToUpdate = [];
+
+    for (const file of toFiles) {
+      // Skip internal content that is meant to be deleted during init
       if (allInternalContent.some((ic) => file.startsWith(ic))) {
-        // Skip internal content that is meant to be deleted during init
-        return false;
+        continue;
       }
 
       const hasChanged =
@@ -154,8 +156,10 @@ export const update = async (options) => {
           .toString()
           .trim() !== '';
 
-      return hasChanged;
-    });
+      if (hasChanged) {
+        filesToUpdate.push(file);
+      }
+    }
 
     // Move back to the original directory
     process.chdir(cwd);
