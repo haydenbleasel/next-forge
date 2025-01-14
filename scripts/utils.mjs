@@ -5,7 +5,7 @@ export const { log } = console;
 export const url = 'https://github.com/haydenbleasel/next-forge';
 
 export const cleanFileName = (file) =>
-  file.replace(/"/g, '\\"').replace(/\\/g, '/');
+  file.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\/g, '/');
 
 export const execSyncOpts = { stdio: 'ignore' };
 
