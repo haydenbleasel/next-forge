@@ -54,7 +54,7 @@ const cloneRepository = (name) => {
 const getFiles = (version) => {
   log(chalk.blue(`Checking out version ${version}...`));
 
-  execSync(`git checkout ${version}`, execSyncOpts);
+  execSync(`git checkout v${version}`, execSyncOpts);
 
   const files = execSync('git ls-files').toString().trim().split('\n');
 
@@ -92,7 +92,58 @@ const updateFiles = async (files) => {
  */
 const deleteTemporaryDirectory = async () => {
   log(chalk.blue('Cleaning up...'));
+
   await rmdir(tempDirName, { recursive: true, force: true });
+};
+
+/**
+ * Gets a version from the user
+ * @param {'to' | 'from'} type - The type of version to get
+ * @returns {Promise<string>} - The version
+ */
+const getVersion = async (type) =>
+  await input({
+    message: `What version are you updating ${type}?`,
+    required: true,
+    validate: (value) =>
+      semver.test(value) ||
+      'Please enter a valid version without the "v" e.g. 1.2.3',
+  });
+
+/**
+ * Gets the diff between two versions
+ * @param {Object} from - The from version
+ * @param {string} from.version - The from version
+ * @param {string[]} from.files - The files in the from version
+ * @param {Object} to - The to version
+ * @param {string} to.version - The to version
+ * @param {string[]} to.files - The files in the to version
+ * @returns {Promise<string[]>} - The files to update
+ */
+const getDiff = async (from, to) => {
+  log(chalk.blue('Computing diff between versions...'));
+  const filesToUpdate = [];
+
+  for (const file of to.files) {
+    // Skip internal content that is meant to be deleted during init
+    if (allInternalContent.some((ic) => file.startsWith(ic))) {
+      continue;
+    }
+
+    const hasChanged =
+      !from.files.includes(file) ||
+      execSync(
+        `git diff ${from.version} ${to.version} -- "${cleanFileName(file)}"`
+      )
+        .toString()
+        .trim() !== '';
+
+    if (hasChanged) {
+      filesToUpdate.push(file);
+    }
+  }
+
+  return filesToUpdate;
 };
 
 /**
@@ -104,25 +155,8 @@ export const update = async (options) => {
   try {
     const cwd = process.cwd();
 
-    const fromVersion =
-      options.from ||
-      (await input({
-        message: 'What version are you updating from?',
-        required: true,
-        validate: (value) =>
-          semver.test(value) ||
-          'Please enter a valid version without the "v" e.g. 1.2.3',
-      }));
-
-    const toVersion =
-      options.to ||
-      (await input({
-        message: 'What version are you updating to?',
-        required: true,
-        validate: (value) =>
-          semver.test(value) ||
-          'Please enter a valid version without the "v" e.g. 1.2.3',
-      }));
+    const fromVersion = options.from || (await getVersion('from'));
+    const toVersion = options.to || (await getVersion('to'));
 
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
@@ -141,30 +175,21 @@ export const update = async (options) => {
     const fromFiles = getFiles(from);
     const toFiles = getFiles(to);
 
-    log(chalk.blue('Computing diff between versions...'));
-    const filesToUpdate = [];
-
-    for (const file of toFiles) {
-      // Skip internal content that is meant to be deleted during init
-      if (allInternalContent.some((ic) => file.startsWith(ic))) {
-        continue;
+    const diff = await getDiff(
+      {
+        version: from,
+        files: fromFiles,
+      },
+      {
+        version: to,
+        files: toFiles,
       }
-
-      const hasChanged =
-        !fromFiles.includes(file) ||
-        execSync(`git diff ${from} ${to} -- "${cleanFileName(file)}"`)
-          .toString()
-          .trim() !== '';
-
-      if (hasChanged) {
-        filesToUpdate.push(file);
-      }
-    }
+    );
 
     // Move back to the original directory
     process.chdir(cwd);
 
-    await updateFiles(filesToUpdate);
+    await updateFiles(diff);
     await deleteTemporaryDirectory();
 
     log(chalk.green(`Successfully updated project from ${from} to ${to}!`));
