@@ -1,22 +1,28 @@
 'use client';
 
-import { NotificationFeedPopover } from '@knocklabs/react';
+import {
+  NotificationFeedPopover,
+  NotificationIconButton,
+} from '@knocklabs/react';
 import { useRef, useState } from 'react';
-import type { ReactElement, RefObject } from 'react';
+import type { PointerEventHandler, RefObject } from 'react';
 import { keys } from '../keys';
 
 // Required CSS import, unless you're overriding the styling
 import '@knocklabs/react/dist/index.css';
+import '../styles.css';
 
-type NotificationsTriggerProperties = {
-  children: ReactElement;
-};
-
-export const NotificationsTrigger = ({
-  children,
-}: NotificationsTriggerProperties) => {
+export const NotificationsTrigger = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const notifButtonRef = useRef<HTMLDivElement>(null);
+  const notifButtonRef = useRef<HTMLButtonElement>(null);
+
+  const handleClose: PointerEventHandler = (event) => {
+    if (event.target === notifButtonRef.current) {
+      return;
+    }
+
+    setIsVisible(false);
+  };
 
   if (!keys().NEXT_PUBLIC_KNOCK_API_KEY) {
     return null;
@@ -24,23 +30,15 @@ export const NotificationsTrigger = ({
 
   return (
     <>
-      {/* biome-ignore lint/nursery/noStaticElementInteractions: "avoid nested buttons" */}
-      <div
+      <NotificationIconButton
         onClick={() => setIsVisible(!isVisible)}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            setIsVisible(!isVisible);
-          }
-        }}
         ref={notifButtonRef}
-      >
-        {children}
-      </div>
+      />
       {notifButtonRef.current && (
         <NotificationFeedPopover
           buttonRef={notifButtonRef as RefObject<HTMLElement>}
           isVisible={isVisible}
-          onClose={() => setIsVisible(false)}
+          onClose={handleClose}
         />
       )}
     </>

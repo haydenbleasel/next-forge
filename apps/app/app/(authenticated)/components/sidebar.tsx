@@ -37,7 +37,6 @@ import { cn } from '@repo/design-system/lib/utils';
 import { NotificationsTrigger } from '@repo/notifications/components/trigger';
 import {
   AnchorIcon,
-  BellIcon,
   BookOpenIcon,
   BotIcon,
   ChevronRightIcon,
@@ -336,11 +335,9 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
               />
               <div className="flex shrink-0 items-center gap-px">
                 <ModeToggle />
-                <NotificationsTrigger>
-                  <Button variant="ghost" size="icon" className="shrink-0">
-                    <BellIcon size={16} className="text-muted-foreground" />
-                  </Button>
-                </NotificationsTrigger>
+                <Button variant="ghost" size="icon" className="shrink-0">
+                  <NotificationsTrigger />
+                </Button>
               </div>
             </SidebarMenuItem>
           </SidebarMenu>
