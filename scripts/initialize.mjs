@@ -190,6 +190,51 @@ const updateWorkspaceConfiguration = async (projectDir) => {
 };
 
 /**
+ * Updates internal package dependencies in a specific package
+ * @param {string} projectDir - The project directory path
+ * @param {string} dir - The directory containing the package
+ * @param {string} pkg - The package name
+ * @returns {Promise<void>}
+ */
+const updateInternalPackageDependencies = async (projectDir, dir, pkg) => {
+  const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
+  const doesExist = await exists(pkgJsonPath);
+
+  if (!doesExist) {
+    return;
+  }
+
+  const pkgJsonFile = await readFile(pkgJsonPath, 'utf8');
+  const pkgJson = JSON.parse(pkgJsonFile);
+
+  if (pkgJson.dependencies) {
+    // Update dependencies
+    const entries = Object.entries(pkgJson.dependencies);
+
+    for (const [dep, version] of entries) {
+      if (version === 'workspace:*') {
+        pkgJson.dependencies[dep] = '*';
+      }
+    }
+  }
+
+  if (pkgJson.devDependencies) {
+    // Update devDependencies
+    const entries = Object.entries(pkgJson.devDependencies);
+
+    for (const [dep, version] of entries) {
+      if (version === 'workspace:*') {
+        pkgJson.devDependencies[dep] = '*';
+      }
+    }
+  }
+
+  const newPkgJson = JSON.stringify(pkgJson, null, 2);
+
+  await writeFile(pkgJsonPath, `${newPkgJson}\n`);
+};
+
+/**
  * Updates internal dependencies in all workspace packages
  * @param {string} projectDir - The project directory path
  * @returns {Promise<void>}
@@ -204,41 +249,7 @@ const updateInternalDependencies = async (projectDir) => {
     const packages = await readdir(dirPath);
 
     for (const pkg of packages) {
-      const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
-      const doesExist = await exists(pkgJsonPath);
-
-      if (!doesExist) {
-        continue;
-      }
-
-      const pkgJsonFile = await readFile(pkgJsonPath, 'utf8');
-      const pkgJson = JSON.parse(pkgJsonFile);
-
-      // Update dependencies
-      if (pkgJson.dependencies) {
-        const entries = Object.entries(pkgJson.dependencies);
-
-        for (const [dep, version] of entries) {
-          if (version === 'workspace:*') {
-            pkgJson.dependencies[dep] = '*';
-          }
-        }
-      }
-
-      // Update devDependencies
-      if (pkgJson.devDependencies) {
-        const entries = Object.entries(pkgJson.devDependencies);
-
-        for (const [dep, version] of entries) {
-          if (version === 'workspace:*') {
-            pkgJson.devDependencies[dep] = '*';
-          }
-        }
-      }
-
-      const newPkgJson = JSON.stringify(pkgJson, null, 2);
-
-      await writeFile(pkgJsonPath, `${newPkgJson}\n`);
+      await updateInternalPackageDependencies(projectDir, dir, pkg);
     }
   }
 };
