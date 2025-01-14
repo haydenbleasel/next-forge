@@ -113,9 +113,9 @@ const setupOrm = (packageManager) => {
     'build',
     filterCommand,
     '@repo/database',
-  ];
+  ].join(' ');
 
-  return execSync(command[packageManager].join(' '), execSyncOpts);
+  return execSync(command, execSyncOpts);
 };
 
 /**
