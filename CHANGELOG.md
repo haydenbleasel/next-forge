@@ -1,3 +1,15 @@
+# v3.1.9 (Tue Jan 14 2025)
+
+#### 🐛 Bug Fix
+
+- upgrade basehub + hook up legal pages [#400](https://github.com/haydenbleasel/next-forge/pull/400) ([@julianbenegas](https://github.com/julianbenegas))
+
+#### Authors: 1
+
+- Julian Benegas ([@julianbenegas](https://github.com/julianbenegas))
+
+---
+
 # v3.1.8 (Mon Jan 13 2025)
 
 :tada: This release contains work from a new contributor! :tada:
