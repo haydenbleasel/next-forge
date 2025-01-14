@@ -10,7 +10,6 @@ import {
   internalContentDirs,
   internalContentFiles,
   log,
-  runCommand,
 } from './utils.mjs';
 
 /**
@@ -23,7 +22,7 @@ const cloneNextForge = (name, packageManager) => {
   log(chalk.green('Creating new next-forge project...'));
 
   const command = [
-    runCommand[packageManager],
+    'npx create-next-app@latest',
     name,
     '--example',
     url,
@@ -270,7 +269,7 @@ export const initialize = async (options) => {
     const packageManager =
       options.packageManager || (await getPackageManager());
 
-    if (!(packageManager in runCommand)) {
+    if (!(packageManager in ['npm', 'yarn', 'bun', 'pnpm'])) {
       throw new Error('Invalid package manager');
     }
 

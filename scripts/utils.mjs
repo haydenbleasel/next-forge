@@ -32,10 +32,3 @@ export const allInternalContent = [
 export const semver = /^\d+\.\d+\.\d+$/;
 
 export const tempDirName = 'next-forge-update';
-
-export const runCommand = {
-  pnpm: 'pnpm create next-app@latest',
-  npm: 'npx create-next-app@latest',
-  yarn: 'yarn create next-app@latest',
-  bun: 'bun create next-app@latest',
-};
