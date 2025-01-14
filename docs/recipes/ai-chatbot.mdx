@@ -89,8 +89,8 @@ We're going to use the `streamText` function from our AI package to stream the c
 
 ```tsx apps/app/app/api/chat/route.ts
 import { streamText } from '@repo/ai';
-import { provider } from '@repo/ai/lib/provider';
 import { log } from '@repo/observability/log';
+import { models } from '@repo/ai/lib/models';
 
 export const POST = async (req: Request) => {
   const body = await req.json();
@@ -100,7 +100,7 @@ export const POST = async (req: Request) => {
 
   log.info('🤖 Generating response...');
   const result = streamText({
-    model: provider('gpt-4'),
+    model: models.chat,
     system: 'You are a helpful assistant.',
     messages,
   });

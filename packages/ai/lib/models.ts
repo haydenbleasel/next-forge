@@ -1,6 +1,12 @@
-import { provider } from './provider';
+import { createOpenAI } from '@ai-sdk/openai';
+import { keys } from '../keys';
+
+const openai = createOpenAI({
+  apiKey: keys().OPENAI_API_KEY,
+  compatibility: 'strict',
+});
 
 export const models = {
-  chat: provider('gpt-4o-mini'),
-  embeddings: provider('text-embedding-3-small'),
+  chat: openai('gpt-4o-mini'),
+  embeddings: openai('text-embedding-3-small'),
 };
