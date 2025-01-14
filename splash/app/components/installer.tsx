@@ -3,7 +3,7 @@
 import { CopyIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
-const command = 'npx next-forge@latest init [my-app]';
+const command = 'npx next-forge@latest init';
 
 export const Installer = () => {
   const handleCopy = () => {

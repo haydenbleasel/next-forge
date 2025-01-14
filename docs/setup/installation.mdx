@@ -5,16 +5,23 @@ description: How to setup, install and run next-forge.
 
 ## Initialization
 
-Run the `next-forge` init command, replacing `[my-app]` with your project name.
+Run the `next-forge` init command:
 
 ```sh Terminal
-npx next-forge@latest init [my-app]
+npx next-forge@latest init
 ```
 
-You can also specify the package manager to use with the `package-manager` option, e.g.
+You will be prompted for the project name and package manager.
 
 ```sh Terminal
-npx next-forge@latest init [my-app] --package-manager bun
+$ npx next-forge@latest init
+
+? What is your project named?
+? What package manager do you want to use? (Use arrow keys)
+❯ pnpm
+  npm
+  yarn
+  bun
 ```
 
 This will create a new directory with your project name and clone the repo into it. It will run a setup script to install dependencies and copy `.env` files. You can read more about environment variables [here](/setup/env).

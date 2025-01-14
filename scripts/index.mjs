@@ -7,11 +7,10 @@ import { update } from './update.mjs';
 program
   .command('init')
   .description('Initialize a new next-forge project')
-  .option('--name <name>', 'Name of the project', 'next-forge')
+  .option('--name <name>', 'Name of the project')
   .option(
     '--package-manager <manager>',
-    'Package manager to use (npm, yarn, bun, pnpm)',
-    'pnpm'
+    'Package manager to use (npm, yarn, bun, pnpm)'
   )
   .option('--disable-git', 'Disable git initialization')
   .action(initialize);
