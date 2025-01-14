@@ -1,3 +1,15 @@
+# v3.2.0 (Tue Jan 14 2025)
+
+#### 🚀 Enhancement
+
+- 240 setup cli [#344](https://github.com/haydenbleasel/next-forge/pull/344) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.13 (Tue Jan 14 2025)
 
 #### 🐛 Bug Fix
