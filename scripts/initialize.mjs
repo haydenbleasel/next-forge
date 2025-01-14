@@ -34,6 +34,8 @@ const cloneNextForge = (name, packageManager) => {
     '--example',
     url,
     '--disable-git',
+    '--skip-install',
+    `--use-${packageManager}`,
   ];
 
   return execSync(command.join(' '), execSyncOpts);
