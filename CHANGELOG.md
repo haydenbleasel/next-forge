@@ -1,3 +1,15 @@
+# v3.1.11 (Tue Jan 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Merge provider into models ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.1.10 (Tue Jan 14 2025)
 
 #### ⚠️ Pushed to `main`
