@@ -26,7 +26,7 @@ export const Hero = async () => {
                     className="gap-4"
                     asChild
                   >
-                    <Link href={`/blog/${data.blog.posts.items.at(0)?._slug}`}>
+                    <Link href={`/blog/${data.blog.posts.item?._slug}`}>
                       Read our latest article <MoveRight className="h-4 w-4" />
                     </Link>
                   </Button>
