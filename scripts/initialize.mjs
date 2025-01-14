@@ -263,6 +263,7 @@ const getPackageManager = async () =>
  * @param {Object} options - The initialization options
  * @param {string} [options.name] - The project name
  * @param {string} [options.packageManager] - The package manager to use
+ * @param {boolean} [options.disableGit] - Whether to disable git
  * @returns {Promise<void>}
  */
 export const initialize = async (options) => {
@@ -290,8 +291,11 @@ export const initialize = async (options) => {
 
     deleteInternalContent();
     installDependencies(packageManager);
-    initializeGit();
     setupOrm();
+
+    if (!options.disableGit) {
+      initializeGit();
+    }
 
     log(chalk.green('Done!'));
     log(
