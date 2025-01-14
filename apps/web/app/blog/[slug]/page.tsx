@@ -3,6 +3,7 @@ import { env } from '@/env';
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
 import { blog } from '@repo/cms';
 import { Body } from '@repo/cms/components/body';
+import { CodeBlock } from '@repo/cms/components/code-block';
 import { Feed } from '@repo/cms/components/feed';
 import { Image } from '@repo/cms/components/image';
 import { TableOfContents } from '@repo/cms/components/toc';
@@ -58,7 +59,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
       {async ([data]) => {
         'use server';
 
-        const [page] = data.blog.posts.items;
+        const page = data.blog.posts.item;
 
         if (!page) {
           notFound();
@@ -74,7 +75,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 description: page.description,
                 mainEntityOfPage: {
                   '@type': 'WebPage',
-                  '@id': new URL(`/blog/${slug}`, url).toString(),
+                  '@id': new URL(`/blog/${page._slug}`, url).toString(),
                 },
                 headline: page._title,
                 image: page.image.url,
@@ -111,7 +112,19 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                       />
                     ) : undefined}
                     <div className="mx-auto max-w-prose">
-                      <Body content={page.body.json.content} />
+                      <Body
+                        content={page.body.json.content}
+                        components={{
+                          pre: ({ code, language }) => {
+                            return (
+                              <CodeBlock
+                                theme="vesper"
+                                snippets={[{ code, language }]}
+                              />
+                            );
+                          },
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

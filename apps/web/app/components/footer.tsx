@@ -1,8 +1,11 @@
 import { env } from '@/env';
+import type { LegalPostMeta } from '@repo/cms';
 import { Status } from '@repo/observability/status';
 import Link from 'next/link';
 
-export const Footer = () => {
+export const Footer = ({
+  legalPostsMeta,
+}: { legalPostsMeta: LegalPostMeta[] }) => {
   const navigationItems = [
     {
       title: 'Home',
@@ -22,20 +25,12 @@ export const Footer = () => {
     {
       title: 'Legal',
       description: 'We stay on top of the latest legal requirements.',
-      items: [
-        {
-          title: 'Terms of Service',
-          href: '/legal/terms',
-        },
-        {
-          title: 'Privacy Policy',
-          href: '/legal/privacy',
-        },
-        {
-          title: 'Acceptable Use',
-          href: '/legal/acceptable-use',
-        },
-      ],
+      items: legalPostsMeta.map((post) => {
+        return {
+          title: post._title,
+          href: `/legal/${post._slug}`,
+        };
+      }),
     },
   ];
 

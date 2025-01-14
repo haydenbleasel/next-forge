@@ -564,8 +564,8 @@ importers:
         specifier: ^0.11.1
         version: 0.11.1(typescript@5.7.2)(zod@3.24.1)
       basehub:
-        specifier: ^7.5.32
-        version: 7.5.32(@babel/runtime@7.26.0)(@types/react@19.0.2)(enquirer@2.4.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
+        specifier: ^8.0.2
+        version: 8.0.2(@babel/runtime@7.26.0)(@types/react@19.0.2)(enquirer@2.4.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2)
       react:
         specifier: ^19.0.0
         version: 19.0.0
@@ -1958,11 +1958,11 @@ packages:
     resolution: {integrity: sha512-Z/yiTPj+lDVnF7lWeKCIJzaIkI0vYO87dMpZ4bg4TDrFe4XXLFWL1TbXU27gBP3QccxV9mZICCrnjnYlJjXHOA==}
     engines: {node: '>=6.9.0'}
 
-  '@basehub/genql@9.0.0-canary.6':
-    resolution: {integrity: sha512-o2RpYZ3U4z1FU8Dl3DWBxSs2bc2Z96w/pq7qnKEbHckZUm0wnygLeDRnvt7h0aJLvRZucoCzRXE/zblIoOqiGQ==}
+  '@basehub/genql@9.0.0-canary.10':
+    resolution: {integrity: sha512-YdYWfKEsUsgEGvvKvt7H/9469cPeXJODrTKCdmt6OPEtY71Mpa9vg1mqALleiHkVinBeFHr+IEhbqIi5eYYL6w==}
 
-  '@basehub/mutation-api-helpers@2.0.2':
-    resolution: {integrity: sha512-R2Er+hEmC7w+jrSsTnTHPK91vHNPv6+6mglqVJkph1weBjEetILUbOZwIE1pJ1/BbwmHtWbyzHEiO3zsfSXbWg==}
+  '@basehub/mutation-api-helpers@2.0.7':
+    resolution: {integrity: sha512-i2WRtQnAkQ1Lowkwl6tkMIQ42AfZ2qs71zR/JYV6wxvl52011sXTMdf8V8jn/X/SZf7M4rR4KU9Bj8FA0DJPBA==}
 
   '@biomejs/biome@1.9.4':
     resolution: {integrity: sha512-1rkd7G70+o9KkTn5KLmDYXihGoTaIGO9PIIN2ZB7UJxFrWw04CZHPYiMRjYsaDvVV7hP1dYNRLxSANLaBFGpog==}
@@ -4585,9 +4585,6 @@ packages:
   '@shikijs/vscode-textmate@10.0.1':
     resolution: {integrity: sha512-fTIQwLF+Qhuws31iw7Ncl1R3HUDtGwIipiJ9iU+UsDUwMhegFcQKQHd51nZjb7CArq0MvON8rbgCGQYWHUKAdg==}
 
-  '@shikijs/vscode-textmate@9.3.0':
-    resolution: {integrity: sha512-jn7/7ky30idSkd/O5yDBfAnVt+JJpepofP/POZ1iMOxK59cOfqIgg/Dj0eFsjOTMw+4ycJN0uhZH/Eb0bs/EUA==}
-
   '@shikijs/vscode-textmate@9.3.1':
     resolution: {integrity: sha512-79QfK1393x9Ho60QFyLti+QfdJzRQCVLFb97kOIV7Eo9vQU/roINgk7m24uv0a7AUvN//RDH36FLjjK48v0s9g==}
 
@@ -5402,6 +5399,10 @@ packages:
   '@webassemblyjs/wast-printer@1.12.1':
     resolution: {integrity: sha512-+X4WAlOisVWQMikjbcvY2e0rwPsKQ9F688lksZhBcPycBBuii3O7m8FACbDMWDojpAqvjIncrG8J0XHKyQfVeA==}
 
+  '@xmldom/xmldom@0.9.6':
+    resolution: {integrity: sha512-Su4xcxR0CPGwlDHNmVP09fqET9YxbyDXHaSob6JlBH7L6reTYaeim6zbk9o08UarO0L5GTRo3uzl0D+9lSxmvw==}
+    engines: {node: '>=14.6'}
+
   '@xtuc/ieee754@1.2.0':
     resolution: {integrity: sha512-DX8nKgqcGwsc0eJSqYt5lwP4DH5FlHnmuWWBRy7X0NcaGR0ZtuyeESgMwTYVEtxmsNGY+qit4QYT/MIYTOTPeA==}
 
@@ -5707,8 +5708,8 @@ packages:
     resolution: {integrity: sha512-lGe34o6EHj9y3Kts9R4ZYs/Gr+6N7MCaMlIFA3F1R2O5/m7K06AxfSeO5530PEERE6/WyEg3lsuyw4GHlPZHog==}
     engines: {node: ^4.5.0 || >= 5.9}
 
-  basehub@7.5.32:
-    resolution: {integrity: sha512-BYBvauRiidDCYj2/6MVG/3d8yAc/t7nVm4fvLwXhp9PrLGT1Xdn5uhyb9qpUhSrmsRN+N2so0vmAq7NH7BVO9Q==}
+  basehub@8.0.2:
+    resolution: {integrity: sha512-R8LDcbxLjmRiL0Wrlu6JHe9y4Q4jwrxeJ/mJ94zxXI5L5l87oWJYLb19zgN/Io8M3E/3p6fZwIN1jPq243vuiw==}
     hasBin: true
 
   basic-ftp@5.0.5:
@@ -7079,9 +7080,6 @@ packages:
 
   hast-util-to-estree@3.1.0:
     resolution: {integrity: sha512-lfX5g6hqVh9kjS/B9E2gSkvHH4SZNiQFiqWS0x9fENzEl+8W12RqdRxX6d/Cwxi30tPQs3bIO+aolQJNp1bIyw==}
-
-  hast-util-to-html@9.0.3:
-    resolution: {integrity: sha512-M17uBDzMJ9RPCqLMO92gNNUDuBSq10a25SDBI08iCCxmorf4Yy6sYHK57n9WAbRAAaU+DuR4W6GN9K4DFZesYg==}
 
   hast-util-to-html@9.0.4:
     resolution: {integrity: sha512-wxQzXtdbhiwGAUKrnQJXlOPmHnEehzphwkK7aluUPQ+lEc1xefC8pblMgpp2w5ldBTEfveRIrADcrhGIWrlTDA==}
@@ -11454,7 +11452,7 @@ snapshots:
       '@babel/helper-string-parser': 7.25.9
       '@babel/helper-validator-identifier': 7.25.9
 
-  '@basehub/genql@9.0.0-canary.6(enquirer@2.4.1)':
+  '@basehub/genql@9.0.0-canary.10(enquirer@2.4.1)':
     dependencies:
       '@graphql-tools/graphql-file-loader': 7.5.17(graphql@16.9.0)
       '@graphql-tools/load': 7.8.14(graphql@16.9.0)
@@ -11473,7 +11471,7 @@ snapshots:
     transitivePeerDependencies:
       - enquirer
 
-  '@basehub/mutation-api-helpers@2.0.2': {}
+  '@basehub/mutation-api-helpers@2.0.7': {}
 
   '@biomejs/biome@1.9.4':
     optionalDependencies:
@@ -14050,7 +14048,7 @@ snapshots:
       '@shikijs/types': 1.17.7
       '@shikijs/vscode-textmate': 9.3.1
       '@types/hast': 3.0.4
-      hast-util-to-html: 9.0.3
+      hast-util-to-html: 9.0.4
 
   '@shikijs/core@1.26.1':
     dependencies:
@@ -14115,8 +14113,6 @@ snapshots:
       '@types/hast': 3.0.4
 
   '@shikijs/vscode-textmate@10.0.1': {}
-
-  '@shikijs/vscode-textmate@9.3.0': {}
 
   '@shikijs/vscode-textmate@9.3.1': {}
 
@@ -15194,6 +15190,8 @@ snapshots:
       '@webassemblyjs/ast': 1.12.1
       '@xtuc/long': 4.2.2
 
+  '@xmldom/xmldom@0.9.6': {}
+
   '@xtuc/ieee754@1.2.0': {}
 
   '@xtuc/long@4.2.2': {}
@@ -15512,12 +15510,13 @@ snapshots:
 
   base64id@2.0.0: {}
 
-  basehub@7.5.32(@babel/runtime@7.26.0)(@types/react@19.0.2)(enquirer@2.4.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2):
+  basehub@8.0.2(@babel/runtime@7.26.0)(@types/react@19.0.2)(enquirer@2.4.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)(typescript@5.7.2):
     dependencies:
-      '@basehub/genql': 9.0.0-canary.6(enquirer@2.4.1)
-      '@basehub/mutation-api-helpers': 2.0.2
+      '@basehub/genql': 9.0.0-canary.10(enquirer@2.4.1)
+      '@basehub/mutation-api-helpers': 2.0.7
       '@radix-ui/react-slot': 1.1.1(@types/react@19.0.2)(react@19.0.0)
       '@shikijs/transformers': 1.17.7
+      '@xmldom/xmldom': 0.9.6
       arg: 5.0.1
       dotenv-mono: 1.3.10
       esbuild: 0.19.2
@@ -17117,20 +17116,6 @@ snapshots:
       zwitch: 2.0.4
     transitivePeerDependencies:
       - supports-color
-
-  hast-util-to-html@9.0.3:
-    dependencies:
-      '@types/hast': 3.0.4
-      '@types/unist': 3.0.3
-      ccount: 2.0.1
-      comma-separated-tokens: 2.0.3
-      hast-util-whitespace: 3.0.0
-      html-void-elements: 3.0.0
-      mdast-util-to-hast: 13.2.0
-      property-information: 6.5.0
-      space-separated-tokens: 2.0.2
-      stringify-entities: 4.0.4
-      zwitch: 2.0.4
 
   hast-util-to-html@9.0.4:
     dependencies:
@@ -19932,7 +19917,7 @@ snapshots:
       '@shikijs/engine-javascript': 1.17.7
       '@shikijs/engine-oniguruma': 1.17.7
       '@shikijs/types': 1.17.7
-      '@shikijs/vscode-textmate': 9.3.0
+      '@shikijs/vscode-textmate': 9.3.1
       '@types/hast': 3.0.4
 
   shiki@1.26.1:

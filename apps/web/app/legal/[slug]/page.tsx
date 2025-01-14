@@ -49,7 +49,7 @@ const LegalPage = async ({ params }: LegalPageProperties) => {
       {async ([data]) => {
         'use server';
 
-        const [page] = data.legalPages.items;
+        const page = data.legalPages.item;
 
         if (!page) {
           notFound();
@@ -58,11 +58,11 @@ const LegalPage = async ({ params }: LegalPageProperties) => {
         return (
           <div className="container max-w-5xl py-16">
             <Link
-              className="mb-4 inline-flex items-center gap-1 text-sm text-white/50 decoration-white/30 transition-colors hover:text-white/70 focus:text-white focus:underline focus:outline-none"
-              href="/blog"
+              className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
+              href="/"
             >
               <ArrowLeftIcon className="h-4 w-4" />
-              Back to Blog
+              Back to Home
             </Link>
             <h1 className="scroll-m-20 font-extrabold text-4xl tracking-tight lg:text-5xl">
               <Balancer>{page._title}</Balancer>
