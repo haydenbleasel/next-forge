@@ -5,8 +5,9 @@ import { initialize } from './initialize.mjs';
 import { update } from './update.mjs';
 
 program
-  .command('init <name>')
+  .command('init')
   .description('Initialize a new next-forge project')
+  .option('--name <name>', 'Name of the project', 'next-forge')
   .option(
     '--package-manager <manager>',
     'Package manager to use (npm, yarn, bun, pnpm)',

@@ -1,19 +1,35 @@
 import { execSync } from 'node:child_process';
+import {} from 'node:fs';
 import {
-  copyFileSync,
-  existsSync,
-  readFileSync,
-  readdirSync,
-  rmSync,
-  unlinkSync,
-  writeFileSync,
-} from 'node:fs';
+  copyFile,
+  exists,
+  readFile,
+  readdir,
+  rm,
+  rmdir,
+  writeFile,
+} from 'node:fs/promises';
 import { join } from 'node:path';
+import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
 
 const { log } = console;
 const execSyncOpts = { stdio: 'ignore' };
 const url = 'https://github.com/haydenbleasel/next-forge';
+const internalFolders = [
+  join('.github', 'workflows'),
+  'docs',
+  'splash',
+  'scripts',
+];
+const internalFiles = [
+  join('.github', 'CONTRIBUTING.md'),
+  join('.github', 'FUNDING.yml'),
+  join('.github', 'SECURITY.md'),
+  '.autorc',
+  'CHANGELOG.md',
+  'license.md',
+];
 const runCommand = {
   pnpm: 'pnpm create next-app@latest',
   npm: 'npx create-next-app@latest',
@@ -21,139 +37,194 @@ const runCommand = {
   bun: 'bun create next-app@latest',
 };
 
-/**
- * @param {string} projectName
- * @param {Object} options
- * @param {string} options.packageManager
- */
-export const initialize = (projectName, options) => {
+const cloneNextForge = (name, packageManager) => {
+  log(chalk.green('Creating new next-forge project...'));
+
+  return execSync(
+    `${runCommand[packageManager]} ${name} --example "${url}" --disable-git`,
+    execSyncOpts
+  );
+};
+
+const deleteInternalContent = async () => {
+  log(chalk.green('Deleting internal content...'));
+
+  for (const folder of internalFolders) {
+    await rmdir(folder, { recursive: true });
+  }
+
+  for (const file of internalFiles) {
+    if (await exists(file)) {
+      await rm(file);
+    }
+  }
+};
+
+const installDependencies = (packageManager) => {
+  log(chalk.green('Installing dependencies...'));
+
+  const suffix = packageManager === 'npm' ? '--force' : '';
+
+  execSync(`${packageManager} install ${suffix}`, execSyncOpts);
+};
+
+const initializeGit = () => {
+  log(chalk.green('Re-initializing git repository after install...'));
+
+  execSync('git init', execSyncOpts);
+  execSync('git add .', execSyncOpts);
+  execSync('git commit -m "✨ Initial commit"', execSyncOpts);
+};
+
+const setupEnvironmentVariables = async () => {
+  log(chalk.green('Copying .env.example files to .env.local...'));
+
+  const files = [
+    { source: join('apps', 'api'), target: '.env.local' },
+    { source: join('apps', 'app'), target: '.env.local' },
+    { source: join('apps', 'web'), target: '.env.local' },
+    { source: join('packages', 'cms'), target: '.env.local' },
+    { source: join('packages', 'database'), target: '.env' },
+  ];
+
+  for (const { source, target } of files) {
+    await copyFile(join(source, '.env.example'), join(source, target));
+  }
+};
+
+const setupOrm = (packageManager) => {
+  log(chalk.green('Setting up Prisma...'));
+
+  return execSync(
+    `${packageManager} run build --filter @repo/database`,
+    execSyncOpts
+  );
+};
+
+const updatePackageManagerConfiguration = async (
+  projectDir,
+  packageManager
+) => {
+  log(chalk.green('Updating package manager configuration...'));
+
+  const packageJsonPath = join(projectDir, 'package.json');
+  const packageJsonFile = await readFile(packageJsonPath, 'utf8');
+  const packageJson = JSON.parse(packageJsonFile);
+
+  if (packageManager === 'bun') {
+    packageJson.packageManager = 'bun@1.1.43';
+  } else if (packageManager === 'npm') {
+    packageJson.packageManager = 'npm@10.8.1';
+  } else if (packageManager === 'yarn') {
+    packageJson.packageManager = 'yarn@4.6.0';
+  }
+
+  const newPackageJson = JSON.stringify(packageJson, null, 2);
+
+  await writeFile(packageJsonPath, `${newPackageJson}\n`);
+};
+
+const updateWorkspaceConfiguration = async (projectDir) => {
+  log(chalk.green('Updating workspace config...'));
+
+  const packageJsonPath = join(projectDir, 'package.json');
+  const packageJsonFile = await readFile(packageJsonPath, 'utf8');
+  const packageJson = JSON.parse(packageJsonFile);
+
+  packageJson.workspaces = ['apps/*', 'packages/*'];
+
+  const newPackageJson = JSON.stringify(packageJson, null, 2);
+
+  await writeFile(packageJsonPath, `${newPackageJson}\n`);
+
+  await rm('pnpm-lock.yaml', { force: true });
+  await rm('pnpm-workspace.yaml', { force: true });
+};
+
+const updateInternalDependencies = async (projectDir) => {
+  log(chalk.green('Updating workspace dependencies...'));
+
+  const workspaceDirs = ['apps', 'packages'];
+
+  for (const dir of workspaceDirs) {
+    const dirPath = join(projectDir, dir);
+    const packages = await readdir(dirPath);
+
+    for (const pkg of packages) {
+      const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
+      const doesExist = await exists(pkgJsonPath);
+
+      if (!doesExist) {
+        continue;
+      }
+
+      const pkgJsonFile = await readFile(pkgJsonPath, 'utf8');
+      const pkgJson = JSON.parse(pkgJsonFile);
+
+      // Update dependencies
+      if (pkgJson.dependencies) {
+        const entries = Object.entries(pkgJson.dependencies);
+
+        for (const [dep, version] of entries) {
+          if (version === 'workspace:*') {
+            pkgJson.dependencies[dep] = '*';
+          }
+        }
+      }
+
+      // Update devDependencies
+      if (pkgJson.devDependencies) {
+        const entries = Object.entries(pkgJson.devDependencies);
+
+        for (const [dep, version] of entries) {
+          if (version === 'workspace:*') {
+            pkgJson.devDependencies[dep] = '*';
+          }
+        }
+      }
+
+      const newPkgJson = JSON.stringify(pkgJson, null, 2);
+
+      await writeFile(pkgJsonPath, `${newPkgJson}\n`);
+    }
+  }
+};
+
+export const initialize = async (options) => {
   try {
     const cwd = process.cwd();
-    const projectDir = join(cwd, projectName);
-    const { packageManager } = options;
+    let { name, packageManager } = options;
 
-    log(chalk.green('Creating new next-forge project...'));
-    execSync(
-      `${runCommand[packageManager]} ${projectName} --example "${url}" --disable-git`,
-      execSyncOpts
-    );
+    if (!name) {
+      name = await input({
+        message: 'What is your project named?',
+        required: true,
+      });
+    }
+
+    if (!packageManager) {
+      packageManager = await select({
+        message: 'What package manager do you want to use?',
+        choices: ['pnpm', 'npm', 'yarn', 'bun'],
+        default: 'pnpm',
+      });
+    }
+
+    const projectDir = join(cwd, name);
+    await cloneNextForge(name, packageManager);
     process.chdir(projectDir);
 
     if (packageManager !== 'pnpm') {
-      const packageJsonPath = join(projectDir, 'package.json');
-      const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'));
-
-      log(chalk.green('Updating package manager configuration...'));
-
-      if (packageManager === 'bun') {
-        packageJson.packageManager = 'bun@1.1.43';
-      } else if (packageManager === 'npm') {
-        packageJson.packageManager = 'npm@10.8.1';
-      } else if (packageManager === 'yarn') {
-        packageJson.packageManager = 'yarn@4.6.0';
-      }
-
-      log(chalk.green('Updating workspace config...'));
-      packageJson.workspaces = ['apps/*', 'packages/*'];
-
-      writeFileSync(
-        packageJsonPath,
-        `${JSON.stringify(packageJson, null, 2)}\n`
-      );
-
-      log(chalk.green('Removing pnpm configuration...'));
-      rmSync('pnpm-lock.yaml', { force: true });
-      rmSync('pnpm-workspace.yaml', { force: true });
-
-      log(chalk.green('Updating workspace dependencies...'));
-      const workspaceDirs = ['apps', 'packages'];
-      for (const dir of workspaceDirs) {
-        const packages = readdirSync(join(projectDir, dir));
-        for (const pkg of packages) {
-          const pkgJsonPath = join(projectDir, dir, pkg, 'package.json');
-
-          if (!existsSync(pkgJsonPath)) {
-            continue;
-          }
-
-          const pkgJson = JSON.parse(readFileSync(pkgJsonPath, 'utf8'));
-
-          // Update dependencies
-          if (pkgJson.dependencies) {
-            for (const [dep, version] of Object.entries(pkgJson.dependencies)) {
-              if (version === 'workspace:*') {
-                pkgJson.dependencies[dep] = '*';
-              }
-            }
-          }
-
-          // Update devDependencies
-          if (pkgJson.devDependencies) {
-            for (const [dep, version] of Object.entries(
-              pkgJson.devDependencies
-            )) {
-              if (version === 'workspace:*') {
-                pkgJson.devDependencies[dep] = '*';
-              }
-            }
-          }
-
-          writeFileSync(pkgJsonPath, `${JSON.stringify(pkgJson, null, 2)}\n`);
-        }
-      }
+      await updatePackageManagerConfiguration(projectDir, packageManager);
+      await updateWorkspaceConfiguration(projectDir);
+      await updateInternalDependencies(projectDir);
     }
 
-    log(chalk.green('Deleting internal content...'));
-    for (const dir of [
-      join('.github', 'workflows'),
-      'docs',
-      'splash',
-      'scripts',
-    ]) {
-      rmSync(dir, { recursive: true, force: true });
-    }
-    for (const file of [
-      join('.github', 'CONTRIBUTING.md'),
-      join('.github', 'FUNDING.yml'),
-      join('.github', 'SECURITY.md'),
-      '.autorc',
-      'CHANGELOG.md',
-      'license.md',
-    ]) {
-      if (existsSync(file)) {
-        unlinkSync(file);
-      }
-    }
-
-    log(chalk.green('Installing dependencies...'));
-    const suffix = packageManager === 'npm' ? '--force' : '';
-    execSync(`${packageManager} install ${suffix}`, execSyncOpts);
-
-    log(chalk.green('Re-initializing git repository after install...'));
-    execSync('git init', execSyncOpts);
-    execSync('git add .', execSyncOpts);
-    execSync('git commit -m "✨ Initial commit"', execSyncOpts);
-
-    log(chalk.green('Copying .env.example files to .env.local...'));
-
-    for (const path of [
-      join('apps', 'api'),
-      join('apps', 'app'),
-      join('apps', 'web'),
-      join('packages', 'cms'),
-    ]) {
-      copyFileSync(join(path, '.env.example'), join(path, '.env.local'));
-    }
-    copyFileSync(
-      join('packages', 'database', '.env.example'),
-      join('packages', 'database', '.env')
-    );
-
-    log(chalk.green('Setting up Prisma...'));
-    execSync(
-      `${packageManager} run build --filter @repo/database`,
-      execSyncOpts
-    );
+    deleteInternalContent();
+    installDependencies(packageManager);
+    await initializeGit();
+    await setupEnvironmentVariables();
+    setupOrm();
 
     log(chalk.green('Done!'));
     log(
