@@ -11,7 +11,7 @@ import {
   log,
   semver,
   tempDirName,
-} from './utils.mjs';
+} from './utils.js';
 
 /**
  * Creates a temporary directory

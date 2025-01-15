@@ -10,7 +10,7 @@ import {
   internalContentDirs,
   internalContentFiles,
   log,
-} from './utils.mjs';
+} from './utils.js';
 
 /**
  * Clones the next-forge template repository using the specified package manager
