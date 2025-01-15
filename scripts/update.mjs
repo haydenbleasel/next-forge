@@ -1,13 +1,13 @@
-import { execSync } from 'node:child_process';
-import { copyFile, mkdir, rmdir } from 'node:fs/promises';
+import { copyFile, mkdir, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import { input } from '@inquirer/prompts';
 import chalk from 'chalk';
+import ora from 'ora';
 import {
   url,
   allInternalContent,
   cleanFileName,
-  execSyncOpts,
+  exec,
   log,
   semver,
   tempDirName,
@@ -19,11 +19,10 @@ import {
  * @returns {Promise<void>}
  */
 const createTemporaryDirectory = async (name) => {
-  log(chalk.blue(`Creating temporary directory: ${name}`));
   const cwd = process.cwd();
   const tempDir = join(cwd, name);
 
-  await rmdir(tempDir, { recursive: true, force: true });
+  await rm(tempDir, { recursive: true, force: true });
   await mkdir(tempDir, { recursive: true });
 };
 
@@ -32,23 +31,18 @@ const createTemporaryDirectory = async (name) => {
  * @param {string} name - The name of the temporary directory
  * @returns {Promise<void>}
  */
-const cloneRepository = (name) => {
-  log(chalk.blue('Cloning next-forge...'));
-
-  execSync(`git clone ${url} ${name}`, execSyncOpts);
-};
+const cloneRepository = async (name) => await exec(`git clone ${url} ${name}`);
 
 /**
  * Gets the files in the repository for the specified version
  * @param {string} version - The version to check out
  * @returns {string[]} - The files in the repository
  */
-const getFiles = (version) => {
-  log(chalk.blue(`Checking out version ${version}...`));
+const getFiles = async (version) => {
+  await exec(`git checkout ${version}`);
 
-  execSync(`git checkout v${version}`, execSyncOpts);
-
-  const files = execSync('git ls-files').toString().trim().split('\n');
+  const response = await exec('git ls-files');
+  const files = response.stdout.toString().trim().split('\n');
 
   return files;
 };
@@ -59,10 +53,6 @@ const getFiles = (version) => {
  * @returns {Promise<void>}
  */
 const updateFiles = async (files) => {
-  log(
-    chalk.green(`Found ${files.length} files to update, applying updates...`)
-  );
-
   const cwd = process.cwd();
   const tempDir = join(cwd, tempDirName);
 
@@ -73,7 +63,6 @@ const updateFiles = async (files) => {
     // Ensure destination directory exists
     await mkdir(dirname(destPath), { recursive: true });
 
-    log(chalk.blue(`Updating ${file}...`));
     await copyFile(sourcePath, destPath);
   }
 };
@@ -82,11 +71,8 @@ const updateFiles = async (files) => {
  * Deletes the temporary directory
  * @returns {Promise<void>}
  */
-const deleteTemporaryDirectory = async () => {
-  log(chalk.blue('Cleaning up...'));
-
-  await rmdir(tempDirName, { recursive: true, force: true });
-};
+const deleteTemporaryDirectory = async () =>
+  await rm(tempDirName, { recursive: true, force: true });
 
 /**
  * Gets a version from the user
@@ -113,7 +99,6 @@ const getVersion = async (type) =>
  * @returns {Promise<string[]>} - The files to update
  */
 const getDiff = async (from, to) => {
-  log(chalk.blue('Computing diff between versions...'));
   const filesToUpdate = [];
 
   for (const file of to.files) {
@@ -124,8 +109,11 @@ const getDiff = async (from, to) => {
 
     const hasChanged =
       !from.files.includes(file) ||
-      execSync(
-        `git diff ${from.version} ${to.version} -- "${cleanFileName(file)}"`
+      (
+        await exec(
+          `git diff ${from.version} ${to.version} -- "${cleanFileName(file)}"`,
+          { maxBuffer: 1024 * 1024 * 1024 }
+        )
       )
         .toString()
         .trim() !== '';
@@ -153,20 +141,26 @@ export const update = async (options) => {
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
 
-    log(chalk.green(`Preparing to update from ${from} to ${to}...`));
+    const title = ora(`Preparing to update from ${from} to ${to}...`);
+    title.color = 'yellow';
+    title.start();
 
-    // Ensure git is available
-    execSync('git --version', execSyncOpts);
-
+    title.text = 'Creating temporary directory...';
     await createTemporaryDirectory(tempDirName);
-    cloneRepository(tempDirName);
 
-    // Move into the repository
+    title.text = 'Cloning next-forge...';
+    await cloneRepository(tempDirName);
+
+    title.text = 'Moving into repository...';
     process.chdir(tempDirName);
 
-    const fromFiles = getFiles(from);
-    const toFiles = getFiles(to);
+    title.text = `Getting files from version ${from}...`;
+    const fromFiles = await getFiles(from);
 
+    title.text = `Getting files from version ${to}...`;
+    const toFiles = await getFiles(to);
+
+    title.text = `Computing diff between versions ${from} and ${to}...`;
     const diff = await getDiff(
       {
         version: from,
@@ -178,14 +172,18 @@ export const update = async (options) => {
       }
     );
 
-    // Move back to the original directory
+    title.text = 'Moving back to original directory...';
     process.chdir(cwd);
 
+    title.text = `Updating ${diff.length} files...`;
     await updateFiles(diff);
+
+    title.text = 'Cleaning up...';
     await deleteTemporaryDirectory();
 
-    log(chalk.green(`Successfully updated project from ${from} to ${to}!`));
-    log(chalk.yellow('Note: Please review and test the changes carefully.'));
+    title.succeed(`Successfully updated project from ${from} to ${to}!`);
+
+    log(chalk.yellow('Please review and test the changes carefully.'));
   } catch (error) {
     log(chalk.red('Failed to update project:', error.message));
     process.exit(1);

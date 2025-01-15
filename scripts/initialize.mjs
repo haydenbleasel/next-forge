@@ -1,11 +1,11 @@
-import { execSync } from 'node:child_process';
-import { existsSync } from 'node:fs';
 import { copyFile, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 import { input, select } from '@inquirer/prompts';
 import chalk from 'chalk';
+import ora from 'ora';
 import {
   url,
+  exec,
   execSyncOpts,
   internalContentDirs,
   internalContentFiles,
@@ -16,11 +16,9 @@ import {
  * Clones the next-forge template repository using the specified package manager
  * @param {string} name - The name of the project
  * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
- * @returns {void}
+ * @returns {Promise<void>}
  */
-const cloneNextForge = (name, packageManager) => {
-  log(chalk.green('Creating new next-forge project...'));
-
+const cloneNextForge = async (name, packageManager) => {
   const command = [
     'npx create-next-app@latest',
     name,
@@ -31,7 +29,7 @@ const cloneNextForge = (name, packageManager) => {
     `--use-${packageManager}`,
   ];
 
-  return execSync(command.join(' '), execSyncOpts);
+  await exec(command.join(' '), execSyncOpts);
 };
 
 /**
@@ -39,42 +37,34 @@ const cloneNextForge = (name, packageManager) => {
  * @returns {Promise<void>}
  */
 const deleteInternalContent = async () => {
-  log(chalk.green('Deleting internal content...'));
-
   for (const folder of internalContentDirs) {
     await rm(folder, { recursive: true, force: true });
   }
 
   for (const file of internalContentFiles) {
-    if (existsSync(file)) {
-      await rm(file);
-    }
+    await rm(file, { force: true });
   }
 };
 
 /**
  * Installs project dependencies using the specified package manager
  * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
- * @returns {void}
+ * @returns {Promise<void>}
  */
-const installDependencies = (packageManager) => {
-  log(chalk.green('Installing dependencies...'));
-
+const installDependencies = async (packageManager) => {
   const suffix = packageManager === 'npm' ? '--force' : '';
 
-  execSync(`${packageManager} install ${suffix}`, execSyncOpts);
+  await exec(`${packageManager} install ${suffix}`, execSyncOpts);
 };
 
 /**
  * Initializes a new git repository and creates initial commit
- * @returns {void}
+ * @returns {Promise<void>}
  */
-const initializeGit = () => {
-  log(chalk.green('Re-initializing git repository after install...'));
-
-  execSync('git init', execSyncOpts);
-  execSync('git add .', execSyncOpts);
-  execSync('git commit -m "✨ Initial commit"', execSyncOpts);
+const initializeGit = async () => {
+  await exec('git init', execSyncOpts);
+  await exec('git add .', execSyncOpts);
+  await exec('git commit -m "✨ Initial commit"', execSyncOpts);
 };
 
 /**
@@ -82,8 +72,6 @@ const initializeGit = () => {
  * @returns {Promise<void>}
  */
 const setupEnvironmentVariables = async () => {
-  log(chalk.green('Copying .env.example files to .env.local...'));
-
   const files = [
     { source: join('apps', 'api'), target: '.env.local' },
     { source: join('apps', 'app'), target: '.env.local' },
@@ -100,11 +88,9 @@ const setupEnvironmentVariables = async () => {
 /**
  * Sets up Prisma ORM by running the build command
  * @param {string} packageManager - The package manager to use
- * @returns {void}
+ * @returns {Promise<void>}
  */
-const setupOrm = (packageManager) => {
-  log(chalk.green('Setting up Prisma...'));
-
+const setupOrm = async (packageManager) => {
   const filterCommand = packageManager === 'yarn' ? '--workspace' : '--filter';
 
   const command = [
@@ -115,7 +101,7 @@ const setupOrm = (packageManager) => {
     '@repo/database',
   ].join(' ');
 
-  return execSync(command, execSyncOpts);
+  await exec(command, execSyncOpts);
 };
 
 /**
@@ -128,8 +114,6 @@ const updatePackageManagerConfiguration = async (
   projectDir,
   packageManager
 ) => {
-  log(chalk.green('Updating package manager configuration...'));
-
   const packageJsonPath = join(projectDir, 'package.json');
   const packageJsonFile = await readFile(packageJsonPath, 'utf8');
   const packageJson = JSON.parse(packageJsonFile);
@@ -153,8 +137,6 @@ const updatePackageManagerConfiguration = async (
  * @returns {Promise<void>}
  */
 const updateWorkspaceConfiguration = async (projectDir) => {
-  log(chalk.green('Updating workspace config...'));
-
   const packageJsonPath = join(projectDir, 'package.json');
   const packageJsonFile = await readFile(packageJsonPath, 'utf8');
   const packageJson = JSON.parse(packageJsonFile);
@@ -175,12 +157,6 @@ const updateWorkspaceConfiguration = async (projectDir) => {
  * @returns {Promise<void>}
  */
 const updateInternalPackageDependencies = async (path) => {
-  const doesExist = existsSync(path);
-
-  if (!doesExist) {
-    return;
-  }
-
   const pkgJsonFile = await readFile(path, 'utf8');
   const pkgJson = JSON.parse(pkgJsonFile);
 
@@ -217,8 +193,6 @@ const updateInternalPackageDependencies = async (path) => {
  * @returns {Promise<void>}
  */
 const updateInternalDependencies = async (projectDir) => {
-  log(chalk.green('Updating workspace dependencies...'));
-
   const rootPackageJsonPath = join(projectDir, 'package.json');
   await updateInternalPackageDependencies(rootPackageJsonPath);
 
@@ -251,7 +225,7 @@ const getName = async () =>
  */
 const getPackageManager = async () =>
   await select({
-    message: 'What package manager do you want to use?',
+    message: 'Which package manager would you like to use?',
     choices: ['pnpm', 'npm', 'yarn', 'bun'],
     default: 'pnpm',
   });
@@ -275,27 +249,44 @@ export const initialize = async (options) => {
       throw new Error('Invalid package manager');
     }
 
+    const title = ora('Creating new next-forge project...');
+    title.color = 'yellow';
+    title.start();
+
     const projectDir = join(cwd, name);
-    cloneNextForge(name, packageManager);
+    await cloneNextForge(name, packageManager);
     process.chdir(projectDir);
 
     if (packageManager !== 'pnpm') {
+      title.text = 'Updating package manager configuration...';
       await updatePackageManagerConfiguration(projectDir, packageManager);
+
+      title.text = 'Updating workspace config...';
       await updateWorkspaceConfiguration(projectDir);
+
+      title.text = 'Updating workspace dependencies...';
       await updateInternalDependencies(projectDir);
     }
 
+    title.text = 'Deleting internal content...';
     await setupEnvironmentVariables();
 
-    deleteInternalContent();
-    installDependencies(packageManager);
-    setupOrm(packageManager);
+    title.text = 'Deleting internal content...';
+    await deleteInternalContent();
+
+    title.text = 'Installing dependencies...';
+    await installDependencies(packageManager);
+
+    title.text = 'Setting up ORM...';
+    await setupOrm(packageManager);
 
     if (!options.disableGit) {
-      initializeGit();
+      title.text = 'Initializing Git repository...';
+      await initializeGit();
     }
 
-    log(chalk.green('Done!'));
+    title.succeed('Project initialized successfully!');
+
     log(
       chalk.yellow(
         'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'

@@ -1,4 +1,6 @@
+import { exec as execRaw } from 'node:child_process';
 import { join } from 'node:path';
+import { promisify } from 'node:util';
 
 export const { log } = console;
 
@@ -32,3 +34,5 @@ export const allInternalContent = [
 export const semver = /^\d+\.\d+\.\d+$/;
 
 export const tempDirName = 'next-forge-update';
+
+export const exec = promisify(execRaw);

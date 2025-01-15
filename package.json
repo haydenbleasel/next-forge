@@ -36,6 +36,7 @@
   "dependencies": {
     "@inquirer/prompts": "^7.2.3",
     "chalk": "^5.4.1",
-    "commander": "^13.0.0"
+    "commander": "^13.0.0",
+    "ora": "^8.1.1"
   }
 }
