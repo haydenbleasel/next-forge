@@ -16,6 +16,5 @@ datasource db {
 // Delete it and add your own Prisma models.
 model Page {
   id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+  name  String
 }
