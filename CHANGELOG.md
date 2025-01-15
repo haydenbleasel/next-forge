@@ -1,3 +1,15 @@
+# v3.2.8 (Wed Jan 15 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Redesign CLI with Ora, fix maxBuffer issue on diff ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.7 (Tue Jan 14 2025)
 
 #### ⚠️ Pushed to `main`
