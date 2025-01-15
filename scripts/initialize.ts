@@ -1,6 +1,15 @@
 import { copyFile, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { intro, log, outro, select, spinner, text } from '@clack/prompts';
+import {
+  cancel,
+  intro,
+  isCancel,
+  log,
+  outro,
+  select,
+  spinner,
+  text,
+} from '@clack/prompts';
 import {
   url,
   exec,
@@ -160,8 +169,13 @@ const updateInternalDependencies = async (projectDir: string) => {
 const getName = async () => {
   const value = await text({
     message: 'What is your project named?',
-    defaultValue: 'my-app',
+    initialValue: 'my-app',
   });
+
+  if (isCancel(value)) {
+    cancel('Operation cancelled.');
+    process.exit(0);
+  }
 
   return value.toString();
 };
@@ -176,6 +190,11 @@ const getPackageManager = async () => {
     })),
     initialValue: 'pnpm',
   });
+
+  if (isCancel(value)) {
+    cancel('Operation cancelled.');
+    process.exit(0);
+  }
 
   return value.toString() as (typeof choices)[number];
 };

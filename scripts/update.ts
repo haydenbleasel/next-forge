@@ -1,6 +1,14 @@
 import { copyFile, mkdir, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
-import { intro, log, outro, spinner, text } from '@clack/prompts';
+import {
+  cancel,
+  intro,
+  isCancel,
+  log,
+  outro,
+  spinner,
+  text,
+} from '@clack/prompts';
 import {
   url,
   allInternalContent,
@@ -57,6 +65,11 @@ const getVersion = async (type: 'to' | 'from') => {
       }
     },
   });
+
+  if (isCancel(version)) {
+    cancel('Operation cancelled.');
+    process.exit(0);
+  }
 
   return version.toString();
 };
