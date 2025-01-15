@@ -53,6 +53,7 @@ import {
   Trash2Icon,
 } from 'lucide-react';
 import type { ReactNode } from 'react';
+import { Search } from './search';
 
 type GlobalSidebarProperties = {
   readonly children: ReactNode;
@@ -210,6 +211,7 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
             </SidebarMenuItem>
           </SidebarMenu>
         </SidebarHeader>
+        <Search />
         <SidebarContent>
           <SidebarGroup>
             <SidebarGroupLabel>Platform</SidebarGroupLabel>

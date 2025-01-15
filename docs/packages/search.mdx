@@ -1,0 +1,27 @@
+---
+title: Search
+description: How to use the search feature in next-forge.
+---
+
+next-forge has a dedicated search package that can be used to search for content in your application. This package is built on top of [Fuse.js](https://www.fusejs.io/) — a powerful, lightweight fuzzy-search library, with zero dependencies.
+
+Once your app becomes larger and the search requirements grow, you'll want to consider using a more robust search solution like [Algolia](https://www.algolia.com/).
+
+## How it works
+
+The `@repo/search` package provides a `createSearch` function that can be used to create a search instance. You simply pass it your data in any array-like format and a set of keys to search by. For example:
+
+```tsx
+const data = [
+  { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
+  { id: 2, name: 'Jane Doe', email: 'jane.doe@example.com' },
+];
+
+const search = createSearch(data, {
+  keys: ['name', 'email'],
+});
+```
+
+## Configuration
+
+The search instance has a minimum character length of 1 (so you can search for a single character) and a threshold of 0.3 (so you can search for a partial match). You can modify these values to suit your needs in the `createSearch` function.
