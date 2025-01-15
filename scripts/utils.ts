@@ -1,15 +1,13 @@
-import { exec as execRaw } from 'node:child_process';
+import { type ExecSyncOptions, exec as execRaw } from 'node:child_process';
 import { join } from 'node:path';
 import { promisify } from 'node:util';
-
-export const { log } = console;
 
 export const url = 'https://github.com/haydenbleasel/next-forge';
 
 export const cleanFileName = (file: string) =>
   file.replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/\\/g, '/');
 
-export const execSyncOpts = { stdio: 'ignore' };
+export const execSyncOpts: ExecSyncOptions = { stdio: 'ignore' };
 
 export const internalContentDirs = [
   join('.github', 'workflows'),

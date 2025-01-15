@@ -1,13 +1,12 @@
 import { copyFile, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { intro, outro, select, spinner, text } from '@clack/prompts';
+import { intro, log, outro, select, spinner, text } from '@clack/prompts';
 import {
   url,
   exec,
   execSyncOpts,
   internalContentDirs,
   internalContentFiles,
-  log,
 } from './utils.js';
 
 const cloneNextForge = async (name: string, packageManager: string) => {
@@ -187,6 +186,8 @@ export const initialize = async (options: {
   disableGit?: boolean;
 }) => {
   try {
+    intro('next-forge initialize');
+
     const cwd = process.cwd();
     const name = options.name || (await getName());
     const packageManager =
@@ -195,8 +196,6 @@ export const initialize = async (options: {
     if (!['npm', 'yarn', 'bun', 'pnpm'].includes(packageManager)) {
       throw new Error('Invalid package manager');
     }
-
-    intro('next-forge initialize');
 
     const s = spinner();
 
@@ -240,7 +239,12 @@ export const initialize = async (options: {
       'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'
     );
   } catch (error) {
-    log(chalk.red('Failed to initialize project:', error.message));
+    const message =
+      error instanceof Error
+        ? error.message
+        : `Failed to initialize project: ${error}`;
+
+    log.error(message);
     process.exit(1);
   }
 };
