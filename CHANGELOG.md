@@ -1,3 +1,18 @@
+# v3.2.9 (Wed Jan 15 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Create basic search package ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update schema.prisma ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix button hydration issue ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.8 (Wed Jan 15 2025)
 
 #### ⚠️ Pushed to `main`
