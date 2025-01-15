@@ -1,3 +1,15 @@
+# v3.2.10 (Wed Jan 15 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Move search package to addon ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.9 (Wed Jan 15 2025)
 
 #### ⚠️ Pushed to `main`
