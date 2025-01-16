@@ -10,7 +10,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@arcjet/next": "1.0.0-alpha.34",
+    "@arcjet/next": "1.0.0-beta.1",
     "@radix-ui/react-icons": "^1.3.2",
     "@repo/cms": "workspace:*",
     "@repo/design-system": "workspace:*",
@@ -22,12 +22,12 @@
     "@repo/security": "workspace:*",
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
-    "@sentry/nextjs": "^8.47.0",
+    "@sentry/nextjs": "^8.50.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "date-fns": "^4.1.0",
-    "fumadocs-core": "^14.7.0",
+    "fumadocs-core": "^14.7.4",
     "import-in-the-middle": "^1.12.0",
-    "lucide-react": "^0.469.0",
+    "lucide-react": "^0.471.1",
     "mdx-bundler": "^10.0.3",
     "next": "15.1.4",
     "react": "19.0.0",
@@ -35,15 +35,15 @@
     "react-wrap-balancer": "^1.1.1",
     "require-in-the-middle": "^7.4.0",
     "sharp": "^0.33.5",
-    "shiki": "^1.26.1",
+    "shiki": "^1.27.2",
     "zod": "^3.24.1"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.5",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }

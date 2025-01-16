@@ -21,7 +21,7 @@
     "@repo/observability": "workspace:*",
     "@repo/payments": "workspace:*",
     "@repo/testing": "workspace:*",
-    "@sentry/nextjs": "^8.47.0",
+    "@sentry/nextjs": "^8.50.0",
     "@t3-oss/env-nextjs": "^0.11.1",
     "next": "15.1.4",
     "react": "19.0.0",
@@ -32,10 +32,10 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.10.5",
-    "@types/react": "19.0.2",
-    "@types/react-dom": "19.0.2",
+    "@types/node": "22.10.7",
+    "@types/react": "19.0.7",
+    "@types/react-dom": "19.0.3",
     "concurrently": "^9.1.2",
-    "typescript": "^5.7.2"
+    "typescript": "^5.7.3"
   }
 }
