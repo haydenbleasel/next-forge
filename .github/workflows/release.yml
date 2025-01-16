@@ -45,6 +45,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Build CLI
+        run: npx tsup
+
       - name: Create Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
