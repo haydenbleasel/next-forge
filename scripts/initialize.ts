@@ -16,6 +16,7 @@ import {
   execSyncOpts,
   internalContentDirs,
   internalContentFiles,
+  supportedPackageManagers,
 } from './utils.js';
 
 const cloneNextForge = async (name: string, packageManager: string) => {
@@ -186,10 +187,9 @@ const getName = async () => {
 };
 
 const getPackageManager = async () => {
-  const choices = ['pnpm', 'npm', 'yarn', 'bun'];
   const value = await select({
     message: 'Which package manager would you like to use?',
-    options: choices.map((choice) => ({
+    options: supportedPackageManagers.map((choice) => ({
       value: choice,
       label: choice,
     })),
@@ -201,7 +201,7 @@ const getPackageManager = async () => {
     process.exit(0);
   }
 
-  return value.toString() as (typeof choices)[number];
+  return value.toString() as (typeof supportedPackageManagers)[number];
 };
 
 export const initialize = async (options: {
@@ -217,7 +217,7 @@ export const initialize = async (options: {
     const packageManager =
       options.packageManager || (await getPackageManager());
 
-    if (!['npm', 'yarn', 'bun', 'pnpm'].includes(packageManager)) {
+    if (!supportedPackageManagers.includes(packageManager)) {
       throw new Error('Invalid package manager');
     }
 

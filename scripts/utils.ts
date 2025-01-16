@@ -34,3 +34,5 @@ export const semver = /^\d+\.\d+\.\d+$/;
 export const tempDirName = 'next-forge-update';
 
 export const exec = promisify(execRaw);
+
+export const supportedPackageManagers = ['npm', 'yarn', 'bun', 'pnpm'];
