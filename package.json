@@ -36,5 +36,6 @@
   "dependencies": {
     "@clack/prompts": "^0.9.1",
     "commander": "^13.0.0"
-  }
+  },
+  "type": "module"
 }
