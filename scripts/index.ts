@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import { initialize } from './initialize.mjs';
-import { update } from './update.mjs';
+import { initialize } from './initialize.js';
+import { update } from './update.js';
 
 program
   .command('init')

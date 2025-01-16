@@ -4,7 +4,6 @@ export const GET = async () => {
   const newPage = await database.page.create({
     data: {
       name: 'cron-temp',
-      email: 'test@test.com',
     },
   });
 

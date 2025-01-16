@@ -1,24 +1,24 @@
 import { copyFile, readFile, readdir, rm, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
-import { input, select } from '@inquirer/prompts';
-import chalk from 'chalk';
-import ora from 'ora';
+import {
+  cancel,
+  intro,
+  isCancel,
+  log,
+  outro,
+  select,
+  spinner,
+  text,
+} from '@clack/prompts';
 import {
   url,
   exec,
   execSyncOpts,
   internalContentDirs,
   internalContentFiles,
-  log,
-} from './utils.mjs';
+} from './utils.js';
 
-/**
- * Clones the next-forge template repository using the specified package manager
- * @param {string} name - The name of the project
- * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
- * @returns {Promise<void>}
- */
-const cloneNextForge = async (name, packageManager) => {
+const cloneNextForge = async (name: string, packageManager: string) => {
   const command = [
     'npx create-next-app@latest',
     name,
@@ -32,10 +32,6 @@ const cloneNextForge = async (name, packageManager) => {
   await exec(command.join(' '), execSyncOpts);
 };
 
-/**
- * Deletes internal content and files that are not needed in the new project
- * @returns {Promise<void>}
- */
 const deleteInternalContent = async () => {
   for (const folder of internalContentDirs) {
     await rm(folder, { recursive: true, force: true });
@@ -46,31 +42,18 @@ const deleteInternalContent = async () => {
   }
 };
 
-/**
- * Installs project dependencies using the specified package manager
- * @param {string} packageManager - The package manager to use (pnpm, npm, yarn, or bun)
- * @returns {Promise<void>}
- */
-const installDependencies = async (packageManager) => {
+const installDependencies = async (packageManager: string) => {
   const suffix = packageManager === 'npm' ? '--force' : '';
 
   await exec(`${packageManager} install ${suffix}`, execSyncOpts);
 };
 
-/**
- * Initializes a new git repository and creates initial commit
- * @returns {Promise<void>}
- */
 const initializeGit = async () => {
   await exec('git init', execSyncOpts);
   await exec('git add .', execSyncOpts);
   await exec('git commit -m "✨ Initial commit"', execSyncOpts);
 };
 
-/**
- * Sets up environment variables by copying example files
- * @returns {Promise<void>}
- */
 const setupEnvironmentVariables = async () => {
   const files = [
     { source: join('apps', 'api'), target: '.env.local' },
@@ -85,12 +68,7 @@ const setupEnvironmentVariables = async () => {
   }
 };
 
-/**
- * Sets up Prisma ORM by running the build command
- * @param {string} packageManager - The package manager to use
- * @returns {Promise<void>}
- */
-const setupOrm = async (packageManager) => {
+const setupOrm = async (packageManager: string) => {
   const filterCommand = packageManager === 'yarn' ? '--workspace' : '--filter';
 
   const command = [
@@ -104,15 +82,9 @@ const setupOrm = async (packageManager) => {
   await exec(command, execSyncOpts);
 };
 
-/**
- * Updates the package manager configuration in package.json
- * @param {string} projectDir - The project directory path
- * @param {string} packageManager - The package manager to use
- * @returns {Promise<void>}
- */
 const updatePackageManagerConfiguration = async (
-  projectDir,
-  packageManager
+  projectDir: string,
+  packageManager: string
 ) => {
   const packageJsonPath = join(projectDir, 'package.json');
   const packageJsonFile = await readFile(packageJsonPath, 'utf8');
@@ -131,12 +103,7 @@ const updatePackageManagerConfiguration = async (
   await writeFile(packageJsonPath, `${newPackageJson}\n`);
 };
 
-/**
- * Updates workspace configuration in package.json and removes pnpm specific files
- * @param {string} projectDir - The project directory path
- * @returns {Promise<void>}
- */
-const updateWorkspaceConfiguration = async (projectDir) => {
+const updateWorkspaceConfiguration = async (projectDir: string) => {
   const packageJsonPath = join(projectDir, 'package.json');
   const packageJsonFile = await readFile(packageJsonPath, 'utf8');
   const packageJson = JSON.parse(packageJsonFile);
@@ -151,12 +118,7 @@ const updateWorkspaceConfiguration = async (projectDir) => {
   await rm('pnpm-workspace.yaml', { force: true });
 };
 
-/**
- * Updates internal package dependencies in a specific package
- * @param {string} path - The package.json path
- * @returns {Promise<void>}
- */
-const updateInternalPackageDependencies = async (path) => {
+const updateInternalPackageDependencies = async (path: string) => {
   const pkgJsonFile = await readFile(path, 'utf8');
   const pkgJson = JSON.parse(pkgJsonFile);
 
@@ -187,12 +149,7 @@ const updateInternalPackageDependencies = async (path) => {
   await writeFile(path, `${newPkgJson}\n`);
 };
 
-/**
- * Updates internal dependencies in all workspace packages
- * @param {string} projectDir - The project directory path
- * @returns {Promise<void>}
- */
-const updateInternalDependencies = async (projectDir) => {
+const updateInternalDependencies = async (projectDir: string) => {
   const rootPackageJsonPath = join(projectDir, 'package.json');
   await updateInternalPackageDependencies(rootPackageJsonPath);
 
@@ -209,37 +166,47 @@ const updateInternalDependencies = async (projectDir) => {
   }
 };
 
-/**
- * Gets the project name from the user
- * @returns {Promise<string>}
- */
-const getName = async () =>
-  await input({
+const getName = async () => {
+  const value = await text({
     message: 'What is your project named?',
-    required: true,
+    placeholder: 'my-app',
   });
 
-/**
- * Gets the package manager from the user
- * @returns {Promise<'pnpm' | 'npm' | 'yarn' | 'bun'>}
- */
-const getPackageManager = async () =>
-  await select({
+  if (isCancel(value)) {
+    cancel('Operation cancelled.');
+    process.exit(0);
+  }
+
+  return value.toString();
+};
+
+const getPackageManager = async () => {
+  const choices = ['pnpm', 'npm', 'yarn', 'bun'];
+  const value = await select({
     message: 'Which package manager would you like to use?',
-    choices: ['pnpm', 'npm', 'yarn', 'bun'],
-    default: 'pnpm',
+    options: choices.map((choice) => ({
+      value: choice,
+      label: choice,
+    })),
+    initialValue: 'pnpm',
   });
 
-/**
- * Initializes a new next-forge project
- * @param {Object} options - The initialization options
- * @param {string} [options.name] - The project name
- * @param {string} [options.packageManager] - The package manager to use
- * @param {boolean} [options.disableGit] - Whether to disable git
- * @returns {Promise<void>}
- */
-export const initialize = async (options) => {
+  if (isCancel(value)) {
+    cancel('Operation cancelled.');
+    process.exit(0);
+  }
+
+  return value.toString() as (typeof choices)[number];
+};
+
+export const initialize = async (options: {
+  name?: string;
+  packageManager?: string;
+  disableGit?: boolean;
+}) => {
   try {
+    intro('next-forge initialize');
+
     const cwd = process.cwd();
     const name = options.name || (await getName());
     const packageManager =
@@ -249,51 +216,54 @@ export const initialize = async (options) => {
       throw new Error('Invalid package manager');
     }
 
-    const title = ora('Creating new next-forge project...');
-    title.color = 'yellow';
-    title.start();
+    const s = spinner();
+
+    s.start('Creating new next-forge project...');
 
     const projectDir = join(cwd, name);
     await cloneNextForge(name, packageManager);
     process.chdir(projectDir);
 
     if (packageManager !== 'pnpm') {
-      title.text = 'Updating package manager configuration...';
+      s.message('Updating package manager configuration...');
       await updatePackageManagerConfiguration(projectDir, packageManager);
 
-      title.text = 'Updating workspace config...';
+      s.message('Updating workspace config...');
       await updateWorkspaceConfiguration(projectDir);
 
-      title.text = 'Updating workspace dependencies...';
+      s.message('Updating workspace dependencies...');
       await updateInternalDependencies(projectDir);
     }
 
-    title.text = 'Deleting internal content...';
+    s.message('Deleting internal content...');
     await setupEnvironmentVariables();
 
-    title.text = 'Deleting internal content...';
+    s.message('Deleting internal content...');
     await deleteInternalContent();
 
-    title.text = 'Installing dependencies...';
+    s.message('Installing dependencies...');
     await installDependencies(packageManager);
 
-    title.text = 'Setting up ORM...';
+    s.message('Setting up ORM...');
     await setupOrm(packageManager);
 
     if (!options.disableGit) {
-      title.text = 'Initializing Git repository...';
+      s.message('Initializing Git repository...');
       await initializeGit();
     }
 
-    title.succeed('Project initialized successfully!');
+    s.stop('Project initialized successfully!');
 
-    log(
-      chalk.yellow(
-        'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'
-      )
+    outro(
+      'Please make sure you install the Mintlify CLI and Stripe CLI before starting the project.'
     );
   } catch (error) {
-    log(chalk.red('Failed to initialize project:', error.message));
+    const message =
+      error instanceof Error
+        ? error.message
+        : `Failed to initialize project: ${error}`;
+
+    log.error(message);
     process.exit(1);
   }
 };
