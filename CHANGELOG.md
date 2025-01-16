@@ -1,3 +1,15 @@
+# v3.2.13 (Thu Jan 16 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update website ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.12 (Thu Jan 16 2025)
 
 #### ⚠️ Pushed to `main`
