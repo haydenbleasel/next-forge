@@ -1,3 +1,15 @@
+# v3.2.11 (Thu Jan 16 2025)
+
+#### 🐛 Bug Fix
+
+- Upgrade cli [#404](https://github.com/haydenbleasel/next-forge/pull/404) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.10 (Wed Jan 15 2025)
 
 #### ⚠️ Pushed to `main`
