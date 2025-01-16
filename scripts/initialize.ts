@@ -169,7 +169,7 @@ const updateInternalDependencies = async (projectDir: string) => {
 const getName = async () => {
   const value = await text({
     message: 'What is your project named?',
-    initialValue: 'my-app',
+    placeholder: 'my-app',
   });
 
   if (isCancel(value)) {

@@ -59,6 +59,7 @@ const deleteTemporaryDirectory = async () =>
 const getVersion = async (type: 'to' | 'from') => {
   const version = await text({
     message: `What version are you updating ${type}?`,
+    placeholder: '1.2.3',
     validate: (value) => {
       if (!semver.test(value)) {
         return 'Please enter a valid version without the "v" e.g. 1.2.3';
