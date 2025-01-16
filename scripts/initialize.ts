@@ -69,7 +69,7 @@ const setupEnvironmentVariables = async () => {
 };
 
 const setupOrm = async (packageManager: string) => {
-  const filterCommand = packageManager === 'yarn' ? '--workspace' : '--filter';
+  const filterCommand = packageManager === 'npm' ? '--workspace' : '--filter';
 
   const command = [
     packageManager,
