@@ -1,5 +1,6 @@
 import {
   BookIcon,
+  CurlyBracesIcon,
   DatabaseIcon,
   GlobeIcon,
   LaptopIcon,
@@ -12,6 +13,7 @@ import ApiImage from './api.png';
 import AppImage from './app.png';
 import DocsImage from './docs.png';
 import EmailImage from './email.png';
+import StorybookImage from './storybook.png';
 import StudioImage from './studio.png';
 import WebImage from './web.png';
 
@@ -51,7 +53,7 @@ const apps = [
   {
     icon: BookIcon,
     name: 'docs',
-    title: 'Powered by Mintlify',
+    title: 'Stunning documentation',
     description:
       'Simple, beautiful out of the box and easy to maintain documentation. Pages are automatically generated from your markdown files.',
     image: DocsImage,
@@ -63,6 +65,14 @@ const apps = [
     description:
       'Use Prisma to generate a type-safe client for your database, and Prisma Studio to visualize and edit it.',
     image: StudioImage,
+  },
+  {
+    icon: CurlyBracesIcon,
+    name: 'storybook',
+    title: 'A frontend workshop',
+    description:
+      'Built-in Storybook instance, allowing you to create reusable components and pages that can be tested and previewed in isolation.',
+    image: StorybookImage,
   },
 ];
 
@@ -107,5 +117,8 @@ export const Apps = () => (
         <App app={app} index={index} />
       </div>
     ))}
+    {apps.length % 2 === 1 && (
+      <div className="h-full w-full border-t border-l bg-dashed" />
+    )}
   </section>
 );
