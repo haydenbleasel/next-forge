@@ -116,8 +116,9 @@ export const update = async (options: { from: string; to: string }) => {
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
 
-    const s = spinner(`Preparing to update from ${from} to ${to}...`);
-    s.start();
+    const s = spinner();
+
+    s.start(`Preparing to update from ${from} to ${to}...`);
 
     s.message('Creating temporary directory...');
     await createTemporaryDirectory(tempDirName);
