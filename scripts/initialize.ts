@@ -170,6 +170,11 @@ const getName = async () => {
   const value = await text({
     message: 'What is your project named?',
     placeholder: 'my-app',
+    validate(value) {
+      if (value.length === 0) {
+        return 'Please enter a project name.';
+      }
+    },
   });
 
   if (isCancel(value)) {
@@ -205,7 +210,7 @@ export const initialize = async (options: {
   disableGit?: boolean;
 }) => {
   try {
-    intro('next-forge initialize');
+    intro("Let's start a next-forge project!");
 
     const cwd = process.cwd();
     const name = options.name || (await getName());
@@ -217,11 +222,12 @@ export const initialize = async (options: {
     }
 
     const s = spinner();
-
-    s.start('Creating new next-forge project...');
-
     const projectDir = join(cwd, name);
+
+    s.start('Cloning next-forge...');
     await cloneNextForge(name, packageManager);
+
+    s.message('Moving into repository...');
     process.chdir(projectDir);
 
     if (packageManager !== 'pnpm') {

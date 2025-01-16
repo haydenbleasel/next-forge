@@ -61,6 +61,10 @@ const getVersion = async (type: 'to' | 'from') => {
     message: `What version are you updating ${type}?`,
     placeholder: '1.2.3',
     validate: (value) => {
+      if (value.length === 0) {
+        return 'Please enter a version.';
+      }
+
       if (!semver.test(value)) {
         return 'Please enter a valid version without the "v" e.g. 1.2.3';
       }
@@ -108,7 +112,7 @@ const getDiff = async (
 
 export const update = async (options: { from: string; to: string }) => {
   try {
-    intro('next-forge update');
+    intro("Let's update your next-forge project!");
 
     const cwd = process.cwd();
     const fromVersion = options.from || (await getVersion('from'));
