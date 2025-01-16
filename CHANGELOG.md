@@ -1,3 +1,16 @@
+# v3.2.15 (Thu Jan 16 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Create supportedPackageManagers const ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update initialize.ts ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.14 (Thu Jan 16 2025)
 
 #### ⚠️ Pushed to `main`
