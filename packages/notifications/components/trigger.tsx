@@ -5,7 +5,7 @@ import {
   NotificationIconButton,
 } from '@knocklabs/react';
 import { useRef, useState } from 'react';
-import type { PointerEventHandler, RefObject } from 'react';
+import type { RefObject } from 'react';
 import { keys } from '../keys';
 
 // Required CSS import, unless you're overriding the styling
@@ -16,7 +16,7 @@ export const NotificationsTrigger = () => {
   const [isVisible, setIsVisible] = useState(false);
   const notifButtonRef = useRef<HTMLButtonElement>(null);
 
-  const handleClose: PointerEventHandler = (event) => {
+  const handleClose = (event: Event) => {
     if (event.target === notifButtonRef.current) {
       return;
     }
