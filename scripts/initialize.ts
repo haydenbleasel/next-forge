@@ -241,7 +241,7 @@ export const initialize = async (options: {
       await updateInternalDependencies(projectDir);
     }
 
-    s.message('Deleting internal content...');
+    s.message('Setting up environment variable files...');
     await setupEnvironmentVariables();
 
     s.message('Deleting internal content...');
