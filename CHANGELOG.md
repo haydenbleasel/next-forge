@@ -1,3 +1,16 @@
+# v3.2.12 (Thu Jan 16 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Misc CLI fixes and improvements ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.11 (Thu Jan 16 2025)
 
 #### 🐛 Bug Fix
