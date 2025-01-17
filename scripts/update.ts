@@ -132,21 +132,13 @@ export const update = async (options: { from?: string; to?: string }) => {
     intro("Let's update your next-forge project!");
 
     const cwd = process.cwd();
-    const s1 = spinner();
-
-    s1.start('Getting available versions...');
     const availableVersions = await getAvailableVersions();
-
-    s1.message('Getting current version from package.json...');
     let currentVersion = await getCurrentVersion();
 
     // Ditch the project version if it is not in the available versions
     if (currentVersion && !availableVersions.includes(currentVersion)) {
-      s1.message('Current version is not a valid next-forge version....');
       currentVersion = undefined;
     }
-
-    s1.stop();
 
     const fromVersion =
       options.from ||
@@ -170,26 +162,26 @@ export const update = async (options: { from?: string; to?: string }) => {
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
 
-    const s2 = spinner();
+    const s = spinner();
 
-    s2.start(`Preparing to update from ${from} to ${to}...`);
+    s.start(`Preparing to update from ${from} to ${to}...`);
 
-    s2.message('Creating temporary directory...');
+    s.message('Creating temporary directory...');
     await createTemporaryDirectory(tempDirName);
 
-    s2.message('Cloning next-forge...');
+    s.message('Cloning next-forge...');
     await cloneRepository(tempDirName);
 
-    s2.message('Moving into repository...');
+    s.message('Moving into repository...');
     process.chdir(tempDirName);
 
-    s2.message(`Getting files from version ${from}...`);
+    s.message(`Getting files from version ${from}...`);
     const fromFiles = await getFiles(from);
 
-    s2.message(`Getting files from version ${to}...`);
+    s.message(`Getting files from version ${to}...`);
     const toFiles = await getFiles(to);
 
-    s2.message(`Computing diff between versions ${from} and ${to}...`);
+    s.message(`Computing diff between versions ${from} and ${to}...`);
     const diff = await getDiff(
       {
         version: from,
@@ -201,16 +193,16 @@ export const update = async (options: { from?: string; to?: string }) => {
       }
     );
 
-    s2.message('Moving back to original directory...');
+    s.message('Moving back to original directory...');
     process.chdir(cwd);
 
-    s2.message(`Updating ${diff.length} files...`);
+    s.message(`Updating ${diff.length} files...`);
     await updateFiles(diff);
 
-    s2.message('Cleaning up...');
+    s.message('Cleaning up...');
     await deleteTemporaryDirectory();
 
-    s2.stop(`Successfully updated project from ${from} to ${to}!`);
+    s.stop(`Successfully updated project from ${from} to ${to}!`);
 
     outro('Please review and test the changes carefully.');
   } catch (error) {
