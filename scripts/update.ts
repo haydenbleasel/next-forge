@@ -77,11 +77,12 @@ const getCurrentVersion = async (): Promise<string | undefined> => {
 };
 
 const selectVersion = async (
+  label: string,
   availableVersions: string[],
   initialValue: string | undefined
 ) => {
   const version = await select({
-    message: 'Select a version to update to:',
+    message: `Select a version to update ${label}:`,
     options: availableVersions.map((v) => ({ value: v, label: `v${v}` })),
     initialValue,
     maxItems: 10,
@@ -148,7 +149,8 @@ export const update = async (options: { from?: string; to?: string }) => {
     s1.stop();
 
     const fromVersion =
-      options.from || (await selectVersion(availableVersions, currentVersion));
+      options.from ||
+      (await selectVersion('from', availableVersions, currentVersion));
 
     if (fromVersion === availableVersions[0]) {
       outro('You are already on the latest version!');
@@ -162,7 +164,8 @@ export const update = async (options: { from?: string; to?: string }) => {
     const [nextVersion] = upgradeableVersions;
 
     const toVersion =
-      options.to || (await selectVersion(upgradeableVersions, nextVersion));
+      options.to ||
+      (await selectVersion('to', upgradeableVersions, nextVersion));
 
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
