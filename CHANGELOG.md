@@ -1,3 +1,16 @@
+# v3.2.16 (Fri Jan 17 2025)
+
+#### 🐛 Bug Fix
+
+- Enhance CLI command - Update [#406](https://github.com/haydenbleasel/next-forge/pull/406) ([@carvillanueva](https://github.com/carvillanueva) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Carlos Villanueva ([@carvillanueva](https://github.com/carvillanueva))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.15 (Thu Jan 16 2025)
 
 #### ⚠️ Pushed to `main`
