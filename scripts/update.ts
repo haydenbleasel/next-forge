@@ -56,8 +56,11 @@ const updateFiles = async (files: string[]) => {
 const deleteTemporaryDirectory = async () =>
   await rm(tempDirName, { recursive: true, force: true });
 
-const getCurrentVersion = async (): Promise<string> => {
-  const packageJson = JSON.parse(await readFile('package.json', 'utf-8'));
+const getCurrentVersion = async (): Promise<string | undefined> => {
+  const packageJsonPath = join(process.cwd(), 'package.json');
+  const packageJsonContents = await readFile(packageJsonPath, 'utf-8');
+  const packageJson = JSON.parse(packageJsonContents) as { version?: string };
+
   return packageJson.version;
 };
 
