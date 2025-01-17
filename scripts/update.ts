@@ -84,6 +84,7 @@ const selectVersion = async (
     message: 'Select a version to update to:',
     options: availableVersions.map((v) => ({ value: v, label: `v${v}` })),
     initialValue,
+    maxItems: 10,
   });
 
   if (isCancel(version)) {
