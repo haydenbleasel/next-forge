@@ -1,4 +1,4 @@
-import { copyFile, mkdir, rm } from 'node:fs/promises';
+import { copyFile, mkdir, readFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import {
   cancel,
@@ -6,15 +6,15 @@ import {
   isCancel,
   log,
   outro,
+  select,
   spinner,
-  text,
 } from '@clack/prompts';
 import {
   url,
   allInternalContent,
   cleanFileName,
   exec,
-  semver,
+  getAvailableVersions,
   tempDirName,
 } from './utils.js';
 
@@ -56,19 +56,41 @@ const updateFiles = async (files: string[]) => {
 const deleteTemporaryDirectory = async () =>
   await rm(tempDirName, { recursive: true, force: true });
 
-const getVersion = async (type: 'to' | 'from') => {
-  const version = await text({
-    message: `What version are you updating ${type}?`,
-    placeholder: '1.2.3',
-    validate: (value) => {
-      if (value.length === 0) {
-        return 'Please enter a version.';
-      }
+const getCurrentVersion = async (): Promise<string> => {
+  const packageJson = JSON.parse(await readFile('package.json', 'utf-8'));
+  return packageJson.version;
+};
 
-      if (!semver.test(value)) {
-        return 'Please enter a valid version without the "v" e.g. 1.2.3';
-      }
-    },
+const selectVersion = async (
+  currentVersion: string,
+  availableVersions: string[]
+) => {
+  log.info(`Current version: v${currentVersion}`);
+
+  const compareVersions = (a: string, b: string) => {
+    const [aMajor, aMinor, aPatch] = a.split('.').map(Number);
+    const [bMajor, bMinor, bPatch] = b.split('.').map(Number);
+    if (aMajor !== bMajor) {
+      return aMajor - bMajor;
+    }
+    if (aMinor !== bMinor) {
+      return aMinor - bMinor;
+    }
+    return aPatch - bPatch;
+  };
+
+  const newerVersions = availableVersions.filter(
+    (v) => compareVersions(v, currentVersion) > 0
+  );
+
+  if (newerVersions.length === 0) {
+    log.info('You are already on the latest version!');
+    process.exit(0);
+  }
+
+  const version = await select({
+    message: 'Select a version to update to:',
+    options: newerVersions.map((v) => ({ value: v, label: `v${v}` })),
   });
 
   if (isCancel(version)) {
@@ -110,13 +132,17 @@ const getDiff = async (
   return filesToUpdate;
 };
 
-export const update = async (options: { from: string; to: string }) => {
+export const update = async (options: { from?: string; to?: string }) => {
   try {
     intro("Let's update your next-forge project!");
 
     const cwd = process.cwd();
-    const fromVersion = options.from || (await getVersion('from'));
-    const toVersion = options.to || (await getVersion('to'));
+    const currentVersion = await getCurrentVersion();
+    const availableVersions = await getAvailableVersions();
+
+    const fromVersion = options.from || currentVersion;
+    const toVersion =
+      options.to || (await selectVersion(currentVersion, availableVersions));
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
 
