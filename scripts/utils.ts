@@ -42,6 +42,7 @@ export const getAvailableVersions = async (): Promise<string[]> => {
   const changelog = await readFile('CHANGELOG.md', 'utf-8');
   const versionRegex = /# v(\d+\.\d+\.\d+)/g;
   const matches = [...changelog.matchAll(versionRegex)];
+
   return matches
     .map((match) => match[1])
     .sort((a, b) => {

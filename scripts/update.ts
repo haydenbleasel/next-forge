@@ -18,6 +18,18 @@ import {
   tempDirName,
 } from './utils.js';
 
+const compareVersions = (a: string, b: string) => {
+  const [aMajor, aMinor, aPatch] = a.split('.').map(Number);
+  const [bMajor, bMinor, bPatch] = b.split('.').map(Number);
+  if (aMajor !== bMajor) {
+    return aMajor - bMajor;
+  }
+  if (aMinor !== bMinor) {
+    return aMinor - bMinor;
+  }
+  return aPatch - bPatch;
+};
+
 const createTemporaryDirectory = async (name: string) => {
   const cwd = process.cwd();
   const tempDir = join(cwd, name);
@@ -65,35 +77,13 @@ const getCurrentVersion = async (): Promise<string | undefined> => {
 };
 
 const selectVersion = async (
-  currentVersion: string,
-  availableVersions: string[]
+  availableVersions: string[],
+  initialValue: string | undefined
 ) => {
-  log.info(`Current version: v${currentVersion}`);
-
-  const compareVersions = (a: string, b: string) => {
-    const [aMajor, aMinor, aPatch] = a.split('.').map(Number);
-    const [bMajor, bMinor, bPatch] = b.split('.').map(Number);
-    if (aMajor !== bMajor) {
-      return aMajor - bMajor;
-    }
-    if (aMinor !== bMinor) {
-      return aMinor - bMinor;
-    }
-    return aPatch - bPatch;
-  };
-
-  const newerVersions = availableVersions.filter(
-    (v) => compareVersions(v, currentVersion) > 0
-  );
-
-  if (newerVersions.length === 0) {
-    log.info('You are already on the latest version!');
-    process.exit(0);
-  }
-
   const version = await select({
     message: 'Select a version to update to:',
-    options: newerVersions.map((v) => ({ value: v, label: `v${v}` })),
+    options: availableVersions.map((v) => ({ value: v, label: `v${v}` })),
+    initialValue,
   });
 
   if (isCancel(version)) {
@@ -140,35 +130,64 @@ export const update = async (options: { from?: string; to?: string }) => {
     intro("Let's update your next-forge project!");
 
     const cwd = process.cwd();
-    const currentVersion = await getCurrentVersion();
+    const s1 = spinner();
+
+    s1.start('Getting available versions...');
     const availableVersions = await getAvailableVersions();
 
-    const fromVersion = options.from || currentVersion;
+    s1.message('Getting current version from package.json...');
+    let currentVersion = await getCurrentVersion();
+
+    // Ditch the project version if it is not in the available versions
+    if (currentVersion && !availableVersions.includes(currentVersion)) {
+      s1.message('Current version is not a valid next-forge version....');
+      currentVersion = undefined;
+    }
+
+    s1.stop();
+
+    const fromVersion =
+      options.from || (await selectVersion(availableVersions, currentVersion));
+
+    if (fromVersion === availableVersions[0]) {
+      outro('You are already on the latest version!');
+      return;
+    }
+
+    const upgradeableVersions = currentVersion
+      ? availableVersions.filter(
+          (v) => compareVersions(v, currentVersion ?? '') > 0
+        )
+      : availableVersions;
+
+    const nextVersion = upgradeableVersions[0];
+
     const toVersion =
-      options.to || (await selectVersion(currentVersion, availableVersions));
+      options.to || (await selectVersion(upgradeableVersions, nextVersion));
+
     const from = `v${fromVersion}`;
     const to = `v${toVersion}`;
 
-    const s = spinner();
+    const s2 = spinner();
 
-    s.start(`Preparing to update from ${from} to ${to}...`);
+    s2.start(`Preparing to update from ${from} to ${to}...`);
 
-    s.message('Creating temporary directory...');
+    s2.message('Creating temporary directory...');
     await createTemporaryDirectory(tempDirName);
 
-    s.message('Cloning next-forge...');
+    s2.message('Cloning next-forge...');
     await cloneRepository(tempDirName);
 
-    s.message('Moving into repository...');
+    s2.message('Moving into repository...');
     process.chdir(tempDirName);
 
-    s.message(`Getting files from version ${from}...`);
+    s2.message(`Getting files from version ${from}...`);
     const fromFiles = await getFiles(from);
 
-    s.message(`Getting files from version ${to}...`);
+    s2.message(`Getting files from version ${to}...`);
     const toFiles = await getFiles(to);
 
-    s.message(`Computing diff between versions ${from} and ${to}...`);
+    s2.message(`Computing diff between versions ${from} and ${to}...`);
     const diff = await getDiff(
       {
         version: from,
@@ -180,16 +199,16 @@ export const update = async (options: { from?: string; to?: string }) => {
       }
     );
 
-    s.message('Moving back to original directory...');
+    s2.message('Moving back to original directory...');
     process.chdir(cwd);
 
-    s.message(`Updating ${diff.length} files...`);
+    s2.message(`Updating ${diff.length} files...`);
     await updateFiles(diff);
 
-    s.message('Cleaning up...');
+    s2.message('Cleaning up...');
     await deleteTemporaryDirectory();
 
-    s.stop(`Successfully updated project from ${from} to ${to}!`);
+    s2.stop(`Successfully updated project from ${from} to ${to}!`);
 
     outro('Please review and test the changes carefully.');
   } catch (error) {
