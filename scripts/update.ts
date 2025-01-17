@@ -155,13 +155,11 @@ export const update = async (options: { from?: string; to?: string }) => {
       return;
     }
 
-    const upgradeableVersions = currentVersion
-      ? availableVersions.filter(
-          (v) => compareVersions(v, currentVersion ?? '') > 0
-        )
-      : availableVersions;
+    const upgradeableVersions = availableVersions.filter(
+      (v) => compareVersions(v, fromVersion) > 0
+    );
 
-    const nextVersion = upgradeableVersions[0];
+    const [nextVersion] = upgradeableVersions;
 
     const toVersion =
       options.to || (await selectVersion(upgradeableVersions, nextVersion));
