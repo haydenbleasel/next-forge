@@ -8,7 +8,23 @@ description: Built-in helpers to help you keep your project up to date.
 As next-forge evolves, you may want to stay up to date with the latest changes. This can be difficult to do manually, so we've created a script to help you.
 
 ```sh Terminal
-npx next-forge@latest update --from 2.18.30 --to 2.18.31
+npx next-forge@latest update
+```
+
+Select a version to update to:
+
+```
+┌  Let's update your next-forge project!
+│
+●  Current version: v3.2.10
+│
+◆  Select a version to update to:
+│  ● v3.2.15
+│  ○ v3.2.14
+│  ○ v3.2.13
+│  ○ v3.2.12
+│  ○ v3.2.11
+└
 ```
 
 This will clone the latest version of next-forge into a temporary directory, apply the updates, and then copy the files over to your project. From here, you can commit the changes and push them to your repository.
