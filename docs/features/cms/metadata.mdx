@@ -32,7 +32,7 @@ import { Authors } from "/snippets/authors.mdx";
 
 To generate metadata for a particular page or collection item, we can use the BaseHub SDK to query the metadata, then use Next.js' `generateMetadata` function to generate the metadata.
 
-For example, here's how we've wired up the metadata for the blog post page:
+For example, here's how we've wired up the metadata for the blog post page, using the `createMetadata` function from the [SEO](/packages/seo) package:
 
 ```tsx apps/web/app/blog/[slug]/page.tsx
 import { blog } from '@repo/cms';
@@ -60,8 +60,6 @@ export const generateMetadata = async ({
   });
 };
 ```
-
-The `createMetadata` function is a utility function that creates the metadata object. It takes a title, description, and image, and returns an object that can be used by Next.js to generate the metadata for the page.
 
 `blog.getPost` is a function that abstracts the logic of fetching the blog post from the CMS. Under the hood, it uses the BaseHub SDK to fetch the blog post from the CMS:
 
