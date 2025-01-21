@@ -1,3 +1,16 @@
+# v3.2.17 (Tue Jan 21 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #411 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.16 (Fri Jan 17 2025)
 
 #### 🐛 Bug Fix
