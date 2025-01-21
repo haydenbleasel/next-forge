@@ -1,3 +1,15 @@
+# v3.2.18 (Tue Jan 21 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Bump deps, fix lockfiles ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.17 (Tue Jan 21 2025)
 
 #### ⚠️ Pushed to `main`
