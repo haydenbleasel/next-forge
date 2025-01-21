@@ -8,10 +8,10 @@
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "next": "15.1.4"
+    "next": "15.1.5"
   },
   "dependencies": {
-    "@next/bundle-analyzer": "^15.1.4",
+    "@next/bundle-analyzer": "^15.1.5",
     "@prisma/nextjs-monorepo-workaround-plugin": "^6.2.1",
     "@t3-oss/env-core": "^0.11.1",
     "@t3-oss/env-nextjs": "^0.11.1",
