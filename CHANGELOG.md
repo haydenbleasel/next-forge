@@ -1,3 +1,30 @@
+# v3.2.19 (Tue Jan 28 2025)
+
+:tada: This release contains work from new contributors! :tada:
+
+Thanks for all your work!
+
+:heart: Michal Bock ([@SpeedyCoder](https://github.com/SpeedyCoder))
+
+:heart: Miraan Tabrez ([@miraan](https://github.com/miraan))
+
+#### 🐛 Bug Fix
+
+- Add 'Switch to Hypertune' migration guide [#422](https://github.com/haydenbleasel/next-forge/pull/422) ([@SpeedyCoder](https://github.com/SpeedyCoder) [@miraan](https://github.com/miraan))
+
+#### ⚠️ Pushed to `main`
+
+- Compress images ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update hypertune.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 3
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Michal Bock ([@SpeedyCoder](https://github.com/SpeedyCoder))
+- Miraan Tabrez ([@miraan](https://github.com/miraan))
+
+---
+
 # v3.2.18 (Tue Jan 21 2025)
 
 #### ⚠️ Pushed to `main`
