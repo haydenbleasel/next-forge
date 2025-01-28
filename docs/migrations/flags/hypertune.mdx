@@ -7,6 +7,15 @@ import { Authors } from '/snippets/authors.mdx';
 
 <Authors data={[{
   user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
     name: 'Michal Bock',
     id: 'michalbock',
   },
@@ -26,6 +35,8 @@ import { Authors } from '/snippets/authors.mdx';
 }]} />
 
 [Hypertune](https://www.hypertune.com/) is the most flexible platform for feature flags, A/B testing, analytics and app configuration. Built with full end-to-end type-safety, Git version control and local, synchronous, in-memory flag evaluation. Optimized for TypeScript, React and Next.js.
+
+Here's how to switch your next-forge project to use Hypertune for feature flags!
 
 ## 1. Create a new Hypertune project
 
@@ -54,8 +65,6 @@ HYPERTUNE_GET_HYPERTUNE_IMPORT_PATH=../lib/getHypertune
 
 Use the `NEXT_PUBLIC_HYPERTUNE_TOKEN` environment variable in the call to `createEnv`:
 
-<CodeGroup>
-
 ```ts packages/feature-flags/keys.ts {6-8,14}
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
@@ -74,8 +83,6 @@ export const keys = () =>
     },
   });
 ```
-
-</CodeGroup>
 
 ## 4. Swap out the required dependencies
 
@@ -124,8 +131,6 @@ packages/feature-flags/generated/hypertune.vercel.tsx
 
 Add a `getHypertune.ts` file in the `feature-flags` package which defines a `getHypertune` function that returns an initialized instance of the Hypertune SDK on the server:
 
-<CodeGroup>
-
 ```ts packages/feature-flags/lib/getHypertune.ts
 import 'server-only';
 import { auth } from '@repo/auth/server';
@@ -164,18 +169,13 @@ export default async function getHypertune(params?: {
 }
 ```
 
-</CodeGroup>
-
 ## 7. Update `index.ts`
 
 Hypertune automatically generates feature flag functions that use the `@vercel/flags` package. To export them the same way as before, update the `index.ts` file to export everything from the `generated/hypertune.vercel.ts` file:
 
-<CodeGroup>
-
 ```ts packages/feature-flags/index.ts
 export * from "./generated/hypertune.vercel.tsx"
 ```
-</CodeGroup>
 
 Hypertune adds a `Flag` suffix to all these generated feature flag functions, so you will need to update flag usages with this, e.g. `showBetaFeature` => `showBetaFeatureFlag`.
 
