@@ -181,6 +181,10 @@
       "pages": ["migrations/documentation/fumadocs"]
     },
     {
+      "group": "Feature flags",
+      "pages": ["migrations/flags/hypertune"]
+    },
+    {
       "group": "Formatting",
       "pages": ["migrations/formatting/eslint"]
     },
