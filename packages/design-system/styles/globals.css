@@ -9,6 +9,14 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@utility container {
+  @apply mx-auto p-8;
+}
+
+@utility container-2xl {
+  @apply max-w-[1400px];
+}
+
 @theme {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
