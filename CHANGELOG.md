@@ -1,3 +1,20 @@
+# v3.2.20 (Mon Feb 03 2025)
+
+#### ⚠️ Pushed to `main`
+
+- For #367 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump the npm_and_yarn group with 2 updates [#423](https://github.com/haydenbleasel/next-forge/pull/423) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.19 (Tue Jan 28 2025)
 
 :tada: This release contains work from new contributors! :tada:
