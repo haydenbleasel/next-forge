@@ -54,6 +54,7 @@ import {
 } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Search } from './search';
+import Link from 'next/link';
 
 type GlobalSidebarProperties = {
   readonly children: ReactNode;
@@ -224,10 +225,10 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                 >
                   <SidebarMenuItem>
                     <SidebarMenuButton asChild tooltip={item.title}>
-                      <a href={item.url}>
+                      <Link href={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                     {item.items?.length ? (
                       <>
@@ -242,9 +243,9 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                             {item.items?.map((subItem) => (
                               <SidebarMenuSubItem key={subItem.title}>
                                 <SidebarMenuSubButton asChild>
-                                  <a href={subItem.url}>
+                                  <Link href={subItem.url}>
                                     <span>{subItem.title}</span>
-                                  </a>
+                                  </Link>
                                 </SidebarMenuSubButton>
                               </SidebarMenuSubItem>
                             ))}
@@ -263,10 +264,10 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
               {data.projects.map((item) => (
                 <SidebarMenuItem key={item.name}>
                   <SidebarMenuButton asChild>
-                    <a href={item.url}>
+                    <Link href={item.url}>
                       <item.icon />
                       <span>{item.name}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -311,10 +312,10 @@ export const GlobalSidebar = ({ children }: GlobalSidebarProperties) => {
                 {data.navSecondary.map((item) => (
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
-                      <a href={item.url}>
+                      <Link href={item.url}>
                         <item.icon />
                         <span>{item.title}</span>
-                      </a>
+                      </Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 ))}
