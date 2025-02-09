@@ -1,3 +1,40 @@
+# v3.2.21 (Sun Feb 09 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, YuCheng Chen ([@shamenchens](https://github.com/shamenchens)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: Use Link component for sidebar links [#441](https://github.com/haydenbleasel/next-forge/pull/441) ([@shamenchens](https://github.com/shamenchens))
+
+#### ⚠️ Pushed to `main`
+
+- Update to pnpm 10 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 🔩 Dependency Updates
+
+- Bump @storybook/nextjs from 8.5.0 to 8.5.3 [#444](https://github.com/haydenbleasel/next-forge/pull/444) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @radix-ui/react-dropdown-menu from 2.1.5 to 2.1.6 [#445](https://github.com/haydenbleasel/next-forge/pull/445) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump the npm_and_yarn group with 2 updates [#446](https://github.com/haydenbleasel/next-forge/pull/446) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump recharts from 2.15.0 to 2.15.1 [#430](https://github.com/haydenbleasel/next-forge/pull/430) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump chromatic from 11.25.0 to 11.25.2 [#428](https://github.com/haydenbleasel/next-forge/pull/428) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @clerk/themes from 2.2.9 to 2.2.16 [#429](https://github.com/haydenbleasel/next-forge/pull/429) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump require-in-the-middle from 7.4.0 to 7.5.0 [#431](https://github.com/haydenbleasel/next-forge/pull/431) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump turbo from 2.3.3 to 2.4.0 [#432](https://github.com/haydenbleasel/next-forge/pull/432) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @next/bundle-analyzer from 15.1.5 to 15.1.6 [#433](https://github.com/haydenbleasel/next-forge/pull/433) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @radix-ui/react-dropdown-menu from 2.1.4 to 2.1.5 [#435](https://github.com/haydenbleasel/next-forge/pull/435) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump basehub from 8.1.1 to 8.1.9 [#436](https://github.com/haydenbleasel/next-forge/pull/436) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @prisma/client from 6.2.1 to 6.3.0 [#437](https://github.com/haydenbleasel/next-forge/pull/437) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 3
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- YuCheng Chen ([@shamenchens](https://github.com/shamenchens))
+
+---
+
 # v3.2.20 (Mon Feb 03 2025)
 
 #### ⚠️ Pushed to `main`
