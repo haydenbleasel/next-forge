@@ -10,8 +10,8 @@
     "@repo/analytics": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/design-system": "workspace:*",
-    "@t3-oss/env-nextjs": "^0.11.1",
-    "@vercel/flags": "^3.0.2",
+    "@t3-oss/env-nextjs": "^0.12.0",
+    "@vercel/flags": "^3.1.0",
     "@vercel/toolbar": "^0.1.30",
     "react": "^19.0.0",
     "zod": "^3.24.1"
@@ -22,8 +22,8 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "typescript": "^5.7.3",
-    "@types/node": "22.10.7",
-    "@types/react": "19.0.7",
+    "@types/node": "22.13.1",
+    "@types/react": "19.0.8",
     "@types/react-dom": "^19.0.3"
   }
 }
