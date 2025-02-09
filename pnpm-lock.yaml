@@ -527,8 +527,8 @@ importers:
         specifier: ^6.9.15
         version: 6.9.15(next@15.1.6(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0))(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       '@clerk/themes':
-        specifier: ^2.2.9
-        version: 2.2.9
+        specifier: ^2.2.16
+        version: 2.2.16
       '@repo/tailwind-config':
         specifier: workspace:*
         version: link:../tailwind-config
@@ -2088,12 +2088,16 @@ packages:
       react-dom:
         optional: true
 
-  '@clerk/themes@2.2.9':
-    resolution: {integrity: sha512-vyv+ePK/hvYon1NZS9OtQM4zGPs+KpHWJpnJ2Ejh5/1sNSOodtfcnYm0SjAfuXFSPd973uWkIIN68b9xUocPaQ==}
+  '@clerk/themes@2.2.16':
+    resolution: {integrity: sha512-6CZwBl5VSTkAOo3OSyDZhefMDM8KXHoMcMYfbu+PdAvtl4C48bCkFNSWLsxVsR4H96TdpLL/k0zemao6YJhAjA==}
     engines: {node: '>=18.17.0'}
 
   '@clerk/types@4.41.2':
     resolution: {integrity: sha512-8hvNzyeSa2sENQ86jHXTSnGKfhr9OHcIcm4w7bU4pAhCqF2aLYi9AZGNY4nvBcS3zPw1e8OLMiRKi5qhZrdt+g==}
+    engines: {node: '>=18.17.0'}
+
+  '@clerk/types@4.45.0':
+    resolution: {integrity: sha512-DSXPWq1xD01tzyHv7CugX2T/XfVUZX2xxQ92cs+JPTrGoqIYm+yjRWqOz1CVJ/76TbYMOrB0efCGOxEcNV/PQw==}
     engines: {node: '>=18.17.0'}
 
   '@connectrpc/connect-node@1.6.1':
@@ -12025,7 +12029,7 @@ snapshots:
   '@clerk/backend@1.23.4(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@clerk/shared': 2.20.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@clerk/types': 4.41.2
+      '@clerk/types': 4.45.0
       cookie: 1.0.2
       snakecase-keys: 8.0.1
       tslib: 2.4.1
@@ -12036,7 +12040,7 @@ snapshots:
   '@clerk/clerk-react@5.22.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
       '@clerk/shared': 2.20.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      '@clerk/types': 4.41.2
+      '@clerk/types': 4.45.0
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
       tslib: 2.4.1
@@ -12056,7 +12060,7 @@ snapshots:
 
   '@clerk/shared@2.20.11(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
     dependencies:
-      '@clerk/types': 4.41.2
+      '@clerk/types': 4.45.0
       dequal: 2.0.3
       glob-to-regexp: 0.4.1
       js-cookie: 3.0.5
@@ -12066,12 +12070,16 @@ snapshots:
       react: 19.0.0
       react-dom: 19.0.0(react@19.0.0)
 
-  '@clerk/themes@2.2.9':
+  '@clerk/themes@2.2.16':
     dependencies:
-      '@clerk/types': 4.41.2
+      '@clerk/types': 4.45.0
       tslib: 2.4.1
 
   '@clerk/types@4.41.2':
+    dependencies:
+      csstype: 3.1.1
+
+  '@clerk/types@4.45.0':
     dependencies:
       csstype: 3.1.1
 
@@ -15971,7 +15979,7 @@ snapshots:
 
   aria-hidden@1.2.4:
     dependencies:
-      tslib: 2.8.0
+      tslib: 2.8.1
 
   aria-query@5.3.0:
     dependencies:
