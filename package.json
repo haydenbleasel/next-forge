@@ -14,7 +14,7 @@
     "format": "ultracite format",
     "test": "turbo test",
     "analyze": "turbo analyze",
-    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
     "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push",
     "clean": "git clean -xdf node_modules"
