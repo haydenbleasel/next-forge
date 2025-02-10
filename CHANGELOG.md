@@ -1,3 +1,15 @@
+# v3.2.22 (Mon Feb 10 2025)
+
+#### 🐛 Bug Fix
+
+- Upgrade [#447](https://github.com/haydenbleasel/next-forge/pull/447) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.21 (Sun Feb 09 2025)
 
 :tada: This release contains work from a new contributor! :tada:
