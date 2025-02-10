@@ -1,7 +1,5 @@
 import '@repo/design-system/styles/globals.css';
 import './styles/web.css';
-import { legal } from '@repo/cms';
-import { Feed } from '@repo/cms/components/feed';
 import { Toolbar as CMSToolbar } from '@repo/cms/components/toolbar';
 import { DesignSystemProvider } from '@repo/design-system';
 import { fonts } from '@repo/design-system/lib/fonts';
@@ -25,13 +23,7 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
       <DesignSystemProvider>
         <Header />
         {children}
-        <Feed queries={[legal.postsQuery]}>
-          {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
-          {async ([data]) => {
-            'use server';
-            return <Footer legalPostsMeta={data.legalPages.items} />;
-          }}
-        </Feed>
+        <Footer />
       </DesignSystemProvider>
       <Toolbar />
       <CMSToolbar />
