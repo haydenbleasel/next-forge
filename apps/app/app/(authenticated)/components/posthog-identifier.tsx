@@ -1,6 +1,6 @@
 'use client';
 
-import { analytics } from '@repo/analytics/posthog/client';
+import { useAnalytics } from '@repo/analytics/posthog/client';
 import { useUser } from '@repo/auth/client';
 import { usePathname, useSearchParams } from 'next/navigation';
 import { useEffect, useRef } from 'react';
@@ -10,6 +10,7 @@ export const PostHogIdentifier = () => {
   const identified = useRef(false);
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const analytics = useAnalytics();
 
   useEffect(() => {
     // Track pageviews
@@ -22,7 +23,7 @@ export const PostHogIdentifier = () => {
         $current_url: url,
       });
     }
-  }, [pathname, searchParams]);
+  }, [pathname, searchParams, analytics]);
 
   useEffect(() => {
     if (!user || identified.current) {
@@ -39,7 +40,7 @@ export const PostHogIdentifier = () => {
     });
 
     identified.current = true;
-  }, [user]);
+  }, [user, analytics]);
 
   return null;
 };

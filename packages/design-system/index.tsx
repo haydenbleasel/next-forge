@@ -1,3 +1,4 @@
+import { AnalyticsProvider } from '@repo/analytics';
 import { AuthProvider } from '@repo/auth/provider';
 import type { ThemeProviderProps } from 'next-themes';
 import { Toaster } from './components/ui/sonner';
@@ -12,8 +13,10 @@ export const DesignSystemProvider = ({
 }: DesignSystemProviderProperties) => (
   <ThemeProvider {...properties}>
     <AuthProvider>
-      <TooltipProvider>{children}</TooltipProvider>
-      <Toaster />
+      <AnalyticsProvider>
+        <TooltipProvider>{children}</TooltipProvider>
+        <Toaster />
+      </AnalyticsProvider>
     </AuthProvider>
   </ThemeProvider>
 );
