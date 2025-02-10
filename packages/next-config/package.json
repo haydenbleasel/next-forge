@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@next/bundle-analyzer": "^15.1.6",
-    "@prisma/nextjs-monorepo-workaround-plugin": "^6.2.1",
-    "@t3-oss/env-core": "^0.11.1",
-    "@t3-oss/env-nextjs": "^0.11.1",
+    "@prisma/nextjs-monorepo-workaround-plugin": "^6.3.1",
+    "@t3-oss/env-core": "^0.12.0",
+    "@t3-oss/env-nextjs": "^0.12.0",
     "zod": "^3.24.1"
   }
 }

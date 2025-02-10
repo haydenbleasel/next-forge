@@ -52,9 +52,9 @@ import {
   SquareTerminalIcon,
   Trash2Icon,
 } from 'lucide-react';
+import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { Search } from './search';
-import Link from 'next/link';
 
 type GlobalSidebarProperties = {
   readonly children: ReactNode;

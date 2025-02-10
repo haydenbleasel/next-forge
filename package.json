@@ -14,7 +14,7 @@
     "format": "ultracite format",
     "test": "turbo test",
     "analyze": "turbo analyze",
-    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker && pnpm install",
+    "bump-deps": "npx npm-check-updates --deep -u -x react-day-picker,tailwindcss && pnpm install",
     "bump-ui": "npx shadcn@latest add --all --overwrite -c packages/design-system",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push",
     "clean": "git clean -xdf node_modules"
@@ -23,12 +23,12 @@
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.3.3",
-    "@types/node": "^22.10.7",
-    "tsup": "^8.3.5",
+    "@turbo/gen": "^2.4.0",
+    "@types/node": "^22.13.1",
+    "tsup": "^8.3.6",
     "turbo": "^2.4.0",
     "typescript": "^5.7.3",
-    "ultracite": "^4.1.15",
+    "ultracite": "^4.1.18",
     "vitest": "^3.0.5"
   },
   "engines": {
@@ -36,7 +36,7 @@
   },
   "packageManager": "pnpm@10.2.1",
   "dependencies": {
-    "@clack/prompts": "^0.9.1",
+    "@clack/prompts": "^0.10.0",
     "commander": "^13.1.0"
   },
   "type": "module"
