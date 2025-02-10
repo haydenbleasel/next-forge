@@ -1,3 +1,15 @@
+# v3.2.23 (Mon Feb 10 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Fix client-side posthog implementation ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.22 (Mon Feb 10 2025)
 
 #### 🐛 Bug Fix
