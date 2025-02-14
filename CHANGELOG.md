@@ -1,3 +1,20 @@
+# v3.2.24 (Fri Feb 14 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Dan Billson ([@danbillson](https://github.com/danbillson)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Add 'Switch to Paddle Billing' migration guide [#450](https://github.com/haydenbleasel/next-forge/pull/450) ([@danbillson](https://github.com/danbillson) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Dan Billson ([@danbillson](https://github.com/danbillson))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.23 (Mon Feb 10 2025)
 
 #### ⚠️ Pushed to `main`
