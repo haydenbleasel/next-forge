@@ -194,7 +194,10 @@
     },
     {
       "group": "Payments",
-      "pages": ["migrations/payments/lemon-squeezy"]
+      "pages": [
+        "migrations/payments/lemon-squeezy",
+        "migrations/payments/paddle"
+      ]
     },
     {
       "group": "Storage",
