@@ -176,15 +176,15 @@ There's quite a lot you can do with Paddle, so check out the following resources
 
 ## 6. Use Paddle Checkout in your app
 
-Create a new package for `checkout` and install `paddle-js`:
+Create a new file for `checkout` and install `paddle-js`:
 
 ```sh Terminal
-pnpm add @paddle/paddle-js --filter @repo/checkout
+pnpm add @paddle/paddle-js --filter @repo/payments
 ```
 
-Then, create a new hook to initialize Paddle in the `packages/checkout/index.tsx` file:
+Then, create a new hook to initialize Paddle in the `packages/payments/checkout.tsx` file:
 
-```tsx packages/checkout/index.tsx
+```tsx packages/payments/checkout.tsx
 'use client';
 
 import {
@@ -227,7 +227,7 @@ Finally, open a checkout on your pricing page:
 ```tsx apps/web/app/pricing/page.tsx
 'use client';
 
-import { usePaddle } from '@repo/checkout';
+import { usePaddle } from '@repo/payments/checkout';
 
 const Pricing = () => {
   const paddle = usePaddle();
