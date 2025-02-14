@@ -113,8 +113,10 @@ import 'server-only';
 import { type Environment, Paddle } from '@paddle/paddle-node-sdk';
 import { keys } from './keys';
 
-export const paddle = new Paddle(keys().PADDLE_SECRET_KEY, {
-  environment: keys().PADDLE_ENV as Environment,
+const { PADDLE_SECRET_KEY, PADDLE_ENV } = keys();
+
+export const paddle = new Paddle(PADDLE_SECRET_KEY, {
+  environment: PADDLE_ENV,
 });
 
 export * from '@paddle/paddle-node-sdk';
@@ -195,17 +197,15 @@ import {
 import { useEffect, useState } from 'react';
 import { keys } from './keys';
 
+const { NEXT_PUBLIC_PADDLE_CLIENT_TOKEN, NEXT_PUBLIC_PADDLE_ENV } = keys();
+
 export function usePaddle() {
   const [paddle, setPaddle] = useState<Paddle>();
 
-  if (!keys().NEXT_PUBLIC_PADDLE_CLIENT_TOKEN) {
-    throw new Error('Paddle client token is required');
-  }
-
   useEffect(() => {
     initializePaddle({
-      environment: keys().NEXT_PUBLIC_PADDLE_ENV as Environments,
-      token: keys().NEXT_PUBLIC_PADDLE_CLIENT_TOKEN as string,
+      environment: NEXT_PUBLIC_PADDLE_ENV,
+      token: NEXT_PUBLIC_PADDLE_CLIENT_TOKEN,
       checkout: {
         settings: {
           variant: 'one-page',
