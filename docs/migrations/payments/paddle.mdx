@@ -54,9 +54,44 @@ pnpm remove stripe --filter @repo/payments
 pnpm add @paddle/paddle-node-sdk --filter @repo/payments
 ```
 
-## 2. Update the environment variables
+## 2. Update the Payment keys
 
-Next, update the environment variables across the project, for example:
+Update the required Payment keys in the `packages/payments/keys.ts` file:
+
+```ts packages/payments/keys.ts
+import { createEnv } from '@t3-oss/env-nextjs';
+import { Environment } from '@paddle/paddle-node-sdk'
+import { z } from 'zod';
+
+export const keys = () =>
+  createEnv({
+    server: {
+      PADDLE_SECRET_KEY: z.string().min(1),
+      PADDLE_WEBHOOK_SECRET: z.string().min(1).optional(),
+      PADDLE_ENV: z.enum([Environment.sandbox, Environment.production]).optional(),
+    },
+    client: {
+      NEXT_PUBLIC_PADDLE_CLIENT_TOKEN: z
+        .union([
+          z.string().min(1).startsWith('live_'),
+          z.string().min(1).startsWith('test_'),
+        ]),
+      NEXT_PUBLIC_PADDLE_ENV: z.enum([Environment.sandbox, Environment.production]).optional(),
+    },
+    runtimeEnv: {
+      PADDLE_SECRET_KEY: process.env.PADDLE_SECRET_KEY,
+      PADDLE_WEBHOOK_SECRET: process.env.PADDLE_WEBHOOK_SECRET,
+      PADDLE_ENV: process.env.PADDLE_ENV,
+      NEXT_PUBLIC_PADDLE_ENV: process.env.NEXT_PUBLIC_PADDLE_ENV,
+      NEXT_PUBLIC_PADDLE_CLIENT_TOKEN: process.env.NEXT_PUBLIC_PADDLE_CLIENT_TOKEN,
+    },
+  });
+
+```
+
+## 3. Update the environment variables
+
+Next, update the environment variables across the project, replacing the existing Stripe keys with the new Paddle keys:
 
 ```js apps/app/.env
 # Server
@@ -69,9 +104,7 @@ NEXT_PUBLIC_PADDLE_ENV="sandbox"
 NEXT_PUBLIC_PADDLE_CLIENT_TOKEN="test_"
 ```
 
-Additionally, replace all instances of `STRIPE_SECRET_KEY` with `PADDLE_SECRET_KEY` in the `packages/env/index.ts` file.
-
-## 3. Update the payments client
+## 4. Update the payments client
 
 Initialize the payments client in the `packages/payments/index.ts` file with the new API key.
 
@@ -87,7 +120,7 @@ export const paddle = new Paddle(keys().PADDLE_SECRET_KEY, {
 export * from '@paddle/paddle-node-sdk';
 ```
 
-## 4. Update the payments webhook handler
+## 5. Update the payments webhook handler
 
 Remove the Stripe webhook handler from the API package...
 
@@ -141,7 +174,7 @@ There's quite a lot you can do with Paddle, so check out the following resources
 </Card>
 
 
-## 5. Use Paddle Checkout in your app
+## 6. Use Paddle Checkout in your app
 
 Create a new package for `checkout` and install `paddle-js`:
 
