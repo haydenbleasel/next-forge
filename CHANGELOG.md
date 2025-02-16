@@ -1,3 +1,16 @@
+# v3.2.25 (Sun Feb 16 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update next-config.ts ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.24 (Fri Feb 14 2025)
 
 :tada: This release contains work from a new contributor! :tada:
