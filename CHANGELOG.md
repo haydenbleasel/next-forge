@@ -1,3 +1,20 @@
+# v3.2.26 (Mon Feb 17 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Justin Barsketis ([@barsketis](https://github.com/barsketis)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Prisma fixes [#452](https://github.com/haydenbleasel/next-forge/pull/452) ([@haydenbleasel](https://github.com/haydenbleasel) [@barsketis](https://github.com/barsketis))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Justin Barsketis ([@barsketis](https://github.com/barsketis))
+
+---
+
 # v3.2.25 (Sun Feb 16 2025)
 
 #### ⚠️ Pushed to `main`
