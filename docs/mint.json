@@ -93,6 +93,19 @@
           "group": "Analytics",
           "pages": ["packages/analytics/web", "packages/analytics/product"]
         },
+        "features/authentication",
+        "features/bundle-analysis",
+        "features/collaboration",
+        {
+          "group": "CMS",
+          "pages": [
+            "features/cms/overview",
+            "features/cms/components",
+            "features/cms/metadata"
+          ]
+        },
+        "features/cron",
+        "features/database",
         "packages/authentication",
         "packages/cms",
         "packages/collaboration",
