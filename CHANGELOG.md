@@ -1,3 +1,19 @@
+# v3.2.27 (Wed Feb 26 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Andrés Filoso ([@andresfiloso](https://github.com/andresfiloso)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Add Knock environment variables to .env.example [#457](https://github.com/haydenbleasel/next-forge/pull/457) ([@andresfiloso](https://github.com/andresfiloso))
+
+#### Authors: 1
+
+- Andrés Filoso ([@andresfiloso](https://github.com/andresfiloso))
+
+---
+
 # v3.2.26 (Mon Feb 17 2025)
 
 :tada: This release contains work from a new contributor! :tada:
