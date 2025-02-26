@@ -1,0 +1,71 @@
+---
+title: Dub
+description: How to add link tracking to your app with Dub.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Steven Tey',
+    id: 'steventey',
+  },
+  company: {
+    name: 'Dub',
+    id: 'dub',
+  },
+}]} />
+
+While next-forge does not come with link tracking and analytics out of the box, you can easily add it to your app with [Dub](https://dub.co/).
+
+## Overview
+
+Dub is an open-source link tracking and analytics platform that allows you to track the performance of your links and see how they're performing. It comes with a suite of features that make it a great choice for marketing teams, including link shortening, custom domains, branded QR codes, and more.
+
+## Signing up
+
+You can sign up for a Dub account [on their website](https://app.dub.co/register).
+
+<Frame>
+  <img src="/images/dub-register.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+## Creating a link
+
+Once you've signed up, you can create a link by clicking the "Create Link" button in the top right corner.
+
+<Frame>
+  <img src="/images/dub-create.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+## Adding link tracking to your app
+
+From here, simply replace all `href` values with the Dub link!
+
+```tsx
+<a href="https://dub.co/example">Example</a>
+<Link href="https://dub.co/example">Example</Link>
+```
+
+## Interfacing programmatically
+
+Dub provides a simple SDK for creating links, managing customers, tracking leads and more. You can install it with:
+
+```sh Terminal
+pnpm add dub
+```
+
+For more information on the SDK, you can refer to the official documentation.
+
+<Card title="Documentation" icon="book" href="https://dub.co/docs/api-reference/introduction" horizontal>
+  Explore the SDK documentation
+</Card>
