@@ -10,24 +10,24 @@
   "dependencies": {
     "@octokit/rest": "^21.1.1",
     "@vercel/analytics": "^1.5.0",
-    "lucide-react": "^0.475.0",
-    "next": "15.1.7",
+    "lucide-react": "^0.477.0",
+    "next": "15.2.1",
     "next-themes": "^0.4.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-player": "^2.16.0",
-    "react-tweet": "^3.2.1",
+    "react-tweet": "^3.2.2",
     "react-wrap-balancer": "^1.1.1",
-    "sonner": "^1.7.4",
-    "tailwind-merge": "^3.0.1"
+    "sonner": "^2.0.1",
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
-    "@types/node": "22.13.4",
-    "@types/react": "^19.0.9",
-    "@types/react-dom": "^19.0.3",
+    "@types/node": "22.13.9",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.5.2",
+    "postcss": "^8.5.3",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }
