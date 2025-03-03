@@ -1,3 +1,15 @@
+# v3.2.28 (Mon Mar 03 2025)
+
+#### 🐛 Bug Fix
+
+- Upgrade deps [#470](https://github.com/haydenbleasel/next-forge/pull/470) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.27 (Wed Feb 26 2025)
 
 :tada: This release contains work from a new contributor! :tada:
