@@ -6,7 +6,14 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build", "test"],
-      "outputs": [".next/**", "!.next/cache/**", ".basehub/**", "**/generated/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        ".basehub/**",
+        "**/generated/**",
+        "storybook-static/**",
+        ".react-email/**"
+      ]
     },
     "test": {
       "dependsOn": ["^test"]

@@ -11,7 +11,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@prisma/client": "6.3.1",
+    "@prisma/client": "6.4.1",
     "@repo/analytics": "workspace:*",
     "@repo/auth": "workspace:*",
     "@repo/collaboration": "workspace:*",
@@ -25,16 +25,16 @@
     "@repo/seo": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/webhooks": "workspace:*",
-    "@sentry/nextjs": "^9.1.0",
+    "@sentry/nextjs": "^9.3.0",
     "@t3-oss/env-nextjs": "^0.12.0",
     "fuse.js": "^7.1.0",
-    "import-in-the-middle": "^1.13.0",
-    "lucide-react": "^0.475.0",
-    "next": "15.1.7",
+    "import-in-the-middle": "^1.13.1",
+    "lucide-react": "^0.477.0",
+    "next": "15.2.1",
     "next-themes": "^0.4.4",
     "react": "19.0.0",
     "react-dom": "19.0.0",
-    "require-in-the-middle": "^7.5.1",
+    "require-in-the-middle": "^7.5.2",
     "zod": "^3.24.2"
   },
   "devDependencies": {
@@ -42,12 +42,12 @@
     "@repo/typescript-config": "workspace:*",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/react": "^16.2.0",
-    "@types/node": "22.13.4",
-    "@types/react": "19.0.9",
-    "@types/react-dom": "19.0.3",
+    "@types/node": "22.13.9",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "19.0.4",
     "jsdom": "^26.0.0",
     "tailwindcss": "^3.4.17",
-    "typescript": "^5.7.3",
-    "vitest": "^3.0.5"
+    "typescript": "^5.8.2",
+    "vitest": "^3.0.7"
   }
 }

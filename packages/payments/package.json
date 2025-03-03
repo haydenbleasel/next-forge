@@ -7,13 +7,13 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@stripe/agent-toolkit": "^0.4.0",
+    "@stripe/agent-toolkit": "^0.5.1",
     "@t3-oss/env-nextjs": "^0.12.0",
-    "stripe": "^17.6.0",
+    "stripe": "^17.7.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   }
 }

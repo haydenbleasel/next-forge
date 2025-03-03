@@ -23,18 +23,18 @@
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.4.2",
-    "@types/node": "^22.13.4",
-    "tsup": "^8.3.6",
-    "turbo": "^2.4.2",
-    "typescript": "^5.7.3",
-    "ultracite": "^4.1.19",
-    "vitest": "^3.0.5"
+    "@turbo/gen": "^2.4.4",
+    "@types/node": "^22.13.9",
+    "tsup": "^8.4.0",
+    "turbo": "^2.4.4",
+    "typescript": "^5.8.2",
+    "ultracite": "^4.1.20",
+    "vitest": "^3.0.7"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.4.0",
+  "packageManager": "pnpm@10.5.2",
   "dependencies": {
     "@clack/prompts": "^0.10.0",
     "commander": "^13.1.0"
