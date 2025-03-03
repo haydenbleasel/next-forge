@@ -11,7 +11,8 @@
         "!.next/cache/**",
         ".basehub/**",
         "**/generated/**",
-        "storybook-static/**"
+        "storybook-static/**",
+        ".react-email/**"
       ]
     },
     "test": {
