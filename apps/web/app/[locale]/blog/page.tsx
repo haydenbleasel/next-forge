@@ -7,7 +7,6 @@ import type { Blog, WithContext } from '@repo/seo/json-ld';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import Link from 'next/link';
 
 type BlogProps = {
@@ -28,7 +27,6 @@ export const generateMetadata = async ({
 const BlogIndex = async ({ params }: BlogProps) => {
   const { locale } = await params;
   const dictionary = await getDictionary(locale);
-  const draft = await draftMode();
 
   const jsonLd: WithContext<Blog> = {
     '@type': 'Blog',
@@ -46,7 +44,7 @@ const BlogIndex = async ({ params }: BlogProps) => {
             </h4>
           </div>
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Feed queries={[blog.postsQuery]} draft={draft.isEnabled}>
+            <Feed queries={[blog.postsQuery]}>
               {async ([data]) => {
                 'use server';
 

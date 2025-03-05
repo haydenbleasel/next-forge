@@ -10,7 +10,6 @@ import { TableOfContents } from '@repo/cms/components/toc';
 import { JsonLd } from '@repo/seo/json-ld';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -51,10 +50,9 @@ export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
 
 const BlogPost = async ({ params }: BlogPostProperties) => {
   const { slug } = await params;
-  const draft = await draftMode();
 
   return (
-    <Feed queries={[blog.postQuery(slug)]} draft={draft.isEnabled}>
+    <Feed queries={[blog.postQuery(slug)]}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';

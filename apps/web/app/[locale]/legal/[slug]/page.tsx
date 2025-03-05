@@ -6,7 +6,6 @@ import { Feed } from '@repo/cms/components/feed';
 import { TableOfContents } from '@repo/cms/components/toc';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
-import { draftMode } from 'next/headers';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Balancer from 'react-wrap-balancer';
@@ -41,10 +40,9 @@ export const generateStaticParams = async (): Promise<{ slug: string }[]> => {
 
 const LegalPage = async ({ params }: LegalPageProperties) => {
   const { slug } = await params;
-  const draft = await draftMode();
 
   return (
-    <Feed queries={[legal.postQuery(slug)]} draft={draft.isEnabled}>
+    <Feed queries={[legal.postQuery(slug)]}>
       {/* biome-ignore lint/suspicious/useAwait: "Server Actions must be async" */}
       {async ([data]) => {
         'use server';
