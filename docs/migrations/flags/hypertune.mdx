@@ -171,7 +171,7 @@ export default async function getHypertune(params?: {
 
 ## 7. Update `index.ts`
 
-Hypertune automatically generates feature flag functions that use the `@vercel/flags` package. To export them the same way as before, update the `index.ts` file to export everything from the `generated/hypertune.vercel.ts` file:
+Hypertune automatically generates feature flag functions that use the `flags` package. To export them the same way as before, update the `index.ts` file to export everything from the `generated/hypertune.vercel.ts` file:
 
 ```ts packages/feature-flags/index.ts
 export * from "./generated/hypertune.vercel.tsx"

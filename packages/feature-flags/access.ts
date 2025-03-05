@@ -1,4 +1,4 @@
-import { type ApiData, verifyAccess } from '@vercel/flags';
+import { type ApiData, verifyAccess } from 'flags';
 import { type NextRequest, NextResponse } from 'next/server';
 import * as flags from './index';
 
