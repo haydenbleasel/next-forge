@@ -1,3 +1,15 @@
+# v3.3.1 (Wed Mar 05 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update overview.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.0 (Wed Mar 05 2025)
 
 #### 🚀 Enhancement
