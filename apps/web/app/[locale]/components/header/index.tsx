@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import Image from 'next/image';
+import { LanguageSwitcher } from './language-switcher';
 import Logo from './logo.svg';
 
 export const Header = () => {
@@ -133,6 +134,9 @@ export const Header = () => {
             <Link href="/contact">Contact us</Link>
           </Button>
           <div className="hidden border-r md:inline" />
+          <div className="hidden md:inline">
+            <LanguageSwitcher />
+          </div>
           <div className="hidden md:inline">
             <ModeToggle />
           </div>
