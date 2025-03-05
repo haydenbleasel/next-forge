@@ -2,11 +2,16 @@ import { env } from '@/env';
 import { blog } from '@repo/cms';
 import { Feed } from '@repo/cms/components/feed';
 import { Button } from '@repo/design-system/components/ui/button';
+import type { Dictionary } from '@repo/internationalization';
 import { MoveRight, PhoneCall } from 'lucide-react';
 import { draftMode } from 'next/headers';
 import Link from 'next/link';
 
-export const Hero = async () => {
+type HeroProps = {
+  dictionary: Dictionary;
+};
+
+export const Hero = async ({ dictionary }: HeroProps) => {
   const draft = await draftMode();
 
   return (
@@ -36,13 +41,10 @@ export const Hero = async () => {
           </div>
           <div className="flex flex-col gap-4">
             <h1 className="max-w-2xl text-center font-regular text-5xl tracking-tighter md:text-7xl">
-              This is the start of something new
+              {dictionary.web.home.hero.title}
             </h1>
             <p className="max-w-2xl text-center text-lg text-muted-foreground leading-relaxed tracking-tight md:text-xl">
-              Managing a small business today is already tough. Avoid further
-              complications by ditching outdated, tedious trade methods. Our
-              goal is to streamline SMB trade, making it easier and faster than
-              ever.
+              {dictionary.web.home.hero.description}
             </p>
           </div>
           <div className="flex flex-row gap-3">

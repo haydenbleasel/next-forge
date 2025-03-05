@@ -1,16 +1,21 @@
+import type { Dictionary } from '@repo/internationalization';
 import { User } from 'lucide-react';
 
-export const Features = () => (
+type FeaturesProps = {
+  dictionary: Dictionary;
+};
+
+export const Features = ({ dictionary }: FeaturesProps) => (
   <div className="w-full py-20 lg:py-40">
     <div className="container mx-auto">
       <div className="flex flex-col gap-10">
         <div className="flex flex-col items-start gap-4">
           <div className="flex flex-col gap-2">
             <h2 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
-              Something new!
+              {dictionary.web.home.features.title}
             </h2>
             <p className="max-w-xl text-left text-lg text-muted-foreground leading-relaxed tracking-tight lg:max-w-lg">
-              Managing a small business today is already tough.
+              {dictionary.web.home.features.description}
             </p>
           </div>
         </div>
