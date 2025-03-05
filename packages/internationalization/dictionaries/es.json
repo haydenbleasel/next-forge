@@ -1,0 +1,109 @@
+{
+  "web": {
+    "global": {
+      "primaryCta": "Reserva una llamada",
+      "secondaryCta": "Regístrate"
+    },
+    "header": {
+      "home": "Inicio",
+      "product": {
+        "title": "Producto",
+        "description": "Gestionar un pequeño negocio hoy en día ya es difícil.",
+        "pricing": "Precios"
+      },
+      "blog": "Blog",
+      "docs": "Documentos",
+      "contact": "Contacto",
+      "signIn": "Iniciar sesión",
+      "signUp": "Comienza"
+    },
+    "home": {
+      "meta": {
+        "title": "Transforma las operaciones de tu negocio hoy",
+        "description": "En el mundo acelerado de hoy, tu negocio merece más que sistemas de comercio obsoletos. Nuestra plataforma innovadora simplifica las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
+      },
+      "hero": {
+        "announcement": "Lee nuestro último artículo"
+      },
+      "cases": {
+        "title": "Historias de éxito que empoderan en todo el mundo"
+      },
+      "features": {
+        "title": "Herramientas poderosas para el negocio moderno",
+        "description": "Descubre cómo nuestras características de vanguardia pueden revolucionar tus operaciones diarias.",
+        "items": {
+          "0": {
+            "title": "Operaciones simplificadas",
+            "description": "Nuestra plataforma simplifica las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
+          }
+        }
+      },
+      "stats": {
+        "title": "Resultados reales, impacto real",
+        "description": "Únete a miles de negocios que han transformado sus operaciones con nuestra plataforma. Nuestras soluciones han ayudado a las empresas a reducir los costos administrativos en un 60% y aumentar la eficiencia comercial en un 45% de media.",
+        "items": {
+          "0": "Usuarios activos mensuales",
+          "1": "Usuarios activos diarios",
+          "2": "Ingresos recurrentes mensuales",
+          "3": "Costo por adquisición"
+        }
+      },
+      "testimonials": {
+        "title": "Escucha a nuestra comunidad próspera",
+        "items": {
+          "0": {
+            "title": "Mejor decisión",
+            "description": "Nuestro objetivo era simplificar el comercio de las pequeñas y medianas empresas, haciéndolo más fácil y rápido que nunca, y lo logramos juntos.",
+            "author": {
+              "name": "Hayden Bleasel",
+              "image": "https://github.com/haydenbleasel.png"
+            }
+          }
+        }
+      },
+      "faq": {
+        "title": "Preguntas comunes, respuestas de expertos",
+        "description": "Obtén respuestas rápidas a tus preguntas más urgentes sobre nuestra plataforma. Hemos recopilado todo lo que necesitas saber sobre la transformación de las operaciones de tu negocio y cómo comenzar con soluciones comerciales modernas.",
+        "cta": "¿Tienes preguntas? Contáctanos",
+        "items": {
+          "0": {
+            "question": "¿Qué es la plataforma?",
+            "answer": "La plataforma es una plataforma de comercio que te permite comerciar con confianza."
+          }
+        }
+      },
+      "cta": {
+        "title": "Inicia la transformación de tu negocio",
+        "description": "Únete a miles de empresas visionarias que ya han modernizado sus operaciones. Nuestra plataforma ofrece las herramientas, el apoyo y la eficiencia que necesitas para tener éxito en el competitivo mercado actual. Comienza en minutos."
+      }
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog",
+        "description": "Pensamientos, ideas y opiniones."
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Hablemos sobre tu negocio",
+        "description": "Programa una consulta con nuestro equipo para discutir cómo podemos ayudar a simplificar tus operaciones y fomentar el crecimiento de tu negocio."
+      },
+      "hero": {
+        "benefits": {
+          "0": {
+            "title": "Consulta personalizada",
+            "description": "Obtén soluciones personalizadas y asesoramiento experto específico para las necesidades de tu negocio."
+          }
+        },
+        "form": {
+          "title": "Reserva una reunión",
+          "date": "Fecha",
+          "firstName": "Nombre",
+          "lastName": "Apellido",
+          "resume": "Sube tu currículum",
+          "cta": "Reserva la reunión"
+        }
+      }
+    }
+  }
+}

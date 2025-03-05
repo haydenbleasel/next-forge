@@ -34,10 +34,12 @@ export const Header = ({ dictionary }: HeaderProps) => {
     {
       title: dictionary.web.header.product.title,
       description: dictionary.web.header.product.description,
-      items: dictionary.web.header.product.items.map((item) => ({
-        title: item.title,
-        href: item.href,
-      })),
+      items: [
+        {
+          title: dictionary.web.header.product.pricing,
+          href: '/pricing',
+        },
+      ],
     },
     {
       title: dictionary.web.header.blog,
