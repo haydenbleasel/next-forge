@@ -5,34 +5,35 @@ const dictionary: Dictionary = {
     home: {
       hero: {
         announcement: 'Read our latest article',
-        title: 'This is the start of something new.',
+        title: 'Transform Your Business Operations Today',
         description:
-          'Managing a small business today is already tough. Avoid further complications by ditching outdated, tedious trade methods. Our goal is to streamline SMB trade, making it easier and faster than ever.',
+          "In today's fast-paced world, your business deserves better than outdated trading systems. Our innovative platform streamlines operations, reduces complexity, and helps small businesses thrive in the modern economy.",
       },
       cases: {
-        title: 'Trusted by thousands of businesses worldwide',
+        title: 'Empowering Success Stories Across the Globe',
       },
       features: {
-        title: 'Something new!',
-        description: 'Managing a small business today is already tough.',
+        title: 'Powerful Tools for Modern Business',
+        description:
+          'Discover how our cutting-edge features can revolutionize your daily operations.',
       },
       stats: {
-        title: 'Something new!',
+        title: 'Real Results, Real Impact',
         description:
-          'Managing a small business today is already tough. Avoid further complications by ditching outdated, tedious trade methods. Our goal is to streamline SMB trade, making it easier and faster than ever.',
+          'Join thousands of businesses that have transformed their operations with our platform. Our solutions have helped companies reduce administrative overhead by 60% and increase trading efficiency by 45% on average.',
       },
       testimonials: {
-        title: 'Trusted by thousands of businesses worldwide',
+        title: 'Hear from Our Thriving Community',
       },
       faq: {
-        title: 'Something new!',
+        title: 'Common Questions, Expert Answers',
         description:
-          'Managing a small business today is already tough. Avoid further complications by ditching outdated, tedious trade methods. Our goal is to streamline SMB trade, making it easier and faster than ever.',
+          "Get quick answers to your most pressing questions about our platform. We've compiled everything you need to know about transforming your business operations and getting started with modern trading solutions.",
       },
       cta: {
-        title: 'Try our platform today!',
+        title: 'Start Your Business Transformation',
         description:
-          'Managing a small business today is already tough. Avoid further complications by ditching outdated, tedious trade methods. Our goal is to streamline SMB trade, making it easier and faster than ever.',
+          "Join thousands of forward-thinking businesses who have already modernized their operations. Our platform offers the tools, support, and efficiency you need to succeed in today's competitive market. Get started in minutes.",
       },
     },
   },
