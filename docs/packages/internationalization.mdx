@@ -1,0 +1,109 @@
+---
+title: Internationalization
+description: How to add multiple languages to your application.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}, {
+  user: {
+    name: 'Pontus Abrahamsson',
+    id: 'pontusab',
+  },
+  company: {
+    name: 'Languine',
+    id: 'languine',
+  }
+}]} />
+
+next-forge includes a powerful internationalization package that enables you to add multiple language support to your application with minimal configuration. The package handles language detection, routing, and content management through a dictionary-based approach.
+
+## How it works
+
+The internationalization system is built on [Next.js Internationalization](https://nextjs.org/docs/app/building-your-application/routing/internationalization)'s routing system and [Languine](https://languine.dev)'s translation system.
+
+It's configured by default for the `web` package to:
+
+1. Detect the user's preferred language through browser headers
+2. Route users to language-specific paths (e.g., `/en/about`, `/fr/about`)
+3. Serve content from language-specific dictionaries
+
+The package handles language detection and matching, ensuring users see content in their preferred language when available.
+
+## Setup
+
+To enable automatic translations, simply create a `.env` file in the `internationalization` package and set the `LANGUINE_PROJECT_ID` environment variable.
+
+```env .env
+LANGUINE_PROJECT_ID="your-project-id"
+```
+
+## Configuration
+
+The internationalization package is configured through a `languine.json` file that defines:
+
+- Source locale (e.g., "en")
+- Target locales (e.g., ["es", "de"])
+- Dictionary file locations
+
+---
+
+## Dictionary Structure
+
+Dictionaries are TypeScript files that export strongly-typed content for each supported language. The type system ensures consistency across translations:
+
+```ts
+import type { Dictionary } from '@repo/internationalization';
+
+const dictionary: Dictionary = {};
+
+export default dictionary;
+```
+
+## Usage
+
+### Basic Usage
+
+To use the internationalization package, you need to:
+
+1. Create a dictionary for each language you want to support.
+2. Import the dictionary into your application.
+3. Use the dictionary to render content.
+
+```tsx
+import { getDictionary } from '@repo/internationalization';
+
+const dictionary = await getDictionary('en');
+```
+
+### Advanced Usage
+
+The internationalization package also includes a middleware component that automatically detects the user's language and routes them to the appropriate language-specific page.
+
+```tsx
+import { internationalizationMiddleware } from '@repo/internationalization';
+
+export default internationalizationMiddleware;
+```
+
+## Customization
+
+The internationalization package can be customized to meet your specific needs.
+
+### Changing the default locale
+
+To change the default locale, you can set the `NEXT_PUBLIC_DEFAULT_LOCALE` environment variable.
+
+```env
+NEXT_PUBLIC_DEFAULT_LOCALE="en"
+```
+
