@@ -43,7 +43,7 @@ export const Stats = ({ dictionary }: StatsProps) => (
                     </span>
                   </h2>
                   <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
-                    {item.description}
+                    {item}
                   </p>
                 </div>
               );
