@@ -22,7 +22,11 @@
       "dependsOn": ["^analyze"]
     },
     "dev": {
-      "dependsOn": ["^dev"],
+      "cache": false,
+      "persistent": true
+    },
+    "translate": {
+      "dependsOn": ["^translate"],
       "cache": false
     },
     "clean": {
