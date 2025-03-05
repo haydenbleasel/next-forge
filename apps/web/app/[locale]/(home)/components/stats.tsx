@@ -26,7 +26,7 @@ export const Stats = ({ dictionary }: StatsProps) => (
                 className="flex flex-col justify-between gap-0 rounded-md border p-6"
                 key={index}
               >
-                {item.delta > 0 ? (
+                {Number.parseFloat(item.delta) > 0 ? (
                   <MoveUpRight className="mb-10 h-4 w-4 text-primary" />
                 ) : (
                   <MoveDownLeft className="mb-10 h-4 w-4 text-destructive" />
@@ -34,8 +34,8 @@ export const Stats = ({ dictionary }: StatsProps) => (
                 <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
                   {new Intl.NumberFormat().format(item.metric)}
                   <span className="text-muted-foreground text-sm tracking-normal">
-                    {item.delta > 0 ? '+' : ''}
-                    {item.delta}%
+                    {Number.parseFloat(item.delta) > 0 ? '+' : ''}
+                    {Number.parseFloat(item.delta)}%
                   </span>
                 </h2>
                 <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
