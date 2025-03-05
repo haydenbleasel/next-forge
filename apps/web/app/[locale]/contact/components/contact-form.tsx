@@ -30,10 +30,10 @@ export const ContactForm = ({ dictionary }: ContactFormProps) => {
             <div className="flex flex-col gap-4">
               <div className="flex flex-col gap-2">
                 <h4 className="max-w-xl text-left font-regular text-3xl tracking-tighter md:text-5xl">
-                  {dictionary.web.contact.hero.title}
+                  {dictionary.web.contact.meta.title}
                 </h4>
                 <p className="max-w-sm text-left text-lg text-muted-foreground leading-relaxed tracking-tight">
-                  {dictionary.web.contact.hero.description}
+                  {dictionary.web.contact.meta.description}
                 </p>
               </div>
             </div>
