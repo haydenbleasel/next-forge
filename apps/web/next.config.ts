@@ -2,10 +2,10 @@ import { env } from '@/env';
 import { withCMS } from '@repo/cms/next-config';
 import { withToolbar } from '@repo/feature-flags/lib/toolbar';
 import { config, withAnalyzer } from '@repo/next-config';
-import { withLogtail, withSentry } from '@repo/observability/next-config';
+import { withLogging, withSentry } from '@repo/observability/next-config';
 import type { NextConfig } from 'next';
 
-let nextConfig: NextConfig = withToolbar(withLogtail({ ...config }));
+let nextConfig: NextConfig = withToolbar(withLogging(config));
 
 nextConfig.images?.remotePatterns?.push({
   protocol: 'https',

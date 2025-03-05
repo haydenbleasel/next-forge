@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@clerk/nextjs": "^6.12.2",
+    "@clerk/nextjs": "^6.12.3",
     "@clerk/themes": "^2.2.20",
     "@repo/tailwind-config": "workspace:*",
     "@t3-oss/env-nextjs": "^0.12.0",

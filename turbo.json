@@ -25,6 +25,10 @@
       "cache": false,
       "persistent": true
     },
+    "translate": {
+      "dependsOn": ["^translate"],
+      "cache": false
+    },
     "clean": {
       "cache": false
     },

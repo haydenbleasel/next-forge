@@ -1,6 +1,6 @@
 import { analytics } from '@repo/analytics/posthog/server';
 import { auth } from '@repo/auth/server';
-import { flag } from '@vercel/flags/next';
+import { flag } from 'flags/next';
 
 export const createFlag = (key: string) =>
   flag({

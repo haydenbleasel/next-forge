@@ -1,0 +1,23 @@
+{
+  "name": "@repo/internationalization",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "translate": "npx -y languine@latest translate",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "typecheck": "tsc --noEmit --emitDeclarationOnly false"
+  },
+  "dependencies": {
+    "@formatjs/intl-localematcher": "^0.6.0",
+    "negotiator": "^1.0.0",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*",
+    "@types/negotiator": "^0.6.3",
+    "@types/node": "22.13.9",
+    "@types/react": "19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "next": "15.1.7"
+  }
+}
