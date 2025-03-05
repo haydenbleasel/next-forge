@@ -139,9 +139,6 @@ importers:
       '@repo/feature-flags':
         specifier: workspace:*
         version: link:../../packages/feature-flags
-      '@repo/internationalization':
-        specifier: workspace:*
-        version: link:../../packages/internationalization
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
@@ -364,6 +361,9 @@ importers:
       '@repo/feature-flags':
         specifier: workspace:*
         version: link:../../packages/feature-flags
+      '@repo/internationalization':
+        specifier: workspace:*
+        version: link:../../packages/internationalization
       '@repo/next-config':
         specifier: workspace:*
         version: link:../../packages/next-config
