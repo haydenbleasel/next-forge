@@ -8,6 +8,8 @@ export type Dictionary = {
         announcement: string;
         title: string;
         description: string;
+        primaryCta: string;
+        secondaryCta: string;
       };
       cases: {
         title: string;
@@ -15,21 +17,45 @@ export type Dictionary = {
       features: {
         title: string;
         description: string;
+        items: {
+          title: string;
+          description: string;
+        }[];
       };
       stats: {
         title: string;
         description: string;
+        items: {
+          metric: number;
+          description: string;
+          delta: number;
+        }[];
       };
       testimonials: {
         title: string;
+        items: {
+          title: string;
+          description: string;
+          author: {
+            name: string;
+            image: string;
+          };
+        }[];
       };
       faq: {
         title: string;
         description: string;
+        cta: string;
+        items: {
+          question: string;
+          answer: string;
+        }[];
       };
       cta: {
         title: string;
         description: string;
+        primaryCta: string;
+        secondaryCta: string;
       };
     };
   };

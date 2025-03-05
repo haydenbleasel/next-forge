@@ -30,24 +30,18 @@ export const FAQ = ({ dictionary }: FAQProps) => (
             <div className="">
               <Button className="gap-4" variant="outline" asChild>
                 <Link href="/contact">
-                  Any questions? Reach out <PhoneCall className="h-4 w-4" />
+                  {dictionary.web.home.faq.cta}{' '}
+                  <PhoneCall className="h-4 w-4" />
                 </Link>
               </Button>
             </div>
           </div>
         </div>
         <Accordion type="single" collapsible className="w-full">
-          {Array.from({ length: 8 }).map((_, index) => (
+          {dictionary.web.home.faq.items.map((item, index) => (
             <AccordionItem key={index} value={`index-${index}`}>
-              <AccordionTrigger>
-                This is the start of something new
-              </AccordionTrigger>
-              <AccordionContent>
-                Managing a small business today is already tough. Avoid further
-                complications by ditching outdated, tedious trade methods. Our
-                goal is to streamline SMB trade, making it easier and faster
-                than ever.
-              </AccordionContent>
+              <AccordionTrigger>{item.question}</AccordionTrigger>
+              <AccordionContent>{item.answer}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>

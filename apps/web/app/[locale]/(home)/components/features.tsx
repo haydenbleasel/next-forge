@@ -23,20 +23,22 @@ export const Features = ({ dictionary }: FeaturesProps) => (
           <div className="flex aspect-square h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2 lg:aspect-auto">
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <h3 className="text-xl tracking-tight">
+                {dictionary.web.home.features.items[0].title}
+              </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                {dictionary.web.home.features.items[0].description}
               </p>
             </div>
           </div>
           <div className="flex aspect-square flex-col justify-between rounded-md bg-muted p-6">
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <h3 className="text-xl tracking-tight">
+                {dictionary.web.home.features.items[1].title}
+              </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                {dictionary.web.home.features.items[1].description}
               </p>
             </div>
           </div>
@@ -44,20 +46,22 @@ export const Features = ({ dictionary }: FeaturesProps) => (
           <div className="flex aspect-square flex-col justify-between rounded-md bg-muted p-6">
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <h3 className="text-xl tracking-tight">
+                {dictionary.web.home.features.items[2].title}
+              </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                {dictionary.web.home.features.items[2].description}
               </p>
             </div>
           </div>
           <div className="flex aspect-square h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2 lg:aspect-auto">
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
-              <h3 className="text-xl tracking-tight">Pay supplier invoices</h3>
+              <h3 className="text-xl tracking-tight">
+                {dictionary.web.home.features.items[3].title}
+              </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                Our goal is to streamline SMB trade, making it easier and faster
-                than ever.
+                {dictionary.web.home.features.items[3].description}
               </p>
             </div>
           </div>

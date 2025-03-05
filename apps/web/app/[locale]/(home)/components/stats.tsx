@@ -21,54 +21,28 @@ export const Stats = ({ dictionary }: StatsProps) => (
         </div>
         <div className="flex items-center justify-center">
           <div className="grid w-full grid-cols-1 gap-2 text-left sm:grid-cols-2 lg:grid-cols-2">
-            <div className="flex flex-col justify-between gap-0 rounded-md border p-6">
-              <MoveUpRight className="mb-10 h-4 w-4 text-primary" />
-              <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
-                500.000
-                <span className="text-muted-foreground text-sm tracking-normal">
-                  +20.1%
-                </span>
-              </h2>
-              <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
-                Monthly active users
-              </p>
-            </div>
-            <div className="flex flex-col justify-between gap-0 rounded-md border p-6">
-              <MoveDownLeft className="mb-10 h-4 w-4 text-destructive" />
-              <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
-                20.105
-                <span className="text-muted-foreground text-sm tracking-normal">
-                  -2%
-                </span>
-              </h2>
-              <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
-                Daily active users
-              </p>
-            </div>
-            <div className="flex flex-col justify-between gap-0 rounded-md border p-6">
-              <MoveUpRight className="mb-10 h-4 w-4 text-primary" />
-              <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
-                $523.520
-                <span className="text-muted-foreground text-sm tracking-normal">
-                  +8%
-                </span>
-              </h2>
-              <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
-                Monthly recurring revenue
-              </p>
-            </div>
-            <div className="flex flex-col justify-between gap-0 rounded-md border p-6">
-              <MoveUpRight className="mb-10 h-4 w-4 text-primary" />
-              <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
-                $1052
-                <span className="text-muted-foreground text-sm tracking-normal">
-                  +2%
-                </span>
-              </h2>
-              <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
-                Cost per acquisition
-              </p>
-            </div>
+            {dictionary.web.home.stats.items.map((item, index) => (
+              <div
+                className="flex flex-col justify-between gap-0 rounded-md border p-6"
+                key={index}
+              >
+                {item.delta > 0 ? (
+                  <MoveUpRight className="mb-10 h-4 w-4 text-primary" />
+                ) : (
+                  <MoveDownLeft className="mb-10 h-4 w-4 text-destructive" />
+                )}
+                <h2 className="flex max-w-xl flex-row items-end gap-4 text-left font-regular text-4xl tracking-tighter">
+                  {new Intl.NumberFormat().format(item.metric)}
+                  <span className="text-muted-foreground text-sm tracking-normal">
+                    {item.delta > 0 ? '+' : ''}
+                    {item.delta}%
+                  </span>
+                </h2>
+                <p className="max-w-xl text-left text-base text-muted-foreground leading-relaxed tracking-tight">
+                  {item.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

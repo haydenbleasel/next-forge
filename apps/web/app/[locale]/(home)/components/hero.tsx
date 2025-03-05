@@ -32,7 +32,8 @@ export const Hero = async ({ dictionary }: HeroProps) => {
                     asChild
                   >
                     <Link href={`/blog/${data.blog.posts.item?._slug}`}>
-                      Read our latest article <MoveRight className="h-4 w-4" />
+                      {dictionary.web.home.hero.announcement}{' '}
+                      <MoveRight className="h-4 w-4" />
                     </Link>
                   </Button>
                 );

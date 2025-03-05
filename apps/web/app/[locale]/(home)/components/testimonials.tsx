@@ -48,27 +48,24 @@ export const Testimonials = ({ dictionary }: TestimonialsProps) => {
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              {Array.from({ length: 15 }).map((_, index) => (
+              {dictionary.web.home.testimonials.items.map((item, index) => (
                 <CarouselItem className="lg:basis-1/2" key={index}>
                   <div className="flex aspect-video h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2">
                     <User className="h-8 w-8 stroke-1" />
                     <div className="flex flex-col gap-4">
                       <div className="flex flex-col">
-                        <h3 className="text-xl tracking-tight">
-                          Best decision
-                        </h3>
+                        <h3 className="text-xl tracking-tight">{item.title}</h3>
                         <p className="max-w-xs text-base text-muted-foreground">
-                          Our goal was to streamline SMB trade, making it easier
-                          and faster than ever and we did it together.
+                          {item.description}
                         </p>
                       </div>
                       <p className="flex flex-row items-center gap-2 text-sm">
                         <span className="text-muted-foreground">By</span>
                         <Avatar className="h-6 w-6">
-                          <AvatarImage src="https://github.com/shadcn.png" />
-                          <AvatarFallback>CN</AvatarFallback>
+                          <AvatarImage src={item.author.image} />
+                          <AvatarFallback>??</AvatarFallback>
                         </Avatar>
-                        <span>John Johnsen</span>
+                        <span>{item.author.name}</span>
                       </p>
                     </div>
                   </div>
