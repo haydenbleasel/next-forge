@@ -1,3 +1,19 @@
+# v3.3.0 (Wed Mar 05 2025)
+
+#### 🚀 Enhancement
+
+- Internationalization and Languine [#473](https://github.com/haydenbleasel/next-forge/pull/473) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### 📝 Documentation
+
+- Dub [#455](https://github.com/haydenbleasel/next-forge/pull/455) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.2.28 (Mon Mar 03 2025)
 
 #### 🐛 Bug Fix
