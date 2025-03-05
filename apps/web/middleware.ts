@@ -7,7 +7,7 @@ import {
   noseconeOptions,
   noseconeOptionsWithToolbar,
 } from '@repo/security/middleware';
-import { NextResponse } from 'next/server';
+import { type NextMiddleware, NextResponse } from 'next/server';
 
 export const config = {
   // matcher tells Next.js which routes to run the middleware on. This runs the
@@ -19,7 +19,7 @@ const securityHeaders = env.FLAGS_SECRET
   ? noseconeMiddleware(noseconeOptionsWithToolbar)
   : noseconeMiddleware(noseconeOptions);
 
-export default authMiddleware(async (_auth, request) => {
+const middleware = authMiddleware(async (_auth, request) => {
   if (!env.ARCJET_KEY) {
     return securityHeaders();
   }
@@ -41,4 +41,6 @@ export default authMiddleware(async (_auth, request) => {
 
     return NextResponse.json({ error: message }, { status: 403 });
   }
-});
+}) as unknown as NextMiddleware;
+
+export default middleware;
