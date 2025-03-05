@@ -55,8 +55,6 @@ The internationalization package is configured through a `languine.json` file th
 - Target locales (e.g., ["es", "de"])
 - Dictionary file locations
 
----
-
 ## Dictionary Structure
 
 Dictionaries are TypeScript files that export strongly-typed content for each supported language. The type system ensures consistency across translations:
@@ -69,41 +67,45 @@ const dictionary: Dictionary = {};
 export default dictionary;
 ```
 
+There is no need to create a dictionary for any non-source locale, as Languine will automatically generate the translations for you.
+
 ## Usage
 
-### Basic Usage
+### Frontend
 
 To use the internationalization package, you need to:
 
-1. Create a dictionary for each language you want to support.
+1. Maintain a dictionary for your source locale.
 2. Import the dictionary into your application.
 3. Use the dictionary to render content.
+
+You can find an example of a dictionary in the `web` package:
 
 ```tsx
 import { getDictionary } from '@repo/internationalization';
 
-const dictionary = await getDictionary('en');
+type HomeProps = {
+  params: Promise<{
+    locale: string;
+  }>;
+};
+
+const Home = async ({ params }: HomeProps) => {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+
+  // ...
+};
 ```
 
-### Advanced Usage
+### Middleware
 
 The internationalization package also includes a middleware component that automatically detects the user's language and routes them to the appropriate language-specific page.
+
+This has already been configured for the `web` package, so you don't need to worry about it.
 
 ```tsx
 import { internationalizationMiddleware } from '@repo/internationalization';
 
 export default internationalizationMiddleware;
 ```
-
-## Customization
-
-The internationalization package can be customized to meet your specific needs.
-
-### Changing the default locale
-
-To change the default locale, you can set the `NEXT_PUBLIC_DEFAULT_LOCALE` environment variable.
-
-```env
-NEXT_PUBLIC_DEFAULT_LOCALE="en"
-```
-
