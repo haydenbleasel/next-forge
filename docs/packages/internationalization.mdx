@@ -110,6 +110,14 @@ const Home = async ({ params }: HomeProps) => {
 };
 ```
 
+You can change the locale of the application by changing the `locale` parameter in the URL. For example, `https://example.com/en/about` will render the `about` page in English.
+
+We've already configured the `web` package with a language switcher, so you don't need to worry about it.
+
+<Frame>
+  <img src="/images/language-switcher.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
 ### Middleware
 
 The internationalization package also includes a middleware component that automatically detects the user's language and routes them to the appropriate language-specific page.
