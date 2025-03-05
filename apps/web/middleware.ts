@@ -1,5 +1,6 @@
 import { env } from '@/env';
 import { authMiddleware } from '@repo/auth/middleware';
+import { internationalizationMiddleware } from '@repo/internationalization/middleware';
 import { parseError } from '@repo/observability/error';
 import { secure } from '@repo/security';
 import {
@@ -20,6 +21,11 @@ const securityHeaders = env.FLAGS_SECRET
   : noseconeMiddleware(noseconeOptions);
 
 const middleware = authMiddleware(async (_auth, request) => {
+  const i18nResponse = internationalizationMiddleware(request);
+  if (i18nResponse) {
+    return i18nResponse;
+  }
+
   if (!env.ARCJET_KEY) {
     return securityHeaders();
   }

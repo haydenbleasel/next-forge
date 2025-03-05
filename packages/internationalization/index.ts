@@ -44,4 +44,4 @@ const dictionaries = locales.reduce<Dictionaries>((acc, locale) => {
 }, {} as Dictionaries);
 
 export const getDictionary = async (locale: string) =>
-  dictionaries[locale as keyof typeof locales]();
+  dictionaries[locale as keyof typeof locales];
