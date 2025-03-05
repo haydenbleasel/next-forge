@@ -2,14 +2,13 @@ import { match } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
 import { type NextRequest, NextResponse } from 'next/server';
 import { locales } from '.';
-
-const defaultLocale = 'en';
+import languine from './languine.json';
 
 const getLocale = (request: NextRequest) => {
   const headers = Object.fromEntries(request.headers.entries());
   const languages = new Negotiator({ headers }).languages();
 
-  return match(languages, locales, defaultLocale);
+  return match(languages, languine.locale.targets, languine.locale.source);
 };
 
 export const internationalizationMiddleware = (request: NextRequest) => {
