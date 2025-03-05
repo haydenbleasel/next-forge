@@ -1,16 +1,28 @@
+import { getDictionary } from '@repo/internationalization';
 import { createMetadata } from '@repo/seo/metadata';
 import type { Metadata } from 'next';
 import { ContactForm } from './components/contact-form';
 
-const title = 'Contact';
-const description =
-  "Let us know what's on your mind. We'll get back to you as soon as possible.";
+type ContactProps = {
+  params: Promise<{
+    locale: string;
+  }>;
+};
 
-export const metadata: Metadata = createMetadata({
-  title,
-  description,
-});
+export const generateMetadata = async ({
+  params,
+}: ContactProps): Promise<Metadata> => {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
 
-const Contact = () => <ContactForm />;
+  return createMetadata(dictionary.web.contact.meta);
+};
+
+const Contact = async ({ params }: ContactProps) => {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+
+  return <ContactForm dictionary={dictionary} />;
+};
 
 export default Contact;

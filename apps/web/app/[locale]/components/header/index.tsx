@@ -15,41 +15,32 @@ import { Menu, MoveRight, X } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
+import type { Dictionary } from '@repo/internationalization';
 import Image from 'next/image';
 import { LanguageSwitcher } from './language-switcher';
 import Logo from './logo.svg';
 
-export const Header = () => {
+type HeaderProps = {
+  dictionary: Dictionary;
+};
+
+export const Header = ({ dictionary }: HeaderProps) => {
   const navigationItems = [
     {
-      title: 'Home',
+      title: dictionary.web.header.home,
       href: '/',
       description: '',
     },
     {
-      title: 'Product',
-      description: 'Managing a small business today is already tough.',
-      items: [
-        {
-          title: 'Pricing',
-          href: '/pricing',
-        },
-        {
-          title: 'Pricing',
-          href: '/pricing',
-        },
-        {
-          title: 'Pricing',
-          href: '/pricing',
-        },
-        {
-          title: 'Pricing',
-          href: '/pricing',
-        },
-      ],
+      title: dictionary.web.header.product.title,
+      description: dictionary.web.header.product.description,
+      items: dictionary.web.header.product.items.map((item) => ({
+        title: item.title,
+        href: item.href,
+      })),
     },
     {
-      title: 'Blog',
+      title: dictionary.web.header.blog,
       href: '/blog',
       description: '',
     },
@@ -57,7 +48,7 @@ export const Header = () => {
 
   if (env.NEXT_PUBLIC_DOCS_URL) {
     navigationItems.push({
-      title: 'Docs',
+      title: dictionary.web.header.docs,
       href: env.NEXT_PUBLIC_DOCS_URL,
       description: '',
     });
@@ -95,7 +86,9 @@ export const Header = () => {
                               </p>
                             </div>
                             <Button size="sm" className="mt-10" asChild>
-                              <Link href="/contact">Book a call today</Link>
+                              <Link href="/contact">
+                                {dictionary.web.header.product.cta}
+                              </Link>
                             </Button>
                           </div>
                           <div className="flex h-full flex-col justify-end text-sm">
@@ -131,7 +124,7 @@ export const Header = () => {
         </div>
         <div className="flex w-full justify-end gap-4">
           <Button variant="ghost" className="hidden md:inline" asChild>
-            <Link href="/contact">Contact us</Link>
+            <Link href="/contact">{dictionary.web.header.contact}</Link>
           </Button>
           <div className="hidden border-r md:inline" />
           <div className="hidden md:inline">
@@ -141,10 +134,14 @@ export const Header = () => {
             <ModeToggle />
           </div>
           <Button variant="outline" asChild className="hidden md:inline">
-            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>Sign in</Link>
+            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-in`}>
+              {dictionary.web.header.signIn}
+            </Link>
           </Button>
           <Button asChild>
-            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>Get started</Link>
+            <Link href={`${env.NEXT_PUBLIC_APP_URL}/sign-up`}>
+              {dictionary.web.header.signUp}
+            </Link>
           </Button>
         </div>
         <div className="flex w-12 shrink items-end justify-end lg:hidden">

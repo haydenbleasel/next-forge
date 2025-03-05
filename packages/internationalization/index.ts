@@ -3,7 +3,28 @@ import languine from './languine.json';
 
 export type Dictionary = {
   web: {
+    header: {
+      home: string;
+      product: {
+        title: string;
+        description: string;
+        cta: string;
+        items: {
+          title: string;
+          href: string;
+        }[];
+      };
+      blog: string;
+      docs: string;
+      contact: string;
+      signIn: string;
+      signUp: string;
+    };
     home: {
+      meta: {
+        title: string;
+        description: string;
+      };
       hero: {
         announcement: string;
         title: string;
@@ -56,6 +77,34 @@ export type Dictionary = {
         description: string;
         primaryCta: string;
         secondaryCta: string;
+      };
+    };
+    blog: {
+      meta: {
+        title: string;
+        description: string;
+      };
+    };
+    contact: {
+      meta: {
+        title: string;
+        description: string;
+      };
+      hero: {
+        title: string;
+        description: string;
+        benefits: {
+          title: string;
+          description: string;
+        }[];
+        form: {
+          title: string;
+          date: string;
+          firstName: string;
+          lastName: string;
+          resume: string;
+          cta: string;
+        };
       };
     };
   };

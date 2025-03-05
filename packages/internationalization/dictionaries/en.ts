@@ -2,7 +2,43 @@ import type { Dictionary } from '..';
 
 const dictionary: Dictionary = {
   web: {
+    header: {
+      home: 'Home',
+      product: {
+        title: 'Product',
+        description: 'Managing a small business today is already tough.',
+        cta: 'Book a call today',
+        items: [
+          {
+            title: 'Pricing',
+            href: '/pricing',
+          },
+          {
+            title: 'Pricing',
+            href: '/pricing',
+          },
+          {
+            title: 'Pricing',
+            href: '/pricing',
+          },
+          {
+            title: 'Pricing',
+            href: '/pricing',
+          },
+        ],
+      },
+      blog: 'Blog',
+      docs: 'Docs',
+      contact: 'Contact',
+      signIn: 'Sign in',
+      signUp: 'Get started',
+    },
     home: {
+      meta: {
+        title: 'Transform Your Business Operations Today',
+        description:
+          "In today's fast-paced world, your business deserves better than outdated trading systems. Our innovative platform streamlines operations, reduces complexity, and helps small businesses thrive in the modern economy.",
+      },
       hero: {
         announcement: 'Read our latest article',
         title: 'Transform Your Business Operations Today',
@@ -163,6 +199,49 @@ const dictionary: Dictionary = {
           "Join thousands of forward-thinking businesses who have already modernized their operations. Our platform offers the tools, support, and efficiency you need to succeed in today's competitive market. Get started in minutes.",
         primaryCta: 'Jump on a call',
         secondaryCta: 'Sign up today',
+      },
+    },
+    blog: {
+      meta: {
+        title: 'Blog',
+        description: 'Thoughts, ideas, and opinions.',
+      },
+    },
+    contact: {
+      meta: {
+        title: 'Contact',
+        description:
+          "Let us know what's on your mind. We'll get back to you as soon as possible.",
+      },
+      hero: {
+        title: "Let's Talk About Your Business",
+        description:
+          'Schedule a consultation with our team to discuss how we can help streamline your operations and drive growth for your business.',
+        benefits: [
+          {
+            title: 'Personalized Consultation',
+            description:
+              'Get tailored solutions and expert advice specific to your business needs.',
+          },
+          {
+            title: 'Quick Response',
+            description:
+              'Our team typically responds within 24 hours to schedule your consultation.',
+          },
+          {
+            title: 'No Commitment Required',
+            description:
+              'Free consultation to understand your needs and explore how we can help.',
+          },
+        ],
+        form: {
+          title: 'Book a meeting',
+          date: 'Date',
+          firstName: 'First name',
+          lastName: 'Last name',
+          resume: 'Upload resume',
+          cta: 'Book the meeting',
+        },
       },
     },
   },

@@ -10,18 +10,19 @@ import { Hero } from './components/hero';
 import { Stats } from './components/stats';
 import { Testimonials } from './components/testimonials';
 
-const meta = {
-  title: 'From zero to production in minutes.',
-  description:
-    "next-forge is a production-grade boilerplate for modern Next.js apps. It's designed to have everything you need to build your new SaaS app as quick as possible. Authentication, billing, analytics, SEO, and more. It's all here.",
-};
-
-export const metadata: Metadata = createMetadata(meta);
-
 type HomeProps = {
   params: Promise<{
     locale: string;
   }>;
+};
+
+export const generateMetadata = async ({
+  params,
+}: HomeProps): Promise<Metadata> => {
+  const { locale } = await params;
+  const dictionary = await getDictionary(locale);
+
+  return createMetadata(dictionary.web.home.meta);
 };
 
 const Home = async ({ params }: HomeProps) => {
