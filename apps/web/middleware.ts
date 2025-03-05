@@ -8,7 +8,11 @@ import {
   noseconeOptions,
   noseconeOptionsWithToolbar,
 } from '@repo/security/middleware';
-import { type NextMiddleware, NextResponse } from 'next/server';
+import {
+  type NextMiddleware,
+  type NextRequest,
+  NextResponse,
+} from 'next/server';
 
 export const config = {
   // matcher tells Next.js which routes to run the middleware on. This runs the
@@ -21,7 +25,9 @@ const securityHeaders = env.FLAGS_SECRET
   : noseconeMiddleware(noseconeOptions);
 
 const middleware = authMiddleware(async (_auth, request) => {
-  const i18nResponse = internationalizationMiddleware(request);
+  const i18nResponse = internationalizationMiddleware(
+    request as unknown as NextRequest
+  );
   if (i18nResponse) {
     return i18nResponse;
   }
