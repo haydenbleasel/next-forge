@@ -4,8 +4,6 @@
   "private": true,
   "scripts": {
     "translate": "npx -y languine@latest translate",
-    "build": "npx -y languine@latest translate",
-    "analyze": "npx -y languine@latest translate",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
