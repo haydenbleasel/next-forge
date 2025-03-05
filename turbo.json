@@ -22,8 +22,8 @@
       "dependsOn": ["^analyze"]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
+      "dependsOn": ["^dev"],
+      "cache": false
     },
     "clean": {
       "cache": false
