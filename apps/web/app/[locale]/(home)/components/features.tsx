@@ -35,10 +35,10 @@ export const Features = ({ dictionary }: FeaturesProps) => (
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">
-                {dictionary.web.home.features.items[1].title}
+                {dictionary.web.home.features.items[0].title}
               </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                {dictionary.web.home.features.items[1].description}
+                {dictionary.web.home.features.items[0].description}
               </p>
             </div>
           </div>
@@ -47,10 +47,10 @@ export const Features = ({ dictionary }: FeaturesProps) => (
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">
-                {dictionary.web.home.features.items[2].title}
+                {dictionary.web.home.features.items[0].title}
               </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                {dictionary.web.home.features.items[2].description}
+                {dictionary.web.home.features.items[0].description}
               </p>
             </div>
           </div>
@@ -58,10 +58,10 @@ export const Features = ({ dictionary }: FeaturesProps) => (
             <User className="h-8 w-8 stroke-1" />
             <div className="flex flex-col">
               <h3 className="text-xl tracking-tight">
-                {dictionary.web.home.features.items[3].title}
+                {dictionary.web.home.features.items[0].title}
               </h3>
               <p className="max-w-xs text-base text-muted-foreground">
-                {dictionary.web.home.features.items[3].description}
+                {dictionary.web.home.features.items[0].description}
               </p>
             </div>
           </div>

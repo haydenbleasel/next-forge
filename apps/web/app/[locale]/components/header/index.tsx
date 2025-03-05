@@ -87,7 +87,7 @@ export const Header = ({ dictionary }: HeaderProps) => {
                             </div>
                             <Button size="sm" className="mt-10" asChild>
                               <Link href="/contact">
-                                {dictionary.web.header.product.cta}
+                                {dictionary.web.global.primaryCta}
                               </Link>
                             </Button>
                           </div>

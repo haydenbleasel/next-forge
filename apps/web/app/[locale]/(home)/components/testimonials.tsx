@@ -48,7 +48,15 @@ export const Testimonials = ({ dictionary }: TestimonialsProps) => {
           </h2>
           <Carousel setApi={setApi} className="w-full">
             <CarouselContent>
-              {dictionary.web.home.testimonials.items.map((item, index) => (
+              {[
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+                ...dictionary.web.home.testimonials.items,
+              ].map((item, index) => (
                 <CarouselItem className="lg:basis-1/2" key={index}>
                   <div className="flex aspect-video h-full flex-col justify-between rounded-md bg-muted p-6 lg:col-span-2">
                     <User className="h-8 w-8 stroke-1" />

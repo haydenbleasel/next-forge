@@ -38,7 +38,15 @@ export const FAQ = ({ dictionary }: FAQProps) => (
           </div>
         </div>
         <Accordion type="single" collapsible className="w-full">
-          {dictionary.web.home.faq.items.map((item, index) => (
+          {[
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+            ...dictionary.web.home.faq.items,
+          ].map((item, index) => (
             <AccordionItem key={index} value={`index-${index}`}>
               <AccordionTrigger>{item.question}</AccordionTrigger>
               <AccordionContent>{item.answer}</AccordionContent>
