@@ -35,6 +35,18 @@
           {
             "title": "Streamlined Operations",
             "description": "Our platform streamlines operations, reduces complexity, and helps small businesses thrive in the modern economy."
+          },
+          {
+            "title": "Real-Time Analytics",
+            "description": "Get instant insights into your business performance with comprehensive analytics and reporting tools."
+          },
+          {
+            "title": "Automated Workflows",
+            "description": "Save time and reduce errors with intelligent automation that handles repetitive tasks for you."
+          },
+          {
+            "title": "Secure Transactions",
+            "description": "Rest easy knowing your business operations are protected by enterprise-grade security and encryption."
           }
         ]
       },
@@ -42,10 +54,30 @@
         "title": "Real Results, Real Impact",
         "description": "Join thousands of businesses that have transformed their operations with our platform. Our solutions have helped companies reduce administrative overhead by 60% and increase trading efficiency by 45% on average.",
         "items": [
-          "Monthly active users",
-          "Daily active users",
-          "Monthly recurring revenue",
-          "Cost per acquisition"
+          {
+            "title": "Monthly active users",
+            "metric": "100000",
+            "delta": "10",
+            "type": "unit"
+          },
+          {
+            "title": "Daily active users",
+            "metric": "10000",
+            "delta": "-5",
+            "type": "unit"
+          },
+          {
+            "title": "Monthly recurring revenue",
+            "metric": "100000",
+            "delta": "20",
+            "type": "currency"
+          },
+          {
+            "title": "Cost per acquisition",
+            "metric": "100",
+            "delta": "-10",
+            "type": "currency"
+          }
         ]
       },
       "testimonials": {
@@ -58,6 +90,30 @@
               "name": "Hayden Bleasel",
               "image": "https://github.com/haydenbleasel.png"
             }
+          },
+          {
+            "title": "Game changer",
+            "description": "This platform revolutionized how we handle our day-to-day operations. The efficiency gains have been remarkable.",
+            "author": {
+              "name": "Lee Robinson",
+              "image": "https://github.com/leerob.png"
+            }
+          },
+          {
+            "title": "Exceeded expectations",
+            "description": "Implementation was smooth and the results were immediate. Our team adapted quickly and productivity soared.",
+            "author": {
+              "name": "shadcn",
+              "image": "https://github.com/shadcn.png"
+            }
+          },
+          {
+            "title": "Outstanding support",
+            "description": "Not only is the platform powerful, but the customer support team has been exceptional in helping us maximize its potential.",
+            "author": {
+              "name": "Pontus Abrahamsson",
+              "image": "https://github.com/pontusab.png"
+            }
           }
         ]
       },
@@ -69,6 +125,22 @@
           {
             "question": "What is the platform?",
             "answer": "The platform is a trading platform that allows you to trade with confidence."
+          },
+          {
+            "question": "How secure is the platform?",
+            "answer": "Our platform employs enterprise-grade security measures, including end-to-end encryption and multi-factor authentication, to ensure your trading activities remain completely secure."
+          },
+          {
+            "question": "What trading features are available?",
+            "answer": "The platform offers comprehensive trading tools including real-time market data, advanced charting, automated trading strategies, and detailed analytics to support informed decision-making."
+          },
+          {
+            "question": "How does pricing work?",
+            "answer": "We offer flexible pricing tiers designed to scale with your business needs, from starter plans for individual traders to enterprise solutions for large organizations."
+          },
+          {
+            "question": "What kind of support do you provide?",
+            "answer": "Our dedicated support team is available 24/7 through multiple channels including live chat, email, and phone. We also provide extensive documentation and training resources."
           }
         ]
       },
@@ -93,6 +165,14 @@
           {
             "title": "Personalized Consultation",
             "description": "Get tailored solutions and expert advice specific to your business needs."
+          },
+          {
+            "title": "Seamless Integration",
+            "description": "We seamlessly integrate with your existing systems to ensure a smooth transition and minimal disruption."
+          },
+          {
+            "title": "Expert Guidance",
+            "description": "Our team of experts will guide you through the process, ensuring you get the most out of our platform."
           }
         ],
         "form": {

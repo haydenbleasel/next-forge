@@ -37,11 +37,7 @@ export const ContactForm = ({ dictionary }: ContactFormProps) => {
                 </p>
               </div>
             </div>
-            {[
-              ...dictionary.web.contact.hero.benefits,
-              ...dictionary.web.contact.hero.benefits,
-              ...dictionary.web.contact.hero.benefits,
-            ].map((benefit, index) => (
+            {dictionary.web.contact.hero.benefits.map((benefit, index) => (
               <div
                 className="flex flex-row items-start gap-6 text-left"
                 key={index}
