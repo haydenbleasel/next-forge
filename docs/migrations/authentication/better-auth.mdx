@@ -38,8 +38,10 @@ pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ...and install the Better Auth dependencies:
 
 ```sh Terminal
-pnpm add better-auth @repo/database next --filter @repo/auth
+pnpm add better-auth next --filter @repo/auth
 ```
+
+Additionally, add `@repo/database` to the `auth` package dependencies.
 
 ## 2. Update your environment variables
 
@@ -108,7 +110,6 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
           await signIn.email({
             email,
             password,
-            name
           })
         }}
       >
@@ -186,11 +187,6 @@ npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma 
 <Warning>
 You may have to comment out the `server-only` directive in `packages/database/index.ts` temporarily. Ensure you have environment variables set.
 </Warning>
-
-<Note>
-Best practice is to have a `better-auth.ts` file, but we're just specifying the existing `server.ts` left over from Clerk here.
-</Note>
-
 
 ## 6. Update the Provider file
 
