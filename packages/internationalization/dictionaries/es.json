@@ -1,7 +1,7 @@
 {
   "web": {
     "global": {
-      "primaryCta": "Reserva una llamada",
+      "primaryCta": "Reservar una llamada",
       "secondaryCta": "Regístrate"
     },
     "header": {
@@ -15,37 +15,69 @@
       "docs": "Documentos",
       "contact": "Contacto",
       "signIn": "Iniciar sesión",
-      "signUp": "Comienza"
+      "signUp": "Comenzar"
     },
     "home": {
       "meta": {
         "title": "Transforma las operaciones de tu negocio hoy",
-        "description": "En el mundo acelerado de hoy, tu negocio merece más que sistemas de comercio obsoletos. Nuestra plataforma innovadora simplifica las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
+        "description": "En el mundo acelerado de hoy, tu negocio merece más que sistemas de comercio obsoletos. Nuestra plataforma innovadora optimiza las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
       },
       "hero": {
         "announcement": "Lee nuestro último artículo"
       },
       "cases": {
-        "title": "Historias de éxito que empoderan en todo el mundo"
+        "title": "Empoderando historias de éxito en todo el mundo"
       },
       "features": {
         "title": "Herramientas poderosas para el negocio moderno",
         "description": "Descubre cómo nuestras características de vanguardia pueden revolucionar tus operaciones diarias.",
         "items": {
           "0": {
-            "title": "Operaciones simplificadas",
-            "description": "Nuestra plataforma simplifica las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
+            "title": "Operaciones optimizadas",
+            "description": "Nuestra plataforma optimiza las operaciones, reduce la complejidad y ayuda a las pequeñas empresas a prosperar en la economía moderna."
+          },
+          "1": {
+            "title": "Analítica en tiempo real",
+            "description": "Obtén información instantánea sobre el rendimiento de tu negocio con herramientas de análisis e informes completos."
+          },
+          "2": {
+            "title": "Flujos de trabajo automatizados",
+            "description": "Ahorra tiempo y reduce errores con automatización inteligente que maneja tareas repetitivas por ti."
+          },
+          "3": {
+            "title": "Transacciones seguras",
+            "description": "Descansa tranquilo sabiendo que las operaciones de tu negocio están protegidas por seguridad y cifrado de nivel empresarial."
           }
         }
       },
       "stats": {
         "title": "Resultados reales, impacto real",
-        "description": "Únete a miles de negocios que han transformado sus operaciones con nuestra plataforma. Nuestras soluciones han ayudado a las empresas a reducir los costos administrativos en un 60% y aumentar la eficiencia comercial en un 45% de media.",
+        "description": "Únete a miles de negocios que han transformado sus operaciones con nuestra plataforma. Nuestras soluciones han ayudado a las empresas a reducir los costos administrativos en un 60% y aumentar la eficiencia comercial en un 45% en promedio.",
         "items": {
-          "0": "Usuarios activos mensuales",
-          "1": "Usuarios activos diarios",
-          "2": "Ingresos recurrentes mensuales",
-          "3": "Costo por adquisición"
+          "0": {
+            "title": "Usuarios activos mensuales",
+            "metric": "100000",
+            "delta": "10",
+            "type": "unidad"
+          },
+          "1": {
+            "title": "Usuarios activos diarios",
+            "metric": "10000",
+            "delta": "-5",
+            "type": "unidad"
+          },
+          "2": {
+            "title": "Ingresos recurrentes mensuales",
+            "metric": "100000",
+            "delta": "20",
+            "type": "moneda"
+          },
+          "3": {
+            "title": "Costo por adquisición",
+            "metric": "100",
+            "delta": "-10",
+            "type": "moneda"
+          }
         }
       },
       "testimonials": {
@@ -53,10 +85,34 @@
         "items": {
           "0": {
             "title": "Mejor decisión",
-            "description": "Nuestro objetivo era simplificar el comercio de las pequeñas y medianas empresas, haciéndolo más fácil y rápido que nunca, y lo logramos juntos.",
+            "description": "Nuestro objetivo era optimizar el comercio de las pequeñas y medianas empresas, haciéndolo más fácil y rápido que nunca, y lo logramos juntos.",
             "author": {
               "name": "Hayden Bleasel",
               "image": "https://github.com/haydenbleasel.png"
+            }
+          },
+          "1": {
+            "title": "Cambio radical",
+            "description": "Esta plataforma revolucionó la forma en que manejamos nuestras operaciones diarias. Las ganancias de eficiencia han sido notables.",
+            "author": {
+              "name": "Lee Robinson",
+              "image": "https://github.com/leerob.png"
+            }
+          },
+          "2": {
+            "title": "Superó las expectativas",
+            "description": "La implementación fue fluida y los resultados fueron inmediatos. Nuestro equipo se adaptó rápidamente y la productividad se disparó.",
+            "author": {
+              "name": "shadcn",
+              "image": "https://github.com/shadcn.png"
+            }
+          },
+          "3": {
+            "title": "Soporte excepcional",
+            "description": "No solo la plataforma es poderosa, sino que el equipo de atención al cliente ha sido excepcional en ayudarnos a maximizar su potencial.",
+            "author": {
+              "name": "Pontus Abrahamsson",
+              "image": "https://github.com/pontusab.png"
             }
           }
         }
@@ -68,12 +124,28 @@
         "items": {
           "0": {
             "question": "¿Qué es la plataforma?",
-            "answer": "La plataforma es una plataforma de comercio que te permite comerciar con confianza."
+            "answer": "La plataforma es una plataforma de comercio que te permite operar con confianza."
+          },
+          "1": {
+            "question": "¿Qué tan segura es la plataforma?",
+            "answer": "Nuestra plataforma emplea medidas de seguridad de nivel empresarial, incluyendo cifrado de extremo a extremo y autenticación multifactor, para asegurar que tus actividades comerciales permanezcan completamente seguras."
+          },
+          "2": {
+            "question": "¿Qué características de comercio están disponibles?",
+            "answer": "La plataforma ofrece herramientas de comercio completas, incluyendo datos de mercado en tiempo real, gráficos avanzados, estrategias de comercio automatizadas y análisis detallados para apoyar la toma de decisiones informadas."
+          },
+          "3": {
+            "question": "¿Cómo funciona la fijación de precios?",
+            "answer": "Ofrecemos niveles de precios flexibles diseñados para escalar con las necesidades de tu negocio, desde planes iniciales para comerciantes individuales hasta soluciones empresariales para grandes organizaciones."
+          },
+          "4": {
+            "question": "¿Qué tipo de soporte proporcionan?",
+            "answer": "Nuestro equipo de soporte dedicado está disponible 24/7 a través de múltiples canales, incluyendo chat en vivo, correo electrónico y teléfono. También proporcionamos documentación extensa y recursos de capacitación."
           }
         }
       },
       "cta": {
-        "title": "Inicia la transformación de tu negocio",
+        "title": "Comienza tu transformación empresarial",
         "description": "Únete a miles de empresas visionarias que ya han modernizado sus operaciones. Nuestra plataforma ofrece las herramientas, el apoyo y la eficiencia que necesitas para tener éxito en el competitivo mercado actual. Comienza en minutos."
       }
     },
@@ -86,22 +158,30 @@
     "contact": {
       "meta": {
         "title": "Hablemos sobre tu negocio",
-        "description": "Programa una consulta con nuestro equipo para discutir cómo podemos ayudar a simplificar tus operaciones y fomentar el crecimiento de tu negocio."
+        "description": "Programa una consulta con nuestro equipo para discutir cómo podemos ayudar a optimizar tus operaciones y fomentar el crecimiento de tu negocio."
       },
       "hero": {
         "benefits": {
           "0": {
             "title": "Consulta personalizada",
             "description": "Obtén soluciones personalizadas y asesoramiento experto específico para las necesidades de tu negocio."
+          },
+          "1": {
+            "title": "Integración sin problemas",
+            "description": "Nos integramos sin problemas con tus sistemas existentes para asegurar una transición suave y una mínima interrupción."
+          },
+          "2": {
+            "title": "Orientación experta",
+            "description": "Nuestro equipo de expertos te guiará a través del proceso, asegurando que obtengas el máximo provecho de nuestra plataforma."
           }
         },
         "form": {
-          "title": "Reserva una reunión",
+          "title": "Reservar una reunión",
           "date": "Fecha",
           "firstName": "Nombre",
           "lastName": "Apellido",
-          "resume": "Sube tu currículum",
-          "cta": "Reserva la reunión"
+          "resume": "Subir currículum",
+          "cta": "Reservar la reunión"
         }
       }
     }
