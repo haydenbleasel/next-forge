@@ -1,3 +1,15 @@
+# v3.3.3 (Thu Mar 06 2025)
+
+#### 🐛 Bug Fix
+
+- Add more Languine keys [#475](https://github.com/haydenbleasel/next-forge/pull/475) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.2 (Thu Mar 06 2025)
 
 #### ⚠️ Pushed to `main`
