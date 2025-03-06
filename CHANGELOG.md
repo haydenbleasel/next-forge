@@ -1,3 +1,15 @@
+# v3.3.4 (Thu Mar 06 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Fix languages ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.3 (Thu Mar 06 2025)
 
 #### 🐛 Bug Fix
