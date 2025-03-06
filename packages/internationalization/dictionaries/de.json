@@ -1,14 +1,14 @@
 {
   "web": {
     "global": {
-      "primaryCta": "Rufen Sie an",
+      "primaryCta": "Vereinbaren Sie einen Anruf",
       "secondaryCta": "Registrieren"
     },
     "header": {
       "home": "Startseite",
       "product": {
         "title": "Produkt",
-        "description": "Die Verwaltung eines kleinen Unternehmens ist heute bereits schwierig.",
+        "description": "Die Führung eines kleinen Unternehmens ist heute bereits schwierig.",
         "pricing": "Preise"
       },
       "blog": "Blog",
@@ -20,61 +20,133 @@
     "home": {
       "meta": {
         "title": "Transformieren Sie Ihre Geschäftsabläufe noch heute",
-        "description": "In der heutigen schnelllebigen Welt verdient Ihr Unternehmen bessere Lösungen als veraltete Handelssysteme. Unsere innovative Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft zu gedeihen."
+        "description": "In der heutigen schnelllebigen Welt verdient Ihr Unternehmen mehr als veraltete Handelssysteme. Unsere innovative Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft zu gedeihen."
       },
       "hero": {
         "announcement": "Lesen Sie unseren neuesten Artikel"
       },
       "cases": {
-        "title": "Erfolgreiche Geschichten aus aller Welt"
+        "title": "Erfolgsgeschichten aus aller Welt"
       },
       "features": {
         "title": "Leistungsstarke Werkzeuge für moderne Unternehmen",
         "description": "Entdecken Sie, wie unsere hochmodernen Funktionen Ihre täglichen Abläufe revolutionieren können.",
-        "items": {
-          "0": {
+        "items": [
+          {
             "title": "Optimierte Abläufe",
             "description": "Unsere Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft zu gedeihen."
+          },
+          {
+            "title": "Echtzeit-Analysen",
+            "description": "Erhalten Sie sofortige Einblicke in die Leistung Ihres Unternehmens mit umfassenden Analyse- und Berichtswerkzeugen."
+          },
+          {
+            "title": "Automatisierte Arbeitsabläufe",
+            "description": "Sparen Sie Zeit und reduzieren Sie Fehler mit intelligenter Automatisierung, die sich wiederholende Aufgaben für Sie übernimmt."
+          },
+          {
+            "title": "Sichere Transaktionen",
+            "description": "Seien Sie unbesorgt, denn Ihre Geschäftsabläufe sind durch Sicherheits- und Verschlüsselungsmaßnahmen auf Unternehmensniveau geschützt."
           }
-        }
+        ]
       },
       "stats": {
         "title": "Echte Ergebnisse, echte Auswirkungen",
-        "description": "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe mit unserer Plattform transformiert haben. Unsere Lösungen haben Unternehmen geholfen, die Verwaltungskosten um 60 % zu senken und die Handelseffizienz im Durchschnitt um 45 % zu steigern.",
-        "items": {
-          "0": "Monatlich aktive Nutzer",
-          "1": "Täglich aktive Nutzer",
-          "2": "Monatlich wiederkehrende Einnahmen",
-          "3": "Kosten pro Akquisition"
-        }
+        "description": "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe mit unserer Plattform transformiert haben. Unsere Lösungen haben Unternehmen geholfen, die Verwaltungskosten um 60 % zu senken und die Handels-effizienz im Durchschnitt um 45 % zu steigern.",
+        "items": [
+          {
+            "title": "Monatlich aktive Nutzer",
+            "metric": "100000",
+            "delta": "10",
+            "type": "Einheit"
+          },
+          {
+            "title": "Täglich aktive Nutzer",
+            "metric": "10000",
+            "delta": "-5",
+            "type": "Einheit"
+          },
+          {
+            "title": "Monatlich wiederkehrende Einnahmen",
+            "metric": "100000",
+            "delta": "20",
+            "type": "Währung"
+          },
+          {
+            "title": "Kosten pro Akquisition",
+            "metric": "100",
+            "delta": "-10",
+            "type": "Währung"
+          }
+        ]
       },
       "testimonials": {
         "title": "Hören Sie von unserer florierenden Gemeinschaft",
-        "items": {
-          "0": {
+        "items": [
+          {
             "title": "Beste Entscheidung",
-            "description": "Unser Ziel war es, den Handel für kleine und mittlere Unternehmen zu optimieren, um ihn einfacher und schneller als je zuvor zu gestalten, und das haben wir gemeinsam erreicht.",
+            "description": "Unser Ziel war es, den Handel für kleine und mittlere Unternehmen zu optimieren, um es einfacher und schneller als je zuvor zu machen, und das haben wir gemeinsam erreicht.",
             "author": {
               "name": "Hayden Bleasel",
               "image": "https://github.com/haydenbleasel.png"
             }
+          },
+          {
+            "title": "Spielveränderer",
+            "description": "Diese Plattform hat revolutioniert, wie wir unsere täglichen Abläufe handhaben. Die Effizienzgewinne waren bemerkenswert.",
+            "author": {
+              "name": "Lee Robinson",
+              "image": "https://github.com/leerob.png"
+            }
+          },
+          {
+            "title": "Übertraf die Erwartungen",
+            "description": "Die Implementierung verlief reibungslos und die Ergebnisse waren sofort sichtbar. Unser Team hat sich schnell angepasst und die Produktivität ist in die Höhe geschossen.",
+            "author": {
+              "name": "shadcn",
+              "image": "https://github.com/shadcn.png"
+            }
+          },
+          {
+            "title": "Hervorragender Support",
+            "description": "Die Plattform ist nicht nur leistungsstark, sondern das Kundenserviceteam war außergewöhnlich darin, uns zu helfen, ihr Potenzial zu maximieren.",
+            "author": {
+              "name": "Pontus Abrahamsson",
+              "image": "https://github.com/pontusab.png"
+            }
           }
-        }
+        ]
       },
       "faq": {
         "title": "Häufige Fragen, Expertenantworten",
         "description": "Erhalten Sie schnelle Antworten auf Ihre dringendsten Fragen zu unserer Plattform. Wir haben alles zusammengestellt, was Sie über die Transformation Ihrer Geschäftsabläufe und den Einstieg in moderne Handelslösungen wissen müssen.",
         "cta": "Haben Sie Fragen? Kontaktieren Sie uns",
-        "items": {
-          "0": {
+        "items": [
+          {
             "question": "Was ist die Plattform?",
             "answer": "Die Plattform ist eine Handelsplattform, die es Ihnen ermöglicht, mit Vertrauen zu handeln."
+          },
+          {
+            "question": "Wie sicher ist die Plattform?",
+            "answer": "Unsere Plattform verwendet Sicherheitsmaßnahmen auf Unternehmensniveau, einschließlich End-to-End-Verschlüsselung und Multi-Faktor-Authentifizierung, um sicherzustellen, dass Ihre Handelsaktivitäten vollständig sicher bleiben."
+          },
+          {
+            "question": "Welche Handelsfunktionen sind verfügbar?",
+            "answer": "Die Plattform bietet umfassende Handelswerkzeuge, einschließlich Echtzeit-Marktdaten, fortschrittlicher Charting, automatisierter Handelsstrategien und detaillierter Analysen zur Unterstützung fundierter Entscheidungen."
+          },
+          {
+            "question": "Wie funktioniert die Preisgestaltung?",
+            "answer": "Wir bieten flexible Preismodelle, die mit den Bedürfnissen Ihres Unternehmens skalieren, von Starterplänen für Einzelhändler bis hin zu Unternehmenslösungen für große Organisationen."
+          },
+          {
+            "question": "Welche Art von Unterstützung bieten Sie?",
+            "answer": "Unser engagiertes Support-Team ist rund um die Uhr über mehrere Kanäle wie Live-Chat, E-Mail und Telefon erreichbar. Wir bieten auch umfangreiche Dokumentationen und Schulungsressourcen."
           }
-        }
+        ]
       },
       "cta": {
         "title": "Starten Sie Ihre Geschäftstransformation",
-        "description": "Schließen Sie sich Tausenden von zukunftsorientierten Unternehmen an, die ihre Abläufe bereits modernisiert haben. Unsere Plattform bietet die Werkzeuge, Unterstützung und Effizienz, die Sie benötigen, um in der heutigen wettbewerbsintensiven Markt erfolgreich zu sein. Beginnen Sie in wenigen Minuten."
+        "description": "Schließen Sie sich Tausenden von zukunftsorientierten Unternehmen an, die ihre Abläufe bereits modernisiert haben. Unsere Plattform bietet die Werkzeuge, Unterstützung und Effizienz, die Sie benötigen, um in der heutigen wettbewerbsintensiven Markt erfolgreich zu sein. Starten Sie in wenigen Minuten."
       }
     },
     "blog": {
@@ -86,22 +158,30 @@
     "contact": {
       "meta": {
         "title": "Lassen Sie uns über Ihr Unternehmen sprechen",
-        "description": "Vereinbaren Sie eine Beratung mit unserem Team, um zu besprechen, wie wir Ihre Abläufe optimieren und das Wachstum Ihres Unternehmens vorantreiben können."
+        "description": "Vereinbaren Sie einen Termin mit unserem Team, um zu besprechen, wie wir Ihre Abläufe optimieren und das Wachstum Ihres Unternehmens vorantreiben können."
       },
       "hero": {
-        "benefits": {
-          "0": {
+        "benefits": [
+          {
             "title": "Personalisierte Beratung",
             "description": "Erhalten Sie maßgeschneiderte Lösungen und Expertenrat, die auf die Bedürfnisse Ihres Unternehmens zugeschnitten sind."
+          },
+          {
+            "title": "Nahtlose Integration",
+            "description": "Wir integrieren uns nahtlos in Ihre bestehenden Systeme, um einen reibungslosen Übergang und minimale Störungen zu gewährleisten."
+          },
+          {
+            "title": "Expertenrat",
+            "description": "Unser Expertenteam wird Sie durch den Prozess führen und sicherstellen, dass Sie das Beste aus unserer Plattform herausholen."
           }
-        },
+        ],
         "form": {
-          "title": "Buchen Sie ein Treffen",
+          "title": "Vereinbaren Sie ein Meeting",
           "date": "Datum",
           "firstName": "Vorname",
           "lastName": "Nachname",
           "resume": "Lebenslauf hochladen",
-          "cta": "Buchen Sie das Treffen"
+          "cta": "Buchen Sie das Meeting"
         }
       }
     }

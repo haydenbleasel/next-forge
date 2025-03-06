@@ -1,0 +1,189 @@
+{
+  "web": {
+    "global": {
+      "primaryCta": "Réservez un appel",
+      "secondaryCta": "Inscrivez-vous"
+    },
+    "header": {
+      "home": "Accueil",
+      "product": {
+        "title": "Produit",
+        "description": "Gérer une petite entreprise aujourd'hui est déjà difficile.",
+        "pricing": "Tarification"
+      },
+      "blog": "Blog",
+      "docs": "Docs",
+      "contact": "Contact",
+      "signIn": "Connectez-vous",
+      "signUp": "Commencez"
+    },
+    "home": {
+      "meta": {
+        "title": "Transformez vos opérations commerciales aujourd'hui",
+        "description": "Dans le monde rapide d'aujourd'hui, votre entreprise mérite mieux que des systèmes de trading obsolètes. Notre plateforme innovante rationalise les opérations, réduit la complexité et aide les petites entreprises à prospérer dans l'économie moderne."
+      },
+      "hero": {
+        "announcement": "Lisez notre dernier article"
+      },
+      "cases": {
+        "title": "Histoires de succès inspirantes à travers le monde"
+      },
+      "features": {
+        "title": "Outils puissants pour les entreprises modernes",
+        "description": "Découvrez comment nos fonctionnalités de pointe peuvent révolutionner vos opérations quotidiennes.",
+        "items": [
+          {
+            "title": "Opérations rationalisées",
+            "description": "Notre plateforme rationalise les opérations, réduit la complexité et aide les petites entreprises à prospérer dans l'économie moderne."
+          },
+          {
+            "title": "Analytique en temps réel",
+            "description": "Obtenez des informations instantanées sur la performance de votre entreprise grâce à des outils d'analyse et de reporting complets."
+          },
+          {
+            "title": "Flux de travail automatisés",
+            "description": "Gagnez du temps et réduisez les erreurs grâce à une automatisation intelligente qui gère les tâches répétitives pour vous."
+          },
+          {
+            "title": "Transactions sécurisées",
+            "description": "Soyez tranquille en sachant que vos opérations commerciales sont protégées par une sécurité et un cryptage de niveau entreprise."
+          }
+        ]
+      },
+      "stats": {
+        "title": "Résultats réels, impact réel",
+        "description": "Rejoignez des milliers d'entreprises qui ont transformé leurs opérations avec notre plateforme. Nos solutions ont aidé les entreprises à réduire les frais administratifs de 60 % et à augmenter l'efficacité commerciale de 45 % en moyenne.",
+        "items": [
+          {
+            "title": "Utilisateurs actifs mensuels",
+            "metric": "100000",
+            "delta": "10",
+            "type": "unité"
+          },
+          {
+            "title": "Utilisateurs actifs quotidiens",
+            "metric": "10000",
+            "delta": "-5",
+            "type": "unité"
+          },
+          {
+            "title": "Revenus récurrents mensuels",
+            "metric": "100000",
+            "delta": "20",
+            "type": "devise"
+          },
+          {
+            "title": "Coût par acquisition",
+            "metric": "100",
+            "delta": "-10",
+            "type": "devise"
+          }
+        ]
+      },
+      "testimonials": {
+        "title": "Écoutez notre communauté florissante",
+        "items": [
+          {
+            "title": "Meilleure décision",
+            "description": "Notre objectif était de rationaliser le commerce des PME, le rendant plus facile et plus rapide que jamais, et nous l'avons fait ensemble.",
+            "author": {
+              "name": "Hayden Bleasel",
+              "image": "https://github.com/haydenbleasel.png"
+            }
+          },
+          {
+            "title": "Révolutionnaire",
+            "description": "Cette plateforme a révolutionné notre façon de gérer nos opérations quotidiennes. Les gains d'efficacité ont été remarquables.",
+            "author": {
+              "name": "Lee Robinson",
+              "image": "https://github.com/leerob.png"
+            }
+          },
+          {
+            "title": "A dépassé les attentes",
+            "description": "La mise en œuvre a été fluide et les résultats ont été immédiats. Notre équipe s'est adaptée rapidement et la productivité a grimpé en flèche.",
+            "author": {
+              "name": "shadcn",
+              "image": "https://github.com/shadcn.png"
+            }
+          },
+          {
+            "title": "Support exceptionnel",
+            "description": "Non seulement la plateforme est puissante, mais l'équipe de support client a été exceptionnelle pour nous aider à maximiser son potentiel.",
+            "author": {
+              "name": "Pontus Abrahamsson",
+              "image": "https://github.com/pontusab.png"
+            }
+          }
+        ]
+      },
+      "faq": {
+        "title": "Questions fréquentes, réponses d'experts",
+        "description": "Obtenez des réponses rapides à vos questions les plus pressantes concernant notre plateforme. Nous avons compilé tout ce que vous devez savoir sur la transformation de vos opérations commerciales et le démarrage avec des solutions de trading modernes.",
+        "cta": "Des questions ? Contactez-nous",
+        "items": [
+          {
+            "question": "Qu'est-ce que la plateforme ?",
+            "answer": "La plateforme est une plateforme de trading qui vous permet de trader en toute confiance."
+          },
+          {
+            "question": "Quelle est la sécurité de la plateforme ?",
+            "answer": "Notre plateforme utilise des mesures de sécurité de niveau entreprise, y compris le cryptage de bout en bout et l'authentification multi-facteurs, pour garantir que vos activités de trading restent complètement sécurisées."
+          },
+          {
+            "question": "Quelles fonctionnalités de trading sont disponibles ?",
+            "answer": "La plateforme propose des outils de trading complets, y compris des données de marché en temps réel, des graphiques avancés, des stratégies de trading automatisées et des analyses détaillées pour soutenir une prise de décision éclairée."
+          },
+          {
+            "question": "Comment fonctionne la tarification ?",
+            "answer": "Nous proposons des niveaux de tarification flexibles conçus pour évoluer avec les besoins de votre entreprise, des plans de démarrage pour les traders individuels aux solutions d'entreprise pour les grandes organisations."
+          },
+          {
+            "question": "Quel type de support fournissez-vous ?",
+            "answer": "Notre équipe de support dédiée est disponible 24/7 par plusieurs canaux, y compris le chat en direct, l'e-mail et le téléphone. Nous fournissons également une documentation et des ressources de formation étendues."
+          }
+        ]
+      },
+      "cta": {
+        "title": "Commencez votre transformation commerciale",
+        "description": "Rejoignez des milliers d'entreprises avant-gardistes qui ont déjà modernisé leurs opérations. Notre plateforme offre les outils, le soutien et l'efficacité dont vous avez besoin pour réussir sur le marché concurrentiel d'aujourd'hui. Commencez en quelques minutes."
+      }
+    },
+    "blog": {
+      "meta": {
+        "title": "Blog",
+        "description": "Pensées, idées et opinions."
+      }
+    },
+    "contact": {
+      "meta": {
+        "title": "Parlons de votre entreprise",
+        "description": "Planifiez une consultation avec notre équipe pour discuter de la manière dont nous pouvons aider à rationaliser vos opérations et à stimuler la croissance de votre entreprise."
+      },
+      "hero": {
+        "benefits": [
+          {
+            "title": "Consultation personnalisée",
+            "description": "Obtenez des solutions sur mesure et des conseils d'experts spécifiques aux besoins de votre entreprise."
+          },
+          {
+            "title": "Intégration transparente",
+            "description": "Nous nous intégrons parfaitement à vos systèmes existants pour garantir une transition fluide et une perturbation minimale."
+          },
+          {
+            "title": "Conseils d'experts",
+            "description": "Notre équipe d'experts vous guidera tout au long du processus, en veillant à ce que vous tiriez le meilleur parti de notre plateforme."
+          }
+        ],
+        "form": {
+          "title": "Réservez une réunion",
+          "date": "Date",
+          "firstName": "Prénom",
+          "lastName": "Nom de famille",
+          "resume": "Téléchargez le CV",
+          "cta": "Réservez la réunion"
+        }
+      }
+    }
+  }
+}
