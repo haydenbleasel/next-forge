@@ -18,74 +18,74 @@ files:
     web.home.cases.title: 0d6b9c65d4518ea76ac99994512a5d7c
     web.home.features.title: 1f985d48f9123d31245c33f8072dd69e
     web.home.features.description: b3641755d1f60480842f594276618f39
-    web.home.features.items.0.title: 45fd3bcfc721f13a2d5c2ac74286f47b
-    web.home.features.items.0.description: dea5ff431b62d5bf6cf52e143eb318ee
-    web.home.features.items.1.title: 8b10b9084106af2e491a6003254faace
-    web.home.features.items.1.description: db24d791824584daca83c345fa6966f0
-    web.home.features.items.2.title: d2b6a9fa6a4de6df7722f154da9c5a24
-    web.home.features.items.2.description: a0d0b0649f772a3d5215b210f61d4d35
-    web.home.features.items.3.title: 356ccc5a386f50652e44e3cb4edefb76
-    web.home.features.items.3.description: 8ca817959360eb7dd522b8d661954167
+    web.home.features.items[0].title: 45fd3bcfc721f13a2d5c2ac74286f47b
+    web.home.features.items[0].description: dea5ff431b62d5bf6cf52e143eb318ee
+    web.home.features.items[1].title: 8b10b9084106af2e491a6003254faace
+    web.home.features.items[1].description: db24d791824584daca83c345fa6966f0
+    web.home.features.items[2].title: d2b6a9fa6a4de6df7722f154da9c5a24
+    web.home.features.items[2].description: a0d0b0649f772a3d5215b210f61d4d35
+    web.home.features.items[3].title: 356ccc5a386f50652e44e3cb4edefb76
+    web.home.features.items[3].description: 8ca817959360eb7dd522b8d661954167
     web.home.stats.title: b0038cd2a061445036df21da84e2819e
     web.home.stats.description: 63efbe7b030029e22e835df1adb05e80
-    web.home.stats.items.0.title: 685f41e12e5304b30a7ea145e965a9ad
-    web.home.stats.items.0.metric: 14ee22eaba297944c96afdbe5b16c65b
-    web.home.stats.items.0.delta: d3d9446802a44259755d38e6d163e820
-    web.home.stats.items.0.type: 3e34bdebd9bd5edda27e8728904a2552
-    web.home.stats.items.1.title: 5c0f2b76c884d5455f6f0c53465a9206
-    web.home.stats.items.1.metric: b7a782741f667201b54880c925faec4b
-    web.home.stats.items.1.delta: 47c1b025fa18ea96c33fbb6718688c0f
-    web.home.stats.items.1.type: 3e34bdebd9bd5edda27e8728904a2552
-    web.home.stats.items.2.title: 1f4edc240c6d6363ee61853ce7057dcb
-    web.home.stats.items.2.metric: 14ee22eaba297944c96afdbe5b16c65b
-    web.home.stats.items.2.delta: 98f13708210194c475687be6106a3b84
-    web.home.stats.items.2.type: 1af0389838508d7016a9841eb6273962
-    web.home.stats.items.3.title: c9bfea54f0a61b3d37315850c0742fdd
-    web.home.stats.items.3.metric: f899139df5e1059396431415e770c6dd
-    web.home.stats.items.3.delta: 1b0fd9efa5279c4203b7c70233f86dbf
-    web.home.stats.items.3.type: 1af0389838508d7016a9841eb6273962
+    web.home.stats.items[0].title: 685f41e12e5304b30a7ea145e965a9ad
+    web.home.stats.items[0].metric: 14ee22eaba297944c96afdbe5b16c65b
+    web.home.stats.items[0].delta: d3d9446802a44259755d38e6d163e820
+    web.home.stats.items[0].type: 3e34bdebd9bd5edda27e8728904a2552
+    web.home.stats.items[1].title: 5c0f2b76c884d5455f6f0c53465a9206
+    web.home.stats.items[1].metric: b7a782741f667201b54880c925faec4b
+    web.home.stats.items[1].delta: 47c1b025fa18ea96c33fbb6718688c0f
+    web.home.stats.items[1].type: 3e34bdebd9bd5edda27e8728904a2552
+    web.home.stats.items[2].title: 1f4edc240c6d6363ee61853ce7057dcb
+    web.home.stats.items[2].metric: 14ee22eaba297944c96afdbe5b16c65b
+    web.home.stats.items[2].delta: 98f13708210194c475687be6106a3b84
+    web.home.stats.items[2].type: 1af0389838508d7016a9841eb6273962
+    web.home.stats.items[3].title: c9bfea54f0a61b3d37315850c0742fdd
+    web.home.stats.items[3].metric: f899139df5e1059396431415e770c6dd
+    web.home.stats.items[3].delta: 1b0fd9efa5279c4203b7c70233f86dbf
+    web.home.stats.items[3].type: 1af0389838508d7016a9841eb6273962
     web.home.testimonials.title: c8b70f7b83d0741ffe501fee665d5a2a
-    web.home.testimonials.items.0.title: f857211672176537a843eab7be70d2ba
-    web.home.testimonials.items.0.description: c50d4192eaf731e898ab4ad3d668360e
-    web.home.testimonials.items.0.author.name: 9f2b80ed9fac811de9393e6eb3cc1501
-    web.home.testimonials.items.0.author.image: 384183481f44944e652a4ad2c34afa3b
-    web.home.testimonials.items.1.title: 61e9280329f934d79c77a0100a5e1246
-    web.home.testimonials.items.1.description: 9f3f18fa18f5434a1c76f6740c48e58e
-    web.home.testimonials.items.1.author.name: 695037b11203c0b0a77a3d6b47ba71ea
-    web.home.testimonials.items.1.author.image: ffaedc70a04f4c785275d9a6b751dfab
-    web.home.testimonials.items.2.title: caa65639a0b4bea79e610021c161952c
-    web.home.testimonials.items.2.description: d700e9f790660381b21e3a02d8caa688
-    web.home.testimonials.items.2.author.name: 63651b303126a9017bbdab177f35182b
-    web.home.testimonials.items.2.author.image: 7f91ce2781e18537fb6229eaaf770b13
-    web.home.testimonials.items.3.title: 035ef73f1fa9e97e62e031aeacc22f4c
-    web.home.testimonials.items.3.description: 1bafa43ea32ca115e49d29b76afd9a3e
-    web.home.testimonials.items.3.author.name: 45d4151f6e3685afdf8cd11459f2e0d7
-    web.home.testimonials.items.3.author.image: d4027431de0c0b3cb1fd77ba67a638b7
+    web.home.testimonials.items[0].title: f857211672176537a843eab7be70d2ba
+    web.home.testimonials.items[0].description: c50d4192eaf731e898ab4ad3d668360e
+    web.home.testimonials.items[0].author.name: 9f2b80ed9fac811de9393e6eb3cc1501
+    web.home.testimonials.items[0].author.image: 384183481f44944e652a4ad2c34afa3b
+    web.home.testimonials.items[1].title: 61e9280329f934d79c77a0100a5e1246
+    web.home.testimonials.items[1].description: 9f3f18fa18f5434a1c76f6740c48e58e
+    web.home.testimonials.items[1].author.name: 695037b11203c0b0a77a3d6b47ba71ea
+    web.home.testimonials.items[1].author.image: ffaedc70a04f4c785275d9a6b751dfab
+    web.home.testimonials.items[2].title: caa65639a0b4bea79e610021c161952c
+    web.home.testimonials.items[2].description: d700e9f790660381b21e3a02d8caa688
+    web.home.testimonials.items[2].author.name: 63651b303126a9017bbdab177f35182b
+    web.home.testimonials.items[2].author.image: 7f91ce2781e18537fb6229eaaf770b13
+    web.home.testimonials.items[3].title: 035ef73f1fa9e97e62e031aeacc22f4c
+    web.home.testimonials.items[3].description: 1bafa43ea32ca115e49d29b76afd9a3e
+    web.home.testimonials.items[3].author.name: 45d4151f6e3685afdf8cd11459f2e0d7
+    web.home.testimonials.items[3].author.image: d4027431de0c0b3cb1fd77ba67a638b7
     web.home.faq.title: 6d12e7709fac1292b134fa58b9081045
     web.home.faq.description: abcc43b728d1d1d79671159bc4abda32
     web.home.faq.cta: e104e111870051be3914f8c49c29ca8d
-    web.home.faq.items.0.question: 1c7d1bd1ea7a7bca1c1c2a201d2bb48c
-    web.home.faq.items.0.answer: b7172d99636f7c0a1472fd88d8c0fde4
-    web.home.faq.items.1.question: 538dec082737b6e6bb74f3fd35d50c9c
-    web.home.faq.items.1.answer: 8f19ad5000b42a3dfd27507ec29dbc05
-    web.home.faq.items.2.question: f1e84b5f4b4664872b526d870ee02c56
-    web.home.faq.items.2.answer: b218891a0d2086fce24c2e91aeabdb26
-    web.home.faq.items.3.question: 1b9d1c4178745d6d5447722506773d56
-    web.home.faq.items.3.answer: 1e7ba30431749a90551b9b96bbf72038
-    web.home.faq.items.4.question: 3beb7b2ebdb3f811db19fca31e740aad
-    web.home.faq.items.4.answer: 1c8af5993faf2a81aec89994dbfd7b1c
+    web.home.faq.items[0].question: 1c7d1bd1ea7a7bca1c1c2a201d2bb48c
+    web.home.faq.items[0].answer: b7172d99636f7c0a1472fd88d8c0fde4
+    web.home.faq.items[1].question: 538dec082737b6e6bb74f3fd35d50c9c
+    web.home.faq.items[1].answer: 8f19ad5000b42a3dfd27507ec29dbc05
+    web.home.faq.items[2].question: f1e84b5f4b4664872b526d870ee02c56
+    web.home.faq.items[2].answer: b218891a0d2086fce24c2e91aeabdb26
+    web.home.faq.items[3].question: 1b9d1c4178745d6d5447722506773d56
+    web.home.faq.items[3].answer: 1e7ba30431749a90551b9b96bbf72038
+    web.home.faq.items[4].question: 3beb7b2ebdb3f811db19fca31e740aad
+    web.home.faq.items[4].answer: 1c8af5993faf2a81aec89994dbfd7b1c
     web.home.cta.title: dac997167fdd30cf0cf9cf8e46f4d093
     web.home.cta.description: 7e36039118aa5d4341e024fca0ba8daf
     web.blog.meta.title: be8df1f28c0abc85a0ed0c6860e5d832
     web.blog.meta.description: 2fcff51c842d7770460a3707709516e0
     web.contact.meta.title: 84a511187321664ade04d79691b39bfa
     web.contact.meta.description: 6247570e02d7151152f9dada00d5824a
-    web.contact.hero.benefits.0.title: 0cc6777efd5cc360a76fce84b9391d20
-    web.contact.hero.benefits.0.description: 4dcb577658b85586dc86c226878fb03a
-    web.contact.hero.benefits.1.title: 24efff821e37d92f68b7b4380b8a329a
-    web.contact.hero.benefits.1.description: f989d0fa378f5649a619f0e7284b0921
-    web.contact.hero.benefits.2.title: 336cc0fb2ece7bd15d53204a8d029340
-    web.contact.hero.benefits.2.description: 8ce7b64eb305673d6552ae643519cd8b
+    web.contact.hero.benefits[0].title: 0cc6777efd5cc360a76fce84b9391d20
+    web.contact.hero.benefits[0].description: 4dcb577658b85586dc86c226878fb03a
+    web.contact.hero.benefits[1].title: 24efff821e37d92f68b7b4380b8a329a
+    web.contact.hero.benefits[1].description: f989d0fa378f5649a619f0e7284b0921
+    web.contact.hero.benefits[2].title: 336cc0fb2ece7bd15d53204a8d029340
+    web.contact.hero.benefits[2].description: 8ce7b64eb305673d6552ae643519cd8b
     web.contact.hero.form.title: 857667999c446d1ce489c7e2c79719de
     web.contact.hero.form.date: 44749712dbec183e983dcd78a7736c41
     web.contact.hero.form.firstName: 20db0bfeecd8fe60533206a2b5e9891a
