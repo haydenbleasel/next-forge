@@ -2,13 +2,13 @@
   "web": {
     "global": {
       "primaryCta": "Vereinbaren Sie einen Anruf",
-      "secondaryCta": "Registrieren"
+      "secondaryCta": "Anmelden"
     },
     "header": {
       "home": "Startseite",
       "product": {
         "title": "Produkt",
-        "description": "Die Führung eines kleinen Unternehmens ist heute bereits schwierig.",
+        "description": "Die Verwaltung eines kleinen Unternehmens ist heute bereits schwierig.",
         "pricing": "Preise"
       },
       "blog": "Blog",
@@ -20,7 +20,7 @@
     "home": {
       "meta": {
         "title": "Transformieren Sie Ihre Geschäftsabläufe noch heute",
-        "description": "In der heutigen schnelllebigen Welt verdient Ihr Unternehmen mehr als veraltete Handelssysteme. Unsere innovative Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft zu gedeihen."
+        "description": "In der heutigen schnelllebigen Welt verdient Ihr Unternehmen mehr als veraltete Handelssysteme. Unsere innovative Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft erfolgreich zu sein."
       },
       "hero": {
         "announcement": "Lesen Sie unseren neuesten Artikel"
@@ -34,11 +34,11 @@
         "items": [
           {
             "title": "Optimierte Abläufe",
-            "description": "Unsere Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft zu gedeihen."
+            "description": "Unsere Plattform optimiert die Abläufe, reduziert die Komplexität und hilft kleinen Unternehmen, in der modernen Wirtschaft erfolgreich zu sein."
           },
           {
             "title": "Echtzeit-Analysen",
-            "description": "Erhalten Sie sofortige Einblicke in die Leistung Ihres Unternehmens mit umfassenden Analyse- und Berichtswerkzeugen."
+            "description": "Erhalten Sie sofortige Einblicke in Ihre Unternehmensleistung mit umfassenden Analyse- und Berichtswerkzeugen."
           },
           {
             "title": "Automatisierte Arbeitsabläufe",
@@ -52,7 +52,7 @@
       },
       "stats": {
         "title": "Echte Ergebnisse, echte Auswirkungen",
-        "description": "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe mit unserer Plattform transformiert haben. Unsere Lösungen haben Unternehmen geholfen, die Verwaltungskosten um 60 % zu senken und die Handels-effizienz im Durchschnitt um 45 % zu steigern.",
+        "description": "Schließen Sie sich Tausenden von Unternehmen an, die ihre Abläufe mit unserer Plattform transformiert haben. Unsere Lösungen haben Unternehmen geholfen, die Verwaltungskosten um 60 % zu senken und die Handelseffizienz im Durchschnitt um 45 % zu steigern.",
         "items": [
           {
             "title": "Monatlich aktive Nutzer",
@@ -92,7 +92,7 @@
             }
           },
           {
-            "title": "Spielveränderer",
+            "title": "Wendepunkt",
             "description": "Diese Plattform hat revolutioniert, wie wir unsere täglichen Abläufe handhaben. Die Effizienzgewinne waren bemerkenswert.",
             "author": {
               "name": "Lee Robinson",
@@ -109,7 +109,7 @@
           },
           {
             "title": "Hervorragender Support",
-            "description": "Die Plattform ist nicht nur leistungsstark, sondern das Kundenserviceteam war außergewöhnlich darin, uns zu helfen, ihr Potenzial zu maximieren.",
+            "description": "Die Plattform ist nicht nur leistungsstark, sondern das Kundenserviceteam war auch außergewöhnlich darin, uns zu helfen, ihr Potenzial zu maximieren.",
             "author": {
               "name": "Pontus Abrahamsson",
               "image": "https://github.com/pontusab.png"
@@ -136,17 +136,17 @@
           },
           {
             "question": "Wie funktioniert die Preisgestaltung?",
-            "answer": "Wir bieten flexible Preismodelle, die mit den Bedürfnissen Ihres Unternehmens skalieren, von Starterplänen für Einzelhändler bis hin zu Unternehmenslösungen für große Organisationen."
+            "answer": "Wir bieten flexible Preisstufen an, die mit den Bedürfnissen Ihres Unternehmens skalieren, von Einsteigerplänen für Einzelhändler bis hin zu Unternehmenslösungen für große Organisationen."
           },
           {
             "question": "Welche Art von Unterstützung bieten Sie?",
-            "answer": "Unser engagiertes Support-Team ist rund um die Uhr über mehrere Kanäle wie Live-Chat, E-Mail und Telefon erreichbar. Wir bieten auch umfangreiche Dokumentationen und Schulungsressourcen."
+            "answer": "Unser engagiertes Support-Team ist rund um die Uhr über mehrere Kanäle erreichbar, einschließlich Live-Chat, E-Mail und Telefon. Wir bieten auch umfangreiche Dokumentation und Schulungsressourcen."
           }
         ]
       },
       "cta": {
         "title": "Starten Sie Ihre Geschäftstransformation",
-        "description": "Schließen Sie sich Tausenden von zukunftsorientierten Unternehmen an, die ihre Abläufe bereits modernisiert haben. Unsere Plattform bietet die Werkzeuge, Unterstützung und Effizienz, die Sie benötigen, um in der heutigen wettbewerbsintensiven Markt erfolgreich zu sein. Starten Sie in wenigen Minuten."
+        "description": "Schließen Sie sich Tausenden von zukunftsorientierten Unternehmen an, die ihre Abläufe bereits modernisiert haben. Unsere Plattform bietet die Werkzeuge, Unterstützung und Effizienz, die Sie benötigen, um in der heutigen wettbewerbsintensiven Markt erfolgreich zu sein. Beginnen Sie in wenigen Minuten."
       }
     },
     "blog": {
@@ -176,12 +176,12 @@
           }
         ],
         "form": {
-          "title": "Vereinbaren Sie ein Meeting",
+          "title": "Vereinbaren Sie ein Treffen",
           "date": "Datum",
           "firstName": "Vorname",
           "lastName": "Nachname",
           "resume": "Lebenslauf hochladen",
-          "cta": "Buchen Sie das Meeting"
+          "cta": "Buchen Sie das Treffen"
         }
       }
     }

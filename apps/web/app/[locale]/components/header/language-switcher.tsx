@@ -14,7 +14,7 @@ const languages = [
   { label: '🇬🇧 English', value: 'en' },
   { label: '🇪🇸 Español', value: 'es' },
   { label: '🇩🇪 Deutsch', value: 'de' },
-  { label: '🇨🇳 中文', value: 'ch' },
+  { label: '🇨🇳 中文', value: 'zh' },
   { label: '🇫🇷 Français', value: 'fr' },
   { label: '🇵🇹 Português', value: 'pt' },
 ];
