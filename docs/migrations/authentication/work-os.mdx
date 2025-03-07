@@ -1,0 +1,130 @@
+---
+title: Switch to AuthKit by WorkOS
+description: How to change the authentication provider to AuthKit by WorkOS.
+---
+
+import { Authors } from '/snippets/authors.mdx';
+
+<Authors data={[{
+  user: {
+    name: 'Hayden Bleasel',
+    id: 'haydenbleasel',
+  },
+  company: {
+    name: 'next-forge',
+    id: 'next-forge',
+  },
+}]} />
+
+WorkOS is an all-in-one solution for enterprise authentication and authorization. It provides a set of building blocks for quickly adding enterprise features to your app. AuthKit is their beautiful, customizable sign-in UI powered by WorkOS + Radix.
+
+## 1. Swap out the `auth` package dependencies
+
+Uninstall the existing Clerk dependencies from the `auth` package...
+
+```sh Terminal
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
+```
+
+...and install the new dependencies:
+
+```sh Terminal
+pnpm add @workos-inc/authkit-nextjs --filter @repo/auth
+```
+
+## 2. Update your environment variables
+
+Update each of your Next.js app [environment variables](/features/env) to use the WorkOS ones.
+
+<Tip>
+  For `WORKOS_COOKIE_PASSWORD`, you can run `node -e "console.log(crypto.randomBytes(32).toString('base64url'))"` or `openssl rand -base64 32` in your terminal to generate a random value.
+</Tip>
+
+<CodeGroup>
+
+```js apps/api/.env.local
+WORKOS_CLIENT_ID="client_****"
+WORKOS_API_KEY="sk_test_****"
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
+```
+
+```js apps/app/.env.local
+WORKOS_CLIENT_ID="..."
+WORKOS_API_KEY="..."
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
+```
+
+```js apps/web/.env.local
+WORKOS_CLIENT_ID="..."
+WORKOS_API_KEY="..."
+WORKOS_COOKIE_PASSWORD="****"
+NEXT_PUBLIC_WORKOS_REDIRECT_URI="http://localhost:3000/callback"
+```
+
+</CodeGroup>
+
+Now inside `packages/env/index.ts`, wire up the new environment variables to the `server`, `client` and `runtimeEnv` objects:
+
+```ts {3-5,11,20-23}
+const server: Parameters<typeof createEnv>[0]["server"] = {
+  // ...
+  WORKOS_CLIENT_ID: z.string().startsWith('client_'),
+  WORKOS_API_KEY: z.string().startsWith('sk_test_'),
+  WORKOS_COOKIE_PASSWORD: z.string().min(32),
+  // ...
+};
+
+const client: Parameters<typeof createEnv>[0]["client"] = {
+  // ...
+  NEXT_PUBLIC_WORKOS_REDIRECT_URI: z.string().url(),
+  // ...
+};
+
+export const env = createEnv({
+  client,
+  server,
+  runtimeEnv: {
+    // ...
+    WORKOS_CLIENT_ID: process.env.WORKOS_CLIENT_ID,
+    WORKOS_API_KEY: process.env.WORKOS_API_KEY,
+    WORKOS_COOKIE_PASSWORD: process.env.WORKOS_COOKIE_PASSWORD,
+    NEXT_PUBLIC_WORKOS_REDIRECT_URI: process.env.NEXT_PUBLIC_WORKOS_REDIRECT_URI,
+    // ...
+  },
+});
+```
+
+## 3. Setup the server and client auth
+
+...
+
+## 4. Update the auth components
+
+...
+
+## 5. Generate Prisma Models
+
+...
+
+## 6. Update the Provider file
+
+WorkOS has a simple higher-order component, so you can just export their `AuthProvider` directly.
+
+```tsx packages/auth/provider.tsx
+export { AuthProvider } from '@workos-inc/authkit-nextjs';
+```
+
+## 7. Change Middleware
+
+AuthKit has a very similar middleware setup to Clerk, so you can just swap out the `clerkMiddleware` export.
+
+```tsx packages/auth/middleware.ts
+export { authkitMiddleware as authMiddleware } from '@workos-inc/authkit-nextjs';
+```
+
+## 8. Update your apps
+
+...
+
