@@ -1,3 +1,15 @@
+# v3.3.6 (Sat Mar 08 2025)
+
+#### 🐛 Bug Fix
+
+- Tailwind 4 [#425](https://github.com/haydenbleasel/next-forge/pull/425) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.5 (Sat Mar 08 2025)
 
 :tada: This release contains work from a new contributor! :tada:
