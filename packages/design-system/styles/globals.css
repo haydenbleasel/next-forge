@@ -1,9 +1,6 @@
 @import "tailwindcss";
 
-@source "./node_modules/@repo/design-system/components/**/*.{ts,tsx}";
-@source "./node_modules/@repo/design-system/providers/**/*.{ts,tsx}";
-@source "./node_modules/@repo/design-system/lib/**/*.{ts,tsx}";
-@source "./node_modules/@repo/design-system/index.tsx";
+@source "../**/*.{ts,tsx}";
 
 @plugin 'tailwindcss-animate';
 @plugin '@tailwindcss/typography';
