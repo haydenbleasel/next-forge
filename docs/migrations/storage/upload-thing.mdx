@@ -54,21 +54,13 @@ export * from '@uploadthing/react';
 
 </CodeGroup>
 
-## 4. Create new files for the storage client
+## 4. Create new SSR file
 
-We'll also need to create a couple of new files for the storage package to handle the Tailwind CSS classes and SSR.
-
-<CodeGroup>
+We'll also need to create a new file for the storage package to handle the Tailwind CSS classes and SSR.
 
 ```ts packages/storage/ssr.ts
 export { NextSSRPlugin as StorageSSRPlugin } from '@uploadthing/react/next-ssr-plugin';
 ```
-
-```ts packages/storage/tailwind.ts
-export { withUt as withStorage } from 'uploadthing/tw';
-```
-
-</CodeGroup>
 
 ## 5. Create a file router in your app
 
@@ -138,15 +130,13 @@ const RootLayout = ({ children }: RootLayoutProperties) => (
 export default RootLayout;
 ```
 
-## 8. Update your app's Tailwind config
+## 8. Update your Tailwind CSS
 
-Update your app's Tailwind config to include the `withStorage` function. This will add the necessary classes to your upload button.
+Update your design system's `globals.css` file to include the following:
 
-```ts apps/app/tailwind.config.ts
-import { withUt } from '@repo/storage/tailwind';
-import { config } from '@repo/tailwind-config/config';
-
-export default withUt(config) as typeof config;
+```css packages/design-system/styles/globals.css
+@import "uploadthing/tw/v4";
+@source "../node_modules/@uploadthing/react/dist";
 ```
 
 ## 9. Create your upload button
