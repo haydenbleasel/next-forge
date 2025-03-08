@@ -5,7 +5,7 @@
 @source "./node_modules/@repo/design-system/index.tsx";
 
 @plugin 'tailwindcss-animate';
-@plugin 'tailwindcss-typography';
+@plugin '@tailwindcss/typography';
 
 @custom-variant dark (&:is(.dark *));
 
