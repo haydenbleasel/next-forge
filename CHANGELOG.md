@@ -1,3 +1,15 @@
+# v3.3.7 (Sat Mar 08 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #316 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.6 (Sat Mar 08 2025)
 
 #### 🐛 Bug Fix
