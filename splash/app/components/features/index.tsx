@@ -202,7 +202,7 @@ export const Features = () => (
                 key={logo.label}
                 className={twMerge(
                   logo.className,
-                  'absolute top-[50px] grid grid-cols-[1rem,1fr] items-center gap-2 whitespace-nowrap px-3 py-1',
+                  'absolute top-[50px] flex items-center gap-2 whitespace-nowrap px-3 py-1',
                   'rounded-full bg-gradient-to-t from-50% from-neutral-50/50 to-neutral-100/50 ring-1 ring-neutral-950/10 ring-inset backdrop-blur-sm dark:from-neutral-950/50 dark:to-neutral-800/50 dark:ring-white/10',
                   '[--move-x-from:-100%] [--move-x-to:calc(100%+100cqw)] [animation-iteration-count:infinite] [animation-name:move-x] [animation-play-state:running] [animation-timing-function:linear]',
                   'shadow-[0_0_15px_rgba(255,255,255,0.1)] dark:shadow-[0_0_15px_rgba(0,0,0,0.2)]'

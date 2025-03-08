@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
 
 @layer base {
   * {
@@ -37,4 +37,16 @@
   100% {
     transform: translateX(var(--move-x-to));
   }
+}
+
+@theme {
+  --font-sans: 'var(--font-sans)',
+  --font-mono: 'var(--font-mono)',
+  --rounded-4xl: 1.5rem;
+  --rounded-3xl: 1.25rem;
+  --rounded-2xl: 1rem;
+  --rounded-xl: 0.75rem;
+  --rounded-lg: 0.5rem;
+  --rounded-md: calc(0.5rem - 2px);
+  --rounded-sm: calc(0.5rem - 4px);
 }

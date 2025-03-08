@@ -30,7 +30,7 @@ const AppLayout = async ({ children }: AppLayoutProperties) => {
       <SidebarProvider>
         <GlobalSidebar>
           {betaFeature && (
-            <div className="m-4 rounded-full bg-success p-1.5 text-center text-sm text-success-foreground">
+            <div className="m-4 rounded-full bg-blue-500 p-1.5 text-center text-sm text-white">
               Beta feature now available
             </div>
           )}

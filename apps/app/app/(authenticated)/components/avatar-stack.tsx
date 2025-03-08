@@ -11,7 +11,6 @@ import {
   TooltipContent,
   TooltipTrigger,
 } from '@repo/design-system/components/ui/tooltip';
-import { tailwind } from '@repo/tailwind-config';
 
 type PresenceAvatarProps = {
   info?: Liveblocks['UserMeta']['info'];
@@ -48,7 +47,7 @@ export const AvatarStack = () => {
         <PresenceAvatar
           info={{
             name: `+${others.length - 3}`,
-            color: tailwind.theme.colors.gray[500],
+            color: 'var(--color-muted-foreground)',
           }}
         />
       )}
