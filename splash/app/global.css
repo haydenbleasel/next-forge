@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @layer base {
   * {
     @apply min-w-0 border-neutral-200 dark:border-neutral-800;
