@@ -1,4 +1,3 @@
-import '@repo/design-system/styles/globals.css';
 import './styles/web.css';
 import { Toolbar as CMSToolbar } from '@repo/cms/components/toolbar';
 import { DesignSystemProvider } from '@repo/design-system';
