@@ -1,3 +1,20 @@
+# v3.3.5 (Sat Mar 08 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, David Bonachera ([@davidbonachera](https://github.com/davidbonachera)), for all your work!
+
+#### 🐛 Bug Fix
+
+- docs: add link to Prisma Database Configuration Guide [#478](https://github.com/haydenbleasel/next-forge/pull/478) ([@haydenbleasel](https://github.com/haydenbleasel) [@davidbonachera](https://github.com/davidbonachera))
+
+#### Authors: 2
+
+- David Bonachera ([@davidbonachera](https://github.com/davidbonachera))
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.4 (Thu Mar 06 2025)
 
 #### ⚠️ Pushed to `main`
