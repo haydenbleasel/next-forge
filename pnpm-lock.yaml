@@ -267,6 +267,18 @@ importers:
       '@repo/design-system':
         specifier: workspace:*
         version: link:../../packages/design-system
+      '@storybook/addon-actions':
+        specifier: ^8.6.4
+        version: 8.6.4(storybook@8.6.4(bufferutil@4.0.9)(prettier@3.4.2))
+      cmdk:
+        specifier: ^1.0.0
+        version: 1.0.0(@types/react-dom@19.0.4(@types/react@19.0.10))(@types/react@19.0.10)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      date-fns:
+        specifier: ^4.1.0
+        version: 4.1.0
+      input-otp:
+        specifier: ^1.4.2
+        version: 1.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       lucide-react:
         specifier: ^0.477.0
         version: 0.477.0(react@19.0.0)
@@ -279,6 +291,18 @@ importers:
       react-dom:
         specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
+      react-hook-form:
+        specifier: ^7.54.2
+        version: 7.54.2(react@19.0.0)
+      recharts:
+        specifier: ^2.15.1
+        version: 2.15.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      sonner:
+        specifier: ^2.0.1
+        version: 2.0.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      zod:
+        specifier: ^3.24.2
+        version: 3.24.2
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^3.2.5
@@ -1052,6 +1076,9 @@ importers:
       react:
         specifier: ^19.0.0
         version: 19.0.0
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       zod:
         specifier: ^3.24.2
         version: 3.24.2
@@ -1080,6 +1107,9 @@ importers:
       '@t3-oss/env-nextjs':
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.8.2)(zod@3.24.2)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       stripe:
         specifier: ^17.7.0
         version: 17.7.0
@@ -1204,6 +1234,9 @@ importers:
       '@t3-oss/env-nextjs':
         specifier: ^0.12.0
         version: 0.12.0(typescript@5.8.2)(zod@3.24.2)
+      server-only:
+        specifier: ^0.0.1
+        version: 0.0.1
       svix:
         specifier: ^1.61.2
         version: 1.61.2
