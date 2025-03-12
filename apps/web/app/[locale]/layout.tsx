@@ -8,6 +8,7 @@ import { getDictionary } from '@repo/internationalization';
 import type { ReactNode } from 'react';
 import { Footer } from './components/footer';
 import { Header } from './components/header';
+import { CookieConsent } from '@/components/cookie-consent';
 
 type RootLayoutProperties = {
   readonly children: ReactNode;
@@ -31,6 +32,7 @@ const RootLayout = async ({ children, params }: RootLayoutProperties) => {
           <Header dictionary={dictionary} />
           {children}
           <Footer />
+          <CookieConsent />
         </DesignSystemProvider>
         <Toolbar />
         <CMSToolbar />

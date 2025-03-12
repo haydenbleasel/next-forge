@@ -8,8 +8,8 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@arcjet/next": "1.0.0-beta.2",
-    "@nosecone/next": "1.0.0-beta.2",
+    "@arcjet/next": "1.0.0-beta.3",
+    "@nosecone/next": "1.0.0-beta.3",
     "@t3-oss/env-nextjs": "^0.12.0",
     "zod": "^3.24.2"
   },
