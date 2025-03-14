@@ -25,6 +25,16 @@ const securityHeaders = env.FLAGS_SECRET
   : noseconeMiddleware(noseconeOptions);
 
 const middleware = authMiddleware(async (_auth, request) => {
+  const { pathname } = request.nextUrl;
+
+  // For root path, rewrite to /en without changing the URL
+  // This will ensure the health check works
+  if (pathname === '/') {
+    const url = request.nextUrl.clone();
+    url.pathname = '/en';
+    return NextResponse.rewrite(url);
+  }
+
   const i18nResponse = internationalizationMiddleware(
     request as unknown as NextRequest
   );
