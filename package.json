@@ -31,12 +31,12 @@
     "turbo": "^2.4.4",
     "typescript": "^5.8.2",
     "ultracite": "^4.1.21",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.9"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.6.3",
+  "packageManager": "pnpm@10.6.4",
   "dependencies": {
     "@clack/prompts": "^0.10.0",
     "commander": "^13.1.0"

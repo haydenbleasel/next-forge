@@ -24,7 +24,7 @@
     "@repo/security": "workspace:*",
     "@repo/seo": "workspace:*",
     "@repo/webhooks": "workspace:*",
-    "@sentry/nextjs": "^9.5.0",
+    "@sentry/nextjs": "^9.6.0",
     "@t3-oss/env-nextjs": "^0.12.0",
     "fuse.js": "^7.1.0",
     "import-in-the-middle": "^1.13.1",
@@ -47,6 +47,6 @@
     "jsdom": "^26.0.0",
     "tailwindcss": "^4.0.14",
     "typescript": "^5.8.2",
-    "vitest": "^3.0.8"
+    "vitest": "^3.0.9"
   }
 }
