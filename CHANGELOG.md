@@ -1,3 +1,19 @@
+# v3.3.8 (Wed Mar 19 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Buns Enchantress ([@BunsDev](https://github.com/BunsDev)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix error: build script in /packages/cms [#492](https://github.com/haydenbleasel/next-forge/pull/492) ([@BunsDev](https://github.com/BunsDev))
+
+#### Authors: 1
+
+- Buns Enchantress ([@BunsDev](https://github.com/BunsDev))
+
+---
+
 # v3.3.7 (Sat Mar 08 2025)
 
 #### ⚠️ Pushed to `main`
