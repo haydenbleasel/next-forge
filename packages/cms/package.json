@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "basehub dev",
-    "build": "basehub",
+    "build": "basehub build",
     "analyze": "basehub",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
