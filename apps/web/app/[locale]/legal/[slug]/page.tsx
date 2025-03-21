@@ -54,7 +54,7 @@ const LegalPage = async ({ params }: LegalPageProperties) => {
         }
 
         return (
-          <div className="container max-w-5xl py-16">
+          <div className="container mx-auto max-w-5xl py-16">
             <Link
               className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
               href="/"
