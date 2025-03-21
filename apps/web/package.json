@@ -22,10 +22,10 @@
     "@repo/rate-limit": "workspace:*",
     "@repo/security": "workspace:*",
     "@repo/seo": "workspace:*",
-    "@sentry/nextjs": "^9.6.0",
+    "@sentry/nextjs": "^9.7.0",
     "@t3-oss/env-nextjs": "^0.12.0",
     "date-fns": "^4.1.0",
-    "fumadocs-core": "^15.1.0",
+    "fumadocs-core": "^15.1.1",
     "import-in-the-middle": "^1.13.1",
     "lucide-react": "^0.483.0",
     "mdx-bundler": "^10.1.1",
@@ -41,9 +41,9 @@
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
     "@types/node": "22.13.10",
-    "@types/react": "19.0.11",
+    "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
-    "tailwindcss": "^4.0.14",
+    "tailwindcss": "^4.0.15",
     "typescript": "^5.8.2"
   }
 }
