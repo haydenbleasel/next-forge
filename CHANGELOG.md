@@ -1,3 +1,20 @@
+# v3.3.9 (Tue Mar 25 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, mathewlewallen ([@mathewlewallen](https://github.com/mathewlewallen)), for all your work!
+
+#### 🐛 Bug Fix
+
+- feat: amend internationalization middleware and index. Still uses nex… [#491](https://github.com/haydenbleasel/next-forge/pull/491) ([@mathewlewallen](https://github.com/mathewlewallen) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- mathewlewallen ([@mathewlewallen](https://github.com/mathewlewallen))
+
+---
+
 # v3.3.8 (Wed Mar 19 2025)
 
 :tada: This release contains work from a new contributor! :tada:
