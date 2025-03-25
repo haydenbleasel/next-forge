@@ -8,16 +8,39 @@ export const locales = [
 ] as const;
 
 export type Dictionary = typeof en;
-type Dictionaries = Record<keyof typeof locales, () => Promise<Dictionary>>;
 
-const dictionaries = locales.reduce<Dictionaries>((acc, locale) => {
-  acc[locale as keyof typeof locales] = () =>
-    import(`./dictionaries/${locale}.json`).then((mod) => mod.default);
-  return acc;
-}, {} as Dictionaries);
+const dictionaries: Record<string, () => Promise<Dictionary>> =
+  Object.fromEntries(
+    locales.map((locale) => [
+      locale,
+      () =>
+        import(`./dictionaries/${locale}.json`)
+          .then((mod) => mod.default)
+          .catch((err) => {
+            console.error(
+              `Failed to load dictionary for locale: ${locale}`,
+              err
+            );
+            return import('./dictionaries/en.json').then((mod) => mod.default);
+          }),
+    ])
+  );
 
-export const getDictionary = async (locale: string) => {
-  const dictionary = await dictionaries[locale as keyof typeof locales]();
+export const getDictionary = async (locale: string): Promise<Dictionary> => {
+  const normalizedLocale = locale.split('-')[0];
 
-  return dictionary;
+  if (!locales.includes(normalizedLocale as any)) {
+    console.warn(`Locale "${locale}" is not supported, defaulting to "en"`);
+    return dictionaries['en']();
+  }
+
+  try {
+    return await dictionaries[normalizedLocale]();
+  } catch (error) {
+    console.error(
+      `Error loading dictionary for locale "${normalizedLocale}", falling back to "en"`,
+      error
+    );
+    return dictionaries['en']();
+  }
 };

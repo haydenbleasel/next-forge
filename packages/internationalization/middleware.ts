@@ -1,37 +1,35 @@
-import { match } from '@formatjs/intl-localematcher';
+import { match as matchLocale } from '@formatjs/intl-localematcher';
 import Negotiator from 'negotiator';
-import { type NextRequest, NextResponse } from 'next/server';
-import { locales } from '.';
+import { createI18nMiddleware } from 'next-international/middleware';
+import type { NextRequest } from 'next/server';
 import languine from './languine.json';
 
-const getLocale = (request: NextRequest) => {
-  const headers = Object.fromEntries(request.headers.entries());
-  const languages = new Negotiator({ headers }).languages();
+const locales = [languine.locale.source, ...languine.locale.targets];
 
-  return match(languages, languine.locale.targets, languine.locale.source);
-};
+const I18nMiddleware = createI18nMiddleware({
+  locales,
+  defaultLocale: 'en',
+  urlMappingStrategy: 'rewriteDefault',
+  resolveLocaleFromRequest: (request: NextRequest) => {
+    const headers = Object.fromEntries(request.headers.entries());
+    const negotiator = new Negotiator({ headers });
+    const acceptedLanguages = negotiator.languages();
 
-export const internationalizationMiddleware = (request: NextRequest) => {
-  const { pathname } = request.nextUrl;
-  const pathnameHasLocale = locales.some(
-    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
-  );
+    const matchedLocale = matchLocale(acceptedLanguages, locales, 'en');
 
-  if (pathnameHasLocale) {
-    return;
-  }
+    return matchedLocale;
+  },
+});
 
-  const locale = getLocale(request);
-  request.nextUrl.pathname = `/${locale}${pathname}`;
-
-  return NextResponse.redirect(request.nextUrl);
-};
+export function internationalizationMiddleware(request: NextRequest) {
+  return I18nMiddleware(request);
+}
 
 export const config = {
-  matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next).*)',
-    // Optional: only run on root (/) URL
-    // '/'
-  ],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };
+
+//https://nextjs.org/docs/app/building-your-application/routing/internationalization
+//https://github.com/vercel/next.js/tree/canary/examples/i18n-routing
+//https://github.com/QuiiBz/next-international
+//https://next-international.vercel.app/docs/app-middleware-configuration
