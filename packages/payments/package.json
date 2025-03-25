@@ -7,7 +7,7 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@stripe/agent-toolkit": "^0.5.2",
+    "@stripe/agent-toolkit": "^0.5.3",
     "@t3-oss/env-nextjs": "^0.12.0",
     "server-only": "^0.0.1",
     "stripe": "^17.7.0",

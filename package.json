@@ -26,11 +26,11 @@
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
     "@turbo/gen": "^2.4.4",
-    "@types/node": "^22.13.10",
+    "@types/node": "^22.13.13",
     "tsup": "^8.4.0",
     "turbo": "^2.4.4",
     "typescript": "^5.8.2",
-    "ultracite": "^4.1.21",
+    "ultracite": "^4.2.0",
     "vitest": "^3.0.9"
   },
   "engines": {
