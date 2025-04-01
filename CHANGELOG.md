@@ -1,3 +1,32 @@
+# v4.0.0 (Tue Apr 01 2025)
+
+#### 💥 Breaking Change
+
+- Bump react-email from 3.0.7 to 4.0.2 [#507](https://github.com/haydenbleasel/next-forge/pull/507) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### 🚀 Enhancement
+
+- Bump @liveblocks/node from 2.20.0 to 2.22.2 [#502](https://github.com/haydenbleasel/next-forge/pull/502) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump react-markdown from 10.0.1 to 10.1.0 [#505](https://github.com/haydenbleasel/next-forge/pull/505) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump fumadocs-core from 15.0.15 to 15.2.1 [#510](https://github.com/haydenbleasel/next-forge/pull/510) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### 🐛 Bug Fix
+
+- Bump @types/node from 22.13.9 to 22.13.14 [#506](https://github.com/haydenbleasel/next-forge/pull/506) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @tailwindcss/postcss from 4.0.12 to 4.0.17 [#508](https://github.com/haydenbleasel/next-forge/pull/508) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @storybook/blocks from 8.6.4 to 8.6.11 [#509](https://github.com/haydenbleasel/next-forge/pull/509) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v3.3.9 (Tue Mar 25 2025)
 
 :tada: This release contains work from a new contributor! :tada:
