@@ -1,3 +1,15 @@
+# v4.1.0 (Tue Apr 01 2025)
+
+#### 🚀 Enhancement
+
+- Bump shiki from 3.1.0 to 3.2.1 [#504](https://github.com/haydenbleasel/next-forge/pull/504) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v4.0.0 (Tue Apr 01 2025)
 
 #### 💥 Breaking Change
