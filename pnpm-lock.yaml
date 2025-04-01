@@ -625,8 +625,8 @@ importers:
         specifier: ^2.20.0
         version: 2.20.0
       '@liveblocks/node':
-        specifier: ^2.20.0
-        version: 2.20.0
+        specifier: ^2.22.2
+        version: 2.22.2
       '@liveblocks/react':
         specifier: ^2.20.0
         version: 2.20.0(react@19.0.0)
@@ -2841,8 +2841,11 @@ packages:
   '@liveblocks/core@2.20.0':
     resolution: {integrity: sha512-AvNTFhGxqxgZz421VZghDTkzkLm337YO6UQgHh+wHO8uKuYcrX3DUF1+hbPY+YZr8+4sSg5GivdaKR1GSpKAow==}
 
-  '@liveblocks/node@2.20.0':
-    resolution: {integrity: sha512-voPoRKbIM03NK5grUwZ1CwNmwAZDPBLCcirva1Ibf7D5V3IHsYkACKUaqLbKi7Or312KjkkVw8fOTwHdFyio5w==}
+  '@liveblocks/core@2.22.2':
+    resolution: {integrity: sha512-ag2P+wfrjtv74Uqkx7RMn54aop3+wDVmSCDX+fvz/FMl+PagqiCajg+OI162CiD/McN09RCgxaxBmXnvPvJpOw==}
+
+  '@liveblocks/node@2.22.2':
+    resolution: {integrity: sha512-rz96ALwstXY2Jet3e6f6jLcrU3ZfSa2YH22qEr3+LAPXF2rBayBp6f6kZt6czGa+t+rlBfuLQzBLzMu6HgRO4A==}
 
   '@liveblocks/react@2.20.0':
     resolution: {integrity: sha512-OcJKs/Yc6ESKy/Yo5iIDhDj+HKc6GsG2rLMZLWna2pRdfxPLa0ncWYZkhQqu08JSkIMROde/XxKe+BxeIyz9kw==}
@@ -8280,6 +8283,10 @@ packages:
     resolution: {integrity: sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==}
     engines: {node: '>= 0.6'}
 
+  mime-db@1.54.0:
+    resolution: {integrity: sha512-aU5EJuIN2WDemCcAp2vFBfp/m4EAhWJnUNSSw0ixs7/kXbd6Pg64EmwJkNdFhB8aWt1sH2CTXrLxo/iAGV3oPQ==}
+    engines: {node: '>= 0.6'}
+
   mime-types@2.1.35:
     resolution: {integrity: sha512-ZDY+bPm5zTTF+YpCrAU9nK0UgICYPT0QtT1NZWFv4s++TNkcgVaT0g6+4R2uI4MjQjzysHB1zxuWL50hzaeXiw==}
     engines: {node: '>= 0.6'}
@@ -12494,9 +12501,11 @@ snapshots:
 
   '@liveblocks/core@2.20.0': {}
 
-  '@liveblocks/node@2.20.0':
+  '@liveblocks/core@2.22.2': {}
+
+  '@liveblocks/node@2.22.2':
     dependencies:
-      '@liveblocks/core': 2.20.0
+      '@liveblocks/core': 2.22.2
       '@stablelib/base64': 1.0.1
       fast-sha256: 1.3.0
       node-fetch: 2.7.0
@@ -12737,7 +12746,7 @@ snapshots:
       '@octokit/request-error': 2.1.0
       '@octokit/types': 6.41.0
       is-plain-object: 5.0.0
-      node-fetch: 2.6.7
+      node-fetch: 2.7.0
       universal-user-agent: 6.0.1
     transitivePeerDependencies:
       - encoding
@@ -18992,6 +19001,8 @@ snapshots:
       brorand: 1.1.0
 
   mime-db@1.52.0: {}
+
+  mime-db@1.54.0: {}
 
   mime-db@1.54.0: {}
 
