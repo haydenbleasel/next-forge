@@ -1,3 +1,15 @@
+# v4.2.0 (Wed Apr 02 2025)
+
+#### 🚀 Enhancement
+
+- Bump vitest from 3.0.7 to 3.1.1 [#503](https://github.com/haydenbleasel/next-forge/pull/503) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v4.1.0 (Tue Apr 01 2025)
 
 #### 🚀 Enhancement
