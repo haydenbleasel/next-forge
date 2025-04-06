@@ -1,3 +1,16 @@
+# v4.2.1 (Sun Apr 06 2025)
+
+#### 🐛 Bug Fix
+
+- Fixed Issue #500 [#513](https://github.com/haydenbleasel/next-forge/pull/513) ([@mathewlewallen](https://github.com/mathewlewallen) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- mathewlewallen ([@mathewlewallen](https://github.com/mathewlewallen))
+
+---
+
 # v4.2.0 (Wed Apr 02 2025)
 
 #### 🚀 Enhancement
