@@ -1,3 +1,15 @@
+# v4.2.2 (Sun Apr 06 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #501 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.1 (Sun Apr 06 2025)
 
 #### 🐛 Bug Fix
