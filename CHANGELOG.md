@@ -1,3 +1,18 @@
+# v4.2.3 (Sun Apr 06 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Merge branch 'main' of https://github.com/haydenbleasel/next-forge ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #499 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update shadcn CSS, resolved #438 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Fix typo ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.2 (Sun Apr 06 2025)
 
 #### ⚠️ Pushed to `main`
