@@ -10,16 +10,16 @@
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
-    "@react-email/components": "0.0.33",
+    "@react-email/components": "0.0.36",
     "@repo/email": "workspace:*",
-    "react": "19.0.0",
-    "react-email": "4.0.2"
+    "react": "19.1.0",
+    "react-email": "4.0.7"
   },
   "devDependencies": {
     "@repo/typescript-config": "workspace:*",
-    "@types/node": "22.13.14",
-    "@types/react": "19.0.10",
-    "next": "15.1.7",
-    "typescript": "^5.8.2"
+    "@types/node": "22.14.1",
+    "@types/react": "19.1.1",
+    "next": "15.3.0",
+    "typescript": "^5.8.3"
   }
 }
