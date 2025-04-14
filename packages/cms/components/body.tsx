@@ -4,8 +4,8 @@ export const Body = ({
   content,
   components,
 }: {
-  content: RichTextProps['content'];
-  components: RichTextProps['components'];
+  content?: RichTextProps['content'];
+  components?: RichTextProps['components'];
 }) => {
   return (
     <RichText
