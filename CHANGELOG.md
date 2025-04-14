@@ -1,3 +1,16 @@
+# v4.2.5 (Mon Apr 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update pnpm-lock.yaml ([@haydenbleasel](https://github.com/haydenbleasel))
+- Build fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.4 (Mon Apr 14 2025)
 
 #### ⚠️ Pushed to `main`
