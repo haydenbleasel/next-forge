@@ -1,3 +1,18 @@
+# v4.2.4 (Mon Apr 14 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove Prisma client from app ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps except Prisma ([@haydenbleasel](https://github.com/haydenbleasel))
+- Update structure.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Upgrade shadcn/ui ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.3 (Sun Apr 06 2025)
 
 #### ⚠️ Pushed to `main`
