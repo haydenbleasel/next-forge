@@ -1,3 +1,19 @@
+# v4.2.6 (Tue Apr 15 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jan Kuppens ([@JanKups](https://github.com/JanKups)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fixed Build fails (Storybook) - fresh install #517 [#520](https://github.com/haydenbleasel/next-forge/pull/520) ([@JanKups](https://github.com/JanKups))
+
+#### Authors: 1
+
+- Jan Kuppens ([@JanKups](https://github.com/JanKups))
+
+---
+
 # v4.2.5 (Mon Apr 14 2025)
 
 #### ⚠️ Pushed to `main`
