@@ -1,3 +1,19 @@
+# v4.2.7 (Tue Apr 22 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Uma Shankar ([@maverickdude](https://github.com/maverickdude)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Fix a typo in debugging.mdx [#524](https://github.com/haydenbleasel/next-forge/pull/524) ([@maverickdude](https://github.com/maverickdude))
+
+#### Authors: 1
+
+- Uma Shankar ([@maverickdude](https://github.com/maverickdude))
+
+---
+
 # v4.2.6 (Tue Apr 15 2025)
 
 :tada: This release contains work from a new contributor! :tada:
