@@ -1,3 +1,15 @@
+# v4.2.8 (Wed Apr 23 2025)
+
+#### 🐛 Bug Fix
+
+- Update Turborepo documentation link. [#526](https://github.com/haydenbleasel/next-forge/pull/526) ([@anthonyshew](https://github.com/anthonyshew))
+
+#### Authors: 1
+
+- Anthony Shew ([@anthonyshew](https://github.com/anthonyshew))
+
+---
+
 # v4.2.7 (Tue Apr 22 2025)
 
 :tada: This release contains work from a new contributor! :tada:
