@@ -8,7 +8,7 @@
     "dist/index.js"
   ],
   "scripts": {
-    "build": "turbo build",
+    "build": "turborepo.com",
     "dev": "turbo dev",
     "lint": "ultracite lint",
     "format": "ultracite format",

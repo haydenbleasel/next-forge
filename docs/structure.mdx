@@ -9,7 +9,7 @@ description: Learn how next-forge apps and packages are structured.
 
 next-forge is a monorepo, which means it contains multiple packages in a single repository. This is a common pattern for modern web applications, as it allows you to share code between different parts of the application, and manage them all together.
 
-The monorepo is managed by [Turborepo](https://turbo.build/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
+The monorepo is managed by [Turborepo](https://turborepo.com/repo), which is a tool for managing monorepos. It provides a simple way to manage multiple packages in a single repository, and is designed to work with modern web applications.
 
 ## Apps
 
@@ -29,7 +29,7 @@ Each package should be self-contained and not depend on other packages. They sho
 
 ## Boundaries
 
-next-forge uses [Turborepo's boundaries](https://turbo.build/repo/docs/reference/boundaries) to ensure that Turborepo features work correctly by checking for package manager Workspace violations.
+next-forge uses [Turborepo's boundaries](https://turborepo.com/repo/docs/reference/boundaries) to ensure that Turborepo features work correctly by checking for package manager Workspace violations.
 
 You can run `pnpm run boundaries` to check for any violations.
 
