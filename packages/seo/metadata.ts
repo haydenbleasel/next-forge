@@ -14,6 +14,8 @@ const author: Metadata['authors'] = {
 };
 const publisher = 'Hayden Bleasel';
 const twitterHandle = '@haydenbleasel';
+const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 
 export const createMetadata = ({
   title,
@@ -26,6 +28,9 @@ export const createMetadata = ({
     title: parsedTitle,
     description,
     applicationName,
+    metadataBase: productionUrl
+      ? new URL(`${protocol}://${productionUrl}`)
+      : undefined,
     authors: [author],
     creator: author.name,
     formatDetection: {
