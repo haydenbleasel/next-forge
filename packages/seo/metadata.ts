@@ -26,6 +26,10 @@ export const createMetadata = ({
     title: parsedTitle,
     description,
     applicationName,
+    metadataBase: new URL(
+      // biome-ignore lint/style/noNonNullAssertion: "Using a type assertion as we know for sure that the project will have a URL. Vercel var doesn't include https:// https://vercel.com/docs/environment-variables/system-environment-variables#VERCEL_PROJECT_PRODUCTION_URL"
+      `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL!}`
+    ),
     authors: [author],
     creator: author.name,
     formatDetection: {
