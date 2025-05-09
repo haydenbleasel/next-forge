@@ -14,6 +14,8 @@ const author: Metadata['authors'] = {
 };
 const publisher = 'Hayden Bleasel';
 const twitterHandle = '@haydenbleasel';
+const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http';
+const productionUrl = process.env.VERCEL_PROJECT_PRODUCTION_URL;
 
 export const createMetadata = ({
   title,
@@ -26,10 +28,9 @@ export const createMetadata = ({
     title: parsedTitle,
     description,
     applicationName,
-    metadataBase: new URL(
-      // biome-ignore lint/style/noNonNullAssertion: "Using a type assertion as we know for sure that the project will have a URL. Vercel var doesn't include https:// https://vercel.com/docs/environment-variables/system-environment-variables#VERCEL_PROJECT_PRODUCTION_URL"
-      `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL!}`
-    ),
+    metadataBase: productionUrl
+      ? new URL(`${protocol}://${productionUrl}`)
+      : undefined,
     authors: [author],
     creator: author.name,
     formatDetection: {
