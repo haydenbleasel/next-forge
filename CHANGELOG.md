@@ -1,3 +1,21 @@
+# v4.2.9 (Fri May 09 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Jp ([@jpvalery](https://github.com/jpvalery)), for all your work!
+
+#### 🐛 Bug Fix
+
+- fix: metadataBase [#540](https://github.com/haydenbleasel/next-forge/pull/540) ([@jpvalery](https://github.com/jpvalery) [@haydenbleasel](https://github.com/haydenbleasel))
+- fix: add success color variable [#538](https://github.com/haydenbleasel/next-forge/pull/538) ([@jpvalery](https://github.com/jpvalery) [@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 2
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+- Jp ([@jpvalery](https://github.com/jpvalery))
+
+---
+
 # v4.2.8 (Wed Apr 23 2025)
 
 #### 🐛 Bug Fix
