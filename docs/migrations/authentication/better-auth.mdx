@@ -232,7 +232,28 @@ export const authMiddleware = async (request: NextRequest) => {
 }
 ```
 
-## 8. Update your apps
+## 8. Define and add Next.js Handlers to your app
+
+> Unlike `Clerk`, you need to host auth handlers which will retrieve sessions, authenticate requests etc...
+
+    <CodeGroup>
+
+```tsx packages/auth/handlers.ts
+import 'server-only';
+import { toNextJsHandler } from 'better-auth/next-js';
+
+import { auth } from './server';
+
+export const { POST, GET } = toNextJsHandler(auth);
+```
+
+```tsx apps/app/app/api/auth/[...all.ts]
+export * from '@repo/auth/handlers'
+```
+</CodeGroup>
+
+
+## 9. Update your apps
 
 From here, you'll need to replace any remaining Clerk implementations in your apps with Better Auth.
 
