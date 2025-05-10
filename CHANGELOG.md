@@ -1,3 +1,19 @@
+# v4.2.10 (Sat May 10 2025)
+
+:tada: This release contains work from a new contributor! :tada:
+
+Thank you, Quentin ([@QuentinFrc](https://github.com/QuentinFrc)), for all your work!
+
+#### 🐛 Bug Fix
+
+- Enhanced better-auth migration docs [#542](https://github.com/haydenbleasel/next-forge/pull/542) ([@QuentinFrc](https://github.com/QuentinFrc))
+
+#### Authors: 1
+
+- Quentin ([@QuentinFrc](https://github.com/QuentinFrc))
+
+---
+
 # v4.2.9 (Fri May 09 2025)
 
 :tada: This release contains work from a new contributor! :tada:
