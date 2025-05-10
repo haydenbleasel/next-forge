@@ -248,7 +248,7 @@ export const { POST, GET } = toNextJsHandler(auth);
 ```
 
 ```tsx apps/app/app/api/auth/[...all.ts]
-export * from '@repo/auth/handlers'
+export { POST, GET } from '@repo/auth/handlers'
 ```
 </CodeGroup>
 
