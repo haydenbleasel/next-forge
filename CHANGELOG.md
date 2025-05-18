@@ -1,3 +1,15 @@
+# v4.2.11 (Sun May 18 2025)
+
+#### 🐛 Bug Fix
+
+- fix: language switcher [#541](https://github.com/haydenbleasel/next-forge/pull/541) ([@jpvalery](https://github.com/jpvalery))
+
+#### Authors: 1
+
+- Jp ([@jpvalery](https://github.com/jpvalery))
+
+---
+
 # v4.2.10 (Sat May 10 2025)
 
 :tada: This release contains work from a new contributor! :tada:
