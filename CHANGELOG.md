@@ -1,3 +1,16 @@
+# v4.2.15 (Tue May 20 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Revert Clerk keyless change (not ready for prod) ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #544 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.14 (Tue May 20 2025)
 
 #### ⚠️ Pushed to `main`
