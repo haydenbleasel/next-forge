@@ -1,3 +1,15 @@
+# v4.2.12 (Tue May 20 2025)
+
+#### 🐛 Bug Fix
+
+- fix(web): add missing 'mx-auto' on container in BlogPost page - fix #545 [#547](https://github.com/haydenbleasel/next-forge/pull/547) ([@QuentinFrc](https://github.com/QuentinFrc))
+
+#### Authors: 1
+
+- Quentin ([@QuentinFrc](https://github.com/QuentinFrc))
+
+---
+
 # v4.2.11 (Sun May 18 2025)
 
 #### 🐛 Bug Fix
