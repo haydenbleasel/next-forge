@@ -1,3 +1,15 @@
+# v4.2.14 (Tue May 20 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Misc fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.13 (Tue May 20 2025)
 
 #### ⚠️ Pushed to `main`
