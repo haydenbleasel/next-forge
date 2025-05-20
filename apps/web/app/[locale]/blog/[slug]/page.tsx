@@ -82,7 +82,7 @@ const BlogPost = async ({ params }: BlogPostProperties) => {
                 isAccessibleForFree: true,
               }}
             />
-            <div className="container py-16">
+            <div className="container mx-auto py-16">
               <Link
                 className="mb-4 inline-flex items-center gap-1 text-muted-foreground text-sm focus:underline focus:outline-none"
                 href="/blog"
