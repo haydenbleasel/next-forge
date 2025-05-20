@@ -1,3 +1,16 @@
+# v4.2.13 (Tue May 20 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update vercel.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+- Implement Clerk keyless mode ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.12 (Tue May 20 2025)
 
 #### 🐛 Bug Fix
