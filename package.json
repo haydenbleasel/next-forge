@@ -1,10 +1,12 @@
 {
   "name": "next-forge",
-  "version": "4.2.15",
+  "version": "4.2.16",
   "bin": {
     "next-forge": "dist/index.js"
   },
-  "files": ["dist/index.js"],
+  "files": [
+    "dist/index.js"
+  ],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
