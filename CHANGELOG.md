@@ -1,3 +1,17 @@
+# v4.2.16 (Tue May 20 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #516 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #527 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #543 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.2.15 (Tue May 20 2025)
 
 #### ⚠️ Pushed to `main`
