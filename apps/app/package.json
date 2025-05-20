@@ -5,7 +5,7 @@
     "dev": "next dev -p 3000 --turbopack",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true pnpm build",
+    "analyze": "ANALYZE=true npm run build",
     "test": "NODE_ENV=test vitest run",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"

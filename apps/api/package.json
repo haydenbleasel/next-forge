@@ -2,11 +2,11 @@
   "name": "api",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"pnpm:next\" \"pnpm:stripe\"",
+    "dev": "concurrently \"npm:next\" \"npm:stripe\"",
     "next": "next dev -p 3002 --turbopack",
     "build": "next build",
     "start": "next start",
-    "analyze": "ANALYZE=true pnpm build",
+    "analyze": "ANALYZE=true npm run build",
     "test": "NODE_ENV=test vitest run",
     "stripe": "stripe listen --forward-to localhost:3002/webhooks/stripe",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
