@@ -1,3 +1,16 @@
+# v4.4.1 (Sun May 25 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Add link validation script ([@haydenbleasel](https://github.com/haydenbleasel))
+- Resolves #369 ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.4.0 (Sun May 25 2025)
 
 #### 🚀 Enhancement
