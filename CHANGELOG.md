@@ -1,3 +1,19 @@
+# v4.3.1 (Sun May 25 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Resolves #352 ([@haydenbleasel](https://github.com/haydenbleasel))
+- Make webhook endpoint names provider agnostic ([@haydenbleasel](https://github.com/haydenbleasel))
+- Skip CI builds ([@haydenbleasel](https://github.com/haydenbleasel))
+- Build fixes ([@haydenbleasel](https://github.com/haydenbleasel))
+- Bump deps ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.3.0 (Sun May 25 2025)
 
 #### 🚀 Enhancement
