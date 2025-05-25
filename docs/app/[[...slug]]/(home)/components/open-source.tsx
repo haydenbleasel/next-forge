@@ -5,7 +5,7 @@ export const OpenSource = () => {
   return (
     <div className="flex h-full flex-col items-start justify-between gap-4 p-8">
       <div className="flex flex-col gap-4">
-        <div className="flex items-center gap-2 text-neutral-500">
+        <div className="flex items-center gap-2 text-muted-foreground">
           <StarIcon size={14} />
           <small>Open source</small>
         </div>

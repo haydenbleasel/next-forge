@@ -63,8 +63,11 @@ const tweets = [
 export const Social = () => (
   <section className="grid sm:grid-cols-3 sm:divide-x" id="community">
     <div className="hidden bg-dashed sm:block">
-      <div className="sticky top-14 p-8">
-        <h2 className="font-bold text-4xl">Loved by the community</h2>
+      <div className="sticky top-14 grid gap-2 p-8">
+        <h2 className="font-semibold text-4xl">Loved by the community</h2>
+        <p className="text-muted-foreground">
+          See what people are saying about next-forge.
+        </p>
       </div>
     </div>
     <div className="columns-1 gap-4 p-8 sm:col-span-2 md:columns-2">

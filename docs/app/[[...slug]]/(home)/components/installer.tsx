@@ -13,8 +13,8 @@ export const Installer = () => {
   };
 
   return (
-    <div className="flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-white py-2 pr-px pl-4 text-neutral-950 text-sm shadow-sm dark:bg-neutral-950 dark:text-white">
-      <p className="pointer-events-none shrink-0 select-none text-neutral-500 dark:text-neutral-400">
+    <div className="flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded-md border bg-background py-2 pr-px pl-4 text-foreground text-sm shadow-sm">
+      <p className="pointer-events-none shrink-0 select-none text-muted-foreground">
         $
       </p>
       <div className="flex-1 truncate text-left font-mono">{command}</div>
@@ -26,10 +26,7 @@ export const Installer = () => {
           onClick={handleCopy}
           className="rounded-[6px]"
         >
-          <CopyIcon
-            size={14}
-            className="text-neutral-500 dark:text-neutral-400"
-          />
+          <CopyIcon size={14} className="text-muted-foreground" />
         </Button>
       </div>
     </div>

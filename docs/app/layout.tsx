@@ -1,10 +1,10 @@
 import './global.css';
+import { cn } from '@/lib/utils';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
 import { Geist as createSans } from 'next/font/google';
 import { Geist_Mono as createMono } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Toaster } from '../components/ui/sonner';
 import { TooltipProvider } from '../components/ui/tooltip';
 import { ThemeProvider } from './providers/theme';
@@ -28,7 +28,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => (
   <html
     lang="en"
-    className={twMerge(
+    className={cn(
       'touch-manipulation scroll-smooth font-sans antialiased',
       sans.variable,
       mono.variable

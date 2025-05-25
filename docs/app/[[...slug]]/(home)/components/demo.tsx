@@ -4,14 +4,14 @@ import { Video } from './video';
 export const Demo = () => (
   <section id="demo" className="grid grid-cols-3">
     <div className="flex flex-col gap-4 p-8">
-      <div className="flex items-center gap-2 text-neutral-500">
+      <div className="flex items-center gap-2 text-muted-foreground">
         <TerminalIcon size={14} />
         <small>CLI Installation</small>
       </div>
-      <h2 className="font-bold text-4xl">
+      <h2 className="font-semibold text-4xl">
         Get from zero to production in minutes.
       </h2>
-      <p className="text-neutral-500">
+      <p className="text-muted-foreground">
         Getting started is as easy as running a single command.
       </p>
     </div>

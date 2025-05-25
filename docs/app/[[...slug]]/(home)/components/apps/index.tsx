@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import {
   BookIcon,
   CurlyBracesIcon,
@@ -8,7 +9,6 @@ import {
   ServerIcon,
 } from 'lucide-react';
 import Image from 'next/image';
-import { twMerge } from 'tailwind-merge';
 import ApiImage from './api.png';
 import AppImage from './app.png';
 import DocsImage from './docs.png';
@@ -76,28 +76,25 @@ const apps = [
   },
 ];
 
-const App = ({ app, index }: { app: (typeof apps)[number]; index: number }) => (
+const App = ({ app }: { app: (typeof apps)[number] }) => (
   <div className="relative flex flex-col gap-8 overflow-hidden p-8 pb-0">
     <div className="flex flex-col gap-4">
-      <div className="flex items-center gap-2 text-neutral-500">
+      <div className="flex items-center gap-2 text-muted-foreground">
         <app.icon size={14} />
         <small>/apps/{app.name}</small>
       </div>
       <div className="flex flex-col gap-2">
         <h2 className="font-semibold text-2xl sm:truncate">{app.title}</h2>
-        <p className="text-balance text-neutral-600 sm:line-clamp-2">
+        <p className="text-balance text-muted-foreground sm:line-clamp-2">
           {app.description}
         </p>
       </div>
     </div>
-    <div className="h-48 overflow-hidden bg-neutral-50 md:h-80 dark:bg-neutral-950">
+    <div className="h-48 overflow-hidden md:h-80">
       <Image
         alt=""
         src={app.image}
-        className={twMerge(
-          'h-auto w-full overflow-hidden rounded-md border object-cover object-left shadow-sm',
-          [0, 3, 4].includes(index) ? '' : 'md:h-[120%] md:w-auto md:max-w-none'
-        )}
+        className="h-auto w-full overflow-hidden rounded-md border object-cover object-left shadow-sm"
       />
     </div>
   </div>
@@ -107,14 +104,14 @@ export const Apps = () => (
   <section className="grid sm:grid-cols-2" id="apps">
     {apps.map((app, index) => (
       <div
-        className={twMerge(
+        className={cn(
           index % 2 && 'sm:border-l',
           index > 0 && 'border-t sm:border-t-0',
           index > 1 && '!border-t'
         )}
         key={index}
       >
-        <App app={app} index={index} />
+        <App app={app} />
       </div>
     ))}
     {apps.length % 2 === 1 && (

@@ -2,7 +2,6 @@ import { MessageCircleIcon } from 'lucide-react';
 import Image from 'next/image';
 import rauchg from './rauchg.jpg';
 import vercel from './vercel.jpg';
-import x from './x.svg';
 
 export const Review = () => (
   <section className="flex flex-col gap-8 p-8">
@@ -24,14 +23,14 @@ export const Review = () => (
             alt=""
             width={24}
             height={24}
-            className="rounded-full ring-2 ring-white"
+            className="rounded-full ring-2 ring-background"
           />
           <Image
             src={vercel}
             alt=""
             width={24}
             height={24}
-            className="rounded-full ring-2 ring-white"
+            className="rounded-full ring-2 ring-background"
           />
         </div>
         <p className="text-neutral-500 text-sm">
@@ -43,7 +42,21 @@ export const Review = () => (
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Image src={x} alt="" width={16} height={16} />
+        <svg
+          fill="none"
+          height={16}
+          viewBox="0 0 24 24"
+          width={16}
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>X</title>
+          <path
+            clip-rule="evenodd"
+            d="m15.9455 23-5.5495-7.9099-6.94714 7.9099h-2.939094l8.582324-9.7689-8.582324-12.2311h7.545944l5.23029 7.45502 6.5533-7.45502h2.9391l-8.1841 9.3165 8.8971 12.6835zm3.273-2.23h-1.9787l-12.52169-17.54h1.97899l5.015 7.0232.8672 1.2187z"
+            fill="currentColor"
+            fill-rule="evenodd"
+          />
+        </svg>
       </a>
     </div>
   </section>

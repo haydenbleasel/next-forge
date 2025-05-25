@@ -129,11 +129,11 @@
   .bg-dashed {
     background-image: linear-gradient(
       45deg,
-      #e5e5e5 12.50%,
+      var(--border) 12.50%,
       transparent 12.50%,
       transparent 50%,
-      #e5e5e5 50%,
-      #e5e5e5 62.50%,
+      var(--border) 50%,
+      var(--border) 62.50%,
       transparent 62.50%,
       transparent 100%
     );
