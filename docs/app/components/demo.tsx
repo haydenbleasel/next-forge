@@ -1,5 +1,4 @@
 import { TerminalIcon } from 'lucide-react';
-import Balancer from 'react-wrap-balancer';
 import { Video } from './video';
 
 export const Demo = () => (
@@ -10,7 +9,7 @@ export const Demo = () => (
         <small>CLI Installation</small>
       </div>
       <h2 className="font-bold text-4xl tracking-tight">
-        <Balancer>Get from zero to production in minutes.</Balancer>
+        Get from zero to production in minutes.
       </h2>
       <p className="text-neutral-500">
         Getting started is as easy as running a single command.
