@@ -1,7 +1,6 @@
 import Image from 'next/image';
 
 type Author = {
-  name: string;
   company: {
     id: string;
     name: string;
@@ -18,7 +17,7 @@ export const Authors = ({ data }: { data: Author[] }) => (
     <div className="flex flex-wrap items-center gap-2">
       {data.map((author) => (
         <div
-          key={author.name}
+          key={author.user.id}
           className="relative inline-flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 pr-4 font-normal"
         >
           <div className="relative">

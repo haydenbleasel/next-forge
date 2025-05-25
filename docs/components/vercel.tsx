@@ -53,6 +53,7 @@ export const VercelButton = () => {
         alt="Deploy with Vercel"
         width={103}
         height={32}
+        unoptimized
       />
     </a>
   );
