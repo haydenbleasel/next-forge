@@ -1,3 +1,15 @@
+# v4.3.2 (Sun May 25 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Update api.mdx ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.3.1 (Sun May 25 2025)
 
 #### ⚠️ Pushed to `main`
