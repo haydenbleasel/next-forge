@@ -2,6 +2,16 @@ import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 export const baseOptions: BaseLayoutProps = {
   githubUrl: 'https://github.com/haydenbleasel/next-forge',
+  links: [
+    {
+      text: 'Home',
+      url: '/',
+    },
+    {
+      text: 'Docs',
+      url: '/docs',
+    },
+  ],
   nav: {
     title: (
       <svg
