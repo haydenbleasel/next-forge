@@ -10,7 +10,7 @@ export const Review = () => (
       <MessageCircleIcon size={14} />
       <small>Nice words</small>
     </div>
-    <p className="text-balance font-semibold text-xl sm:text-2xl">
+    <p className="max-w-3xl text-balance font-semibold text-xl tracking-tight sm:text-2xl">
       &ldquo;A production-grade, monorepo-first, full stack Next.js template.
       Very thoughtfully engineered and documented. Covers auth, DB & ORM,
       payments, docs, blog, o11y, analytics, emails, and even feature flags &

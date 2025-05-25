@@ -1,6 +1,6 @@
 import { StarIcon } from 'lucide-react';
 import Image from 'next/image';
-import { octokit } from '../../lib/octokit';
+import { octokit } from '../../../../lib/octokit';
 
 export const OpenSource = async () => {
   const { data } = await octokit.repos.get({
