@@ -1,35 +1,45 @@
 import './global.css';
-import { RootProvider } from 'fumadocs-ui/provider';
-import { cn } from 'fumadocs-ui/utils/cn';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/react';
+import { Inter as createSans } from 'next/font/google';
+import { JetBrains_Mono as createMono } from 'next/font/google';
 import type { ReactNode } from 'react';
+import { Toaster } from 'sonner';
+import { twMerge } from 'tailwind-merge';
+import { Header } from './components/header';
 
-type LayoutProps = {
-  children: ReactNode;
-};
-
-const sans = Geist({
+const sans = createSans({
   subsets: ['latin'],
   variable: '--font-sans',
+  weight: 'variable',
 });
 
-const mono = Geist_Mono({
+const mono = createMono({
   subsets: ['latin'],
   variable: '--font-mono',
+  weight: 'variable',
 });
+
+type LayoutProps = {
+  readonly children: ReactNode;
+};
 
 const Layout = ({ children }: LayoutProps) => (
   <html
     lang="en"
-    className={cn(
-      'touch-manipulation font-sans antialiased',
+    className={twMerge(
+      'touch-manipulation scroll-smooth font-sans antialiased',
       sans.variable,
       mono.variable
     )}
     suppressHydrationWarning
   >
-    <body className="flex min-h-screen flex-col">
-      <RootProvider>{children}</RootProvider>
+    <body className="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
+      <main className="container mx-auto border-x">
+        <Header />
+        <div className="divide-y">{children}</div>
+      </main>
+      <Analytics />
+      <Toaster />
     </body>
   </html>
 );
