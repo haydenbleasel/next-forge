@@ -121,11 +121,6 @@
   }
 }
 
-/* Fix Fumadocs theme toggle icons */
-[data-theme-toggle] svg {
-  @apply fill-none;
-}
-
 @layer utilities {
   .bg-dashed {
     background-image: linear-gradient(
@@ -149,4 +144,37 @@
   100% {
     transform: translateX(var(--move-x-to));
   }
+}
+
+h1, h2, h3 {
+  @apply tracking-tight;
+}
+
+/* Fix Fumadocs theme toggle icons */
+[data-theme-toggle] svg {
+  @apply fill-none;
+}
+
+#nd-subnav [data-active="true"] {
+  @apply font-medium text-primary;
+}
+
+#nd-subnav > div {
+  @apply container border-x;
+}
+
+#nd-docs-layout {
+  @apply container mx-auto p-0 border-x;
+}
+
+#nd-tocnav {
+  @apply translate-y-px;
+}
+
+#nd-sidebar [data-hide-if-empty] {
+  @apply hidden;
+}
+
+#nd-subnav button[data-search] + button {
+  @apply hidden!;
 }

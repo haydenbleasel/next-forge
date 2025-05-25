@@ -8,7 +8,7 @@ export const Demo = () => (
         <TerminalIcon size={14} />
         <small>CLI Installation</small>
       </div>
-      <h2 className="font-bold text-4xl tracking-tight">
+      <h2 className="font-bold text-4xl">
         Get from zero to production in minutes.
       </h2>
       <p className="text-neutral-500">

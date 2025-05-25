@@ -187,7 +187,7 @@ export const Features = () => (
           <h2 className="font-medium font-mono text-base/7 text-neutral-500 dark:text-neutral-400">
             Modern developer experience
           </h2>
-          <p className="mx-auto mt-2 max-w-xl text-pretty font-bold text-4xl text-neutral-950 tracking-tighter sm:text-5xl dark:text-white">
+          <p className="mx-auto mt-2 max-w-xl text-pretty font-bold text-4xl text-neutral-950 sm:text-5xl dark:text-white">
             React-based framework with Rust-based tooling
           </p>
         </div>
