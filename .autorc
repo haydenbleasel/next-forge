@@ -1,10 +1,6 @@
 {
-  "plugins": [
-    "npm",
-    "first-time-contributor",
-    "released"
-  ],
-  "owner": "haydenbleasel",
+  "plugins": ["npm", "first-time-contributor", "released"],
+  "owner": "vercel",
   "repo": "next-forge",
   "name": "Hayden Bleasel",
   "email": "hello@haydenbleasel.com"
