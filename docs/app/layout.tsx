@@ -1,11 +1,13 @@
 import './global.css';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
+import { RootProvider } from 'fumadocs-ui/provider';
 import { Inter as createSans } from 'next/font/google';
 import { JetBrains_Mono as createMono } from 'next/font/google';
 import type { ReactNode } from 'react';
-import { Toaster } from 'sonner';
 import { twMerge } from 'tailwind-merge';
-import { Header } from './components/header';
+import { Toaster } from '../components/ui/sonner';
+import { TooltipProvider } from '../components/ui/tooltip';
+import { ThemeProvider } from './providers/theme';
 
 const sans = createSans({
   subsets: ['latin'],
@@ -34,11 +36,12 @@ const Layout = ({ children }: LayoutProps) => (
     suppressHydrationWarning
   >
     <body className="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
-      <main className="container mx-auto border-x px-0">
-        <Header />
-        <div className="divide-y">{children}</div>
-      </main>
-      <Analytics />
+      <ThemeProvider>
+        <RootProvider>
+          <TooltipProvider>{children}</TooltipProvider>
+        </RootProvider>
+        <VercelAnalytics />
+      </ThemeProvider>
       <Toaster />
     </body>
   </html>
