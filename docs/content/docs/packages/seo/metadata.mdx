@@ -1,0 +1,27 @@
+---
+title: Metadata
+description: How to customize the page metadata.
+---
+
+next-forge relies on Next.js's built-in [Metadata](https://nextjs.org/docs/app/building-your-application/optimizing/metadata) API to handle most of our SEO needs. Specifically, the `@repo/seo` package provides a `createMetadata` function that you can use to generate metadata for your pages. For example:
+
+```tsx title="page.tsx"
+import { createMetadata } from '@repo/seo/metadata';
+
+export const metadata = createMetadata({
+  title: 'My Page',
+  description: 'My page description',
+});
+```
+
+While this looks similar to just exporting a `metadata` object from your page, the `createMetadata` function deep merges your metadata with our default metadata, allowing you to customize only the metadata that you need to. It's also much easier to specify a cover photo for the page, for example:
+
+```tsx title="page.tsx {6}"
+import { createMetadata } from '@repo/seo/metadata';
+
+export const metadata = createMetadata({
+  title: 'My Page',
+  description: 'My page description',
+  image: '/my-page-image.png',
+});
+```

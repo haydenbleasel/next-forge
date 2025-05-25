@@ -1,0 +1,30 @@
+---
+title: Configuration
+description: The next-config package, explained
+---
+
+The `next-config` package is a configuration package for Next.js. It is used to configure the Next.js app and is located in the `packages/next-config` directory.
+
+## Images
+
+The package configures Next.js image optimization to support AVIF and WebP formats. It also sets up remote patterns to allow loading images from Clerk securely (i.e. profile images).
+
+## Prisma
+
+For server-side builds, the package includes the Prisma plugin which helps handle Prisma in a Next.js monorepo setup correctly.
+
+## Rewrites
+
+The package configures URL rewrites to handle PostHog analytics integration:
+
+- `/ingest/static/:path*` routes to PostHog's static assets
+- `/ingest/:path*` routes to the main PostHog ingestion endpoint
+- `/ingest/decide` routes to PostHog's feature flags endpoint
+
+It also enables `skipTrailingSlashRedirect` to properly support PostHog API requests with trailing slashes.
+
+## OpenTelemetry
+
+The package includes a fix for OpenTelemetry instrumentation warnings by configuring webpack to ignore warnings from `@opentelemetry/instrumentation` packages.
+
+The configuration can optionally be wrapped with `withAnalyzer()` to enable bundle analysis capabilities.

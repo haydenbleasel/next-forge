@@ -1,0 +1,90 @@
+---
+title: Switch to Supabase
+description: How to change the database provider to Supabase.
+---
+
+[Supabase](https://supabase.com) is an open source Firebase alternative providing a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.
+
+`next-forge` uses Neon as the database provider with Prisma as the ORM as well as Clerk for authentication. This guide will provide the steps you need to switch the database provider from Neon to Supabase. This guide is based on a few existing resources, including [Supabase's guide](https://supabase.com/partners/integrations/prisma) and [Prisma's guide](https://www.prisma.io/docs/orm/overview/databases/supabase).
+
+<Note>
+ For authentication, another guide will be provided to switch to Supabase Auth with feature parity to Clerk like organization management, user roles, and more (coming soon).
+</Note>
+
+Here's how to switch from Neon to [Supabase](https://supabase.com) for your `next-forge` project.
+
+## 1. Sign up to Supabase
+
+Create a free account at [supabase.com](https://supabase.com). You can manage your projects through the Dashboard or use the [Supabase CLI](https://supabase.com/docs/guides/local-development).
+
+_We'll be using both the Dashboard and CLI throughout this guide._
+
+## 2. Create a Project
+
+Create a new project from the [Supabase Dashboard](https://supabase.com/dashboard). Give it a name and choose your preferred region. Once created, you'll get access to your project's connection details. Head to the **Settings** page, then click on **Database**.
+
+We'll need to keep track of the following for the next step:
+
+- The Database URL in `Transaction` mode, with the port ending in `6543`. We'll call this `DATABASE_URL`.
+- The Database URL in `Session` mode, with the port ending in `5432`. We'll call this `DIRECT_URL`.
+
+## 3. Update the environment variables
+
+Update the `.env` file with the Supabase connection details. Make sure you add `?pgbouncer=true&connection_limit=1` to the end of the `DATABASE_URL` value. 
+
+```js title=".env"
+DATABASE_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres?pgbouncer=true&connection_limit=1"
+DIRECT_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres"
+```
+
+<Note>
+`pgbouncer=true` disables Prisma from generating prepared statements. This is required since our connection pooler does not support prepared statements in transaction mode yet. The `connection_limit=1` parameter is only required if you are using Prisma from a serverless environment.
+</Note>
+
+## 4. Replace the dependencies
+
+Prisma doesn't have a Supabase adapter yet, so we just need to remove the Neon adapter and connect to Supabase directly.
+
+First, remove the Neon dependencies from the project...
+
+```sh title="Terminal"
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
+```
+
+... and add the Supabase dependencies:
+
+```sh title="Terminal"
+pnpm install -D supabase --filter @repo/database
+```
+
+## 5. Update the database package
+
+Update the `database` package. We'll remove the Neon extensions and connect to Supabase directly, which should automatically use the environment variables we set earlier.
+
+```ts title="packages/database/index.ts"
+import 'server-only';
+import { PrismaClient } from '@prisma/client';
+
+export const database = new PrismaClient();
+
+export * from '@prisma/client';
+```
+
+## 6. Update the Prisma schema
+
+Update the `prisma/schema.prisma` file so it contains the `DIRECT_URL`. This allows us to use the Prisma CLI to perform other actions on our database (e.g. migrations) by bypassing Supavisor.
+
+```js title="prisma/schema.prisma {4}"
+datasource db {
+  provider     = "postgresql"
+  url          = env("DATABASE_URL")
+  directUrl    = env("DIRECT_URL")
+  relationMode = "prisma"
+}
+```
+
+Now you can run the migration from the root of your `next-forge` project:
+
+```sh title="Terminal"
+pnpm run migrate
+```

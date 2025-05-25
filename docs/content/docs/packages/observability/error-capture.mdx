@@ -1,0 +1,35 @@
+---
+title: Error Capture
+description: How we've configured error capture in next-forge.
+---
+
+next-forge uses [Sentry](https://sentry.io/) for error tracking and performance monitoring. It helps identify, debug, and resolve issues by providing detailed error reports, stack traces, and performance metrics across both server and client environments. When an error occurs, Sentry captures the full context including the user's browser information, the sequence of events that led to the error, and relevant application state.
+
+## Configuration
+
+Sentry is configured and managed in three key places:
+
+The `instrumentation.ts` file in your Next.js project initializes Sentry for both Node.js and Edge runtime environments, configuring the DSN (Data Source Name) that routes error data to your Sentry project.
+
+The `sentry.client.config.ts` file configures Sentry for the client environment. This includes settings like the sample rate for errors and sessions, and the integrations to use.
+
+The `next.config.ts` file imports shared Sentry-specific settings through `withSentryConfig`. This enables features like source map uploads for better stack traces and automatic instrumentation of Vercel Cron Monitors. The configuration also optimizes bundle size by tree-shaking logger statements and hiding source maps in production builds.
+
+## Manual Usage
+
+If you want to capture a specific exception rather than letting it bubble up to Sentry, you can use the `captureException` function:
+
+```tsx title="page.tsx"
+import { captureException } from '@sentry/nextjs';
+
+captureException(new Error('My error message'));
+```
+
+## Tunneling
+
+The `sentryConfig.tunnelRoute` option in `@repo/next-config`'s Sentry configuration routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers. This can increase your server load as well as your hosting bill.
+
+<Warning>
+  Check that the configured route will not match with your Next.js middleware, otherwise reporting of client-side errors will fail.
+</Warning>
+

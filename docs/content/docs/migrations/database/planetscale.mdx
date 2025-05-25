@@ -1,0 +1,106 @@
+---
+title: Switch to PlanetScale
+description: How to change the database provider to PlanetScale.
+---
+
+Here's how to switch from Neon to [PlanetScale](https://planetscale.com).
+
+## 1. Create a new database on PlanetScale
+
+Once you create a database on PlanetScale, you will get a connection string. It will look something like this:
+
+```
+mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>
+```
+
+Keep this connection string handy, you will need it in the next step.
+
+## 2. Update your environment variables
+
+Update your environment variables to use the new PlanetScale connection string:
+
+```js title="apps/database/.env"
+DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
+```
+
+```js title="apps/app/.env.local"
+DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
+```
+
+Etcetera.
+
+## 3. Swap out the required dependencies in `@repo/database`
+
+Uninstall the existing dependencies...
+
+```sh title="Terminal"
+pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
+```
+
+...and install the new ones:
+
+```sh title="Terminal"
+pnpm add @planetscale/database @prisma/adapter-planetscale --filter @repo/database
+```
+
+## 4. Update the database connection code
+
+Update the database connection code to use the new PlanetScale adapter:
+
+```ts title="packages/database/index.ts {3-4, 17-18}"
+import 'server-only';
+
+import { Client, connect } from '@planetscale/database';
+import { PrismaPlanetScale } from '@prisma/adapter-planetscale';
+import { PrismaClient } from '@prisma/client';
+import { env } from '@repo/env';
+
+declare global {
+  var cachedPrisma: PrismaClient | undefined;
+}
+
+const client = connect({ url: env.DATABASE_URL });
+const adapter = new PrismaPlanetScale(client);
+
+export const database = new PrismaClient({ adapter });
+```
+
+## 5. Update your Prisma schema
+
+Update your Prisma schema to use the new database provider:
+
+```prisma title="packages/database/prisma/schema.prisma {10}"
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+// This is a stub model.
+// Delete it and add your own Prisma models.
+model Page {
+  id    Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+}
+```
+
+## 6. Add a `dev` script
+
+Add a `dev` script to your `package.json`:
+
+```json title="packages/database/package.json {3}"
+{
+  "scripts": {
+    "dev": "pscale connect [database_name] [branch_name] --port 3309"
+  }
+}
+```

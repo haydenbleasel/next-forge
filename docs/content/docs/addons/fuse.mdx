@@ -1,0 +1,42 @@
+---
+title: Fuse.js
+description: A powerful, lightweight fuzzy-search library, with zero dependencies.
+---
+
+### Installation
+
+To install `fuse.js`, simply run the following command:
+
+```sh title="Terminal"
+pnpm add fuse.js
+```
+
+### Usage
+
+Here is an example of how to use `fuse.js` for searching through an array of objects:
+
+```tsx title="search.ts"
+import Fuse from 'fuse.js';
+
+const data = [
+  { id: 1, name: 'John Doe', email: 'john.doe@example.com' },
+  { id: 2, name: 'Jane Doe', email: 'jane.doe@example.com' },
+];
+
+const fuse = new Fuse(data, {
+  keys: ['name', 'email'],
+  minMatchCharLength: 1,
+  threshold: 0.3,
+});
+
+const results = fuse.search('john');
+
+console.log(results);
+```
+
+### Benefits
+
+- `fuse.js` is easy to use and has a simple API.
+- **Performant**: `fuse.js` is performant and has zero dependencies.
+
+For more information and detailed documentation, visit the [`fuse.js` GitHub repo](https://github.com/krisk/fuse).

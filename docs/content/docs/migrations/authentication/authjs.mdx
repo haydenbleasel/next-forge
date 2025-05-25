@@ -1,0 +1,132 @@
+---
+title: Switch to Auth.js
+description: How to change the authentication provider to Auth.js.
+---
+
+<Warning>
+next-forge support for Auth.js is currently blocked by [this issue](https://github.com/nextauthjs/next-auth/issues/11076).
+</Warning>
+
+Here's how to switch from Clerk to [Auth.js](https://authjs.dev/).
+
+## 1. Replace the dependencies
+
+Uninstall the existing Clerk dependencies from the `auth` package...
+
+```sh title="Terminal"
+pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
+```
+
+... and install the Auth.js dependencies.
+
+```sh title="Terminal"
+pnpm add next-auth@beta --filter @repo/auth
+```
+
+## 2. Generate an Auth.js secret
+
+Auth.js requires a random value secret, used by the library to encrypt tokens and email verification hashes. In each of the relevant app directories, generate a secret with the following command:
+
+```sh title="Terminal"
+cd apps/app && npx auth secret && cd -
+cd apps/web && npx auth secret && cd -
+cd apps/api && npx auth secret && cd -
+```
+
+This will automatically add an `AUTH_SECRET` environment variable to the `.env.local` file in each directory.
+
+## 3. Replace the relevant files
+
+Delete the existing `client.ts` and `server.ts` files in the `auth` package. Then, create the following file:
+
+```tsx title="packages/auth/index.ts"
+import NextAuth from "next-auth";
+ 
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  providers: [],
+});
+```
+
+## 4. Update the middleware
+
+Update the `middleware.ts` file in the `auth` package with the following content:
+
+```tsx title="packages/auth/middleware.ts"
+import 'server-only';
+
+export { auth as authMiddleware } from './';
+```
+
+## 5. Update the auth components
+
+Auth.js has no concept of "sign up", so we'll use the `signIn` function to sign up users. Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package with the same content:
+
+### Sign In
+
+```tsx title="packages/auth/components/sign-in.tsx"
+import { signIn } from '../';
+
+export const SignIn = () => (
+  <form
+    action={async () => {
+      "use server";
+      await signIn();
+    }}
+  >
+    <button type="submit">Sign in</button>
+  </form>
+);
+```
+
+### Sign Up
+
+```tsx title="packages/auth/components/sign-up.tsx"
+import { signIn } from '../';
+
+export const SignUp = () => (
+  <form
+    action={async () => {
+      "use server";
+      await signIn();
+    }}
+  >
+    <button type="submit">Sign up</button>
+  </form>
+);
+```
+
+## 6. Update the Provider file
+
+Auth.js has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
+
+```tsx title="packages/auth/provider.tsx"
+import type { ReactNode } from 'react';
+
+type AuthProviderProps = {
+  children: ReactNode;
+};
+
+export const AuthProvider = ({ children }: AuthProviderProps) => children;
+```
+
+## 7. Create an auth route handler
+
+In your `app` application, create an auth route handler file with the following content:
+
+```tsx title="apps/app/api/auth/[...nextauth]/route.ts"
+import { handlers } from "@repo/auth"
+
+export const { GET, POST } = handlers;
+```
+
+## 8. Update your apps
+
+From here, you'll need to replace any remaining Clerk implementations in your apps with Auth.js references. This means swapping out references like:
+
+```tsx title="page.tsx"
+const { orgId } = await auth();
+const { redirectToSignIn } = await auth();
+const user = await currentUser();
+```
+
+Etcetera. Keep in mind that you'll need to build your own "organization" logic as Auth.js doesn't have a concept of organizations.

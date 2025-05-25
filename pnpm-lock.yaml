@@ -430,9 +430,6 @@ importers:
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
-      react-wrap-balancer:
-        specifier: ^1.1.1
-        version: 1.1.1(react@19.1.0)
       require-in-the-middle:
         specifier: ^7.5.2
         version: 7.5.2
@@ -1100,7 +1097,7 @@ importers:
     dependencies:
       '@stripe/agent-toolkit':
         specifier: ^0.7.8
-        version: 0.7.8(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)))(@modelcontextprotocol/sdk@1.6.1)(agents@0.0.84(@cloudflare/workers-types@4.20250525.0)(react@19.1.0))(ai@4.3.16(react@19.1.0)(zod@3.25.28))(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28))
+        version: 0.7.8(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)))(@modelcontextprotocol/sdk@1.12.0)(agents@0.0.84(@cloudflare/workers-types@4.20250525.0)(react@19.1.0))(ai@4.3.16(react@19.1.0)(zod@3.25.28))(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28))
       '@t3-oss/env-nextjs':
         specifier: ^0.13.4
         version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.25.28)
@@ -2888,10 +2885,6 @@ packages:
 
   '@modelcontextprotocol/sdk@1.12.0':
     resolution: {integrity: sha512-m//7RlINx1F3sz3KqwY1WWzVgTcYX52HYk4bJ1hkBXV3zccAEth+jRvG8DBRrdaQuRsPAJOx2MH3zaHNCKL7Zg==}
-    engines: {node: '>=18'}
-
-  '@modelcontextprotocol/sdk@1.6.1':
-    resolution: {integrity: sha512-oxzMzYCkZHMntzuyerehK3fV6A2Kwh5BD6CGEJSVDU2QNEhfLOptf2X7esQgaHZXHZY0oHmMsOtIDLP71UJXgA==}
     engines: {node: '>=18'}
 
   '@neondatabase/serverless@1.0.0':
@@ -9154,10 +9147,6 @@ packages:
     resolution: {integrity: sha512-saLsH7WeYYPiD25LDuLRRY/i+6HaPYr6G1OUlN39otzkSTxKnubR9RTxS3/Kk50s1g2JTgFwWQDQyplC5/SHZg==}
     engines: {node: '>= 6'}
 
-  pkce-challenge@4.1.0:
-    resolution: {integrity: sha512-ZBmhE1C9LcPoH9XZSdwiPtbPHZROwAnMy+kIFQVrnMCxY4Cudlz3gBOpzilgc0jOgRaiT3sIWfpMomW2ar2orQ==}
-    engines: {node: '>=16.20.0'}
-
   pkce-challenge@5.0.0:
     resolution: {integrity: sha512-ueGLflrrnvwB3xuo/uGob5pd5FN7l0MsLf0Z87o/UQmRtwjvfylfc9MurIxRAWywCYTgrvpXBcqjV4OfCYGCIQ==}
     engines: {node: '>=16.20.0'}
@@ -9546,11 +9535,6 @@ packages:
     peerDependencies:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
-
-  react-wrap-balancer@1.1.1:
-    resolution: {integrity: sha512-AB+l7FPRWl6uZ28VcJ8skkwLn2+UC62bjiw8tQUrZPlEWDVnR9MG0lghyn7EyxuJSsFEpht4G+yh2WikEqQ/5Q==}
-    peerDependencies:
-      react: '>=16.8.0 || ^17.0.0 || ^18'
 
   react@19.1.0:
     resolution: {integrity: sha512-FS+XFBNvn3GTAWq26joslQgWNoFu08F4kl0J4CgdNKADkdSGXQyTCnKteIAJy96Br6YbpEU1LSzV5dYtjMkMDg==}
@@ -13025,20 +13009,6 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@modelcontextprotocol/sdk@1.6.1':
-    dependencies:
-      content-type: 1.0.5
-      cors: 2.8.5
-      eventsource: 3.0.6
-      express: 5.1.0
-      express-rate-limit: 7.5.0(express@5.1.0)
-      pkce-challenge: 4.1.0
-      raw-body: 3.0.0
-      zod: 3.25.28
-      zod-to-json-schema: 3.24.5(zod@3.25.28)
-    transitivePeerDependencies:
-      - supports-color
-
   '@neondatabase/serverless@1.0.0':
     dependencies:
       '@types/node': 22.15.21
@@ -15505,10 +15475,10 @@ snapshots:
     dependencies:
       storybook: 8.6.14(bufferutil@4.0.9)(prettier@3.5.3)
 
-  '@stripe/agent-toolkit@0.7.8(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)))(@modelcontextprotocol/sdk@1.6.1)(agents@0.0.84(@cloudflare/workers-types@4.20250525.0)(react@19.1.0))(ai@4.3.16(react@19.1.0)(zod@3.25.28))(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28))':
+  '@stripe/agent-toolkit@0.7.8(@langchain/core@0.3.42(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)))(@modelcontextprotocol/sdk@1.12.0)(agents@0.0.84(@cloudflare/workers-types@4.20250525.0)(react@19.1.0))(ai@4.3.16(react@19.1.0)(zod@3.25.28))(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28))':
     dependencies:
       '@langchain/core': 0.3.42(openai@4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28))
-      '@modelcontextprotocol/sdk': 1.6.1
+      '@modelcontextprotocol/sdk': 1.12.0
       agents: 0.0.84(@cloudflare/workers-types@4.20250525.0)(react@19.1.0)
       ai: 4.3.16(react@19.1.0)(zod@3.25.28)
       openai: 4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)
@@ -19070,7 +19040,7 @@ snapshots:
       console-table-printer: 2.12.1
       p-queue: 6.6.2
       p-retry: 4.6.2
-      semver: 7.7.1
+      semver: 7.7.2
       uuid: 10.0.0
     optionalDependencies:
       openai: 4.86.1(ws@8.18.2(bufferutil@4.0.9))(zod@3.25.28)
@@ -20406,8 +20376,6 @@ snapshots:
 
   pirates@4.0.6: {}
 
-  pkce-challenge@4.1.0: {}
-
   pkce-challenge@5.0.0: {}
 
   pkg-conf@2.1.0:
@@ -20861,10 +20829,6 @@ snapshots:
       prop-types: 15.8.1
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-
-  react-wrap-balancer@1.1.1(react@19.1.0):
-    dependencies:
-      react: 19.1.0
 
   react@19.1.0: {}
 

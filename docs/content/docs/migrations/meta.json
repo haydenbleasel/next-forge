@@ -1,0 +1,29 @@
+{
+  "title": "Migrations",
+  "root": true,
+  "pages": [
+    "---Authentication---",
+    "authentication/authjs",
+    "authentication/better-auth",
+    "---CMS---",
+    "cms/content-collections",
+    "---Database---",
+    "database/drizzle",
+    "database/edgedb",
+    "database/planetscale",
+    "database/prisma-postgres",
+    "database/supabase",
+    "database/turso",
+    "---Documentation---",
+    "documentation/fumadocs",
+    "---Flags---",
+    "flags/hypertune",
+    "---Formatting---",
+    "formatting/eslint",
+    "---Payments---",
+    "payments/lemon-squeezy",
+    "payments/paddle-billing",
+    "---Storage---",
+    "storage/upload-thing"
+  ]
+}

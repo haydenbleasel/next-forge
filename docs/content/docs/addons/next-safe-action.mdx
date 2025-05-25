@@ -1,0 +1,89 @@
+---
+title: Next Safe Action
+description: A powerful library for managing and securing your Next.js Server Actions.
+---
+
+## Installation
+
+To install Next Safe Action, simply run the following command:
+
+```sh title="Terminal"
+pnpm add next-safe-action zod --filter app
+```
+
+By default, Next Safe Action uses Zod to validate inputs, but it also supports adapters for Valibot, Yup, and Typebox.
+
+## Basic Usage
+
+Here is a basic example of how to use Next Safe Action to call your Server Actions:
+
+### Server Action
+
+```ts title="action.ts"
+"use server"
+
+import { createSafeActionClient } from "next-safe-action";
+import { z } from "zod";
+
+export const serverAction = createSafeActionClient()
+  .schema(
+    z.object({
+      name: z.string(),
+      id: z.string()
+    })
+  )
+  .action(async ({ parsedInput: { name, id } }) => {
+    // Fetch data in server
+    const data = await fetchData(name, id);
+    
+    // Write server logic here ...
+    
+    // Return here the value to the client
+    return data;
+  });
+```
+
+### Client Component
+
+```tsx title="my-component.tsx"
+"use client"
+
+import { serverAction } from "./action"
+import { useAction } from "next-safe-action/hooks";
+import { toast } from "@repo/design-system/components/ui/sonner";
+
+function MyComponent() {
+  const { execute, isPending } = useAction(serverAction, {
+    onSuccess() {
+      // Display success message to client
+      toast.success("Action Success");
+    },
+    onError({ error }) {
+      // Display error message to client
+      toast.error("Action Failed");
+    },
+  });
+
+  const onClick = () => {
+    execute({ name: "next-forge", id: "example" });
+  };
+
+  return (
+    <div>
+      <Button disabled={isPending} onClick={onClick}>
+        Click to call action
+      </Button>
+    </div>
+  );
+}
+```
+
+In this example, we create an action with input validation on the server, and call it on the client to with type-safe inputs and convinient callback utilities to simplify state management and error handling.
+
+## Benefits
+
+- **Simplified State Management**: Next Safe Action simplifies server action state management by providing callbacks and status utilities.
+- **Type-safe**: By using Zod or other validation libraries, your inputs are type-safe and validated end-to-end.
+- **Easy Integration**: Next Safe Action is extremely easy to integrate, and you can incrementally use more of its feature like optimistic updates and middlewares.
+
+For more information and detailed documentation, visit the [Next Safe Action website](https://next-safe-action.dev).

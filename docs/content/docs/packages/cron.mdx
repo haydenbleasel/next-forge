@@ -1,0 +1,58 @@
+---
+title: Cron Jobs
+description: Create serverless functions that run on specific intervals.
+---
+
+By default, next-forge uses Vercel's cron jobs feature to trigger Next.js serverless functions on a schedule. However, you can replace this setup with the background job service of your choosing, such as trigger.dev or BetterStack.
+
+## Writing functions
+
+Next.js serverless functions act as the basis for scheduled jobs. You can write them in any runtime and trigger them using a simple HTTP call.
+
+To demonstrate, we've created a example endpoint called `keep-alive` that creates, then subsequently deletes, a temporary `page` object in the database. This is a little workaround to prevent databases going to sleep after a period of inactivity. You should probably remove this if you don't need it.
+
+Additionally, while you can add cron jobs to any app, we use the `api` app to keep our background jobs, webhooks and other such tasks isolated from our UI.
+
+You can add new functions by creating the relevant `route.ts` files in the `apps/api/app/cron` folder. While you can put them anywhere, we use the aptly named `cron` folder to hold our endpoints designed to run as cron jobs. For example:
+
+```ts title="apps/api/app/cron/[your-function]/route.ts"
+import { database } from '@repo/database';
+
+// Must use GET for Vercel cron jobs
+export const GET = async () => {
+  // Do stuff
+
+  return new Response('OK', { status: 200 });
+};
+```
+
+## Scheduling functions
+
+After you write your serverless function, you can schedule it by amending the `vercel.json` file in the API app. To serve as an example, we've wired up the `keep-alive` job mentioned above to run every 10 minutes.
+
+```json title="apps/api/vercel.json"
+{
+  "crons": [
+    {
+      "path": "/cron/keep-alive",
+      "schedule": "0 1 * * *"
+    }
+  ]
+}
+```
+
+## How Vercel triggers cron jobs
+
+To trigger a cron job, Vercel makes an HTTP GET request to your project's production deployment URL, using the path provided in your project's vercel.json file. For example, Vercel might make a request to:
+
+```
+https://*.vercel.app/cron/keep-alive
+```
+
+## Triggering functions manually
+
+Should you need to trigger a cron job manually, you can either do so in the Vercel dashboard or just hit the endpoint with a standard HTTP request. For example:
+
+```sh title="Terminal"
+curl -X GET http://localhost:3002/cron/keep-alive
+```

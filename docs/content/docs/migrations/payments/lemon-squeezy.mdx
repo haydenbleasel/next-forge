@@ -1,0 +1,79 @@
+---
+title: Switch to Lemon Squeezy
+description: How to change the default payment processor to Lemon Squeezy.
+---
+
+[Lemon Squeezy](https://www.lemonsqueezy.com) is an all-in-one platform for running your SaaS business. It handles payments, subscriptions, global tax compliance, fraud prevention, multi-currency, and more. Here's how to switch the default payment processor from Stripe to Lemon Squeezy.
+
+## 1. Swap out the required dependencies
+
+First, uninstall the existing dependencies from the Payments package...
+
+```sh title="Terminal"
+pnpm remove stripe --filter @repo/payments
+```
+
+... and install the new dependencies...
+
+```sh title="Terminal"
+pnpm add @lemonsqueezy/lemonsqueezy.js --filter @repo/payments
+```
+
+## 2. Update the environment variables
+
+Next, update the environment variables across the project, for example:
+
+```js title="apps/app/.env"
+NEXT_PUBLIC_LEMON_SQUEEZY_API_KEY=""
+```
+
+Additionally, replace all instances of `STRIPE_SECRET_KEY` with `LEMON_SQUEEZY_API_KEY` in the `packages/env/index.ts` file.
+
+## 3. Update the payments client
+
+Initialize the payments client in the `packages/payments/index.ts` file with the new API key. Then, export the `lemonSqueezySetup` function from the file.
+
+```ts title="packages/payments/index.ts"
+import { env } from '@repo/env';
+import { lemonSqueezySetup } from '@lemonsqueezy/lemonsqueezy.js';
+
+lemonSqueezySetup({
+  apiKey,
+  onError: (error) => console.error("Error!", error),
+});
+
+export * from '@lemonsqueezy/lemonsqueezy.js';
+```
+
+## 4. Update the payments webhook handler
+
+Update the webhook handler for Lemon Squeezy:
+
+```ts title="apps/api/app/webhooks/payments/route.ts"
+import { NextResponse } from 'next/server';
+
+export const POST = async (request: Request) => {
+  return NextResponse.json({ message: 'Hello World' });
+};
+```
+
+There's quite a lot you can do with Lemon Squeezy, so check out the following resources for more information:
+
+- [Webhooks Overview](https://docs.lemonsqueezy.com/guides/developer-guide/webhooks)
+- [Signing Requests](https://docs.lemonsqueezy.com/help/webhooks/signing-requests)
+
+## 5. Use Lemon Squeezy in your app
+
+Finally, use the new payments client in your app.
+
+```tsx title="apps/app/app/(authenticated)/page.tsx"
+import { getStore } from '@repo/payments';
+
+const Page = async () => {
+  const store = await getStore(123456);
+
+  return (
+    <pre>{JSON.stringify(store, null, 2)}</pre>
+  );
+};
+```

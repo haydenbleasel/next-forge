@@ -1,0 +1,28 @@
+---
+title: Toolbar
+description: next-forge uses the Vercel Toolbar to allow you to override feature flags in development.
+---
+
+The [Vercel Toolbar](https://vercel.com/docs/workflow-collaboration/vercel-toolbar) is a tool that allows you to leave feedback, navigate through important dashboard pages, share deployments, use Draft Mode for previewing unpublished content, and Edit Mode for editing content in real-time. next-forge has the Vercel Toolbar enabled by default.
+
+## Link your applications
+
+Go into each application and run `vercel link`, like so:
+
+```sh title="Terminal"
+cd apps/app && vercel link && cd ../..
+cd apps/web && vercel link && cd ../..
+cd apps/api && vercel link && cd ../..
+```
+
+This will create a `.vercel/project.json` file in each application.
+
+## Add the environment variable
+
+Then, simply add a `FLAGS_SECRET` environment variable to each application's `.env.local` file, like so:
+
+```js title=".env.local"
+FLAGS_SECRET="test"
+```
+
+These two steps are optional, but they are recommended to ensure that the Vercel Toolbar is enabled in each application.
