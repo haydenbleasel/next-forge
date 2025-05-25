@@ -7,7 +7,7 @@ description: How to setup, install and run next-forge.
 
 Run the `next-forge` init command:
 
-```sh title="Terminal"
+```package-install
 npx next-forge@latest init
 ```
 
@@ -35,8 +35,8 @@ This will create a new directory with your project name and clone the repo into 
 
 You will need to scaffold the database using the schema defined in `packages/database/prisma/schema.prisma`:
 
-```sh title="Terminal"
-pnpm migrate
+```package-install
+npm run migrate
 ```
 
 For more details on the default Prisma configuration (using Neon), refer to the [Database Configuration Guide](https://docs.next-forge.com/packages/database#default-configuration).
@@ -53,8 +53,8 @@ You will need to setup the CMS. Follow the instructions [here](/features/cms), b
 
 Run the development server with:
 
-```sh title="Terminal"
-pnpm dev
+```package-install
+npm run dev
 ```
 
 Open the localhost URLs with the relevant ports listed above to see the app, e.g.

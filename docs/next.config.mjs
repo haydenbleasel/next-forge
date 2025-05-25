@@ -40,7 +40,7 @@ const config = {
       },
       {
         source: '/migrations',
-        destination: '/migrations/authjs',
+        destination: '/migrations/authentication/authjs',
         permanent: true,
       },
       {
