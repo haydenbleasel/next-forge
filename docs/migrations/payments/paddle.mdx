@@ -124,15 +124,9 @@ export * from '@paddle/paddle-node-sdk';
 
 ## 5. Update the payments webhook handler
 
-Remove the Stripe webhook handler from the API package...
+Update the webhook handler for Paddle:
 
-```sh Terminal
-rm apps/api/app/webhooks/stripe/route.ts
-```
-
-... and create a new webhook handler for Paddle:
-
-```ts apps/api/app/webhooks/paddle/route.ts
+```ts apps/api/app/webhooks/payments/route.ts
 import { env } from '@/env';
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';

@@ -19,7 +19,7 @@ await stripe.prices.list();
 
 ## Webhooks
 
-Stripe webhooks are handled in the `POST /webhooks/stripe` route in the `api` app. This route constructs the event and then switches on the event type to determine how to process the event.
+Stripe webhooks are handled in the `POST /webhooks/payments` route in the `api` app. This route constructs the event and then switches on the event type to determine how to process the event.
 
 ### Local Development
 

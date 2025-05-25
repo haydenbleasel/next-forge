@@ -34,11 +34,11 @@ To automatically capture authentication and payment events, we've combined PostH
 
 <Mermaid chart={`
 graph TD
-  A[User Action in App] -->|Triggers| B[Clerk Webhook]
-  A -->|Triggers| E[Stripe Webhook]
+  A[User Action in App] -->|Triggers| B[Auth Webhook]
+  A -->|Triggers| E[Payments Webhook]
   A -->|Client-Side Call| PostHog
-  B -->|Sends Data| C1[webhooks/clerk]
-  E -->|Sends Data| C2[webhooks/stripe]
+  B -->|Sends Data| C1[webhooks/auth]
+  E -->|Sends Data| C2[webhooks/payments]
 
   subgraph API
     C1
@@ -48,8 +48,8 @@ graph TD
   subgraph PostHog
   end
 
-  C1 -->|Clerk Events| PostHog
-  C2 -->|Stripe Events| PostHog
+  C1 -->|Auth Events| PostHog
+  C2 -->|Payments Events| PostHog
 `} />
 
 ## Reverse Proxy
