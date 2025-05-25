@@ -151,7 +151,10 @@
         "packages/storage",
         "packages/testing",
         "packages/toolbar",
-        "packages/webhooks"
+        {
+          "group": "Webhooks",
+          "pages": ["packages/webhooks/inbound", "packages/webhooks/outbound"]
+        }
       ]
     },
     {
@@ -369,8 +372,12 @@
       "destination": "/apps/storybook"
     },
     {
+      "source": "/packages/webhooks",
+      "destination": "/packages/webhooks/outbound"
+    },
+    {
       "source": "/webhooks",
-      "destination": "/packages/webhooks"
+      "destination": "/packages/webhooks/outbound"
     },
     {
       "source": "/seo",

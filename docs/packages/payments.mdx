@@ -1,6 +1,6 @@
 ---
 title: Payments
-description: In-app payments and webhooks with Stripe.
+description: How next-forge handles payments and billing.
 ---
 
 next-forge uses [Stripe](https://stripe.com/) by default for payments and billing. Implementing Stripe in your project is straightforward.
@@ -19,11 +19,7 @@ await stripe.prices.list();
 
 ## Webhooks
 
-Stripe webhooks are handled in the `POST /webhooks/payments` route in the `api` app. This route constructs the event and then switches on the event type to determine how to process the event.
-
-### Local Development
-
-To test webhooks locally, we've configured the Stripe CLI to forward webhooks to your local server. This will start automatically when you run `pnpm dev`.
+next-forge has a pre-built webhook handler for payment events. Read more about [inbound payment webhooks](/packages/webhooks/inbound#payment-events).
 
 ## Anti-Fraud
 
