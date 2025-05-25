@@ -13,6 +13,10 @@ const config = {
         protocol: 'https',
         hostname: 'vercel.com',
       },
+      {
+        hostname: 'avatars.githubusercontent.com',
+        protocol: 'https',
+      },
     ],
   },
 
