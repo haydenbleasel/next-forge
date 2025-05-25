@@ -22,7 +22,7 @@ export const OpenSource = () => {
           and maintained by a community of developers. It was originally
           developed by{' '}
           <a
-            href="https://www.haydenbleasel.com/"
+            href="https://x.com/haydenbleasel"
             className="text-primary underline"
             target="_blank"
             rel="noopener noreferrer"
@@ -34,7 +34,7 @@ export const OpenSource = () => {
       </div>
       <Button asChild variant="outline">
         <a
-          href="https://github.com/haydenbleasel/next-forge"
+          href="https://github.com/vercel/next-forge"
           target="_blank"
           rel="noopener noreferrer"
         >

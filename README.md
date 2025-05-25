@@ -19,7 +19,7 @@ npx next-forge@latest init
 Then read the [docs](https://www.next-forge.com/docs) for more information.
 
 <a href="https://github.com/vercel/next-forge/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=haydenbleasel/next-forge" />
+  <img src="https://contrib.rocks/image?repo=vercel/next-forge" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks).

@@ -4,7 +4,7 @@ export const Footer = () => (
       <p className="mx-auto block text-center text-sm">
         Built with love by{' '}
         <a
-          href="https://www.haydenbleasel.com"
+          href="https://x.com/haydenbleasel"
           target="_blank"
           rel="noopener noreferrer"
           className="text-neutral-950 underline"

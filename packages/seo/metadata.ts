@@ -9,8 +9,8 @@ type MetadataGenerator = Omit<Metadata, 'description' | 'title'> & {
 
 const applicationName = 'next-forge';
 const author: Metadata['authors'] = {
-  name: 'Hayden Bleasel',
-  url: 'https://haydenbleasel.com/',
+  name: 'Vercel',
+  url: 'https://vercel.com/',
 };
 const publisher = 'Vercel';
 const twitterHandle = '@vercel';

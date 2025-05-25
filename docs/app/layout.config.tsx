@@ -1,7 +1,7 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
 
 export const baseOptions: BaseLayoutProps = {
-  githubUrl: 'https://github.com/haydenbleasel/next-forge',
+  githubUrl: 'https://github.com/vercel/next-forge',
   links: [
     {
       text: 'Home',

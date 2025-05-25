@@ -8,9 +8,9 @@ import TurborepoLogo from './turborepo.svg';
 export const Hero = () => (
   <section className="flex flex-col items-center justify-center gap-6 bg-dashed px-4 py-16 sm:px-16 sm:py-24">
     <a
-      href="https://www.haydenbleasel.com/blog/vercel"
+      href="https://x.com/haydenbleasel/status/{tweet}"
       target="_blank"
-      className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white py-1 pr-3 pl-1 text-neutral-900 text-sm leading-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
+      className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white py-1 pr-3 pl-1 text-neutral-900 text-sm leading-6 shadow-xs dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-100"
       rel="noreferrer"
     >
       <span className="rounded-full bg-neutral-100 px-2 font-semibold">
