@@ -10,11 +10,7 @@ export const cleanFileName = (file: string) =>
 
 export const execSyncOpts: ExecSyncOptions = { stdio: 'ignore' };
 
-export const internalContentDirs = [
-  join('.github', 'workflows'),
-  'docs',
-  'splash',
-];
+export const internalContentDirs = [join('.github', 'workflows'), 'docs'];
 
 export const internalContentFiles = [
   join('.github', 'CONTRIBUTING.md'),
