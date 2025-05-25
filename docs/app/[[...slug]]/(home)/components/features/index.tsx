@@ -185,7 +185,7 @@ export const Features = () => (
       <div className="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 mx-auto w-full max-w-[90%] text-center">
         <div className="relative z-10">
           <p className="mx-auto mt-2 max-w-3xl text-pretty font-bold text-4xl text-foreground/10 tracking-tight sm:text-5xl md:text-6xl">
-            Built the best tools for modern developers
+            Built with the best tools for modern developers
           </p>
         </div>
       </div>

@@ -19,9 +19,7 @@ const Home = () => (
     </div>
     <div className="h-8 bg-dashed" />
     <Apps />
-    <div className="h-8 bg-dashed" />
     <Features />
-    <div className="h-8 bg-dashed" />
     <Social />
     <CallToAction />
   </main>
