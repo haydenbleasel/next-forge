@@ -15,5 +15,6 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     Warning: ({ children }) => <Callout type="warning">{children}</Callout>,
     Tip: ({ children }) => <Callout type="info">{children}</Callout>,
     Info: ({ children }) => <Callout type="info">{children}</Callout>,
+    Note: ({ children }) => <Callout type="info">{children}</Callout>,
   };
 }

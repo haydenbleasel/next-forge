@@ -8,7 +8,31 @@ export default function Layout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={source.pageTree}
       {...baseOptions}
-      sidebar={{ collapsible: false }}
+      sidebar={{
+        collapsible: false,
+        tabs: [
+          {
+            title: 'Getting Started',
+            url: '/docs',
+          },
+          {
+            title: 'Apps',
+            url: '/apps',
+          },
+          {
+            title: 'Packages',
+            url: '/packages',
+          },
+          {
+            title: 'Migrations',
+            url: '/migrations',
+          },
+          {
+            title: 'Addons',
+            url: '/addons',
+          },
+        ],
+      }}
       tabMode="navbar"
       nav={{
         ...baseOptions.nav,

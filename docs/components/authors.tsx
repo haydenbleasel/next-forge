@@ -12,8 +12,8 @@ type Author = {
 };
 
 export const Authors = ({ data }: { data: Author[] }) => (
-  <div className="mb-12 flex flex-col gap-2">
-    <span className="text-gray-500 text-sm">Co-authored by</span>
+  <div className="not-prose mb-12 flex flex-col gap-2">
+    <span className="text-muted-foreground text-sm">Co-authored by</span>
     <div className="flex flex-wrap items-center gap-2">
       {data.map((author) => (
         <div
@@ -41,10 +41,10 @@ export const Authors = ({ data }: { data: Author[] }) => (
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-semibold text-[13px] leading-tight tracking-tight">
+            <span className="font-semibold text-[13px] leading-tight">
               {author.user.name}
             </span>
-            <span className="text-[11px] text-gray-500 leading-tight">
+            <span className="text-[11px] text-muted-foreground leading-tight">
               {author.company.name}
             </span>
           </div>
