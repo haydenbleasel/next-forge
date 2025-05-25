@@ -6,7 +6,8 @@
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx"
+    "postinstall": "fumadocs-mdx",
+    "validate-links": "bun scripts/validate-links.ts"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -71,6 +72,7 @@
     "@types/node": "22.15.21",
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
+    "next-validate-link": "^1.5.2",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.1.7",
     "tw-animate-css": "^1.3.0",
