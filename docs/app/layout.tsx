@@ -1,8 +1,8 @@
 import './global.css';
 import { Analytics as VercelAnalytics } from '@vercel/analytics/react';
 import { RootProvider } from 'fumadocs-ui/provider';
-import { Inter as createSans } from 'next/font/google';
-import { JetBrains_Mono as createMono } from 'next/font/google';
+import { Geist as createSans } from 'next/font/google';
+import { Geist_Mono as createMono } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Toaster } from '../components/ui/sonner';

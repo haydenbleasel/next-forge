@@ -1,5 +1,6 @@
+import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import { DocsButton } from '../docs-button';
+import Link from 'next/link';
 import { Installer } from '../installer';
 import NextLogo from './next.svg';
 import TurborepoLogo from './turborepo.svg';
@@ -29,9 +30,11 @@ export const Hero = () => (
       A monorepo template designed to have everything you need to build your new
       SaaS app as thoroughly as possible. Free and open source, forever.
     </p>
-    <div className="mx-auto flex w-full max-w-md flex-col items-center gap-4 sm:flex-row">
+    <div className="mx-auto flex w-full max-w-lg flex-col items-center gap-4 sm:flex-row">
       <Installer />
-      <DocsButton className="hidden sm:block" />
+      <Button asChild size="lg">
+        <Link href="/docs">Read the docs</Link>
+      </Button>
     </div>
   </section>
 );

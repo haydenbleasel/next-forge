@@ -1,3 +1,4 @@
+import { Button } from '@/components/ui/button';
 import { StarIcon } from 'lucide-react';
 
 export const OpenSource = () => {
@@ -22,12 +23,15 @@ export const OpenSource = () => {
           .
         </p>
       </div>
-      <a
-        href="https://github.com/haydenbleasel/next-forge"
-        className="inline-flex rounded-md border bg-white px-4 py-2 font-medium text-sm shadow-sm"
-      >
-        Browse the source code
-      </a>
+      <Button asChild variant="outline">
+        <a
+          href="https://github.com/haydenbleasel/next-forge"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Browse the source code
+        </a>
+      </Button>
     </div>
   );
 };
