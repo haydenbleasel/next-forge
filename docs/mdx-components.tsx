@@ -1,4 +1,5 @@
 import { Callout } from 'fumadocs-ui/components/callout';
+import * as StepsComponents from 'fumadocs-ui/components/steps';
 import * as TabsComponents from 'fumadocs-ui/components/tabs';
 import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
@@ -12,6 +13,7 @@ export function getMDXComponents(components?: MDXComponents): MDXComponents {
     ...defaultMdxComponents,
     ...components,
     ...TabsComponents,
+    ...StepsComponents,
     Authors,
     VercelButton,
     Warning: ({ children }) => <Callout type="warning">{children}</Callout>,
