@@ -37,7 +37,7 @@ Additionally, replace all instances of `BLOB_READ_WRITE_TOKEN` with `UPLOADTHING
 
 Update the `index.ts` and `client.ts` to use the new `uploadthing` packages:
 
-<CodeGroup>
+### Storage
 
 ```ts title="packages/storage/index.ts"
 import { createUploadthing } from 'uploadthing/next';
@@ -48,11 +48,11 @@ export { UploadThingError as UploadError, extractRouterConfig } from 'uploadthin
 export const storage = createUploadthing();
 ```
 
+### Client
+
 ```ts title="packages/storage/client.ts"
 export * from '@uploadthing/react';
 ```
-
-</CodeGroup>
 
 ## 4. Create new SSR file
 

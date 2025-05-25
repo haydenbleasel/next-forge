@@ -3,7 +3,7 @@ title: Next Safe Action
 description: A powerful library for managing and securing your Next.js Server Actions.
 ---
 
-### Installation
+## Installation
 
 To install Next Safe Action, simply run the following command:
 
@@ -13,11 +13,11 @@ pnpm add next-safe-action zod --filter app
 
 By default, Next Safe Action uses Zod to validate inputs, but it also supports adapters for Valibot, Yup, and Typebox.
 
-### Basic Usage
+## Basic Usage
 
 Here is a basic example of how to use Next Safe Action to call your Server Actions:
 
-<CodeGroup>
+### Server Action
 
 ```ts title="action.ts"
 "use server"
@@ -42,6 +42,8 @@ export const serverAction = createSafeActionClient()
     return data;
   });
 ```
+
+### Client Component
 
 ```tsx title="my-component.tsx"
 "use client"
@@ -76,12 +78,9 @@ function MyComponent() {
 }
 ```
 
-</CodeGroup>
-
-
 In this example, we create an action with input validation on the server, and call it on the client to with type-safe inputs and convinient callback utilities to simplify state management and error handling.
 
-### Benefits
+## Benefits
 
 - **Simplified State Management**: Next Safe Action simplifies server action state management by providing callbacks and status utilities.
 - **Type-safe**: By using Zod or other validation libraries, your inputs are type-safe and validated end-to-end.

@@ -49,11 +49,13 @@ Now we need to modify the CMS package scripts to replace the `basehub` commands 
 
 ## 4. Modify the relevant CMS package files
 
-<CodeGroup>
+### Next.js Config
 
 ```ts title="packages/cms/next-config.ts"
 export { withContentCollections as withCMS } from '@content-collections/next';
 ```
+
+### Collections
 
 ```ts title="packages/cms/index.ts"
 import { allPosts, allLegals } from 'content-collections';
@@ -81,6 +83,8 @@ export const legal = {
 };
 ```
 
+### Components
+
 ```tsx title="packages/cms/components/body.tsx"
 import { MDXContent } from '@content-collections/mdx/react';
 import type { ComponentProps } from 'react';
@@ -94,6 +98,8 @@ export const Body = ({ content, ...props }: BodyProperties) => (
 );
 ```
 
+### TypeScript Config
+
 ```ts title="packages/cms/typescript-config.json"
 {
   "compilerOptions": {
@@ -104,9 +110,13 @@ export const Body = ({ content, ...props }: BodyProperties) => (
 }
 ```
 
+### Toolbar
+
 ```tsx title="packages/cms/components/toolbar.tsx"
 export const Toolbar = () => null;
 ```
+
+### Table of Contents
 
 ```tsx title="packages/cms/components/toc.tsx"
 import { getTableOfContents } from 'fumadocs-core/server';
@@ -142,8 +152,6 @@ export const TableOfContents = async ({
 };
 ```
 
-</CodeGroup>
-
 ## 5. Update the `sitemap.ts` file
 
 Update the `sitemap.ts` file to scan the `content` directory for MDX files:
@@ -174,7 +182,7 @@ Create a new content collections file in the `cms` package, then import the coll
 
 <Note>We're remapping the `title` field to `_title` and the `_meta.path` field to `_slug` to match the default next-forge CMS.</Note>
 
-<CodeGroup>
+### CMS
 
 ```ts title="packages/cms/collections.ts"
 import { defineCollection, defineConfig } from '@content-collections/core';
@@ -234,11 +242,11 @@ export default defineConfig({
 });
 ```
 
+### Web
+
 ```ts title="packages/web/content-collections.ts"
 export { default } from '@repo/cms/collections';
 ```
-
-</CodeGroup>
 
 ## 7. Create your content
 

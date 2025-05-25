@@ -9,24 +9,11 @@ The [Vercel Toolbar](https://vercel.com/docs/workflow-collaboration/vercel-toolb
 
 Go into each application and run `vercel link`, like so:
 
-<CodeGroup>
-
 ```sh title="Terminal"
-cd apps/app
-vercel link
+cd apps/app && vercel link && cd ../..
+cd apps/web && vercel link && cd ../..
+cd apps/api && vercel link && cd ../..
 ```
-
-```sh title="Terminal"
-cd apps/web
-vercel link
-```
-
-```sh title="Terminal"
-cd apps/api
-vercel link
-```
-
-</CodeGroup>
 
 This will create a `.vercel/project.json` file in each application.
 

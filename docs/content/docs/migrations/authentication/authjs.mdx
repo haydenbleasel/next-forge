@@ -61,7 +61,7 @@ export { auth as authMiddleware } from './';
 
 Auth.js has no concept of "sign up", so we'll use the `signIn` function to sign up users. Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package with the same content:
 
-<CodeGroup>
+### Sign In
 
 ```tsx title="packages/auth/components/sign-in.tsx"
 import { signIn } from '../';
@@ -78,6 +78,8 @@ export const SignIn = () => (
 );
 ```
 
+### Sign Up
+
 ```tsx title="packages/auth/components/sign-up.tsx"
 import { signIn } from '../';
 
@@ -92,8 +94,6 @@ export const SignUp = () => (
   </form>
 );
 ```
-
-</CodeGroup>
 
 ## 6. Update the Provider file
 

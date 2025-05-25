@@ -79,7 +79,7 @@ The MDX syntax of Fumadocs is almost identical to Mintlify, despite from having 
 
 Code block titles are formatted with `title="Title"`.
 
-<CodeGroup>
+#### Before
 
 ````sh title="Mintlify"
 ```sh title="Name"
@@ -87,31 +87,31 @@ pnpm i
 ```
 ````
 
+#### After
+
 ````sh title="Fumadocs"
 ```sh title="title="Name""
 pnpm i
 ```
 ````
 
-</CodeGroup>
-
 Code highlighting is done with an inline comment.
 
-<CodeGroup>
+#### Before
 
 ````ts title="Mintlify"
-```ts title="{1}"
+```ts {1}
 console.log('Highlighted');
 ```
 ````
+
+#### After
 
 ````ts title="Fumadocs"
 ```ts
 console.log('Highlighted'); // [!code highlight]
 ```
 ````
-
-</CodeGroup>
 
 In Fumadocs, you can also highlight specific words.
 
@@ -123,7 +123,7 @@ console.log('Highlighted'); // [!code word:Highlighted]
 
 For code groups, you can use the `Tabs` component:
 
-<CodeGroup>
+#### Before
 
 ````tsx title="Mintlify"
 <CodeGroup>
@@ -135,8 +135,11 @@ console.log('Hello, world!');
 ```ts title="Tab Two"
 console.log('Hello, world!');
 ```
+
 </CodeGroup>
 ````
+
+#### After
 
 ````tsx title="Fumadocs"
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
@@ -154,15 +157,13 @@ console.log('B');
 </Tabs>
 ````
 
-</CodeGroup>
-
 Fumadocs also has a built-in integration for TypeScript Twoslash, check it out in the [Setup Guide](https://fumadocs.vercel.app/docs/ui/twoslash).
 
 ### Callout
 
 Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify's specific ones.
 
-<CodeGroup>
+#### Before
 
 ```tsx title="Mintlify"
 <Note>Hello World</Note>
@@ -172,13 +173,13 @@ Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify
 <Check>Hello World</Check>
 ```
 
+#### After
+
 ```tsx title="Fumadocs"
 <Callout title="Title" type="info">Hello World</Callout>
 <Callout title="Title" type="warn">Hello World</Callout>
 <Callout title="Title" type="error">Hello World</Callout>
 ```
-
-</CodeGroup>
 
 ### Adding Components
 
