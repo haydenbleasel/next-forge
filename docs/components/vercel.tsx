@@ -44,7 +44,7 @@ export const VercelButton = () => {
   url.searchParams.set('repository-name', 'next-forge');
   url.searchParams.set(
     'repository-url',
-    'https://github.com/haydenbleasel/next-forge'
+    'https://github.com/vercel/next-forge'
   );
   url.searchParams.set('root-directory', 'apps/app');
   url.searchParams.set('skippable-integrations', '1');
