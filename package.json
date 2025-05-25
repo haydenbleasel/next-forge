@@ -25,21 +25,21 @@
     "@auto-it/first-time-contributor": "^11.3.0",
     "@biomejs/biome": "1.9.4",
     "@repo/typescript-config": "workspace:*",
-    "@turbo/gen": "^2.5.0",
-    "@types/node": "^22.14.1",
-    "tsup": "^8.4.0",
-    "turbo": "^2.5.0",
+    "@turbo/gen": "^2.5.3",
+    "@types/node": "^22.15.21",
+    "tsup": "^8.5.0",
+    "turbo": "^2.5.3",
     "typescript": "^5.8.3",
-    "ultracite": "^4.2.1",
-    "vitest": "^3.1.1"
+    "ultracite": "^4.2.5",
+    "vitest": "^3.1.4"
   },
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "pnpm@10.8.0",
+  "packageManager": "pnpm@10.11.0",
   "dependencies": {
-    "@clack/prompts": "^0.10.1",
-    "commander": "^13.1.0"
+    "@clack/prompts": "^0.11.0",
+    "commander": "^14.0.0"
   },
   "type": "module"
 }
