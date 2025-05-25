@@ -1,3 +1,22 @@
+# v4.3.0 (Sun May 25 2025)
+
+#### 🚀 Enhancement
+
+- Bump @prisma/nextjs-monorepo-workaround-plugin from 6.6.0 to 6.7.0 [#534](https://github.com/haydenbleasel/next-forge/pull/534) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @liveblocks/react from 2.22.3 to 2.24.1 [#536](https://github.com/haydenbleasel/next-forge/pull/536) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### 🐛 Bug Fix
+
+- Bump @next/third-parties from 15.3.0 to 15.3.1 [#530](https://github.com/haydenbleasel/next-forge/pull/530) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump recharts from 2.15.2 to 2.15.3 [#532](https://github.com/haydenbleasel/next-forge/pull/532) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+- Bump @radix-ui/react-menubar from 1.1.7 to 1.1.12 [#535](https://github.com/haydenbleasel/next-forge/pull/535) ([@dependabot[bot]](https://github.com/dependabot[bot]))
+
+#### Authors: 1
+
+- [@dependabot[bot]](https://github.com/dependabot[bot])
+
+---
+
 # v4.2.16 (Tue May 20 2025)
 
 #### ⚠️ Pushed to `main`
