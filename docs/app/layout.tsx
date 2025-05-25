@@ -34,7 +34,7 @@ const Layout = ({ children }: LayoutProps) => (
     suppressHydrationWarning
   >
     <body className="flex min-h-screen flex-col bg-neutral-50 dark:bg-neutral-950">
-      <main className="container mx-auto border-x">
+      <main className="container mx-auto border-x px-0">
         <Header />
         <div className="divide-y">{children}</div>
       </main>
