@@ -2,6 +2,7 @@ import defaultMdxComponents from 'fumadocs-ui/mdx';
 import type { MDXComponents } from 'mdx/types';
 
 import { Callout } from 'fumadocs-ui/components/callout';
+import {} from 'react';
 import { Authors } from './components/authors';
 import { VercelButton } from './components/vercel';
 
