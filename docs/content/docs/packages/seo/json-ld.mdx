@@ -16,7 +16,7 @@ By default, structured data is implemented on the following pages:
 
 Our `@repo/seo` package provides a JSON+LD helper built on `schema-dts`, allowing for structured data generation in a type-safe way. You can declare your own JSON+LD implementations like so:
 
-```page.tsx
+```tsx title="page.tsx"
 import { JsonLd } from '@repo/seo/json-ld';
 import type { WithContext, YourInterface } from '@repo/seo/json-ld';
 
