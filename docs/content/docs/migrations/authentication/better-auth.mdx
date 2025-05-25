@@ -29,13 +29,13 @@ Better Auth is a comprehensive, open-source authentication framework for TypeScr
 
 Uninstall the existing Clerk dependencies from the `auth` package...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ```
 
 ...and install the Better Auth dependencies:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add better-auth next --filter @repo/auth
 ```
 
@@ -45,7 +45,7 @@ Additionally, add `@repo/database` to the `auth` package dependencies.
 
 Generate a secret with the following command to add it to the `.env.local` file in each Next.js application (`app`, `web` and `api`):
 
-```sh Terminal
+```sh title="Terminal"
 npx @better-auth/cli secret
 ```
 
@@ -57,7 +57,7 @@ Update the `auth` package files with the following code:
 
 <CodeGroup>
 
-  ```ts packages/auth/server.ts
+  ```ts title="packages/auth/server.ts"
   import { betterAuth } from 'better-auth';
   import { nextCookies } from "better-auth/next-js";
   import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -75,7 +75,7 @@ Update the `auth` package files with the following code:
   });
   ```
 
-  ```ts packages/auth/client.ts
+  ```ts title="packages/auth/client.ts"
   import { createAuthClient } from 'better-auth/react';
 
   export const { signIn, signOut, signUp, useSession } = createAuthClient();
@@ -91,7 +91,7 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
 
 <CodeGroup>
 
-  ```tsx packages/auth/components/sign-in.tsx
+  ```tsx title="packages/auth/components/sign-in.tsx"
   "use client";
 
   import { signIn } from '../client';
@@ -127,7 +127,7 @@ Update both the `sign-in.tsx` and `sign-up.tsx` components in the `auth` package
   }
   ```
 
-  ```tsx packages/auth/components/sign-up.tsx
+  ```tsx title="packages/auth/components/sign-up.tsx"
   "use client";
 
   import { signUp } from '../client';
@@ -178,7 +178,7 @@ You can use different sign-in methods like social providers, phone, username etc
 
 From the root folder, generate Prisma models for Better Auth by running the following command:
 
-```sh Terminal
+```sh title="Terminal"
 npx @better-auth/cli generate --output ./packages/database/prisma/schema.prisma --config ./packages/auth/server.ts
 ```
 
@@ -190,7 +190,7 @@ You may have to comment out the `server-only` directive in `packages/database/in
 
 Better Auth has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
 
-```tsx packages/auth/provider.tsx
+```tsx title="packages/auth/provider.tsx"
 import type { ReactNode } from 'react';
 
 type AuthProviderProps = {
@@ -204,7 +204,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => children;
 
 Change the middleware in the `auth` package to the following:
 
-```tsx packages/auth/middleware.ts
+```tsx title="packages/auth/middleware.ts"
 import type { NextRequest } from "next/server";
 import { NextResponse } from 'next/server';
 
@@ -236,7 +236,7 @@ export const authMiddleware = async (request: NextRequest) => {
 
     <CodeGroup>
 
-```tsx packages/auth/handlers.ts
+```tsx title="packages/auth/handlers.ts"
 import 'server-only';
 import { toNextJsHandler } from 'better-auth/next-js';
 
@@ -245,7 +245,7 @@ import { auth } from './server';
 export const { POST, GET } = toNextJsHandler(auth);
 ```
 
-```tsx apps/app/app/api/auth/[...all.ts]
+```tsx title="apps/app/app/api/auth/[...all.ts]"
 export { POST, GET } from '@repo/auth/handlers'
 ```
 </CodeGroup>
@@ -288,7 +288,7 @@ const fullOrganization = await auth.api.getFullOrganization({
 });
 ```
 
-```tsx webhooks/stripe/route.ts
+```tsx title="webhooks/stripe/route.ts"
 import { clerkClient } from '@repo/auth/server';
 
 const clerk = await clerkClient();

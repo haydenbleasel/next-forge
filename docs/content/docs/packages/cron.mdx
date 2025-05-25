@@ -15,7 +15,7 @@ Additionally, while you can add cron jobs to any app, we use the `api` app to ke
 
 You can add new functions by creating the relevant `route.ts` files in the `apps/api/app/cron` folder. While you can put them anywhere, we use the aptly named `cron` folder to hold our endpoints designed to run as cron jobs. For example:
 
-```ts apps/api/app/cron/[your-function]/route.ts
+```ts title="apps/api/app/cron/[your-function]/route.ts"
 import { database } from '@repo/database';
 
 // Must use GET for Vercel cron jobs
@@ -30,7 +30,7 @@ export const GET = async () => {
 
 After you write your serverless function, you can schedule it by amending the `vercel.json` file in the API app. To serve as an example, we've wired up the `keep-alive` job mentioned above to run every 10 minutes.
 
-```json apps/api/vercel.json
+```json title="apps/api/vercel.json"
 {
   "crons": [
     {
@@ -53,6 +53,6 @@ https://*.vercel.app/cron/keep-alive
 
 Should you need to trigger a cron job manually, you can either do so in the Vercel dashboard or just hit the endpoint with a standard HTTP request. For example:
 
-```sh Terminal
+```sh title="Terminal"
 curl -X GET http://localhost:3002/cron/keep-alive
 ```

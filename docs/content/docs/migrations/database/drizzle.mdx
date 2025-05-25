@@ -34,13 +34,13 @@ Here, we'll assume you have a working Neon database and cover the second option.
 
 Uninstall the existing dependencies...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @prisma/adapter-neon @prisma/client prisma --filter @repo/database
 ```
 
 ...and install the new ones:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add drizzle-orm --filter @repo/database
 pnpm add -D drizzle-kit --filter @repo/database
 ```
@@ -49,7 +49,7 @@ pnpm add -D drizzle-kit --filter @repo/database
 
 Delete everything in `@repo/database/index.ts` and replace it with the following:
 
-```ts packages/database/index.ts
+```ts title="packages/database/index.ts"
 import 'server-only';
 
 import { drizzle } from 'drizzle-orm/neon-http';
@@ -65,7 +65,7 @@ export const database = drizzle({ client });
 
 Next we'll create a Drizzle configuration file, used by Drizzle Kit and contains all the information about your database connection, migration folder and schema files. Create a `drizzle.config.ts` file in the `packages/database` directory with the following contents:
 
-```ts packages/database/drizzle.config.ts
+```ts title="packages/database/drizzle.config.ts"
 import { defineConfig } from 'drizzle-kit';
 import { env } from '@repo/env';
 
@@ -95,7 +95,7 @@ Now you can update your queries to use the Drizzle ORM.
 
 For example, here's how we can update the `page` query in `app/(authenticated)/page.tsx`:
 
-```ts apps/app/app/(authenticated)/page.tsx {2, 7}
+```ts title="apps/app/app/(authenticated)/page.tsx {2, 7}"
 import { database } from '@repo/database';
 import { page } from '@repo/database/schema';
 
@@ -114,7 +114,7 @@ export default App;
 
 You can also delete the now unused Prisma Studio app located at `apps/studio`:
 
-```sh Terminal
+```sh title="Terminal"
 rm -fr apps/studio
 ```
 

@@ -9,7 +9,7 @@ next-forge uses [Stripe](https://stripe.com/) by default for payments and billin
 
 You can use Stripe anywhere in your app by importing the `stripe` object like so:
 
-```ts page.tsx {1,5}
+```ts title="page.tsx {1,5}"
 import { stripe } from '@repo/payments';
 
 // ...
@@ -31,7 +31,7 @@ Stripe Radar supports more [advanced anti-fraud features](https://docs.stripe.co
   <Step title="Edit the layout">
     Edit `apps/app/app/layout.tsx` and add `<Script src="https://js.stripe.com/v3/" />` after the opening `<html>` tag and before the opening `<body>` tag. You will also need to add `import Script from 'next/script'`
 
-    ```tsx {5, 13}
+    ```tsx title="{5, 13}"
     import '@repo/design-system/styles/globals.css';
     import { DesignSystemProvider } from '@repo/design-system';
     import { fonts } from '@repo/design-system/lib/fonts';

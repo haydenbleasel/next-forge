@@ -231,13 +231,13 @@ Example: `mintlify`
   
   Examples:
   <CodeGroup>
-    ```json Absolute
+    ```json title="Absolute"
     "openapi": "https://example.com/openapi.json"
     ```
-    ```json Relative
+    ```json title="Relative"
     "openapi": "/openapi.json"
     ```
-    ```json Multiple
+    ```json title="Multiple"
     "openapi": ["https://example.com/openapi1.json", "/openapi2.json", "/openapi3.json"]
     ```
   </CodeGroup>
@@ -292,14 +292,14 @@ Example: `mintlify`
       Set to true to hide the dark/light mode toggle. You can combine `isHidden` with `default` to force your docs to only use light or dark mode. For example:
       
       <CodeGroup>
-      ```json Only Dark Mode
+      ```json title="Only Dark Mode"
       "modeToggle": {
         "default": "dark",
         "isHidden": true
       }
       ```
 
-      ```json Only Light Mode
+      ```json title="Only Light Mode"
       "modeToggle": {
         "default": "light",
         "isHidden": true

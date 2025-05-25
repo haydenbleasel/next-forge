@@ -32,7 +32,7 @@ We'll need to keep track of the following for the next step:
 
 Update the `.env` file with the Supabase connection details. Make sure you add `?pgbouncer=true&connection_limit=1` to the end of the `DATABASE_URL` value. 
 
-```js .env
+```js title=".env"
 DATABASE_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres?pgbouncer=true&connection_limit=1"
 DIRECT_URL="postgres://postgres:postgres@127.0.0.1:54322/postgres"
 ```
@@ -47,13 +47,13 @@ Prisma doesn't have a Supabase adapter yet, so we just need to remove the Neon a
 
 First, remove the Neon dependencies from the project...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
 ```
 
 ... and add the Supabase dependencies:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm install -D supabase --filter @repo/database
 ```
 
@@ -61,7 +61,7 @@ pnpm install -D supabase --filter @repo/database
 
 Update the `database` package. We'll remove the Neon extensions and connect to Supabase directly, which should automatically use the environment variables we set earlier.
 
-```ts packages/database/index.ts
+```ts title="packages/database/index.ts"
 import 'server-only';
 import { PrismaClient } from '@prisma/client';
 
@@ -74,7 +74,7 @@ export * from '@prisma/client';
 
 Update the `prisma/schema.prisma` file so it contains the `DIRECT_URL`. This allows us to use the Prisma CLI to perform other actions on our database (e.g. migrations) by bypassing Supavisor.
 
-```js prisma/schema.prisma {4}
+```js title="prisma/schema.prisma {4}"
 datasource db {
   provider     = "postgresql"
   url          = env("DATABASE_URL")
@@ -85,6 +85,6 @@ datasource db {
 
 Now you can run the migration from the root of your `next-forge` project:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm run migrate
 ```

@@ -19,11 +19,11 @@ Keep this connection string handy, you will need it in the next step.
 
 Update your environment variables to use the new PlanetScale connection string:
 
-```js apps/database/.env
+```js title="apps/database/.env"
 DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
 ```
 
-```js apps/app/.env.local
+```js title="apps/app/.env.local"
 DATABASE_URL="mysql://<username>:<password>@<region>.aws.connect.psdb.cloud/<database>"
 ```
 
@@ -33,13 +33,13 @@ Etcetera.
 
 Uninstall the existing dependencies...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
 ```
 
 ...and install the new ones:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add @planetscale/database @prisma/adapter-planetscale --filter @repo/database
 ```
 
@@ -47,7 +47,7 @@ pnpm add @planetscale/database @prisma/adapter-planetscale --filter @repo/databa
 
 Update the database connection code to use the new PlanetScale adapter:
 
-```ts packages/database/index.ts {3-4, 17-18}
+```ts title="packages/database/index.ts {3-4, 17-18}"
 import 'server-only';
 
 import { Client, connect } from '@planetscale/database';
@@ -69,7 +69,7 @@ export const database = new PrismaClient({ adapter });
 
 Update your Prisma schema to use the new database provider:
 
-```prisma packages/database/prisma/schema.prisma {10}
+```prisma title="packages/database/prisma/schema.prisma {10}"
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -97,7 +97,7 @@ model Page {
 
 Add a `dev` script to your `package.json`:
 
-```json packages/database/package.json {3}
+```json title="packages/database/package.json {3}"
 {
   "scripts": {
     "dev": "pscale connect [database_name] [branch_name] --port 3309"

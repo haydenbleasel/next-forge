@@ -41,7 +41,7 @@ We've also wired up two key props for the Liveblocks provider, `resolveUsers` an
 
 Liveblocks provides a number of hooks making it easy to add real-time presence and document storage to your app. For example, [`useOthers`]() returns which users are currently connected, helpful for building avatars stacks and multiplayer cursors.
 
-```tsx toolbar-avatars.tsx
+```tsx title="toolbar-avatars.tsx"
 import { useOthers, useSelf } from "@liveblocks/react/suspense";
 
 export function ToolbarAvatars() {
@@ -66,7 +66,7 @@ export function ToolbarAvatars() {
 
 You can take your collaborative app a step further, and set up multiplayer document state with [`useStorage`](https://liveblocks.io/docs/api-reference/liveblocks-react#useStorage) and [`useMutation`](https://liveblocks.io/docs/api-reference/liveblocks-react#useMutation). This is ideal for creating custom experiences, such as a a multiplayer drawing panel, spreadsheet, or just a simple shared input and that anyone can edit.
 
-```tsx collaborative-input.tsx
+```tsx title="collaborative-input.tsx"
 import { useStorage, useMutation } from "@liveblocks/react/suspense";
 
 function CollaborativeInput() {
@@ -86,7 +86,7 @@ function CollaborativeInput() {
 
 Liveblocks also provides ready-made customizable components for adding collaboration, such as [`Thread`](https://liveblocks.io/docs/api-reference/liveblocks-react-ui#Thread) and [`Composer`](https://liveblocks.io/docs/api-reference/liveblocks-react-ui#Composer).
 
-```tsx comments.tsx
+```tsx title="comments.tsx"
 import { useThreads } from "@liveblocks/react/suspense";
 import { Thread, Composer } from "@liveblocks/react-ui";
 
@@ -109,7 +109,7 @@ function Comments() {
 
 To add a rich-text editor with full collaborative editing and floating comments, you can set up a [Tiptap](https://liveblocks.io/docs/get-started/nextjs-tiptap) or [Lexical](https://liveblocks.io/docs/get-started/nextjs-lexical) editor in a few lines of code.
 
-```tsx collaborative-editor.tsx
+```tsx title="collaborative-editor.tsx"
 import { useLiveblocksExtension, FloatingComposer, FloatingThreads } from "@liveblocks/react-tiptap";
 import { useThreads, useEditor, EditorContent } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
@@ -144,7 +144,7 @@ export function Editor() {
 
 Liveblocks also provides [notification components](https://liveblocks.io/docs/api-reference/liveblocks-react-ui#InboxNotificationList), meaning you can send in-app notifications to users that are tagged in comments, are mentioned in the text editor, or for any custom purpose.
 
-```tsx notifications.tsx
+```tsx title="notifications.tsx"
 import { useInboxNotifications } from "@liveblocks/react/suspense";
 import {
   InboxNotification,

@@ -42,13 +42,13 @@ Create an account at [EdgeDB Cloud](https://cloud.edgedb.com/). Once done, creat
 
 Uninstall the existing dependencies...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @prisma/adapter-neon @prisma/client prisma --filter @repo/database
 ```
 
 ... and install the new dependencies:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add edgedb @edgedb/generate
 ```
 
@@ -56,7 +56,7 @@ pnpm add edgedb @edgedb/generate
 
 In the `@repo/database` directory, run:
 
-```sh Terminal
+```sh title="Terminal"
 npx edgedb project init --server-instance <org_name>/<instance_name> --non-interactive
 ```
 
@@ -76,7 +76,7 @@ This command also links your environment to the EdgeDB Cloud instance, allowing 
 
 You can also delete `prisma/` directory from the `@repo/database`:
 
-```sh Terminal
+```sh title="Terminal"
 rm -fr packages/database/prisma
 ```
 
@@ -84,7 +84,7 @@ rm -fr packages/database/prisma
 
 Update the database connection code to use an EdgeDB client:
 
-```ts packages/database/index.ts
+```ts title="packages/database/index.ts"
 import 'server-only';
 
 import { createClient } from "edgedb";
@@ -96,7 +96,7 @@ export const database = createClient();
 
 Now, you can modify the database schema:
 
-```sql dbschema/default.esdl
+```sql title="dbschema/default.esdl"
 module default {
   type Page {
     email: str {
@@ -109,14 +109,14 @@ module default {
 
 And apply your changes by running:
 
-```sh Terminal
+```sh title="Terminal"
 npx migration create
 npx migration apply
 ```
 
 Once complete, you can also generate a TypeScript query builder and types from your database schema:
 
-```sh Terminal
+```sh title="Terminal"
 npx @edgedb/generate edgeql-js
 npx @edgedb/generate interfaces
 ```
@@ -129,7 +129,7 @@ Now you can update your queries to use the EdgeDB client.
 
 For example, here’s how we can update the `page` query in `app/(authenticated)/page.tsx`:
 
-```tsx app/(authenticated)/page.tsx {2,7-8}
+```tsx title="app/(authenticated)/page.tsx {2,7-8}"
 import { database } from '@repo/database';
 import edgeql from '@repo/database/dbschema/edgeql-js';
 
@@ -149,13 +149,13 @@ export default App;
 
 You can also delete the now unused Prisma Studio app located at `apps/studio`:
 
-```sh Terminal
+```sh title="Terminal"
 rm -fr apps/studio
 ```
 
 To manage your database and browse your data, you can run:
 
-```sh Terminal
+```sh title="Terminal"
 npx edgedb ui
 ```
 

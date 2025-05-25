@@ -33,7 +33,7 @@ To use the notifications package, you need to add the required environment varia
 
 To render an in-app notifications feed, import the `NotificationsTrigger` component from the `@repo/notifications` package and use it in your app. We've already added this to the sidebar in the example app:
 
-```tsx apps/app/app/(authenticated)/components/sidebar.tsx
+```tsx title="apps/app/app/(authenticated)/components/sidebar.tsx"
 import { NotificationsTrigger } from '@repo/notifications/components/trigger';
 
 <NotificationsTrigger>
@@ -51,7 +51,7 @@ Knock sends notifications using workflows. To send an in-app notification, creat
 
 Then you can [trigger that workflow](https://docs.knock.app/send-notifications/triggering-workflows) for a particular user in your app, passing in the necessary data to populate the message template:
 
-```tsx notify.ts
+```tsx title="notify.ts"
 import { notifications } from '@repo/notifications';
 
 await notifications.workflows.trigger('workflow-key', {

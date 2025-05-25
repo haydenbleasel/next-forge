@@ -44,14 +44,14 @@ Go to Hypertune and create a new project using the [next-forge template](https:/
 
 Update the environment variables across the project. For example:
 
-```js apps/app/.env
+```js title="apps/app/.env"
 // Add this:
 NEXT_PUBLIC_HYPERTUNE_TOKEN=""
 ```
 
 Add a `.env` file to the `feature-flags` package with the following contents:
 
-```js packages/feature-flags/.env
+```js title="packages/feature-flags/.env"
 NEXT_PUBLIC_HYPERTUNE_TOKEN=""
 HYPERTUNE_FRAMEWORK=nextApp
 HYPERTUNE_OUTPUT_DIRECTORY_PATH=generated
@@ -63,7 +63,7 @@ HYPERTUNE_GET_HYPERTUNE_IMPORT_PATH=../lib/getHypertune
 
 Use the `NEXT_PUBLIC_HYPERTUNE_TOKEN` environment variable in the call to `createEnv`:
 
-```ts packages/feature-flags/keys.ts {6-8,14}
+```ts title="packages/feature-flags/keys.ts {6-8,14}"
 import { createEnv } from '@t3-oss/env-nextjs';
 import { z } from 'zod';
 
@@ -88,13 +88,13 @@ First, delete the `create-flag.ts` file.
 
 Then, uninstall the existing dependencies from the `feature-flags` package:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @repo/analytics --filter @repo/feature-flags
 ```
 
 Then, install the new dependencies:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add hypertune server-only --filter @repo/feature-flags
 ```
 
@@ -102,7 +102,7 @@ pnpm add hypertune server-only --filter @repo/feature-flags
 
 Add `analyze` and `build` scripts to the `package.json` file for the `feature-flags` package, which both execute the `hypertune` command:
 
-```json packages/feature-flags/package.json
+```json title="packages/feature-flags/package.json"
 {
   "scripts": {
     "analyze": "hypertune",
@@ -113,7 +113,7 @@ Add `analyze` and `build` scripts to the `package.json` file for the `feature-fl
 
 Then run code generation with the following command:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm build --filter @repo/feature-flags 
 ```
 
@@ -129,7 +129,7 @@ packages/feature-flags/generated/hypertune.vercel.tsx
 
 Add a `getHypertune.ts` file in the `feature-flags` package which defines a `getHypertune` function that returns an initialized instance of the Hypertune SDK on the server:
 
-```ts packages/feature-flags/lib/getHypertune.ts
+```ts title="packages/feature-flags/lib/getHypertune.ts"
 import 'server-only';
 import { auth } from '@repo/auth/server';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -171,7 +171,7 @@ export default async function getHypertune(params?: {
 
 Hypertune automatically generates feature flag functions that use the `flags` package. To export them the same way as before, update the `index.ts` file to export everything from the `generated/hypertune.vercel.ts` file:
 
-```ts packages/feature-flags/index.ts
+```ts title="packages/feature-flags/index.ts"
 export * from "./generated/hypertune.vercel.tsx"
 ```
 

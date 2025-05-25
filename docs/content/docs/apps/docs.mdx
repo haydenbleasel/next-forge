@@ -35,7 +35,7 @@ next-forge uses [Mintlify](https://mintlify.com) to generate beautiful docs. Eac
 
 To create a new documentation page, add a new MDX file to the `apps/docs` directory. The file name will be used as the slug for the page and the frontmatter will be used to generate the docs page. For example:
 
-```mdx apps/docs/hello-world.mdx
+```mdx title="apps/docs/hello-world.mdx"
 ---
 title: 'Quickstart'
 description: 'Start building modern documentation in under five minutes.'
@@ -48,7 +48,7 @@ Learn more supported [meta tags](https://mintlify.com/docs/page).
 
 To add a page to the sidebar, you'll need to define it in the `mint.json` file in the `apps/docs` directory. From the previous example, here's how you can add it to the sidebar:
 
-```mdx mint.json {2-5}
+```mdx title="mint.json {2-5}"
 "navigation": [
   {
     "group": "Getting Started",

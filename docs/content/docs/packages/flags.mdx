@@ -24,7 +24,7 @@ We've created an intelligent function called `createFlag` that you can use to cr
 
 To add a new flag, simply create a feature flag in PostHog and then modify the feature flags index file. Let's add a new flag called `showAnalyticsFeature` that will be enabled for all users:
 
-```ts packages/feature-flags/index.ts {4}
+```ts title="packages/feature-flags/index.ts {4}"
 import { createFlag } from './lib/create-flag';
 
 export const showBetaFeature = createFlag('showBetaFeature');
@@ -37,7 +37,7 @@ Make sure the key you're using matches the key in PostHog exactly.
 
 To use the flag in your application, simply import it from the `@repo/feature-flags` package and use it like a normal boolean value.
 
-```tsx page.tsx
+```tsx title="page.tsx"
 import { showAnalyticsFeature } from '@repo/feature-flags';
 import { notFound } from 'next/navigation';
 

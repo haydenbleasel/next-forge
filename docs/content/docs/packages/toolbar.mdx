@@ -11,17 +11,17 @@ Go into each application and run `vercel link`, like so:
 
 <CodeGroup>
 
-```sh Terminal
+```sh title="Terminal"
 cd apps/app
 vercel link
 ```
 
-```sh Terminal
+```sh title="Terminal"
 cd apps/web
 vercel link
 ```
 
-```sh Terminal
+```sh title="Terminal"
 cd apps/api
 vercel link
 ```
@@ -34,7 +34,7 @@ This will create a `.vercel/project.json` file in each application.
 
 Then, simply add a `FLAGS_SECRET` environment variable to each application's `.env.local` file, like so:
 
-```js .env.local
+```js title=".env.local"
 FLAGS_SECRET="test"
 ```
 

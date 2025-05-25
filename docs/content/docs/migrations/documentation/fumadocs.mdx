@@ -31,7 +31,7 @@ Fumadocs is similar to a set of libraries built on **Next.js App Router**, which
 
 To begin, you can use a command to initialize a Fumadocs app quicky:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm create fumadocs-app
 ```
 
@@ -51,7 +51,7 @@ Start the app with `pnpm dev`.
 
 If some styles are missing, it could be due to your monorepo setup, you can change the `content` property in your Tailwind CSS config (`tailwind.config.mjs`) to ensure it works:
 
-```js tailwind.config.mjs
+```js title="tailwind.config.mjs"
 export default {
   content: [
     // from
@@ -81,14 +81,14 @@ Code block titles are formatted with `title="Title"`.
 
 <CodeGroup>
 
-````sh Mintlify
-```sh Name
+````sh title="Mintlify"
+```sh title="Name"
 pnpm i
 ```
 ````
 
-````sh Fumadocs
-```sh title="Name"
+````sh title="Fumadocs"
+```sh title="title="Name""
 pnpm i
 ```
 ````
@@ -99,13 +99,13 @@ Code highlighting is done with an inline comment.
 
 <CodeGroup>
 
-````ts Mintlify
-```ts {1}
+````ts title="Mintlify"
+```ts title="{1}"
 console.log('Highlighted');
 ```
 ````
 
-````ts Fumadocs
+````ts title="Fumadocs"
 ```ts
 console.log('Highlighted'); // [!code highlight]
 ```
@@ -115,7 +115,7 @@ console.log('Highlighted'); // [!code highlight]
 
 In Fumadocs, you can also highlight specific words.
 
-````ts Fumadocs
+````ts title="Fumadocs"
 console.log('Highlighted'); // [!code word:Highlighted]
 ````
 
@@ -125,29 +125,29 @@ For code groups, you can use the `Tabs` component:
 
 <CodeGroup>
 
-````tsx Mintlify
+````tsx title="Mintlify"
 <CodeGroup>
 
-```ts Tab One
+```ts title="Tab One"
 console.log('Hello, world!');
 ```
 
-```ts Tab Two
+```ts title="Tab Two"
 console.log('Hello, world!');
 ```
 </CodeGroup>
 ````
 
-````tsx Fumadocs
+````tsx title="Fumadocs"
 import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
  
 <Tabs items={["Tab 1", "Tab 2"]}>
  
-```ts tab="Tab 1"
+```ts title="tab="Tab 1""
 console.log('A');
 ```
  
-```ts tab="Tab 2"
+```ts title="tab="Tab 2""
 console.log('B');
 ```
  
@@ -164,7 +164,7 @@ Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify
 
 <CodeGroup>
 
-```tsx Mintlify
+```tsx title="Mintlify"
 <Note>Hello World</Note>
 <Warning>Hello World</Warning>
 <Info>Hello World</Info>
@@ -172,7 +172,7 @@ Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify
 <Check>Hello World</Check>
 ```
 
-```tsx Fumadocs
+```tsx title="Fumadocs"
 <Callout title="Title" type="info">Hello World</Callout>
 <Callout title="Title" type="warn">Hello World</Callout>
 <Callout title="Title" type="error">Hello World</Callout>
@@ -184,7 +184,7 @@ Fumadocs uses a generic `Callout` component for callouts, as opposed to Mintlify
 
 To use components without import, add them to your MDX component.
 
-```tsx app/docs/[[...slug]]/page.tsx
+```tsx title="app/docs/[[...slug]]/page.tsx"
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
  
 <MDX components={{ Tabs, Tab }} />;
@@ -201,7 +201,7 @@ You don't need to hardcode the sidebar config manually.
 
 For example, to customise the order of pages in `content/docs/components` folder, you can create a `meta.json` folder in the directory:
 
-```json meta.json
+```json title="meta.json"
 {
   "title": "Components", // optional
   "pages": ["index", "apple"] // file names (without extension)
@@ -210,7 +210,7 @@ For example, to customise the order of pages in `content/docs/components` folder
 
 Fumadocs also support the rest operator (`...`) if you want to include the other pages.
 
-```json meta.json
+```json title="meta.json"
 { 
   "title": "Components", // optional
   "pages": ["index", "apple", "..."] // file names (without extension)
@@ -227,7 +227,7 @@ The overall theme can be customised using CSS variables and/or presets.
 
 In your global CSS file:
 
-```css global.css
+```css title="global.css"
 :root {
   /* hsl values, like hsl(239 37% 50%) but without `hsl()` */
   --background: 239 37% 50%;
@@ -246,7 +246,7 @@ In your global CSS file:
 
 In your Tailwind config, use the `preset` option.
 
-```js tailwind.config.mjs
+```js title="tailwind.config.mjs"
 import { createPreset } from 'fumadocs-ui/tailwind-plugin';
  
 /** @type {import('tailwindcss').Config} */
@@ -276,7 +276,7 @@ You can customise the layouts in `layout.tsx`.
 
 Navigation links are passed to layouts, you can also customise them in your Layout config.
 
-```tsx app/layout.config.tsx
+```tsx title="app/layout.config.tsx"
 import { BookIcon } from 'lucide-react';
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
  

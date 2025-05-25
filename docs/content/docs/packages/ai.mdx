@@ -17,7 +17,7 @@ To use AI functionality, you can import it from the `@repo/ai` package.
 
 You can use the `generateText` function to generate text from an AI model. For example:
 
-```ts generate.ts
+```ts title="generate.ts"
 import { generateText } from '@repo/ai';
 import { provider } from '@repo/ai/lib/provider';
 import { models } from '@repo/ai/lib/models';
@@ -32,7 +32,7 @@ const response = await generateText({
 
 The AI package comes with a few components that you can use to build your own AI chatbot, such as `Thread` and `Message`.
 
-```tsx chatbot.tsx
+```tsx title="chatbot.tsx"
 import { Thread } from '@repo/ai/components/thread';
 import { Message } from '@repo/ai/components/message';
 
@@ -53,7 +53,7 @@ export const Chatbot = () => {
 
 You can use the `paymentsAgentToolkit` to add payments capabilities to your AI agent for financial services. As next-forge uses Stripe by default, here's an example of how to use it:
 
-```ts generate.ts
+```ts title="generate.ts"
 import { generateText } from '@repo/ai';
 import { paymentsAgentToolkit } from '@repo/payments/ai';
 import { provider } from '@repo/ai/lib/provider';
@@ -75,7 +75,7 @@ There are quite a few ways to add analytics to your AI agent depending on your u
 
 Here's a simple example of how to add analytics to a `generateText` request using our `analytics` package:
 
-```ts generate.ts
+```ts title="generate.ts"
 import { generateText } from '@repo/ai';
 import { analytics } from '@repo/analytics/posthog/server';
 import { currentUser } from '@repo/auth/server';
@@ -122,7 +122,7 @@ analytics.capture({
 
 If you want to use a different provider, you can modify the `provider` in `@repo/ai/lib/provider.ts` to use the one you want. For example, to use Anthropic, you can change it to:
 
-```ts packages/ai/lib/provider.ts
+```ts title="packages/ai/lib/provider.ts"
 import { createAnthropic } from '@ai-sdk/anthropic';
 
 export const provider = createAnthropic({

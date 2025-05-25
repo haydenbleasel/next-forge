@@ -42,13 +42,13 @@ description: How to change the default payment processor to Paddle Billing.
 
 First, uninstall the existing dependencies from the Payments package...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove stripe --filter @repo/payments
 ```
 
 ... and install the new dependencies...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add @paddle/paddle-node-sdk --filter @repo/payments
 ```
 
@@ -56,7 +56,7 @@ pnpm add @paddle/paddle-node-sdk --filter @repo/payments
 
 Update the required Payment keys in the `packages/payments/keys.ts` file:
 
-```ts packages/payments/keys.ts
+```ts title="packages/payments/keys.ts"
 import { createEnv } from '@t3-oss/env-nextjs';
 import { Environment } from '@paddle/paddle-node-sdk'
 import { z } from 'zod';
@@ -91,7 +91,7 @@ export const keys = () =>
 
 Next, update the environment variables across the project, replacing the existing Stripe keys with the new Paddle keys:
 
-```js apps/app/.env
+```js title="apps/app/.env"
 # Server
 PADDLE_SECRET_KEY=""
 PADDLE_WEBHOOK_SECRET=""
@@ -106,7 +106,7 @@ NEXT_PUBLIC_PADDLE_CLIENT_TOKEN="test_"
 
 Initialize the payments client in the `packages/payments/index.ts` file with the new API key.
 
-```ts packages/payments/index.ts
+```ts title="packages/payments/index.ts"
 import 'server-only';
 import { type Environment, Paddle } from '@paddle/paddle-node-sdk';
 import { keys } from './keys';
@@ -124,7 +124,7 @@ export * from '@paddle/paddle-node-sdk';
 
 Update the webhook handler for Paddle:
 
-```ts apps/api/app/webhooks/payments/route.ts
+```ts title="apps/api/app/webhooks/payments/route.ts"
 import { env } from '@/env';
 import { NextResponse } from 'next/server';
 import { headers } from 'next/headers';
@@ -172,13 +172,13 @@ There's quite a lot you can do with Paddle, so check out the following resources
 
 Create a new file for `checkout` and install `paddle-js`:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add @paddle/paddle-js --filter @repo/payments
 ```
 
 Then, create a new hook to initialize Paddle in the `packages/payments/checkout.tsx` file:
 
-```tsx packages/payments/checkout.tsx
+```tsx title="packages/payments/checkout.tsx"
 'use client';
 
 import {
@@ -218,7 +218,7 @@ export function usePaddle() {
 
 Finally, open a checkout on your pricing page:
 
-```tsx apps/web/app/pricing/page.tsx
+```tsx title="apps/web/app/pricing/page.tsx"
 'use client';
 
 import { usePaddle } from '@repo/payments/checkout';

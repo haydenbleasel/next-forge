@@ -49,7 +49,7 @@ The package handles language detection and matching, ensuring users see content 
 
 To enable automatic translations, simply create a `.env` file in the `internationalization` package and set the `LANGUINE_PROJECT_ID` environment variable.
 
-```env .env
+```env title=".env"
 LANGUINE_PROJECT_ID="your-project-id"
 ```
 
@@ -65,7 +65,7 @@ The internationalization package is configured through a `languine.json` file th
 
 Dictionaries are TypeScript files that export strongly-typed content for each supported language. The type system ensures consistency across translations:
 
-```ts packages/internationalization/dictionaries/[locale].ts
+```ts title="packages/internationalization/dictionaries/[locale].ts"
 import type { Dictionary } from '@repo/internationalization';
 
 const dictionary: Dictionary = {};
@@ -81,7 +81,7 @@ There is no need to create a dictionary for any non-source locale, as [Languine]
 
 To translate your application, you can run the following command:
 
-```bash Terminal
+```bash title="Terminal"
 pnpm translate
 ```
 
@@ -97,7 +97,7 @@ To use the internationalization package, you need to:
 
 You can find an example of a dictionary in the `web` package:
 
-```tsx apps/web/app/page.tsx
+```tsx title="apps/web/app/page.tsx"
 import { getDictionary } from '@repo/internationalization';
 
 type HomeProps = {
@@ -128,7 +128,7 @@ The internationalization package also includes a middleware component that autom
 
 This has already been configured for the `web` package, so you don't need to worry about it.
 
-```tsx apps/web/middleware.ts
+```tsx title="apps/web/middleware.ts"
 import { internationalizationMiddleware } from '@repo/internationalization';
 
 export default internationalizationMiddleware;

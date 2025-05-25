@@ -21,7 +21,7 @@ export const MyComponent = () => (
 
 You can also access colors in JavaScript through the `tailwind` utility exported from `@repo/tailwind-config`, like so:
 
-```tsx component.tsx
+```tsx title="component.tsx"
 import { tailwind } from '@repo/tailwind-config';
 
 export const MyComponent = () => (
@@ -38,7 +38,7 @@ export const MyComponent = () => (
 
 Currently, it's not possible to change the Clerk theme to match the exact theme of the app. This is because Clerk's Theme doesn't accept custom CSS variables. We'd like to be able to add the following in the future:
 
-```jsx packages/design-system/providers/clerk.tsx {4-15}
+```jsx title="packages/design-system/providers/clerk.tsx {4-15}"
 const variables: Theme['variables'] = {
   // ...
 

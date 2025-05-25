@@ -11,7 +11,7 @@ next-forge has a `storage` package that provides a simple wrapper around [Vercel
 
 To use the `storage` package using Server Actions, follow the instructions on [Vercel's server action documentation](https://vercel.com/docs/storage/vercel-blob/server-upload#upload-a-file-using-server-actions).
 
-```tsx page.tsx
+```tsx title="page.tsx"
 import { put } from '@repo/storage';
 import { revalidatePath } from 'next/cache';
  
@@ -42,7 +42,7 @@ export async function Form() {
 
 For client side usage, check out the [Vercel's client upload documentation](https://vercel.com/docs/storage/vercel-blob/client-upload).
 
-```tsx page.tsx
+```tsx title="page.tsx"
 'use client';
  
 import { type PutBlobResult } from '@repo/storage';

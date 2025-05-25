@@ -7,7 +7,7 @@ description: A powerful library for managing and securing your Next.js Server Ac
 
 To install Next Safe Action, simply run the following command:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add next-safe-action zod --filter app
 ```
 
@@ -19,7 +19,7 @@ Here is a basic example of how to use Next Safe Action to call your Server Actio
 
 <CodeGroup>
 
-```ts action.ts
+```ts title="action.ts"
 "use server"
 
 import { createSafeActionClient } from "next-safe-action";
@@ -43,7 +43,7 @@ export const serverAction = createSafeActionClient()
   });
 ```
 
-```tsx my-component.tsx
+```tsx title="my-component.tsx"
 "use client"
 
 import { serverAction } from "./action"

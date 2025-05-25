@@ -7,7 +7,7 @@ The design system package contains a pre-configured fonts file, which has been w
 
 By default, `fonts.ts` exports a `sans` and `mono` font, but you can configure this to export as many as you need e.g. heading, body, secondary, etc. You can also replace fonts entirely simply by replacing the font name, like so:
 
-```ts packages/design-system/lib/fonts.ts
+```ts title="packages/design-system/lib/fonts.ts"
 import { Acme } from 'next/font/google';
 
 const sans = Acme({ subsets: ['latin'], variable: '--font-sans' });

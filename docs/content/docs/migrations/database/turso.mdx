@@ -42,13 +42,13 @@ _We'll be using the CLI throughout this guide._
 
 Create a new database and give it a name using the Turso CLI:
 
-```sh Terminal
+```sh title="Terminal"
 turso db create <database-name>
 ```
 
 You can now fetch the URL to the database:
 
-```sh Terminal
+```sh title="Terminal"
 turso db show <database-name> --url
 ```
 
@@ -62,7 +62,7 @@ libsql://<database-name>-<account-or-org-slug>.turso.io
 
 You will need to create an auth token to connect to your Turso database:
 
-```sh Terminal
+```sh title="Terminal"
 turso db tokens create <database-name>
 ```
 
@@ -70,12 +70,12 @@ turso db tokens create <database-name>
 
 Update your environment variables to use the new Turso connection string:
 
-```js apps/database/.env
+```js title="apps/database/.env"
 DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
 DATABASE_AUTH_TOKEN="..."
 ```
 
-```js apps/app/.env.local
+```js title="apps/app/.env.local"
 DATABASE_URL="libsql://<database-name>-<account-or-org-slug>.turso.io"
 DATABASE_AUTH_TOKEN="..."
 ```
@@ -84,7 +84,7 @@ Etcetera.
 
 Now inside `packages/env/index.ts`, add `DATABASE_AUTH_TOKEN` to the `server` and `runtimeEnv` objects:
 
-```ts {3,12}
+```ts title="{3,12}"
 const server: Parameters<typeof createEnv>[0]["server"] = {
   // ...
   DATABASE_AUTH_TOKEN: z.string(),
@@ -108,13 +108,13 @@ The [`@libsql/client`](https://www.npmjs.com/@libsql/client) is used to connect 
 
 Uninstall the existing dependencies for Neon...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @neondatabase/serverless @prisma/adapter-neon ws @types/ws --filter @repo/database
 ```
 
 ... and install the new dependencies for Turso & libSQL:
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add @libsql/client --filter @repo/database
 ```
 
@@ -122,7 +122,7 @@ pnpm add @libsql/client --filter @repo/database
 
 Open `packages/next-config/index.ts` and add `@libsql/client` to the list of externals:
 
-```ts packages/next-config/index.ts {5}
+```ts title="packages/next-config/index.ts {5}"
 let nextConfig: NextConfig = {
   ...config,
   webpack: (config, { isServer }) => {
@@ -139,7 +139,7 @@ let nextConfig: NextConfig = {
 
 Open `packages/database/index.ts` and make the following changes:
 
-```ts packages/database/index.ts
+```ts title="packages/database/index.ts"
 import "server-only";
 
 import { createClient } from "@libsql/client";
@@ -157,7 +157,7 @@ export const database = libsql;
 
 Now connect to the Turso database using the CLI:
 
-```sh Terminal
+```sh title="Terminal"
 turso db shell <database-name>
 ```
 
@@ -175,7 +175,7 @@ CREATE TABLE pages (
 
 Now wherever you would usually call Prisma, use the `libsql` client instead:
 
-```ts packages/app/app/(authenticated)/page.tsx
+```ts title="packages/app/app/(authenticated)/page.tsx"
 import { database } from "@repo/database";
 
 type PageType = {

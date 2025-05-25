@@ -17,7 +17,7 @@ By default, each application theme will default to the user's operating system p
 
 To allow the user to change theme manually, you can use the `ModeToggle` component which is located in the Design System package. We've already added it to the `app` sidebar and `web` navbar, but you can import it anywhere:
 
-```tsx page.tsx
+```tsx title="page.tsx"
 import { ModeToggle } from '@repo/design-system/components/mode-toggle';
 
 const MyPage = () => (
@@ -27,7 +27,7 @@ const MyPage = () => (
 
 You can check the theme by using the `useTheme` hook directly from `next-themes`. For example:
 
-```tsx page.tsx
+```tsx title="page.tsx"
 import { useTheme } from 'next-themes';
 
 const MyPage = () => {

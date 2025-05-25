@@ -9,13 +9,13 @@ description: How to change the default payment processor to Lemon Squeezy.
 
 First, uninstall the existing dependencies from the Payments package...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove stripe --filter @repo/payments
 ```
 
 ... and install the new dependencies...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add @lemonsqueezy/lemonsqueezy.js --filter @repo/payments
 ```
 
@@ -23,7 +23,7 @@ pnpm add @lemonsqueezy/lemonsqueezy.js --filter @repo/payments
 
 Next, update the environment variables across the project, for example:
 
-```js apps/app/.env
+```js title="apps/app/.env"
 NEXT_PUBLIC_LEMON_SQUEEZY_API_KEY=""
 ```
 
@@ -33,7 +33,7 @@ Additionally, replace all instances of `STRIPE_SECRET_KEY` with `LEMON_SQUEEZY_A
 
 Initialize the payments client in the `packages/payments/index.ts` file with the new API key. Then, export the `lemonSqueezySetup` function from the file.
 
-```ts packages/payments/index.ts
+```ts title="packages/payments/index.ts"
 import { env } from '@repo/env';
 import { lemonSqueezySetup } from '@lemonsqueezy/lemonsqueezy.js';
 
@@ -49,7 +49,7 @@ export * from '@lemonsqueezy/lemonsqueezy.js';
 
 Update the webhook handler for Lemon Squeezy:
 
-```ts apps/api/app/webhooks/payments/route.ts
+```ts title="apps/api/app/webhooks/payments/route.ts"
 import { NextResponse } from 'next/server';
 
 export const POST = async (request: Request) => {
@@ -72,7 +72,7 @@ There's quite a lot you can do with Lemon Squeezy, so check out the following re
 
 Finally, use the new payments client in your app.
 
-```tsx apps/app/app/(authenticated)/page.tsx
+```tsx title="apps/app/app/(authenticated)/page.tsx"
 import { getStore } from '@repo/payments';
 
 const Page = async () => {

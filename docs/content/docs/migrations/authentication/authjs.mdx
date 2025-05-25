@@ -13,13 +13,13 @@ Here's how to switch from Clerk to [Auth.js](https://authjs.dev/).
 
 Uninstall the existing Clerk dependencies from the `auth` package...
 
-```sh Terminal
+```sh title="Terminal"
 pnpm remove @clerk/nextjs @clerk/themes @clerk/types --filter @repo/auth
 ```
 
 ... and install the Auth.js dependencies.
 
-```sh Terminal
+```sh title="Terminal"
 pnpm add next-auth@beta --filter @repo/auth
 ```
 
@@ -27,7 +27,7 @@ pnpm add next-auth@beta --filter @repo/auth
 
 Auth.js requires a random value secret, used by the library to encrypt tokens and email verification hashes. In each of the relevant app directories, generate a secret with the following command:
 
-```sh Terminal
+```sh title="Terminal"
 cd apps/app && npx auth secret && cd -
 cd apps/web && npx auth secret && cd -
 cd apps/api && npx auth secret && cd -
@@ -39,7 +39,7 @@ This will automatically add an `AUTH_SECRET` environment variable to the `.env.l
 
 Delete the existing `client.ts` and `server.ts` files in the `auth` package. Then, create the following file:
 
-```tsx packages/auth/index.ts
+```tsx title="packages/auth/index.ts"
 import NextAuth from "next-auth";
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -51,7 +51,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
 Update the `middleware.ts` file in the `auth` package with the following content:
 
-```tsx packages/auth/middleware.ts
+```tsx title="packages/auth/middleware.ts"
 import 'server-only';
 
 export { auth as authMiddleware } from './';
@@ -63,7 +63,7 @@ Auth.js has no concept of "sign up", so we'll use the `signIn` function to sign 
 
 <CodeGroup>
 
-```tsx packages/auth/components/sign-in.tsx
+```tsx title="packages/auth/components/sign-in.tsx"
 import { signIn } from '../';
 
 export const SignIn = () => (
@@ -78,7 +78,7 @@ export const SignIn = () => (
 );
 ```
 
-```tsx packages/auth/components/sign-up.tsx
+```tsx title="packages/auth/components/sign-up.tsx"
 import { signIn } from '../';
 
 export const SignUp = () => (
@@ -99,7 +99,7 @@ export const SignUp = () => (
 
 Auth.js has no concept of a Provider as a higher-order component, so you can either remove it entirely or just replace it with a stub, like so:
 
-```tsx packages/auth/provider.tsx
+```tsx title="packages/auth/provider.tsx"
 import type { ReactNode } from 'react';
 
 type AuthProviderProps = {
@@ -113,7 +113,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => children;
 
 In your `app` application, create an auth route handler file with the following content:
 
-```tsx apps/app/api/auth/[...nextauth]/route.ts
+```tsx title="apps/app/api/auth/[...nextauth]/route.ts"
 import { handlers } from "@repo/auth"
 
 export const { GET, POST } = handlers;
@@ -123,7 +123,7 @@ export const { GET, POST } = handlers;
 
 From here, you'll need to replace any remaining Clerk implementations in your apps with Auth.js references. This means swapping out references like:
 
-```tsx page.tsx
+```tsx title="page.tsx"
 const { orgId } = await auth();
 const { redirectToSignIn } = await auth();
 const user = await currentUser();
