@@ -5,10 +5,10 @@
 <div>
   <img src="https://img.shields.io/npm/dy/next-forge" alt="" />
   <img src="https://img.shields.io/npm/v/next-forge" alt="" />
-  <img src="https://img.shields.io/github/license/haydenbleasel/next-forge" alt="" />
+  <img src="https://img.shields.io/github/license/vercel/next-forge" alt="" />
 </div>
 
-[next-forge](https://github.com/haydenbleasel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
+[next-forge](https://github.com/vercel/next-forge) is a [Next.js](https://nextjs.org/) project boilerplate for modern web application. It is designed to be a comprehensive starting point for new apps, providing a solid, opinionated foundation with a minimal amount of configuration.
 
 Clone the repo using:
 
@@ -18,7 +18,7 @@ npx next-forge@latest init
 
 Then read the [docs](https://www.next-forge.com/docs) for more information.
 
-<a href="https://github.com/haydenbleasel/next-forge/graphs/contributors">
+<a href="https://github.com/vercel/next-forge/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=haydenbleasel/next-forge" />
 </a>
 
