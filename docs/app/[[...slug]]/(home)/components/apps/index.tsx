@@ -84,8 +84,10 @@ const App = ({ app, index }: { app: (typeof apps)[number]; index: number }) => (
         <small>/apps/{app.name}</small>
       </div>
       <div className="flex flex-col gap-2">
-        <h2 className="font-bold text-2xl sm:truncate">{app.title}</h2>
-        <p className="text-neutral-600 sm:line-clamp-2">{app.description}</p>
+        <h2 className="font-semibold text-2xl sm:truncate">{app.title}</h2>
+        <p className="text-balance text-neutral-600 sm:line-clamp-2">
+          {app.description}
+        </p>
       </div>
     </div>
     <div className="h-48 overflow-hidden bg-neutral-50 md:h-80 dark:bg-neutral-950">
