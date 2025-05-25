@@ -1,3 +1,15 @@
+# v4.4.0 (Sun May 25 2025)
+
+#### 🚀 Enhancement
+
+- Migrate docs and landing page to Fumadocs [#548](https://github.com/haydenbleasel/next-forge/pull/548) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.3.2 (Sun May 25 2025)
 
 #### ⚠️ Pushed to `main`
