@@ -35,7 +35,10 @@ export const VercelButton = () => {
       'NEXT_PUBLIC_DOCS_URL',
     ].join(',')
   );
-  url.searchParams.set('envLink', 'https://docs.next-forge.com/setup#accounts');
+  url.searchParams.set(
+    'envLink',
+    'https://www.next-forge.com/docs/setup/prerequisites'
+  );
   url.searchParams.set('from', 'templates');
   url.searchParams.set('project-name', 'next-forge');
   url.searchParams.set('repository-name', 'next-forge');
