@@ -1,3 +1,15 @@
+# v4.4.4 (Mon May 26 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Roll back Prisma updates ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.4.3 (Mon May 26 2025)
 
 #### ⚠️ Pushed to `main`
