@@ -73,7 +73,7 @@ export const keys = () =>
       NEXT_PUBLIC_HYPERTUNE_TOKEN: z.string().min(1),
     },
     server: {
-      FLAGS_SECRET: z.string().min(1).optional(),
+      FLAGS_SECRET: z.string().optional(),
     },
     runtimeEnv: {
       FLAGS_SECRET: process.env.FLAGS_SECRET,

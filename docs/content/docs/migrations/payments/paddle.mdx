@@ -65,7 +65,7 @@ export const keys = () =>
   createEnv({
     server: {
       PADDLE_SECRET_KEY: z.string().min(1),
-      PADDLE_WEBHOOK_SECRET: z.string().min(1).optional(),
+      PADDLE_WEBHOOK_SECRET: z.string().optional(),
       PADDLE_ENV: z.enum([Environment.sandbox, Environment.production]).optional(),
     },
     client: {
