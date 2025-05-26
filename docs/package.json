@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "prebuild": "bun scripts/validate-links.ts",
     "build": "next build",
     "dev": "next dev --turbo",
     "start": "next start",
-    "postinstall": "fumadocs-mdx",
-    "validate-links": "bun scripts/validate-links.ts"
+    "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
