@@ -18,10 +18,10 @@ export const Authors = ({ data }: { data: Author[] }) => (
       {data.map((author) => (
         <div
           key={author.user.id}
-          className="relative inline-flex items-center gap-3 rounded-xl border border-black/10 bg-white p-3 pr-4 font-normal"
+          className="relative inline-flex items-center gap-3 rounded-xl border bg-secondary p-2 pr-4 font-normal"
         >
           <div className="relative">
-            <div className="h-8 w-8 overflow-hidden rounded-full border border-gray-200">
+            <div className="h-8 w-8 overflow-hidden rounded-full border">
               <Image
                 className="m-0 h-full w-full object-cover"
                 src={`/images/authors/${author.company.id}/${author.user.id}.jpg`}
@@ -30,7 +30,7 @@ export const Authors = ({ data }: { data: Author[] }) => (
                 height={32}
               />
             </div>
-            <div className="-bottom-1 -right-1 absolute h-4 w-4 overflow-hidden rounded-full border border-white object-cover">
+            <div className="-bottom-1 -right-1 absolute h-4 w-4 overflow-hidden rounded-full border object-cover">
               <Image
                 className="m-0 h-full w-full object-cover"
                 src={`/images/authors/${author.company.id}/logo.jpg`}

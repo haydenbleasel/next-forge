@@ -5,7 +5,7 @@ import vercel from './vercel.jpg';
 
 export const Review = () => (
   <section className="flex flex-col gap-8 p-8">
-    <div className="flex items-center gap-2 text-neutral-500">
+    <div className="flex items-center gap-2 text-muted-foreground">
       <MessageCircleIcon size={14} />
       <small>Nice words</small>
     </div>
@@ -33,7 +33,7 @@ export const Review = () => (
             className="rounded-full ring-2 ring-background"
           />
         </div>
-        <p className="text-neutral-500 text-sm">
+        <p className="text-muted-foreground text-sm">
           <span className="font-medium">Guillermo Rauch</span>, CEO of Vercel
         </p>
       </div>
@@ -51,10 +51,10 @@ export const Review = () => (
         >
           <title>X</title>
           <path
-            clip-rule="evenodd"
+            clipRule="evenodd"
             d="m15.9455 23-5.5495-7.9099-6.94714 7.9099h-2.939094l8.582324-9.7689-8.582324-12.2311h7.545944l5.23029 7.45502 6.5533-7.45502h2.9391l-8.1841 9.3165 8.8971 12.6835zm3.273-2.23h-1.9787l-12.52169-17.54h1.97899l5.015 7.0232.8672 1.2187z"
             fill="currentColor"
-            fill-rule="evenodd"
+            fillRule="evenodd"
           />
         </svg>
       </a>
