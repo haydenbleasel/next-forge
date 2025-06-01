@@ -45,12 +45,10 @@ export const ContactTemplate = ({
   </Tailwind>
 );
 
-const ExampleContactEmail = () => (
-  <ContactTemplate
-    name="Jane Smith"
-    email="jane@example.com"
-    message="Hello, how do I get started?"
-  />
-);
+ContactTemplate.PreviewProps = {
+  name: 'Jane Smith',
+  email: 'jane.smith@example.com',
+  message: "I'm interested in your services.",
+};
 
-export default ExampleContactEmail;
+export default ContactTemplate;

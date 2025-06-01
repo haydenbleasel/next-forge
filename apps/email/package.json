@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "email build",
-    "dev": "email dev --port 3003",
+    "dev": "email dev --port 3003 --dir ../../packages/email/templates",
     "export": "email export",
     "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
