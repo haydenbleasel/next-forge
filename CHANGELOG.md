@@ -1,3 +1,15 @@
+# v4.4.5 (Sun Jun 01 2025)
+
+#### ⚠️ Pushed to `main`
+
+- Remove redundant email component ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.4.4 (Mon May 26 2025)
 
 #### ⚠️ Pushed to `main`
