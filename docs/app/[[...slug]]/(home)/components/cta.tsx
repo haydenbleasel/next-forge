@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Installer } from './installer';
 
 export const CallToAction = () => (
-  <footer className="flex flex-col items-center justify-center gap-8 border-t px-8 py-16 sm:py-24">
+  <footer className="flex flex-col items-center justify-center gap-8 px-8 py-16 sm:py-24">
     <div className="inline-flex rounded-full border bg-secondary px-4 py-1.5 font-medium text-sm shadow-sm">
       Get started
     </div>
