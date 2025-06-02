@@ -51,7 +51,7 @@ const TurborepoLogo = (props: ComponentProps<'svg'>) => (
 export const Hero = () => (
   <section className="flex flex-col items-center justify-center gap-6 bg-dashed px-4 py-16 sm:px-16 sm:py-24">
     <a
-      href="https://x.com/haydenbleasel/status/{tweet}"
+      href="https://x.com/haydenbleasel/status/1929625673586598148"
       target="_blank"
       className="inline-flex items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-xs"
       rel="noreferrer"
