@@ -53,13 +53,13 @@ export const Hero = () => (
     <a
       href="https://x.com/haydenbleasel/status/1929625673586598148"
       target="_blank"
-      className="inline-flex items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-xs"
+      className="inline-flex overflow-hidden w-full sm:w-fit items-center gap-2 rounded-full border bg-background py-1 pr-3 pl-1 text-foreground text-sm leading-6 shadow-xs"
       rel="noreferrer"
     >
       <span className="rounded-full bg-secondary px-2 font-semibold">
         Update
       </span>
-      <span className="font-medium">
+      <span className="font-medium truncate">
         next-forge has been acquired by Vercel
       </span>
     </a>
