@@ -1,3 +1,15 @@
+# v5.0.0 (Mon Jun 02 2025)
+
+#### 💥 Breaking Change
+
+- ▲ [#561](https://github.com/vercel/next-forge/pull/561) ([@haydenbleasel](https://github.com/haydenbleasel))
+
+#### Authors: 1
+
+- Hayden Bleasel ([@haydenbleasel](https://github.com/haydenbleasel))
+
+---
+
 # v4.4.5 (Sun Jun 01 2025)
 
 #### ⚠️ Pushed to `main`
